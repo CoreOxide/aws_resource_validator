@@ -1,6 +1,6 @@
 # Autoscaling Classes
 
-# AcceleratorCountRequestTypeDef
+# AcceleratorCountRequest
 
 ### Min
 - **Type**: typing.Optional[int]
@@ -9,7 +9,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AcceleratorTotalMemoryMiBRequestTypeDef
+# AcceleratorTotalMemoryMiBRequest
 
 ### Min
 - **Type**: typing.Optional[int]
@@ -18,21 +18,21 @@
 - **Type**: typing.Optional[int]
 
 
-# ActivitiesTypeTypeDef
+# ActivitiesType
 
 ### Activities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ActivityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Activity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ActivityTypeDef
+# Activity
 
 ### ActivityId
 - **Type**: <class 'str'>
@@ -76,36 +76,24 @@
 - **Type**: typing.Optional[str]
 
 
-# ActivityTypeTypeDef
+# ActivityType
 
 ### Activity
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ActivityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.Activity'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AdjustmentTypeTypeDef
+# AdjustmentType
 
 ### AdjustmentType
 - **Type**: typing.Optional[str]
 
 
-# AlarmSpecificationOutputTypeDef
-
-### Alarms
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# AlarmSpecificationTypeDef
-
-### Alarms
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# AlarmTypeDef
+# Alarm
 
 ### AlarmName
 - **Type**: typing.Optional[str]
@@ -114,7 +102,19 @@
 - **Type**: typing.Optional[str]
 
 
-# AttachInstancesQueryTypeDef
+# AlarmSpecification
+
+### Alarms
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# AlarmSpecificationOutput
+
+### Alarms
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# AttachInstancesQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -124,7 +124,7 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AttachLoadBalancerTargetGroupsTypeTypeDef
+# AttachLoadBalancerTargetGroupsType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -135,7 +135,7 @@
 - **Required**: Yes
 
 
-# AttachLoadBalancersTypeTypeDef
+# AttachLoadBalancersType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -146,48 +146,21 @@
 - **Required**: Yes
 
 
-# AttachTrafficSourcesTypeTypeDef
+# AttachTrafficSourcesType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TrafficSources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifier]
 - **Required**: Yes
 
 ### SkipZonalShiftValidation
 - **Type**: typing.Optional[bool]
 
 
-# AutoScalingGroupNamesTypePaginateTypeDef
-
-### AutoScalingGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# AutoScalingGroupNamesTypeTypeDef
-
-### AutoScalingGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.FilterTypeDef]]
-
-
-# AutoScalingGroupTypeDef
+# AutoScalingGroup
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -228,10 +201,10 @@
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyOutput]
 
 ### PredictedCapacity
 - **Type**: typing.Optional[int]
@@ -246,10 +219,10 @@
 - **Type**: typing.Optional[int]
 
 ### Instances
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Instance]]
 
 ### SuspendedProcesses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.SuspendedProcessTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.SuspendedProcess]]
 
 ### PlacementGroup
 - **Type**: typing.Optional[str]
@@ -258,13 +231,13 @@
 - **Type**: typing.Optional[str]
 
 ### EnabledMetrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.EnabledMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.EnabledMetric]]
 
 ### Status
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TagDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TagDescription]]
 
 ### TerminationPolicies
 - **Type**: typing.Optional[typing.List[str]]
@@ -282,7 +255,7 @@
 - **Type**: typing.Optional[bool]
 
 ### WarmPoolConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.WarmPoolConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### WarmPoolSize
 - **Type**: typing.Optional[int]
@@ -297,36 +270,63 @@
 - **Type**: typing.Optional[int]
 
 ### TrafficSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifierTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifier]]
 
 ### InstanceMaintenancePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMaintenancePolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneDistributionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneImpairmentPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneImpairmentPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CapacityReservationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationOutput]
 
 
-# AutoScalingGroupsTypeTypeDef
+# AutoScalingGroupNamesType
+
+### AutoScalingGroupNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Filter]]
+
+
+# AutoScalingGroupNamesTypePaginate
+
+### AutoScalingGroupNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# AutoScalingGroupsType
 
 ### AutoScalingGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AutoScalingGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AutoScalingGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# AutoScalingInstanceDetailsTypeDef
+# AutoScalingInstanceDetails
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -359,33 +359,33 @@
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### WeightedCapacity
 - **Type**: typing.Optional[str]
 
 
-# AutoScalingInstancesTypeTypeDef
+# AutoScalingInstancesType
 
 ### AutoScalingInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AutoScalingInstanceDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AutoScalingInstanceDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# AvailabilityZoneDistributionTypeDef
+# AvailabilityZoneDistribution
 
 ### CapacityDistributionStrategy
 - **Type**: typing.Optional[typing.Literal['balanced-best-effort', 'balanced-only']]
 
 
-# AvailabilityZoneImpairmentPolicyTypeDef
+# AvailabilityZoneImpairmentPolicy
 
 ### ZonalShiftEnabled
 - **Type**: typing.Optional[bool]
@@ -400,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BaselineEbsBandwidthMbpsRequestTypeDef
+# BaselineEbsBandwidthMbpsRequest
 
 ### Min
 - **Type**: typing.Optional[int]
@@ -409,30 +409,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BaselinePerformanceFactorsRequestOutputTypeDef
+# BaselinePerformanceFactorsRequest
 
 ### Cpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CpuPerformanceFactorRequestOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CpuPerformanceFactorRequest]
 
 
-# BaselinePerformanceFactorsRequestTypeDef
+# BaselinePerformanceFactorsRequestOutput
 
 ### Cpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CpuPerformanceFactorRequestTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CpuPerformanceFactorRequestOutput]
 
 
-# BatchDeleteScheduledActionAnswerTypeDef
+# BatchDeleteScheduledActionAnswer
 
 ### FailedScheduledActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.FailedScheduledUpdateGroupActionRequestTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.FailedScheduledUpdateGroupActionRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchDeleteScheduledActionTypeTypeDef
+# BatchDeleteScheduledActionType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -443,29 +443,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# BatchPutScheduledUpdateGroupActionAnswerTypeDef
+# BatchPutScheduledUpdateGroupActionAnswer
 
 ### FailedScheduledUpdateGroupActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.FailedScheduledUpdateGroupActionRequestTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.FailedScheduledUpdateGroupActionRequest]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchPutScheduledUpdateGroupActionTypeTypeDef
+# BatchPutScheduledUpdateGroupActionType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ScheduledUpdateGroupActions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.ScheduledUpdateGroupActionRequestTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.ScheduledUpdateGroupActionRequest]
 - **Required**: Yes
 
 
-# BlockDeviceMappingTypeDef
+# BlockDeviceMapping
 
 ### DeviceName
 - **Type**: <class 'str'>
@@ -475,31 +475,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Ebs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.EbsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NoDevice
 - **Type**: typing.Optional[bool]
 
 
-# CancelInstanceRefreshAnswerTypeDef
+# CancelInstanceRefreshAnswer
 
 ### InstanceRefreshId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelInstanceRefreshTypeTypeDef
+# CancelInstanceRefreshType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CapacityForecastTypeDef
+# CapacityForecast
 
 ### Timestamps
 - **Type**: typing.List[datetime.datetime]
@@ -510,40 +510,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CapacityReservationSpecificationOutputTypeDef
+# CapacityReservationSpecification
 
 ### CapacityReservationPreference
 - **Type**: typing.Optional[typing.Literal['capacity-reservations-first', 'capacity-reservations-only', 'default', 'none']]
 
 ### CapacityReservationTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationTargetOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CapacityReservationSpecificationTypeDef
+# CapacityReservationSpecificationOutput
 
 ### CapacityReservationPreference
 - **Type**: typing.Optional[typing.Literal['capacity-reservations-first', 'capacity-reservations-only', 'default', 'none']]
 
 ### CapacityReservationTarget
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationTargetTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationTargetOutput]
 
 
-# CapacityReservationSpecificationUnionTypeDef
+# CapacityReservationSpecificationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CapacityReservationTargetOutputTypeDef
-
-### CapacityReservationIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### CapacityReservationResourceGroupArns
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CapacityReservationTargetTypeDef
+# CapacityReservationTarget
 
 ### CapacityReservationIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -552,7 +543,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CompleteLifecycleActionTypeTypeDef
+# CapacityReservationTargetOutput
+
+### CapacityReservationIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### CapacityReservationResourceGroupArns
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CompleteLifecycleActionType
 
 ### LifecycleHookName
 - **Type**: <class 'str'>
@@ -573,19 +573,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CpuPerformanceFactorRequestOutputTypeDef
+# CpuPerformanceFactorRequest
 
 ### References
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.PerformanceFactorReferenceRequestTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.PerformanceFactorReferenceRequest]]
 
 
-# CpuPerformanceFactorRequestTypeDef
+# CpuPerformanceFactorRequestOutput
 
 ### References
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.PerformanceFactorReferenceRequestTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.PerformanceFactorReferenceRequest]]
 
 
-# CreateAutoScalingGroupTypeTypeDef
+# CreateAutoScalingGroupType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -603,10 +603,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyUnion]
 
 ### InstanceId
 - **Type**: typing.Optional[str]
@@ -648,10 +648,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LifecycleHookSpecificationList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.LifecycleHookSpecificationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.LifecycleHookSpecification]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Tag]]
 
 ### ServiceLinkedRoleARN
 - **Type**: typing.Optional[str]
@@ -669,25 +669,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### TrafficSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifierTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifier]]
 
 ### InstanceMaintenancePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMaintenancePolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneDistributionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneImpairmentPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneImpairmentPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SkipZonalShiftValidation
 - **Type**: typing.Optional[bool]
 
 ### CapacityReservationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationUnion]
 
 
-# CreateLaunchConfigurationTypeTypeDef
+# CreateLaunchConfigurationType
 
 ### LaunchConfigurationName
 - **Type**: <class 'str'>
@@ -724,10 +724,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BlockDeviceMappings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.BlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.BlockDeviceMapping]]
 
 ### InstanceMonitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMonitoringTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SpotPrice
 - **Type**: typing.Optional[str]
@@ -745,17 +745,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMetadataOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMetadataOptions]
 
 
-# CreateOrUpdateTagsTypeTypeDef
+# CreateOrUpdateTagsType
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Tag]
 - **Required**: Yes
 
 
-# CustomizedMetricSpecificationOutputTypeDef
+# CustomizedMetricSpecification
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -764,7 +764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimensionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimension]]
 
 ### Statistic
 - **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
@@ -776,10 +776,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Metrics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricDataQueryOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricDataQuery]]
 
 
-# CustomizedMetricSpecificationTypeDef
+# CustomizedMetricSpecificationOutput
 
 ### MetricName
 - **Type**: typing.Optional[str]
@@ -788,7 +788,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimensionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimension]]
 
 ### Statistic
 - **Type**: typing.Optional[typing.Literal['Average', 'Maximum', 'Minimum', 'SampleCount', 'Sum']]
@@ -800,10 +800,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricDataQueryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricDataQueryOutput]]
 
 
-# DeleteAutoScalingGroupTypeTypeDef
+# DeleteAutoScalingGroupType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -813,7 +813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteLifecycleHookTypeTypeDef
+# DeleteLifecycleHookType
 
 ### LifecycleHookName
 - **Type**: <class 'str'>
@@ -824,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNotificationConfigurationTypeTypeDef
+# DeleteNotificationConfigurationType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeletePolicyTypeTypeDef
+# DeletePolicyType
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -845,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteScheduledActionTypeTypeDef
+# DeleteScheduledActionType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -856,14 +856,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTagsTypeTypeDef
+# DeleteTagsType
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Tag]
 - **Required**: Yes
 
 
-# DeleteWarmPoolTypeTypeDef
+# DeleteWarmPoolType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -873,7 +873,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeAccountLimitsAnswerTypeDef
+# DescribeAccountLimitsAnswer
 
 ### MaxNumberOfAutoScalingGroups
 - **Type**: <class 'int'>
@@ -892,31 +892,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAdjustmentTypesAnswerTypeDef
+# DescribeAdjustmentTypesAnswer
 
 ### AdjustmentTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AdjustmentTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AdjustmentType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAutoScalingInstancesTypePaginateTypeDef
-
-### InstanceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# DescribeAutoScalingInstancesTypeTypeDef
+# DescribeAutoScalingInstancesType
 
 ### InstanceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -928,32 +919,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAutoScalingNotificationTypesAnswerTypeDef
+# DescribeAutoScalingInstancesTypePaginate
+
+### InstanceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DescribeAutoScalingNotificationTypesAnswer
 
 ### AutoScalingNotificationTypes
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeInstanceRefreshesAnswerTypeDef
+# DescribeInstanceRefreshesAnswer
 
 ### InstanceRefreshes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefresh]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstanceRefreshesTypeTypeDef
+# DescribeInstanceRefreshesType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -969,29 +969,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeLifecycleHookTypesAnswerTypeDef
+# DescribeLifecycleHookTypesAnswer
 
 ### LifecycleHookTypes
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLifecycleHooksAnswerTypeDef
+# DescribeLifecycleHooksAnswer
 
 ### LifecycleHooks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LifecycleHookTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LifecycleHook]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeLifecycleHooksTypeTypeDef
+# DescribeLifecycleHooksType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1001,17 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeLoadBalancerTargetGroupsRequestPaginateTypeDef
-
-### AutoScalingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# DescribeLoadBalancerTargetGroupsRequestTypeDef
+# DescribeLoadBalancerTargetGroupsRequest
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1024,31 +1014,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeLoadBalancerTargetGroupsResponseTypeDef
+# DescribeLoadBalancerTargetGroupsRequestPaginate
+
+### AutoScalingGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DescribeLoadBalancerTargetGroupsResponse
 
 ### LoadBalancerTargetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadBalancerTargetGroupStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadBalancerTargetGroupState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeLoadBalancersRequestPaginateTypeDef
-
-### AutoScalingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# DescribeLoadBalancersRequestTypeDef
+# DescribeLoadBalancersRequest
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1061,59 +1051,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeLoadBalancersResponseTypeDef
+# DescribeLoadBalancersRequestPaginate
+
+### AutoScalingGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DescribeLoadBalancersResponse
 
 ### LoadBalancers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadBalancerStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadBalancerState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeMetricCollectionTypesAnswerTypeDef
+# DescribeMetricCollectionTypesAnswer
 
 ### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricCollectionTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricCollectionType]
 - **Required**: Yes
 
 ### Granularities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricGranularityTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricGranularityType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeNotificationConfigurationsAnswerTypeDef
+# DescribeNotificationConfigurationsAnswer
 
 ### NotificationConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.NotificationConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.NotificationConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeNotificationConfigurationsTypePaginateTypeDef
-
-### AutoScalingGroupNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# DescribeNotificationConfigurationsTypeTypeDef
+# DescribeNotificationConfigurationsType
 
 ### AutoScalingGroupNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1125,22 +1116,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribePoliciesTypePaginateTypeDef
+# DescribeNotificationConfigurationsTypePaginate
 
-### AutoScalingGroupName
-- **Type**: typing.Optional[str]
-
-### PolicyNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PolicyTypes
+### AutoScalingGroupNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
 
 
-# DescribePoliciesTypeTypeDef
+# DescribePoliciesType
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -1158,7 +1143,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeScalingActivitiesTypePaginateTypeDef
+# DescribePoliciesTypePaginate
+
+### AutoScalingGroupName
+- **Type**: typing.Optional[str]
+
+### PolicyNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PolicyTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DescribeScalingActivitiesType
+
+### ActivityIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AutoScalingGroupName
+- **Type**: typing.Optional[str]
+
+### IncludeDeletedGroups
+- **Type**: typing.Optional[bool]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# DescribeScalingActivitiesTypePaginate
 
 ### ActivityIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1170,28 +1188,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
 
 
-# DescribeScalingActivitiesTypeTypeDef
-
-### ActivityIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AutoScalingGroupName
-- **Type**: typing.Optional[str]
-
-### IncludeDeletedGroups
-- **Type**: typing.Optional[bool]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# DescribeScheduledActionsTypePaginateTypeDef
+# DescribeScheduledActionsType
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -1200,16 +1200,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
 
 
-# DescribeScheduledActionsTypeTypeDef
+# DescribeScheduledActionsTypePaginate
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -1218,31 +1221,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-
-# DescribeTagsTypePaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.FilterTypeDef]]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
 
 
-# DescribeTagsTypeTypeDef
+# DescribeTagsType
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Filter]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1251,18 +1242,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeTerminationPolicyTypesAnswerTypeDef
+# DescribeTagsTypePaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DescribeTerminationPolicyTypesAnswer
 
 ### TerminationPolicyTypes
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrafficSourcesRequestTypeDef
+# DescribeTrafficSourcesRequest
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1278,49 +1278,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeTrafficSourcesResponseTypeDef
+# DescribeTrafficSourcesResponse
 
 ### TrafficSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceStateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceState]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeWarmPoolAnswerTypeDef
+# DescribeWarmPoolAnswer
 
 ### WarmPoolConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.WarmPoolConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.WarmPoolConfiguration'>
 - **Required**: Yes
 
 ### Instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Instance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeWarmPoolTypePaginateTypeDef
-
-### AutoScalingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# DescribeWarmPoolTypeTypeDef
+# DescribeWarmPoolType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1333,42 +1323,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DesiredConfigurationOutputTypeDef
+# DescribeWarmPoolTypePaginate
+
+### AutoScalingGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# DesiredConfiguration
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DesiredConfigurationTypeDef
+# DesiredConfigurationOutput
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyOutput]
 
 
-# DesiredConfigurationUnionTypeDef
+# DesiredConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DetachInstancesAnswerTypeDef
+# DetachInstancesAnswer
 
 ### Activities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ActivityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Activity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DetachInstancesQueryTypeDef
+# DetachInstancesQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1382,7 +1382,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DetachLoadBalancerTargetGroupsTypeTypeDef
+# DetachLoadBalancerTargetGroupsType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1393,7 +1393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachLoadBalancersTypeTypeDef
+# DetachLoadBalancersType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1404,18 +1404,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachTrafficSourcesTypeTypeDef
+# DetachTrafficSourcesType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TrafficSources
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.TrafficSourceIdentifier]
 - **Required**: Yes
 
 
-# DisableMetricsCollectionQueryTypeDef
+# DisableMetricsCollectionQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1425,7 +1425,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EbsTypeDef
+# Ebs
 
 ### SnapshotId
 - **Type**: typing.Optional[str]
@@ -1449,14 +1449,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableMetricsCollectionQueryTypeDef
+# EnableMetricsCollectionQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1470,7 +1470,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EnabledMetricTypeDef
+# EnabledMetric
 
 ### Metric
 - **Type**: typing.Optional[str]
@@ -1479,18 +1479,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnterStandbyAnswerTypeDef
+# EnterStandbyAnswer
 
 ### Activities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ActivityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Activity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnterStandbyQueryTypeDef
+# EnterStandbyQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1504,7 +1504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ExecutePolicyTypeTypeDef
+# ExecutePolicyType
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -1523,18 +1523,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ExitStandbyAnswerTypeDef
+# ExitStandbyAnswer
 
 ### Activities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ActivityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Activity]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExitStandbyQueryTypeDef
+# ExitStandbyQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1544,7 +1544,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FailedScheduledUpdateGroupActionRequestTypeDef
+# FailedScheduledUpdateGroupActionRequest
 
 ### ScheduledActionName
 - **Type**: <class 'str'>
@@ -1557,7 +1557,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FilterTypeDef
+# Filter
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1566,14 +1566,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetPredictiveScalingForecastAnswerTypeDef
+# GetPredictiveScalingForecastAnswer
 
 ### LoadForecast
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadForecastTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LoadForecast]
 - **Required**: Yes
 
 ### CapacityForecast
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.CapacityForecastTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.CapacityForecast'>
 - **Required**: Yes
 
 ### UpdateTime
@@ -1581,11 +1581,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPredictiveScalingForecastTypeTypeDef
+# GetPredictiveScalingForecastType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -1596,274 +1596,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### StartTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp'>
 - **Required**: Yes
 
 ### EndTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp'>
 - **Required**: Yes
 
 
-# InstanceMaintenancePolicyTypeDef
-
-### MinHealthyPercentage
-- **Type**: typing.Optional[int]
-
-### MaxHealthyPercentage
-- **Type**: typing.Optional[int]
-
-
-# InstanceMetadataOptionsTypeDef
-
-### HttpTokens
-- **Type**: typing.Optional[typing.Literal['optional', 'required']]
-
-### HttpPutResponseHopLimit
-- **Type**: typing.Optional[int]
-
-### HttpEndpoint
-- **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
-
-
-# InstanceMonitoringTypeDef
-
-### Enabled
-- **Type**: typing.Optional[bool]
-
-
-# InstanceRefreshLivePoolProgressTypeDef
-
-### PercentageComplete
-- **Type**: typing.Optional[int]
-
-### InstancesToUpdate
-- **Type**: typing.Optional[int]
-
-
-# InstanceRefreshProgressDetailsTypeDef
-
-### LivePoolProgress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshLivePoolProgressTypeDef]
-
-### WarmPoolProgress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshWarmPoolProgressTypeDef]
-
-
-# InstanceRefreshTypeDef
-
-### InstanceRefreshId
-- **Type**: typing.Optional[str]
-
-### AutoScalingGroupName
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Baking', 'Cancelled', 'Cancelling', 'Failed', 'InProgress', 'Pending', 'RollbackFailed', 'RollbackInProgress', 'RollbackSuccessful', 'Successful']]
-
-### StatusReason
-- **Type**: typing.Optional[str]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### PercentageComplete
-- **Type**: typing.Optional[int]
-
-### InstancesToUpdate
-- **Type**: typing.Optional[int]
-
-### ProgressDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshProgressDetailsTypeDef]
-
-### Preferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.RefreshPreferencesOutputTypeDef]
-
-### DesiredConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.DesiredConfigurationOutputTypeDef]
-
-### RollbackDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.RollbackDetailsTypeDef]
-
-
-# InstanceRefreshWarmPoolProgressTypeDef
-
-### PercentageComplete
-- **Type**: typing.Optional[int]
-
-### InstancesToUpdate
-- **Type**: typing.Optional[int]
-
-
-# InstanceRequirementsOutputTypeDef
-
-### VCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.VCpuCountRequestTypeDef'>
-- **Required**: Yes
-
-### MemoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MemoryMiBRequestTypeDef'>
-- **Required**: Yes
-
-### CpuManufacturers
-- **Type**: typing.Optional[typing.List[typing.Literal['amazon-web-services', 'amd', 'intel']]]
-
-### MemoryGiBPerVCpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MemoryGiBPerVCpuRequestTypeDef]
-
-### ExcludedInstanceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### InstanceGenerations
-- **Type**: typing.Optional[typing.List[typing.Literal['current', 'previous']]]
-
-### SpotMaxPricePercentageOverLowestPrice
-- **Type**: typing.Optional[int]
-
-### MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
-- **Type**: typing.Optional[int]
-
-### OnDemandMaxPricePercentageOverLowestPrice
-- **Type**: typing.Optional[int]
-
-### BareMetal
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### BurstablePerformance
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### RequireHibernateSupport
-- **Type**: typing.Optional[bool]
-
-### NetworkInterfaceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkInterfaceCountRequestTypeDef]
-
-### LocalStorage
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### LocalStorageTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['hdd', 'ssd']]]
-
-### TotalLocalStorageGB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TotalLocalStorageGBRequestTypeDef]
-
-### BaselineEbsBandwidthMbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselineEbsBandwidthMbpsRequestTypeDef]
-
-### AcceleratorTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['fpga', 'gpu', 'inference']]]
-
-### AcceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorCountRequestTypeDef]
-
-### AcceleratorManufacturers
-- **Type**: typing.Optional[typing.List[typing.Literal['amazon-web-services', 'amd', 'nvidia', 'xilinx']]]
-
-### AcceleratorNames
-- **Type**: typing.Optional[typing.List[typing.Literal['a100', 'k80', 'm60', 'radeon-pro-v520', 't4', 'v100', 'vu9p']]]
-
-### AcceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorTotalMemoryMiBRequestTypeDef]
-
-### NetworkBandwidthGbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkBandwidthGbpsRequestTypeDef]
-
-### AllowedInstanceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### BaselinePerformanceFactors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselinePerformanceFactorsRequestOutputTypeDef]
-
-
-# InstanceRequirementsTypeDef
-
-### VCpuCount
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.VCpuCountRequestTypeDef'>
-- **Required**: Yes
-
-### MemoryMiB
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MemoryMiBRequestTypeDef'>
-- **Required**: Yes
-
-### CpuManufacturers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['amazon-web-services', 'amd', 'intel']]]
-
-### MemoryGiBPerVCpu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MemoryGiBPerVCpuRequestTypeDef]
-
-### ExcludedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### InstanceGenerations
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['current', 'previous']]]
-
-### SpotMaxPricePercentageOverLowestPrice
-- **Type**: typing.Optional[int]
-
-### MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
-- **Type**: typing.Optional[int]
-
-### OnDemandMaxPricePercentageOverLowestPrice
-- **Type**: typing.Optional[int]
-
-### BareMetal
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### BurstablePerformance
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### RequireHibernateSupport
-- **Type**: typing.Optional[bool]
-
-### NetworkInterfaceCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkInterfaceCountRequestTypeDef]
-
-### LocalStorage
-- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
-
-### LocalStorageTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['hdd', 'ssd']]]
-
-### TotalLocalStorageGB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TotalLocalStorageGBRequestTypeDef]
-
-### BaselineEbsBandwidthMbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselineEbsBandwidthMbpsRequestTypeDef]
-
-### AcceleratorTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['fpga', 'gpu', 'inference']]]
-
-### AcceleratorCount
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorCountRequestTypeDef]
-
-### AcceleratorManufacturers
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['amazon-web-services', 'amd', 'nvidia', 'xilinx']]]
-
-### AcceleratorNames
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['a100', 'k80', 'm60', 'radeon-pro-v520', 't4', 'v100', 'vu9p']]]
-
-### AcceleratorTotalMemoryMiB
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorTotalMemoryMiBRequestTypeDef]
-
-### NetworkBandwidthGbps
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkBandwidthGbpsRequestTypeDef]
-
-### AllowedInstanceTypes
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### BaselinePerformanceFactors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselinePerformanceFactorsRequestTypeDef]
-
-
-# InstanceReusePolicyTypeDef
-
-### ReuseOnScaleIn
-- **Type**: typing.Optional[bool]
-
-
-# InstanceTypeDef
+# Instance
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -1892,13 +1633,272 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### WeightedCapacity
 - **Type**: typing.Optional[str]
 
 
-# InstancesDistributionTypeDef
+# InstanceMaintenancePolicy
+
+### MinHealthyPercentage
+- **Type**: typing.Optional[int]
+
+### MaxHealthyPercentage
+- **Type**: typing.Optional[int]
+
+
+# InstanceMetadataOptions
+
+### HttpTokens
+- **Type**: typing.Optional[typing.Literal['optional', 'required']]
+
+### HttpPutResponseHopLimit
+- **Type**: typing.Optional[int]
+
+### HttpEndpoint
+- **Type**: typing.Optional[typing.Literal['disabled', 'enabled']]
+
+
+# InstanceMonitoring
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+
+# InstanceRefresh
+
+### InstanceRefreshId
+- **Type**: typing.Optional[str]
+
+### AutoScalingGroupName
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Baking', 'Cancelled', 'Cancelling', 'Failed', 'InProgress', 'Pending', 'RollbackFailed', 'RollbackInProgress', 'RollbackSuccessful', 'Successful']]
+
+### StatusReason
+- **Type**: typing.Optional[str]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### PercentageComplete
+- **Type**: typing.Optional[int]
+
+### InstancesToUpdate
+- **Type**: typing.Optional[int]
+
+### ProgressDetails
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshProgressDetails]
+
+### Preferences
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.RefreshPreferencesOutput]
+
+### DesiredConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.DesiredConfigurationOutput]
+
+### RollbackDetails
+- **Type**: <class 'NoneType'>
+
+
+# InstanceRefreshLivePoolProgress
+
+### PercentageComplete
+- **Type**: typing.Optional[int]
+
+### InstancesToUpdate
+- **Type**: typing.Optional[int]
+
+
+# InstanceRefreshProgressDetails
+
+### LivePoolProgress
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshLivePoolProgress]
+
+### WarmPoolProgress
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshWarmPoolProgress]
+
+
+# InstanceRefreshWarmPoolProgress
+
+### PercentageComplete
+- **Type**: typing.Optional[int]
+
+### InstancesToUpdate
+- **Type**: typing.Optional[int]
+
+
+# InstanceRequirements
+
+### VCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.VCpuCountRequest'>
+- **Required**: Yes
+
+### MemoryMiB
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MemoryMiBRequest'>
+- **Required**: Yes
+
+### CpuManufacturers
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['amazon-web-services', 'amd', 'intel']]]
+
+### MemoryGiBPerVCpu
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MemoryGiBPerVCpuRequest]
+
+### ExcludedInstanceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### InstanceGenerations
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['current', 'previous']]]
+
+### SpotMaxPricePercentageOverLowestPrice
+- **Type**: typing.Optional[int]
+
+### MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+- **Type**: typing.Optional[int]
+
+### OnDemandMaxPricePercentageOverLowestPrice
+- **Type**: typing.Optional[int]
+
+### BareMetal
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### BurstablePerformance
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### RequireHibernateSupport
+- **Type**: typing.Optional[bool]
+
+### NetworkInterfaceCount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkInterfaceCountRequest]
+
+### LocalStorage
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### LocalStorageTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['hdd', 'ssd']]]
+
+### TotalLocalStorageGB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TotalLocalStorageGBRequest]
+
+### BaselineEbsBandwidthMbps
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselineEbsBandwidthMbpsRequest]
+
+### AcceleratorTypes
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['fpga', 'gpu', 'inference']]]
+
+### AcceleratorCount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorCountRequest]
+
+### AcceleratorManufacturers
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['amazon-web-services', 'amd', 'nvidia', 'xilinx']]]
+
+### AcceleratorNames
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['a100', 'k80', 'm60', 'radeon-pro-v520', 't4', 'v100', 'vu9p']]]
+
+### AcceleratorTotalMemoryMiB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorTotalMemoryMiBRequest]
+
+### NetworkBandwidthGbps
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkBandwidthGbpsRequest]
+
+### AllowedInstanceTypes
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### BaselinePerformanceFactors
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselinePerformanceFactorsRequest]
+
+
+# InstanceRequirementsOutput
+
+### VCpuCount
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.VCpuCountRequest'>
+- **Required**: Yes
+
+### MemoryMiB
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MemoryMiBRequest'>
+- **Required**: Yes
+
+### CpuManufacturers
+- **Type**: typing.Optional[typing.List[typing.Literal['amazon-web-services', 'amd', 'intel']]]
+
+### MemoryGiBPerVCpu
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MemoryGiBPerVCpuRequest]
+
+### ExcludedInstanceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### InstanceGenerations
+- **Type**: typing.Optional[typing.List[typing.Literal['current', 'previous']]]
+
+### SpotMaxPricePercentageOverLowestPrice
+- **Type**: typing.Optional[int]
+
+### MaxSpotPriceAsPercentageOfOptimalOnDemandPrice
+- **Type**: typing.Optional[int]
+
+### OnDemandMaxPricePercentageOverLowestPrice
+- **Type**: typing.Optional[int]
+
+### BareMetal
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### BurstablePerformance
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### RequireHibernateSupport
+- **Type**: typing.Optional[bool]
+
+### NetworkInterfaceCount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkInterfaceCountRequest]
+
+### LocalStorage
+- **Type**: typing.Optional[typing.Literal['excluded', 'included', 'required']]
+
+### LocalStorageTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['hdd', 'ssd']]]
+
+### TotalLocalStorageGB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TotalLocalStorageGBRequest]
+
+### BaselineEbsBandwidthMbps
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselineEbsBandwidthMbpsRequest]
+
+### AcceleratorTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['fpga', 'gpu', 'inference']]]
+
+### AcceleratorCount
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorCountRequest]
+
+### AcceleratorManufacturers
+- **Type**: typing.Optional[typing.List[typing.Literal['amazon-web-services', 'amd', 'nvidia', 'xilinx']]]
+
+### AcceleratorNames
+- **Type**: typing.Optional[typing.List[typing.Literal['a100', 'k80', 'm60', 'radeon-pro-v520', 't4', 'v100', 'vu9p']]]
+
+### AcceleratorTotalMemoryMiB
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AcceleratorTotalMemoryMiBRequest]
+
+### NetworkBandwidthGbps
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.NetworkBandwidthGbpsRequest]
+
+### AllowedInstanceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### BaselinePerformanceFactors
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.BaselinePerformanceFactorsRequestOutput]
+
+
+# InstanceReusePolicy
+
+### ReuseOnScaleIn
+- **Type**: typing.Optional[bool]
+
+
+# InstancesDistribution
 
 ### OnDemandAllocationStrategy
 - **Type**: typing.Optional[str]
@@ -1919,35 +1919,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LaunchConfigurationNameTypeTypeDef
-
-### LaunchConfigurationName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# LaunchConfigurationNamesTypePaginateTypeDef
-
-### LaunchConfigurationNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfigTypeDef]
-
-
-# LaunchConfigurationNamesTypeTypeDef
-
-### LaunchConfigurationNames
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-
-# LaunchConfigurationTypeDef
+# LaunchConfiguration
 
 ### LaunchConfigurationName
 - **Type**: <class 'str'>
@@ -1990,10 +1962,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BlockDeviceMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.BlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.BlockDeviceMapping]]
 
 ### InstanceMonitoring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMonitoringTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SpotPrice
 - **Type**: typing.Optional[str]
@@ -2011,33 +1983,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetadataOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMetadataOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMetadataOptions]
 
 
-# LaunchConfigurationsTypeTypeDef
+# LaunchConfigurationNameType
+
+### LaunchConfigurationName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# LaunchConfigurationNamesType
+
+### LaunchConfigurationNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+
+# LaunchConfigurationNamesTypePaginate
+
+### LaunchConfigurationNames
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PaginatorConfig]
+
+
+# LaunchConfigurationsType
 
 ### LaunchConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LaunchTemplateOutputTypeDef
+# LaunchTemplate
 
 ### LaunchTemplateSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Overrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOverridesOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOverrides]]
 
 
-# LaunchTemplateOverridesOutputTypeDef
+# LaunchTemplateOutput
+
+### LaunchTemplateSpecification
+- **Type**: <class 'NoneType'>
+
+### Overrides
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOverridesOutput]]
+
+
+# LaunchTemplateOverrides
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -2046,13 +2055,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplateSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InstanceRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRequirementsOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# LaunchTemplateOverridesTypeDef
+# LaunchTemplateOverridesOutput
 
 ### InstanceType
 - **Type**: typing.Optional[str]
@@ -2061,13 +2070,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplateSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InstanceRequirements
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRequirementsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRequirementsOutput]
 
 
-# LaunchTemplateSpecificationTypeDef
+# LaunchTemplateSpecification
 
 ### LaunchTemplateId
 - **Type**: typing.Optional[str]
@@ -2079,42 +2088,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LaunchTemplateTypeDef
-
-### LaunchTemplateSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
-
-### Overrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOverridesTypeDef]]
-
-
-# LifecycleHookSpecificationTypeDef
-
-### LifecycleHookName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LifecycleTransition
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### NotificationMetadata
-- **Type**: typing.Optional[str]
-
-### HeartbeatTimeout
-- **Type**: typing.Optional[int]
-
-### DefaultResult
-- **Type**: typing.Optional[str]
-
-### NotificationTargetARN
-- **Type**: typing.Optional[str]
-
-### RoleARN
-- **Type**: typing.Optional[str]
-
-
-# LifecycleHookTypeDef
+# LifecycleHook
 
 ### LifecycleHookName
 - **Type**: typing.Optional[str]
@@ -2144,7 +2118,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LoadBalancerStateTypeDef
+# LifecycleHookSpecification
+
+### LifecycleHookName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LifecycleTransition
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### NotificationMetadata
+- **Type**: typing.Optional[str]
+
+### HeartbeatTimeout
+- **Type**: typing.Optional[int]
+
+### DefaultResult
+- **Type**: typing.Optional[str]
+
+### NotificationTargetARN
+- **Type**: typing.Optional[str]
+
+### RoleARN
+- **Type**: typing.Optional[str]
+
+
+# LoadBalancerState
 
 ### LoadBalancerName
 - **Type**: typing.Optional[str]
@@ -2153,7 +2153,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LoadBalancerTargetGroupStateTypeDef
+# LoadBalancerTargetGroupState
 
 ### LoadBalancerTargetGroupARN
 - **Type**: typing.Optional[str]
@@ -2162,7 +2162,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LoadForecastTypeDef
+# LoadForecast
 
 ### Timestamps
 - **Type**: typing.List[datetime.datetime]
@@ -2173,11 +2173,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricSpecification
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecificationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecificationOutput'>
 - **Required**: Yes
 
 
-# MemoryGiBPerVCpuRequestTypeDef
+# MemoryGiBPerVCpuRequest
 
 ### Min
 - **Type**: typing.Optional[float]
@@ -2186,7 +2186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# MemoryMiBRequestTypeDef
+# MemoryMiBRequest
 
 ### Min
 - **Type**: <class 'int'>
@@ -2196,13 +2196,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# MetricCollectionTypeTypeDef
+# Metric
+
+### Namespace
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MetricName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Dimensions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimension]]
+
+
+# MetricCollectionType
 
 ### Metric
 - **Type**: typing.Optional[str]
 
 
-# MetricDataQueryOutputTypeDef
+# MetricDataQuery
 
 ### Id
 - **Type**: <class 'str'>
@@ -2212,7 +2226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MetricStatOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -2221,7 +2235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# MetricDataQueryTypeDef
+# MetricDataQueryOutput
 
 ### Id
 - **Type**: <class 'str'>
@@ -2231,7 +2245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MetricStatTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MetricStatOutput]
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -2240,7 +2254,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# MetricDimensionTypeDef
+# MetricDimension
 
 ### Name
 - **Type**: <class 'str'>
@@ -2251,13 +2265,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MetricGranularityTypeTypeDef
+# MetricGranularityType
 
 ### Granularity
 - **Type**: typing.Optional[str]
 
 
-# MetricOutputTypeDef
+# MetricOutput
 
 ### Namespace
 - **Type**: <class 'str'>
@@ -2268,13 +2282,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Dimensions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimensionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimension]]
 
 
-# MetricStatOutputTypeDef
+# MetricStat
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.Metric'>
 - **Required**: Yes
 
 ### Stat
@@ -2285,10 +2299,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MetricStatTypeDef
+# MetricStatOutput
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricOutput'>
 - **Required**: Yes
 
 ### Stat
@@ -2299,45 +2313,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MetricTypeDef
-
-### Namespace
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MetricName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Dimensions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDimensionTypeDef]]
-
-
-# MixedInstancesPolicyOutputTypeDef
+# MixedInstancesPolicy
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InstancesDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstancesDistributionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MixedInstancesPolicyTypeDef
+# MixedInstancesPolicyOutput
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateOutput]
 
 ### InstancesDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstancesDistributionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# MixedInstancesPolicyUnionTypeDef
+# MixedInstancesPolicyUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NetworkBandwidthGbpsRequestTypeDef
+# NetworkBandwidthGbpsRequest
 
 ### Min
 - **Type**: typing.Optional[float]
@@ -2346,7 +2346,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# NetworkInterfaceCountRequestTypeDef
+# NetworkInterfaceCountRequest
 
 ### Min
 - **Type**: typing.Optional[int]
@@ -2355,7 +2355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# NotificationConfigurationTypeDef
+# NotificationConfiguration
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -2367,7 +2367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2379,42 +2379,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PerformanceFactorReferenceRequestTypeDef
+# PerformanceFactorReferenceRequest
 
 ### InstanceFamily
 - **Type**: typing.Optional[str]
 
 
-# PoliciesTypeTypeDef
+# PoliciesType
 
 ### ScalingPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ScalingPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ScalingPolicy]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PolicyARNTypeTypeDef
+# PolicyARNType
 
 ### PolicyARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Alarms
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AlarmTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Alarm]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PredefinedMetricSpecificationTypeDef
+# PredefinedMetricSpecification
 
 ### PredefinedMetricType
 - **Type**: typing.Literal['ALBRequestCountPerTarget', 'ASGAverageCPUUtilization', 'ASGAverageNetworkIn', 'ASGAverageNetworkOut']
@@ -2424,10 +2424,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PredictiveScalingConfigurationOutputTypeDef
+# PredictiveScalingConfiguration
 
 ### MetricSpecifications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecificationOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecification]
 - **Required**: Yes
 
 ### Mode
@@ -2443,10 +2443,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PredictiveScalingConfigurationTypeDef
+# PredictiveScalingConfigurationOutput
 
 ### MetricSpecifications
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecificationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingMetricSpecificationOutput]
 - **Required**: Yes
 
 ### Mode
@@ -2462,105 +2462,105 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PredictiveScalingConfigurationUnionTypeDef
+# PredictiveScalingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PredictiveScalingCustomizedCapacityMetricOutputTypeDef
+# PredictiveScalingCustomizedCapacityMetric
 
 ### MetricDataQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQuery]
 - **Required**: Yes
 
 
-# PredictiveScalingCustomizedCapacityMetricTypeDef
+# PredictiveScalingCustomizedCapacityMetricOutput
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutput]
 - **Required**: Yes
 
 
-# PredictiveScalingCustomizedLoadMetricOutputTypeDef
+# PredictiveScalingCustomizedLoadMetric
 
 ### MetricDataQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQuery]
 - **Required**: Yes
 
 
-# PredictiveScalingCustomizedLoadMetricTypeDef
+# PredictiveScalingCustomizedLoadMetricOutput
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutput]
 - **Required**: Yes
 
 
-# PredictiveScalingCustomizedScalingMetricOutputTypeDef
+# PredictiveScalingCustomizedScalingMetric
 
 ### MetricDataQueries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutputTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQuery]
 - **Required**: Yes
 
 
-# PredictiveScalingCustomizedScalingMetricTypeDef
+# PredictiveScalingCustomizedScalingMetricOutput
 
 ### MetricDataQueries
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.MetricDataQueryOutput]
 - **Required**: Yes
 
 
-# PredictiveScalingMetricSpecificationOutputTypeDef
+# PredictiveScalingMetricSpecification
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### PredefinedMetricPairSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedMetricPairTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedMetricPair]
 
 ### PredefinedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedScalingMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedScalingMetric]
 
 ### PredefinedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedLoadMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedLoadMetric]
 
 ### CustomizedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedScalingMetricOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedScalingMetric]
 
 ### CustomizedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedLoadMetricOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedLoadMetric]
 
 ### CustomizedCapacityMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedCapacityMetricOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedCapacityMetric]
 
 
-# PredictiveScalingMetricSpecificationTypeDef
+# PredictiveScalingMetricSpecificationOutput
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### PredefinedMetricPairSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedMetricPairTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedMetricPair]
 
 ### PredefinedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedScalingMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedScalingMetric]
 
 ### PredefinedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedLoadMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingPredefinedLoadMetric]
 
 ### CustomizedScalingMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedScalingMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedScalingMetricOutput]
 
 ### CustomizedLoadMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedLoadMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedLoadMetricOutput]
 
 ### CustomizedCapacityMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedCapacityMetricTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingCustomizedCapacityMetricOutput]
 
 
-# PredictiveScalingPredefinedLoadMetricTypeDef
+# PredictiveScalingPredefinedLoadMetric
 
 ### PredefinedMetricType
 - **Type**: typing.Literal['ALBTargetGroupRequestCount', 'ASGTotalCPUUtilization', 'ASGTotalNetworkIn', 'ASGTotalNetworkOut']
@@ -2570,7 +2570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PredictiveScalingPredefinedMetricPairTypeDef
+# PredictiveScalingPredefinedMetricPair
 
 ### PredefinedMetricType
 - **Type**: typing.Literal['ALBRequestCount', 'ASGCPUUtilization', 'ASGNetworkIn', 'ASGNetworkOut']
@@ -2580,7 +2580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PredictiveScalingPredefinedScalingMetricTypeDef
+# PredictiveScalingPredefinedScalingMetric
 
 ### PredefinedMetricType
 - **Type**: typing.Literal['ALBRequestCountPerTarget', 'ASGAverageCPUUtilization', 'ASGAverageNetworkIn', 'ASGAverageNetworkOut']
@@ -2590,25 +2590,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProcessTypeTypeDef
+# ProcessType
 
 ### ProcessName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ProcessesTypeTypeDef
+# ProcessesType
 
 ### Processes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ProcessTypeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ProcessType]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutLifecycleHookTypeTypeDef
+# PutLifecycleHookType
 
 ### LifecycleHookName
 - **Type**: <class 'str'>
@@ -2637,7 +2637,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutNotificationConfigurationTypeTypeDef
+# PutNotificationConfigurationType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -2652,7 +2652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutScalingPolicyTypeTypeDef
+# PutScalingPolicyType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -2684,22 +2684,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StepAdjustments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.StepAdjustmentTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.autoscaling_classes.StepAdjustment]]
 
 ### EstimatedInstanceWarmup
 - **Type**: typing.Optional[int]
 
 ### TargetTrackingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingConfigurationUnion]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### PredictiveScalingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingConfigurationUnion]
 
 
-# PutScheduledUpdateGroupActionTypeTypeDef
+# PutScheduledUpdateGroupActionType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -2710,13 +2710,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Time
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
 
 ### Recurrence
 - **Type**: typing.Optional[str]
@@ -2734,7 +2734,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutWarmPoolTypeTypeDef
+# PutWarmPoolType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -2750,10 +2750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Hibernated', 'Running', 'Stopped']]
 
 ### InstanceReusePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceReusePolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RecordLifecycleActionHeartbeatTypeTypeDef
+# RecordLifecycleActionHeartbeatType
 
 ### LifecycleHookName
 - **Type**: <class 'str'>
@@ -2770,43 +2770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RefreshPreferencesOutputTypeDef
-
-### MinHealthyPercentage
-- **Type**: typing.Optional[int]
-
-### InstanceWarmup
-- **Type**: typing.Optional[int]
-
-### CheckpointPercentages
-- **Type**: typing.Optional[typing.List[int]]
-
-### CheckpointDelay
-- **Type**: typing.Optional[int]
-
-### SkipMatching
-- **Type**: typing.Optional[bool]
-
-### AutoRollback
-- **Type**: typing.Optional[bool]
-
-### ScaleInProtectedInstances
-- **Type**: typing.Optional[typing.Literal['Ignore', 'Refresh', 'Wait']]
-
-### StandbyInstances
-- **Type**: typing.Optional[typing.Literal['Ignore', 'Terminate', 'Wait']]
-
-### AlarmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AlarmSpecificationOutputTypeDef]
-
-### MaxHealthyPercentage
-- **Type**: typing.Optional[int]
-
-### BakeTime
-- **Type**: typing.Optional[int]
-
-
-# RefreshPreferencesTypeDef
+# RefreshPreferences
 
 ### MinHealthyPercentage
 - **Type**: typing.Optional[int]
@@ -2833,7 +2797,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Ignore', 'Terminate', 'Wait']]
 
 ### AlarmSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AlarmSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaxHealthyPercentage
 - **Type**: typing.Optional[int]
@@ -2842,13 +2806,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RefreshPreferencesUnionTypeDef
+# RefreshPreferencesOutput
+
+### MinHealthyPercentage
+- **Type**: typing.Optional[int]
+
+### InstanceWarmup
+- **Type**: typing.Optional[int]
+
+### CheckpointPercentages
+- **Type**: typing.Optional[typing.List[int]]
+
+### CheckpointDelay
+- **Type**: typing.Optional[int]
+
+### SkipMatching
+- **Type**: typing.Optional[bool]
+
+### AutoRollback
+- **Type**: typing.Optional[bool]
+
+### ScaleInProtectedInstances
+- **Type**: typing.Optional[typing.Literal['Ignore', 'Refresh', 'Wait']]
+
+### StandbyInstances
+- **Type**: typing.Optional[typing.Literal['Ignore', 'Terminate', 'Wait']]
+
+### AlarmSpecification
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AlarmSpecificationOutput]
+
+### MaxHealthyPercentage
+- **Type**: typing.Optional[int]
+
+### BakeTime
+- **Type**: typing.Optional[int]
+
+
+# RefreshPreferencesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2870,7 +2870,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RollbackDetailsTypeDef
+# RollbackDetails
 
 ### RollbackReason
 - **Type**: typing.Optional[str]
@@ -2885,28 +2885,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ProgressDetailsOnRollback
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshProgressDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceRefreshProgressDetails]
 
 
-# RollbackInstanceRefreshAnswerTypeDef
+# RollbackInstanceRefreshAnswer
 
 ### InstanceRefreshId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RollbackInstanceRefreshTypeTypeDef
+# RollbackInstanceRefreshType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ScalingPolicyTypeDef
+# ScalingPolicy
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -2936,7 +2936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### StepAdjustments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.StepAdjustmentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.StepAdjustment]]
 
 ### MetricAggregationType
 - **Type**: typing.Optional[str]
@@ -2945,29 +2945,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Alarms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.AlarmTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.Alarm]]
 
 ### TargetTrackingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingConfigurationOutput]
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### PredictiveScalingConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredictiveScalingConfigurationOutput]
 
 
-# ScalingProcessQueryRequestTypeDef
-
-### AutoScalingGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ScalingProcesses
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ScalingProcessQueryTypeDef
+# ScalingProcessQuery
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -2977,49 +2967,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ScheduledActionsTypeTypeDef
+# ScalingProcessQueryRequest
+
+### AutoScalingGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ScalingProcesses
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ScheduledActionsType
 
 ### ScheduledUpdateGroupActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ScheduledUpdateGroupActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.ScheduledUpdateGroupAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ScheduledUpdateGroupActionRequestTypeDef
-
-### ScheduledActionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TimestampTypeDef]
-
-### Recurrence
-- **Type**: typing.Optional[str]
-
-### MinSize
-- **Type**: typing.Optional[int]
-
-### MaxSize
-- **Type**: typing.Optional[int]
-
-### DesiredCapacity
-- **Type**: typing.Optional[int]
-
-### TimeZone
-- **Type**: typing.Optional[str]
-
-
-# ScheduledUpdateGroupActionTypeDef
+# ScheduledUpdateGroupAction
 
 ### AutoScalingGroupName
 - **Type**: typing.Optional[str]
@@ -3055,7 +3027,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetDesiredCapacityTypeTypeDef
+# ScheduledUpdateGroupActionRequest
+
+### ScheduledActionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.Timestamp]
+
+### Recurrence
+- **Type**: typing.Optional[str]
+
+### MinSize
+- **Type**: typing.Optional[int]
+
+### MaxSize
+- **Type**: typing.Optional[int]
+
+### DesiredCapacity
+- **Type**: typing.Optional[int]
+
+### TimeZone
+- **Type**: typing.Optional[str]
+
+
+# SetDesiredCapacityType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -3069,7 +3069,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SetInstanceHealthQueryTypeDef
+# SetInstanceHealthQuery
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3083,7 +3083,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SetInstanceProtectionQueryTypeDef
+# SetInstanceProtectionQuery
 
 ### InstanceIds
 - **Type**: typing.Sequence[str]
@@ -3098,18 +3098,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartInstanceRefreshAnswerTypeDef
+# StartInstanceRefreshAnswer
 
 ### InstanceRefreshId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartInstanceRefreshTypeTypeDef
+# StartInstanceRefreshType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -3119,13 +3119,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Rolling']]
 
 ### DesiredConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.DesiredConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.DesiredConfigurationUnion]
 
 ### Preferences
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.RefreshPreferencesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.RefreshPreferencesUnion]
 
 
-# StepAdjustmentTypeDef
+# StepAdjustment
 
 ### ScalingAdjustment
 - **Type**: <class 'int'>
@@ -3138,7 +3138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# SuspendedProcessTypeDef
+# SuspendedProcess
 
 ### ProcessName
 - **Type**: typing.Optional[str]
@@ -3147,25 +3147,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagDescriptionTypeDef
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### Key
-- **Type**: typing.Optional[str]
-
-### Value
-- **Type**: typing.Optional[str]
-
-### PropagateAtLaunch
-- **Type**: typing.Optional[bool]
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -3184,59 +3166,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TagsTypeTypeDef
+# TagDescription
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### Key
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
+### PropagateAtLaunch
+- **Type**: typing.Optional[bool]
+
+
+# TagsType
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TagDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.autoscaling_classes.TagDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# TargetTrackingConfigurationOutputTypeDef
+# TargetTrackingConfiguration
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### PredefinedMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredefinedMetricSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CustomizedMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CustomizedMetricSpecificationOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DisableScaleIn
 - **Type**: typing.Optional[bool]
 
 
-# TargetTrackingConfigurationTypeDef
+# TargetTrackingConfigurationOutput
 
 ### TargetValue
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### PredefinedMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.PredefinedMetricSpecificationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CustomizedMetricSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CustomizedMetricSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CustomizedMetricSpecificationOutput]
 
 ### DisableScaleIn
 - **Type**: typing.Optional[bool]
 
 
-# TargetTrackingConfigurationUnionTypeDef
+# TargetTrackingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TargetTrackingMetricDataQueryOutputTypeDef
+# TargetTrackingMetricDataQuery
 
 ### Id
 - **Type**: <class 'str'>
@@ -3246,7 +3246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricStatOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricStat]
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -3258,7 +3258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TargetTrackingMetricDataQueryTypeDef
+# TargetTrackingMetricDataQueryOutput
 
 ### Id
 - **Type**: <class 'str'>
@@ -3268,7 +3268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MetricStat
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricStatTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.TargetTrackingMetricStatOutput]
 
 ### Label
 - **Type**: typing.Optional[str]
@@ -3280,10 +3280,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TargetTrackingMetricStatOutputTypeDef
+# TargetTrackingMetricStat
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.Metric'>
 - **Required**: Yes
 
 ### Stat
@@ -3297,10 +3297,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TargetTrackingMetricStatTypeDef
+# TargetTrackingMetricStatOutput
 
 ### Metric
-- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.autoscaling_classes.MetricOutput'>
 - **Required**: Yes
 
 ### Stat
@@ -3314,7 +3314,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TerminateInstanceInAutoScalingGroupTypeTypeDef
+# TerminateInstanceInAutoScalingGroupType
 
 ### InstanceId
 - **Type**: <class 'str'>
@@ -3325,13 +3325,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TotalLocalStorageGBRequestTypeDef
+# TotalLocalStorageGBRequest
 
 ### Min
 - **Type**: typing.Optional[float]
@@ -3340,19 +3340,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# TrafficSourceIdentifierTypeDef
+# TrafficSourceIdentifier
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrafficSourceStateTypeDef
+# TrafficSourceState
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateAutoScalingGroupTypeTypeDef
+# UpdateAutoScalingGroupType
 
 ### AutoScalingGroupName
 - **Type**: <class 'str'>
@@ -3362,10 +3362,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LaunchTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecificationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.LaunchTemplateSpecification]
 
 ### MixedInstancesPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.MixedInstancesPolicyUnion]
 
 ### MinSize
 - **Type**: typing.Optional[int]
@@ -3419,22 +3419,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InstanceMaintenancePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceMaintenancePolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneDistribution
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneDistributionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneImpairmentPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.AvailabilityZoneImpairmentPolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SkipZonalShiftValidation
 - **Type**: typing.Optional[bool]
 
 ### CapacityReservationSpecification
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.CapacityReservationSpecificationUnion]
 
 
-# VCpuCountRequestTypeDef
+# VCpuCountRequest
 
 ### Min
 - **Type**: <class 'int'>
@@ -3444,7 +3444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WarmPoolConfigurationTypeDef
+# WarmPoolConfiguration
 
 ### MaxGroupPreparedCapacity
 - **Type**: typing.Optional[int]
@@ -3459,6 +3459,6 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PendingDelete']]
 
 ### InstanceReusePolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.autoscaling_classes.InstanceReusePolicyTypeDef]
+- **Type**: <class 'NoneType'>
 
 

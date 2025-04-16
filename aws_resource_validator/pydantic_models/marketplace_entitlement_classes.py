@@ -12,27 +12,27 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.marketplace_entitlement_constants import *
 
-class EntitlementValueTypeDef(BaseValidatorModel):
+class EntitlementValue(BaseValidatorModel):
     IntegerValue: Optional[int] = None
     DoubleValue: Optional[float] = None
     BooleanValue: Optional[bool] = None
     StringValue: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetEntitlementsRequestTypeDef(BaseValidatorModel):
+class GetEntitlementsRequest(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Mapping[GetEntitlementFilterNameType, Sequence[str]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -40,23 +40,23 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class EntitlementTypeDef(BaseValidatorModel):
+class Entitlement(BaseValidatorModel):
     ProductCode: Optional[str] = None
     Dimension: Optional[str] = None
     CustomerIdentifier: Optional[str] = None
-    Value: Optional[EntitlementValueTypeDef] = None
+    Value: Optional[EntitlementValue] = None
     ExpirationDate: Optional[datetime] = None
 
 
-class GetEntitlementsRequestPaginateTypeDef(BaseValidatorModel):
+class GetEntitlementsRequestPaginate(BaseValidatorModel):
     ProductCode: str
     Filter: Optional[Mapping[GetEntitlementFilterNameType, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetEntitlementsResultTypeDef(BaseValidatorModel):
-    Entitlements: List[EntitlementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEntitlementsResult(BaseValidatorModel):
+    Entitlements: List[Entitlement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

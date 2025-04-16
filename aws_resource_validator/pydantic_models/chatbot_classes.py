@@ -12,26 +12,26 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chatbot_constants import *
 
-class AccountPreferencesTypeDef(BaseValidatorModel):
+class AccountPreferences(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
     TrainingDataCollectionEnabled: Optional[bool] = None
 
 
-class AssociateToConfigurationRequestTypeDef(BaseValidatorModel):
+class AssociateToConfigurationRequest(BaseValidatorModel):
     Resource: str
     ChatConfiguration: str
 
 
-class AssociationListingTypeDef(BaseValidatorModel):
+class AssociationListing(BaseValidatorModel):
     Resource: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     TagKey: str
     TagValue: str
 
 
-class ConfiguredTeamTypeDef(BaseValidatorModel):
+class ConfiguredTeam(BaseValidatorModel):
     TenantId: str
     TeamId: str
     TeamName: Optional[str] = None
@@ -39,7 +39,7 @@ class ConfiguredTeamTypeDef(BaseValidatorModel):
     StateReason: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -47,76 +47,76 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CustomActionDefinitionTypeDef(BaseValidatorModel):
+class CustomActionDefinition(BaseValidatorModel):
     CommandText: str
 
 
-class CustomActionAttachmentCriteriaTypeDef(BaseValidatorModel):
+class CustomActionAttachmentCriteria(BaseValidatorModel):
     Operator: CustomActionAttachmentCriteriaOperatorType
     VariableName: str
     Value: Optional[str] = None
 
 
-class DeleteChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteChimeWebhookConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
 
 
-class DeleteCustomActionRequestTypeDef(BaseValidatorModel):
+class DeleteCustomActionRequest(BaseValidatorModel):
     CustomActionArn: str
 
 
-class DeleteMicrosoftTeamsUserIdentityRequestTypeDef(BaseValidatorModel):
+class DeleteMicrosoftTeamsUserIdentityRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     UserId: str
 
 
-class DeleteSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteSlackChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
 
 
-class DeleteSlackUserIdentityRequestTypeDef(BaseValidatorModel):
+class DeleteSlackUserIdentityRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     SlackTeamId: str
     SlackUserId: str
 
 
-class DeleteSlackWorkspaceAuthorizationRequestTypeDef(BaseValidatorModel):
+class DeleteSlackWorkspaceAuthorizationRequest(BaseValidatorModel):
     SlackTeamId: str
 
 
-class DeleteTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
 
 
-class DeleteTeamsConfiguredTeamRequestTypeDef(BaseValidatorModel):
+class DeleteTeamsConfiguredTeamRequest(BaseValidatorModel):
     TeamId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeChimeWebhookConfigurationsRequestTypeDef(BaseValidatorModel):
+class DescribeChimeWebhookConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ChatConfigurationArn: Optional[str] = None
 
 
-class DescribeSlackChannelConfigurationsRequestTypeDef(BaseValidatorModel):
+class DescribeSlackChannelConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ChatConfigurationArn: Optional[str] = None
 
 
-class DescribeSlackUserIdentitiesRequestTypeDef(BaseValidatorModel):
+class DescribeSlackUserIdentitiesRequest(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SlackUserIdentityTypeDef(BaseValidatorModel):
+class SlackUserIdentity(BaseValidatorModel):
     IamRoleArn: str
     ChatConfigurationArn: str
     SlackTeamId: str
@@ -124,54 +124,54 @@ class SlackUserIdentityTypeDef(BaseValidatorModel):
     AwsUserIdentity: Optional[str] = None
 
 
-class DescribeSlackWorkspacesRequestTypeDef(BaseValidatorModel):
+class DescribeSlackWorkspacesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SlackWorkspaceTypeDef(BaseValidatorModel):
+class SlackWorkspace(BaseValidatorModel):
     SlackTeamId: str
     SlackTeamName: str
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class DisassociateFromConfigurationRequestTypeDef(BaseValidatorModel):
+class DisassociateFromConfigurationRequest(BaseValidatorModel):
     Resource: str
     ChatConfiguration: str
 
 
-class GetCustomActionRequestTypeDef(BaseValidatorModel):
+class GetCustomActionRequest(BaseValidatorModel):
     CustomActionArn: str
 
 
-class GetTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class GetTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
 
 
-class ListAssociationsRequestTypeDef(BaseValidatorModel):
+class ListAssociationsRequest(BaseValidatorModel):
     ChatConfiguration: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListCustomActionsRequestTypeDef(BaseValidatorModel):
+class ListCustomActionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMicrosoftTeamsConfiguredTeamsRequestTypeDef(BaseValidatorModel):
+class ListMicrosoftTeamsConfiguredTeamsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMicrosoftTeamsUserIdentitiesRequestTypeDef(BaseValidatorModel):
+class ListMicrosoftTeamsUserIdentitiesRequest(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TeamsUserIdentityTypeDef(BaseValidatorModel):
+class TeamsUserIdentity(BaseValidatorModel):
     IamRoleArn: str
     ChatConfigurationArn: str
     TeamId: str
@@ -181,27 +181,27 @@ class TeamsUserIdentityTypeDef(BaseValidatorModel):
     TeamsTenantId: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class ListTeamsChannelConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListTeamsChannelConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     TeamId: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateAccountPreferencesRequestTypeDef(BaseValidatorModel):
+class UpdateAccountPreferencesRequest(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
     TrainingDataCollectionEnabled: Optional[bool] = None
 
 
-class UpdateChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateChimeWebhookConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     WebhookDescription: Optional[str] = None
     WebhookUrl: Optional[str] = None
@@ -210,7 +210,7 @@ class UpdateChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
 
 
-class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateSlackChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     SlackChannelId: str
     SlackChannelName: Optional[str] = None
@@ -221,7 +221,7 @@ class UpdateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
 
 
-class UpdateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChatConfigurationArn: str
     ChannelId: str
     ChannelName: Optional[str] = None
@@ -232,29 +232,29 @@ class UpdateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
     UserAuthorizationRequired: Optional[bool] = None
 
 
-class ChimeWebhookConfigurationTypeDef(BaseValidatorModel):
+class ChimeWebhookConfiguration(BaseValidatorModel):
     WebhookDescription: str
     ChatConfigurationArn: str
     IamRoleArn: str
     SnsTopicArns: List[str]
     ConfigurationName: Optional[str] = None
     LoggingLevel: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class CreateChimeWebhookConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateChimeWebhookConfigurationRequest(BaseValidatorModel):
     WebhookDescription: str
     WebhookUrl: str
     SnsTopicArns: Sequence[str]
     IamRoleArn: str
     ConfigurationName: str
     LoggingLevel: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateSlackChannelConfigurationRequest(BaseValidatorModel):
     SlackTeamId: str
     SlackChannelId: str
     IamRoleArn: str
@@ -264,10 +264,10 @@ class CreateSlackChannelConfigurationRequestTypeDef(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
     GuardrailPolicyArns: Optional[Sequence[str]] = None
     UserAuthorizationRequired: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateTeamsChannelConfigurationRequest(BaseValidatorModel):
     ChannelId: str
     TeamId: str
     TenantId: str
@@ -279,10 +279,10 @@ class CreateTeamsChannelConfigurationRequestTypeDef(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
     GuardrailPolicyArns: Optional[Sequence[str]] = None
     UserAuthorizationRequired: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class SlackChannelConfigurationTypeDef(BaseValidatorModel):
+class SlackChannelConfiguration(BaseValidatorModel):
     SlackTeamName: str
     SlackTeamId: str
     SlackChannelId: str
@@ -294,17 +294,17 @@ class SlackChannelConfigurationTypeDef(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
     GuardrailPolicyArns: Optional[List[str]] = None
     UserAuthorizationRequired: Optional[bool] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class TeamsChannelConfigurationTypeDef(BaseValidatorModel):
+class TeamsChannelConfiguration(BaseValidatorModel):
     ChannelId: str
     TeamId: str
     TenantId: str
@@ -317,211 +317,211 @@ class TeamsChannelConfigurationTypeDef(BaseValidatorModel):
     LoggingLevel: Optional[str] = None
     GuardrailPolicyArns: Optional[List[str]] = None
     UserAuthorizationRequired: Optional[bool] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     State: Optional[str] = None
     StateReason: Optional[str] = None
 
 
-class CreateCustomActionResultTypeDef(BaseValidatorModel):
+class CreateCustomActionResult(BaseValidatorModel):
     CustomActionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountPreferencesResultTypeDef(BaseValidatorModel):
-    AccountPreferences: AccountPreferencesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAccountPreferencesResult(BaseValidatorModel):
+    AccountPreferences: AccountPreferences
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[AssociationListingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociationsResult(BaseValidatorModel):
+    Associations: List[AssociationListing]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCustomActionsResultTypeDef(BaseValidatorModel):
+class ListCustomActionsResult(BaseValidatorModel):
     CustomActions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMicrosoftTeamsConfiguredTeamsResultTypeDef(BaseValidatorModel):
-    ConfiguredTeams: List[ConfiguredTeamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMicrosoftTeamsConfiguredTeamsResult(BaseValidatorModel):
+    ConfiguredTeams: List[ConfiguredTeam]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountPreferencesResultTypeDef(BaseValidatorModel):
-    AccountPreferences: AccountPreferencesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAccountPreferencesResult(BaseValidatorModel):
+    AccountPreferences: AccountPreferences
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCustomActionResultTypeDef(BaseValidatorModel):
+class UpdateCustomActionResult(BaseValidatorModel):
     CustomActionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomActionAttachmentOutputTypeDef(BaseValidatorModel):
+class CustomActionAttachmentOutput(BaseValidatorModel):
     NotificationType: Optional[str] = None
     ButtonText: Optional[str] = None
-    Criteria: Optional[List[CustomActionAttachmentCriteriaTypeDef]] = None
+    Criteria: Optional[List[CustomActionAttachmentCriteria]] = None
     Variables: Optional[Dict[str, str]] = None
 
 
-class CustomActionAttachmentTypeDef(BaseValidatorModel):
+class CustomActionAttachment(BaseValidatorModel):
     NotificationType: Optional[str] = None
     ButtonText: Optional[str] = None
-    Criteria: Optional[Sequence[CustomActionAttachmentCriteriaTypeDef]] = None
+    Criteria: Optional[Sequence[CustomActionAttachmentCriteria]] = None
     Variables: Optional[Mapping[str, str]] = None
 
 
-class DescribeChimeWebhookConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeChimeWebhookConfigurationsRequestPaginate(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSlackChannelConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSlackChannelConfigurationsRequestPaginate(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSlackUserIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSlackUserIdentitiesRequestPaginate(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSlackWorkspacesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeSlackWorkspacesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociationsRequestPaginate(BaseValidatorModel):
     ChatConfiguration: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomActionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCustomActionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMicrosoftTeamsConfiguredTeamsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMicrosoftTeamsConfiguredTeamsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMicrosoftTeamsUserIdentitiesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMicrosoftTeamsUserIdentitiesRequestPaginate(BaseValidatorModel):
     ChatConfigurationArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTeamsChannelConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTeamsChannelConfigurationsRequestPaginate(BaseValidatorModel):
     TeamId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSlackUserIdentitiesResultTypeDef(BaseValidatorModel):
-    SlackUserIdentities: List[SlackUserIdentityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSlackUserIdentitiesResult(BaseValidatorModel):
+    SlackUserIdentities: List[SlackUserIdentity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSlackWorkspacesResultTypeDef(BaseValidatorModel):
-    SlackWorkspaces: List[SlackWorkspaceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSlackWorkspacesResult(BaseValidatorModel):
+    SlackWorkspaces: List[SlackWorkspace]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMicrosoftTeamsUserIdentitiesResultTypeDef(BaseValidatorModel):
-    TeamsUserIdentities: List[TeamsUserIdentityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMicrosoftTeamsUserIdentitiesResult(BaseValidatorModel):
+    TeamsUserIdentities: List[TeamsUserIdentity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateChimeWebhookConfigurationResultTypeDef(BaseValidatorModel):
-    WebhookConfiguration: ChimeWebhookConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateChimeWebhookConfigurationResult(BaseValidatorModel):
+    WebhookConfiguration: ChimeWebhookConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeChimeWebhookConfigurationsResultTypeDef(BaseValidatorModel):
-    WebhookConfigurations: List[ChimeWebhookConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChimeWebhookConfigurationsResult(BaseValidatorModel):
+    WebhookConfigurations: List[ChimeWebhookConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateChimeWebhookConfigurationResultTypeDef(BaseValidatorModel):
-    WebhookConfiguration: ChimeWebhookConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateChimeWebhookConfigurationResult(BaseValidatorModel):
+    WebhookConfiguration: ChimeWebhookConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
-    ChannelConfiguration: SlackChannelConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSlackChannelConfigurationResult(BaseValidatorModel):
+    ChannelConfiguration: SlackChannelConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSlackChannelConfigurationsResultTypeDef(BaseValidatorModel):
-    SlackChannelConfigurations: List[SlackChannelConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSlackChannelConfigurationsResult(BaseValidatorModel):
+    SlackChannelConfigurations: List[SlackChannelConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSlackChannelConfigurationResultTypeDef(BaseValidatorModel):
-    ChannelConfiguration: SlackChannelConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSlackChannelConfigurationResult(BaseValidatorModel):
+    ChannelConfiguration: SlackChannelConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTeamsChannelConfigurationResultTypeDef(BaseValidatorModel):
-    ChannelConfiguration: TeamsChannelConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTeamsChannelConfigurationResult(BaseValidatorModel):
+    ChannelConfiguration: TeamsChannelConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTeamsChannelConfigurationResultTypeDef(BaseValidatorModel):
-    ChannelConfiguration: TeamsChannelConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTeamsChannelConfigurationResult(BaseValidatorModel):
+    ChannelConfiguration: TeamsChannelConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTeamsChannelConfigurationsResultTypeDef(BaseValidatorModel):
-    TeamChannelConfigurations: List[TeamsChannelConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTeamsChannelConfigurationsResult(BaseValidatorModel):
+    TeamChannelConfigurations: List[TeamsChannelConfiguration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateTeamsChannelConfigurationResultTypeDef(BaseValidatorModel):
-    ChannelConfiguration: TeamsChannelConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTeamsChannelConfigurationResult(BaseValidatorModel):
+    ChannelConfiguration: TeamsChannelConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomActionTypeDef(BaseValidatorModel):
+class CustomAction(BaseValidatorModel):
     CustomActionArn: str
-    Definition: CustomActionDefinitionTypeDef
+    Definition: CustomActionDefinition
     AliasName: Optional[str] = None
-    Attachments: Optional[List[CustomActionAttachmentOutputTypeDef]] = None
+    Attachments: Optional[List[CustomActionAttachmentOutput]] = None
     ActionName: Optional[str] = None
 
 
-class GetCustomActionResultTypeDef(BaseValidatorModel):
-    CustomAction: CustomActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCustomActionResult(BaseValidatorModel):
+    CustomAction: CustomAction
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomActionAttachmentUnionTypeDef(BaseValidatorModel):
+class CustomActionAttachmentUnion(BaseValidatorModel):
     pass
 
 
-class CreateCustomActionRequestTypeDef(BaseValidatorModel):
-    Definition: CustomActionDefinitionTypeDef
+class CreateCustomActionRequest(BaseValidatorModel):
+    Definition: CustomActionDefinition
     ActionName: str
     AliasName: Optional[str] = None
-    Attachments: Optional[Sequence[CustomActionAttachmentUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Attachments: Optional[Sequence[CustomActionAttachmentUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ClientToken: Optional[str] = None
 
 
-class UpdateCustomActionRequestTypeDef(BaseValidatorModel):
+class UpdateCustomActionRequest(BaseValidatorModel):
     CustomActionArn: str
-    Definition: CustomActionDefinitionTypeDef
+    Definition: CustomActionDefinition
     AliasName: Optional[str] = None
-    Attachments: Optional[Sequence[CustomActionAttachmentUnionTypeDef]] = None
+    Attachments: Optional[Sequence[CustomActionAttachmentUnion]] = None
 
 

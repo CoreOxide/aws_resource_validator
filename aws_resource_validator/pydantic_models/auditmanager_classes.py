@@ -12,51 +12,51 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.auditmanager_constants import *
 
-class AWSServiceTypeDef(BaseValidatorModel):
+class AWSService(BaseValidatorModel):
     serviceName: Optional[str] = None
 
 
-class RoleTypeDef(BaseValidatorModel):
+class Role(BaseValidatorModel):
     roleType: RoleTypeType
     roleArn: str
 
 
-class ControlCommentTypeDef(BaseValidatorModel):
+class ControlComment(BaseValidatorModel):
     authorName: Optional[str] = None
     commentBody: Optional[str] = None
     postedDate: Optional[datetime] = None
 
 
-class FrameworkMetadataTypeDef(BaseValidatorModel):
+class FrameworkMetadata(BaseValidatorModel):
     name: Optional[str] = None
     description: Optional[str] = None
     logo: Optional[str] = None
     complianceType: Optional[str] = None
 
 
-class AssessmentReportsDestinationTypeDef(BaseValidatorModel):
+class AssessmentReportsDestination(BaseValidatorModel):
     destinationType: Optional[Literal["S3"]] = None
     destination: Optional[str] = None
 
 
-class AssessmentReportEvidenceErrorTypeDef(BaseValidatorModel):
+class AssessmentReportEvidenceError(BaseValidatorModel):
     evidenceId: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class AssociateAssessmentReportEvidenceFolderRequestTypeDef(BaseValidatorModel):
+class AssociateAssessmentReportEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
 
 
-class BatchAssociateAssessmentReportEvidenceRequestTypeDef(BaseValidatorModel):
+class BatchAssociateAssessmentReportEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
     evidenceIds: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -64,37 +64,37 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateDelegationRequestTypeDef(BaseValidatorModel):
+class CreateDelegationRequest(BaseValidatorModel):
     comment: Optional[str] = None
     controlSetId: Optional[str] = None
     roleArn: Optional[str] = None
     roleType: Optional[RoleTypeType] = None
 
 
-class BatchDeleteDelegationByAssessmentErrorTypeDef(BaseValidatorModel):
+class BatchDeleteDelegationByAssessmentError(BaseValidatorModel):
     delegationId: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class BatchDeleteDelegationByAssessmentRequestTypeDef(BaseValidatorModel):
+class BatchDeleteDelegationByAssessmentRequest(BaseValidatorModel):
     delegationIds: Sequence[str]
     assessmentId: str
 
 
-class BatchDisassociateAssessmentReportEvidenceRequestTypeDef(BaseValidatorModel):
+class BatchDisassociateAssessmentReportEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
     evidenceIds: Sequence[str]
 
 
-class ManualEvidenceTypeDef(BaseValidatorModel):
+class ManualEvidence(BaseValidatorModel):
     s3ResourcePath: Optional[str] = None
     textResponse: Optional[str] = None
     evidenceFileName: Optional[str] = None
 
 
-class ChangeLogTypeDef(BaseValidatorModel):
+class ChangeLog(BaseValidatorModel):
     objectType: Optional[ObjectTypeEnumType] = None
     objectName: Optional[str] = None
     action: Optional[ActionEnumType] = None
@@ -102,96 +102,96 @@ class ChangeLogTypeDef(BaseValidatorModel):
     createdBy: Optional[str] = None
 
 
-class EvidenceInsightsTypeDef(BaseValidatorModel):
+class EvidenceInsights(BaseValidatorModel):
     noncompliantEvidenceCount: Optional[int] = None
     compliantEvidenceCount: Optional[int] = None
     inconclusiveEvidenceCount: Optional[int] = None
 
 
-class SourceKeywordTypeDef(BaseValidatorModel):
+class SourceKeyword(BaseValidatorModel):
     keywordInputType: Optional[KeywordInputTypeType] = None
     keywordValue: Optional[str] = None
 
 
-class CreateAssessmentReportRequestTypeDef(BaseValidatorModel):
+class CreateAssessmentReportRequest(BaseValidatorModel):
     name: str
     assessmentId: str
     description: Optional[str] = None
     queryStatement: Optional[str] = None
 
 
-class DefaultExportDestinationTypeDef(BaseValidatorModel):
+class DefaultExportDestination(BaseValidatorModel):
     destinationType: Optional[Literal["S3"]] = None
     destination: Optional[str] = None
 
 
-class DeleteAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
+class DeleteAssessmentFrameworkRequest(BaseValidatorModel):
     frameworkId: str
 
 
-class DeleteAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
+class DeleteAssessmentFrameworkShareRequest(BaseValidatorModel):
     requestId: str
     requestType: ShareRequestTypeType
 
 
-class DeleteAssessmentReportRequestTypeDef(BaseValidatorModel):
+class DeleteAssessmentReportRequest(BaseValidatorModel):
     assessmentId: str
     assessmentReportId: str
 
 
-class DeleteAssessmentRequestTypeDef(BaseValidatorModel):
+class DeleteAssessmentRequest(BaseValidatorModel):
     assessmentId: str
 
 
-class DeleteControlRequestTypeDef(BaseValidatorModel):
+class DeleteControlRequest(BaseValidatorModel):
     controlId: str
 
 
-class DeregisterOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class DeregisterOrganizationAdminAccountRequest(BaseValidatorModel):
     adminAccountId: Optional[str] = None
 
 
-class DeregistrationPolicyTypeDef(BaseValidatorModel):
+class DeregistrationPolicy(BaseValidatorModel):
     deleteResources: Optional[DeleteResourcesType] = None
 
 
-class DisassociateAssessmentReportEvidenceFolderRequestTypeDef(BaseValidatorModel):
+class DisassociateAssessmentReportEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     evidenceFolderId: str
 
 
-class EvidenceFinderEnablementTypeDef(BaseValidatorModel):
+class EvidenceFinderEnablement(BaseValidatorModel):
     eventDataStoreArn: Optional[str] = None
     enablementStatus: Optional[EvidenceFinderEnablementStatusType] = None
     backfillStatus: Optional[EvidenceFinderBackfillStatusType] = None
     error: Optional[str] = None
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     arn: Optional[str] = None
     value: Optional[str] = None
     complianceCheck: Optional[str] = None
 
 
-class GetAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
+class GetAssessmentFrameworkRequest(BaseValidatorModel):
     frameworkId: str
 
 
-class GetAssessmentReportUrlRequestTypeDef(BaseValidatorModel):
+class GetAssessmentReportUrlRequest(BaseValidatorModel):
     assessmentReportId: str
     assessmentId: str
 
 
-class URLTypeDef(BaseValidatorModel):
+class URL(BaseValidatorModel):
     hyperlinkName: Optional[str] = None
     link: Optional[str] = None
 
 
-class GetAssessmentRequestTypeDef(BaseValidatorModel):
+class GetAssessmentRequest(BaseValidatorModel):
     assessmentId: str
 
 
-class GetChangeLogsRequestTypeDef(BaseValidatorModel):
+class GetChangeLogsRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: Optional[str] = None
     controlId: Optional[str] = None
@@ -199,16 +199,16 @@ class GetChangeLogsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class GetControlRequestTypeDef(BaseValidatorModel):
+class GetControlRequest(BaseValidatorModel):
     controlId: str
 
 
-class GetDelegationsRequestTypeDef(BaseValidatorModel):
+class GetDelegationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class GetEvidenceByEvidenceFolderRequestTypeDef(BaseValidatorModel):
+class GetEvidenceByEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     evidenceFolderId: str
@@ -216,17 +216,17 @@ class GetEvidenceByEvidenceFolderRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class GetEvidenceFileUploadUrlRequestTypeDef(BaseValidatorModel):
+class GetEvidenceFileUploadUrlRequest(BaseValidatorModel):
     fileName: str
 
 
-class GetEvidenceFolderRequestTypeDef(BaseValidatorModel):
+class GetEvidenceFolderRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     evidenceFolderId: str
 
 
-class GetEvidenceFoldersByAssessmentControlRequestTypeDef(BaseValidatorModel):
+class GetEvidenceFoldersByAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     controlId: str
@@ -234,24 +234,24 @@ class GetEvidenceFoldersByAssessmentControlRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class GetEvidenceFoldersByAssessmentRequestTypeDef(BaseValidatorModel):
+class GetEvidenceFoldersByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class GetEvidenceRequestTypeDef(BaseValidatorModel):
+class GetEvidenceRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     evidenceFolderId: str
     evidenceId: str
 
 
-class GetInsightsByAssessmentRequestTypeDef(BaseValidatorModel):
+class GetInsightsByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
 
 
-class InsightsByAssessmentTypeDef(BaseValidatorModel):
+class InsightsByAssessment(BaseValidatorModel):
     noncompliantEvidenceCount: Optional[int] = None
     compliantEvidenceCount: Optional[int] = None
     inconclusiveEvidenceCount: Optional[int] = None
@@ -260,7 +260,7 @@ class InsightsByAssessmentTypeDef(BaseValidatorModel):
     lastUpdated: Optional[datetime] = None
 
 
-class InsightsTypeDef(BaseValidatorModel):
+class Insights(BaseValidatorModel):
     activeAssessmentsCount: Optional[int] = None
     noncompliantEvidenceCount: Optional[int] = None
     compliantEvidenceCount: Optional[int] = None
@@ -270,113 +270,113 @@ class InsightsTypeDef(BaseValidatorModel):
     lastUpdated: Optional[datetime] = None
 
 
-class ServiceMetadataTypeDef(BaseValidatorModel):
+class ServiceMetadata(BaseValidatorModel):
     name: Optional[str] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
     category: Optional[str] = None
 
 
-class GetSettingsRequestTypeDef(BaseValidatorModel):
+class GetSettingsRequest(BaseValidatorModel):
     attribute: SettingAttributeType
 
 
-class ListAssessmentControlInsightsByControlDomainRequestTypeDef(BaseValidatorModel):
+class ListAssessmentControlInsightsByControlDomainRequest(BaseValidatorModel):
     controlDomainId: str
     assessmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssessmentFrameworkShareRequestsRequestTypeDef(BaseValidatorModel):
+class ListAssessmentFrameworkShareRequestsRequest(BaseValidatorModel):
     requestType: ShareRequestTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssessmentFrameworksRequestTypeDef(BaseValidatorModel):
+class ListAssessmentFrameworksRequest(BaseValidatorModel):
     frameworkType: FrameworkTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssessmentReportsRequestTypeDef(BaseValidatorModel):
+class ListAssessmentReportsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAssessmentsRequestTypeDef(BaseValidatorModel):
+class ListAssessmentsRequest(BaseValidatorModel):
     status: Optional[AssessmentStatusType] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListControlDomainInsightsByAssessmentRequestTypeDef(BaseValidatorModel):
+class ListControlDomainInsightsByAssessmentRequest(BaseValidatorModel):
     assessmentId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListControlDomainInsightsRequestTypeDef(BaseValidatorModel):
+class ListControlDomainInsightsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListControlInsightsByControlDomainRequestTypeDef(BaseValidatorModel):
+class ListControlInsightsByControlDomainRequest(BaseValidatorModel):
     controlDomainId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListControlsRequestTypeDef(BaseValidatorModel):
+class ListControlsRequest(BaseValidatorModel):
     controlType: ControlTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     controlCatalogId: Optional[str] = None
 
 
-class ListKeywordsForDataSourceRequestTypeDef(BaseValidatorModel):
+class ListKeywordsForDataSourceRequest(BaseValidatorModel):
     source: DataSourceTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListNotificationsRequestTypeDef(BaseValidatorModel):
+class ListNotificationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class RegisterAccountRequestTypeDef(BaseValidatorModel):
+class RegisterAccountRequest(BaseValidatorModel):
     kmsKey: Optional[str] = None
     delegatedAdminAccount: Optional[str] = None
 
 
-class RegisterOrganizationAdminAccountRequestTypeDef(BaseValidatorModel):
+class RegisterOrganizationAdminAccountRequest(BaseValidatorModel):
     adminAccountId: str
 
 
-class StartAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
+class StartAssessmentFrameworkShareRequest(BaseValidatorModel):
     frameworkId: str
     destinationAccount: str
     destinationRegion: str
     comment: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateAssessmentControlRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     controlId: str
@@ -384,396 +384,396 @@ class UpdateAssessmentControlRequestTypeDef(BaseValidatorModel):
     commentBody: Optional[str] = None
 
 
-class UpdateAssessmentControlSetStatusRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentControlSetStatusRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     status: ControlSetStatusType
     comment: str
 
 
-class UpdateAssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentFrameworkShareRequest(BaseValidatorModel):
     requestId: str
     requestType: ShareRequestTypeType
     action: ShareRequestActionType
 
 
-class UpdateAssessmentStatusRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentStatusRequest(BaseValidatorModel):
     assessmentId: str
     status: AssessmentStatusType
 
 
-class ValidateAssessmentReportIntegrityRequestTypeDef(BaseValidatorModel):
+class ValidateAssessmentReportIntegrityRequest(BaseValidatorModel):
     s3RelativePath: str
 
 
-class AWSAccountTypeDef(BaseValidatorModel):
+class AWSAccount(BaseValidatorModel):
     pass
 
 
-class ScopeOutputTypeDef(BaseValidatorModel):
-    awsAccounts: Optional[List[AWSAccountTypeDef]] = None
-    awsServices: Optional[List[AWSServiceTypeDef]] = None
+class ScopeOutput(BaseValidatorModel):
+    awsAccounts: Optional[List[AWSAccount]] = None
+    awsServices: Optional[List[AWSService]] = None
 
 
-class ScopeTypeDef(BaseValidatorModel):
-    awsAccounts: Optional[Sequence[AWSAccountTypeDef]] = None
-    awsServices: Optional[Sequence[AWSServiceTypeDef]] = None
+class Scope(BaseValidatorModel):
+    awsAccounts: Optional[Sequence[AWSAccount]] = None
+    awsServices: Optional[Sequence[AWSService]] = None
 
 
-class BatchAssociateAssessmentReportEvidenceResponseTypeDef(BaseValidatorModel):
+class BatchAssociateAssessmentReportEvidenceResponse(BaseValidatorModel):
     evidenceIds: List[str]
-    errors: List[AssessmentReportEvidenceErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    errors: List[AssessmentReportEvidenceError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateAssessmentReportEvidenceResponseTypeDef(BaseValidatorModel):
+class BatchDisassociateAssessmentReportEvidenceResponse(BaseValidatorModel):
     evidenceIds: List[str]
-    errors: List[AssessmentReportEvidenceErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    errors: List[AssessmentReportEvidenceError]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssessmentReportTypeDef(BaseValidatorModel):
+class AssessmentReport(BaseValidatorModel):
     pass
 
 
-class CreateAssessmentReportResponseTypeDef(BaseValidatorModel):
-    assessmentReport: AssessmentReportTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssessmentReportResponse(BaseValidatorModel):
+    assessmentReport: AssessmentReport
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterAccountResponseTypeDef(BaseValidatorModel):
+class DeregisterAccountResponse(BaseValidatorModel):
     status: AccountStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAccountStatusResponseTypeDef(BaseValidatorModel):
+class GetAccountStatusResponse(BaseValidatorModel):
     status: AccountStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEvidenceFileUploadUrlResponseTypeDef(BaseValidatorModel):
+class GetEvidenceFileUploadUrlResponse(BaseValidatorModel):
     evidenceFileName: str
     uploadUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssessmentEvidenceFolderTypeDef(BaseValidatorModel):
+class AssessmentEvidenceFolder(BaseValidatorModel):
     pass
 
 
-class GetEvidenceFolderResponseTypeDef(BaseValidatorModel):
-    evidenceFolder: AssessmentEvidenceFolderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEvidenceFolderResponse(BaseValidatorModel):
+    evidenceFolder: AssessmentEvidenceFolder
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEvidenceFoldersByAssessmentControlResponseTypeDef(BaseValidatorModel):
-    evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEvidenceFoldersByAssessmentControlResponse(BaseValidatorModel):
+    evidenceFolders: List[AssessmentEvidenceFolder]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetEvidenceFoldersByAssessmentResponseTypeDef(BaseValidatorModel):
-    evidenceFolders: List[AssessmentEvidenceFolderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEvidenceFoldersByAssessmentResponse(BaseValidatorModel):
+    evidenceFolders: List[AssessmentEvidenceFolder]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
+class GetOrganizationAdminAccountResponse(BaseValidatorModel):
     adminAccountId: str
     organizationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssessmentFrameworkShareRequestTypeDef(BaseValidatorModel):
+class AssessmentFrameworkShareRequest(BaseValidatorModel):
     pass
 
 
-class ListAssessmentFrameworkShareRequestsResponseTypeDef(BaseValidatorModel):
-    assessmentFrameworkShareRequests: List[AssessmentFrameworkShareRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssessmentFrameworkShareRequestsResponse(BaseValidatorModel):
+    assessmentFrameworkShareRequests: List[AssessmentFrameworkShareRequest]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssessmentFrameworkMetadataTypeDef(BaseValidatorModel):
+class AssessmentFrameworkMetadata(BaseValidatorModel):
     pass
 
 
-class ListAssessmentFrameworksResponseTypeDef(BaseValidatorModel):
-    frameworkMetadataList: List[AssessmentFrameworkMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssessmentFrameworksResponse(BaseValidatorModel):
+    frameworkMetadataList: List[AssessmentFrameworkMetadata]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssessmentReportMetadataTypeDef(BaseValidatorModel):
+class AssessmentReportMetadata(BaseValidatorModel):
     pass
 
 
-class ListAssessmentReportsResponseTypeDef(BaseValidatorModel):
-    assessmentReports: List[AssessmentReportMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssessmentReportsResponse(BaseValidatorModel):
+    assessmentReports: List[AssessmentReportMetadata]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListKeywordsForDataSourceResponseTypeDef(BaseValidatorModel):
+class ListKeywordsForDataSourceResponse(BaseValidatorModel):
     keywords: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterAccountResponseTypeDef(BaseValidatorModel):
+class RegisterAccountResponse(BaseValidatorModel):
     status: AccountStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterOrganizationAdminAccountResponseTypeDef(BaseValidatorModel):
+class RegisterOrganizationAdminAccountResponse(BaseValidatorModel):
     adminAccountId: str
     organizationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAssessmentFrameworkShareResponseTypeDef(BaseValidatorModel):
-    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartAssessmentFrameworkShareResponse(BaseValidatorModel):
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequest
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssessmentFrameworkShareResponseTypeDef(BaseValidatorModel):
-    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentFrameworkShareResponse(BaseValidatorModel):
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequest
+    ResponseMetadata: ResponseMetadata
 
 
-class ValidateAssessmentReportIntegrityResponseTypeDef(BaseValidatorModel):
+class ValidateAssessmentReportIntegrityResponse(BaseValidatorModel):
     signatureValid: bool
     signatureAlgorithm: str
     signatureDateTime: str
     signatureKeyId: str
     validationErrors: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchCreateDelegationByAssessmentErrorTypeDef(BaseValidatorModel):
-    createDelegationRequest: Optional[CreateDelegationRequestTypeDef] = None
+class BatchCreateDelegationByAssessmentError(BaseValidatorModel):
+    createDelegationRequest: Optional[CreateDelegationRequest] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class BatchCreateDelegationByAssessmentRequestTypeDef(BaseValidatorModel):
-    createDelegationRequests: Sequence[CreateDelegationRequestTypeDef]
+class BatchCreateDelegationByAssessmentRequest(BaseValidatorModel):
+    createDelegationRequests: Sequence[CreateDelegationRequest]
     assessmentId: str
 
 
-class BatchDeleteDelegationByAssessmentResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchDeleteDelegationByAssessmentErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteDelegationByAssessmentResponse(BaseValidatorModel):
+    errors: List[BatchDeleteDelegationByAssessmentError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchImportEvidenceToAssessmentControlErrorTypeDef(BaseValidatorModel):
-    manualEvidence: Optional[ManualEvidenceTypeDef] = None
+class BatchImportEvidenceToAssessmentControlError(BaseValidatorModel):
+    manualEvidence: Optional[ManualEvidence] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class BatchImportEvidenceToAssessmentControlRequestTypeDef(BaseValidatorModel):
+class BatchImportEvidenceToAssessmentControlRequest(BaseValidatorModel):
     assessmentId: str
     controlSetId: str
     controlId: str
-    manualEvidence: Sequence[ManualEvidenceTypeDef]
+    manualEvidence: Sequence[ManualEvidence]
 
 
-class GetChangeLogsResponseTypeDef(BaseValidatorModel):
-    changeLogs: List[ChangeLogTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChangeLogsResponse(BaseValidatorModel):
+    changeLogs: List[ChangeLog]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ControlMappingSourceTypeDef(BaseValidatorModel):
+class ControlMappingSource(BaseValidatorModel):
     sourceId: Optional[str] = None
     sourceName: Optional[str] = None
     sourceDescription: Optional[str] = None
     sourceSetUpOption: Optional[SourceSetUpOptionType] = None
     sourceType: Optional[SourceTypeType] = None
-    sourceKeyword: Optional[SourceKeywordTypeDef] = None
+    sourceKeyword: Optional[SourceKeyword] = None
     sourceFrequency: Optional[SourceFrequencyType] = None
     troubleshootingText: Optional[str] = None
 
 
-class CreateControlMappingSourceTypeDef(BaseValidatorModel):
+class CreateControlMappingSource(BaseValidatorModel):
     sourceName: Optional[str] = None
     sourceDescription: Optional[str] = None
     sourceSetUpOption: Optional[SourceSetUpOptionType] = None
     sourceType: Optional[SourceTypeType] = None
-    sourceKeyword: Optional[SourceKeywordTypeDef] = None
+    sourceKeyword: Optional[SourceKeyword] = None
     sourceFrequency: Optional[SourceFrequencyType] = None
     troubleshootingText: Optional[str] = None
 
 
-class ControlMetadataTypeDef(BaseValidatorModel):
+class ControlMetadata(BaseValidatorModel):
     pass
 
 
-class ListControlsResponseTypeDef(BaseValidatorModel):
-    controlMetadataList: List[ControlMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlsResponse(BaseValidatorModel):
+    controlMetadataList: List[ControlMetadata]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateAssessmentFrameworkControlTypeDef(BaseValidatorModel):
+class CreateAssessmentFrameworkControl(BaseValidatorModel):
     pass
 
 
-class CreateAssessmentFrameworkControlSetTypeDef(BaseValidatorModel):
+class CreateAssessmentFrameworkControlSet(BaseValidatorModel):
     name: str
-    controls: Optional[Sequence[CreateAssessmentFrameworkControlTypeDef]] = None
+    controls: Optional[Sequence[CreateAssessmentFrameworkControl]] = None
 
 
-class DelegationMetadataTypeDef(BaseValidatorModel):
+class DelegationMetadata(BaseValidatorModel):
     pass
 
 
-class GetDelegationsResponseTypeDef(BaseValidatorModel):
-    delegations: List[DelegationMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDelegationsResponse(BaseValidatorModel):
+    delegations: List[DelegationMetadata]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateSettingsRequest(BaseValidatorModel):
     snsTopic: Optional[str] = None
-    defaultAssessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
-    defaultProcessOwners: Optional[Sequence[RoleTypeDef]] = None
+    defaultAssessmentReportsDestination: Optional[AssessmentReportsDestination] = None
+    defaultProcessOwners: Optional[Sequence[Role]] = None
     kmsKey: Optional[str] = None
     evidenceFinderEnabled: Optional[bool] = None
-    deregistrationPolicy: Optional[DeregistrationPolicyTypeDef] = None
-    defaultExportDestination: Optional[DefaultExportDestinationTypeDef] = None
+    deregistrationPolicy: Optional[DeregistrationPolicy] = None
+    defaultExportDestination: Optional[DefaultExportDestination] = None
 
 
-class SettingsTypeDef(BaseValidatorModel):
+class Settings(BaseValidatorModel):
     isAwsOrgEnabled: Optional[bool] = None
     snsTopic: Optional[str] = None
-    defaultAssessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
-    defaultProcessOwners: Optional[List[RoleTypeDef]] = None
+    defaultAssessmentReportsDestination: Optional[AssessmentReportsDestination] = None
+    defaultProcessOwners: Optional[List[Role]] = None
     kmsKey: Optional[str] = None
-    evidenceFinderEnablement: Optional[EvidenceFinderEnablementTypeDef] = None
-    deregistrationPolicy: Optional[DeregistrationPolicyTypeDef] = None
-    defaultExportDestination: Optional[DefaultExportDestinationTypeDef] = None
+    evidenceFinderEnablement: Optional[EvidenceFinderEnablement] = None
+    deregistrationPolicy: Optional[DeregistrationPolicy] = None
+    defaultExportDestination: Optional[DefaultExportDestination] = None
 
 
-class GetAssessmentReportUrlResponseTypeDef(BaseValidatorModel):
-    preSignedUrl: URLTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssessmentReportUrlResponse(BaseValidatorModel):
+    preSignedUrl: URL
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInsightsByAssessmentResponseTypeDef(BaseValidatorModel):
-    insights: InsightsByAssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInsightsByAssessmentResponse(BaseValidatorModel):
+    insights: InsightsByAssessment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInsightsResponseTypeDef(BaseValidatorModel):
-    insights: InsightsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInsightsResponse(BaseValidatorModel):
+    insights: Insights
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServicesInScopeResponseTypeDef(BaseValidatorModel):
-    serviceMetadata: List[ServiceMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServicesInScopeResponse(BaseValidatorModel):
+    serviceMetadata: List[ServiceMetadata]
+    ResponseMetadata: ResponseMetadata
 
 
-class NotificationTypeDef(BaseValidatorModel):
+class Notification(BaseValidatorModel):
     pass
 
 
-class ListNotificationsResponseTypeDef(BaseValidatorModel):
-    notifications: List[NotificationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationsResponse(BaseValidatorModel):
+    notifications: List[Notification]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssessmentMetadataItemTypeDef(BaseValidatorModel):
+class AssessmentMetadataItem(BaseValidatorModel):
     pass
 
 
-class ListAssessmentsResponseTypeDef(BaseValidatorModel):
-    assessmentMetadata: List[AssessmentMetadataItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssessmentsResponse(BaseValidatorModel):
+    assessmentMetadata: List[AssessmentMetadataItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssessmentControlTypeDef(BaseValidatorModel):
+class AssessmentControl(BaseValidatorModel):
     pass
 
 
-class UpdateAssessmentControlResponseTypeDef(BaseValidatorModel):
-    control: AssessmentControlTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentControlResponse(BaseValidatorModel):
+    control: AssessmentControl
+    ResponseMetadata: ResponseMetadata
 
 
-class DelegationTypeDef(BaseValidatorModel):
+class Delegation(BaseValidatorModel):
     pass
 
 
-class BatchCreateDelegationByAssessmentResponseTypeDef(BaseValidatorModel):
-    delegations: List[DelegationTypeDef]
-    errors: List[BatchCreateDelegationByAssessmentErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchCreateDelegationByAssessmentResponse(BaseValidatorModel):
+    delegations: List[Delegation]
+    errors: List[BatchCreateDelegationByAssessmentError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchImportEvidenceToAssessmentControlResponseTypeDef(BaseValidatorModel):
-    errors: List[BatchImportEvidenceToAssessmentControlErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchImportEvidenceToAssessmentControlResponse(BaseValidatorModel):
+    errors: List[BatchImportEvidenceToAssessmentControlError]
+    ResponseMetadata: ResponseMetadata
 
 
-class ControlDomainInsightsTypeDef(BaseValidatorModel):
+class ControlDomainInsights(BaseValidatorModel):
     pass
 
 
-class ListControlDomainInsightsByAssessmentResponseTypeDef(BaseValidatorModel):
-    controlDomainInsights: List[ControlDomainInsightsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlDomainInsightsByAssessmentResponse(BaseValidatorModel):
+    controlDomainInsights: List[ControlDomainInsights]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListControlDomainInsightsResponseTypeDef(BaseValidatorModel):
-    controlDomainInsights: List[ControlDomainInsightsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlDomainInsightsResponse(BaseValidatorModel):
+    controlDomainInsights: List[ControlDomainInsights]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ControlInsightsMetadataByAssessmentItemTypeDef(BaseValidatorModel):
+class ControlInsightsMetadataByAssessmentItem(BaseValidatorModel):
     pass
 
 
-class ListAssessmentControlInsightsByControlDomainResponseTypeDef(BaseValidatorModel):
-    controlInsightsByAssessment: List[ControlInsightsMetadataByAssessmentItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssessmentControlInsightsByControlDomainResponse(BaseValidatorModel):
+    controlInsightsByAssessment: List[ControlInsightsMetadataByAssessmentItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ControlInsightsMetadataItemTypeDef(BaseValidatorModel):
+class ControlInsightsMetadataItem(BaseValidatorModel):
     pass
 
 
-class ListControlInsightsByControlDomainResponseTypeDef(BaseValidatorModel):
-    controlInsightsMetadata: List[ControlInsightsMetadataItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlInsightsByControlDomainResponse(BaseValidatorModel):
+    controlInsightsMetadata: List[ControlInsightsMetadataItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateControlRequestTypeDef(BaseValidatorModel):
+class UpdateControlRequest(BaseValidatorModel):
     controlId: str
     name: str
-    controlMappingSources: Sequence[ControlMappingSourceTypeDef]
+    controlMappingSources: Sequence[ControlMappingSource]
     description: Optional[str] = None
     testingInformation: Optional[str] = None
     actionPlanTitle: Optional[str] = None
     actionPlanInstructions: Optional[str] = None
 
 
-class CreateControlRequestTypeDef(BaseValidatorModel):
+class CreateControlRequest(BaseValidatorModel):
     name: str
-    controlMappingSources: Sequence[CreateControlMappingSourceTypeDef]
+    controlMappingSources: Sequence[CreateControlMappingSource]
     description: Optional[str] = None
     testingInformation: Optional[str] = None
     actionPlanTitle: Optional[str] = None
@@ -781,155 +781,155 @@ class CreateControlRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
+class CreateAssessmentFrameworkRequest(BaseValidatorModel):
     name: str
-    controlSets: Sequence[CreateAssessmentFrameworkControlSetTypeDef]
+    controlSets: Sequence[CreateAssessmentFrameworkControlSet]
     description: Optional[str] = None
     complianceType: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAssessmentFrameworkControlSetTypeDef(BaseValidatorModel):
+class UpdateAssessmentFrameworkControlSet(BaseValidatorModel):
     pass
 
 
-class UpdateAssessmentFrameworkRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentFrameworkRequest(BaseValidatorModel):
     frameworkId: str
     name: str
-    controlSets: Sequence[UpdateAssessmentFrameworkControlSetTypeDef]
+    controlSets: Sequence[UpdateAssessmentFrameworkControlSet]
     description: Optional[str] = None
     complianceType: Optional[str] = None
 
 
-class GetSettingsResponseTypeDef(BaseValidatorModel):
-    settings: SettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSettingsResponse(BaseValidatorModel):
+    settings: Settings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSettingsResponseTypeDef(BaseValidatorModel):
-    settings: SettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSettingsResponse(BaseValidatorModel):
+    settings: Settings
+    ResponseMetadata: ResponseMetadata
 
 
-class EvidenceTypeDef(BaseValidatorModel):
+class Evidence(BaseValidatorModel):
     pass
 
 
-class GetEvidenceByEvidenceFolderResponseTypeDef(BaseValidatorModel):
-    evidence: List[EvidenceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEvidenceByEvidenceFolderResponse(BaseValidatorModel):
+    evidence: List[Evidence]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetEvidenceResponseTypeDef(BaseValidatorModel):
-    evidence: EvidenceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEvidenceResponse(BaseValidatorModel):
+    evidence: Evidence
+    ResponseMetadata: ResponseMetadata
 
 
-class ScopeUnionTypeDef(BaseValidatorModel):
+class ScopeUnion(BaseValidatorModel):
     pass
 
 
-class CreateAssessmentRequestTypeDef(BaseValidatorModel):
+class CreateAssessmentRequest(BaseValidatorModel):
     name: str
-    assessmentReportsDestination: AssessmentReportsDestinationTypeDef
-    scope: ScopeUnionTypeDef
-    roles: Sequence[RoleTypeDef]
+    assessmentReportsDestination: AssessmentReportsDestination
+    scope: ScopeUnion
+    roles: Sequence[Role]
     frameworkId: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAssessmentRequestTypeDef(BaseValidatorModel):
+class UpdateAssessmentRequest(BaseValidatorModel):
     assessmentId: str
-    scope: ScopeUnionTypeDef
+    scope: ScopeUnion
     assessmentName: Optional[str] = None
     assessmentDescription: Optional[str] = None
-    assessmentReportsDestination: Optional[AssessmentReportsDestinationTypeDef] = None
-    roles: Optional[Sequence[RoleTypeDef]] = None
+    assessmentReportsDestination: Optional[AssessmentReportsDestination] = None
+    roles: Optional[Sequence[Role]] = None
 
 
-class AssessmentControlSetTypeDef(BaseValidatorModel):
+class AssessmentControlSet(BaseValidatorModel):
     pass
 
 
-class UpdateAssessmentControlSetStatusResponseTypeDef(BaseValidatorModel):
-    controlSet: AssessmentControlSetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentControlSetStatusResponse(BaseValidatorModel):
+    controlSet: AssessmentControlSet
+    ResponseMetadata: ResponseMetadata
 
 
-class ControlTypeDef(BaseValidatorModel):
+class Control(BaseValidatorModel):
     pass
 
 
-class CreateControlResponseTypeDef(BaseValidatorModel):
-    control: ControlTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateControlResponse(BaseValidatorModel):
+    control: Control
+    ResponseMetadata: ResponseMetadata
 
 
-class GetControlResponseTypeDef(BaseValidatorModel):
-    control: ControlTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetControlResponse(BaseValidatorModel):
+    control: Control
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateControlResponseTypeDef(BaseValidatorModel):
-    control: ControlTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateControlResponse(BaseValidatorModel):
+    control: Control
+    ResponseMetadata: ResponseMetadata
 
 
-class AssessmentMetadataTypeDef(BaseValidatorModel):
+class AssessmentMetadata(BaseValidatorModel):
     pass
 
 
-class AssessmentFrameworkTypeDef(BaseValidatorModel):
+class AssessmentFramework(BaseValidatorModel):
     pass
 
 
-class AssessmentTypeDef(BaseValidatorModel):
+class Assessment(BaseValidatorModel):
     arn: Optional[str] = None
-    awsAccount: Optional[AWSAccountTypeDef] = None
-    metadata: Optional[AssessmentMetadataTypeDef] = None
-    framework: Optional[AssessmentFrameworkTypeDef] = None
+    awsAccount: Optional[AWSAccount] = None
+    metadata: Optional[AssessmentMetadata] = None
+    framework: Optional[AssessmentFramework] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class CreateAssessmentResponseTypeDef(BaseValidatorModel):
-    assessment: AssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssessmentResponse(BaseValidatorModel):
+    assessment: Assessment
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAssessmentResponseTypeDef(BaseValidatorModel):
-    assessment: AssessmentTypeDef
-    userRole: RoleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssessmentResponse(BaseValidatorModel):
+    assessment: Assessment
+    userRole: Role
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssessmentResponseTypeDef(BaseValidatorModel):
-    assessment: AssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentResponse(BaseValidatorModel):
+    assessment: Assessment
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssessmentStatusResponseTypeDef(BaseValidatorModel):
-    assessment: AssessmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentStatusResponse(BaseValidatorModel):
+    assessment: Assessment
+    ResponseMetadata: ResponseMetadata
 
 
-class FrameworkTypeDef(BaseValidatorModel):
+class Framework(BaseValidatorModel):
     pass
 
 
-class CreateAssessmentFrameworkResponseTypeDef(BaseValidatorModel):
-    framework: FrameworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssessmentFrameworkResponse(BaseValidatorModel):
+    framework: Framework
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAssessmentFrameworkResponseTypeDef(BaseValidatorModel):
-    framework: FrameworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssessmentFrameworkResponse(BaseValidatorModel):
+    framework: Framework
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssessmentFrameworkResponseTypeDef(BaseValidatorModel):
-    framework: FrameworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssessmentFrameworkResponse(BaseValidatorModel):
+    framework: Framework
+    ResponseMetadata: ResponseMetadata
 
 

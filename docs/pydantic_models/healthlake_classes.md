@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateFHIRDatastoreRequestTypeDef
+# CreateFHIRDatastoreRequest
 
 ### DatastoreTypeVersion
 - **Type**: typing.Literal['R4']
@@ -16,22 +16,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.SseConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PreloadDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.PreloadDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.healthlake_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.healthlake_classes.Tag]]
 
 ### IdentityProviderConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.IdentityProviderConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateFHIRDatastoreResponseTypeDef
+# CreateFHIRDatastoreResponse
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -50,11 +50,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DatastoreFilterTypeDef
+# DatastoreFilter
 
 ### DatastoreName
 - **Type**: typing.Optional[str]
@@ -63,13 +63,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETED', 'DELETING']]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 
-# DatastorePropertiesTypeDef
+# DatastoreProperties
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -98,26 +98,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SseConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.SseConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PreloadDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.PreloadDataConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IdentityProviderConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.IdentityProviderConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ErrorCause
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.ErrorCauseTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DeleteFHIRDatastoreRequestTypeDef
+# DeleteFHIRDatastoreRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFHIRDatastoreResponseTypeDef
+# DeleteFHIRDatastoreResponse
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -136,29 +136,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFHIRDatastoreRequestTypeDef
+# DescribeFHIRDatastoreRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFHIRDatastoreResponseTypeDef
+# DescribeFHIRDatastoreResponse
 
 ### DatastoreProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.DatastorePropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.DatastoreProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFHIRExportJobRequestTypeDef
+# DescribeFHIRExportJobRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -169,18 +169,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFHIRExportJobResponseTypeDef
+# DescribeFHIRExportJobResponse
 
 ### ExportJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ExportJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ExportJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFHIRImportJobRequestTypeDef
+# DescribeFHIRImportJobRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -191,18 +191,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeFHIRImportJobResponseTypeDef
+# DescribeFHIRImportJobResponse
 
 ### ImportJobProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ImportJobPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ImportJobProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ErrorCauseTypeDef
+# ErrorCause
 
 ### ErrorMessage
 - **Type**: typing.Optional[str]
@@ -211,7 +211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NON_RETRYABLE_ERROR', 'RETRYABLE_ERROR']]
 
 
-# ExportJobPropertiesTypeDef
+# ExportJobProperties
 
 ### JobId
 - **Type**: <class 'str'>
@@ -230,7 +230,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### JobName
@@ -246,7 +246,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IdentityProviderConfigurationTypeDef
+# IdentityProviderConfiguration
 
 ### AuthorizationStrategy
 - **Type**: typing.Literal['AWS_AUTH', 'SMART_ON_FHIR', 'SMART_ON_FHIR_V1']
@@ -262,7 +262,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportJobPropertiesTypeDef
+# ImportJobProperties
 
 ### JobId
 - **Type**: <class 'str'>
@@ -281,7 +281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.InputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### JobName
@@ -291,10 +291,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### JobOutputDataConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfig]
 
 ### JobProgressReport
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.JobProgressReportTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataAccessRoleArn
 - **Type**: typing.Optional[str]
@@ -303,13 +303,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InputDataConfigTypeDef
+# InputDataConfig
 
 ### S3Uri
 - **Type**: typing.Optional[str]
 
 
-# JobProgressReportTypeDef
+# JobProgressReport
 
 ### TotalNumberOfScannedFiles
 - **Type**: typing.Optional[int]
@@ -336,7 +336,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# KmsEncryptionConfigTypeDef
+# KmsEncryptionConfig
 
 ### CmkType
 - **Type**: typing.Literal['AWS_OWNED_KMS_KEY', 'CUSTOMER_MANAGED_KMS_KEY']
@@ -346,10 +346,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFHIRDatastoresRequestTypeDef
+# ListFHIRDatastoresRequest
 
 ### Filter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.DatastoreFilterTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.DatastoreFilter]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -358,21 +358,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFHIRDatastoresResponseTypeDef
+# ListFHIRDatastoresResponse
 
 ### DatastorePropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.DatastorePropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.DatastoreProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFHIRExportJobsRequestTypeDef
+# ListFHIRExportJobsRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -391,27 +391,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']]
 
 ### SubmittedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 ### SubmittedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 
-# ListFHIRExportJobsResponseTypeDef
+# ListFHIRExportJobsResponse
 
 ### ExportJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ExportJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ExportJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFHIRImportJobsRequestTypeDef
+# ListFHIRImportJobsRequest
 
 ### DatastoreId
 - **Type**: <class 'str'>
@@ -430,58 +430,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCEL_COMPLETED', 'CANCEL_FAILED', 'CANCEL_IN_PROGRESS', 'CANCEL_SUBMITTED', 'COMPLETED', 'COMPLETED_WITH_ERRORS', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'SUBMITTED']]
 
 ### SubmittedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 ### SubmittedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.Timestamp]
 
 
-# ListFHIRImportJobsResponseTypeDef
+# ListFHIRImportJobsResponse
 
 ### ImportJobPropertiesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ImportJobPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.ImportJobProperties]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.healthlake_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OutputDataConfigTypeDef
+# OutputDataConfig
 
 ### S3Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.healthlake_classes.S3ConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PreloadDataConfigTypeDef
+# PreloadDataConfig
 
 ### PreloadDataType
 - **Type**: typing.Literal['SYNTHEA']
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -503,7 +503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ConfigurationTypeDef
+# S3Configuration
 
 ### S3Uri
 - **Type**: <class 'str'>
@@ -514,17 +514,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SseConfigurationTypeDef
+# SseConfiguration
 
 ### KmsEncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.KmsEncryptionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.KmsEncryptionConfig'>
 - **Required**: Yes
 
 
-# StartFHIRExportJobRequestTypeDef
+# StartFHIRExportJobRequest
 
 ### OutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DatastoreId
@@ -542,7 +542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartFHIRExportJobResponseTypeDef
+# StartFHIRExportJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -557,18 +557,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartFHIRImportJobRequestTypeDef
+# StartFHIRImportJobRequest
 
 ### InputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.InputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.InputDataConfig'>
 - **Required**: Yes
 
 ### JobOutputDataConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.OutputDataConfig'>
 - **Required**: Yes
 
 ### DatastoreId
@@ -586,7 +586,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartFHIRImportJobResponseTypeDef
+# StartFHIRImportJobResponse
 
 ### JobId
 - **Type**: <class 'str'>
@@ -601,22 +601,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.healthlake_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.healthlake_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -627,13 +616,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.healthlake_classes.Tag]
+- **Required**: Yes
+
+
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>

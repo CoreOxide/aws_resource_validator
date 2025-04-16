@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.route53_recovery_cluster_constants import *
 
-class GetRoutingControlStateRequestTypeDef(BaseValidatorModel):
+class GetRoutingControlStateRequest(BaseValidatorModel):
     RoutingControlArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,19 +24,19 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListRoutingControlsRequestTypeDef(BaseValidatorModel):
+class ListRoutingControlsRequest(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class RoutingControlTypeDef(BaseValidatorModel):
+class RoutingControl(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
     ControlPanelName: Optional[str] = None
     RoutingControlArn: Optional[str] = None
@@ -45,37 +45,37 @@ class RoutingControlTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
 
 
-class UpdateRoutingControlStateEntryTypeDef(BaseValidatorModel):
+class UpdateRoutingControlStateEntry(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
 
 
-class UpdateRoutingControlStateRequestTypeDef(BaseValidatorModel):
+class UpdateRoutingControlStateRequest(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
     SafetyRulesToOverride: Optional[Sequence[str]] = None
 
 
-class GetRoutingControlStateResponseTypeDef(BaseValidatorModel):
+class GetRoutingControlStateResponse(BaseValidatorModel):
     RoutingControlArn: str
     RoutingControlState: RoutingControlStateType
     RoutingControlName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRoutingControlsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRoutingControlsRequestPaginate(BaseValidatorModel):
     ControlPanelArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRoutingControlsResponseTypeDef(BaseValidatorModel):
-    RoutingControls: List[RoutingControlTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRoutingControlsResponse(BaseValidatorModel):
+    RoutingControls: List[RoutingControl]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateRoutingControlStatesRequestTypeDef(BaseValidatorModel):
-    UpdateRoutingControlStateEntries: Sequence[UpdateRoutingControlStateEntryTypeDef]
+class UpdateRoutingControlStatesRequest(BaseValidatorModel):
+    UpdateRoutingControlStateEntries: Sequence[UpdateRoutingControlStateEntry]
     SafetyRulesToOverride: Optional[Sequence[str]] = None
 
 

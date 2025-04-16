@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.personalize_events_constants import *
 
-class ActionTypeDef(BaseValidatorModel):
+class Action(BaseValidatorModel):
     actionId: str
     properties: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,28 +25,28 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class MetricAttributionTypeDef(BaseValidatorModel):
+class MetricAttribution(BaseValidatorModel):
     eventAttributionSource: str
 
 
-class ItemTypeDef(BaseValidatorModel):
+class Item(BaseValidatorModel):
     itemId: str
     properties: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     userId: str
     properties: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ActionInteractionTypeDef(BaseValidatorModel):
+class ActionInteraction(BaseValidatorModel):
     actionId: str
     sessionId: str
-    timestamp: TimestampTypeDef
+    timestamp: Timestamp
     eventType: str
     userId: Optional[str] = None
     eventId: Optional[str] = None
@@ -55,46 +55,46 @@ class ActionInteractionTypeDef(BaseValidatorModel):
     properties: Optional[str] = None
 
 
-class PutActionsRequestTypeDef(BaseValidatorModel):
+class PutActionsRequest(BaseValidatorModel):
     datasetArn: str
-    actions: Sequence[ActionTypeDef]
+    actions: Sequence[Action]
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     eventType: str
-    sentAt: TimestampTypeDef
+    sentAt: Timestamp
     eventId: Optional[str] = None
     eventValue: Optional[float] = None
     itemId: Optional[str] = None
     properties: Optional[str] = None
     recommendationId: Optional[str] = None
     impression: Optional[Sequence[str]] = None
-    metricAttribution: Optional[MetricAttributionTypeDef] = None
+    metricAttribution: Optional[MetricAttribution] = None
 
 
-class PutItemsRequestTypeDef(BaseValidatorModel):
+class PutItemsRequest(BaseValidatorModel):
     datasetArn: str
-    items: Sequence[ItemTypeDef]
+    items: Sequence[Item]
 
 
-class PutUsersRequestTypeDef(BaseValidatorModel):
+class PutUsersRequest(BaseValidatorModel):
     datasetArn: str
-    users: Sequence[UserTypeDef]
+    users: Sequence[User]
 
 
-class PutActionInteractionsRequestTypeDef(BaseValidatorModel):
+class PutActionInteractionsRequest(BaseValidatorModel):
     trackingId: str
-    actionInteractions: Sequence[ActionInteractionTypeDef]
+    actionInteractions: Sequence[ActionInteraction]
 
 
-class PutEventsRequestTypeDef(BaseValidatorModel):
+class PutEventsRequest(BaseValidatorModel):
     trackingId: str
     sessionId: str
-    eventList: Sequence[EventTypeDef]
+    eventList: Sequence[Event]
     userId: Optional[str] = None
 
 

@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateMigrationWorkflowRequestTypeDef
+# CreateMigrationWorkflowRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -17,7 +17,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### inputParameters
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.StepInputUnionTypeDef]
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.StepInputUnion]
 - **Required**: Yes
 
 ### description
@@ -33,14 +33,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTemplateRequestTypeDef
+# CreateTemplateRequest
 
 ### templateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### templateSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateSource'>
 - **Required**: Yes
 
 ### templateDescription
@@ -53,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTemplateResponseTypeDef
+# CreateTemplateResponse
 
 ### templateId
 - **Type**: <class 'str'>
@@ -68,20 +68,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMigrationWorkflowTemplatesRequestPaginateTypeDef
-
-### name
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListMigrationWorkflowTemplatesRequestTypeDef
+# ListMigrationWorkflowTemplatesRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -93,39 +84,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMigrationWorkflowTemplatesResponseTypeDef
+# ListMigrationWorkflowTemplatesRequestPaginate
+
+### name
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListMigrationWorkflowTemplatesResponse
 
 ### templateSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMigrationWorkflowsRequestPaginateTypeDef
-
-### templateId
-- **Type**: typing.Optional[str]
-
-### adsApplicationConfigurationName
-- **Type**: typing.Optional[str]
-
-### status
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED', 'IN_PROGRESS', 'NOT_STARTED', 'PAUSED', 'PAUSING', 'PAUSING_FAILED', 'STARTING', 'USER_ATTENTION_REQUIRED', 'WORKFLOW_FAILED']]
-
-### name
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListMigrationWorkflowsRequestTypeDef
+# ListMigrationWorkflowsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -146,27 +128,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMigrationWorkflowsResponseTypeDef
+# ListMigrationWorkflowsRequestPaginate
+
+### templateId
+- **Type**: typing.Optional[str]
+
+### adsApplicationConfigurationName
+- **Type**: typing.Optional[str]
+
+### status
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATING', 'CREATION_FAILED', 'DELETED', 'DELETING', 'DELETION_FAILED', 'IN_PROGRESS', 'NOT_STARTED', 'PAUSED', 'PAUSING', 'PAUSING_FAILED', 'STARTING', 'USER_ATTENTION_REQUIRED', 'WORKFLOW_FAILED']]
+
+### name
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListMigrationWorkflowsResponse
 
 ### migrationWorkflowSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.MigrationWorkflowSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.MigrationWorkflowSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPluginsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListPluginsRequestTypeDef
+# ListPluginsRequest
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -175,49 +169,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPluginsResponseTypeDef
+# ListPluginsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListPluginsResponse
 
 ### plugins
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PluginSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PluginSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTemplateStepGroupsRequestPaginateTypeDef
-
-### templateId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListTemplateStepGroupsRequestTypeDef
+# ListTemplateStepGroupsRequest
 
 ### templateId
 - **Type**: <class 'str'>
@@ -230,35 +220,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplateStepGroupsResponseTypeDef
+# ListTemplateStepGroupsRequestPaginate
+
+### templateId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListTemplateStepGroupsResponse
 
 ### templateStepGroupSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateStepGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateStepGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTemplateStepsRequestPaginateTypeDef
-
-### templateId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### stepGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListTemplateStepsRequestTypeDef
+# ListTemplateStepsRequest
 
 ### templateId
 - **Type**: <class 'str'>
@@ -275,31 +261,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplateStepsResponseTypeDef
+# ListTemplateStepsRequestPaginate
+
+### templateId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### stepGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListTemplateStepsResponse
 
 ### templateStepSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateStepSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.TemplateStepSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowStepGroupsRequestPaginateTypeDef
-
-### workflowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkflowStepGroupsRequestTypeDef
+# ListWorkflowStepGroupsRequest
 
 ### workflowId
 - **Type**: <class 'str'>
@@ -312,35 +302,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListWorkflowStepGroupsResponseTypeDef
+# ListWorkflowStepGroupsRequestPaginate
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListWorkflowStepGroupsResponse
 
 ### workflowStepGroupsSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepGroupSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepGroupSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkflowStepsRequestPaginateTypeDef
-
-### workflowId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### stepGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfigTypeDef]
-
-
-# ListWorkflowStepsRequestTypeDef
+# ListWorkflowStepsRequest
 
 ### workflowId
 - **Type**: <class 'str'>
@@ -357,27 +343,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListWorkflowStepsResponseTypeDef
+# ListWorkflowStepsRequestPaginate
+
+### workflowId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### stepGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PaginatorConfig]
+
+
+# ListWorkflowStepsResponse
 
 ### workflowStepsSummary
-- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# MigrationWorkflowSummaryTypeDef
+# MigrationWorkflowSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -389,7 +389,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlatformCommandTypeDef
+# PlatformCommand
 
 ### linux
 - **Type**: typing.Optional[str]
@@ -398,7 +398,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlatformScriptKeyTypeDef
+# PlatformScriptKey
 
 ### linux
 - **Type**: typing.Optional[str]
@@ -407,7 +407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PluginSummaryTypeDef
+# PluginSummary
 
 ### pluginId
 - **Type**: typing.Optional[str]
@@ -428,7 +428,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -450,16 +450,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StepAutomationConfigurationTypeDef
+# StepAutomationConfiguration
 
 ### scriptLocationS3Bucket
 - **Type**: typing.Optional[str]
 
 ### scriptLocationS3Key
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformScriptKeyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformScriptKey]
 
 ### command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformCommandTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformCommand]
 
 ### runEnvironment
 - **Type**: typing.Optional[typing.Literal['AWS', 'ONPREMISE']]
@@ -468,22 +468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'NONE', 'SINGLE']]
 
 
-# StepInputOutputTypeDef
-
-### integerValue
-- **Type**: typing.Optional[int]
-
-### stringValue
-- **Type**: typing.Optional[str]
-
-### listOfStringsValue
-- **Type**: typing.Optional[typing.List[str]]
-
-### mapOfStringValue
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# StepInputTypeDef
+# StepInput
 
 ### integerValue
 - **Type**: typing.Optional[int]
@@ -498,13 +483,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# StepInputUnionTypeDef
+# StepInputOutput
+
+### integerValue
+- **Type**: typing.Optional[int]
+
+### stringValue
+- **Type**: typing.Optional[str]
+
+### listOfStringsValue
+- **Type**: typing.Optional[typing.List[str]]
+
+### mapOfStringValue
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# StepInputUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StepOutputTypeDef
+# StepOutput
 
 ### name
 - **Type**: typing.Optional[str]
@@ -516,7 +516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -527,7 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateInputTypeDef
+# TemplateInput
 
 ### inputName
 - **Type**: typing.Optional[str]
@@ -539,31 +539,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TemplateSourceTypeDef
+# TemplateSource
 
 ### workflowId
 - **Type**: typing.Optional[str]
 
 
-# TemplateStepGroupSummaryTypeDef
+# TemplateStepGroupSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TemplateStepSummaryTypeDef
+# TemplateStepSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TemplateSummaryTypeDef
+# TemplateSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ToolTypeDef
+# Tool
 
 ### name
 - **Type**: typing.Optional[str]
@@ -572,7 +572,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -583,7 +583,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplateResponseTypeDef
+# UpdateTemplateResponse
 
 ### templateId
 - **Type**: <class 'str'>
@@ -598,20 +598,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WorkflowStepAutomationConfigurationTypeDef
+# WorkflowStepAutomationConfiguration
 
 ### scriptLocationS3Bucket
 - **Type**: typing.Optional[str]
 
 ### scriptLocationS3Key
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformScriptKeyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformScriptKey]
 
 ### command
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformCommandTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.PlatformCommand]
 
 ### runEnvironment
 - **Type**: typing.Optional[typing.Literal['AWS', 'ONPREMISE']]
@@ -620,7 +620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL', 'NONE', 'SINGLE']]
 
 
-# WorkflowStepExtraTypeDef
+# WorkflowStepExtra
 
 ### name
 - **Type**: typing.Optional[str]
@@ -632,16 +632,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepOutputUnionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepOutputUnionOutput]
 
 
-# WorkflowStepGroupSummaryTypeDef
+# WorkflowStepGroupSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowStepOutputTypeDef
+# WorkflowStepOutput
 
 ### name
 - **Type**: typing.Optional[str]
@@ -653,22 +653,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepOutputUnionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.migrationhuborchestrator_classes.WorkflowStepOutputUnionUnion]
 
 
-# WorkflowStepOutputUnionOutputTypeDef
-
-### integerValue
-- **Type**: typing.Optional[int]
-
-### stringValue
-- **Type**: typing.Optional[str]
-
-### listOfStringValue
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# WorkflowStepOutputUnionTypeDef
+# WorkflowStepOutputUnion
 
 ### integerValue
 - **Type**: typing.Optional[int]
@@ -680,13 +668,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# WorkflowStepOutputUnionUnionTypeDef
+# WorkflowStepOutputUnionOutput
+
+### integerValue
+- **Type**: typing.Optional[int]
+
+### stringValue
+- **Type**: typing.Optional[str]
+
+### listOfStringValue
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# WorkflowStepOutputUnionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# WorkflowStepSummaryTypeDef
+# WorkflowStepSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

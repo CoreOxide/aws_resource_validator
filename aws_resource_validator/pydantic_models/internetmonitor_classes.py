@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.internetmonitor_constants import *
 
-class AvailabilityMeasurementTypeDef(BaseValidatorModel):
+class AvailabilityMeasurement(BaseValidatorModel):
     ExperienceScore: Optional[float] = None
     PercentOfTotalTrafficImpacted: Optional[float] = None
     PercentOfClientLocationImpacted: Optional[float] = None
 
 
-class ClientLocationTypeDef(BaseValidatorModel):
+class ClientLocation(BaseValidatorModel):
     ASName: str
     ASNumber: int
     Country: str
@@ -29,7 +29,7 @@ class ClientLocationTypeDef(BaseValidatorModel):
     Metro: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,267 +37,267 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteMonitorInputTypeDef(BaseValidatorModel):
+class DeleteMonitorInput(BaseValidatorModel):
     MonitorName: str
 
 
-class FilterParameterTypeDef(BaseValidatorModel):
+class FilterParameter(BaseValidatorModel):
     Field: Optional[str] = None
     Operator: Optional[OperatorType] = None
     Values: Optional[Sequence[str]] = None
 
 
-class GetHealthEventInputTypeDef(BaseValidatorModel):
+class GetHealthEventInput(BaseValidatorModel):
     MonitorName: str
     EventId: str
     LinkedAccountId: Optional[str] = None
 
 
-class GetInternetEventInputTypeDef(BaseValidatorModel):
+class GetInternetEventInput(BaseValidatorModel):
     EventId: str
 
 
-class GetMonitorInputTypeDef(BaseValidatorModel):
+class GetMonitorInput(BaseValidatorModel):
     MonitorName: str
     LinkedAccountId: Optional[str] = None
 
 
-class GetQueryResultsInputTypeDef(BaseValidatorModel):
+class GetQueryResultsInput(BaseValidatorModel):
     MonitorName: str
     QueryId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetQueryStatusInputTypeDef(BaseValidatorModel):
+class GetQueryStatusInput(BaseValidatorModel):
     MonitorName: str
     QueryId: str
 
 
-class LocalHealthEventsConfigTypeDef(BaseValidatorModel):
+class LocalHealthEventsConfig(BaseValidatorModel):
     Status: Optional[LocalHealthEventsConfigStatusType] = None
     HealthScoreThreshold: Optional[float] = None
     MinTrafficImpact: Optional[float] = None
 
 
-class S3ConfigTypeDef(BaseValidatorModel):
+class S3Config(BaseValidatorModel):
     BucketName: Optional[str] = None
     BucketPrefix: Optional[str] = None
     LogDeliveryStatus: Optional[LogDeliveryStatusType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListMonitorsInputTypeDef(BaseValidatorModel):
+class ListMonitorsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     MonitorStatus: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
 
 
-class MonitorTypeDef(BaseValidatorModel):
+class Monitor(BaseValidatorModel):
     MonitorName: str
     MonitorArn: str
     Status: MonitorConfigStateType
     ProcessingStatus: Optional[MonitorProcessingStatusCodeType] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceArn: str
 
 
-class NetworkTypeDef(BaseValidatorModel):
+class Network(BaseValidatorModel):
     ASName: str
     ASNumber: int
 
 
-class RoundTripTimeTypeDef(BaseValidatorModel):
+class RoundTripTime(BaseValidatorModel):
     P50: Optional[float] = None
     P90: Optional[float] = None
     P95: Optional[float] = None
 
 
-class StopQueryInputTypeDef(BaseValidatorModel):
+class StopQueryInput(BaseValidatorModel):
     MonitorName: str
     QueryId: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class InternetEventSummaryTypeDef(BaseValidatorModel):
+class InternetEventSummary(BaseValidatorModel):
     EventId: str
     EventArn: str
     StartedAt: datetime
-    ClientLocation: ClientLocationTypeDef
+    ClientLocation: ClientLocation
     EventType: InternetEventTypeType
     EventStatus: InternetEventStatusType
     EndedAt: Optional[datetime] = None
 
 
-class CreateMonitorOutputTypeDef(BaseValidatorModel):
+class CreateMonitorOutput(BaseValidatorModel):
     Arn: str
     Status: MonitorConfigStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInternetEventOutputTypeDef(BaseValidatorModel):
+class GetInternetEventOutput(BaseValidatorModel):
     EventId: str
     EventArn: str
     StartedAt: datetime
     EndedAt: datetime
-    ClientLocation: ClientLocationTypeDef
+    ClientLocation: ClientLocation
     EventType: InternetEventTypeType
     EventStatus: InternetEventStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryStatusOutputTypeDef(BaseValidatorModel):
+class GetQueryStatusOutput(BaseValidatorModel):
     Status: QueryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQueryOutputTypeDef(BaseValidatorModel):
+class StartQueryOutput(BaseValidatorModel):
     QueryId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitorOutputTypeDef(BaseValidatorModel):
+class UpdateMonitorOutput(BaseValidatorModel):
     MonitorArn: str
     Status: MonitorConfigStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryFieldTypeDef(BaseValidatorModel):
+class QueryField(BaseValidatorModel):
     pass
 
 
-class GetQueryResultsOutputTypeDef(BaseValidatorModel):
-    Fields: List[QueryFieldTypeDef]
+class GetQueryResultsOutput(BaseValidatorModel):
+    Fields: List[QueryField]
     Data: List[List[str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class HealthEventsConfigTypeDef(BaseValidatorModel):
+class HealthEventsConfig(BaseValidatorModel):
     AvailabilityScoreThreshold: Optional[float] = None
     PerformanceScoreThreshold: Optional[float] = None
-    AvailabilityLocalHealthEventsConfig: Optional[LocalHealthEventsConfigTypeDef] = None
-    PerformanceLocalHealthEventsConfig: Optional[LocalHealthEventsConfigTypeDef] = None
+    AvailabilityLocalHealthEventsConfig: Optional[LocalHealthEventsConfig] = None
+    PerformanceLocalHealthEventsConfig: Optional[LocalHealthEventsConfig] = None
 
 
-class InternetMeasurementsLogDeliveryTypeDef(BaseValidatorModel):
-    S3Config: Optional[S3ConfigTypeDef] = None
+class InternetMeasurementsLogDelivery(BaseValidatorModel):
+    S3Config: Optional[S3Config] = None
 
 
-class ListMonitorsInputPaginateTypeDef(BaseValidatorModel):
+class ListMonitorsInputPaginate(BaseValidatorModel):
     MonitorStatus: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListHealthEventsInputPaginateTypeDef(BaseValidatorModel):
+class ListHealthEventsInputPaginate(BaseValidatorModel):
     MonitorName: str
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventStatus: Optional[HealthEventStatusType] = None
     LinkedAccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListHealthEventsInputTypeDef(BaseValidatorModel):
+class ListHealthEventsInput(BaseValidatorModel):
     MonitorName: str
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     EventStatus: Optional[HealthEventStatusType] = None
     LinkedAccountId: Optional[str] = None
 
 
-class ListInternetEventsInputPaginateTypeDef(BaseValidatorModel):
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+class ListInternetEventsInputPaginate(BaseValidatorModel):
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventStatus: Optional[str] = None
     EventType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInternetEventsInputTypeDef(BaseValidatorModel):
+class ListInternetEventsInput(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     EventStatus: Optional[str] = None
     EventType: Optional[str] = None
 
 
-class StartQueryInputTypeDef(BaseValidatorModel):
+class StartQueryInput(BaseValidatorModel):
     MonitorName: str
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+    StartTime: Timestamp
+    EndTime: Timestamp
     QueryType: QueryTypeType
-    FilterParameters: Optional[Sequence[FilterParameterTypeDef]] = None
+    FilterParameters: Optional[Sequence[FilterParameter]] = None
     LinkedAccountId: Optional[str] = None
 
 
-class ListMonitorsOutputTypeDef(BaseValidatorModel):
-    Monitors: List[MonitorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitorsOutput(BaseValidatorModel):
+    Monitors: List[Monitor]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NetworkImpairmentTypeDef(BaseValidatorModel):
-    Networks: List[NetworkTypeDef]
-    AsPath: List[NetworkTypeDef]
+class NetworkImpairment(BaseValidatorModel):
+    Networks: List[Network]
+    AsPath: List[Network]
     NetworkEventType: TriangulationEventTypeType
 
 
-class PerformanceMeasurementTypeDef(BaseValidatorModel):
+class PerformanceMeasurement(BaseValidatorModel):
     ExperienceScore: Optional[float] = None
     PercentOfTotalTrafficImpacted: Optional[float] = None
     PercentOfClientLocationImpacted: Optional[float] = None
-    RoundTripTime: Optional[RoundTripTimeTypeDef] = None
+    RoundTripTime: Optional[RoundTripTime] = None
 
 
-class ListInternetEventsOutputTypeDef(BaseValidatorModel):
-    InternetEvents: List[InternetEventSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInternetEventsOutput(BaseValidatorModel):
+    InternetEvents: List[InternetEventSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateMonitorInputTypeDef(BaseValidatorModel):
+class CreateMonitorInput(BaseValidatorModel):
     MonitorName: str
     Resources: Optional[Sequence[str]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     MaxCityNetworksToMonitor: Optional[int] = None
-    InternetMeasurementsLogDelivery: Optional[InternetMeasurementsLogDeliveryTypeDef] = None
+    InternetMeasurementsLogDelivery: Optional[InternetMeasurementsLogDelivery] = None
     TrafficPercentageToMonitor: Optional[int] = None
-    HealthEventsConfig: Optional[HealthEventsConfigTypeDef] = None
+    HealthEventsConfig: Optional[HealthEventsConfig] = None
 
 
-class GetMonitorOutputTypeDef(BaseValidatorModel):
+class GetMonitorOutput(BaseValidatorModel):
     MonitorName: str
     MonitorArn: str
     Resources: List[str]
@@ -308,30 +308,30 @@ class GetMonitorOutputTypeDef(BaseValidatorModel):
     ProcessingStatusInfo: str
     Tags: Dict[str, str]
     MaxCityNetworksToMonitor: int
-    InternetMeasurementsLogDelivery: InternetMeasurementsLogDeliveryTypeDef
+    InternetMeasurementsLogDelivery: InternetMeasurementsLogDelivery
     TrafficPercentageToMonitor: int
-    HealthEventsConfig: HealthEventsConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    HealthEventsConfig: HealthEventsConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitorInputTypeDef(BaseValidatorModel):
+class UpdateMonitorInput(BaseValidatorModel):
     MonitorName: str
     ResourcesToAdd: Optional[Sequence[str]] = None
     ResourcesToRemove: Optional[Sequence[str]] = None
     Status: Optional[MonitorConfigStateType] = None
     ClientToken: Optional[str] = None
     MaxCityNetworksToMonitor: Optional[int] = None
-    InternetMeasurementsLogDelivery: Optional[InternetMeasurementsLogDeliveryTypeDef] = None
+    InternetMeasurementsLogDelivery: Optional[InternetMeasurementsLogDelivery] = None
     TrafficPercentageToMonitor: Optional[int] = None
-    HealthEventsConfig: Optional[HealthEventsConfigTypeDef] = None
+    HealthEventsConfig: Optional[HealthEventsConfig] = None
 
 
-class InternetHealthTypeDef(BaseValidatorModel):
-    Availability: Optional[AvailabilityMeasurementTypeDef] = None
-    Performance: Optional[PerformanceMeasurementTypeDef] = None
+class InternetHealth(BaseValidatorModel):
+    Availability: Optional[AvailabilityMeasurement] = None
+    Performance: Optional[PerformanceMeasurement] = None
 
 
-class ImpactedLocationTypeDef(BaseValidatorModel):
+class ImpactedLocation(BaseValidatorModel):
     ASName: str
     ASNumber: int
     Country: str
@@ -344,32 +344,32 @@ class ImpactedLocationTypeDef(BaseValidatorModel):
     CountryCode: Optional[str] = None
     SubdivisionCode: Optional[str] = None
     ServiceLocation: Optional[str] = None
-    CausedBy: Optional[NetworkImpairmentTypeDef] = None
-    InternetHealth: Optional[InternetHealthTypeDef] = None
+    CausedBy: Optional[NetworkImpairment] = None
+    InternetHealth: Optional[InternetHealth] = None
     Ipv4Prefixes: Optional[List[str]] = None
 
 
-class GetHealthEventOutputTypeDef(BaseValidatorModel):
+class GetHealthEventOutput(BaseValidatorModel):
     EventArn: str
     EventId: str
     StartedAt: datetime
     EndedAt: datetime
     CreatedAt: datetime
     LastUpdatedAt: datetime
-    ImpactedLocations: List[ImpactedLocationTypeDef]
+    ImpactedLocations: List[ImpactedLocation]
     Status: HealthEventStatusType
     PercentOfTotalTrafficImpacted: float
     ImpactType: HealthEventImpactTypeType
     HealthScoreThreshold: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class HealthEventTypeDef(BaseValidatorModel):
+class HealthEvent(BaseValidatorModel):
     EventArn: str
     EventId: str
     StartedAt: datetime
     LastUpdatedAt: datetime
-    ImpactedLocations: List[ImpactedLocationTypeDef]
+    ImpactedLocations: List[ImpactedLocation]
     Status: HealthEventStatusType
     ImpactType: HealthEventImpactTypeType
     EndedAt: Optional[datetime] = None
@@ -378,9 +378,9 @@ class HealthEventTypeDef(BaseValidatorModel):
     HealthScoreThreshold: Optional[float] = None
 
 
-class ListHealthEventsOutputTypeDef(BaseValidatorModel):
-    HealthEvents: List[HealthEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListHealthEventsOutput(BaseValidatorModel):
+    HealthEvents: List[HealthEvent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

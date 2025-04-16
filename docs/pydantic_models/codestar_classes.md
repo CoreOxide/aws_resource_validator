@@ -1,6 +1,6 @@
 # Codestar Classes
 
-# AssociateTeamMemberRequestRequestTypeDef
+# AssociateTeamMemberRequestRequest
 
 ### projectId
 - **Type**: <class 'str'>
@@ -21,14 +21,14 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociateTeamMemberResultTypeDef
+# AssociateTeamMemberResult
 
 ### clientRequestToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -38,41 +38,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CodeCommitCodeDestinationTypeDef
+# Code
+
+### source
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.CodeSource'>
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.CodeDestination'>
+- **Required**: Yes
+
+
+# CodeCommitCodeDestination
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CodeDestinationTypeDef
+# CodeDestination
 
 ### codeCommit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.CodeCommitCodeDestinationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.CodeCommitCodeDestination]
 
 ### gitHub
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.GitHubCodeDestinationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.GitHubCodeDestination]
 
 
-# CodeSourceTypeDef
+# CodeSource
 
 ### s3
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.S3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.S3Location'>
 - **Required**: Yes
 
 
-# CodeTypeDef
-
-### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.CodeSourceTypeDef'>
-- **Required**: Yes
-
-### destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.CodeDestinationTypeDef'>
-- **Required**: Yes
-
-
-# CreateProjectRequestRequestTypeDef
+# CreateProjectRequestRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -89,16 +89,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### sourceCode
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_classes.CodeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.codestar_classes.Code]]
 
 ### toolchain
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.ToolchainTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.Toolchain]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProjectResultTypeDef
+# CreateProjectResult
 
 ### id
 - **Type**: <class 'str'>
@@ -117,11 +117,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateUserProfileRequestRequestTypeDef
+# CreateUserProfileRequestRequest
 
 ### userArn
 - **Type**: <class 'str'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateUserProfileResultTypeDef
+# CreateUserProfileResult
 
 ### userArn
 - **Type**: <class 'str'>
@@ -166,11 +166,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteProjectRequestRequestTypeDef
+# DeleteProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
@@ -183,7 +183,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteProjectResultTypeDef
+# DeleteProjectResult
 
 ### stackId
 - **Type**: <class 'str'>
@@ -194,36 +194,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteUserProfileRequestRequestTypeDef
+# DeleteUserProfileRequestRequest
 
 ### userArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserProfileResultTypeDef
+# DeleteUserProfileResult
 
 ### userArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProjectRequestRequestTypeDef
+# DescribeProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProjectResultTypeDef
+# DescribeProjectResult
 
 ### name
 - **Type**: <class 'str'>
@@ -258,22 +258,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ProjectStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ProjectStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeUserProfileRequestRequestTypeDef
+# DescribeUserProfileRequestRequest
 
 ### userArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeUserProfileResultTypeDef
+# DescribeUserProfileResult
 
 ### userArn
 - **Type**: <class 'str'>
@@ -300,11 +300,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateTeamMemberRequestRequestTypeDef
+# DisassociateTeamMemberRequestRequest
 
 ### projectId
 - **Type**: <class 'str'>
@@ -315,7 +315,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GitHubCodeDestinationTypeDef
+# GitHubCodeDestination
 
 ### name
 - **Type**: <class 'str'>
@@ -345,13 +345,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProjectsRequestListProjectsPaginateTypeDef
+# ListProjectsRequestListProjectsPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfig]
 
 
-# ListProjectsRequestRequestTypeDef
+# ListProjectsRequestRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -360,10 +360,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListProjectsResultTypeDef
+# ListProjectsResult
 
 ### projects
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.ProjectSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.ProjectSummary]
 - **Required**: Yes
 
 ### nextToken
@@ -371,21 +371,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListResourcesRequestListResourcesPaginateTypeDef
+# ListResourcesRequestListResourcesPaginate
 
 ### projectId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfig]
 
 
-# ListResourcesRequestRequestTypeDef
+# ListResourcesRequestRequest
 
 ### projectId
 - **Type**: <class 'str'>
@@ -398,10 +398,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListResourcesResultTypeDef
+# ListResourcesResult
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.ResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.Resource]
 - **Required**: Yes
 
 ### nextToken
@@ -409,11 +409,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsForProjectRequestRequestTypeDef
+# ListTagsForProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
@@ -426,7 +426,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsForProjectResultTypeDef
+# ListTagsForProjectResult
 
 ### tags
 - **Type**: typing.Dict[str, str]
@@ -437,21 +437,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTeamMembersRequestListTeamMembersPaginateTypeDef
+# ListTeamMembersRequestListTeamMembersPaginate
 
 ### projectId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfig]
 
 
-# ListTeamMembersRequestRequestTypeDef
+# ListTeamMembersRequestRequest
 
 ### projectId
 - **Type**: <class 'str'>
@@ -464,10 +464,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTeamMembersResultTypeDef
+# ListTeamMembersResult
 
 ### teamMembers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.TeamMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.TeamMember]
 - **Required**: Yes
 
 ### nextToken
@@ -475,17 +475,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListUserProfilesRequestListUserProfilesPaginateTypeDef
+# ListUserProfilesRequestListUserProfilesPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.codestar_classes.PaginatorConfig]
 
 
-# ListUserProfilesRequestRequestTypeDef
+# ListUserProfilesRequestRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -494,10 +494,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListUserProfilesResultTypeDef
+# ListUserProfilesResult
 
 ### userProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.UserProfileSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.codestar_classes.UserProfileSummary]
 - **Required**: Yes
 
 ### nextToken
@@ -505,11 +505,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -521,7 +521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProjectStatusTypeDef
+# ProjectStatus
 
 ### state
 - **Type**: <class 'str'>
@@ -531,7 +531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProjectSummaryTypeDef
+# ProjectSummary
 
 ### projectId
 - **Type**: typing.Optional[str]
@@ -540,14 +540,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceTypeDef
+# Resource
 
 ### id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -570,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# S3LocationTypeDef
+# S3Location
 
 ### bucketName
 - **Type**: typing.Optional[str]
@@ -579,7 +579,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagProjectRequestRequestTypeDef
+# TagProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
@@ -590,18 +590,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagProjectResultTypeDef
+# TagProjectResult
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TeamMemberTypeDef
+# TeamMember
 
 ### userArn
 - **Type**: <class 'str'>
@@ -615,17 +615,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ToolchainSourceTypeDef
-
-### s3
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.S3LocationTypeDef'>
-- **Required**: Yes
-
-
-# ToolchainTypeDef
+# Toolchain
 
 ### source
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ToolchainSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ToolchainSource'>
 - **Required**: Yes
 
 ### roleArn
@@ -635,7 +628,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UntagProjectRequestRequestTypeDef
+# ToolchainSource
+
+### s3
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.S3Location'>
+- **Required**: Yes
+
+
+# UntagProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
@@ -646,7 +646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProjectRequestRequestTypeDef
+# UpdateProjectRequestRequest
 
 ### id
 - **Type**: <class 'str'>
@@ -659,7 +659,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTeamMemberRequestRequestTypeDef
+# UpdateTeamMemberRequestRequest
 
 ### projectId
 - **Type**: <class 'str'>
@@ -676,7 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateTeamMemberResultTypeDef
+# UpdateTeamMemberResult
 
 ### userArn
 - **Type**: <class 'str'>
@@ -691,11 +691,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateUserProfileRequestRequestTypeDef
+# UpdateUserProfileRequestRequest
 
 ### userArn
 - **Type**: <class 'str'>
@@ -711,7 +711,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateUserProfileResultTypeDef
+# UpdateUserProfileResult
 
 ### userArn
 - **Type**: <class 'str'>
@@ -738,11 +738,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.codestar_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserProfileSummaryTypeDef
+# UserProfileSummary
 
 ### userArn
 - **Type**: typing.Optional[str]

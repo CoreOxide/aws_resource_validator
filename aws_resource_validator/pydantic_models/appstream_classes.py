@@ -12,64 +12,64 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.appstream_constants import *
 
-class AccessEndpointTypeDef(BaseValidatorModel):
+class AccessEndpoint(BaseValidatorModel):
     EndpointType: Literal["STREAMING"]
     VpceId: Optional[str] = None
 
 
-class AppBlockBuilderAppBlockAssociationTypeDef(BaseValidatorModel):
+class AppBlockBuilderAppBlockAssociation(BaseValidatorModel):
     AppBlockArn: str
     AppBlockBuilderName: str
 
 
-class AppBlockBuilderStateChangeReasonTypeDef(BaseValidatorModel):
+class AppBlockBuilderStateChangeReason(BaseValidatorModel):
     Code: Optional[Literal["INTERNAL_ERROR"]] = None
     Message: Optional[str] = None
 
 
-class ResourceErrorTypeDef(BaseValidatorModel):
+class ResourceError(BaseValidatorModel):
     ErrorCode: Optional[FleetErrorCodeType] = None
     ErrorMessage: Optional[str] = None
     ErrorTimestamp: Optional[datetime] = None
 
 
-class VpcConfigOutputTypeDef(BaseValidatorModel):
+class VpcConfigOutput(BaseValidatorModel):
     SubnetIds: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     S3Bucket: str
     S3Key: Optional[str] = None
 
 
-class ApplicationFleetAssociationTypeDef(BaseValidatorModel):
+class ApplicationFleetAssociation(BaseValidatorModel):
     FleetName: str
     ApplicationArn: str
 
 
-class ApplicationSettingsResponseTypeDef(BaseValidatorModel):
+class ApplicationSettingsResponse(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SettingsGroup: Optional[str] = None
     S3BucketName: Optional[str] = None
 
 
-class ApplicationSettingsTypeDef(BaseValidatorModel):
+class ApplicationSettings(BaseValidatorModel):
     Enabled: bool
     SettingsGroup: Optional[str] = None
 
 
-class AssociateAppBlockBuilderAppBlockRequestTypeDef(BaseValidatorModel):
+class AssociateAppBlockBuilderAppBlockRequest(BaseValidatorModel):
     AppBlockArn: str
     AppBlockBuilderName: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -77,35 +77,35 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateApplicationFleetRequestTypeDef(BaseValidatorModel):
+class AssociateApplicationFleetRequest(BaseValidatorModel):
     FleetName: str
     ApplicationArn: str
 
 
-class AssociateApplicationToEntitlementRequestTypeDef(BaseValidatorModel):
+class AssociateApplicationToEntitlementRequest(BaseValidatorModel):
     StackName: str
     EntitlementName: str
     ApplicationIdentifier: str
 
 
-class AssociateFleetRequestTypeDef(BaseValidatorModel):
+class AssociateFleetRequest(BaseValidatorModel):
     FleetName: str
     StackName: str
 
 
-class UserStackAssociationTypeDef(BaseValidatorModel):
+class UserStackAssociation(BaseValidatorModel):
     StackName: str
     UserName: str
     AuthenticationType: AuthenticationTypeType
     SendEmailNotification: Optional[bool] = None
 
 
-class CertificateBasedAuthPropertiesTypeDef(BaseValidatorModel):
+class CertificateBasedAuthProperties(BaseValidatorModel):
     Status: Optional[CertificateBasedAuthStatusType] = None
     CertificateAuthorityArn: Optional[str] = None
 
 
-class ComputeCapacityStatusTypeDef(BaseValidatorModel):
+class ComputeCapacityStatus(BaseValidatorModel):
     Desired: int
     Running: Optional[int] = None
     InUse: Optional[int] = None
@@ -116,54 +116,54 @@ class ComputeCapacityStatusTypeDef(BaseValidatorModel):
     ActualUserSessions: Optional[int] = None
 
 
-class ComputeCapacityTypeDef(BaseValidatorModel):
+class ComputeCapacity(BaseValidatorModel):
     DesiredInstances: Optional[int] = None
     DesiredSessions: Optional[int] = None
 
 
-class CopyImageRequestTypeDef(BaseValidatorModel):
+class CopyImageRequest(BaseValidatorModel):
     SourceImageName: str
     DestinationImageName: str
     DestinationRegion: str
     DestinationImageDescription: Optional[str] = None
 
 
-class CreateAppBlockBuilderStreamingURLRequestTypeDef(BaseValidatorModel):
+class CreateAppBlockBuilderStreamingURLRequest(BaseValidatorModel):
     AppBlockBuilderName: str
     Validity: Optional[int] = None
 
 
-class ServiceAccountCredentialsTypeDef(BaseValidatorModel):
+class ServiceAccountCredentials(BaseValidatorModel):
     AccountName: str
     AccountPassword: str
 
 
-class EntitlementAttributeTypeDef(BaseValidatorModel):
+class EntitlementAttribute(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class DomainJoinInfoTypeDef(BaseValidatorModel):
+class DomainJoinInfo(BaseValidatorModel):
     DirectoryName: Optional[str] = None
     OrganizationalUnitDistinguishedName: Optional[str] = None
 
 
-class CreateImageBuilderStreamingURLRequestTypeDef(BaseValidatorModel):
+class CreateImageBuilderStreamingURLRequest(BaseValidatorModel):
     Name: str
     Validity: Optional[int] = None
 
 
-class StreamingExperienceSettingsTypeDef(BaseValidatorModel):
+class StreamingExperienceSettings(BaseValidatorModel):
     PreferredProtocol: Optional[PreferredProtocolType] = None
 
 
-class UserSettingTypeDef(BaseValidatorModel):
+class UserSetting(BaseValidatorModel):
     Action: ActionType
     Permission: PermissionType
     MaximumLength: Optional[int] = None
 
 
-class CreateStreamingURLRequestTypeDef(BaseValidatorModel):
+class CreateStreamingURLRequest(BaseValidatorModel):
     StackName: str
     FleetName: str
     UserId: str
@@ -172,12 +172,12 @@ class CreateStreamingURLRequestTypeDef(BaseValidatorModel):
     SessionContext: Optional[str] = None
 
 
-class ThemeFooterLinkTypeDef(BaseValidatorModel):
+class ThemeFooterLink(BaseValidatorModel):
     DisplayName: Optional[str] = None
     FooterLinkURL: Optional[str] = None
 
 
-class CreateUpdatedImageRequestTypeDef(BaseValidatorModel):
+class CreateUpdatedImageRequest(BaseValidatorModel):
     existingImageName: str
     newImageName: str
     newImageDescription: Optional[str] = None
@@ -186,7 +186,7 @@ class CreateUpdatedImageRequestTypeDef(BaseValidatorModel):
     dryRun: Optional[bool] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationType: AuthenticationTypeType
     MessageAction: Optional[MessageActionType] = None
@@ -194,132 +194,132 @@ class CreateUserRequestTypeDef(BaseValidatorModel):
     LastName: Optional[str] = None
 
 
-class DeleteAppBlockBuilderRequestTypeDef(BaseValidatorModel):
+class DeleteAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteAppBlockRequestTypeDef(BaseValidatorModel):
+class DeleteAppBlockRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteDirectoryConfigRequestTypeDef(BaseValidatorModel):
+class DeleteDirectoryConfigRequest(BaseValidatorModel):
     DirectoryName: str
 
 
-class DeleteEntitlementRequestTypeDef(BaseValidatorModel):
+class DeleteEntitlementRequest(BaseValidatorModel):
     Name: str
     StackName: str
 
 
-class DeleteFleetRequestTypeDef(BaseValidatorModel):
+class DeleteFleetRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteImageBuilderRequestTypeDef(BaseValidatorModel):
+class DeleteImageBuilderRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteImagePermissionsRequestTypeDef(BaseValidatorModel):
+class DeleteImagePermissionsRequest(BaseValidatorModel):
     Name: str
     SharedAccountId: str
 
 
-class DeleteImageRequestTypeDef(BaseValidatorModel):
+class DeleteImageRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteStackRequestTypeDef(BaseValidatorModel):
+class DeleteStackRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteThemeForStackRequestTypeDef(BaseValidatorModel):
+class DeleteThemeForStackRequest(BaseValidatorModel):
     StackName: str
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationType: AuthenticationTypeType
 
 
-class DescribeAppBlockBuilderAppBlockAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeAppBlockBuilderAppBlockAssociationsRequest(BaseValidatorModel):
     AppBlockArn: Optional[str] = None
     AppBlockBuilderName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeAppBlockBuildersRequestTypeDef(BaseValidatorModel):
+class DescribeAppBlockBuildersRequest(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeAppBlocksRequestTypeDef(BaseValidatorModel):
+class DescribeAppBlocksRequest(BaseValidatorModel):
     Arns: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeApplicationFleetAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationFleetAssociationsRequest(BaseValidatorModel):
     FleetName: Optional[str] = None
     ApplicationArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationsRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationsRequest(BaseValidatorModel):
     Arns: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeDirectoryConfigsRequestTypeDef(BaseValidatorModel):
+class DescribeDirectoryConfigsRequest(BaseValidatorModel):
     DirectoryNames: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeEntitlementsRequestTypeDef(BaseValidatorModel):
+class DescribeEntitlementsRequest(BaseValidatorModel):
     StackName: str
     Name: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeFleetsRequestTypeDef(BaseValidatorModel):
+class DescribeFleetsRequest(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeImageBuildersRequestTypeDef(BaseValidatorModel):
+class DescribeImageBuildersRequest(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeImagePermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeImagePermissionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     SharedAwsAccountIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
 
-class DescribeSessionsRequestTypeDef(BaseValidatorModel):
+class DescribeSessionsRequest(BaseValidatorModel):
     StackName: str
     FleetName: str
     UserId: Optional[str] = None
@@ -329,21 +329,21 @@ class DescribeSessionsRequestTypeDef(BaseValidatorModel):
     InstanceId: Optional[str] = None
 
 
-class DescribeStacksRequestTypeDef(BaseValidatorModel):
+class DescribeStacksRequest(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
 
-class DescribeThemeForStackRequestTypeDef(BaseValidatorModel):
+class DescribeThemeForStackRequest(BaseValidatorModel):
     StackName: str
 
 
-class DescribeUsageReportSubscriptionsRequestTypeDef(BaseValidatorModel):
+class DescribeUsageReportSubscriptionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeUserStackAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeUserStackAssociationsRequest(BaseValidatorModel):
     StackName: Optional[str] = None
     UserName: Optional[str] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
@@ -351,13 +351,13 @@ class DescribeUserStackAssociationsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeUsersRequestTypeDef(BaseValidatorModel):
+class DescribeUsersRequest(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
     Arn: Optional[str] = None
     UserName: Optional[str] = None
@@ -368,173 +368,173 @@ class UserTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
-class DisableUserRequestTypeDef(BaseValidatorModel):
+class DisableUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationType: AuthenticationTypeType
 
 
-class DisassociateAppBlockBuilderAppBlockRequestTypeDef(BaseValidatorModel):
+class DisassociateAppBlockBuilderAppBlockRequest(BaseValidatorModel):
     AppBlockArn: str
     AppBlockBuilderName: str
 
 
-class DisassociateApplicationFleetRequestTypeDef(BaseValidatorModel):
+class DisassociateApplicationFleetRequest(BaseValidatorModel):
     FleetName: str
     ApplicationArn: str
 
 
-class DisassociateApplicationFromEntitlementRequestTypeDef(BaseValidatorModel):
+class DisassociateApplicationFromEntitlementRequest(BaseValidatorModel):
     StackName: str
     EntitlementName: str
     ApplicationIdentifier: str
 
 
-class DisassociateFleetRequestTypeDef(BaseValidatorModel):
+class DisassociateFleetRequest(BaseValidatorModel):
     FleetName: str
     StackName: str
 
 
-class EnableUserRequestTypeDef(BaseValidatorModel):
+class EnableUserRequest(BaseValidatorModel):
     UserName: str
     AuthenticationType: AuthenticationTypeType
 
 
-class EntitledApplicationTypeDef(BaseValidatorModel):
+class EntitledApplication(BaseValidatorModel):
     ApplicationIdentifier: str
 
 
-class ExpireSessionRequestTypeDef(BaseValidatorModel):
+class ExpireSessionRequest(BaseValidatorModel):
     SessionId: str
 
 
-class FleetErrorTypeDef(BaseValidatorModel):
+class FleetError(BaseValidatorModel):
     ErrorCode: Optional[FleetErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ImageBuilderStateChangeReasonTypeDef(BaseValidatorModel):
+class ImageBuilderStateChangeReason(BaseValidatorModel):
     Code: Optional[ImageBuilderStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class NetworkAccessConfigurationTypeDef(BaseValidatorModel):
+class NetworkAccessConfiguration(BaseValidatorModel):
     EniPrivateIpAddress: Optional[str] = None
     EniId: Optional[str] = None
 
 
-class ImagePermissionsTypeDef(BaseValidatorModel):
+class ImagePermissions(BaseValidatorModel):
     allowFleet: Optional[bool] = None
     allowImageBuilder: Optional[bool] = None
 
 
-class ImageStateChangeReasonTypeDef(BaseValidatorModel):
+class ImageStateChangeReason(BaseValidatorModel):
     Code: Optional[ImageStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class LastReportGenerationExecutionErrorTypeDef(BaseValidatorModel):
+class LastReportGenerationExecutionError(BaseValidatorModel):
     ErrorCode: Optional[UsageReportExecutionErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ListAssociatedFleetsRequestTypeDef(BaseValidatorModel):
+class ListAssociatedFleetsRequest(BaseValidatorModel):
     StackName: str
     NextToken: Optional[str] = None
 
 
-class ListAssociatedStacksRequestTypeDef(BaseValidatorModel):
+class ListAssociatedStacksRequest(BaseValidatorModel):
     FleetName: str
     NextToken: Optional[str] = None
 
 
-class ListEntitledApplicationsRequestTypeDef(BaseValidatorModel):
+class ListEntitledApplicationsRequest(BaseValidatorModel):
     StackName: str
     EntitlementName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class StackErrorTypeDef(BaseValidatorModel):
+class StackError(BaseValidatorModel):
     ErrorCode: Optional[StackErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class StorageConnectorOutputTypeDef(BaseValidatorModel):
+class StorageConnectorOutput(BaseValidatorModel):
     ConnectorType: StorageConnectorTypeType
     ResourceIdentifier: Optional[str] = None
     Domains: Optional[List[str]] = None
     DomainsRequireAdminConsent: Optional[List[str]] = None
 
 
-class StartAppBlockBuilderRequestTypeDef(BaseValidatorModel):
+class StartAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
 
 
-class StartFleetRequestTypeDef(BaseValidatorModel):
+class StartFleetRequest(BaseValidatorModel):
     Name: str
 
 
-class StartImageBuilderRequestTypeDef(BaseValidatorModel):
+class StartImageBuilderRequest(BaseValidatorModel):
     Name: str
     AppstreamAgentVersion: Optional[str] = None
 
 
-class StopAppBlockBuilderRequestTypeDef(BaseValidatorModel):
+class StopAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
 
 
-class StopFleetRequestTypeDef(BaseValidatorModel):
+class StopFleetRequest(BaseValidatorModel):
     Name: str
 
 
-class StopImageBuilderRequestTypeDef(BaseValidatorModel):
+class StopImageBuilderRequest(BaseValidatorModel):
     Name: str
 
 
-class StorageConnectorTypeDef(BaseValidatorModel):
+class StorageConnector(BaseValidatorModel):
     ConnectorType: StorageConnectorTypeType
     ResourceIdentifier: Optional[str] = None
     Domains: Optional[Sequence[str]] = None
     DomainsRequireAdminConsent: Optional[Sequence[str]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     SubnetIds: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class AppBlockBuilderTypeDef(BaseValidatorModel):
+class AppBlockBuilder(BaseValidatorModel):
     Arn: str
     Name: str
     Platform: Literal["WINDOWS_SERVER_2019"]
     InstanceType: str
-    VpcConfig: VpcConfigOutputTypeDef
+    VpcConfig: VpcConfigOutput
     State: AppBlockBuilderStateType
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     EnableDefaultInternetAccess: Optional[bool] = None
     IamRoleArn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    AppBlockBuilderErrors: Optional[List[ResourceErrorTypeDef]] = None
-    StateChangeReason: Optional[AppBlockBuilderStateChangeReasonTypeDef] = None
-    AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
+    AppBlockBuilderErrors: Optional[List[ResourceError]] = None
+    StateChangeReason: Optional[AppBlockBuilderStateChangeReason] = None
+    AccessEndpoints: Optional[List[AccessEndpoint]] = None
 
 
-class ApplicationTypeDef(BaseValidatorModel):
+class Application(BaseValidatorModel):
     Name: Optional[str] = None
     DisplayName: Optional[str] = None
     IconURL: Optional[str] = None
@@ -546,15 +546,15 @@ class ApplicationTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
     Arn: Optional[str] = None
     AppBlockArn: Optional[str] = None
-    IconS3Location: Optional[S3LocationTypeDef] = None
+    IconS3Location: Optional[S3Location] = None
     Platforms: Optional[List[PlatformTypeType]] = None
     InstanceFamilies: Optional[List[str]] = None
     CreatedTime: Optional[datetime] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     Name: str
-    IconS3Location: S3LocationTypeDef
+    IconS3Location: S3Location
     LaunchPath: str
     Platforms: Sequence[PlatformTypeType]
     InstanceFamilies: Sequence[str]
@@ -566,18 +566,18 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ScriptDetailsTypeDef(BaseValidatorModel):
-    ScriptS3Location: S3LocationTypeDef
+class ScriptDetails(BaseValidatorModel):
+    ScriptS3Location: S3Location
     ExecutablePath: str
     TimeoutInSeconds: int
     ExecutableParameters: Optional[str] = None
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     Name: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
-    IconS3Location: Optional[S3LocationTypeDef] = None
+    IconS3Location: Optional[S3Location] = None
     LaunchPath: Optional[str] = None
     WorkingDirectory: Optional[str] = None
     LaunchParameters: Optional[str] = None
@@ -585,253 +585,253 @@ class UpdateApplicationRequestTypeDef(BaseValidatorModel):
     AttributesToDelete: Optional[Sequence[ApplicationAttributeType]] = None
 
 
-class AssociateAppBlockBuilderAppBlockResultTypeDef(BaseValidatorModel):
-    AppBlockBuilderAppBlockAssociation: AppBlockBuilderAppBlockAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateAppBlockBuilderAppBlockResult(BaseValidatorModel):
+    AppBlockBuilderAppBlockAssociation: AppBlockBuilderAppBlockAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateApplicationFleetResultTypeDef(BaseValidatorModel):
-    ApplicationFleetAssociation: ApplicationFleetAssociationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociateApplicationFleetResult(BaseValidatorModel):
+    ApplicationFleetAssociation: ApplicationFleetAssociation
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyImageResponseTypeDef(BaseValidatorModel):
+class CopyImageResponse(BaseValidatorModel):
     DestinationImageName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAppBlockBuilderStreamingURLResultTypeDef(BaseValidatorModel):
+class CreateAppBlockBuilderStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageBuilderStreamingURLResultTypeDef(BaseValidatorModel):
+class CreateImageBuilderStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamingURLResultTypeDef(BaseValidatorModel):
+class CreateStreamingURLResult(BaseValidatorModel):
     StreamingURL: str
     Expires: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUsageReportSubscriptionResultTypeDef(BaseValidatorModel):
+class CreateUsageReportSubscriptionResult(BaseValidatorModel):
     S3BucketName: str
     Schedule: Literal["DAILY"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppBlockBuilderAppBlockAssociationsResultTypeDef(BaseValidatorModel):
-    AppBlockBuilderAppBlockAssociations: List[AppBlockBuilderAppBlockAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAppBlockBuilderAppBlockAssociationsResult(BaseValidatorModel):
+    AppBlockBuilderAppBlockAssociations: List[AppBlockBuilderAppBlockAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeApplicationFleetAssociationsResultTypeDef(BaseValidatorModel):
-    ApplicationFleetAssociations: List[ApplicationFleetAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationFleetAssociationsResult(BaseValidatorModel):
+    ApplicationFleetAssociations: List[ApplicationFleetAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAssociatedFleetsResultTypeDef(BaseValidatorModel):
+class ListAssociatedFleetsResult(BaseValidatorModel):
     Names: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAssociatedStacksResultTypeDef(BaseValidatorModel):
+class ListAssociatedStacksResult(BaseValidatorModel):
     Names: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchAssociateUserStackRequestTypeDef(BaseValidatorModel):
-    UserStackAssociations: Sequence[UserStackAssociationTypeDef]
+class BatchAssociateUserStackRequest(BaseValidatorModel):
+    UserStackAssociations: Sequence[UserStackAssociation]
 
 
-class BatchDisassociateUserStackRequestTypeDef(BaseValidatorModel):
-    UserStackAssociations: Sequence[UserStackAssociationTypeDef]
+class BatchDisassociateUserStackRequest(BaseValidatorModel):
+    UserStackAssociations: Sequence[UserStackAssociation]
 
 
-class DescribeUserStackAssociationsResultTypeDef(BaseValidatorModel):
-    UserStackAssociations: List[UserStackAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeUserStackAssociationsResult(BaseValidatorModel):
+    UserStackAssociations: List[UserStackAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UserStackAssociationErrorTypeDef(BaseValidatorModel):
-    UserStackAssociation: Optional[UserStackAssociationTypeDef] = None
+class UserStackAssociationError(BaseValidatorModel):
+    UserStackAssociation: Optional[UserStackAssociation] = None
     ErrorCode: Optional[UserStackAssociationErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class CreateDirectoryConfigRequestTypeDef(BaseValidatorModel):
+class CreateDirectoryConfigRequest(BaseValidatorModel):
     DirectoryName: str
     OrganizationalUnitDistinguishedNames: Sequence[str]
-    ServiceAccountCredentials: Optional[ServiceAccountCredentialsTypeDef] = None
-    CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
+    ServiceAccountCredentials: Optional[ServiceAccountCredentials] = None
+    CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
 
 
-class DirectoryConfigTypeDef(BaseValidatorModel):
+class DirectoryConfig(BaseValidatorModel):
     DirectoryName: str
     OrganizationalUnitDistinguishedNames: Optional[List[str]] = None
-    ServiceAccountCredentials: Optional[ServiceAccountCredentialsTypeDef] = None
+    ServiceAccountCredentials: Optional[ServiceAccountCredentials] = None
     CreatedTime: Optional[datetime] = None
-    CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
+    CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
 
 
-class UpdateDirectoryConfigRequestTypeDef(BaseValidatorModel):
+class UpdateDirectoryConfigRequest(BaseValidatorModel):
     DirectoryName: str
     OrganizationalUnitDistinguishedNames: Optional[Sequence[str]] = None
-    ServiceAccountCredentials: Optional[ServiceAccountCredentialsTypeDef] = None
-    CertificateBasedAuthProperties: Optional[CertificateBasedAuthPropertiesTypeDef] = None
+    ServiceAccountCredentials: Optional[ServiceAccountCredentials] = None
+    CertificateBasedAuthProperties: Optional[CertificateBasedAuthProperties] = None
 
 
-class CreateEntitlementRequestTypeDef(BaseValidatorModel):
+class CreateEntitlementRequest(BaseValidatorModel):
     Name: str
     StackName: str
     AppVisibility: AppVisibilityType
-    Attributes: Sequence[EntitlementAttributeTypeDef]
+    Attributes: Sequence[EntitlementAttribute]
     Description: Optional[str] = None
 
 
-class EntitlementTypeDef(BaseValidatorModel):
+class Entitlement(BaseValidatorModel):
     Name: str
     StackName: str
     AppVisibility: AppVisibilityType
-    Attributes: List[EntitlementAttributeTypeDef]
+    Attributes: List[EntitlementAttribute]
     Description: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class UpdateEntitlementRequestTypeDef(BaseValidatorModel):
+class UpdateEntitlementRequest(BaseValidatorModel):
     Name: str
     StackName: str
     Description: Optional[str] = None
     AppVisibility: Optional[AppVisibilityType] = None
-    Attributes: Optional[Sequence[EntitlementAttributeTypeDef]] = None
+    Attributes: Optional[Sequence[EntitlementAttribute]] = None
 
 
-class CreateThemeForStackRequestTypeDef(BaseValidatorModel):
+class CreateThemeForStackRequest(BaseValidatorModel):
     StackName: str
     TitleText: str
     ThemeStyling: ThemeStylingType
-    OrganizationLogoS3Location: S3LocationTypeDef
-    FaviconS3Location: S3LocationTypeDef
-    FooterLinks: Optional[Sequence[ThemeFooterLinkTypeDef]] = None
+    OrganizationLogoS3Location: S3Location
+    FaviconS3Location: S3Location
+    FooterLinks: Optional[Sequence[ThemeFooterLink]] = None
 
 
-class ThemeTypeDef(BaseValidatorModel):
+class Theme(BaseValidatorModel):
     StackName: Optional[str] = None
     State: Optional[ThemeStateType] = None
     ThemeTitleText: Optional[str] = None
     ThemeStyling: Optional[ThemeStylingType] = None
-    ThemeFooterLinks: Optional[List[ThemeFooterLinkTypeDef]] = None
+    ThemeFooterLinks: Optional[List[ThemeFooterLink]] = None
     ThemeOrganizationLogoURL: Optional[str] = None
     ThemeFaviconURL: Optional[str] = None
     CreatedTime: Optional[datetime] = None
 
 
-class UpdateThemeForStackRequestTypeDef(BaseValidatorModel):
+class UpdateThemeForStackRequest(BaseValidatorModel):
     StackName: str
-    FooterLinks: Optional[Sequence[ThemeFooterLinkTypeDef]] = None
+    FooterLinks: Optional[Sequence[ThemeFooterLink]] = None
     TitleText: Optional[str] = None
     ThemeStyling: Optional[ThemeStylingType] = None
-    OrganizationLogoS3Location: Optional[S3LocationTypeDef] = None
-    FaviconS3Location: Optional[S3LocationTypeDef] = None
+    OrganizationLogoS3Location: Optional[S3Location] = None
+    FaviconS3Location: Optional[S3Location] = None
     State: Optional[ThemeStateType] = None
     AttributesToDelete: Optional[Sequence[Literal["FOOTER_LINKS"]]] = None
 
 
-class DescribeDirectoryConfigsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeDirectoryConfigsRequestPaginate(BaseValidatorModel):
     DirectoryNames: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFleetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeFleetsRequestPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeImageBuildersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeImageBuildersRequestPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSessionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSessionsRequestPaginate(BaseValidatorModel):
     StackName: str
     FleetName: str
     UserId: Optional[str] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
     InstanceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeStacksRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeStacksRequestPaginate(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeUserStackAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeUserStackAssociationsRequestPaginate(BaseValidatorModel):
     StackName: Optional[str] = None
     UserName: Optional[str] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeUsersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeUsersRequestPaginate(BaseValidatorModel):
     AuthenticationType: AuthenticationTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociatedFleetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociatedFleetsRequestPaginate(BaseValidatorModel):
     StackName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociatedStacksRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociatedStacksRequestPaginate(BaseValidatorModel):
     FleetName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFleetsRequestWaitExtraTypeDef(BaseValidatorModel):
+class DescribeFleetsRequestWaitExtra(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeFleetsRequestWaitTypeDef(BaseValidatorModel):
+class DescribeFleetsRequestWait(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeUsersResultTypeDef(BaseValidatorModel):
-    Users: List[UserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeUsersResult(BaseValidatorModel):
+    Users: List[User]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEntitledApplicationsResultTypeDef(BaseValidatorModel):
-    EntitledApplications: List[EntitledApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntitledApplicationsResult(BaseValidatorModel):
+    EntitledApplications: List[EntitledApplication]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FleetTypeDef(BaseValidatorModel):
+class Fleet(BaseValidatorModel):
     Arn: str
     Name: str
     InstanceType: str
-    ComputeCapacityStatus: ComputeCapacityStatusTypeDef
+    ComputeCapacityStatus: ComputeCapacityStatus
     State: FleetStateType
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
@@ -840,44 +840,44 @@ class FleetTypeDef(BaseValidatorModel):
     FleetType: Optional[FleetTypeType] = None
     MaxUserDurationInSeconds: Optional[int] = None
     DisconnectTimeoutInSeconds: Optional[int] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     CreatedTime: Optional[datetime] = None
-    FleetErrors: Optional[List[FleetErrorTypeDef]] = None
+    FleetErrors: Optional[List[FleetError]] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
+    DomainJoinInfo: Optional[DomainJoinInfo] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
     IamRoleArn: Optional[str] = None
     StreamView: Optional[StreamViewType] = None
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
     UsbDeviceFilterStrings: Optional[List[str]] = None
-    SessionScriptS3Location: Optional[S3LocationTypeDef] = None
+    SessionScriptS3Location: Optional[S3Location] = None
     MaxSessionsPerInstance: Optional[int] = None
 
 
-class ImageBuilderTypeDef(BaseValidatorModel):
+class ImageBuilder(BaseValidatorModel):
     Name: str
     Arn: Optional[str] = None
     ImageArn: Optional[str] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    VpcConfig: Optional[VpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[VpcConfigOutput] = None
     InstanceType: Optional[str] = None
     Platform: Optional[PlatformTypeType] = None
     IamRoleArn: Optional[str] = None
     State: Optional[ImageBuilderStateType] = None
-    StateChangeReason: Optional[ImageBuilderStateChangeReasonTypeDef] = None
+    StateChangeReason: Optional[ImageBuilderStateChangeReason] = None
     CreatedTime: Optional[datetime] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
-    NetworkAccessConfiguration: Optional[NetworkAccessConfigurationTypeDef] = None
-    ImageBuilderErrors: Optional[List[ResourceErrorTypeDef]] = None
+    DomainJoinInfo: Optional[DomainJoinInfo] = None
+    NetworkAccessConfiguration: Optional[NetworkAccessConfiguration] = None
+    ImageBuilderErrors: Optional[List[ResourceError]] = None
     AppstreamAgentVersion: Optional[str] = None
-    AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
+    AccessEndpoints: Optional[List[AccessEndpoint]] = None
     LatestAppstreamAgentVersion: Optional[LatestAppstreamAgentVersionType] = None
 
 
-class SessionTypeDef(BaseValidatorModel):
+class Session(BaseValidatorModel):
     Id: str
     UserId: str
     StackName: str
@@ -887,83 +887,83 @@ class SessionTypeDef(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     MaxExpirationTime: Optional[datetime] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
-    NetworkAccessConfiguration: Optional[NetworkAccessConfigurationTypeDef] = None
+    NetworkAccessConfiguration: Optional[NetworkAccessConfiguration] = None
     InstanceId: Optional[str] = None
 
 
-class SharedImagePermissionsTypeDef(BaseValidatorModel):
+class SharedImagePermissions(BaseValidatorModel):
     sharedAccountId: str
-    imagePermissions: ImagePermissionsTypeDef
+    imagePermissions: ImagePermissions
 
 
-class UpdateImagePermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateImagePermissionsRequest(BaseValidatorModel):
     Name: str
     SharedAccountId: str
-    ImagePermissions: ImagePermissionsTypeDef
+    ImagePermissions: ImagePermissions
 
 
-class UsageReportSubscriptionTypeDef(BaseValidatorModel):
+class UsageReportSubscription(BaseValidatorModel):
     S3BucketName: Optional[str] = None
     Schedule: Optional[Literal["DAILY"]] = None
     LastGeneratedReportDate: Optional[datetime] = None
-    SubscriptionErrors: Optional[List[LastReportGenerationExecutionErrorTypeDef]] = None
+    SubscriptionErrors: Optional[List[LastReportGenerationExecutionError]] = None
 
 
-class StackTypeDef(BaseValidatorModel):
+class Stack(BaseValidatorModel):
     Name: str
     Arn: Optional[str] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    StorageConnectors: Optional[List[StorageConnectorOutputTypeDef]] = None
+    StorageConnectors: Optional[List[StorageConnectorOutput]] = None
     RedirectURL: Optional[str] = None
     FeedbackURL: Optional[str] = None
-    StackErrors: Optional[List[StackErrorTypeDef]] = None
-    UserSettings: Optional[List[UserSettingTypeDef]] = None
-    ApplicationSettings: Optional[ApplicationSettingsResponseTypeDef] = None
-    AccessEndpoints: Optional[List[AccessEndpointTypeDef]] = None
+    StackErrors: Optional[List[StackError]] = None
+    UserSettings: Optional[List[UserSetting]] = None
+    ApplicationSettings: Optional[ApplicationSettingsResponse] = None
+    AccessEndpoints: Optional[List[AccessEndpoint]] = None
     EmbedHostDomains: Optional[List[str]] = None
-    StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
+    StreamingExperienceSettings: Optional[StreamingExperienceSettings] = None
 
 
-class CreateAppBlockBuilderResultTypeDef(BaseValidatorModel):
-    AppBlockBuilder: AppBlockBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAppBlockBuilderResult(BaseValidatorModel):
+    AppBlockBuilder: AppBlockBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppBlockBuildersResultTypeDef(BaseValidatorModel):
-    AppBlockBuilders: List[AppBlockBuilderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAppBlockBuildersResult(BaseValidatorModel):
+    AppBlockBuilders: List[AppBlockBuilder]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartAppBlockBuilderResultTypeDef(BaseValidatorModel):
-    AppBlockBuilder: AppBlockBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartAppBlockBuilderResult(BaseValidatorModel):
+    AppBlockBuilder: AppBlockBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class StopAppBlockBuilderResultTypeDef(BaseValidatorModel):
-    AppBlockBuilder: AppBlockBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopAppBlockBuilderResult(BaseValidatorModel):
+    AppBlockBuilder: AppBlockBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAppBlockBuilderResultTypeDef(BaseValidatorModel):
-    AppBlockBuilder: AppBlockBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAppBlockBuilderResult(BaseValidatorModel):
+    AppBlockBuilder: AppBlockBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationResultTypeDef(BaseValidatorModel):
-    Application: ApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApplicationResult(BaseValidatorModel):
+    Application: Application
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationsResultTypeDef(BaseValidatorModel):
-    Applications: List[ApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationsResult(BaseValidatorModel):
+    Applications: List[Application]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ImageTypeDef(BaseValidatorModel):
+class Image(BaseValidatorModel):
     Name: str
     Arn: Optional[str] = None
     BaseImageArn: Optional[str] = None
@@ -974,249 +974,249 @@ class ImageTypeDef(BaseValidatorModel):
     ImageBuilderName: Optional[str] = None
     Platform: Optional[PlatformTypeType] = None
     Description: Optional[str] = None
-    StateChangeReason: Optional[ImageStateChangeReasonTypeDef] = None
-    Applications: Optional[List[ApplicationTypeDef]] = None
+    StateChangeReason: Optional[ImageStateChangeReason] = None
+    Applications: Optional[List[Application]] = None
     CreatedTime: Optional[datetime] = None
     PublicBaseImageReleasedDate: Optional[datetime] = None
     AppstreamAgentVersion: Optional[str] = None
-    ImagePermissions: Optional[ImagePermissionsTypeDef] = None
-    ImageErrors: Optional[List[ResourceErrorTypeDef]] = None
+    ImagePermissions: Optional[ImagePermissions] = None
+    ImageErrors: Optional[List[ResourceError]] = None
     LatestAppstreamAgentVersion: Optional[LatestAppstreamAgentVersionType] = None
     SupportedInstanceFamilies: Optional[List[str]] = None
     DynamicAppProvidersEnabled: Optional[DynamicAppProvidersEnabledType] = None
     ImageSharedWithOthers: Optional[ImageSharedWithOthersType] = None
 
 
-class UpdateApplicationResultTypeDef(BaseValidatorModel):
-    Application: ApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateApplicationResult(BaseValidatorModel):
+    Application: Application
+    ResponseMetadata: ResponseMetadata
 
 
-class AppBlockTypeDef(BaseValidatorModel):
+class AppBlock(BaseValidatorModel):
     Name: str
     Arn: str
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    SourceS3Location: Optional[S3LocationTypeDef] = None
-    SetupScriptDetails: Optional[ScriptDetailsTypeDef] = None
+    SourceS3Location: Optional[S3Location] = None
+    SetupScriptDetails: Optional[ScriptDetails] = None
     CreatedTime: Optional[datetime] = None
-    PostSetupScriptDetails: Optional[ScriptDetailsTypeDef] = None
+    PostSetupScriptDetails: Optional[ScriptDetails] = None
     PackagingType: Optional[PackagingTypeType] = None
     State: Optional[AppBlockStateType] = None
-    AppBlockErrors: Optional[List[ErrorDetailsTypeDef]] = None
+    AppBlockErrors: Optional[List[ErrorDetails]] = None
 
 
-class CreateAppBlockRequestTypeDef(BaseValidatorModel):
+class CreateAppBlockRequest(BaseValidatorModel):
     Name: str
-    SourceS3Location: S3LocationTypeDef
+    SourceS3Location: S3Location
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    SetupScriptDetails: Optional[ScriptDetailsTypeDef] = None
+    SetupScriptDetails: Optional[ScriptDetails] = None
     Tags: Optional[Mapping[str, str]] = None
-    PostSetupScriptDetails: Optional[ScriptDetailsTypeDef] = None
+    PostSetupScriptDetails: Optional[ScriptDetails] = None
     PackagingType: Optional[PackagingTypeType] = None
 
 
-class BatchAssociateUserStackResultTypeDef(BaseValidatorModel):
-    errors: List[UserStackAssociationErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAssociateUserStackResult(BaseValidatorModel):
+    errors: List[UserStackAssociationError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateUserStackResultTypeDef(BaseValidatorModel):
-    errors: List[UserStackAssociationErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisassociateUserStackResult(BaseValidatorModel):
+    errors: List[UserStackAssociationError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDirectoryConfigResultTypeDef(BaseValidatorModel):
-    DirectoryConfig: DirectoryConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDirectoryConfigResult(BaseValidatorModel):
+    DirectoryConfig: DirectoryConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDirectoryConfigsResultTypeDef(BaseValidatorModel):
-    DirectoryConfigs: List[DirectoryConfigTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDirectoryConfigsResult(BaseValidatorModel):
+    DirectoryConfigs: List[DirectoryConfig]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateDirectoryConfigResultTypeDef(BaseValidatorModel):
-    DirectoryConfig: DirectoryConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDirectoryConfigResult(BaseValidatorModel):
+    DirectoryConfig: DirectoryConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEntitlementResultTypeDef(BaseValidatorModel):
-    Entitlement: EntitlementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateEntitlementResult(BaseValidatorModel):
+    Entitlement: Entitlement
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEntitlementsResultTypeDef(BaseValidatorModel):
-    Entitlements: List[EntitlementTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEntitlementsResult(BaseValidatorModel):
+    Entitlements: List[Entitlement]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateEntitlementResultTypeDef(BaseValidatorModel):
-    Entitlement: EntitlementTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateEntitlementResult(BaseValidatorModel):
+    Entitlement: Entitlement
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateThemeForStackResultTypeDef(BaseValidatorModel):
-    Theme: ThemeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateThemeForStackResult(BaseValidatorModel):
+    Theme: Theme
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeThemeForStackResultTypeDef(BaseValidatorModel):
-    Theme: ThemeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeThemeForStackResult(BaseValidatorModel):
+    Theme: Theme
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateThemeForStackResultTypeDef(BaseValidatorModel):
-    Theme: ThemeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateThemeForStackResult(BaseValidatorModel):
+    Theme: Theme
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFleetResultTypeDef(BaseValidatorModel):
-    Fleet: FleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateFleetResult(BaseValidatorModel):
+    Fleet: Fleet
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFleetsResultTypeDef(BaseValidatorModel):
-    Fleets: List[FleetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFleetsResult(BaseValidatorModel):
+    Fleets: List[Fleet]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateFleetResultTypeDef(BaseValidatorModel):
-    Fleet: FleetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateFleetResult(BaseValidatorModel):
+    Fleet: Fleet
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateImageBuilderResultTypeDef(BaseValidatorModel):
-    ImageBuilder: ImageBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateImageBuilderResult(BaseValidatorModel):
+    ImageBuilder: ImageBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteImageBuilderResultTypeDef(BaseValidatorModel):
-    ImageBuilder: ImageBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteImageBuilderResult(BaseValidatorModel):
+    ImageBuilder: ImageBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImageBuildersResultTypeDef(BaseValidatorModel):
-    ImageBuilders: List[ImageBuilderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeImageBuildersResult(BaseValidatorModel):
+    ImageBuilders: List[ImageBuilder]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartImageBuilderResultTypeDef(BaseValidatorModel):
-    ImageBuilder: ImageBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartImageBuilderResult(BaseValidatorModel):
+    ImageBuilder: ImageBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class StopImageBuilderResultTypeDef(BaseValidatorModel):
-    ImageBuilder: ImageBuilderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StopImageBuilderResult(BaseValidatorModel):
+    ImageBuilder: ImageBuilder
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSessionsResultTypeDef(BaseValidatorModel):
-    Sessions: List[SessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSessionsResult(BaseValidatorModel):
+    Sessions: List[Session]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeImagePermissionsResultTypeDef(BaseValidatorModel):
+class DescribeImagePermissionsResult(BaseValidatorModel):
     Name: str
-    SharedImagePermissionsList: List[SharedImagePermissionsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    SharedImagePermissionsList: List[SharedImagePermissions]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeUsageReportSubscriptionsResultTypeDef(BaseValidatorModel):
-    UsageReportSubscriptions: List[UsageReportSubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeUsageReportSubscriptionsResult(BaseValidatorModel):
+    UsageReportSubscriptions: List[UsageReportSubscription]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateStackResultTypeDef(BaseValidatorModel):
-    Stack: StackTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateStackResult(BaseValidatorModel):
+    Stack: Stack
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStacksResultTypeDef(BaseValidatorModel):
-    Stacks: List[StackTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStacksResult(BaseValidatorModel):
+    Stacks: List[Stack]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateStackResultTypeDef(BaseValidatorModel):
-    Stack: StackTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateStackResult(BaseValidatorModel):
+    Stack: Stack
+    ResponseMetadata: ResponseMetadata
 
 
-class StorageConnectorUnionTypeDef(BaseValidatorModel):
+class StorageConnectorUnion(BaseValidatorModel):
     pass
 
 
-class CreateStackRequestTypeDef(BaseValidatorModel):
+class CreateStackRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    StorageConnectors: Optional[Sequence[StorageConnectorUnionTypeDef]] = None
+    StorageConnectors: Optional[Sequence[StorageConnectorUnion]] = None
     RedirectURL: Optional[str] = None
     FeedbackURL: Optional[str] = None
-    UserSettings: Optional[Sequence[UserSettingTypeDef]] = None
-    ApplicationSettings: Optional[ApplicationSettingsTypeDef] = None
+    UserSettings: Optional[Sequence[UserSetting]] = None
+    ApplicationSettings: Optional[ApplicationSettings] = None
     Tags: Optional[Mapping[str, str]] = None
-    AccessEndpoints: Optional[Sequence[AccessEndpointTypeDef]] = None
+    AccessEndpoints: Optional[Sequence[AccessEndpoint]] = None
     EmbedHostDomains: Optional[Sequence[str]] = None
-    StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
+    StreamingExperienceSettings: Optional[StreamingExperienceSettings] = None
 
 
-class UpdateStackRequestTypeDef(BaseValidatorModel):
+class UpdateStackRequest(BaseValidatorModel):
     Name: str
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
-    StorageConnectors: Optional[Sequence[StorageConnectorUnionTypeDef]] = None
+    StorageConnectors: Optional[Sequence[StorageConnectorUnion]] = None
     DeleteStorageConnectors: Optional[bool] = None
     RedirectURL: Optional[str] = None
     FeedbackURL: Optional[str] = None
     AttributesToDelete: Optional[Sequence[StackAttributeType]] = None
-    UserSettings: Optional[Sequence[UserSettingTypeDef]] = None
-    ApplicationSettings: Optional[ApplicationSettingsTypeDef] = None
-    AccessEndpoints: Optional[Sequence[AccessEndpointTypeDef]] = None
+    UserSettings: Optional[Sequence[UserSetting]] = None
+    ApplicationSettings: Optional[ApplicationSettings] = None
+    AccessEndpoints: Optional[Sequence[AccessEndpoint]] = None
     EmbedHostDomains: Optional[Sequence[str]] = None
-    StreamingExperienceSettings: Optional[StreamingExperienceSettingsTypeDef] = None
+    StreamingExperienceSettings: Optional[StreamingExperienceSettings] = None
 
 
-class VpcConfigUnionTypeDef(BaseValidatorModel):
+class VpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
+class CreateAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
     Platform: Literal["WINDOWS_SERVER_2019"]
     InstanceType: str
-    VpcConfig: VpcConfigUnionTypeDef
+    VpcConfig: VpcConfigUnion
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
     EnableDefaultInternetAccess: Optional[bool] = None
     IamRoleArn: Optional[str] = None
-    AccessEndpoints: Optional[Sequence[AccessEndpointTypeDef]] = None
+    AccessEndpoints: Optional[Sequence[AccessEndpoint]] = None
 
 
-class CreateFleetRequestTypeDef(BaseValidatorModel):
+class CreateFleetRequest(BaseValidatorModel):
     Name: str
     InstanceType: str
     ImageName: Optional[str] = None
     ImageArn: Optional[str] = None
     FleetType: Optional[FleetTypeType] = None
-    ComputeCapacity: Optional[ComputeCapacityTypeDef] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    ComputeCapacity: Optional[ComputeCapacity] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     MaxUserDurationInSeconds: Optional[int] = None
     DisconnectTimeoutInSeconds: Optional[int] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
+    DomainJoinInfo: Optional[DomainJoinInfo] = None
     Tags: Optional[Mapping[str, str]] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
     IamRoleArn: Optional[str] = None
@@ -1224,53 +1224,53 @@ class CreateFleetRequestTypeDef(BaseValidatorModel):
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
     UsbDeviceFilterStrings: Optional[Sequence[str]] = None
-    SessionScriptS3Location: Optional[S3LocationTypeDef] = None
+    SessionScriptS3Location: Optional[S3Location] = None
     MaxSessionsPerInstance: Optional[int] = None
 
 
-class CreateImageBuilderRequestTypeDef(BaseValidatorModel):
+class CreateImageBuilderRequest(BaseValidatorModel):
     Name: str
     InstanceType: str
     ImageName: Optional[str] = None
     ImageArn: Optional[str] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     IamRoleArn: Optional[str] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
+    DomainJoinInfo: Optional[DomainJoinInfo] = None
     AppstreamAgentVersion: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
-    AccessEndpoints: Optional[Sequence[AccessEndpointTypeDef]] = None
+    AccessEndpoints: Optional[Sequence[AccessEndpoint]] = None
 
 
-class UpdateAppBlockBuilderRequestTypeDef(BaseValidatorModel):
+class UpdateAppBlockBuilderRequest(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     Platform: Optional[PlatformTypeType] = None
     InstanceType: Optional[str] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     EnableDefaultInternetAccess: Optional[bool] = None
     IamRoleArn: Optional[str] = None
-    AccessEndpoints: Optional[Sequence[AccessEndpointTypeDef]] = None
+    AccessEndpoints: Optional[Sequence[AccessEndpoint]] = None
     AttributesToDelete: Optional[Sequence[AppBlockBuilderAttributeType]] = None
 
 
-class UpdateFleetRequestTypeDef(BaseValidatorModel):
+class UpdateFleetRequest(BaseValidatorModel):
     ImageName: Optional[str] = None
     ImageArn: Optional[str] = None
     Name: Optional[str] = None
     InstanceType: Optional[str] = None
-    ComputeCapacity: Optional[ComputeCapacityTypeDef] = None
-    VpcConfig: Optional[VpcConfigUnionTypeDef] = None
+    ComputeCapacity: Optional[ComputeCapacity] = None
+    VpcConfig: Optional[VpcConfigUnion] = None
     MaxUserDurationInSeconds: Optional[int] = None
     DisconnectTimeoutInSeconds: Optional[int] = None
     DeleteVpcConfig: Optional[bool] = None
     Description: Optional[str] = None
     DisplayName: Optional[str] = None
     EnableDefaultInternetAccess: Optional[bool] = None
-    DomainJoinInfo: Optional[DomainJoinInfoTypeDef] = None
+    DomainJoinInfo: Optional[DomainJoinInfo] = None
     IdleDisconnectTimeoutInSeconds: Optional[int] = None
     AttributesToDelete: Optional[Sequence[FleetAttributeType]] = None
     IamRoleArn: Optional[str] = None
@@ -1278,35 +1278,35 @@ class UpdateFleetRequestTypeDef(BaseValidatorModel):
     Platform: Optional[PlatformTypeType] = None
     MaxConcurrentSessions: Optional[int] = None
     UsbDeviceFilterStrings: Optional[Sequence[str]] = None
-    SessionScriptS3Location: Optional[S3LocationTypeDef] = None
+    SessionScriptS3Location: Optional[S3Location] = None
     MaxSessionsPerInstance: Optional[int] = None
 
 
-class CreateUpdatedImageResultTypeDef(BaseValidatorModel):
-    image: ImageTypeDef
+class CreateUpdatedImageResult(BaseValidatorModel):
+    image: Image
     canUpdateImage: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteImageResultTypeDef(BaseValidatorModel):
-    Image: ImageTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteImageResult(BaseValidatorModel):
+    Image: Image
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImagesResultTypeDef(BaseValidatorModel):
-    Images: List[ImageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeImagesResult(BaseValidatorModel):
+    Images: List[Image]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateAppBlockResultTypeDef(BaseValidatorModel):
-    AppBlock: AppBlockTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAppBlockResult(BaseValidatorModel):
+    AppBlock: AppBlock
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAppBlocksResultTypeDef(BaseValidatorModel):
-    AppBlocks: List[AppBlockTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAppBlocksResult(BaseValidatorModel):
+    AppBlocks: List[AppBlock]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

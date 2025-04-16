@@ -1,6 +1,6 @@
 # Payment Cryptography Classes
 
-# AliasTypeDef
+# Alias
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -16,7 +16,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAliasInputTypeDef
+# CreateAliasInput
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -26,21 +26,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateAliasOutputTypeDef
+# CreateAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateKeyInputTypeDef
+# CreateKeyInput
 
 ### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
 - **Required**: Yes
 
 ### Exportable
@@ -54,28 +54,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.Tag]]
 
 
-# CreateKeyOutputTypeDef
+# CreateKeyOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAliasInputTypeDef
+# DeleteAliasInput
 
 ### AliasName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteKeyInputTypeDef
+# DeleteKeyInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
@@ -85,34 +85,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteKeyOutputTypeDef
+# DeleteKeyOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportAttributesTypeDef
+# ExportAttributes
 
 ### ExportDukptInitialKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportDukptInitialKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KeyCheckValueAlgorithm
 - **Type**: typing.Optional[typing.Literal['ANSI_X9_24', 'CMAC']]
 
 
-# ExportDukptInitialKeyTypeDef
+# ExportDukptInitialKey
 
 ### KeySerialNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExportKeyCryptogramTypeDef
+# ExportKeyCryptogram
 
 ### CertificateAuthorityPublicKeyIdentifier
 - **Type**: <class 'str'>
@@ -126,10 +126,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RSA_OAEP_SHA_256', 'RSA_OAEP_SHA_512']]
 
 
-# ExportKeyInputTypeDef
+# ExportKeyInput
 
 ### KeyMaterial
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportKeyMaterialTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportKeyMaterial'>
 - **Required**: Yes
 
 ### ExportKeyIdentifier
@@ -137,43 +137,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ExportAttributes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportAttributesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExportKeyMaterialTypeDef
+# ExportKeyMaterial
 
 ### Tr31KeyBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportTr31KeyBlockTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportTr31KeyBlock]
 
 ### Tr34KeyBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportTr34KeyBlockTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportTr34KeyBlock]
 
 ### KeyCryptogram
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportKeyCryptogramTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ExportKeyCryptogram]
 
 
-# ExportKeyOutputTypeDef
+# ExportKeyOutput
 
 ### WrappedKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.WrappedKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.WrappedKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportTr31KeyBlockTypeDef
+# ExportTr31KeyBlock
 
 ### WrappingKeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### KeyBlockHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyBlockHeadersTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ExportTr34KeyBlockTypeDef
+# ExportTr34KeyBlock
 
 ### CertificateAuthorityPublicKeyIdentifier
 - **Type**: <class 'str'>
@@ -195,46 +195,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### KeyBlockHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyBlockHeadersTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetAliasInputTypeDef
+# GetAliasInput
 
 ### AliasName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAliasOutputTypeDef
+# GetAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetKeyInputTypeDef
+# GetKeyInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetKeyOutputTypeDef
+# GetKeyOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetParametersForExportInputTypeDef
+# GetParametersForExportInput
 
 ### KeyMaterialType
 - **Type**: typing.Literal['KEY_CRYPTOGRAM', 'ROOT_PUBLIC_KEY_CERTIFICATE', 'TR31_KEY_BLOCK', 'TR34_KEY_BLOCK', 'TRUSTED_PUBLIC_KEY_CERTIFICATE']
@@ -245,7 +245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParametersForExportOutputTypeDef
+# GetParametersForExportOutput
 
 ### SigningKeyCertificate
 - **Type**: <class 'str'>
@@ -268,11 +268,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetParametersForImportInputTypeDef
+# GetParametersForImportInput
 
 ### KeyMaterialType
 - **Type**: typing.Literal['KEY_CRYPTOGRAM', 'ROOT_PUBLIC_KEY_CERTIFICATE', 'TR31_KEY_BLOCK', 'TR34_KEY_BLOCK', 'TRUSTED_PUBLIC_KEY_CERTIFICATE']
@@ -283,7 +283,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetParametersForImportOutputTypeDef
+# GetParametersForImportOutput
 
 ### WrappingKeyCertificate
 - **Type**: <class 'str'>
@@ -306,18 +306,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPublicKeyCertificateInputTypeDef
+# GetPublicKeyCertificateInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPublicKeyCertificateOutputTypeDef
+# GetPublicKeyCertificateOutput
 
 ### KeyCertificate
 - **Type**: <class 'str'>
@@ -328,14 +328,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportKeyCryptogramTypeDef
+# ImportKeyCryptogram
 
 ### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
 - **Required**: Yes
 
 ### Exportable
@@ -354,10 +354,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RSA_OAEP_SHA_256', 'RSA_OAEP_SHA_512']]
 
 
-# ImportKeyInputTypeDef
+# ImportKeyInput
 
 ### KeyMaterial
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportKeyMaterialTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportKeyMaterial'>
 - **Required**: Yes
 
 ### KeyCheckValueAlgorithm
@@ -367,39 +367,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.Tag]]
 
 
-# ImportKeyMaterialTypeDef
+# ImportKeyMaterial
 
 ### RootCertificatePublicKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.RootCertificatePublicKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TrustedCertificatePublicKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.TrustedCertificatePublicKeyTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tr31KeyBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportTr31KeyBlockTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportTr31KeyBlock]
 
 ### Tr34KeyBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportTr34KeyBlockTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportTr34KeyBlock]
 
 ### KeyCryptogram
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportKeyCryptogramTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.ImportKeyCryptogram]
 
 
-# ImportKeyOutputTypeDef
+# ImportKeyOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportTr31KeyBlockTypeDef
+# ImportTr31KeyBlock
 
 ### WrappingKeyIdentifier
 - **Type**: <class 'str'>
@@ -410,7 +410,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportTr34KeyBlockTypeDef
+# ImportTr34KeyBlock
 
 ### CertificateAuthorityPublicKeyIdentifier
 - **Type**: <class 'str'>
@@ -436,105 +436,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KeyAttributesTypeDef
-
-### KeyUsage
-- **Type**: typing.Literal['TR31_B0_BASE_DERIVATION_KEY', 'TR31_C0_CARD_VERIFICATION_KEY', 'TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY', 'TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION', 'TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS', 'TR31_E1_EMV_MKEY_CONFIDENTIALITY', 'TR31_E2_EMV_MKEY_INTEGRITY', 'TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS', 'TR31_E5_EMV_MKEY_CARD_PERSONALIZATION', 'TR31_E6_EMV_MKEY_OTHER', 'TR31_K0_KEY_ENCRYPTION_KEY', 'TR31_K1_KEY_BLOCK_PROTECTION_KEY', 'TR31_K2_TR34_ASYMMETRIC_KEY', 'TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT', 'TR31_M1_ISO_9797_1_MAC_KEY', 'TR31_M3_ISO_9797_3_MAC_KEY', 'TR31_M6_ISO_9797_5_CMAC_KEY', 'TR31_M7_HMAC_KEY', 'TR31_P0_PIN_ENCRYPTION_KEY', 'TR31_P1_PIN_GENERATION_KEY', 'TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE', 'TR31_V1_IBM3624_PIN_VERIFICATION_KEY', 'TR31_V2_VISA_PIN_VERIFICATION_KEY']
-- **Required**: Yes
-
-### KeyClass
-- **Type**: typing.Literal['ASYMMETRIC_KEY_PAIR', 'PRIVATE_KEY', 'PUBLIC_KEY', 'SYMMETRIC_KEY']
-- **Required**: Yes
-
-### KeyAlgorithm
-- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
-- **Required**: Yes
-
-### KeyModesOfUse
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyModesOfUseTypeDef'>
-- **Required**: Yes
-
-
-# KeyBlockHeadersTypeDef
-
-### KeyModesOfUse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyModesOfUseTypeDef]
-
-### KeyExportability
-- **Type**: typing.Optional[typing.Literal['EXPORTABLE', 'NON_EXPORTABLE', 'SENSITIVE']]
-
-### KeyVersion
-- **Type**: typing.Optional[str]
-
-### OptionalBlocks
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# KeyModesOfUseTypeDef
-
-### Encrypt
-- **Type**: typing.Optional[bool]
-
-### Decrypt
-- **Type**: typing.Optional[bool]
-
-### Wrap
-- **Type**: typing.Optional[bool]
-
-### Unwrap
-- **Type**: typing.Optional[bool]
-
-### Generate
-- **Type**: typing.Optional[bool]
-
-### Sign
-- **Type**: typing.Optional[bool]
-
-### Verify
-- **Type**: typing.Optional[bool]
-
-### DeriveKey
-- **Type**: typing.Optional[bool]
-
-### NoRestrictions
-- **Type**: typing.Optional[bool]
-
-
-# KeySummaryTypeDef
-
-### KeyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### KeyState
-- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']
-- **Required**: Yes
-
-### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
-- **Required**: Yes
-
-### KeyCheckValue
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Exportable
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-
-# KeyTypeDef
+# Key
 
 ### KeyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
 - **Required**: Yes
 
 ### KeyCheckValue
@@ -578,16 +487,98 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListAliasesInputPaginateTypeDef
+# KeyAttributes
 
-### KeyArn
+### KeyUsage
+- **Type**: typing.Literal['TR31_B0_BASE_DERIVATION_KEY', 'TR31_C0_CARD_VERIFICATION_KEY', 'TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY', 'TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION', 'TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS', 'TR31_E1_EMV_MKEY_CONFIDENTIALITY', 'TR31_E2_EMV_MKEY_INTEGRITY', 'TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS', 'TR31_E5_EMV_MKEY_CARD_PERSONALIZATION', 'TR31_E6_EMV_MKEY_OTHER', 'TR31_K0_KEY_ENCRYPTION_KEY', 'TR31_K1_KEY_BLOCK_PROTECTION_KEY', 'TR31_K2_TR34_ASYMMETRIC_KEY', 'TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT', 'TR31_M1_ISO_9797_1_MAC_KEY', 'TR31_M3_ISO_9797_3_MAC_KEY', 'TR31_M6_ISO_9797_5_CMAC_KEY', 'TR31_M7_HMAC_KEY', 'TR31_P0_PIN_ENCRYPTION_KEY', 'TR31_P1_PIN_GENERATION_KEY', 'TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE', 'TR31_V1_IBM3624_PIN_VERIFICATION_KEY', 'TR31_V2_VISA_PIN_VERIFICATION_KEY']
+- **Required**: Yes
+
+### KeyClass
+- **Type**: typing.Literal['ASYMMETRIC_KEY_PAIR', 'PRIVATE_KEY', 'PUBLIC_KEY', 'SYMMETRIC_KEY']
+- **Required**: Yes
+
+### KeyAlgorithm
+- **Type**: typing.Literal['AES_128', 'AES_192', 'AES_256', 'ECC_NIST_P256', 'ECC_NIST_P384', 'RSA_2048', 'RSA_3072', 'RSA_4096', 'TDES_2KEY', 'TDES_3KEY']
+- **Required**: Yes
+
+### KeyModesOfUse
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyModesOfUse'>
+- **Required**: Yes
+
+
+# KeyBlockHeaders
+
+### KeyModesOfUse
+- **Type**: <class 'NoneType'>
+
+### KeyExportability
+- **Type**: typing.Optional[typing.Literal['EXPORTABLE', 'NON_EXPORTABLE', 'SENSITIVE']]
+
+### KeyVersion
 - **Type**: typing.Optional[str]
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
+### OptionalBlocks
+- **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ListAliasesInputTypeDef
+# KeyModesOfUse
+
+### Encrypt
+- **Type**: typing.Optional[bool]
+
+### Decrypt
+- **Type**: typing.Optional[bool]
+
+### Wrap
+- **Type**: typing.Optional[bool]
+
+### Unwrap
+- **Type**: typing.Optional[bool]
+
+### Generate
+- **Type**: typing.Optional[bool]
+
+### Sign
+- **Type**: typing.Optional[bool]
+
+### Verify
+- **Type**: typing.Optional[bool]
+
+### DeriveKey
+- **Type**: typing.Optional[bool]
+
+### NoRestrictions
+- **Type**: typing.Optional[bool]
+
+
+# KeySummary
+
+### KeyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### KeyState
+- **Type**: typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']
+- **Required**: Yes
+
+### KeyAttributes
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
+- **Required**: Yes
+
+### KeyCheckValue
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Exportable
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+
+# ListAliasesInput
 
 ### KeyArn
 - **Type**: typing.Optional[str]
@@ -599,30 +590,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAliasesOutputTypeDef
+# ListAliasesInputPaginate
+
+### KeyArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfig]
+
+
+# ListAliasesOutput
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.AliasTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.Alias]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListKeysInputPaginateTypeDef
-
-### KeyState
-- **Type**: typing.Optional[typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
-
-
-# ListKeysInputTypeDef
+# ListKeysInput
 
 ### KeyState
 - **Type**: typing.Optional[typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']]
@@ -634,31 +625,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListKeysOutputTypeDef
+# ListKeysInputPaginate
+
+### KeyState
+- **Type**: typing.Optional[typing.Literal['CREATE_COMPLETE', 'CREATE_IN_PROGRESS', 'DELETE_COMPLETE', 'DELETE_PENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfig]
+
+
+# ListKeysOutput
 
 ### Keys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.KeySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -671,21 +661,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceInputPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.payment_cryptography_classes.PaginatorConfig]
+
+
+# ListTagsForResourceOutput
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.payment_cryptography_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -697,7 +697,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -719,28 +719,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreKeyInputTypeDef
+# RestoreKeyInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RestoreKeyOutputTypeDef
+# RestoreKeyOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RootCertificatePublicKeyTypeDef
+# RootCertificatePublicKey
 
 ### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
 - **Required**: Yes
 
 ### PublicKeyCertificate
@@ -748,54 +748,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartKeyUsageInputTypeDef
+# StartKeyUsageInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartKeyUsageOutputTypeDef
+# StartKeyUsageOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopKeyUsageInputTypeDef
+# StopKeyUsageInput
 
 ### KeyIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StopKeyUsageOutputTypeDef
+# StopKeyUsageOutput
 
 ### Key
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Key'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceInputTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -806,10 +795,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrustedCertificatePublicKeyTypeDef
+# TagResourceInput
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.payment_cryptography_classes.Tag]
+- **Required**: Yes
+
+
+# TrustedCertificatePublicKey
 
 ### KeyAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.KeyAttributes'>
 - **Required**: Yes
 
 ### PublicKeyCertificate
@@ -821,7 +821,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -832,7 +832,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAliasInputTypeDef
+# UpdateAliasInput
 
 ### AliasName
 - **Type**: <class 'str'>
@@ -842,18 +842,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAliasOutputTypeDef
+# UpdateAliasOutput
 
 ### Alias
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.AliasTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.Alias'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.payment_cryptography_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WrappedKeyTypeDef
+# WrappedKey
 
 ### WrappingKeyArn
 - **Type**: <class 'str'>

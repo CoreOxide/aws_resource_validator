@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.opensearch_constants import *
 
-class NaturalLanguageQueryGenerationOptionsInputTypeDef(BaseValidatorModel):
+class NaturalLanguageQueryGenerationOptionsInput(BaseValidatorModel):
     DesiredState: Optional[NaturalLanguageQueryGenerationDesiredStateType] = None
 
 
-class NaturalLanguageQueryGenerationOptionsOutputTypeDef(BaseValidatorModel):
+class NaturalLanguageQueryGenerationOptionsOutput(BaseValidatorModel):
     DesiredState: Optional[NaturalLanguageQueryGenerationDesiredStateType] = None
     CurrentState: Optional[NaturalLanguageQueryGenerationCurrentStateType] = None
 
 
-class OptionStatusTypeDef(BaseValidatorModel):
+class OptionStatus(BaseValidatorModel):
     CreationDate: datetime
     UpdateDate: datetime
     State: OptionStateType
@@ -29,17 +29,17 @@ class OptionStatusTypeDef(BaseValidatorModel):
     PendingDeletion: Optional[bool] = None
 
 
-class AWSDomainInformationTypeDef(BaseValidatorModel):
+class AWSDomainInformation(BaseValidatorModel):
     DomainName: str
     OwnerId: Optional[str] = None
     Region: Optional[str] = None
 
 
-class AcceptInboundConnectionRequestTypeDef(BaseValidatorModel):
+class AcceptInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -47,71 +47,71 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class AdditionalLimitTypeDef(BaseValidatorModel):
+class AdditionalLimit(BaseValidatorModel):
     LimitName: Optional[str] = None
     LimitValues: Optional[List[str]] = None
 
 
-class JWTOptionsInputTypeDef(BaseValidatorModel):
+class JWTOptionsInput(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
     PublicKey: Optional[str] = None
 
 
-class MasterUserOptionsTypeDef(BaseValidatorModel):
+class MasterUserOptions(BaseValidatorModel):
     MasterUserARN: Optional[str] = None
     MasterUserName: Optional[str] = None
     MasterUserPassword: Optional[str] = None
 
 
-class JWTOptionsOutputTypeDef(BaseValidatorModel):
+class JWTOptionsOutput(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
     PublicKey: Optional[str] = None
 
 
-class AppConfigTypeDef(BaseValidatorModel):
+class AppConfig(BaseValidatorModel):
     key: Optional[AppConfigTypeType] = None
     value: Optional[str] = None
 
 
-class AuthorizeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
+class AuthorizeVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     Account: Optional[str] = None
     Service: Optional[Literal["application.opensearchservice.amazonaws.com"]] = None
 
 
-class AuthorizedPrincipalTypeDef(BaseValidatorModel):
+class AuthorizedPrincipal(BaseValidatorModel):
     PrincipalType: Optional[PrincipalTypeType] = None
     Principal: Optional[str] = None
 
 
-class ScheduledAutoTuneDetailsTypeDef(BaseValidatorModel):
+class ScheduledAutoTuneDetails(BaseValidatorModel):
     Date: Optional[datetime] = None
     ActionType: Optional[ScheduledAutoTuneActionTypeType] = None
     Action: Optional[str] = None
     Severity: Optional[ScheduledAutoTuneSeverityTypeType] = None
 
 
-class DurationTypeDef(BaseValidatorModel):
+class Duration(BaseValidatorModel):
     Value: Optional[int] = None
     Unit: Optional[Literal["HOURS"]] = None
 
 
-class AutoTuneOptionsOutputTypeDef(BaseValidatorModel):
+class AutoTuneOptionsOutput(BaseValidatorModel):
     State: Optional[AutoTuneStateType] = None
     ErrorMessage: Optional[str] = None
     UseOffPeakWindow: Optional[bool] = None
 
 
-class AutoTuneStatusTypeDef(BaseValidatorModel):
+class AutoTuneStatus(BaseValidatorModel):
     CreationDate: datetime
     UpdateDate: datetime
     State: AutoTuneStateType
@@ -120,7 +120,7 @@ class AutoTuneStatusTypeDef(BaseValidatorModel):
     PendingDeletion: Optional[bool] = None
 
 
-class AvailabilityZoneInfoTypeDef(BaseValidatorModel):
+class AvailabilityZoneInfo(BaseValidatorModel):
     AvailabilityZoneName: Optional[str] = None
     ZoneStatus: Optional[ZoneStatusType] = None
     ConfiguredDataNodeCount: Optional[str] = None
@@ -129,22 +129,22 @@ class AvailabilityZoneInfoTypeDef(BaseValidatorModel):
     TotalUnAssignedShards: Optional[str] = None
 
 
-class CancelDomainConfigChangeRequestTypeDef(BaseValidatorModel):
+class CancelDomainConfigChangeRequest(BaseValidatorModel):
     DomainName: str
     DryRun: Optional[bool] = None
 
 
-class CancelledChangePropertyTypeDef(BaseValidatorModel):
+class CancelledChangeProperty(BaseValidatorModel):
     PropertyName: Optional[str] = None
     CancelledValue: Optional[str] = None
     ActiveValue: Optional[str] = None
 
 
-class CancelServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
+class CancelServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
 
 
-class ServiceSoftwareOptionsTypeDef(BaseValidatorModel):
+class ServiceSoftwareOptions(BaseValidatorModel):
     CurrentVersion: Optional[str] = None
     NewVersion: Optional[str] = None
     UpdateAvailable: Optional[bool] = None
@@ -155,7 +155,7 @@ class ServiceSoftwareOptionsTypeDef(BaseValidatorModel):
     OptionalDeployment: Optional[bool] = None
 
 
-class ChangeProgressDetailsTypeDef(BaseValidatorModel):
+class ChangeProgressDetails(BaseValidatorModel):
     ChangeId: Optional[str] = None
     Message: Optional[str] = None
     ConfigChangeStatus: Optional[ConfigChangeStatusType] = None
@@ -164,60 +164,60 @@ class ChangeProgressDetailsTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class ChangeProgressStageTypeDef(BaseValidatorModel):
+class ChangeProgressStage(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     Description: Optional[str] = None
     LastUpdated: Optional[datetime] = None
 
 
-class CloudWatchDirectQueryDataSourceTypeDef(BaseValidatorModel):
+class CloudWatchDirectQueryDataSource(BaseValidatorModel):
     RoleArn: str
 
 
-class ColdStorageOptionsTypeDef(BaseValidatorModel):
+class ColdStorageOptions(BaseValidatorModel):
     Enabled: bool
 
 
-class ZoneAwarenessConfigTypeDef(BaseValidatorModel):
+class ZoneAwarenessConfig(BaseValidatorModel):
     AvailabilityZoneCount: Optional[int] = None
 
 
-class CognitoOptionsTypeDef(BaseValidatorModel):
+class CognitoOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
     UserPoolId: Optional[str] = None
     IdentityPoolId: Optional[str] = None
     RoleArn: Optional[str] = None
 
 
-class CompatibleVersionsMapTypeDef(BaseValidatorModel):
+class CompatibleVersionsMap(BaseValidatorModel):
     SourceVersion: Optional[str] = None
     TargetVersions: Optional[List[str]] = None
 
 
-class CrossClusterSearchConnectionPropertiesTypeDef(BaseValidatorModel):
+class CrossClusterSearchConnectionProperties(BaseValidatorModel):
     SkipUnavailable: Optional[SkipUnavailableStatusType] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     dataSourceArn: Optional[str] = None
     dataSourceDescription: Optional[str] = None
 
 
-class IamIdentityCenterOptionsInputTypeDef(BaseValidatorModel):
+class IamIdentityCenterOptionsInput(BaseValidatorModel):
     enabled: Optional[bool] = None
     iamIdentityCenterInstanceArn: Optional[str] = None
     iamRoleForIdentityCenterApplicationArn: Optional[str] = None
 
 
-class IamIdentityCenterOptionsTypeDef(BaseValidatorModel):
+class IamIdentityCenterOptions(BaseValidatorModel):
     enabled: Optional[bool] = None
     iamIdentityCenterInstanceArn: Optional[str] = None
     iamRoleForIdentityCenterApplicationArn: Optional[str] = None
     iamIdentityCenterApplicationArn: Optional[str] = None
 
 
-class DomainEndpointOptionsTypeDef(BaseValidatorModel):
+class DomainEndpointOptions(BaseValidatorModel):
     EnforceHTTPS: Optional[bool] = None
     TLSSecurityPolicy: Optional[TLSSecurityPolicyType] = None
     CustomEndpointEnabled: Optional[bool] = None
@@ -225,7 +225,7 @@ class DomainEndpointOptionsTypeDef(BaseValidatorModel):
     CustomEndpointCertificateArn: Optional[str] = None
 
 
-class EBSOptionsTypeDef(BaseValidatorModel):
+class EBSOptions(BaseValidatorModel):
     EBSEnabled: Optional[bool] = None
     VolumeType: Optional[VolumeTypeType] = None
     VolumeSize: Optional[int] = None
@@ -233,130 +233,130 @@ class EBSOptionsTypeDef(BaseValidatorModel):
     Throughput: Optional[int] = None
 
 
-class EncryptionAtRestOptionsTypeDef(BaseValidatorModel):
+class EncryptionAtRestOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
     KmsKeyId: Optional[str] = None
 
 
-class IdentityCenterOptionsInputTypeDef(BaseValidatorModel):
+class IdentityCenterOptionsInput(BaseValidatorModel):
     EnabledAPIAccess: Optional[bool] = None
     IdentityCenterInstanceARN: Optional[str] = None
     SubjectKey: Optional[SubjectKeyIdCOptionType] = None
     RolesKey: Optional[RolesKeyIdCOptionType] = None
 
 
-class LogPublishingOptionTypeDef(BaseValidatorModel):
+class LogPublishingOption(BaseValidatorModel):
     CloudWatchLogsLogGroupArn: Optional[str] = None
     Enabled: Optional[bool] = None
 
 
-class NodeToNodeEncryptionOptionsTypeDef(BaseValidatorModel):
+class NodeToNodeEncryptionOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class SnapshotOptionsTypeDef(BaseValidatorModel):
+class SnapshotOptions(BaseValidatorModel):
     AutomatedSnapshotStartHour: Optional[int] = None
 
 
-class SoftwareUpdateOptionsTypeDef(BaseValidatorModel):
+class SoftwareUpdateOptions(BaseValidatorModel):
     AutoSoftwareUpdateEnabled: Optional[bool] = None
 
 
-class VPCOptionsTypeDef(BaseValidatorModel):
+class VPCOptions(BaseValidatorModel):
     SubnetIds: Optional[Sequence[str]] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class OutboundConnectionStatusTypeDef(BaseValidatorModel):
+class OutboundConnectionStatus(BaseValidatorModel):
     StatusCode: Optional[OutboundConnectionStatusCodeType] = None
     Message: Optional[str] = None
 
 
-class PackageConfigurationTypeDef(BaseValidatorModel):
+class PackageConfiguration(BaseValidatorModel):
     LicenseRequirement: RequirementLevelType
     ConfigurationRequirement: RequirementLevelType
     LicenseFilepath: Optional[str] = None
     RequiresRestartForConfigurationUpdate: Optional[bool] = None
 
 
-class PackageEncryptionOptionsTypeDef(BaseValidatorModel):
+class PackageEncryptionOptions(BaseValidatorModel):
     EncryptionEnabled: bool
     KmsKeyIdentifier: Optional[str] = None
 
 
-class PackageSourceTypeDef(BaseValidatorModel):
+class PackageSource(BaseValidatorModel):
     S3BucketName: Optional[str] = None
     S3Key: Optional[str] = None
 
 
-class PackageVendingOptionsTypeDef(BaseValidatorModel):
+class PackageVendingOptions(BaseValidatorModel):
     VendingEnabled: bool
 
 
-class S3GlueDataCatalogTypeDef(BaseValidatorModel):
+class S3GlueDataCatalog(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
 
 
-class DeleteDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DeleteInboundConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class DeleteOutboundConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteOutboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class DeletePackageRequestTypeDef(BaseValidatorModel):
+class DeletePackageRequest(BaseValidatorModel):
     PackageID: str
 
 
-class DeleteVpcEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
 
 
-class VpcEndpointSummaryTypeDef(BaseValidatorModel):
+class VpcEndpointSummary(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     VpcEndpointOwner: Optional[str] = None
     DomainArn: Optional[str] = None
     Status: Optional[VpcEndpointStatusType] = None
 
 
-class DescribeDomainAutoTunesRequestTypeDef(BaseValidatorModel):
+class DescribeDomainAutoTunesRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeDomainChangeProgressRequestTypeDef(BaseValidatorModel):
+class DescribeDomainChangeProgressRequest(BaseValidatorModel):
     DomainName: str
     ChangeId: Optional[str] = None
 
 
-class DescribeDomainConfigRequestTypeDef(BaseValidatorModel):
+class DescribeDomainConfigRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DescribeDomainHealthRequestTypeDef(BaseValidatorModel):
+class DescribeDomainHealthRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DescribeDomainNodesRequestTypeDef(BaseValidatorModel):
+class DescribeDomainNodesRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DomainNodesStatusTypeDef(BaseValidatorModel):
+class DomainNodesStatus(BaseValidatorModel):
     NodeId: Optional[str] = None
     NodeType: Optional[NodeTypeType] = None
     AvailabilityZone: Optional[str] = None
@@ -367,90 +367,90 @@ class DomainNodesStatusTypeDef(BaseValidatorModel):
     StorageSize: Optional[str] = None
 
 
-class DescribeDomainRequestTypeDef(BaseValidatorModel):
+class DescribeDomainRequest(BaseValidatorModel):
     DomainName: str
 
 
-class DescribeDomainsRequestTypeDef(BaseValidatorModel):
+class DescribeDomainsRequest(BaseValidatorModel):
     DomainNames: Sequence[str]
 
 
-class DescribeDryRunProgressRequestTypeDef(BaseValidatorModel):
+class DescribeDryRunProgressRequest(BaseValidatorModel):
     DomainName: str
     DryRunId: Optional[str] = None
     LoadDryRunConfig: Optional[bool] = None
 
 
-class DryRunResultsTypeDef(BaseValidatorModel):
+class DryRunResults(BaseValidatorModel):
     DeploymentType: Optional[str] = None
     Message: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class DescribeInstanceTypeLimitsRequestTypeDef(BaseValidatorModel):
+class DescribeInstanceTypeLimitsRequest(BaseValidatorModel):
     InstanceType: OpenSearchPartitionInstanceTypeType
     EngineVersion: str
     DomainName: Optional[str] = None
 
 
-class DescribePackagesFilterTypeDef(BaseValidatorModel):
+class DescribePackagesFilter(BaseValidatorModel):
     Name: Optional[DescribePackagesFilterNameType] = None
     Value: Optional[Sequence[str]] = None
 
 
-class DescribeReservedInstanceOfferingsRequestTypeDef(BaseValidatorModel):
+class DescribeReservedInstanceOfferingsRequest(BaseValidatorModel):
     ReservedInstanceOfferingId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeReservedInstancesRequestTypeDef(BaseValidatorModel):
+class DescribeReservedInstancesRequest(BaseValidatorModel):
     ReservedInstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeVpcEndpointsRequestTypeDef(BaseValidatorModel):
+class DescribeVpcEndpointsRequest(BaseValidatorModel):
     VpcEndpointIds: Sequence[str]
 
 
-class VpcEndpointErrorTypeDef(BaseValidatorModel):
+class VpcEndpointError(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     ErrorCode: Optional[VpcEndpointErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class SecurityLakeDirectQueryDataSourceTypeDef(BaseValidatorModel):
+class SecurityLakeDirectQueryDataSource(BaseValidatorModel):
     RoleArn: str
 
 
-class DissociatePackageRequestTypeDef(BaseValidatorModel):
+class DissociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
 
 
-class DissociatePackagesRequestTypeDef(BaseValidatorModel):
+class DissociatePackagesRequest(BaseValidatorModel):
     PackageList: Sequence[str]
     DomainName: str
 
 
-class ModifyingPropertiesTypeDef(BaseValidatorModel):
+class ModifyingProperties(BaseValidatorModel):
     Name: Optional[str] = None
     ActiveValue: Optional[str] = None
     PendingValue: Optional[str] = None
     ValueType: Optional[PropertyValueTypeType] = None
 
 
-class DomainInfoTypeDef(BaseValidatorModel):
+class DomainInfo(BaseValidatorModel):
     DomainName: Optional[str] = None
     EngineType: Optional[EngineTypeType] = None
 
 
-class DomainMaintenanceDetailsTypeDef(BaseValidatorModel):
+class DomainMaintenanceDetails(BaseValidatorModel):
     MaintenanceId: Optional[str] = None
     DomainName: Optional[str] = None
     Action: Optional[MaintenanceTypeType] = None
@@ -461,12 +461,12 @@ class DomainMaintenanceDetailsTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     ErrorType: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class IdentityCenterOptionsTypeDef(BaseValidatorModel):
+class IdentityCenterOptions(BaseValidatorModel):
     EnabledAPIAccess: Optional[bool] = None
     IdentityCenterInstanceARN: Optional[str] = None
     SubjectKey: Optional[SubjectKeyIdCOptionType] = None
@@ -475,63 +475,63 @@ class IdentityCenterOptionsTypeDef(BaseValidatorModel):
     IdentityStoreId: Optional[str] = None
 
 
-class VPCDerivedInfoTypeDef(BaseValidatorModel):
+class VPCDerivedInfo(BaseValidatorModel):
     VPCId: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
     AvailabilityZones: Optional[List[str]] = None
     SecurityGroupIds: Optional[List[str]] = None
 
 
-class ValidationFailureTypeDef(BaseValidatorModel):
+class ValidationFailure(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class GetCompatibleVersionsRequestTypeDef(BaseValidatorModel):
+class GetCompatibleVersionsRequest(BaseValidatorModel):
     DomainName: Optional[str] = None
 
 
-class GetDataSourceRequestTypeDef(BaseValidatorModel):
+class GetDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
 
 
-class GetDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
+class GetDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
 
 
-class GetDomainMaintenanceStatusRequestTypeDef(BaseValidatorModel):
+class GetDomainMaintenanceStatusRequest(BaseValidatorModel):
     DomainName: str
     MaintenanceId: str
 
 
-class GetPackageVersionHistoryRequestTypeDef(BaseValidatorModel):
+class GetPackageVersionHistoryRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetUpgradeHistoryRequestTypeDef(BaseValidatorModel):
+class GetUpgradeHistoryRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetUpgradeStatusRequestTypeDef(BaseValidatorModel):
+class GetUpgradeStatusRequest(BaseValidatorModel):
     DomainName: str
 
 
-class InboundConnectionStatusTypeDef(BaseValidatorModel):
+class InboundConnectionStatus(BaseValidatorModel):
     StatusCode: Optional[InboundConnectionStatusCodeType] = None
     Message: Optional[str] = None
 
 
-class InstanceCountLimitsTypeDef(BaseValidatorModel):
+class InstanceCountLimits(BaseValidatorModel):
     MinimumInstanceCount: Optional[int] = None
     MaximumInstanceCount: Optional[int] = None
 
 
-class InstanceTypeDetailsTypeDef(BaseValidatorModel):
+class InstanceTypeDetails(BaseValidatorModel):
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
     EncryptionEnabled: Optional[bool] = None
     CognitoEnabled: Optional[bool] = None
@@ -542,32 +542,32 @@ class InstanceTypeDetailsTypeDef(BaseValidatorModel):
     AvailabilityZones: Optional[List[str]] = None
 
 
-class KeyStoreAccessOptionTypeDef(BaseValidatorModel):
+class KeyStoreAccessOption(BaseValidatorModel):
     KeyStoreAccessEnabled: bool
     KeyAccessRoleArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     statuses: Optional[Sequence[ApplicationStatusType]] = None
     maxResults: Optional[int] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     DomainName: str
 
 
-class ListDirectQueryDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDirectQueryDataSourcesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListDomainMaintenancesRequestTypeDef(BaseValidatorModel):
+class ListDomainMaintenancesRequest(BaseValidatorModel):
     DomainName: str
     Action: Optional[MaintenanceTypeType] = None
     Status: Optional[MaintenanceStatusType] = None
@@ -575,17 +575,17 @@ class ListDomainMaintenancesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListDomainNamesRequestTypeDef(BaseValidatorModel):
+class ListDomainNamesRequest(BaseValidatorModel):
     EngineType: Optional[EngineTypeType] = None
 
 
-class ListDomainsForPackageRequestTypeDef(BaseValidatorModel):
+class ListDomainsForPackageRequest(BaseValidatorModel):
     PackageID: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListInstanceTypeDetailsRequestTypeDef(BaseValidatorModel):
+class ListInstanceTypeDetailsRequest(BaseValidatorModel):
     EngineVersion: str
     DomainName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -594,47 +594,47 @@ class ListInstanceTypeDetailsRequestTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
 
 
-class ListPackagesForDomainRequestTypeDef(BaseValidatorModel):
+class ListPackagesForDomainRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListScheduledActionsRequestTypeDef(BaseValidatorModel):
+class ListScheduledActionsRequest(BaseValidatorModel):
     DomainName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsRequestTypeDef(BaseValidatorModel):
+class ListTagsRequest(BaseValidatorModel):
     ARN: str
 
 
-class ListVersionsRequestTypeDef(BaseValidatorModel):
+class ListVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
+class ListVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
-class ListVpcEndpointsForDomainRequestTypeDef(BaseValidatorModel):
+class ListVpcEndpointsForDomainRequest(BaseValidatorModel):
     DomainName: str
     NextToken: Optional[str] = None
 
 
-class ListVpcEndpointsRequestTypeDef(BaseValidatorModel):
+class ListVpcEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class WindowStartTimeTypeDef(BaseValidatorModel):
+class WindowStartTime(BaseValidatorModel):
     Hours: int
     Minutes: int
 
 
-class PluginPropertiesTypeDef(BaseValidatorModel):
+class PluginProperties(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Version: Optional[str] = None
@@ -642,61 +642,61 @@ class PluginPropertiesTypeDef(BaseValidatorModel):
     UncompressedSizeInBytes: Optional[int] = None
 
 
-class PurchaseReservedInstanceOfferingRequestTypeDef(BaseValidatorModel):
+class PurchaseReservedInstanceOfferingRequest(BaseValidatorModel):
     ReservedInstanceOfferingId: str
     ReservationName: str
     InstanceCount: Optional[int] = None
 
 
-class RecurringChargeTypeDef(BaseValidatorModel):
+class RecurringCharge(BaseValidatorModel):
     RecurringChargeAmount: Optional[float] = None
     RecurringChargeFrequency: Optional[str] = None
 
 
-class RejectInboundConnectionRequestTypeDef(BaseValidatorModel):
+class RejectInboundConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class RemoveTagsRequestTypeDef(BaseValidatorModel):
+class RemoveTagsRequest(BaseValidatorModel):
     ARN: str
     TagKeys: Sequence[str]
 
 
-class RevokeVpcEndpointAccessRequestTypeDef(BaseValidatorModel):
+class RevokeVpcEndpointAccessRequest(BaseValidatorModel):
     DomainName: str
     Account: Optional[str] = None
     Service: Optional[Literal["application.opensearchservice.amazonaws.com"]] = None
 
 
-class SAMLIdpTypeDef(BaseValidatorModel):
+class SAMLIdp(BaseValidatorModel):
     MetadataContent: str
     EntityId: str
 
 
-class StartDomainMaintenanceRequestTypeDef(BaseValidatorModel):
+class StartDomainMaintenanceRequest(BaseValidatorModel):
     DomainName: str
     Action: MaintenanceTypeType
     NodeId: Optional[str] = None
 
 
-class StartServiceSoftwareUpdateRequestTypeDef(BaseValidatorModel):
+class StartServiceSoftwareUpdateRequest(BaseValidatorModel):
     DomainName: str
     ScheduleAt: Optional[ScheduleAtType] = None
     DesiredStartTime: Optional[int] = None
 
 
-class StorageTypeLimitTypeDef(BaseValidatorModel):
+class StorageTypeLimit(BaseValidatorModel):
     LimitName: Optional[str] = None
     LimitValues: Optional[List[str]] = None
 
 
-class UpdatePackageScopeRequestTypeDef(BaseValidatorModel):
+class UpdatePackageScopeRequest(BaseValidatorModel):
     PackageID: str
     Operation: PackageScopeOperationEnumType
     PackageUserList: Sequence[str]
 
 
-class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
+class UpdateScheduledActionRequest(BaseValidatorModel):
     DomainName: str
     ActionID: str
     ActionType: ActionTypeType
@@ -704,442 +704,442 @@ class UpdateScheduledActionRequestTypeDef(BaseValidatorModel):
     DesiredStartTime: Optional[int] = None
 
 
-class UpgradeDomainRequestTypeDef(BaseValidatorModel):
+class UpgradeDomainRequest(BaseValidatorModel):
     DomainName: str
     TargetVersion: str
     PerformCheckOnly: Optional[bool] = None
     AdvancedOptions: Optional[Mapping[str, str]] = None
 
 
-class UpgradeStepItemTypeDef(BaseValidatorModel):
+class UpgradeStepItem(BaseValidatorModel):
     UpgradeStep: Optional[UpgradeStepType] = None
     UpgradeStepStatus: Optional[UpgradeStatusType] = None
     Issues: Optional[List[str]] = None
     ProgressPercent: Optional[float] = None
 
 
-class AIMLOptionsInputTypeDef(BaseValidatorModel):
-    NaturalLanguageQueryGenerationOptions: Optional[ NaturalLanguageQueryGenerationOptionsInputTypeDef ] = None
+class AIMLOptionsInput(BaseValidatorModel):
+    NaturalLanguageQueryGenerationOptions: Optional[ NaturalLanguageQueryGenerationOptionsInput ] = None
 
 
-class AIMLOptionsOutputTypeDef(BaseValidatorModel):
-    NaturalLanguageQueryGenerationOptions: Optional[ NaturalLanguageQueryGenerationOptionsOutputTypeDef ] = None
+class AIMLOptionsOutput(BaseValidatorModel):
+    NaturalLanguageQueryGenerationOptions: Optional[ NaturalLanguageQueryGenerationOptionsOutput ] = None
 
 
-class AccessPoliciesStatusTypeDef(BaseValidatorModel):
+class AccessPoliciesStatus(BaseValidatorModel):
     Options: str
-    Status: OptionStatusTypeDef
+    Status: OptionStatus
 
 
-class AdvancedOptionsStatusTypeDef(BaseValidatorModel):
+class AdvancedOptionsStatus(BaseValidatorModel):
     Options: Dict[str, str]
-    Status: OptionStatusTypeDef
+    Status: OptionStatus
 
 
-class IPAddressTypeStatusTypeDef(BaseValidatorModel):
+class IPAddressTypeStatus(BaseValidatorModel):
     Options: IPAddressTypeType
-    Status: OptionStatusTypeDef
+    Status: OptionStatus
 
 
-class VersionStatusTypeDef(BaseValidatorModel):
+class VersionStatus(BaseValidatorModel):
     Options: str
-    Status: OptionStatusTypeDef
+    Status: OptionStatus
 
 
-class DomainInformationContainerTypeDef(BaseValidatorModel):
-    AWSDomainInformation: Optional[AWSDomainInformationTypeDef] = None
+class DomainInformationContainer(BaseValidatorModel):
+    AWSDomainInformation: Optional[AWSDomainInformation] = None
 
 
-class AddDataSourceResponseTypeDef(BaseValidatorModel):
+class AddDataSourceResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddDirectQueryDataSourceResponseTypeDef(BaseValidatorModel):
+class AddDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataSourceResponseTypeDef(BaseValidatorModel):
+class DeleteDataSourceResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDomainMaintenanceStatusResponseTypeDef(BaseValidatorModel):
+class GetDomainMaintenanceStatusResponse(BaseValidatorModel):
     Status: MaintenanceStatusType
     StatusMessage: str
     NodeId: str
     Action: MaintenanceTypeType
     CreatedAt: datetime
     UpdatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUpgradeStatusResponseTypeDef(BaseValidatorModel):
+class GetUpgradeStatusResponse(BaseValidatorModel):
     UpgradeStep: UpgradeStepType
     StepStatus: UpgradeStatusType
     UpgradeName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVersionsResponseTypeDef(BaseValidatorModel):
+class ListVersionsResponse(BaseValidatorModel):
     Versions: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PurchaseReservedInstanceOfferingResponseTypeDef(BaseValidatorModel):
+class PurchaseReservedInstanceOfferingResponse(BaseValidatorModel):
     ReservedInstanceId: str
     ReservationName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDomainMaintenanceResponseTypeDef(BaseValidatorModel):
+class StartDomainMaintenanceResponse(BaseValidatorModel):
     MaintenanceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSourceResponseTypeDef(BaseValidatorModel):
+class UpdateDataSourceResponse(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDirectQueryDataSourceResponseTypeDef(BaseValidatorModel):
+class UpdateDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePackageScopeResponseTypeDef(BaseValidatorModel):
+class UpdatePackageScopeResponse(BaseValidatorModel):
     PackageID: str
     Operation: PackageScopeOperationEnumType
     PackageUserList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddTagsRequestTypeDef(BaseValidatorModel):
+class AddTagsRequest(BaseValidatorModel):
     ARN: str
-    TagList: Sequence[TagTypeDef]
+    TagList: Sequence[Tag]
 
 
-class ListTagsResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     pass
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    ApplicationSummaries: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    ApplicationSummaries: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AuthorizeVpcEndpointAccessResponseTypeDef(BaseValidatorModel):
-    AuthorizedPrincipal: AuthorizedPrincipalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AuthorizeVpcEndpointAccessResponse(BaseValidatorModel):
+    AuthorizedPrincipal: AuthorizedPrincipal
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVpcEndpointAccessResponseTypeDef(BaseValidatorModel):
-    AuthorizedPrincipalList: List[AuthorizedPrincipalTypeDef]
+class ListVpcEndpointAccessResponse(BaseValidatorModel):
+    AuthorizedPrincipalList: List[AuthorizedPrincipal]
     NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoTuneDetailsTypeDef(BaseValidatorModel):
-    ScheduledAutoTuneDetails: Optional[ScheduledAutoTuneDetailsTypeDef] = None
+class AutoTuneDetails(BaseValidatorModel):
+    ScheduledAutoTuneDetails: Optional[ScheduledAutoTuneDetails] = None
 
 
-class AutoTuneMaintenanceScheduleOutputTypeDef(BaseValidatorModel):
+class AutoTuneMaintenanceScheduleOutput(BaseValidatorModel):
     StartAt: Optional[datetime] = None
-    Duration: Optional[DurationTypeDef] = None
+    Duration: Optional[Duration] = None
     CronExpressionForRecurrence: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class AutoTuneMaintenanceScheduleTypeDef(BaseValidatorModel):
-    StartAt: Optional[TimestampTypeDef] = None
-    Duration: Optional[DurationTypeDef] = None
+class AutoTuneMaintenanceSchedule(BaseValidatorModel):
+    StartAt: Optional[Timestamp] = None
+    Duration: Optional[Duration] = None
     CronExpressionForRecurrence: Optional[str] = None
 
 
-class EnvironmentInfoTypeDef(BaseValidatorModel):
-    AvailabilityZoneInformation: Optional[List[AvailabilityZoneInfoTypeDef]] = None
+class EnvironmentInfo(BaseValidatorModel):
+    AvailabilityZoneInformation: Optional[List[AvailabilityZoneInfo]] = None
 
 
-class CancelDomainConfigChangeResponseTypeDef(BaseValidatorModel):
+class CancelDomainConfigChangeResponse(BaseValidatorModel):
     CancelledChangeIds: List[str]
-    CancelledChangeProperties: List[CancelledChangePropertyTypeDef]
+    CancelledChangeProperties: List[CancelledChangeProperty]
     DryRun: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelServiceSoftwareUpdateResponseTypeDef(BaseValidatorModel):
-    ServiceSoftwareOptions: ServiceSoftwareOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CancelServiceSoftwareUpdateResponse(BaseValidatorModel):
+    ServiceSoftwareOptions: ServiceSoftwareOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class StartServiceSoftwareUpdateResponseTypeDef(BaseValidatorModel):
-    ServiceSoftwareOptions: ServiceSoftwareOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartServiceSoftwareUpdateResponse(BaseValidatorModel):
+    ServiceSoftwareOptions: ServiceSoftwareOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class UpgradeDomainResponseTypeDef(BaseValidatorModel):
+class UpgradeDomainResponse(BaseValidatorModel):
     UpgradeId: str
     DomainName: str
     TargetVersion: str
     PerformCheckOnly: bool
     AdvancedOptions: Dict[str, str]
-    ChangeProgressDetails: ChangeProgressDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ChangeProgressDetails: ChangeProgressDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ChangeProgressStatusDetailsTypeDef(BaseValidatorModel):
+class ChangeProgressStatusDetails(BaseValidatorModel):
     ChangeId: Optional[str] = None
     StartTime: Optional[datetime] = None
     Status: Optional[OverallChangeStatusType] = None
     PendingProperties: Optional[List[str]] = None
     CompletedProperties: Optional[List[str]] = None
     TotalNumberOfStages: Optional[int] = None
-    ChangeProgressStages: Optional[List[ChangeProgressStageTypeDef]] = None
+    ChangeProgressStages: Optional[List[ChangeProgressStage]] = None
     LastUpdatedTime: Optional[datetime] = None
     ConfigChangeStatus: Optional[ConfigChangeStatusType] = None
     InitiatedBy: Optional[InitiatedByType] = None
 
 
-class CognitoOptionsStatusTypeDef(BaseValidatorModel):
-    Options: CognitoOptionsTypeDef
-    Status: OptionStatusTypeDef
+class CognitoOptionsStatus(BaseValidatorModel):
+    Options: CognitoOptions
+    Status: OptionStatus
 
 
-class GetCompatibleVersionsResponseTypeDef(BaseValidatorModel):
-    CompatibleVersions: List[CompatibleVersionsMapTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCompatibleVersionsResponse(BaseValidatorModel):
+    CompatibleVersions: List[CompatibleVersionsMap]
+    ResponseMetadata: ResponseMetadata
 
 
-class ConnectionPropertiesTypeDef(BaseValidatorModel):
+class ConnectionProperties(BaseValidatorModel):
     Endpoint: Optional[str] = None
-    CrossClusterSearch: Optional[CrossClusterSearchConnectionPropertiesTypeDef] = None
+    CrossClusterSearch: Optional[CrossClusterSearchConnectionProperties] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     name: str
     clientToken: Optional[str] = None
-    dataSources: Optional[Sequence[DataSourceTypeDef]] = None
-    iamIdentityCenterOptions: Optional[IamIdentityCenterOptionsInputTypeDef] = None
-    appConfigs: Optional[Sequence[AppConfigTypeDef]] = None
-    tagList: Optional[Sequence[TagTypeDef]] = None
+    dataSources: Optional[Sequence[DataSource]] = None
+    iamIdentityCenterOptions: Optional[IamIdentityCenterOptionsInput] = None
+    appConfigs: Optional[Sequence[AppConfig]] = None
+    tagList: Optional[Sequence[Tag]] = None
 
 
-class DomainEndpointOptionsStatusTypeDef(BaseValidatorModel):
-    Options: DomainEndpointOptionsTypeDef
-    Status: OptionStatusTypeDef
+class DomainEndpointOptionsStatus(BaseValidatorModel):
+    Options: DomainEndpointOptions
+    Status: OptionStatus
 
 
-class EBSOptionsStatusTypeDef(BaseValidatorModel):
-    Options: EBSOptionsTypeDef
-    Status: OptionStatusTypeDef
+class EBSOptionsStatus(BaseValidatorModel):
+    Options: EBSOptions
+    Status: OptionStatus
 
 
-class EncryptionAtRestOptionsStatusTypeDef(BaseValidatorModel):
-    Options: EncryptionAtRestOptionsTypeDef
-    Status: OptionStatusTypeDef
+class EncryptionAtRestOptionsStatus(BaseValidatorModel):
+    Options: EncryptionAtRestOptions
+    Status: OptionStatus
 
 
-class LogPublishingOptionsStatusTypeDef(BaseValidatorModel):
-    Options: Optional[Dict[LogTypeType, LogPublishingOptionTypeDef]] = None
-    Status: Optional[OptionStatusTypeDef] = None
+class LogPublishingOptionsStatus(BaseValidatorModel):
+    Options: Optional[Dict[LogTypeType, LogPublishingOption]] = None
+    Status: Optional[OptionStatus] = None
 
 
-class NodeToNodeEncryptionOptionsStatusTypeDef(BaseValidatorModel):
-    Options: NodeToNodeEncryptionOptionsTypeDef
-    Status: OptionStatusTypeDef
+class NodeToNodeEncryptionOptionsStatus(BaseValidatorModel):
+    Options: NodeToNodeEncryptionOptions
+    Status: OptionStatus
 
 
-class SnapshotOptionsStatusTypeDef(BaseValidatorModel):
-    Options: SnapshotOptionsTypeDef
-    Status: OptionStatusTypeDef
+class SnapshotOptionsStatus(BaseValidatorModel):
+    Options: SnapshotOptions
+    Status: OptionStatus
 
 
-class SoftwareUpdateOptionsStatusTypeDef(BaseValidatorModel):
-    Options: Optional[SoftwareUpdateOptionsTypeDef] = None
-    Status: Optional[OptionStatusTypeDef] = None
+class SoftwareUpdateOptionsStatus(BaseValidatorModel):
+    Options: Optional[SoftwareUpdateOptions] = None
+    Status: Optional[OptionStatus] = None
 
 
-class CreateVpcEndpointRequestTypeDef(BaseValidatorModel):
+class CreateVpcEndpointRequest(BaseValidatorModel):
     DomainArn: str
-    VpcOptions: VPCOptionsTypeDef
+    VpcOptions: VPCOptions
     ClientToken: Optional[str] = None
 
 
-class UpdateVpcEndpointRequestTypeDef(BaseValidatorModel):
+class UpdateVpcEndpointRequest(BaseValidatorModel):
     VpcEndpointId: str
-    VpcOptions: VPCOptionsTypeDef
+    VpcOptions: VPCOptions
 
 
-class UpdatePackageRequestTypeDef(BaseValidatorModel):
+class UpdatePackageRequest(BaseValidatorModel):
     PackageID: str
-    PackageSource: PackageSourceTypeDef
+    PackageSource: PackageSource
     PackageDescription: Optional[str] = None
     CommitMessage: Optional[str] = None
-    PackageConfiguration: Optional[PackageConfigurationTypeDef] = None
-    PackageEncryptionOptions: Optional[PackageEncryptionOptionsTypeDef] = None
+    PackageConfiguration: Optional[PackageConfiguration] = None
+    PackageEncryptionOptions: Optional[PackageEncryptionOptions] = None
 
 
-class CreatePackageRequestTypeDef(BaseValidatorModel):
+class CreatePackageRequest(BaseValidatorModel):
     PackageName: str
     PackageType: PackageTypeType
-    PackageSource: PackageSourceTypeDef
+    PackageSource: PackageSource
     PackageDescription: Optional[str] = None
-    PackageConfiguration: Optional[PackageConfigurationTypeDef] = None
+    PackageConfiguration: Optional[PackageConfiguration] = None
     EngineVersion: Optional[str] = None
-    PackageVendingOptions: Optional[PackageVendingOptionsTypeDef] = None
-    PackageEncryptionOptions: Optional[PackageEncryptionOptionsTypeDef] = None
+    PackageVendingOptions: Optional[PackageVendingOptions] = None
+    PackageEncryptionOptions: Optional[PackageEncryptionOptions] = None
 
 
-class DataSourceTypeTypeDef(BaseValidatorModel):
-    S3GlueDataCatalog: Optional[S3GlueDataCatalogTypeDef] = None
+class DataSourceType(BaseValidatorModel):
+    S3GlueDataCatalog: Optional[S3GlueDataCatalog] = None
 
 
-class DeleteVpcEndpointResponseTypeDef(BaseValidatorModel):
-    VpcEndpointSummary: VpcEndpointSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteVpcEndpointResponse(BaseValidatorModel):
+    VpcEndpointSummary: VpcEndpointSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVpcEndpointsForDomainResponseTypeDef(BaseValidatorModel):
-    VpcEndpointSummaryList: List[VpcEndpointSummaryTypeDef]
+class ListVpcEndpointsForDomainResponse(BaseValidatorModel):
+    VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVpcEndpointsResponseTypeDef(BaseValidatorModel):
-    VpcEndpointSummaryList: List[VpcEndpointSummaryTypeDef]
+class ListVpcEndpointsResponse(BaseValidatorModel):
+    VpcEndpointSummaryList: List[VpcEndpointSummary]
     NextToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainNodesResponseTypeDef(BaseValidatorModel):
-    DomainNodesStatusList: List[DomainNodesStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainNodesResponse(BaseValidatorModel):
+    DomainNodesStatusList: List[DomainNodesStatus]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeInboundConnectionsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class DescribeInboundConnectionsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeOutboundConnectionsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+class DescribeOutboundConnectionsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribePackagesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[DescribePackagesFilterTypeDef]] = None
+class DescribePackagesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[DescribePackagesFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DirectQueryDataSourceTypeTypeDef(BaseValidatorModel):
-    CloudWatchLog: Optional[CloudWatchDirectQueryDataSourceTypeDef] = None
-    SecurityLake: Optional[SecurityLakeDirectQueryDataSourceTypeDef] = None
+class DirectQueryDataSourceType(BaseValidatorModel):
+    CloudWatchLog: Optional[CloudWatchDirectQueryDataSource] = None
+    SecurityLake: Optional[SecurityLakeDirectQueryDataSource] = None
 
 
-class ListDomainNamesResponseTypeDef(BaseValidatorModel):
-    DomainNames: List[DomainInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainNamesResponse(BaseValidatorModel):
+    DomainNames: List[DomainInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDomainMaintenancesResponseTypeDef(BaseValidatorModel):
-    DomainMaintenances: List[DomainMaintenanceDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainMaintenancesResponse(BaseValidatorModel):
+    DomainMaintenances: List[DomainMaintenanceDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IdentityCenterOptionsStatusTypeDef(BaseValidatorModel):
-    Options: IdentityCenterOptionsTypeDef
-    Status: OptionStatusTypeDef
+class IdentityCenterOptionsStatus(BaseValidatorModel):
+    Options: IdentityCenterOptions
+    Status: OptionStatus
 
 
-class VPCDerivedInfoStatusTypeDef(BaseValidatorModel):
-    Options: VPCDerivedInfoTypeDef
-    Status: OptionStatusTypeDef
+class VPCDerivedInfoStatus(BaseValidatorModel):
+    Options: VPCDerivedInfo
+    Status: OptionStatus
 
 
-class VpcEndpointTypeDef(BaseValidatorModel):
+class VpcEndpoint(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
     VpcEndpointOwner: Optional[str] = None
     DomainArn: Optional[str] = None
-    VpcOptions: Optional[VPCDerivedInfoTypeDef] = None
+    VpcOptions: Optional[VPCDerivedInfo] = None
     Status: Optional[VpcEndpointStatusType] = None
     Endpoint: Optional[str] = None
 
 
-class DryRunProgressStatusTypeDef(BaseValidatorModel):
+class DryRunProgressStatus(BaseValidatorModel):
     DryRunId: str
     DryRunStatus: str
     CreationDate: str
     UpdateDate: str
-    ValidationFailures: Optional[List[ValidationFailureTypeDef]] = None
+    ValidationFailures: Optional[List[ValidationFailure]] = None
 
 
-class InstanceLimitsTypeDef(BaseValidatorModel):
-    InstanceCountLimits: Optional[InstanceCountLimitsTypeDef] = None
+class InstanceLimits(BaseValidatorModel):
+    InstanceCountLimits: Optional[InstanceCountLimits] = None
 
 
-class ListInstanceTypeDetailsResponseTypeDef(BaseValidatorModel):
-    InstanceTypeDetails: List[InstanceTypeDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInstanceTypeDetailsResponse(BaseValidatorModel):
+    InstanceTypeDetails: List[InstanceTypeDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PackageAssociationConfigurationTypeDef(BaseValidatorModel):
-    KeyStoreAccessOption: Optional[KeyStoreAccessOptionTypeDef] = None
+class PackageAssociationConfiguration(BaseValidatorModel):
+    KeyStoreAccessOption: Optional[KeyStoreAccessOption] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationsRequestPaginate(BaseValidatorModel):
     statuses: Optional[Sequence[ApplicationStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ScheduledActionTypeDef(BaseValidatorModel):
+class ScheduledAction(BaseValidatorModel):
     pass
 
 
-class ListScheduledActionsResponseTypeDef(BaseValidatorModel):
-    ScheduledActions: List[ScheduledActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListScheduledActionsResponse(BaseValidatorModel):
+    ScheduledActions: List[ScheduledAction]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateScheduledActionResponseTypeDef(BaseValidatorModel):
-    ScheduledAction: ScheduledActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateScheduledActionResponse(BaseValidatorModel):
+    ScheduledAction: ScheduledAction
+    ResponseMetadata: ResponseMetadata
 
 
-class NodeConfigTypeDef(BaseValidatorModel):
+class NodeConfig(BaseValidatorModel):
     pass
 
 
-class NodeOptionTypeDef(BaseValidatorModel):
+class NodeOption(BaseValidatorModel):
     NodeType: Optional[Literal["coordinator"]] = None
-    NodeConfig: Optional[NodeConfigTypeDef] = None
+    NodeConfig: Optional[NodeConfig] = None
 
 
-class OffPeakWindowTypeDef(BaseValidatorModel):
-    WindowStartTime: Optional[WindowStartTimeTypeDef] = None
+class OffPeakWindow(BaseValidatorModel):
+    WindowStartTime: Optional[WindowStartTime] = None
 
 
-class PackageDetailsTypeDef(BaseValidatorModel):
+class PackageDetails(BaseValidatorModel):
     PackageID: Optional[str] = None
     PackageName: Optional[str] = None
     PackageType: Optional[PackageTypeType] = None
@@ -1148,25 +1148,25 @@ class PackageDetailsTypeDef(BaseValidatorModel):
     CreatedAt: Optional[datetime] = None
     LastUpdatedAt: Optional[datetime] = None
     AvailablePackageVersion: Optional[str] = None
-    ErrorDetails: Optional[ErrorDetailsTypeDef] = None
+    ErrorDetails: Optional[ErrorDetails] = None
     EngineVersion: Optional[str] = None
-    AvailablePluginProperties: Optional[PluginPropertiesTypeDef] = None
-    AvailablePackageConfiguration: Optional[PackageConfigurationTypeDef] = None
+    AvailablePluginProperties: Optional[PluginProperties] = None
+    AvailablePackageConfiguration: Optional[PackageConfiguration] = None
     AllowListedUserList: Optional[List[str]] = None
     PackageOwner: Optional[str] = None
-    PackageVendingOptions: Optional[PackageVendingOptionsTypeDef] = None
-    PackageEncryptionOptions: Optional[PackageEncryptionOptionsTypeDef] = None
+    PackageVendingOptions: Optional[PackageVendingOptions] = None
+    PackageEncryptionOptions: Optional[PackageEncryptionOptions] = None
 
 
-class PackageVersionHistoryTypeDef(BaseValidatorModel):
+class PackageVersionHistory(BaseValidatorModel):
     PackageVersion: Optional[str] = None
     CommitMessage: Optional[str] = None
     CreatedAt: Optional[datetime] = None
-    PluginProperties: Optional[PluginPropertiesTypeDef] = None
-    PackageConfiguration: Optional[PackageConfigurationTypeDef] = None
+    PluginProperties: Optional[PluginProperties] = None
+    PackageConfiguration: Optional[PackageConfiguration] = None
 
 
-class ReservedInstanceOfferingTypeDef(BaseValidatorModel):
+class ReservedInstanceOffering(BaseValidatorModel):
     ReservedInstanceOfferingId: Optional[str] = None
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
     Duration: Optional[int] = None
@@ -1174,10 +1174,10 @@ class ReservedInstanceOfferingTypeDef(BaseValidatorModel):
     UsagePrice: Optional[float] = None
     CurrencyCode: Optional[str] = None
     PaymentOption: Optional[ReservedInstancePaymentOptionType] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
 
 
-class ReservedInstanceTypeDef(BaseValidatorModel):
+class ReservedInstance(BaseValidatorModel):
     ReservationName: Optional[str] = None
     ReservedInstanceId: Optional[str] = None
     BillingSubscriptionId: Optional[int] = None
@@ -1191,12 +1191,12 @@ class ReservedInstanceTypeDef(BaseValidatorModel):
     InstanceCount: Optional[int] = None
     State: Optional[str] = None
     PaymentOption: Optional[ReservedInstancePaymentOptionType] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
 
 
-class SAMLOptionsInputTypeDef(BaseValidatorModel):
+class SAMLOptionsInput(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    Idp: Optional[SAMLIdpTypeDef] = None
+    Idp: Optional[SAMLIdp] = None
     MasterUserName: Optional[str] = None
     MasterBackendRole: Optional[str] = None
     SubjectKey: Optional[str] = None
@@ -1204,60 +1204,60 @@ class SAMLOptionsInputTypeDef(BaseValidatorModel):
     SessionTimeoutMinutes: Optional[int] = None
 
 
-class SAMLOptionsOutputTypeDef(BaseValidatorModel):
+class SAMLOptionsOutput(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    Idp: Optional[SAMLIdpTypeDef] = None
+    Idp: Optional[SAMLIdp] = None
     SubjectKey: Optional[str] = None
     RolesKey: Optional[str] = None
     SessionTimeoutMinutes: Optional[int] = None
 
 
-class StorageTypeTypeDef(BaseValidatorModel):
+class StorageType(BaseValidatorModel):
     StorageTypeName: Optional[str] = None
     StorageSubTypeName: Optional[str] = None
-    StorageTypeLimits: Optional[List[StorageTypeLimitTypeDef]] = None
+    StorageTypeLimits: Optional[List[StorageTypeLimit]] = None
 
 
-class UpgradeHistoryTypeDef(BaseValidatorModel):
+class UpgradeHistory(BaseValidatorModel):
     UpgradeName: Optional[str] = None
     StartTimestamp: Optional[datetime] = None
     UpgradeStatus: Optional[UpgradeStatusType] = None
-    StepsList: Optional[List[UpgradeStepItemTypeDef]] = None
+    StepsList: Optional[List[UpgradeStepItem]] = None
 
 
-class AIMLOptionsStatusTypeDef(BaseValidatorModel):
-    Options: Optional[AIMLOptionsOutputTypeDef] = None
-    Status: Optional[OptionStatusTypeDef] = None
+class AIMLOptionsStatus(BaseValidatorModel):
+    Options: Optional[AIMLOptionsOutput] = None
+    Status: Optional[OptionStatus] = None
 
 
-class InboundConnectionTypeDef(BaseValidatorModel):
-    LocalDomainInfo: Optional[DomainInformationContainerTypeDef] = None
-    RemoteDomainInfo: Optional[DomainInformationContainerTypeDef] = None
+class InboundConnection(BaseValidatorModel):
+    LocalDomainInfo: Optional[DomainInformationContainer] = None
+    RemoteDomainInfo: Optional[DomainInformationContainer] = None
     ConnectionId: Optional[str] = None
-    ConnectionStatus: Optional[InboundConnectionStatusTypeDef] = None
+    ConnectionStatus: Optional[InboundConnectionStatus] = None
     ConnectionMode: Optional[ConnectionModeType] = None
 
 
-class AutoTuneTypeDef(BaseValidatorModel):
+class AutoTune(BaseValidatorModel):
     AutoTuneType: Optional[Literal["SCHEDULED_ACTION"]] = None
-    AutoTuneDetails: Optional[AutoTuneDetailsTypeDef] = None
+    AutoTuneDetails: Optional[AutoTuneDetails] = None
 
 
-class AutoTuneOptionsExtraTypeDef(BaseValidatorModel):
+class AutoTuneOptionsExtra(BaseValidatorModel):
     DesiredState: Optional[AutoTuneDesiredStateType] = None
     RollbackOnDisable: Optional[RollbackOnDisableType] = None
-    MaintenanceSchedules: Optional[List[AutoTuneMaintenanceScheduleOutputTypeDef]] = None
+    MaintenanceSchedules: Optional[List[AutoTuneMaintenanceScheduleOutput]] = None
     UseOffPeakWindow: Optional[bool] = None
 
 
-class AutoTuneOptionsTypeDef(BaseValidatorModel):
+class AutoTuneOptions(BaseValidatorModel):
     DesiredState: Optional[AutoTuneDesiredStateType] = None
     RollbackOnDisable: Optional[RollbackOnDisableType] = None
-    MaintenanceSchedules: Optional[Sequence[AutoTuneMaintenanceScheduleTypeDef]] = None
+    MaintenanceSchedules: Optional[Sequence[AutoTuneMaintenanceSchedule]] = None
     UseOffPeakWindow: Optional[bool] = None
 
 
-class DescribeDomainHealthResponseTypeDef(BaseValidatorModel):
+class DescribeDomainHealthResponse(BaseValidatorModel):
     DomainState: DomainStateType
     AvailabilityZoneCount: str
     ActiveAvailabilityZoneCount: str
@@ -1270,131 +1270,131 @@ class DescribeDomainHealthResponseTypeDef(BaseValidatorModel):
     ClusterHealth: DomainHealthType
     TotalShards: str
     TotalUnAssignedShards: str
-    EnvironmentInformation: List[EnvironmentInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    EnvironmentInformation: List[EnvironmentInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainChangeProgressResponseTypeDef(BaseValidatorModel):
-    ChangeProgressStatus: ChangeProgressStatusDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainChangeProgressResponse(BaseValidatorModel):
+    ChangeProgressStatus: ChangeProgressStatusDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOutboundConnectionRequestTypeDef(BaseValidatorModel):
-    LocalDomainInfo: DomainInformationContainerTypeDef
-    RemoteDomainInfo: DomainInformationContainerTypeDef
+class CreateOutboundConnectionRequest(BaseValidatorModel):
+    LocalDomainInfo: DomainInformationContainer
+    RemoteDomainInfo: DomainInformationContainer
     ConnectionAlias: str
     ConnectionMode: Optional[ConnectionModeType] = None
-    ConnectionProperties: Optional[ConnectionPropertiesTypeDef] = None
+    ConnectionProperties: Optional[ConnectionProperties] = None
 
 
-class CreateOutboundConnectionResponseTypeDef(BaseValidatorModel):
-    LocalDomainInfo: DomainInformationContainerTypeDef
-    RemoteDomainInfo: DomainInformationContainerTypeDef
+class CreateOutboundConnectionResponse(BaseValidatorModel):
+    LocalDomainInfo: DomainInformationContainer
+    RemoteDomainInfo: DomainInformationContainer
     ConnectionAlias: str
-    ConnectionStatus: OutboundConnectionStatusTypeDef
+    ConnectionStatus: OutboundConnectionStatus
     ConnectionId: str
     ConnectionMode: ConnectionModeType
-    ConnectionProperties: ConnectionPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ConnectionProperties: ConnectionProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class OutboundConnectionTypeDef(BaseValidatorModel):
-    LocalDomainInfo: Optional[DomainInformationContainerTypeDef] = None
-    RemoteDomainInfo: Optional[DomainInformationContainerTypeDef] = None
+class OutboundConnection(BaseValidatorModel):
+    LocalDomainInfo: Optional[DomainInformationContainer] = None
+    RemoteDomainInfo: Optional[DomainInformationContainer] = None
     ConnectionId: Optional[str] = None
     ConnectionAlias: Optional[str] = None
-    ConnectionStatus: Optional[OutboundConnectionStatusTypeDef] = None
+    ConnectionStatus: Optional[OutboundConnectionStatus] = None
     ConnectionMode: Optional[ConnectionModeType] = None
-    ConnectionProperties: Optional[ConnectionPropertiesTypeDef] = None
+    ConnectionProperties: Optional[ConnectionProperties] = None
 
 
-class AddDataSourceRequestTypeDef(BaseValidatorModel):
+class AddDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
-    DataSourceType: DataSourceTypeTypeDef
+    DataSourceType: DataSourceType
     Description: Optional[str] = None
 
 
-class DataSourceDetailsTypeDef(BaseValidatorModel):
-    DataSourceType: Optional[DataSourceTypeTypeDef] = None
+class DataSourceDetails(BaseValidatorModel):
+    DataSourceType: Optional[DataSourceType] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[DataSourceStatusType] = None
 
 
-class GetDataSourceResponseTypeDef(BaseValidatorModel):
-    DataSourceType: DataSourceTypeTypeDef
+class GetDataSourceResponse(BaseValidatorModel):
+    DataSourceType: DataSourceType
     Name: str
     Description: str
     Status: DataSourceStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
+class UpdateDataSourceRequest(BaseValidatorModel):
     DomainName: str
     Name: str
-    DataSourceType: DataSourceTypeTypeDef
+    DataSourceType: DataSourceType
     Description: Optional[str] = None
     Status: Optional[DataSourceStatusType] = None
 
 
-class AddDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
+class AddDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
-    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    DataSourceType: DirectQueryDataSourceType
     OpenSearchArns: Sequence[str]
     Description: Optional[str] = None
-    TagList: Optional[Sequence[TagTypeDef]] = None
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class DirectQueryDataSourceTypeDef(BaseValidatorModel):
+class DirectQueryDataSource(BaseValidatorModel):
     DataSourceName: Optional[str] = None
-    DataSourceType: Optional[DirectQueryDataSourceTypeTypeDef] = None
+    DataSourceType: Optional[DirectQueryDataSourceType] = None
     Description: Optional[str] = None
     OpenSearchArns: Optional[List[str]] = None
     DataSourceArn: Optional[str] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
 
 
-class GetDirectQueryDataSourceResponseTypeDef(BaseValidatorModel):
+class GetDirectQueryDataSourceResponse(BaseValidatorModel):
     DataSourceName: str
-    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    DataSourceType: DirectQueryDataSourceType
     Description: str
     OpenSearchArns: List[str]
     DataSourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDirectQueryDataSourceRequestTypeDef(BaseValidatorModel):
+class UpdateDirectQueryDataSourceRequest(BaseValidatorModel):
     DataSourceName: str
-    DataSourceType: DirectQueryDataSourceTypeTypeDef
+    DataSourceType: DirectQueryDataSourceType
     OpenSearchArns: Sequence[str]
     Description: Optional[str] = None
 
 
-class CreateVpcEndpointResponseTypeDef(BaseValidatorModel):
-    VpcEndpoint: VpcEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVpcEndpointResponse(BaseValidatorModel):
+    VpcEndpoint: VpcEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVpcEndpointsResponseTypeDef(BaseValidatorModel):
-    VpcEndpoints: List[VpcEndpointTypeDef]
-    VpcEndpointErrors: List[VpcEndpointErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeVpcEndpointsResponse(BaseValidatorModel):
+    VpcEndpoints: List[VpcEndpoint]
+    VpcEndpointErrors: List[VpcEndpointError]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVpcEndpointResponseTypeDef(BaseValidatorModel):
-    VpcEndpoint: VpcEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVpcEndpointResponse(BaseValidatorModel):
+    VpcEndpoint: VpcEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePackageRequestTypeDef(BaseValidatorModel):
+class AssociatePackageRequest(BaseValidatorModel):
     PackageID: str
     DomainName: str
     PrerequisitePackageIDList: Optional[Sequence[str]] = None
-    AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
+    AssociationConfiguration: Optional[PackageAssociationConfiguration] = None
 
 
-class DomainPackageDetailsTypeDef(BaseValidatorModel):
+class DomainPackageDetails(BaseValidatorModel):
     PackageID: Optional[str] = None
     PackageName: Optional[str] = None
     PackageType: Optional[PackageTypeType] = None
@@ -1404,244 +1404,244 @@ class DomainPackageDetailsTypeDef(BaseValidatorModel):
     PackageVersion: Optional[str] = None
     PrerequisitePackageIDList: Optional[List[str]] = None
     ReferencePath: Optional[str] = None
-    ErrorDetails: Optional[ErrorDetailsTypeDef] = None
-    AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
+    ErrorDetails: Optional[ErrorDetails] = None
+    AssociationConfiguration: Optional[PackageAssociationConfiguration] = None
 
 
-class PackageDetailsForAssociationTypeDef(BaseValidatorModel):
+class PackageDetailsForAssociation(BaseValidatorModel):
     PackageID: str
     PrerequisitePackageIDList: Optional[Sequence[str]] = None
-    AssociationConfiguration: Optional[PackageAssociationConfigurationTypeDef] = None
+    AssociationConfiguration: Optional[PackageAssociationConfiguration] = None
 
 
-class ClusterConfigOutputTypeDef(BaseValidatorModel):
+class ClusterConfigOutput(BaseValidatorModel):
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     DedicatedMasterEnabled: Optional[bool] = None
     ZoneAwarenessEnabled: Optional[bool] = None
-    ZoneAwarenessConfig: Optional[ZoneAwarenessConfigTypeDef] = None
+    ZoneAwarenessConfig: Optional[ZoneAwarenessConfig] = None
     DedicatedMasterType: Optional[OpenSearchPartitionInstanceTypeType] = None
     DedicatedMasterCount: Optional[int] = None
     WarmEnabled: Optional[bool] = None
     WarmType: Optional[OpenSearchWarmPartitionInstanceTypeType] = None
     WarmCount: Optional[int] = None
-    ColdStorageOptions: Optional[ColdStorageOptionsTypeDef] = None
+    ColdStorageOptions: Optional[ColdStorageOptions] = None
     MultiAZWithStandbyEnabled: Optional[bool] = None
-    NodeOptions: Optional[List[NodeOptionTypeDef]] = None
+    NodeOptions: Optional[List[NodeOption]] = None
 
 
-class ClusterConfigTypeDef(BaseValidatorModel):
+class ClusterConfig(BaseValidatorModel):
     InstanceType: Optional[OpenSearchPartitionInstanceTypeType] = None
     InstanceCount: Optional[int] = None
     DedicatedMasterEnabled: Optional[bool] = None
     ZoneAwarenessEnabled: Optional[bool] = None
-    ZoneAwarenessConfig: Optional[ZoneAwarenessConfigTypeDef] = None
+    ZoneAwarenessConfig: Optional[ZoneAwarenessConfig] = None
     DedicatedMasterType: Optional[OpenSearchPartitionInstanceTypeType] = None
     DedicatedMasterCount: Optional[int] = None
     WarmEnabled: Optional[bool] = None
     WarmType: Optional[OpenSearchWarmPartitionInstanceTypeType] = None
     WarmCount: Optional[int] = None
-    ColdStorageOptions: Optional[ColdStorageOptionsTypeDef] = None
+    ColdStorageOptions: Optional[ColdStorageOptions] = None
     MultiAZWithStandbyEnabled: Optional[bool] = None
-    NodeOptions: Optional[Sequence[NodeOptionTypeDef]] = None
+    NodeOptions: Optional[Sequence[NodeOption]] = None
 
 
-class OffPeakWindowOptionsTypeDef(BaseValidatorModel):
+class OffPeakWindowOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
-    OffPeakWindow: Optional[OffPeakWindowTypeDef] = None
+    OffPeakWindow: Optional[OffPeakWindow] = None
 
 
-class CreatePackageResponseTypeDef(BaseValidatorModel):
-    PackageDetails: PackageDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePackageResponse(BaseValidatorModel):
+    PackageDetails: PackageDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePackageResponseTypeDef(BaseValidatorModel):
-    PackageDetails: PackageDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeletePackageResponse(BaseValidatorModel):
+    PackageDetails: PackageDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePackagesResponseTypeDef(BaseValidatorModel):
-    PackageDetailsList: List[PackageDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePackagesResponse(BaseValidatorModel):
+    PackageDetailsList: List[PackageDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdatePackageResponseTypeDef(BaseValidatorModel):
-    PackageDetails: PackageDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePackageResponse(BaseValidatorModel):
+    PackageDetails: PackageDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPackageVersionHistoryResponseTypeDef(BaseValidatorModel):
+class GetPackageVersionHistoryResponse(BaseValidatorModel):
     PackageID: str
-    PackageVersionHistoryList: List[PackageVersionHistoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    PackageVersionHistoryList: List[PackageVersionHistory]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeReservedInstanceOfferingsResponseTypeDef(BaseValidatorModel):
-    ReservedInstanceOfferings: List[ReservedInstanceOfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReservedInstanceOfferingsResponse(BaseValidatorModel):
+    ReservedInstanceOfferings: List[ReservedInstanceOffering]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeReservedInstancesResponseTypeDef(BaseValidatorModel):
-    ReservedInstances: List[ReservedInstanceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReservedInstancesResponse(BaseValidatorModel):
+    ReservedInstances: List[ReservedInstance]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AdvancedSecurityOptionsInputTypeDef(BaseValidatorModel):
+class AdvancedSecurityOptionsInput(BaseValidatorModel):
     Enabled: Optional[bool] = None
     InternalUserDatabaseEnabled: Optional[bool] = None
-    MasterUserOptions: Optional[MasterUserOptionsTypeDef] = None
-    SAMLOptions: Optional[SAMLOptionsInputTypeDef] = None
-    JWTOptions: Optional[JWTOptionsInputTypeDef] = None
+    MasterUserOptions: Optional[MasterUserOptions] = None
+    SAMLOptions: Optional[SAMLOptionsInput] = None
+    JWTOptions: Optional[JWTOptionsInput] = None
     AnonymousAuthEnabled: Optional[bool] = None
 
 
-class AdvancedSecurityOptionsTypeDef(BaseValidatorModel):
+class AdvancedSecurityOptions(BaseValidatorModel):
     Enabled: Optional[bool] = None
     InternalUserDatabaseEnabled: Optional[bool] = None
-    SAMLOptions: Optional[SAMLOptionsOutputTypeDef] = None
-    JWTOptions: Optional[JWTOptionsOutputTypeDef] = None
+    SAMLOptions: Optional[SAMLOptionsOutput] = None
+    JWTOptions: Optional[JWTOptionsOutput] = None
     AnonymousAuthDisableDate: Optional[datetime] = None
     AnonymousAuthEnabled: Optional[bool] = None
 
 
-class LimitsTypeDef(BaseValidatorModel):
-    StorageTypes: Optional[List[StorageTypeTypeDef]] = None
-    InstanceLimits: Optional[InstanceLimitsTypeDef] = None
-    AdditionalLimits: Optional[List[AdditionalLimitTypeDef]] = None
+class Limits(BaseValidatorModel):
+    StorageTypes: Optional[List[StorageType]] = None
+    InstanceLimits: Optional[InstanceLimits] = None
+    AdditionalLimits: Optional[List[AdditionalLimit]] = None
 
 
-class GetUpgradeHistoryResponseTypeDef(BaseValidatorModel):
-    UpgradeHistories: List[UpgradeHistoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUpgradeHistoryResponse(BaseValidatorModel):
+    UpgradeHistories: List[UpgradeHistory]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AcceptInboundConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: InboundConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AcceptInboundConnectionResponse(BaseValidatorModel):
+    Connection: InboundConnection
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInboundConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: InboundConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteInboundConnectionResponse(BaseValidatorModel):
+    Connection: InboundConnection
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeInboundConnectionsResponseTypeDef(BaseValidatorModel):
-    Connections: List[InboundConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInboundConnectionsResponse(BaseValidatorModel):
+    Connections: List[InboundConnection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RejectInboundConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: InboundConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RejectInboundConnectionResponse(BaseValidatorModel):
+    Connection: InboundConnection
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainAutoTunesResponseTypeDef(BaseValidatorModel):
-    AutoTunes: List[AutoTuneTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainAutoTunesResponse(BaseValidatorModel):
+    AutoTunes: List[AutoTune]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AutoTuneOptionsStatusTypeDef(BaseValidatorModel):
-    Options: Optional[AutoTuneOptionsExtraTypeDef] = None
-    Status: Optional[AutoTuneStatusTypeDef] = None
+class AutoTuneOptionsStatus(BaseValidatorModel):
+    Options: Optional[AutoTuneOptionsExtra] = None
+    Status: Optional[AutoTuneStatus] = None
 
 
-class AutoTuneMaintenanceScheduleUnionTypeDef(BaseValidatorModel):
+class AutoTuneMaintenanceScheduleUnion(BaseValidatorModel):
     pass
 
 
-class AutoTuneOptionsInputTypeDef(BaseValidatorModel):
+class AutoTuneOptionsInput(BaseValidatorModel):
     DesiredState: Optional[AutoTuneDesiredStateType] = None
-    MaintenanceSchedules: Optional[Sequence[AutoTuneMaintenanceScheduleUnionTypeDef]] = None
+    MaintenanceSchedules: Optional[Sequence[AutoTuneMaintenanceScheduleUnion]] = None
     UseOffPeakWindow: Optional[bool] = None
 
 
-class DeleteOutboundConnectionResponseTypeDef(BaseValidatorModel):
-    Connection: OutboundConnectionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteOutboundConnectionResponse(BaseValidatorModel):
+    Connection: OutboundConnection
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOutboundConnectionsResponseTypeDef(BaseValidatorModel):
-    Connections: List[OutboundConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeOutboundConnectionsResponse(BaseValidatorModel):
+    Connections: List[OutboundConnection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    DataSources: List[DataSourceDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesResponse(BaseValidatorModel):
+    DataSources: List[DataSourceDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDirectQueryDataSourcesResponseTypeDef(BaseValidatorModel):
-    DirectQueryDataSources: List[DirectQueryDataSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDirectQueryDataSourcesResponse(BaseValidatorModel):
+    DirectQueryDataSources: List[DirectQueryDataSource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociatePackageResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetails: DomainPackageDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatePackageResponse(BaseValidatorModel):
+    DomainPackageDetails: DomainPackageDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePackagesResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatePackagesResponse(BaseValidatorModel):
+    DomainPackageDetailsList: List[DomainPackageDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class DissociatePackageResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetails: DomainPackageDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DissociatePackageResponse(BaseValidatorModel):
+    DomainPackageDetails: DomainPackageDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class DissociatePackagesResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DissociatePackagesResponse(BaseValidatorModel):
+    DomainPackageDetailsList: List[DomainPackageDetails]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDomainsForPackageResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsForPackageResponse(BaseValidatorModel):
+    DomainPackageDetailsList: List[DomainPackageDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListPackagesForDomainResponseTypeDef(BaseValidatorModel):
-    DomainPackageDetailsList: List[DomainPackageDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPackagesForDomainResponse(BaseValidatorModel):
+    DomainPackageDetailsList: List[DomainPackageDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociatePackagesRequestTypeDef(BaseValidatorModel):
-    PackageList: Sequence[PackageDetailsForAssociationTypeDef]
+class AssociatePackagesRequest(BaseValidatorModel):
+    PackageList: Sequence[PackageDetailsForAssociation]
     DomainName: str
 
 
-class ClusterConfigStatusTypeDef(BaseValidatorModel):
-    Options: ClusterConfigOutputTypeDef
-    Status: OptionStatusTypeDef
+class ClusterConfigStatus(BaseValidatorModel):
+    Options: ClusterConfigOutput
+    Status: OptionStatus
 
 
-class OffPeakWindowOptionsStatusTypeDef(BaseValidatorModel):
-    Options: Optional[OffPeakWindowOptionsTypeDef] = None
-    Status: Optional[OptionStatusTypeDef] = None
+class OffPeakWindowOptionsStatus(BaseValidatorModel):
+    Options: Optional[OffPeakWindowOptions] = None
+    Status: Optional[OptionStatus] = None
 
 
-class AdvancedSecurityOptionsStatusTypeDef(BaseValidatorModel):
-    Options: AdvancedSecurityOptionsTypeDef
-    Status: OptionStatusTypeDef
+class AdvancedSecurityOptionsStatus(BaseValidatorModel):
+    Options: AdvancedSecurityOptions
+    Status: OptionStatus
 
 
-class DomainStatusTypeDef(BaseValidatorModel):
+class DomainStatus(BaseValidatorModel):
     DomainId: str
     DomainName: str
     ARN: str
-    ClusterConfig: ClusterConfigOutputTypeDef
+    ClusterConfig: ClusterConfigOutput
     Created: Optional[bool] = None
     Deleted: Optional[bool] = None
     Endpoint: Optional[str] = None
@@ -1651,150 +1651,150 @@ class DomainStatusTypeDef(BaseValidatorModel):
     Processing: Optional[bool] = None
     UpgradeProcessing: Optional[bool] = None
     EngineVersion: Optional[str] = None
-    EBSOptions: Optional[EBSOptionsTypeDef] = None
+    EBSOptions: Optional[EBSOptions] = None
     AccessPolicies: Optional[str] = None
     IPAddressType: Optional[IPAddressTypeType] = None
-    SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
-    VPCOptions: Optional[VPCDerivedInfoTypeDef] = None
-    CognitoOptions: Optional[CognitoOptionsTypeDef] = None
-    EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptionsTypeDef] = None
+    SnapshotOptions: Optional[SnapshotOptions] = None
+    VPCOptions: Optional[VPCDerivedInfo] = None
+    CognitoOptions: Optional[CognitoOptions] = None
+    EncryptionAtRestOptions: Optional[EncryptionAtRestOptions] = None
+    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptions] = None
     AdvancedOptions: Optional[Dict[str, str]] = None
-    LogPublishingOptions: Optional[Dict[LogTypeType, LogPublishingOptionTypeDef]] = None
-    ServiceSoftwareOptions: Optional[ServiceSoftwareOptionsTypeDef] = None
-    DomainEndpointOptions: Optional[DomainEndpointOptionsTypeDef] = None
-    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsTypeDef] = None
-    IdentityCenterOptions: Optional[IdentityCenterOptionsTypeDef] = None
-    AutoTuneOptions: Optional[AutoTuneOptionsOutputTypeDef] = None
-    ChangeProgressDetails: Optional[ChangeProgressDetailsTypeDef] = None
-    OffPeakWindowOptions: Optional[OffPeakWindowOptionsTypeDef] = None
-    SoftwareUpdateOptions: Optional[SoftwareUpdateOptionsTypeDef] = None
+    LogPublishingOptions: Optional[Dict[LogTypeType, LogPublishingOption]] = None
+    ServiceSoftwareOptions: Optional[ServiceSoftwareOptions] = None
+    DomainEndpointOptions: Optional[DomainEndpointOptions] = None
+    AdvancedSecurityOptions: Optional[AdvancedSecurityOptions] = None
+    IdentityCenterOptions: Optional[IdentityCenterOptions] = None
+    AutoTuneOptions: Optional[AutoTuneOptionsOutput] = None
+    ChangeProgressDetails: Optional[ChangeProgressDetails] = None
+    OffPeakWindowOptions: Optional[OffPeakWindowOptions] = None
+    SoftwareUpdateOptions: Optional[SoftwareUpdateOptions] = None
     DomainProcessingStatus: Optional[DomainProcessingStatusTypeType] = None
-    ModifyingProperties: Optional[List[ModifyingPropertiesTypeDef]] = None
-    AIMLOptions: Optional[AIMLOptionsOutputTypeDef] = None
+    ModifyingProperties: Optional[List[ModifyingProperties]] = None
+    AIMLOptions: Optional[AIMLOptionsOutput] = None
 
 
-class DescribeInstanceTypeLimitsResponseTypeDef(BaseValidatorModel):
-    LimitsByRole: Dict[str, LimitsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstanceTypeLimitsResponse(BaseValidatorModel):
+    LimitsByRole: Dict[str, Limits]
+    ResponseMetadata: ResponseMetadata
 
 
-class ClusterConfigUnionTypeDef(BaseValidatorModel):
+class ClusterConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateDomainRequestTypeDef(BaseValidatorModel):
+class CreateDomainRequest(BaseValidatorModel):
     DomainName: str
     EngineVersion: Optional[str] = None
-    ClusterConfig: Optional[ClusterConfigUnionTypeDef] = None
-    EBSOptions: Optional[EBSOptionsTypeDef] = None
+    ClusterConfig: Optional[ClusterConfigUnion] = None
+    EBSOptions: Optional[EBSOptions] = None
     AccessPolicies: Optional[str] = None
     IPAddressType: Optional[IPAddressTypeType] = None
-    SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
-    VPCOptions: Optional[VPCOptionsTypeDef] = None
-    CognitoOptions: Optional[CognitoOptionsTypeDef] = None
-    EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptionsTypeDef] = None
+    SnapshotOptions: Optional[SnapshotOptions] = None
+    VPCOptions: Optional[VPCOptions] = None
+    CognitoOptions: Optional[CognitoOptions] = None
+    EncryptionAtRestOptions: Optional[EncryptionAtRestOptions] = None
+    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptions] = None
     AdvancedOptions: Optional[Mapping[str, str]] = None
-    LogPublishingOptions: Optional[Mapping[LogTypeType, LogPublishingOptionTypeDef]] = None
-    DomainEndpointOptions: Optional[DomainEndpointOptionsTypeDef] = None
-    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsInputTypeDef] = None
-    IdentityCenterOptions: Optional[IdentityCenterOptionsInputTypeDef] = None
-    TagList: Optional[Sequence[TagTypeDef]] = None
-    AutoTuneOptions: Optional[AutoTuneOptionsInputTypeDef] = None
-    OffPeakWindowOptions: Optional[OffPeakWindowOptionsTypeDef] = None
-    SoftwareUpdateOptions: Optional[SoftwareUpdateOptionsTypeDef] = None
-    AIMLOptions: Optional[AIMLOptionsInputTypeDef] = None
+    LogPublishingOptions: Optional[Mapping[LogTypeType, LogPublishingOption]] = None
+    DomainEndpointOptions: Optional[DomainEndpointOptions] = None
+    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsInput] = None
+    IdentityCenterOptions: Optional[IdentityCenterOptionsInput] = None
+    TagList: Optional[Sequence[Tag]] = None
+    AutoTuneOptions: Optional[AutoTuneOptionsInput] = None
+    OffPeakWindowOptions: Optional[OffPeakWindowOptions] = None
+    SoftwareUpdateOptions: Optional[SoftwareUpdateOptions] = None
+    AIMLOptions: Optional[AIMLOptionsInput] = None
 
 
-class AutoTuneOptionsUnionTypeDef(BaseValidatorModel):
+class AutoTuneOptionsUnion(BaseValidatorModel):
     pass
 
 
-class UpdateDomainConfigRequestTypeDef(BaseValidatorModel):
+class UpdateDomainConfigRequest(BaseValidatorModel):
     DomainName: str
-    ClusterConfig: Optional[ClusterConfigUnionTypeDef] = None
-    EBSOptions: Optional[EBSOptionsTypeDef] = None
-    SnapshotOptions: Optional[SnapshotOptionsTypeDef] = None
-    VPCOptions: Optional[VPCOptionsTypeDef] = None
-    CognitoOptions: Optional[CognitoOptionsTypeDef] = None
+    ClusterConfig: Optional[ClusterConfigUnion] = None
+    EBSOptions: Optional[EBSOptions] = None
+    SnapshotOptions: Optional[SnapshotOptions] = None
+    VPCOptions: Optional[VPCOptions] = None
+    CognitoOptions: Optional[CognitoOptions] = None
     AdvancedOptions: Optional[Mapping[str, str]] = None
     AccessPolicies: Optional[str] = None
     IPAddressType: Optional[IPAddressTypeType] = None
-    LogPublishingOptions: Optional[Mapping[LogTypeType, LogPublishingOptionTypeDef]] = None
-    EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsTypeDef] = None
-    DomainEndpointOptions: Optional[DomainEndpointOptionsTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptionsTypeDef] = None
-    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsInputTypeDef] = None
-    IdentityCenterOptions: Optional[IdentityCenterOptionsInputTypeDef] = None
-    AutoTuneOptions: Optional[AutoTuneOptionsUnionTypeDef] = None
+    LogPublishingOptions: Optional[Mapping[LogTypeType, LogPublishingOption]] = None
+    EncryptionAtRestOptions: Optional[EncryptionAtRestOptions] = None
+    DomainEndpointOptions: Optional[DomainEndpointOptions] = None
+    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptions] = None
+    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsInput] = None
+    IdentityCenterOptions: Optional[IdentityCenterOptionsInput] = None
+    AutoTuneOptions: Optional[AutoTuneOptionsUnion] = None
     DryRun: Optional[bool] = None
     DryRunMode: Optional[DryRunModeType] = None
-    OffPeakWindowOptions: Optional[OffPeakWindowOptionsTypeDef] = None
-    SoftwareUpdateOptions: Optional[SoftwareUpdateOptionsTypeDef] = None
-    AIMLOptions: Optional[AIMLOptionsInputTypeDef] = None
+    OffPeakWindowOptions: Optional[OffPeakWindowOptions] = None
+    SoftwareUpdateOptions: Optional[SoftwareUpdateOptions] = None
+    AIMLOptions: Optional[AIMLOptionsInput] = None
 
 
-class DomainConfigTypeDef(BaseValidatorModel):
-    EngineVersion: Optional[VersionStatusTypeDef] = None
-    ClusterConfig: Optional[ClusterConfigStatusTypeDef] = None
-    EBSOptions: Optional[EBSOptionsStatusTypeDef] = None
-    AccessPolicies: Optional[AccessPoliciesStatusTypeDef] = None
-    IPAddressType: Optional[IPAddressTypeStatusTypeDef] = None
-    SnapshotOptions: Optional[SnapshotOptionsStatusTypeDef] = None
-    VPCOptions: Optional[VPCDerivedInfoStatusTypeDef] = None
-    CognitoOptions: Optional[CognitoOptionsStatusTypeDef] = None
-    EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsStatusTypeDef] = None
-    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptionsStatusTypeDef] = None
-    AdvancedOptions: Optional[AdvancedOptionsStatusTypeDef] = None
-    LogPublishingOptions: Optional[LogPublishingOptionsStatusTypeDef] = None
-    DomainEndpointOptions: Optional[DomainEndpointOptionsStatusTypeDef] = None
-    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsStatusTypeDef] = None
-    IdentityCenterOptions: Optional[IdentityCenterOptionsStatusTypeDef] = None
-    AutoTuneOptions: Optional[AutoTuneOptionsStatusTypeDef] = None
-    ChangeProgressDetails: Optional[ChangeProgressDetailsTypeDef] = None
-    OffPeakWindowOptions: Optional[OffPeakWindowOptionsStatusTypeDef] = None
-    SoftwareUpdateOptions: Optional[SoftwareUpdateOptionsStatusTypeDef] = None
-    ModifyingProperties: Optional[List[ModifyingPropertiesTypeDef]] = None
-    AIMLOptions: Optional[AIMLOptionsStatusTypeDef] = None
+class DomainConfig(BaseValidatorModel):
+    EngineVersion: Optional[VersionStatus] = None
+    ClusterConfig: Optional[ClusterConfigStatus] = None
+    EBSOptions: Optional[EBSOptionsStatus] = None
+    AccessPolicies: Optional[AccessPoliciesStatus] = None
+    IPAddressType: Optional[IPAddressTypeStatus] = None
+    SnapshotOptions: Optional[SnapshotOptionsStatus] = None
+    VPCOptions: Optional[VPCDerivedInfoStatus] = None
+    CognitoOptions: Optional[CognitoOptionsStatus] = None
+    EncryptionAtRestOptions: Optional[EncryptionAtRestOptionsStatus] = None
+    NodeToNodeEncryptionOptions: Optional[NodeToNodeEncryptionOptionsStatus] = None
+    AdvancedOptions: Optional[AdvancedOptionsStatus] = None
+    LogPublishingOptions: Optional[LogPublishingOptionsStatus] = None
+    DomainEndpointOptions: Optional[DomainEndpointOptionsStatus] = None
+    AdvancedSecurityOptions: Optional[AdvancedSecurityOptionsStatus] = None
+    IdentityCenterOptions: Optional[IdentityCenterOptionsStatus] = None
+    AutoTuneOptions: Optional[AutoTuneOptionsStatus] = None
+    ChangeProgressDetails: Optional[ChangeProgressDetails] = None
+    OffPeakWindowOptions: Optional[OffPeakWindowOptionsStatus] = None
+    SoftwareUpdateOptions: Optional[SoftwareUpdateOptionsStatus] = None
+    ModifyingProperties: Optional[List[ModifyingProperties]] = None
+    AIMLOptions: Optional[AIMLOptionsStatus] = None
 
 
-class CreateDomainResponseTypeDef(BaseValidatorModel):
-    DomainStatus: DomainStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDomainResponse(BaseValidatorModel):
+    DomainStatus: DomainStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDomainResponseTypeDef(BaseValidatorModel):
-    DomainStatus: DomainStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteDomainResponse(BaseValidatorModel):
+    DomainStatus: DomainStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainResponseTypeDef(BaseValidatorModel):
-    DomainStatus: DomainStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainResponse(BaseValidatorModel):
+    DomainStatus: DomainStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainsResponseTypeDef(BaseValidatorModel):
-    DomainStatusList: List[DomainStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainsResponse(BaseValidatorModel):
+    DomainStatusList: List[DomainStatus]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDryRunProgressResponseTypeDef(BaseValidatorModel):
-    DryRunProgressStatus: DryRunProgressStatusTypeDef
-    DryRunConfig: DomainStatusTypeDef
-    DryRunResults: DryRunResultsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDryRunProgressResponse(BaseValidatorModel):
+    DryRunProgressStatus: DryRunProgressStatus
+    DryRunConfig: DomainStatus
+    DryRunResults: DryRunResults
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDomainConfigResponseTypeDef(BaseValidatorModel):
-    DomainConfig: DomainConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDomainConfigResponse(BaseValidatorModel):
+    DomainConfig: DomainConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDomainConfigResponseTypeDef(BaseValidatorModel):
-    DomainConfig: DomainConfigTypeDef
-    DryRunResults: DryRunResultsTypeDef
-    DryRunProgressStatus: DryRunProgressStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDomainConfigResponse(BaseValidatorModel):
+    DomainConfig: DomainConfig
+    DryRunResults: DryRunResults
+    DryRunProgressStatus: DryRunProgressStatus
+    ResponseMetadata: ResponseMetadata
 
 

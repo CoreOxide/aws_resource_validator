@@ -6,56 +6,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteReportDefinitionRequestTypeDef
+# DeleteReportDefinitionRequest
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReportDefinitionResultTypeDef
+# DeleteReportDefinitionResult
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReportDefinitionRequestTypeDef
+# GetReportDefinitionRequest
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ImportApplicationUsageRequestTypeDef
+# ImportApplicationUsageRequest
 
 ### sourceS3Location
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.SourceS3LocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.SourceS3Location'>
 - **Required**: Yes
 
 
-# ImportApplicationUsageResultTypeDef
+# ImportApplicationUsageResult
 
 ### importId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListReportDefinitionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.PaginatorConfigTypeDef]
-
-
-# ListReportDefinitionsRequestTypeDef
+# ListReportDefinitionsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -64,21 +58,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListReportDefinitionsResultTypeDef
+# ListReportDefinitionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.PaginatorConfig]
+
+
+# ListReportDefinitionsResult
 
 ### reportDefinitions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ReportDefinitionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ReportDefinition]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -90,24 +90,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutReportDefinitionResultTypeDef
+# PutReportDefinitionResult
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReportDefinitionTypeDef
+# ReportDefinition
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -129,7 +129,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3LocationTypeDef
+# S3Location
 
 ### bucket
 - **Type**: <class 'str'>
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SourceS3LocationTypeDef
+# SourceS3Location
 
 ### bucket
 - **Type**: <class 'str'>
@@ -154,14 +154,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['af-south-1', 'ap-east-1', 'eu-south-1', 'me-south-1']]
 
 
-# UpdateReportDefinitionResultTypeDef
+# UpdateReportDefinitionResult
 
 ### reportId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.applicationcostprofiler_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connectcampaigns_constants import *
 
-class AgentlessDialerConfigTypeDef(BaseValidatorModel):
+class AgentlessDialerConfig(BaseValidatorModel):
     dialingCapacity: Optional[float] = None
 
 
-class AnswerMachineDetectionConfigTypeDef(BaseValidatorModel):
+class AnswerMachineDetectionConfig(BaseValidatorModel):
     enableAnswerMachineDetection: bool
     awaitAnswerMachinePrompt: Optional[bool] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,205 +29,205 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
+class DeleteConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class DeleteInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
+class DeleteInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class PredictiveDialerConfigTypeDef(BaseValidatorModel):
+class PredictiveDialerConfig(BaseValidatorModel):
     bandwidthAllocation: float
     dialingCapacity: Optional[float] = None
 
 
-class ProgressiveDialerConfigTypeDef(BaseValidatorModel):
+class ProgressiveDialerConfig(BaseValidatorModel):
     bandwidthAllocation: float
     dialingCapacity: Optional[float] = None
 
 
-class EncryptionConfigTypeDef(BaseValidatorModel):
+class EncryptionConfig(BaseValidatorModel):
     enabled: bool
     encryptionType: Optional[Literal["KMS"]] = None
     keyArn: Optional[str] = None
 
 
-class FailedCampaignStateResponseTypeDef(BaseValidatorModel):
+class FailedCampaignStateResponse(BaseValidatorModel):
     campaignId: Optional[str] = None
     failureCode: Optional[GetCampaignStateBatchFailureCodeType] = None
 
 
-class GetCampaignStateBatchRequestTypeDef(BaseValidatorModel):
+class GetCampaignStateBatchRequest(BaseValidatorModel):
     campaignIds: Sequence[str]
 
 
-class SuccessfulCampaignStateResponseTypeDef(BaseValidatorModel):
+class SuccessfulCampaignStateResponse(BaseValidatorModel):
     campaignId: Optional[str] = None
     state: Optional[CampaignStateType] = None
 
 
-class GetConnectInstanceConfigRequestTypeDef(BaseValidatorModel):
+class GetConnectInstanceConfigRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class GetInstanceOnboardingJobStatusRequestTypeDef(BaseValidatorModel):
+class GetInstanceOnboardingJobStatusRequest(BaseValidatorModel):
     connectInstanceId: str
 
 
-class InstanceOnboardingJobStatusTypeDef(BaseValidatorModel):
+class InstanceOnboardingJobStatus(BaseValidatorModel):
     connectInstanceId: str
     status: InstanceOnboardingJobStatusCodeType
     failureCode: Optional[InstanceOnboardingJobFailureCodeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: Sequence[str]
 
 
-class OutboundCallConfigTypeDef(BaseValidatorModel):
+class OutboundCallConfig(BaseValidatorModel):
     connectContactFlowId: str
     connectSourcePhoneNumber: Optional[str] = None
     connectQueueId: Optional[str] = None
-    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfigTypeDef] = None
+    answerMachineDetectionConfig: Optional[AnswerMachineDetectionConfig] = None
 
 
-class InstanceIdFilterTypeDef(BaseValidatorModel):
+class InstanceIdFilter(BaseValidatorModel):
     pass
 
 
-class CampaignFiltersTypeDef(BaseValidatorModel):
-    instanceIdFilter: Optional[InstanceIdFilterTypeDef] = None
+class CampaignFilters(BaseValidatorModel):
+    instanceIdFilter: Optional[InstanceIdFilter] = None
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCampaignStateResponseTypeDef(BaseValidatorModel):
+class GetCampaignStateResponse(BaseValidatorModel):
     state: CampaignStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CampaignSummaryTypeDef(BaseValidatorModel):
+class CampaignSummary(BaseValidatorModel):
     pass
 
 
-class ListCampaignsResponseTypeDef(BaseValidatorModel):
-    campaignSummaryList: List[CampaignSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCampaignsResponse(BaseValidatorModel):
+    campaignSummaryList: List[CampaignSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DialRequestTypeDef(BaseValidatorModel):
+class DialRequest(BaseValidatorModel):
     clientToken: str
     phoneNumber: str
-    expirationTime: TimestampTypeDef
+    expirationTime: Timestamp
     attributes: Mapping[str, str]
 
 
-class DialerConfigTypeDef(BaseValidatorModel):
-    progressiveDialerConfig: Optional[ProgressiveDialerConfigTypeDef] = None
-    predictiveDialerConfig: Optional[PredictiveDialerConfigTypeDef] = None
-    agentlessDialerConfig: Optional[AgentlessDialerConfigTypeDef] = None
+class DialerConfig(BaseValidatorModel):
+    progressiveDialerConfig: Optional[ProgressiveDialerConfig] = None
+    predictiveDialerConfig: Optional[PredictiveDialerConfig] = None
+    agentlessDialerConfig: Optional[AgentlessDialerConfig] = None
 
 
-class InstanceConfigTypeDef(BaseValidatorModel):
+class InstanceConfig(BaseValidatorModel):
     connectInstanceId: str
     serviceLinkedRoleArn: str
-    encryptionConfig: EncryptionConfigTypeDef
+    encryptionConfig: EncryptionConfig
 
 
-class StartInstanceOnboardingJobRequestTypeDef(BaseValidatorModel):
+class StartInstanceOnboardingJobRequest(BaseValidatorModel):
     connectInstanceId: str
-    encryptionConfig: EncryptionConfigTypeDef
+    encryptionConfig: EncryptionConfig
 
 
-class GetCampaignStateBatchResponseTypeDef(BaseValidatorModel):
-    successfulRequests: List[SuccessfulCampaignStateResponseTypeDef]
-    failedRequests: List[FailedCampaignStateResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCampaignStateBatchResponse(BaseValidatorModel):
+    successfulRequests: List[SuccessfulCampaignStateResponse]
+    failedRequests: List[FailedCampaignStateResponse]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetInstanceOnboardingJobStatusResponseTypeDef(BaseValidatorModel):
-    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInstanceOnboardingJobStatusResponse(BaseValidatorModel):
+    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class StartInstanceOnboardingJobResponseTypeDef(BaseValidatorModel):
-    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartInstanceOnboardingJobResponse(BaseValidatorModel):
+    connectInstanceOnboardingJobStatus: InstanceOnboardingJobStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class FailedRequestTypeDef(BaseValidatorModel):
+class FailedRequest(BaseValidatorModel):
     pass
 
 
-class SuccessfulRequestTypeDef(BaseValidatorModel):
+class SuccessfulRequest(BaseValidatorModel):
     pass
 
 
-class PutDialRequestBatchResponseTypeDef(BaseValidatorModel):
-    successfulRequests: List[SuccessfulRequestTypeDef]
-    failedRequests: List[FailedRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutDialRequestBatchResponse(BaseValidatorModel):
+    successfulRequests: List[SuccessfulRequest]
+    failedRequests: List[FailedRequest]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCampaignsRequestPaginateTypeDef(BaseValidatorModel):
-    filters: Optional[CampaignFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCampaignsRequestPaginate(BaseValidatorModel):
+    filters: Optional[CampaignFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCampaignsRequestTypeDef(BaseValidatorModel):
+class ListCampaignsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    filters: Optional[CampaignFiltersTypeDef] = None
+    filters: Optional[CampaignFilters] = None
 
 
-class CreateCampaignRequestTypeDef(BaseValidatorModel):
+class CreateCampaignRequest(BaseValidatorModel):
     name: str
     connectInstanceId: str
-    dialerConfig: DialerConfigTypeDef
-    outboundCallConfig: OutboundCallConfigTypeDef
+    dialerConfig: DialerConfig
+    outboundCallConfig: OutboundCallConfig
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetConnectInstanceConfigResponseTypeDef(BaseValidatorModel):
-    connectInstanceConfig: InstanceConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectInstanceConfigResponse(BaseValidatorModel):
+    connectInstanceConfig: InstanceConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class CampaignTypeDef(BaseValidatorModel):
+class Campaign(BaseValidatorModel):
     pass
 
 
-class DescribeCampaignResponseTypeDef(BaseValidatorModel):
-    campaign: CampaignTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCampaignResponse(BaseValidatorModel):
+    campaign: Campaign
+    ResponseMetadata: ResponseMetadata
 
 

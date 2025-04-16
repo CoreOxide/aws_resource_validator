@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.importexport_constants import *
 
-class ArtifactTypeDef(BaseValidatorModel):
+class Artifact(BaseValidatorModel):
     Description: Optional[str] = None
     URL: Optional[str] = None
 
 
-class CancelJobInputTypeDef(BaseValidatorModel):
+class CancelJobInput(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -30,7 +30,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateJobInputTypeDef(BaseValidatorModel):
+class CreateJobInput(BaseValidatorModel):
     JobType: JobTypeType
     Manifest: str
     ValidateOnly: bool
@@ -38,7 +38,7 @@ class CreateJobInputTypeDef(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
-class GetShippingLabelInputTypeDef(BaseValidatorModel):
+class GetShippingLabelInput(BaseValidatorModel):
     jobIds: Sequence[str]
     name: Optional[str] = None
     company: Optional[str] = None
@@ -53,31 +53,31 @@ class GetShippingLabelInputTypeDef(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
-class GetStatusInputTypeDef(BaseValidatorModel):
+class GetStatusInput(BaseValidatorModel):
     JobId: str
     APIVersion: Optional[str] = None
 
 
-class JobTypeDef(BaseValidatorModel):
+class Job(BaseValidatorModel):
     JobId: Optional[str] = None
     CreationDate: Optional[datetime] = None
     IsCanceled: Optional[bool] = None
     JobType: Optional[JobTypeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListJobsInputTypeDef(BaseValidatorModel):
+class ListJobsInput(BaseValidatorModel):
     MaxJobs: Optional[int] = None
     Marker: Optional[str] = None
     APIVersion: Optional[str] = None
 
 
-class UpdateJobInputTypeDef(BaseValidatorModel):
+class UpdateJobInput(BaseValidatorModel):
     JobId: str
     Manifest: str
     JobType: JobTypeType
@@ -85,22 +85,22 @@ class UpdateJobInputTypeDef(BaseValidatorModel):
     APIVersion: Optional[str] = None
 
 
-class CancelJobOutputTypeDef(BaseValidatorModel):
+class CancelJobOutput(BaseValidatorModel):
     Success: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateJobOutputTypeDef(BaseValidatorModel):
+class CreateJobOutput(BaseValidatorModel):
     JobId: str
     JobType: JobTypeType
     Signature: str
     SignatureFileContents: str
     WarningMessage: str
-    ArtifactList: List[ArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ArtifactList: List[Artifact]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStatusOutputTypeDef(BaseValidatorModel):
+class GetStatusOutput(BaseValidatorModel):
     JobId: str
     JobType: JobTypeType
     LocationCode: str
@@ -116,25 +116,25 @@ class GetStatusOutputTypeDef(BaseValidatorModel):
     SignatureFileContents: str
     CurrentManifest: str
     CreationDate: datetime
-    ArtifactList: List[ArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ArtifactList: List[Artifact]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateJobOutputTypeDef(BaseValidatorModel):
+class UpdateJobOutput(BaseValidatorModel):
     Success: bool
     WarningMessage: str
-    ArtifactList: List[ArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ArtifactList: List[Artifact]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListJobsOutputTypeDef(BaseValidatorModel):
-    Jobs: List[JobTypeDef]
+class ListJobsOutput(BaseValidatorModel):
+    Jobs: List[Job]
     IsTruncated: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListJobsInputPaginateTypeDef(BaseValidatorModel):
+class ListJobsInputPaginate(BaseValidatorModel):
     APIVersion: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 

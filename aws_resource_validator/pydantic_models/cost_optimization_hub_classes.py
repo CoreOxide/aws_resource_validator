@@ -12,37 +12,37 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cost_optimization_hub_constants import *
 
-class AccountEnrollmentStatusTypeDef(BaseValidatorModel):
+class AccountEnrollmentStatus(BaseValidatorModel):
     accountId: Optional[str] = None
     status: Optional[EnrollmentStatusType] = None
     lastUpdatedTimestamp: Optional[datetime] = None
     createdTimestamp: Optional[datetime] = None
 
 
-class BlockStoragePerformanceConfigurationTypeDef(BaseValidatorModel):
+class BlockStoragePerformanceConfiguration(BaseValidatorModel):
     iops: Optional[float] = None
     throughput: Optional[float] = None
 
 
-class ComputeConfigurationTypeDef(BaseValidatorModel):
+class ComputeConfiguration(BaseValidatorModel):
     vCpu: Optional[float] = None
     memorySizeInMB: Optional[int] = None
     architecture: Optional[str] = None
     platform: Optional[str] = None
 
 
-class ComputeSavingsPlansConfigurationTypeDef(BaseValidatorModel):
+class ComputeSavingsPlansConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     term: Optional[str] = None
     paymentOption: Optional[str] = None
     hourlyCommitment: Optional[str] = None
 
 
-class DbInstanceConfigurationTypeDef(BaseValidatorModel):
+class DbInstanceConfiguration(BaseValidatorModel):
     dbInstanceClass: Optional[str] = None
 
 
-class Ec2InstanceSavingsPlansConfigurationTypeDef(BaseValidatorModel):
+class Ec2InstanceSavingsPlansConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     term: Optional[str] = None
     paymentOption: Optional[str] = None
@@ -51,7 +51,7 @@ class Ec2InstanceSavingsPlansConfigurationTypeDef(BaseValidatorModel):
     savingsPlansRegion: Optional[str] = None
 
 
-class Ec2ReservedInstancesConfigurationTypeDef(BaseValidatorModel):
+class Ec2ReservedInstancesConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     service: Optional[str] = None
     normalizedUnitsToPurchase: Optional[str] = None
@@ -70,7 +70,7 @@ class Ec2ReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     monthlyRecurringCost: Optional[str] = None
 
 
-class ElastiCacheReservedInstancesConfigurationTypeDef(BaseValidatorModel):
+class ElastiCacheReservedInstancesConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     service: Optional[str] = None
     normalizedUnitsToPurchase: Optional[str] = None
@@ -86,18 +86,18 @@ class ElastiCacheReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     monthlyRecurringCost: Optional[str] = None
 
 
-class EstimatedDiscountsTypeDef(BaseValidatorModel):
+class EstimatedDiscounts(BaseValidatorModel):
     savingsPlansDiscount: Optional[float] = None
     reservedInstancesDiscount: Optional[float] = None
     otherDiscount: Optional[float] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -105,39 +105,39 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetRecommendationRequestTypeDef(BaseValidatorModel):
+class GetRecommendationRequest(BaseValidatorModel):
     recommendationId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListEnrollmentStatusesRequestTypeDef(BaseValidatorModel):
+class ListEnrollmentStatusesRequest(BaseValidatorModel):
     includeOrganizationInfo: Optional[bool] = None
     accountId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class RecommendationSummaryTypeDef(BaseValidatorModel):
+class RecommendationSummary(BaseValidatorModel):
     group: Optional[str] = None
     estimatedMonthlySavings: Optional[float] = None
     recommendationCount: Optional[int] = None
 
 
-class SummaryMetricsResultTypeDef(BaseValidatorModel):
+class SummaryMetricsResult(BaseValidatorModel):
     savingsPercentage: Optional[str] = None
 
 
-class OrderByTypeDef(BaseValidatorModel):
+class OrderBy(BaseValidatorModel):
     dimension: Optional[str] = None
     order: Optional[OrderType] = None
 
 
-class OpenSearchReservedInstancesConfigurationTypeDef(BaseValidatorModel):
+class OpenSearchReservedInstancesConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     service: Optional[str] = None
     normalizedUnitsToPurchase: Optional[str] = None
@@ -152,14 +152,14 @@ class OpenSearchReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     monthlyRecurringCost: Optional[str] = None
 
 
-class RdsDbInstanceStorageConfigurationTypeDef(BaseValidatorModel):
+class RdsDbInstanceStorageConfiguration(BaseValidatorModel):
     storageType: Optional[str] = None
     allocatedStorageInGb: Optional[float] = None
     iops: Optional[float] = None
     storageThroughput: Optional[float] = None
 
 
-class RdsReservedInstancesConfigurationTypeDef(BaseValidatorModel):
+class RdsReservedInstancesConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     service: Optional[str] = None
     normalizedUnitsToPurchase: Optional[str] = None
@@ -179,7 +179,7 @@ class RdsReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     deploymentOption: Optional[str] = None
 
 
-class RedshiftReservedInstancesConfigurationTypeDef(BaseValidatorModel):
+class RedshiftReservedInstancesConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     service: Optional[str] = None
     normalizedUnitsToPurchase: Optional[str] = None
@@ -195,14 +195,14 @@ class RedshiftReservedInstancesConfigurationTypeDef(BaseValidatorModel):
     monthlyRecurringCost: Optional[str] = None
 
 
-class ReservedInstancesPricingTypeDef(BaseValidatorModel):
+class ReservedInstancesPricing(BaseValidatorModel):
     estimatedOnDemandCost: Optional[float] = None
     monthlyReservationEligibleCost: Optional[float] = None
     savingsPercentage: Optional[float] = None
     estimatedMonthlyAmortizedReservationCost: Optional[float] = None
 
 
-class UsageTypeDef(BaseValidatorModel):
+class Usage(BaseValidatorModel):
     usageType: Optional[str] = None
     usageAmount: Optional[float] = None
     operation: Optional[str] = None
@@ -210,68 +210,68 @@ class UsageTypeDef(BaseValidatorModel):
     unit: Optional[str] = None
 
 
-class SageMakerSavingsPlansConfigurationTypeDef(BaseValidatorModel):
+class SageMakerSavingsPlansConfiguration(BaseValidatorModel):
     accountScope: Optional[str] = None
     term: Optional[str] = None
     paymentOption: Optional[str] = None
     hourlyCommitment: Optional[str] = None
 
 
-class SavingsPlansPricingTypeDef(BaseValidatorModel):
+class SavingsPlansPricing(BaseValidatorModel):
     monthlySavingsPlansEligibleCost: Optional[float] = None
     estimatedMonthlyCommitment: Optional[float] = None
     savingsPercentage: Optional[float] = None
     estimatedOnDemandCost: Optional[float] = None
 
 
-class UpdateEnrollmentStatusRequestTypeDef(BaseValidatorModel):
+class UpdateEnrollmentStatusRequest(BaseValidatorModel):
     status: EnrollmentStatusType
     includeMemberAccounts: Optional[bool] = None
 
 
-class UpdatePreferencesRequestTypeDef(BaseValidatorModel):
+class UpdatePreferencesRequest(BaseValidatorModel):
     savingsEstimationMode: Optional[SavingsEstimationModeType] = None
     memberAccountDiscountVisibility: Optional[MemberAccountDiscountVisibilityType] = None
 
 
-class EcsServiceConfigurationTypeDef(BaseValidatorModel):
-    compute: Optional[ComputeConfigurationTypeDef] = None
+class EcsServiceConfiguration(BaseValidatorModel):
+    compute: Optional[ComputeConfiguration] = None
 
 
-class LambdaFunctionConfigurationTypeDef(BaseValidatorModel):
-    compute: Optional[ComputeConfigurationTypeDef] = None
+class LambdaFunctionConfiguration(BaseValidatorModel):
+    compute: Optional[ComputeConfiguration] = None
 
 
-class RdsDbInstanceConfigurationTypeDef(BaseValidatorModel):
-    instance: Optional[DbInstanceConfigurationTypeDef] = None
+class RdsDbInstanceConfiguration(BaseValidatorModel):
+    instance: Optional[DbInstanceConfiguration] = None
 
 
-class StorageConfigurationTypeDef(BaseValidatorModel):
+class StorageConfiguration(BaseValidatorModel):
     pass
 
 
-class EbsVolumeConfigurationTypeDef(BaseValidatorModel):
-    storage: Optional[StorageConfigurationTypeDef] = None
-    performance: Optional[BlockStoragePerformanceConfigurationTypeDef] = None
+class EbsVolumeConfiguration(BaseValidatorModel):
+    storage: Optional[StorageConfiguration] = None
+    performance: Optional[BlockStoragePerformanceConfiguration] = None
     attachmentState: Optional[str] = None
 
 
-class InstanceConfigurationTypeDef(BaseValidatorModel):
+class InstanceConfiguration(BaseValidatorModel):
     pass
 
 
-class Ec2InstanceConfigurationTypeDef(BaseValidatorModel):
-    instance: Optional[InstanceConfigurationTypeDef] = None
+class Ec2InstanceConfiguration(BaseValidatorModel):
+    instance: Optional[InstanceConfiguration] = None
 
 
-class ResourcePricingTypeDef(BaseValidatorModel):
+class ResourcePricing(BaseValidatorModel):
     estimatedCostBeforeDiscounts: Optional[float] = None
     estimatedNetUnusedAmortizedCommitments: Optional[float] = None
-    estimatedDiscounts: Optional[EstimatedDiscountsTypeDef] = None
+    estimatedDiscounts: Optional[EstimatedDiscounts] = None
     estimatedCostAfterDiscounts: Optional[float] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     restartNeeded: Optional[bool] = None
     rollbackPossible: Optional[bool] = None
     implementationEfforts: Optional[Sequence[ImplementationEffortType]] = None
@@ -279,13 +279,13 @@ class FilterTypeDef(BaseValidatorModel):
     regions: Optional[Sequence[str]] = None
     resourceTypes: Optional[Sequence[ResourceTypeType]] = None
     actionTypes: Optional[Sequence[ActionTypeType]] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
     resourceIds: Optional[Sequence[str]] = None
     resourceArns: Optional[Sequence[str]] = None
     recommendationIds: Optional[Sequence[str]] = None
 
 
-class RecommendationTypeDef(BaseValidatorModel):
+class Recommendation(BaseValidatorModel):
     recommendationId: Optional[str] = None
     accountId: Optional[str] = None
     region: Optional[str] = None
@@ -306,166 +306,166 @@ class RecommendationTypeDef(BaseValidatorModel):
     lastRefreshTimestamp: Optional[datetime] = None
     recommendationLookbackPeriodInDays: Optional[int] = None
     source: Optional[SourceType] = None
-    tags: Optional[List[TagTypeDef]] = None
+    tags: Optional[List[Tag]] = None
 
 
-class GetPreferencesResponseTypeDef(BaseValidatorModel):
+class GetPreferencesResponse(BaseValidatorModel):
     savingsEstimationMode: SavingsEstimationModeType
     memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnrollmentStatusesResponseTypeDef(BaseValidatorModel):
-    items: List[AccountEnrollmentStatusTypeDef]
+class ListEnrollmentStatusesResponse(BaseValidatorModel):
+    items: List[AccountEnrollmentStatus]
     includeMemberAccounts: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateEnrollmentStatusResponseTypeDef(BaseValidatorModel):
+class UpdateEnrollmentStatusResponse(BaseValidatorModel):
     status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePreferencesResponseTypeDef(BaseValidatorModel):
+class UpdatePreferencesResponse(BaseValidatorModel):
     savingsEstimationMode: SavingsEstimationModeType
     memberAccountDiscountVisibility: MemberAccountDiscountVisibilityType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnrollmentStatusesRequestPaginateTypeDef(BaseValidatorModel):
+class ListEnrollmentStatusesRequestPaginate(BaseValidatorModel):
     includeOrganizationInfo: Optional[bool] = None
     accountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecommendationSummariesResponseTypeDef(BaseValidatorModel):
+class ListRecommendationSummariesResponse(BaseValidatorModel):
     estimatedTotalDedupedSavings: float
-    items: List[RecommendationSummaryTypeDef]
+    items: List[RecommendationSummary]
     groupBy: str
     currencyCode: str
-    metrics: SummaryMetricsResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    metrics: SummaryMetricsResult
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReservedInstancesCostCalculationTypeDef(BaseValidatorModel):
-    pricing: Optional[ReservedInstancesPricingTypeDef] = None
+class ReservedInstancesCostCalculation(BaseValidatorModel):
+    pricing: Optional[ReservedInstancesPricing] = None
 
 
-class SavingsPlansCostCalculationTypeDef(BaseValidatorModel):
-    pricing: Optional[SavingsPlansPricingTypeDef] = None
+class SavingsPlansCostCalculation(BaseValidatorModel):
+    pricing: Optional[SavingsPlansPricing] = None
 
 
-class ResourceCostCalculationTypeDef(BaseValidatorModel):
-    usages: Optional[List[UsageTypeDef]] = None
-    pricing: Optional[ResourcePricingTypeDef] = None
+class ResourceCostCalculation(BaseValidatorModel):
+    usages: Optional[List[Usage]] = None
+    pricing: Optional[ResourcePricing] = None
 
 
-class ListRecommendationsResponseTypeDef(BaseValidatorModel):
-    items: List[RecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendationsResponse(BaseValidatorModel):
+    items: List[Recommendation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class Ec2ReservedInstancesTypeDef(BaseValidatorModel):
-    configuration: Optional[Ec2ReservedInstancesConfigurationTypeDef] = None
-    costCalculation: Optional[ReservedInstancesCostCalculationTypeDef] = None
+class Ec2ReservedInstances(BaseValidatorModel):
+    configuration: Optional[Ec2ReservedInstancesConfiguration] = None
+    costCalculation: Optional[ReservedInstancesCostCalculation] = None
 
 
-class ElastiCacheReservedInstancesTypeDef(BaseValidatorModel):
-    configuration: Optional[ElastiCacheReservedInstancesConfigurationTypeDef] = None
-    costCalculation: Optional[ReservedInstancesCostCalculationTypeDef] = None
+class ElastiCacheReservedInstances(BaseValidatorModel):
+    configuration: Optional[ElastiCacheReservedInstancesConfiguration] = None
+    costCalculation: Optional[ReservedInstancesCostCalculation] = None
 
 
-class OpenSearchReservedInstancesTypeDef(BaseValidatorModel):
-    configuration: Optional[OpenSearchReservedInstancesConfigurationTypeDef] = None
-    costCalculation: Optional[ReservedInstancesCostCalculationTypeDef] = None
+class OpenSearchReservedInstances(BaseValidatorModel):
+    configuration: Optional[OpenSearchReservedInstancesConfiguration] = None
+    costCalculation: Optional[ReservedInstancesCostCalculation] = None
 
 
-class RdsReservedInstancesTypeDef(BaseValidatorModel):
-    configuration: Optional[RdsReservedInstancesConfigurationTypeDef] = None
-    costCalculation: Optional[ReservedInstancesCostCalculationTypeDef] = None
+class RdsReservedInstances(BaseValidatorModel):
+    configuration: Optional[RdsReservedInstancesConfiguration] = None
+    costCalculation: Optional[ReservedInstancesCostCalculation] = None
 
 
-class RedshiftReservedInstancesTypeDef(BaseValidatorModel):
-    configuration: Optional[RedshiftReservedInstancesConfigurationTypeDef] = None
-    costCalculation: Optional[ReservedInstancesCostCalculationTypeDef] = None
+class RedshiftReservedInstances(BaseValidatorModel):
+    configuration: Optional[RedshiftReservedInstancesConfiguration] = None
+    costCalculation: Optional[ReservedInstancesCostCalculation] = None
 
 
-class ComputeSavingsPlansTypeDef(BaseValidatorModel):
-    configuration: Optional[ComputeSavingsPlansConfigurationTypeDef] = None
-    costCalculation: Optional[SavingsPlansCostCalculationTypeDef] = None
+class ComputeSavingsPlans(BaseValidatorModel):
+    configuration: Optional[ComputeSavingsPlansConfiguration] = None
+    costCalculation: Optional[SavingsPlansCostCalculation] = None
 
 
-class Ec2InstanceSavingsPlansTypeDef(BaseValidatorModel):
-    configuration: Optional[Ec2InstanceSavingsPlansConfigurationTypeDef] = None
-    costCalculation: Optional[SavingsPlansCostCalculationTypeDef] = None
+class Ec2InstanceSavingsPlans(BaseValidatorModel):
+    configuration: Optional[Ec2InstanceSavingsPlansConfiguration] = None
+    costCalculation: Optional[SavingsPlansCostCalculation] = None
 
 
-class SageMakerSavingsPlansTypeDef(BaseValidatorModel):
-    configuration: Optional[SageMakerSavingsPlansConfigurationTypeDef] = None
-    costCalculation: Optional[SavingsPlansCostCalculationTypeDef] = None
+class SageMakerSavingsPlans(BaseValidatorModel):
+    configuration: Optional[SageMakerSavingsPlansConfiguration] = None
+    costCalculation: Optional[SavingsPlansCostCalculation] = None
 
 
-class EbsVolumeTypeDef(BaseValidatorModel):
-    configuration: Optional[EbsVolumeConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class EbsVolume(BaseValidatorModel):
+    configuration: Optional[EbsVolumeConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class Ec2AutoScalingGroupConfigurationTypeDef(BaseValidatorModel):
+class Ec2AutoScalingGroupConfiguration(BaseValidatorModel):
     pass
 
 
-class Ec2AutoScalingGroupTypeDef(BaseValidatorModel):
-    configuration: Optional[Ec2AutoScalingGroupConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class Ec2AutoScalingGroup(BaseValidatorModel):
+    configuration: Optional[Ec2AutoScalingGroupConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class Ec2InstanceTypeDef(BaseValidatorModel):
-    configuration: Optional[Ec2InstanceConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class Ec2Instance(BaseValidatorModel):
+    configuration: Optional[Ec2InstanceConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class EcsServiceTypeDef(BaseValidatorModel):
-    configuration: Optional[EcsServiceConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class EcsService(BaseValidatorModel):
+    configuration: Optional[EcsServiceConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class LambdaFunctionTypeDef(BaseValidatorModel):
-    configuration: Optional[LambdaFunctionConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class LambdaFunction(BaseValidatorModel):
+    configuration: Optional[LambdaFunctionConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class RdsDbInstanceStorageTypeDef(BaseValidatorModel):
-    configuration: Optional[RdsDbInstanceStorageConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class RdsDbInstanceStorage(BaseValidatorModel):
+    configuration: Optional[RdsDbInstanceStorageConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class RdsDbInstanceTypeDef(BaseValidatorModel):
-    configuration: Optional[RdsDbInstanceConfigurationTypeDef] = None
-    costCalculation: Optional[ResourceCostCalculationTypeDef] = None
+class RdsDbInstance(BaseValidatorModel):
+    configuration: Optional[RdsDbInstanceConfiguration] = None
+    costCalculation: Optional[ResourceCostCalculation] = None
 
 
-class ResourceDetailsTypeDef(BaseValidatorModel):
-    lambdaFunction: Optional[LambdaFunctionTypeDef] = None
-    ecsService: Optional[EcsServiceTypeDef] = None
-    ec2Instance: Optional[Ec2InstanceTypeDef] = None
-    ebsVolume: Optional[EbsVolumeTypeDef] = None
-    ec2AutoScalingGroup: Optional[Ec2AutoScalingGroupTypeDef] = None
-    ec2ReservedInstances: Optional[Ec2ReservedInstancesTypeDef] = None
-    rdsReservedInstances: Optional[RdsReservedInstancesTypeDef] = None
-    elastiCacheReservedInstances: Optional[ElastiCacheReservedInstancesTypeDef] = None
-    openSearchReservedInstances: Optional[OpenSearchReservedInstancesTypeDef] = None
-    redshiftReservedInstances: Optional[RedshiftReservedInstancesTypeDef] = None
-    ec2InstanceSavingsPlans: Optional[Ec2InstanceSavingsPlansTypeDef] = None
-    computeSavingsPlans: Optional[ComputeSavingsPlansTypeDef] = None
-    sageMakerSavingsPlans: Optional[SageMakerSavingsPlansTypeDef] = None
-    rdsDbInstance: Optional[RdsDbInstanceTypeDef] = None
-    rdsDbInstanceStorage: Optional[RdsDbInstanceStorageTypeDef] = None
+class ResourceDetails(BaseValidatorModel):
+    lambdaFunction: Optional[LambdaFunction] = None
+    ecsService: Optional[EcsService] = None
+    ec2Instance: Optional[Ec2Instance] = None
+    ebsVolume: Optional[EbsVolume] = None
+    ec2AutoScalingGroup: Optional[Ec2AutoScalingGroup] = None
+    ec2ReservedInstances: Optional[Ec2ReservedInstances] = None
+    rdsReservedInstances: Optional[RdsReservedInstances] = None
+    elastiCacheReservedInstances: Optional[ElastiCacheReservedInstances] = None
+    openSearchReservedInstances: Optional[OpenSearchReservedInstances] = None
+    redshiftReservedInstances: Optional[RedshiftReservedInstances] = None
+    ec2InstanceSavingsPlans: Optional[Ec2InstanceSavingsPlans] = None
+    computeSavingsPlans: Optional[ComputeSavingsPlans] = None
+    sageMakerSavingsPlans: Optional[SageMakerSavingsPlans] = None
+    rdsDbInstance: Optional[RdsDbInstance] = None
+    rdsDbInstanceStorage: Optional[RdsDbInstanceStorage] = None
 
 
-class GetRecommendationResponseTypeDef(BaseValidatorModel):
+class GetRecommendationResponse(BaseValidatorModel):
     recommendationId: str
     resourceId: str
     resourceArn: str
@@ -486,9 +486,9 @@ class GetRecommendationResponseTypeDef(BaseValidatorModel):
     restartNeeded: bool
     actionType: ActionTypeType
     rollbackPossible: bool
-    currentResourceDetails: ResourceDetailsTypeDef
-    recommendedResourceDetails: ResourceDetailsTypeDef
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    currentResourceDetails: ResourceDetails
+    recommendedResourceDetails: ResourceDetails
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 

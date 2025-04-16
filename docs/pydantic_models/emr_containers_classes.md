@@ -1,12 +1,12 @@
 # Emr Containers Classes
 
-# AuthorizationConfigurationTypeDef
+# AuthorizationConfiguration
 
 ### lakeFormationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.LakeFormationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.LakeFormationConfiguration]
 
 ### encryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.EncryptionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.EncryptionConfiguration]
 
 
 # BaseValidatorModel
@@ -15,7 +15,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificateTypeDef
+# Certificate
 
 ### certificateArn
 - **Type**: typing.Optional[str]
@@ -24,7 +24,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CloudWatchMonitoringConfigurationTypeDef
+# CloudWatchMonitoringConfiguration
 
 ### logGroupName
 - **Type**: <class 'str'>
@@ -34,66 +34,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConfigurationOutputTypeDef
-
-### classification
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### properties
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### configurations
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-
-# ConfigurationOverridesOutputTypeDef
-
-### applicationConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOutputTypeDef]]
-
-### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfigurationTypeDef]
-
-
-# ConfigurationOverridesPaginatorTypeDef
-
-### applicationConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationPaginatorTypeDef]]
-
-### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfigurationTypeDef]
-
-
-# ConfigurationOverridesTypeDef
-
-### applicationConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationTypeDef]]
-
-### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfigurationTypeDef]
-
-
-# ConfigurationOverridesUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ConfigurationPaginatorTypeDef
-
-### classification
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### properties
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### configurations
-- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
-
-
-# ConfigurationTypeDef
+# Configuration
 
 ### classification
 - **Type**: <class 'str'>
@@ -106,13 +47,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
-# ContainerInfoTypeDef
+# ConfigurationOutput
+
+### classification
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### configurations
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+
+# ConfigurationOverrides
+
+### applicationConfiguration
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_containers_classes.Configuration]]
+
+### monitoringConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfiguration]
+
+
+# ConfigurationOverridesOutput
+
+### applicationConfiguration
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOutput]]
+
+### monitoringConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfiguration]
+
+
+# ConfigurationOverridesPaginator
+
+### applicationConfiguration
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationPaginator]]
+
+### monitoringConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.MonitoringConfiguration]
+
+
+# ConfigurationOverridesUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ConfigurationPaginator
+
+### classification
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### properties
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### configurations
+- **Type**: typing.Optional[typing.List[typing.Dict[str, typing.Any]]]
+
+
+# ContainerInfo
 
 ### eksInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.EksInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.EksInfo]
 
 
-# ContainerLogRotationConfigurationTypeDef
+# ContainerLogRotationConfiguration
 
 ### rotationSize
 - **Type**: <class 'str'>
@@ -123,13 +123,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContainerProviderTypeDef
+# ContainerProvider
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateJobTemplateRequestTypeDef
+# CreateJobTemplateRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -140,7 +140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobTemplateData
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplateDataUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplateDataUnion'>
 - **Required**: Yes
 
 ### tags
@@ -150,7 +150,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSecurityConfigurationRequestTypeDef
+# CreateSecurityConfigurationRequest
 
 ### clientToken
 - **Type**: <class 'str'>
@@ -161,21 +161,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### securityConfigurationData
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfigurationDataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfigurationData'>
 - **Required**: Yes
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateVirtualClusterRequestTypeDef
+# CreateVirtualClusterRequest
 
 ### name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### containerProvider
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ContainerProviderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ContainerProvider'>
 - **Required**: Yes
 
 ### clientToken
@@ -189,92 +189,92 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CredentialsTypeDef
+# Credentials
 
 ### token
 - **Type**: typing.Optional[str]
 
 
-# DescribeJobRunResponseTypeDef
+# DescribeJobRunResponse
 
 ### jobRun
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobRunTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobRun'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeJobTemplateResponseTypeDef
+# DescribeJobTemplateResponse
 
 ### jobTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeManagedEndpointResponseTypeDef
+# DescribeManagedEndpointResponse
 
 ### endpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.EndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.Endpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSecurityConfigurationResponseTypeDef
+# DescribeSecurityConfigurationResponse
 
 ### securityConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeVirtualClusterResponseTypeDef
+# DescribeVirtualClusterResponse
 
 ### virtualCluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.VirtualClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.VirtualCluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EksInfoTypeDef
+# EksInfo
 
 ### namespace
 - **Type**: typing.Optional[str]
 
 
-# EncryptionConfigurationTypeDef
+# EncryptionConfiguration
 
 ### inTransitEncryptionConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.InTransitEncryptionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.InTransitEncryptionConfiguration]
 
 
-# EndpointPaginatorTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EndpointTypeDef
+# Endpoint
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetManagedEndpointSessionCredentialsRequestTypeDef
+# EndpointPaginator
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetManagedEndpointSessionCredentialsRequest
 
 ### endpointIdentifier
 - **Type**: <class 'str'>
@@ -302,49 +302,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InTransitEncryptionConfigurationTypeDef
+# InTransitEncryptionConfiguration
 
 ### tlsCertificateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TLSCertificateConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TLSCertificateConfiguration]
 
 
-# JobDriverOutputTypeDef
-
-### sparkSubmitJobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSubmitJobDriverOutputTypeDef]
-
-### sparkSqlJobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSqlJobDriverTypeDef]
-
-
-# JobDriverTypeDef
+# JobDriver
 
 ### sparkSubmitJobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSubmitJobDriverTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSubmitJobDriver]
 
 ### sparkSqlJobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSqlJobDriverTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSqlJobDriver]
 
 
-# JobDriverUnionTypeDef
+# JobDriverOutput
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### sparkSubmitJobDriver
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSubmitJobDriverOutput]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### sparkSqlJobDriver
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SparkSqlJobDriver]
 
-# JobRunPaginatorTypeDef
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# JobRunTypeDef
+# JobDriverUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobTemplateDataOutputTypeDef
+# JobRun
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobRunPaginator
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobTemplate
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobTemplateData
 
 ### executionRoleArn
 - **Type**: <class 'str'>
@@ -355,130 +361,102 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### jobDriver
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriver'>
 - **Required**: Yes
 
 ### configurationOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverridesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverrides]
 
 ### parameterConfiguration
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfigurationTypeDef]]
-
-### jobTags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# JobTemplateDataPaginatorTypeDef
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobDriver
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverOutputTypeDef'>
-- **Required**: Yes
-
-### configurationOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverridesPaginatorTypeDef]
-
-### parameterConfiguration
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfigurationTypeDef]]
-
-### jobTags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# JobTemplateDataTypeDef
-
-### executionRoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### releaseLabel
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### jobDriver
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverTypeDef'>
-- **Required**: Yes
-
-### configurationOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverridesTypeDef]
-
-### parameterConfiguration
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfiguration]]
 
 ### jobTags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# JobTemplateDataUnionTypeDef
+# JobTemplateDataOutput
+
+### executionRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### releaseLabel
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobDriver
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverOutput'>
+- **Required**: Yes
+
+### configurationOverrides
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverridesOutput]
+
+### parameterConfiguration
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfiguration]]
+
+### jobTags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# JobTemplateDataPaginator
+
+### executionRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### releaseLabel
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### jobDriver
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverOutput'>
+- **Required**: Yes
+
+### configurationOverrides
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricConfigurationOverridesPaginator]
+
+### parameterConfiguration
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.emr_containers_classes.TemplateParameterConfiguration]]
+
+### jobTags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# JobTemplateDataUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobTemplatePaginatorTypeDef
+# JobTemplatePaginator
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobTemplateTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# LakeFormationConfigurationTypeDef
+# LakeFormationConfiguration
 
 ### authorizedSessionTagValue
 - **Type**: typing.Optional[str]
 
 ### secureNamespaceInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SecureNamespaceInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.SecureNamespaceInfo]
 
 ### queryEngineRoleArn
 - **Type**: typing.Optional[str]
 
 
-# ListJobRunsRequestPaginateTypeDef
+# ListJobRunsRequest
 
 ### virtualClusterId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
-
-### name
-- **Type**: typing.Optional[str]
-
-### states
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING', 'SUBMITTED']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfigTypeDef]
-
-
-# ListJobRunsRequestTypeDef
-
-### virtualClusterId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
-
-### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### name
 - **Type**: typing.Optional[str]
@@ -493,53 +471,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobRunsResponsePaginatorTypeDef
+# ListJobRunsRequestPaginate
 
-### jobRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobRunPaginatorTypeDef]
+### virtualClusterId
+- **Type**: <class 'str'>
 - **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListJobRunsResponseTypeDef
-
-### jobRuns
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobRunTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListJobTemplatesRequestPaginateTypeDef
-
-### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### createdAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### name
+- **Type**: typing.Optional[str]
+
+### states
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['CANCELLED', 'CANCEL_PENDING', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING', 'SUBMITTED']]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfig]
 
 
-# ListJobTemplatesRequestTypeDef
+# ListJobRunsResponse
+
+### jobRuns
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobRun]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListJobRunsResponsePaginator
+
+### jobRuns
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobRunPaginator]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListJobTemplatesRequest
 
 ### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -548,81 +536,81 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobTemplatesResponsePaginatorTypeDef
-
-### templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplatePaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListJobTemplatesResponseTypeDef
-
-### templates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplateTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListManagedEndpointsResponsePaginatorTypeDef
-
-### endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.EndpointPaginatorTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListManagedEndpointsResponseTypeDef
-
-### endpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.EndpointTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# ListSecurityConfigurationsRequestPaginateTypeDef
+# ListJobTemplatesRequestPaginate
 
 ### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfig]
 
 
-# ListSecurityConfigurationsRequestTypeDef
+# ListJobTemplatesResponse
+
+### templates
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplate]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListJobTemplatesResponsePaginator
+
+### templates
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.JobTemplatePaginator]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListManagedEndpointsResponse
+
+### endpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.Endpoint]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListManagedEndpointsResponsePaginator
+
+### endpoints
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.EndpointPaginator]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# ListSecurityConfigurationsRequest
 
 ### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -631,39 +619,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityConfigurationsResponseTypeDef
+# ListSecurityConfigurationsRequestPaginate
+
+### createdAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### createdBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfig]
+
+
+# ListSecurityConfigurationsResponse
 
 ### securityConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.SecurityConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVirtualClustersRequestPaginateTypeDef
+# ListVirtualClustersRequest
 
 ### containerProviderId
 - **Type**: typing.Optional[str]
@@ -672,34 +672,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EKS']]
 
 ### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
-
-### states
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ARRESTED', 'RUNNING', 'TERMINATED', 'TERMINATING']]]
-
-### eksAccessEntryIntegrated
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfigTypeDef]
-
-
-# ListVirtualClustersRequestTypeDef
-
-### containerProviderId
-- **Type**: typing.Optional[str]
-
-### containerProviderType
-- **Type**: typing.Optional[typing.Literal['EKS']]
-
-### createdAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
-
-### createdBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
 
 ### states
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ARRESTED', 'RUNNING', 'TERMINATED', 'TERMINATING']]]
@@ -714,21 +690,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListVirtualClustersResponseTypeDef
+# ListVirtualClustersRequestPaginate
+
+### containerProviderId
+- **Type**: typing.Optional[str]
+
+### containerProviderType
+- **Type**: typing.Optional[typing.Literal['EKS']]
+
+### createdAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### createdBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.Timestamp]
+
+### states
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ARRESTED', 'RUNNING', 'TERMINATED', 'TERMINATING']]]
+
+### eksAccessEntryIntegrated
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.PaginatorConfig]
+
+
+# ListVirtualClustersResponse
 
 ### virtualClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.VirtualClusterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.VirtualCluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.emr_containers_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ManagedLogsTypeDef
+# ManagedLogs
 
 ### allowAWSToRetainLogs
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -737,25 +737,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MonitoringConfigurationTypeDef
+# MonitoringConfiguration
 
 ### managedLogs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ManagedLogsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ManagedLogs]
 
 ### persistentAppUI
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### cloudWatchMonitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.CloudWatchMonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.CloudWatchMonitoringConfiguration]
 
 ### s3MonitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.S3MonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.S3MonitoringConfiguration]
 
 ### containerLogRotationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ContainerLogRotationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ContainerLogRotationConfiguration]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -767,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParametricCloudWatchMonitoringConfigurationTypeDef
+# ParametricCloudWatchMonitoringConfiguration
 
 ### logGroupName
 - **Type**: typing.Optional[str]
@@ -776,52 +776,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParametricConfigurationOverridesOutputTypeDef
+# ParametricConfigurationOverrides
 
 ### applicationConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_containers_classes.Configuration]]
 
 ### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfiguration]
 
 
-# ParametricConfigurationOverridesPaginatorTypeDef
+# ParametricConfigurationOverridesOutput
 
 ### applicationConfiguration
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationPaginatorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOutput]]
 
 ### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfiguration]
 
 
-# ParametricConfigurationOverridesTypeDef
+# ParametricConfigurationOverridesPaginator
 
 ### applicationConfiguration
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationPaginator]]
 
 ### monitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricMonitoringConfiguration]
 
 
-# ParametricMonitoringConfigurationTypeDef
+# ParametricMonitoringConfiguration
 
 ### persistentAppUI
 - **Type**: typing.Optional[str]
 
 ### cloudWatchMonitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricCloudWatchMonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricCloudWatchMonitoringConfiguration]
 
 ### s3MonitoringConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricS3MonitoringConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ParametricS3MonitoringConfiguration]
 
 
-# ParametricS3MonitoringConfigurationTypeDef
+# ParametricS3MonitoringConfiguration
 
 ### logUri
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -843,28 +843,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetryPolicyConfigurationTypeDef
+# RetryPolicyConfiguration
 
 ### maxAttempts
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# RetryPolicyExecutionTypeDef
+# RetryPolicyExecution
 
 ### currentAttemptCount
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# S3MonitoringConfigurationTypeDef
+# S3MonitoringConfiguration
 
 ### logUri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SecureNamespaceInfoTypeDef
+# SecureNamespaceInfo
 
 ### clusterId
 - **Type**: typing.Optional[str]
@@ -873,19 +873,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SecurityConfigurationDataTypeDef
-
-### authorizationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.AuthorizationConfigurationTypeDef]
-
-
-# SecurityConfigurationTypeDef
+# SecurityConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SparkSqlJobDriverTypeDef
+# SecurityConfigurationData
+
+### authorizationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.AuthorizationConfiguration]
+
+
+# SparkSqlJobDriver
 
 ### entryPoint
 - **Type**: typing.Optional[str]
@@ -894,20 +894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SparkSubmitJobDriverOutputTypeDef
-
-### entryPoint
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### entryPointArguments
-- **Type**: typing.Optional[typing.List[str]]
-
-### sparkSubmitParameters
-- **Type**: typing.Optional[str]
-
-
-# SparkSubmitJobDriverTypeDef
+# SparkSubmitJobDriver
 
 ### entryPoint
 - **Type**: <class 'str'>
@@ -920,7 +907,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartJobRunRequestTypeDef
+# SparkSubmitJobDriverOutput
+
+### entryPoint
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### entryPointArguments
+- **Type**: typing.Optional[typing.List[str]]
+
+### sparkSubmitParameters
+- **Type**: typing.Optional[str]
+
+
+# StartJobRunRequest
 
 ### virtualClusterId
 - **Type**: <class 'str'>
@@ -940,10 +940,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### jobDriver
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.JobDriverUnion]
 
 ### configurationOverrides
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOverridesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.ConfigurationOverridesUnion]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -955,10 +955,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### retryPolicyConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.RetryPolicyConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.emr_containers_classes.RetryPolicyConfiguration]
 
 
-# TLSCertificateConfigurationTypeDef
+# TLSCertificateConfiguration
 
 ### certificateProviderType
 - **Type**: typing.Optional[typing.Literal['PEM']]
@@ -970,7 +970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -981,19 +981,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateParameterConfigurationTypeDef
+# TemplateParameterConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1004,7 +1004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VirtualClusterTypeDef
+# VirtualCluster
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

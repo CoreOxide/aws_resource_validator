@@ -12,14 +12,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot_jobs_data_constants import *
 
-class DescribeJobExecutionRequestTypeDef(BaseValidatorModel):
+class DescribeJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
     includeJobDocument: Optional[bool] = None
     executionNumber: Optional[int] = None
 
 
-class JobExecutionTypeDef(BaseValidatorModel):
+class JobExecution(BaseValidatorModel):
     jobId: Optional[str] = None
     thingName: Optional[str] = None
     status: Optional[JobExecutionStatusType] = None
@@ -33,7 +33,7 @@ class JobExecutionTypeDef(BaseValidatorModel):
     jobDocument: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -41,11 +41,11 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetPendingJobExecutionsRequestTypeDef(BaseValidatorModel):
+class GetPendingJobExecutionsRequest(BaseValidatorModel):
     thingName: str
 
 
-class JobExecutionSummaryTypeDef(BaseValidatorModel):
+class JobExecutionSummary(BaseValidatorModel):
     jobId: Optional[str] = None
     queuedAt: Optional[int] = None
     startedAt: Optional[int] = None
@@ -54,19 +54,19 @@ class JobExecutionSummaryTypeDef(BaseValidatorModel):
     executionNumber: Optional[int] = None
 
 
-class JobExecutionStateTypeDef(BaseValidatorModel):
+class JobExecutionState(BaseValidatorModel):
     status: Optional[JobExecutionStatusType] = None
     statusDetails: Optional[Dict[str, str]] = None
     versionNumber: Optional[int] = None
 
 
-class StartNextPendingJobExecutionRequestTypeDef(BaseValidatorModel):
+class StartNextPendingJobExecutionRequest(BaseValidatorModel):
     thingName: str
     statusDetails: Optional[Mapping[str, str]] = None
     stepTimeoutInMinutes: Optional[int] = None
 
 
-class UpdateJobExecutionRequestTypeDef(BaseValidatorModel):
+class UpdateJobExecutionRequest(BaseValidatorModel):
     jobId: str
     thingName: str
     status: JobExecutionStatusType
@@ -78,51 +78,51 @@ class UpdateJobExecutionRequestTypeDef(BaseValidatorModel):
     executionNumber: Optional[int] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CommandParameterValueTypeDef(BaseValidatorModel):
+class CommandParameterValue(BaseValidatorModel):
     S: Optional[str] = None
     B: Optional[bool] = None
     I: Optional[int] = None
     L: Optional[int] = None
     D: Optional[float] = None
-    BIN: Optional[BlobTypeDef] = None
+    BIN: Optional[Blob] = None
     UL: Optional[str] = None
 
 
-class DescribeJobExecutionResponseTypeDef(BaseValidatorModel):
-    execution: JobExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeJobExecutionResponse(BaseValidatorModel):
+    execution: JobExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class StartCommandExecutionResponseTypeDef(BaseValidatorModel):
+class StartCommandExecutionResponse(BaseValidatorModel):
     executionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartNextPendingJobExecutionResponseTypeDef(BaseValidatorModel):
-    execution: JobExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartNextPendingJobExecutionResponse(BaseValidatorModel):
+    execution: JobExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPendingJobExecutionsResponseTypeDef(BaseValidatorModel):
-    inProgressJobs: List[JobExecutionSummaryTypeDef]
-    queuedJobs: List[JobExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPendingJobExecutionsResponse(BaseValidatorModel):
+    inProgressJobs: List[JobExecutionSummary]
+    queuedJobs: List[JobExecutionSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateJobExecutionResponseTypeDef(BaseValidatorModel):
-    executionState: JobExecutionStateTypeDef
+class UpdateJobExecutionResponse(BaseValidatorModel):
+    executionState: JobExecutionState
     jobDocument: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartCommandExecutionRequestTypeDef(BaseValidatorModel):
+class StartCommandExecutionRequest(BaseValidatorModel):
     targetArn: str
     commandArn: str
-    parameters: Optional[Mapping[str, CommandParameterValueTypeDef]] = None
+    parameters: Optional[Mapping[str, CommandParameterValue]] = None
     executionTimeoutSeconds: Optional[int] = None
     clientToken: Optional[str] = None
 

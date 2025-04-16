@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.privatenetworks_constants import *
 
-class AcknowledgeOrderReceiptRequestTypeDef(BaseValidatorModel):
+class AcknowledgeOrderReceiptRequest(BaseValidatorModel):
     orderArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,12 +24,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ActivateDeviceIdentifierRequestTypeDef(BaseValidatorModel):
+class ActivateDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
     clientToken: Optional[str] = None
 
 
-class DeviceIdentifierTypeDef(BaseValidatorModel):
+class DeviceIdentifier(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     deviceIdentifierArn: Optional[str] = None
     iccid: Optional[str] = None
@@ -41,7 +41,7 @@ class DeviceIdentifierTypeDef(BaseValidatorModel):
     vendor: Optional[str] = None
 
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     city: str
     country: str
     name: str
@@ -55,12 +55,12 @@ class AddressTypeDef(BaseValidatorModel):
     street3: Optional[str] = None
 
 
-class CommitmentConfigurationTypeDef(BaseValidatorModel):
+class CommitmentConfiguration(BaseValidatorModel):
     automaticRenewal: bool
     commitmentLength: CommitmentLengthType
 
 
-class PositionTypeDef(BaseValidatorModel):
+class Position(BaseValidatorModel):
     elevation: Optional[float] = None
     elevationReference: Optional[ElevationReferenceType] = None
     elevationUnit: Optional[Literal["FEET"]] = None
@@ -68,14 +68,14 @@ class PositionTypeDef(BaseValidatorModel):
     longitude: Optional[float] = None
 
 
-class CreateNetworkRequestTypeDef(BaseValidatorModel):
+class CreateNetworkRequest(BaseValidatorModel):
     networkName: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class NetworkTypeDef(BaseValidatorModel):
+class Network(BaseValidatorModel):
     networkArn: str
     networkName: str
     status: NetworkStatusType
@@ -84,309 +84,309 @@ class NetworkTypeDef(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
-class DeactivateDeviceIdentifierRequestTypeDef(BaseValidatorModel):
+class DeactivateDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
     clientToken: Optional[str] = None
 
 
-class DeleteNetworkRequestTypeDef(BaseValidatorModel):
+class DeleteNetworkRequest(BaseValidatorModel):
     networkArn: str
     clientToken: Optional[str] = None
 
 
-class DeleteNetworkSiteRequestTypeDef(BaseValidatorModel):
+class DeleteNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
     clientToken: Optional[str] = None
 
 
-class GetDeviceIdentifierRequestTypeDef(BaseValidatorModel):
+class GetDeviceIdentifierRequest(BaseValidatorModel):
     deviceIdentifierArn: str
 
 
-class GetNetworkRequestTypeDef(BaseValidatorModel):
+class GetNetworkRequest(BaseValidatorModel):
     networkArn: str
 
 
-class GetNetworkResourceRequestTypeDef(BaseValidatorModel):
+class GetNetworkResourceRequest(BaseValidatorModel):
     networkResourceArn: str
 
 
-class GetNetworkSiteRequestTypeDef(BaseValidatorModel):
+class GetNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
 
 
-class GetOrderRequestTypeDef(BaseValidatorModel):
+class GetOrderRequest(BaseValidatorModel):
     orderArn: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListDeviceIdentifiersRequestTypeDef(BaseValidatorModel):
+class ListDeviceIdentifiersRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[DeviceIdentifierFilterKeysType, Sequence[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
-class ListNetworkResourcesRequestTypeDef(BaseValidatorModel):
+class ListNetworkResourcesRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[NetworkResourceFilterKeysType, Sequence[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
-class ListNetworkSitesRequestTypeDef(BaseValidatorModel):
+class ListNetworkSitesRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[Literal["STATUS"], Sequence[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
-class ListNetworksRequestTypeDef(BaseValidatorModel):
+class ListNetworksRequest(BaseValidatorModel):
     filters: Optional[Mapping[Literal["STATUS"], Sequence[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
-class ListOrdersRequestTypeDef(BaseValidatorModel):
+class ListOrdersRequest(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[OrderFilterKeysType, Sequence[str]]] = None
     maxResults: Optional[int] = None
     startToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class NameValuePairTypeDef(BaseValidatorModel):
+class NameValuePair(BaseValidatorModel):
     name: str
     value: Optional[str] = None
 
 
-class TrackingInformationTypeDef(BaseValidatorModel):
+class TrackingInformation(BaseValidatorModel):
     trackingNumber: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateNetworkSiteRequestTypeDef(BaseValidatorModel):
+class UpdateNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PingResponseTypeDef(BaseValidatorModel):
+class PingResponse(BaseValidatorModel):
     status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ActivateDeviceIdentifierResponseTypeDef(BaseValidatorModel):
-    deviceIdentifier: DeviceIdentifierTypeDef
+class ActivateDeviceIdentifierResponse(BaseValidatorModel):
+    deviceIdentifier: DeviceIdentifier
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeactivateDeviceIdentifierResponseTypeDef(BaseValidatorModel):
-    deviceIdentifier: DeviceIdentifierTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeactivateDeviceIdentifierResponse(BaseValidatorModel):
+    deviceIdentifier: DeviceIdentifier
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeviceIdentifierResponseTypeDef(BaseValidatorModel):
-    deviceIdentifier: DeviceIdentifierTypeDef
+class GetDeviceIdentifierResponse(BaseValidatorModel):
+    deviceIdentifier: DeviceIdentifier
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDeviceIdentifiersResponseTypeDef(BaseValidatorModel):
-    deviceIdentifiers: List[DeviceIdentifierTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeviceIdentifiersResponse(BaseValidatorModel):
+    deviceIdentifiers: List[DeviceIdentifier]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ReturnInformationTypeDef(BaseValidatorModel):
+class ReturnInformation(BaseValidatorModel):
     replacementOrderArn: Optional[str] = None
     returnReason: Optional[str] = None
-    shippingAddress: Optional[AddressTypeDef] = None
+    shippingAddress: Optional[Address] = None
     shippingLabel: Optional[str] = None
 
 
-class ActivateNetworkSiteRequestTypeDef(BaseValidatorModel):
+class ActivateNetworkSiteRequest(BaseValidatorModel):
     networkSiteArn: str
-    shippingAddress: AddressTypeDef
+    shippingAddress: Address
     clientToken: Optional[str] = None
-    commitmentConfiguration: Optional[CommitmentConfigurationTypeDef] = None
+    commitmentConfiguration: Optional[CommitmentConfiguration] = None
 
 
-class CommitmentInformationTypeDef(BaseValidatorModel):
-    commitmentConfiguration: CommitmentConfigurationTypeDef
+class CommitmentInformation(BaseValidatorModel):
+    commitmentConfiguration: CommitmentConfiguration
     expiresOn: Optional[datetime] = None
     startAt: Optional[datetime] = None
 
 
-class StartNetworkResourceUpdateRequestTypeDef(BaseValidatorModel):
+class StartNetworkResourceUpdateRequest(BaseValidatorModel):
     networkResourceArn: str
     updateType: UpdateTypeType
-    commitmentConfiguration: Optional[CommitmentConfigurationTypeDef] = None
+    commitmentConfiguration: Optional[CommitmentConfiguration] = None
     returnReason: Optional[str] = None
-    shippingAddress: Optional[AddressTypeDef] = None
+    shippingAddress: Optional[Address] = None
 
 
-class ConfigureAccessPointRequestTypeDef(BaseValidatorModel):
+class ConfigureAccessPointRequest(BaseValidatorModel):
     accessPointArn: str
     cpiSecretKey: Optional[str] = None
     cpiUserId: Optional[str] = None
     cpiUserPassword: Optional[str] = None
     cpiUsername: Optional[str] = None
-    position: Optional[PositionTypeDef] = None
+    position: Optional[Position] = None
 
 
-class CreateNetworkResponseTypeDef(BaseValidatorModel):
-    network: NetworkTypeDef
+class CreateNetworkResponse(BaseValidatorModel):
+    network: Network
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteNetworkResponseTypeDef(BaseValidatorModel):
-    network: NetworkTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteNetworkResponse(BaseValidatorModel):
+    network: Network
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkResponseTypeDef(BaseValidatorModel):
-    network: NetworkTypeDef
+class GetNetworkResponse(BaseValidatorModel):
+    network: Network
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListNetworksResponseTypeDef(BaseValidatorModel):
-    networks: List[NetworkTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNetworksResponse(BaseValidatorModel):
+    networks: List[Network]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeviceIdentifiersRequestPaginateTypeDef(BaseValidatorModel):
+class ListDeviceIdentifiersRequestPaginate(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[DeviceIdentifierFilterKeysType, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNetworkResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNetworkResourcesRequestPaginate(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[NetworkResourceFilterKeysType, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNetworkSitesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNetworkSitesRequestPaginate(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[Literal["STATUS"], Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNetworksRequestPaginateTypeDef(BaseValidatorModel):
+class ListNetworksRequestPaginate(BaseValidatorModel):
     filters: Optional[Mapping[Literal["STATUS"], Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrdersRequestPaginateTypeDef(BaseValidatorModel):
+class ListOrdersRequestPaginate(BaseValidatorModel):
     networkArn: str
     filters: Optional[Mapping[OrderFilterKeysType, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class OrderedResourceDefinitionTypeDef(BaseValidatorModel):
+class OrderedResourceDefinition(BaseValidatorModel):
     pass
 
 
-class OrderTypeDef(BaseValidatorModel):
+class Order(BaseValidatorModel):
     acknowledgmentStatus: Optional[AcknowledgmentStatusType] = None
     createdAt: Optional[datetime] = None
     networkArn: Optional[str] = None
     networkSiteArn: Optional[str] = None
     orderArn: Optional[str] = None
-    orderedResources: Optional[List[OrderedResourceDefinitionTypeDef]] = None
-    shippingAddress: Optional[AddressTypeDef] = None
-    trackingInformation: Optional[List[TrackingInformationTypeDef]] = None
+    orderedResources: Optional[List[OrderedResourceDefinition]] = None
+    shippingAddress: Optional[Address] = None
+    trackingInformation: Optional[List[TrackingInformation]] = None
 
 
-class NetworkResourceDefinitionOutputTypeDef(BaseValidatorModel):
+class NetworkResourceDefinitionOutput(BaseValidatorModel):
     pass
 
 
-class SitePlanOutputTypeDef(BaseValidatorModel):
-    options: Optional[List[NameValuePairTypeDef]] = None
-    resourceDefinitions: Optional[List[NetworkResourceDefinitionOutputTypeDef]] = None
+class SitePlanOutput(BaseValidatorModel):
+    options: Optional[List[NameValuePair]] = None
+    resourceDefinitions: Optional[List[NetworkResourceDefinitionOutput]] = None
 
 
-class NetworkResourceDefinitionTypeDef(BaseValidatorModel):
+class NetworkResourceDefinition(BaseValidatorModel):
     pass
 
 
-class SitePlanTypeDef(BaseValidatorModel):
-    options: Optional[Sequence[NameValuePairTypeDef]] = None
-    resourceDefinitions: Optional[Sequence[NetworkResourceDefinitionTypeDef]] = None
+class SitePlan(BaseValidatorModel):
+    options: Optional[Sequence[NameValuePair]] = None
+    resourceDefinitions: Optional[Sequence[NetworkResourceDefinition]] = None
 
 
-class NetworkResourceTypeDef(BaseValidatorModel):
+class NetworkResource(BaseValidatorModel):
     pass
 
 
-class ConfigureAccessPointResponseTypeDef(BaseValidatorModel):
-    accessPoint: NetworkResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ConfigureAccessPointResponse(BaseValidatorModel):
+    accessPoint: NetworkResource
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkResourceResponseTypeDef(BaseValidatorModel):
-    networkResource: NetworkResourceTypeDef
+class GetNetworkResourceResponse(BaseValidatorModel):
+    networkResource: NetworkResource
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListNetworkResourcesResponseTypeDef(BaseValidatorModel):
-    networkResources: List[NetworkResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNetworkResourcesResponse(BaseValidatorModel):
+    networkResources: List[NetworkResource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartNetworkResourceUpdateResponseTypeDef(BaseValidatorModel):
-    networkResource: NetworkResourceTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartNetworkResourceUpdateResponse(BaseValidatorModel):
+    networkResource: NetworkResource
+    ResponseMetadata: ResponseMetadata
 
 
-class AcknowledgeOrderReceiptResponseTypeDef(BaseValidatorModel):
-    order: OrderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class AcknowledgeOrderReceiptResponse(BaseValidatorModel):
+    order: Order
+    ResponseMetadata: ResponseMetadata
 
 
-class GetOrderResponseTypeDef(BaseValidatorModel):
-    order: OrderTypeDef
+class GetOrderResponse(BaseValidatorModel):
+    order: Order
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOrdersResponseTypeDef(BaseValidatorModel):
-    orders: List[OrderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrdersResponse(BaseValidatorModel):
+    orders: List[Order]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class NetworkSiteTypeDef(BaseValidatorModel):
+class NetworkSite(BaseValidatorModel):
     networkArn: str
     networkSiteArn: str
     networkSiteName: str
@@ -394,64 +394,64 @@ class NetworkSiteTypeDef(BaseValidatorModel):
     availabilityZone: Optional[str] = None
     availabilityZoneId: Optional[str] = None
     createdAt: Optional[datetime] = None
-    currentPlan: Optional[SitePlanOutputTypeDef] = None
+    currentPlan: Optional[SitePlanOutput] = None
     description: Optional[str] = None
-    pendingPlan: Optional[SitePlanOutputTypeDef] = None
+    pendingPlan: Optional[SitePlanOutput] = None
     statusReason: Optional[str] = None
 
 
-class ActivateNetworkSiteResponseTypeDef(BaseValidatorModel):
-    networkSite: NetworkSiteTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ActivateNetworkSiteResponse(BaseValidatorModel):
+    networkSite: NetworkSite
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNetworkSiteResponseTypeDef(BaseValidatorModel):
-    networkSite: NetworkSiteTypeDef
+class CreateNetworkSiteResponse(BaseValidatorModel):
+    networkSite: NetworkSite
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteNetworkSiteResponseTypeDef(BaseValidatorModel):
-    networkSite: NetworkSiteTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteNetworkSiteResponse(BaseValidatorModel):
+    networkSite: NetworkSite
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNetworkSiteResponseTypeDef(BaseValidatorModel):
-    networkSite: NetworkSiteTypeDef
+class GetNetworkSiteResponse(BaseValidatorModel):
+    networkSite: NetworkSite
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListNetworkSitesResponseTypeDef(BaseValidatorModel):
-    networkSites: List[NetworkSiteTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNetworkSitesResponse(BaseValidatorModel):
+    networkSites: List[NetworkSite]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateNetworkSiteResponseTypeDef(BaseValidatorModel):
-    networkSite: NetworkSiteTypeDef
+class UpdateNetworkSiteResponse(BaseValidatorModel):
+    networkSite: NetworkSite
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SitePlanUnionTypeDef(BaseValidatorModel):
+class SitePlanUnion(BaseValidatorModel):
     pass
 
 
-class CreateNetworkSiteRequestTypeDef(BaseValidatorModel):
+class CreateNetworkSiteRequest(BaseValidatorModel):
     networkArn: str
     networkSiteName: str
     availabilityZone: Optional[str] = None
     availabilityZoneId: Optional[str] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    pendingPlan: Optional[SitePlanUnionTypeDef] = None
+    pendingPlan: Optional[SitePlanUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateNetworkSitePlanRequestTypeDef(BaseValidatorModel):
+class UpdateNetworkSitePlanRequest(BaseValidatorModel):
     networkSiteArn: str
-    pendingPlan: SitePlanUnionTypeDef
+    pendingPlan: SitePlanUnion
     clientToken: Optional[str] = None
 
 

@@ -12,32 +12,32 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.textract_constants import *
 
-class AdapterOverviewTypeDef(BaseValidatorModel):
+class AdapterOverview(BaseValidatorModel):
     AdapterId: Optional[str] = None
     AdapterName: Optional[str] = None
     CreationTime: Optional[datetime] = None
     FeatureTypes: Optional[List[FeatureTypeType]] = None
 
 
-class AdapterTypeDef(BaseValidatorModel):
+class Adapter(BaseValidatorModel):
     AdapterId: str
     Version: str
     Pages: Optional[Sequence[str]] = None
 
 
-class S3ObjectTypeDef(BaseValidatorModel):
+class S3Object(BaseValidatorModel):
     Bucket: Optional[str] = None
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
-class EvaluationMetricTypeDef(BaseValidatorModel):
+class EvaluationMetric(BaseValidatorModel):
     F1Score: Optional[float] = None
     Precision: Optional[float] = None
     Recall: Optional[float] = None
 
 
-class AdapterVersionOverviewTypeDef(BaseValidatorModel):
+class AdapterVersionOverview(BaseValidatorModel):
     AdapterId: Optional[str] = None
     AdapterVersion: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -46,17 +46,17 @@ class AdapterVersionOverviewTypeDef(BaseValidatorModel):
     StatusMessage: Optional[str] = None
 
 
-class DocumentMetadataTypeDef(BaseValidatorModel):
+class DocumentMetadata(BaseValidatorModel):
     Pages: Optional[int] = None
 
 
-class HumanLoopActivationOutputTypeDef(BaseValidatorModel):
+class HumanLoopActivationOutput(BaseValidatorModel):
     HumanLoopArn: Optional[str] = None
     HumanLoopActivationReasons: Optional[List[str]] = None
     HumanLoopActivationConditionsEvaluationResults: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -64,19 +64,19 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class NormalizedValueTypeDef(BaseValidatorModel):
+class NormalizedValue(BaseValidatorModel):
     Value: Optional[str] = None
     ValueType: Optional[Literal["DATE"]] = None
 
 
-class BoundingBoxTypeDef(BaseValidatorModel):
+class BoundingBox(BaseValidatorModel):
     Width: Optional[float] = None
     Height: Optional[float] = None
     Left: Optional[float] = None
     Top: Optional[float] = None
 
 
-class CreateAdapterRequestTypeDef(BaseValidatorModel):
+class CreateAdapterRequest(BaseValidatorModel):
     AdapterName: str
     FeatureTypes: Sequence[FeatureTypeType]
     ClientRequestToken: Optional[str] = None
@@ -85,161 +85,161 @@ class CreateAdapterRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class OutputConfigTypeDef(BaseValidatorModel):
+class OutputConfig(BaseValidatorModel):
     S3Bucket: str
     S3Prefix: Optional[str] = None
 
 
-class DeleteAdapterRequestTypeDef(BaseValidatorModel):
+class DeleteAdapterRequest(BaseValidatorModel):
     AdapterId: str
 
 
-class DeleteAdapterVersionRequestTypeDef(BaseValidatorModel):
+class DeleteAdapterVersionRequest(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
 
 
-class DetectedSignatureTypeDef(BaseValidatorModel):
+class DetectedSignature(BaseValidatorModel):
     Page: Optional[int] = None
 
 
-class SplitDocumentTypeDef(BaseValidatorModel):
+class SplitDocument(BaseValidatorModel):
     Index: Optional[int] = None
     Pages: Optional[List[int]] = None
 
 
-class UndetectedSignatureTypeDef(BaseValidatorModel):
+class UndetectedSignature(BaseValidatorModel):
     Page: Optional[int] = None
 
 
-class ExpenseCurrencyTypeDef(BaseValidatorModel):
+class ExpenseCurrency(BaseValidatorModel):
     Code: Optional[str] = None
     Confidence: Optional[float] = None
 
 
-class ExpenseGroupPropertyTypeDef(BaseValidatorModel):
+class ExpenseGroupProperty(BaseValidatorModel):
     Types: Optional[List[str]] = None
     Id: Optional[str] = None
 
 
-class PointTypeDef(BaseValidatorModel):
+class Point(BaseValidatorModel):
     X: Optional[float] = None
     Y: Optional[float] = None
 
 
-class GetAdapterRequestTypeDef(BaseValidatorModel):
+class GetAdapterRequest(BaseValidatorModel):
     AdapterId: str
 
 
-class GetAdapterVersionRequestTypeDef(BaseValidatorModel):
+class GetAdapterVersionRequest(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
 
 
-class GetDocumentAnalysisRequestTypeDef(BaseValidatorModel):
+class GetDocumentAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class WarningTypeDef(BaseValidatorModel):
+class Warning(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Pages: Optional[List[int]] = None
 
 
-class GetDocumentTextDetectionRequestTypeDef(BaseValidatorModel):
+class GetDocumentTextDetectionRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetExpenseAnalysisRequestTypeDef(BaseValidatorModel):
+class GetExpenseAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetLendingAnalysisRequestTypeDef(BaseValidatorModel):
+class GetLendingAnalysisRequest(BaseValidatorModel):
     JobId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetLendingAnalysisSummaryRequestTypeDef(BaseValidatorModel):
+class GetLendingAnalysisSummaryRequest(BaseValidatorModel):
     JobId: str
 
 
-class HumanLoopDataAttributesTypeDef(BaseValidatorModel):
+class HumanLoopDataAttributes(BaseValidatorModel):
     ContentClassifiers: Optional[Sequence[ContentClassifierType]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class NotificationChannelTypeDef(BaseValidatorModel):
+class NotificationChannel(BaseValidatorModel):
     SNSTopicArn: str
     RoleArn: str
 
 
-class PredictionTypeDef(BaseValidatorModel):
+class Prediction(BaseValidatorModel):
     Value: Optional[str] = None
     Confidence: Optional[float] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateAdapterRequestTypeDef(BaseValidatorModel):
+class UpdateAdapterRequest(BaseValidatorModel):
     AdapterId: str
     Description: Optional[str] = None
     AdapterName: Optional[str] = None
     AutoUpdate: Optional[AutoUpdateType] = None
 
 
-class AdaptersConfigTypeDef(BaseValidatorModel):
-    Adapters: Sequence[AdapterTypeDef]
+class AdaptersConfig(BaseValidatorModel):
+    Adapters: Sequence[Adapter]
 
 
-class AdapterVersionDatasetConfigTypeDef(BaseValidatorModel):
-    ManifestS3Object: Optional[S3ObjectTypeDef] = None
+class AdapterVersionDatasetConfig(BaseValidatorModel):
+    ManifestS3Object: Optional[S3Object] = None
 
 
-class DocumentLocationTypeDef(BaseValidatorModel):
-    S3Object: Optional[S3ObjectTypeDef] = None
+class DocumentLocation(BaseValidatorModel):
+    S3Object: Optional[S3Object] = None
 
 
-class AdapterVersionEvaluationMetricTypeDef(BaseValidatorModel):
-    Baseline: Optional[EvaluationMetricTypeDef] = None
-    AdapterVersion: Optional[EvaluationMetricTypeDef] = None
+class AdapterVersionEvaluationMetric(BaseValidatorModel):
+    Baseline: Optional[EvaluationMetric] = None
+    AdapterVersion: Optional[EvaluationMetric] = None
     FeatureType: Optional[FeatureTypeType] = None
 
 
-class CreateAdapterResponseTypeDef(BaseValidatorModel):
+class CreateAdapterResponse(BaseValidatorModel):
     AdapterId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAdapterVersionResponseTypeDef(BaseValidatorModel):
+class CreateAdapterVersionResponse(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAdapterResponseTypeDef(BaseValidatorModel):
+class GetAdapterResponse(BaseValidatorModel):
     AdapterId: str
     AdapterName: str
     CreationTime: datetime
@@ -247,352 +247,352 @@ class GetAdapterResponseTypeDef(BaseValidatorModel):
     FeatureTypes: List[FeatureTypeType]
     AutoUpdate: AutoUpdateType
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAdapterVersionsResponseTypeDef(BaseValidatorModel):
-    AdapterVersions: List[AdapterVersionOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAdapterVersionsResponse(BaseValidatorModel):
+    AdapterVersions: List[AdapterVersionOverview]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAdaptersResponseTypeDef(BaseValidatorModel):
-    Adapters: List[AdapterOverviewTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAdaptersResponse(BaseValidatorModel):
+    Adapters: List[AdapterOverview]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDocumentAnalysisResponseTypeDef(BaseValidatorModel):
+class StartDocumentAnalysisResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDocumentTextDetectionResponseTypeDef(BaseValidatorModel):
+class StartDocumentTextDetectionResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartExpenseAnalysisResponseTypeDef(BaseValidatorModel):
+class StartExpenseAnalysisResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartLendingAnalysisResponseTypeDef(BaseValidatorModel):
+class StartLendingAnalysisResponse(BaseValidatorModel):
     JobId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAdapterResponseTypeDef(BaseValidatorModel):
+class UpdateAdapterResponse(BaseValidatorModel):
     AdapterId: str
     AdapterName: str
     CreationTime: datetime
     Description: str
     FeatureTypes: List[FeatureTypeType]
     AutoUpdate: AutoUpdateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DocumentTypeDef(BaseValidatorModel):
-    Bytes: Optional[BlobTypeDef] = None
-    S3Object: Optional[S3ObjectTypeDef] = None
+class Document(BaseValidatorModel):
+    Bytes: Optional[Blob] = None
+    S3Object: Optional[S3Object] = None
 
 
-class GeometryTypeDef(BaseValidatorModel):
-    BoundingBox: Optional[BoundingBoxTypeDef] = None
-    Polygon: Optional[List[PointTypeDef]] = None
+class Geometry(BaseValidatorModel):
+    BoundingBox: Optional[BoundingBox] = None
+    Polygon: Optional[List[Point]] = None
 
 
-class HumanLoopConfigTypeDef(BaseValidatorModel):
+class HumanLoopConfig(BaseValidatorModel):
     HumanLoopName: str
     FlowDefinitionArn: str
-    DataAttributes: Optional[HumanLoopDataAttributesTypeDef] = None
+    DataAttributes: Optional[HumanLoopDataAttributes] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListAdapterVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAdapterVersionsRequestPaginate(BaseValidatorModel):
     AdapterId: Optional[str] = None
-    AfterCreationTime: Optional[TimestampTypeDef] = None
-    BeforeCreationTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    AfterCreationTime: Optional[Timestamp] = None
+    BeforeCreationTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAdapterVersionsRequestTypeDef(BaseValidatorModel):
+class ListAdapterVersionsRequest(BaseValidatorModel):
     AdapterId: Optional[str] = None
-    AfterCreationTime: Optional[TimestampTypeDef] = None
-    BeforeCreationTime: Optional[TimestampTypeDef] = None
+    AfterCreationTime: Optional[Timestamp] = None
+    BeforeCreationTime: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListAdaptersRequestPaginateTypeDef(BaseValidatorModel):
-    AfterCreationTime: Optional[TimestampTypeDef] = None
-    BeforeCreationTime: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAdaptersRequestPaginate(BaseValidatorModel):
+    AfterCreationTime: Optional[Timestamp] = None
+    BeforeCreationTime: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAdaptersRequestTypeDef(BaseValidatorModel):
-    AfterCreationTime: Optional[TimestampTypeDef] = None
-    BeforeCreationTime: Optional[TimestampTypeDef] = None
+class ListAdaptersRequest(BaseValidatorModel):
+    AfterCreationTime: Optional[Timestamp] = None
+    BeforeCreationTime: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PageClassificationTypeDef(BaseValidatorModel):
-    PageType: List[PredictionTypeDef]
-    PageNumber: List[PredictionTypeDef]
+class PageClassification(BaseValidatorModel):
+    PageType: List[Prediction]
+    PageNumber: List[Prediction]
 
 
-class CreateAdapterVersionRequestTypeDef(BaseValidatorModel):
+class CreateAdapterVersionRequest(BaseValidatorModel):
     AdapterId: str
-    DatasetConfig: AdapterVersionDatasetConfigTypeDef
-    OutputConfig: OutputConfigTypeDef
+    DatasetConfig: AdapterVersionDatasetConfig
+    OutputConfig: OutputConfig
     ClientRequestToken: Optional[str] = None
     KMSKeyId: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class StartDocumentTextDetectionRequestTypeDef(BaseValidatorModel):
-    DocumentLocation: DocumentLocationTypeDef
+class StartDocumentTextDetectionRequest(BaseValidatorModel):
+    DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
     JobTag: Optional[str] = None
-    NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    OutputConfig: Optional[OutputConfigTypeDef] = None
+    NotificationChannel: Optional[NotificationChannel] = None
+    OutputConfig: Optional[OutputConfig] = None
     KMSKeyId: Optional[str] = None
 
 
-class StartExpenseAnalysisRequestTypeDef(BaseValidatorModel):
-    DocumentLocation: DocumentLocationTypeDef
+class StartExpenseAnalysisRequest(BaseValidatorModel):
+    DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
     JobTag: Optional[str] = None
-    NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    OutputConfig: Optional[OutputConfigTypeDef] = None
+    NotificationChannel: Optional[NotificationChannel] = None
+    OutputConfig: Optional[OutputConfig] = None
     KMSKeyId: Optional[str] = None
 
 
-class StartLendingAnalysisRequestTypeDef(BaseValidatorModel):
-    DocumentLocation: DocumentLocationTypeDef
+class StartLendingAnalysisRequest(BaseValidatorModel):
+    DocumentLocation: DocumentLocation
     ClientRequestToken: Optional[str] = None
     JobTag: Optional[str] = None
-    NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    OutputConfig: Optional[OutputConfigTypeDef] = None
+    NotificationChannel: Optional[NotificationChannel] = None
+    OutputConfig: Optional[OutputConfig] = None
     KMSKeyId: Optional[str] = None
 
 
-class GetAdapterVersionResponseTypeDef(BaseValidatorModel):
+class GetAdapterVersionResponse(BaseValidatorModel):
     AdapterId: str
     AdapterVersion: str
     CreationTime: datetime
     FeatureTypes: List[FeatureTypeType]
     Status: AdapterVersionStatusType
     StatusMessage: str
-    DatasetConfig: AdapterVersionDatasetConfigTypeDef
+    DatasetConfig: AdapterVersionDatasetConfig
     KMSKeyId: str
-    OutputConfig: OutputConfigTypeDef
-    EvaluationMetrics: List[AdapterVersionEvaluationMetricTypeDef]
+    OutputConfig: OutputConfig
+    EvaluationMetrics: List[AdapterVersionEvaluationMetric]
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AnalyzeExpenseRequestTypeDef(BaseValidatorModel):
-    Document: DocumentTypeDef
+class AnalyzeExpenseRequest(BaseValidatorModel):
+    Document: Document
 
 
-class AnalyzeIDRequestTypeDef(BaseValidatorModel):
-    DocumentPages: Sequence[DocumentTypeDef]
+class AnalyzeIDRequest(BaseValidatorModel):
+    DocumentPages: Sequence[Document]
 
 
-class DetectDocumentTextRequestTypeDef(BaseValidatorModel):
-    Document: DocumentTypeDef
+class DetectDocumentTextRequest(BaseValidatorModel):
+    Document: Document
 
 
-class DocumentGroupTypeDef(BaseValidatorModel):
+class DocumentGroup(BaseValidatorModel):
     pass
 
 
-class LendingSummaryTypeDef(BaseValidatorModel):
-    DocumentGroups: Optional[List[DocumentGroupTypeDef]] = None
+class LendingSummary(BaseValidatorModel):
+    DocumentGroups: Optional[List[DocumentGroup]] = None
     UndetectedDocumentTypes: Optional[List[str]] = None
 
 
-class SignatureDetectionTypeDef(BaseValidatorModel):
+class SignatureDetection(BaseValidatorModel):
     Confidence: Optional[float] = None
-    Geometry: Optional[GeometryTypeDef] = None
+    Geometry: Optional[Geometry] = None
 
 
-class QueryUnionTypeDef(BaseValidatorModel):
+class QueryUnion(BaseValidatorModel):
     pass
 
 
-class QueriesConfigTypeDef(BaseValidatorModel):
-    Queries: Sequence[QueryUnionTypeDef]
+class QueriesConfig(BaseValidatorModel):
+    Queries: Sequence[QueryUnion]
 
 
-class GetLendingAnalysisSummaryResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
+class GetLendingAnalysisSummaryResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
-    Summary: LendingSummaryTypeDef
-    Warnings: List[WarningTypeDef]
+    Summary: LendingSummary
+    Warnings: List[Warning]
     StatusMessage: str
     AnalyzeLendingModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlockTypeDef(BaseValidatorModel):
+class Block(BaseValidatorModel):
     pass
 
 
-class AnalyzeDocumentResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
-    Blocks: List[BlockTypeDef]
-    HumanLoopActivationOutput: HumanLoopActivationOutputTypeDef
+class AnalyzeDocumentResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
+    Blocks: List[Block]
+    HumanLoopActivationOutput: HumanLoopActivationOutput
     AnalyzeDocumentModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectDocumentTextResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
-    Blocks: List[BlockTypeDef]
+class DetectDocumentTextResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
+    Blocks: List[Block]
     DetectDocumentTextModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDocumentAnalysisResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
+class GetDocumentAnalysisResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
-    Blocks: List[BlockTypeDef]
-    Warnings: List[WarningTypeDef]
+    Blocks: List[Block]
+    Warnings: List[Warning]
     StatusMessage: str
     AnalyzeDocumentModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetDocumentTextDetectionResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
+class GetDocumentTextDetectionResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
-    Blocks: List[BlockTypeDef]
-    Warnings: List[WarningTypeDef]
+    Blocks: List[Block]
+    Warnings: List[Warning]
     StatusMessage: str
     DetectDocumentTextModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IdentityDocumentFieldTypeDef(BaseValidatorModel):
+class IdentityDocumentField(BaseValidatorModel):
     pass
 
 
-class IdentityDocumentTypeDef(BaseValidatorModel):
+class IdentityDocument(BaseValidatorModel):
     DocumentIndex: Optional[int] = None
-    IdentityDocumentFields: Optional[List[IdentityDocumentFieldTypeDef]] = None
-    Blocks: Optional[List[BlockTypeDef]] = None
+    IdentityDocumentFields: Optional[List[IdentityDocumentField]] = None
+    Blocks: Optional[List[Block]] = None
 
 
-class AnalyzeDocumentRequestTypeDef(BaseValidatorModel):
-    Document: DocumentTypeDef
+class AnalyzeDocumentRequest(BaseValidatorModel):
+    Document: Document
     FeatureTypes: Sequence[FeatureTypeType]
-    HumanLoopConfig: Optional[HumanLoopConfigTypeDef] = None
-    QueriesConfig: Optional[QueriesConfigTypeDef] = None
-    AdaptersConfig: Optional[AdaptersConfigTypeDef] = None
+    HumanLoopConfig: Optional[HumanLoopConfig] = None
+    QueriesConfig: Optional[QueriesConfig] = None
+    AdaptersConfig: Optional[AdaptersConfig] = None
 
 
-class StartDocumentAnalysisRequestTypeDef(BaseValidatorModel):
-    DocumentLocation: DocumentLocationTypeDef
+class StartDocumentAnalysisRequest(BaseValidatorModel):
+    DocumentLocation: DocumentLocation
     FeatureTypes: Sequence[FeatureTypeType]
     ClientRequestToken: Optional[str] = None
     JobTag: Optional[str] = None
-    NotificationChannel: Optional[NotificationChannelTypeDef] = None
-    OutputConfig: Optional[OutputConfigTypeDef] = None
+    NotificationChannel: Optional[NotificationChannel] = None
+    OutputConfig: Optional[OutputConfig] = None
     KMSKeyId: Optional[str] = None
-    QueriesConfig: Optional[QueriesConfigTypeDef] = None
-    AdaptersConfig: Optional[AdaptersConfigTypeDef] = None
+    QueriesConfig: Optional[QueriesConfig] = None
+    AdaptersConfig: Optional[AdaptersConfig] = None
 
 
-class AnalyzeIDResponseTypeDef(BaseValidatorModel):
-    IdentityDocuments: List[IdentityDocumentTypeDef]
-    DocumentMetadata: DocumentMetadataTypeDef
+class AnalyzeIDResponse(BaseValidatorModel):
+    IdentityDocuments: List[IdentityDocument]
+    DocumentMetadata: DocumentMetadata
     AnalyzeIDModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExpenseFieldTypeDef(BaseValidatorModel):
+class ExpenseField(BaseValidatorModel):
     pass
 
 
-class LineItemFieldsTypeDef(BaseValidatorModel):
-    LineItemExpenseFields: Optional[List[ExpenseFieldTypeDef]] = None
+class LineItemFields(BaseValidatorModel):
+    LineItemExpenseFields: Optional[List[ExpenseField]] = None
 
 
-class LendingFieldTypeDef(BaseValidatorModel):
+class LendingField(BaseValidatorModel):
     pass
 
 
-class LendingDocumentTypeDef(BaseValidatorModel):
-    LendingFields: Optional[List[LendingFieldTypeDef]] = None
-    SignatureDetections: Optional[List[SignatureDetectionTypeDef]] = None
+class LendingDocument(BaseValidatorModel):
+    LendingFields: Optional[List[LendingField]] = None
+    SignatureDetections: Optional[List[SignatureDetection]] = None
 
 
-class LineItemGroupTypeDef(BaseValidatorModel):
+class LineItemGroup(BaseValidatorModel):
     LineItemGroupIndex: Optional[int] = None
-    LineItems: Optional[List[LineItemFieldsTypeDef]] = None
+    LineItems: Optional[List[LineItemFields]] = None
 
 
-class ExpenseDocumentTypeDef(BaseValidatorModel):
+class ExpenseDocument(BaseValidatorModel):
     ExpenseIndex: Optional[int] = None
-    SummaryFields: Optional[List[ExpenseFieldTypeDef]] = None
-    LineItemGroups: Optional[List[LineItemGroupTypeDef]] = None
-    Blocks: Optional[List[BlockTypeDef]] = None
+    SummaryFields: Optional[List[ExpenseField]] = None
+    LineItemGroups: Optional[List[LineItemGroup]] = None
+    Blocks: Optional[List[Block]] = None
 
 
-class AnalyzeExpenseResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
-    ExpenseDocuments: List[ExpenseDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AnalyzeExpenseResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
+    ExpenseDocuments: List[ExpenseDocument]
+    ResponseMetadata: ResponseMetadata
 
 
-class ExtractionTypeDef(BaseValidatorModel):
-    LendingDocument: Optional[LendingDocumentTypeDef] = None
-    ExpenseDocument: Optional[ExpenseDocumentTypeDef] = None
-    IdentityDocument: Optional[IdentityDocumentTypeDef] = None
+class Extraction(BaseValidatorModel):
+    LendingDocument: Optional[LendingDocument] = None
+    ExpenseDocument: Optional[ExpenseDocument] = None
+    IdentityDocument: Optional[IdentityDocument] = None
 
 
-class GetExpenseAnalysisResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
+class GetExpenseAnalysisResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
-    ExpenseDocuments: List[ExpenseDocumentTypeDef]
-    Warnings: List[WarningTypeDef]
+    ExpenseDocuments: List[ExpenseDocument]
+    Warnings: List[Warning]
     StatusMessage: str
     AnalyzeExpenseModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class LendingResultTypeDef(BaseValidatorModel):
+class LendingResult(BaseValidatorModel):
     Page: Optional[int] = None
-    PageClassification: Optional[PageClassificationTypeDef] = None
-    Extractions: Optional[List[ExtractionTypeDef]] = None
+    PageClassification: Optional[PageClassification] = None
+    Extractions: Optional[List[Extraction]] = None
 
 
-class GetLendingAnalysisResponseTypeDef(BaseValidatorModel):
-    DocumentMetadata: DocumentMetadataTypeDef
+class GetLendingAnalysisResponse(BaseValidatorModel):
+    DocumentMetadata: DocumentMetadata
     JobStatus: JobStatusType
-    Results: List[LendingResultTypeDef]
-    Warnings: List[WarningTypeDef]
+    Results: List[LendingResult]
+    Warnings: List[Warning]
     StatusMessage: str
     AnalyzeLendingModelVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

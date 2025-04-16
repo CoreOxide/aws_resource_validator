@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ce_constants import *
 
-class AnomalyDateIntervalTypeDef(BaseValidatorModel):
+class AnomalyDateInterval(BaseValidatorModel):
     StartDate: str
     EndDate: Optional[str] = None
 
 
-class AnomalyScoreTypeDef(BaseValidatorModel):
+class AnomalyScore(BaseValidatorModel):
     MaxScore: float
     CurrentScore: float
 
 
-class ImpactTypeDef(BaseValidatorModel):
+class Impact(BaseValidatorModel):
     MaxImpact: float
     TotalImpact: Optional[float] = None
     TotalActualSpend: Optional[float] = None
@@ -30,7 +30,7 @@ class ImpactTypeDef(BaseValidatorModel):
     TotalImpactPercentage: Optional[float] = None
 
 
-class CostAllocationTagBackfillRequestTypeDef(BaseValidatorModel):
+class CostAllocationTagBackfillRequest(BaseValidatorModel):
     BackfillFrom: Optional[str] = None
     RequestedAt: Optional[str] = None
     CompletedAt: Optional[str] = None
@@ -38,62 +38,62 @@ class CostAllocationTagBackfillRequestTypeDef(BaseValidatorModel):
     LastUpdatedAt: Optional[str] = None
 
 
-class CostAllocationTagStatusEntryTypeDef(BaseValidatorModel):
+class CostAllocationTagStatusEntry(BaseValidatorModel):
     TagKey: str
     Status: CostAllocationTagStatusType
 
 
-class CostCategoryInheritedValueDimensionTypeDef(BaseValidatorModel):
+class CostCategoryInheritedValueDimension(BaseValidatorModel):
     DimensionName: Optional[CostCategoryInheritedValueDimensionNameType] = None
     DimensionKey: Optional[str] = None
 
 
-class CostCategoryProcessingStatusTypeDef(BaseValidatorModel):
+class CostCategoryProcessingStatus(BaseValidatorModel):
     Component: Optional[Literal["COST_EXPLORER"]] = None
     Status: Optional[CostCategoryStatusType] = None
 
 
-class CostCategoryValuesOutputTypeDef(BaseValidatorModel):
+class CostCategoryValuesOutput(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[List[str]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
-class CostCategoryValuesTypeDef(BaseValidatorModel):
+class CostCategoryValues(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
     MatchOptions: Optional[Sequence[MatchOptionType]] = None
 
 
-class DateIntervalTypeDef(BaseValidatorModel):
+class DateInterval(BaseValidatorModel):
     Start: str
     End: str
 
 
-class CoverageCostTypeDef(BaseValidatorModel):
+class CoverageCost(BaseValidatorModel):
     OnDemandCost: Optional[str] = None
 
 
-class CoverageHoursTypeDef(BaseValidatorModel):
+class CoverageHours(BaseValidatorModel):
     OnDemandHours: Optional[str] = None
     ReservedHours: Optional[str] = None
     TotalRunningHours: Optional[str] = None
     CoverageHoursPercentage: Optional[str] = None
 
 
-class CoverageNormalizedUnitsTypeDef(BaseValidatorModel):
+class CoverageNormalizedUnits(BaseValidatorModel):
     OnDemandNormalizedUnits: Optional[str] = None
     ReservedNormalizedUnits: Optional[str] = None
     TotalRunningNormalizedUnits: Optional[str] = None
     CoverageNormalizedUnitsPercentage: Optional[str] = None
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -101,66 +101,66 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagValuesOutputTypeDef(BaseValidatorModel):
+class TagValuesOutput(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[List[str]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
-class DeleteAnomalyMonitorRequestTypeDef(BaseValidatorModel):
+class DeleteAnomalyMonitorRequest(BaseValidatorModel):
     MonitorArn: str
 
 
-class DeleteAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
+class DeleteAnomalySubscriptionRequest(BaseValidatorModel):
     SubscriptionArn: str
 
 
-class DeleteCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
+class DeleteCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
 
 
-class DescribeCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveOn: Optional[str] = None
 
 
-class DimensionValuesOutputTypeDef(BaseValidatorModel):
+class DimensionValuesOutput(BaseValidatorModel):
     Key: Optional[DimensionType] = None
     Values: Optional[List[str]] = None
     MatchOptions: Optional[List[MatchOptionType]] = None
 
 
-class DimensionValuesTypeDef(BaseValidatorModel):
+class DimensionValues(BaseValidatorModel):
     Key: Optional[DimensionType] = None
     Values: Optional[Sequence[str]] = None
     MatchOptions: Optional[Sequence[MatchOptionType]] = None
 
 
-class DimensionValuesWithAttributesTypeDef(BaseValidatorModel):
+class DimensionValuesWithAttributes(BaseValidatorModel):
     Value: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
 
 
-class DiskResourceUtilizationTypeDef(BaseValidatorModel):
+class DiskResourceUtilization(BaseValidatorModel):
     DiskReadOpsPerSecond: Optional[str] = None
     DiskWriteOpsPerSecond: Optional[str] = None
     DiskReadBytesPerSecond: Optional[str] = None
     DiskWriteBytesPerSecond: Optional[str] = None
 
 
-class DynamoDBCapacityDetailsTypeDef(BaseValidatorModel):
+class DynamoDBCapacityDetails(BaseValidatorModel):
     CapacityUnits: Optional[str] = None
     Region: Optional[str] = None
 
 
-class EBSResourceUtilizationTypeDef(BaseValidatorModel):
+class EBSResourceUtilization(BaseValidatorModel):
     EbsReadOpsPerSecond: Optional[str] = None
     EbsWriteOpsPerSecond: Optional[str] = None
     EbsReadBytesPerSecond: Optional[str] = None
     EbsWriteBytesPerSecond: Optional[str] = None
 
 
-class EC2InstanceDetailsTypeDef(BaseValidatorModel):
+class EC2InstanceDetails(BaseValidatorModel):
     Family: Optional[str] = None
     InstanceType: Optional[str] = None
     Region: Optional[str] = None
@@ -171,7 +171,7 @@ class EC2InstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class EC2ResourceDetailsTypeDef(BaseValidatorModel):
+class EC2ResourceDetails(BaseValidatorModel):
     HourlyOnDemandRate: Optional[str] = None
     InstanceType: Optional[str] = None
     Platform: Optional[str] = None
@@ -183,18 +183,18 @@ class EC2ResourceDetailsTypeDef(BaseValidatorModel):
     Vcpu: Optional[str] = None
 
 
-class NetworkResourceUtilizationTypeDef(BaseValidatorModel):
+class NetworkResourceUtilization(BaseValidatorModel):
     NetworkInBytesPerSecond: Optional[str] = None
     NetworkOutBytesPerSecond: Optional[str] = None
     NetworkPacketsInPerSecond: Optional[str] = None
     NetworkPacketsOutPerSecond: Optional[str] = None
 
 
-class EC2SpecificationTypeDef(BaseValidatorModel):
+class EC2Specification(BaseValidatorModel):
     OfferingClass: Optional[OfferingClassType] = None
 
 
-class ESInstanceDetailsTypeDef(BaseValidatorModel):
+class ESInstanceDetails(BaseValidatorModel):
     InstanceClass: Optional[str] = None
     InstanceSize: Optional[str] = None
     Region: Optional[str] = None
@@ -202,7 +202,7 @@ class ESInstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class ElastiCacheInstanceDetailsTypeDef(BaseValidatorModel):
+class ElastiCacheInstanceDetails(BaseValidatorModel):
     Family: Optional[str] = None
     NodeType: Optional[str] = None
     Region: Optional[str] = None
@@ -211,7 +211,7 @@ class ElastiCacheInstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class GenerationSummaryTypeDef(BaseValidatorModel):
+class GenerationSummary(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     GenerationStatus: Optional[GenerationStatusType] = None
     GenerationStartedTime: Optional[str] = None
@@ -219,52 +219,52 @@ class GenerationSummaryTypeDef(BaseValidatorModel):
     EstimatedCompletionTime: Optional[str] = None
 
 
-class TotalImpactFilterTypeDef(BaseValidatorModel):
+class TotalImpactFilter(BaseValidatorModel):
     NumericOperator: NumericOperatorType
     StartValue: float
     EndValue: Optional[float] = None
 
 
-class GetAnomalyMonitorsRequestTypeDef(BaseValidatorModel):
+class GetAnomalyMonitorsRequest(BaseValidatorModel):
     MonitorArnList: Optional[Sequence[str]] = None
     NextPageToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetAnomalySubscriptionsRequestTypeDef(BaseValidatorModel):
+class GetAnomalySubscriptionsRequest(BaseValidatorModel):
     SubscriptionArnList: Optional[Sequence[str]] = None
     MonitorArn: Optional[str] = None
     NextPageToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetApproximateUsageRecordsRequestTypeDef(BaseValidatorModel):
+class GetApproximateUsageRecordsRequest(BaseValidatorModel):
     Granularity: GranularityType
     ApproximationDimension: ApproximationDimensionType
     Services: Optional[Sequence[str]] = None
 
 
-class GetCommitmentPurchaseAnalysisRequestTypeDef(BaseValidatorModel):
+class GetCommitmentPurchaseAnalysisRequest(BaseValidatorModel):
     AnalysisId: str
 
 
-class SortDefinitionTypeDef(BaseValidatorModel):
+class SortDefinition(BaseValidatorModel):
     Key: str
     SortOrder: Optional[SortOrderType] = None
 
 
-class MetricValueTypeDef(BaseValidatorModel):
+class MetricValue(BaseValidatorModel):
     Amount: Optional[str] = None
     Unit: Optional[str] = None
 
 
-class ReservationPurchaseRecommendationMetadataTypeDef(BaseValidatorModel):
+class ReservationPurchaseRecommendationMetadata(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     GenerationTimestamp: Optional[str] = None
     AdditionalMetadata: Optional[str] = None
 
 
-class ReservationAggregatesTypeDef(BaseValidatorModel):
+class ReservationAggregates(BaseValidatorModel):
     UtilizationPercentage: Optional[str] = None
     UtilizationPercentageInUnits: Optional[str] = None
     PurchasedHours: Optional[str] = None
@@ -284,36 +284,36 @@ class ReservationAggregatesTypeDef(BaseValidatorModel):
     UnrealizedSavings: Optional[str] = None
 
 
-class RightsizingRecommendationConfigurationTypeDef(BaseValidatorModel):
+class RightsizingRecommendationConfiguration(BaseValidatorModel):
     RecommendationTarget: RecommendationTargetType
     BenefitsConsidered: bool
 
 
-class RightsizingRecommendationMetadataTypeDef(BaseValidatorModel):
+class RightsizingRecommendationMetadata(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     GenerationTimestamp: Optional[str] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
     AdditionalMetadata: Optional[str] = None
 
 
-class RightsizingRecommendationSummaryTypeDef(BaseValidatorModel):
+class RightsizingRecommendationSummary(BaseValidatorModel):
     TotalRecommendationCount: Optional[str] = None
     EstimatedTotalMonthlySavingsAmount: Optional[str] = None
     SavingsCurrencyCode: Optional[str] = None
     SavingsPercentage: Optional[str] = None
 
 
-class GetSavingsPlanPurchaseRecommendationDetailsRequestTypeDef(BaseValidatorModel):
+class GetSavingsPlanPurchaseRecommendationDetailsRequest(BaseValidatorModel):
     RecommendationDetailId: str
 
 
-class SavingsPlansPurchaseRecommendationMetadataTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseRecommendationMetadata(BaseValidatorModel):
     RecommendationId: Optional[str] = None
     GenerationTimestamp: Optional[str] = None
     AdditionalMetadata: Optional[str] = None
 
 
-class MemoryDBInstanceDetailsTypeDef(BaseValidatorModel):
+class MemoryDBInstanceDetails(BaseValidatorModel):
     Family: Optional[str] = None
     NodeType: Optional[str] = None
     Region: Optional[str] = None
@@ -321,7 +321,7 @@ class MemoryDBInstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class RDSInstanceDetailsTypeDef(BaseValidatorModel):
+class RDSInstanceDetails(BaseValidatorModel):
     Family: Optional[str] = None
     InstanceType: Optional[str] = None
     Region: Optional[str] = None
@@ -333,7 +333,7 @@ class RDSInstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class RedshiftInstanceDetailsTypeDef(BaseValidatorModel):
+class RedshiftInstanceDetails(BaseValidatorModel):
     Family: Optional[str] = None
     NodeType: Optional[str] = None
     Region: Optional[str] = None
@@ -341,41 +341,41 @@ class RedshiftInstanceDetailsTypeDef(BaseValidatorModel):
     SizeFlexEligible: Optional[bool] = None
 
 
-class ListCommitmentPurchaseAnalysesRequestTypeDef(BaseValidatorModel):
+class ListCommitmentPurchaseAnalysesRequest(BaseValidatorModel):
     AnalysisStatus: Optional[AnalysisStatusType] = None
     NextPageToken: Optional[str] = None
     PageSize: Optional[int] = None
     AnalysisIds: Optional[Sequence[str]] = None
 
 
-class ListCostAllocationTagBackfillHistoryRequestTypeDef(BaseValidatorModel):
+class ListCostAllocationTagBackfillHistoryRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListCostCategoryDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListCostCategoryDefinitionsRequest(BaseValidatorModel):
     EffectiveOn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSavingsPlansPurchaseRecommendationGenerationRequestTypeDef(BaseValidatorModel):
+class ListSavingsPlansPurchaseRecommendationGenerationRequest(BaseValidatorModel):
     GenerationStatus: Optional[GenerationStatusType] = None
     RecommendationIds: Optional[Sequence[str]] = None
     PageSize: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ProvideAnomalyFeedbackRequestTypeDef(BaseValidatorModel):
+class ProvideAnomalyFeedbackRequest(BaseValidatorModel):
     AnomalyId: str
     Feedback: AnomalyFeedbackTypeType
 
 
-class RecommendationDetailHourlyMetricsTypeDef(BaseValidatorModel):
+class RecommendationDetailHourlyMetrics(BaseValidatorModel):
     StartTime: Optional[str] = None
     EstimatedOnDemandCost: Optional[str] = None
     CurrentCoverage: Optional[str] = None
@@ -383,41 +383,41 @@ class RecommendationDetailHourlyMetricsTypeDef(BaseValidatorModel):
     EstimatedNewCommitmentUtilization: Optional[str] = None
 
 
-class ReservationPurchaseRecommendationSummaryTypeDef(BaseValidatorModel):
+class ReservationPurchaseRecommendationSummary(BaseValidatorModel):
     TotalEstimatedMonthlySavingsAmount: Optional[str] = None
     TotalEstimatedMonthlySavingsPercentage: Optional[str] = None
     CurrencyCode: Optional[str] = None
 
 
-class TerminateRecommendationDetailTypeDef(BaseValidatorModel):
+class TerminateRecommendationDetail(BaseValidatorModel):
     EstimatedMonthlySavings: Optional[str] = None
     CurrencyCode: Optional[str] = None
 
 
-class RootCauseImpactTypeDef(BaseValidatorModel):
+class RootCauseImpact(BaseValidatorModel):
     Contribution: float
 
 
-class SavingsPlansAmortizedCommitmentTypeDef(BaseValidatorModel):
+class SavingsPlansAmortizedCommitment(BaseValidatorModel):
     AmortizedRecurringCommitment: Optional[str] = None
     AmortizedUpfrontCommitment: Optional[str] = None
     TotalAmortizedCommitment: Optional[str] = None
 
 
-class SavingsPlansCoverageDataTypeDef(BaseValidatorModel):
+class SavingsPlansCoverageData(BaseValidatorModel):
     SpendCoveredBySavingsPlans: Optional[str] = None
     OnDemandCost: Optional[str] = None
     TotalCost: Optional[str] = None
     CoveragePercentage: Optional[str] = None
 
 
-class SavingsPlansDetailsTypeDef(BaseValidatorModel):
+class SavingsPlansDetails(BaseValidatorModel):
     Region: Optional[str] = None
     InstanceFamily: Optional[str] = None
     OfferingId: Optional[str] = None
 
 
-class SavingsPlansTypeDef(BaseValidatorModel):
+class SavingsPlans(BaseValidatorModel):
     PaymentOption: Optional[PaymentOptionType] = None
     SavingsPlansType: Optional[SupportedSavingsPlansTypeType] = None
     Region: Optional[str] = None
@@ -427,7 +427,7 @@ class SavingsPlansTypeDef(BaseValidatorModel):
     OfferingId: Optional[str] = None
 
 
-class SavingsPlansPurchaseRecommendationSummaryTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseRecommendationSummary(BaseValidatorModel):
     EstimatedROI: Optional[str] = None
     CurrencyCode: Optional[str] = None
     EstimatedTotalCost: Optional[str] = None
@@ -441,270 +441,270 @@ class SavingsPlansPurchaseRecommendationSummaryTypeDef(BaseValidatorModel):
     EstimatedOnDemandCostWithCurrentCommitment: Optional[str] = None
 
 
-class SavingsPlansSavingsTypeDef(BaseValidatorModel):
+class SavingsPlansSavings(BaseValidatorModel):
     NetSavings: Optional[str] = None
     OnDemandCostEquivalent: Optional[str] = None
 
 
-class SavingsPlansUtilizationTypeDef(BaseValidatorModel):
+class SavingsPlansUtilization(BaseValidatorModel):
     TotalCommitment: Optional[str] = None
     UsedCommitment: Optional[str] = None
     UnusedCommitment: Optional[str] = None
     UtilizationPercentage: Optional[str] = None
 
 
-class StartCostAllocationTagBackfillRequestTypeDef(BaseValidatorModel):
+class StartCostAllocationTagBackfillRequest(BaseValidatorModel):
     BackfillFrom: str
 
 
-class TagValuesTypeDef(BaseValidatorModel):
+class TagValues(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
     MatchOptions: Optional[Sequence[MatchOptionType]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     ResourceTagKeys: Sequence[str]
 
 
-class UpdateAnomalyMonitorRequestTypeDef(BaseValidatorModel):
+class UpdateAnomalyMonitorRequest(BaseValidatorModel):
     MonitorArn: str
     MonitorName: Optional[str] = None
 
 
-class UpdateCostAllocationTagsStatusErrorTypeDef(BaseValidatorModel):
+class UpdateCostAllocationTagsStatusError(BaseValidatorModel):
     TagKey: Optional[str] = None
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class UpdateCostAllocationTagsStatusRequestTypeDef(BaseValidatorModel):
-    CostAllocationTagsStatus: Sequence[CostAllocationTagStatusEntryTypeDef]
+class UpdateCostAllocationTagsStatusRequest(BaseValidatorModel):
+    CostAllocationTagsStatus: Sequence[CostAllocationTagStatusEntry]
 
 
-class CostCategoryReferenceTypeDef(BaseValidatorModel):
+class CostCategoryReference(BaseValidatorModel):
     CostCategoryArn: Optional[str] = None
     Name: Optional[str] = None
     EffectiveStart: Optional[str] = None
     EffectiveEnd: Optional[str] = None
     NumberOfRules: Optional[int] = None
-    ProcessingStatus: Optional[List[CostCategoryProcessingStatusTypeDef]] = None
+    ProcessingStatus: Optional[List[CostCategoryProcessingStatus]] = None
     Values: Optional[List[str]] = None
     DefaultValue: Optional[str] = None
 
 
-class CostCategorySplitChargeRuleParameterOutputTypeDef(BaseValidatorModel):
+class CostCategorySplitChargeRuleParameterOutput(BaseValidatorModel):
     pass
 
 
-class CostCategorySplitChargeRuleOutputTypeDef(BaseValidatorModel):
+class CostCategorySplitChargeRuleOutput(BaseValidatorModel):
     Source: str
     Targets: List[str]
     Method: CostCategorySplitChargeMethodType
-    Parameters: Optional[List[CostCategorySplitChargeRuleParameterOutputTypeDef]] = None
+    Parameters: Optional[List[CostCategorySplitChargeRuleParameterOutput]] = None
 
 
-class ForecastResultTypeDef(BaseValidatorModel):
-    TimePeriod: Optional[DateIntervalTypeDef] = None
+class ForecastResult(BaseValidatorModel):
+    TimePeriod: Optional[DateInterval] = None
     MeanValue: Optional[str] = None
     PredictionIntervalLowerBound: Optional[str] = None
     PredictionIntervalUpperBound: Optional[str] = None
 
 
-class CoverageTypeDef(BaseValidatorModel):
-    CoverageHours: Optional[CoverageHoursTypeDef] = None
-    CoverageNormalizedUnits: Optional[CoverageNormalizedUnitsTypeDef] = None
-    CoverageCost: Optional[CoverageCostTypeDef] = None
+class Coverage(BaseValidatorModel):
+    CoverageHours: Optional[CoverageHours] = None
+    CoverageNormalizedUnits: Optional[CoverageNormalizedUnits] = None
+    CoverageCost: Optional[CoverageCost] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    ResourceTags: Sequence[ResourceTagTypeDef]
+    ResourceTags: Sequence[ResourceTag]
 
 
-class CreateAnomalyMonitorResponseTypeDef(BaseValidatorModel):
+class CreateAnomalyMonitorResponse(BaseValidatorModel):
     MonitorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAnomalySubscriptionResponseTypeDef(BaseValidatorModel):
+class CreateAnomalySubscriptionResponse(BaseValidatorModel):
     SubscriptionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
+class CreateCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveStart: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
+class DeleteCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveEnd: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApproximateUsageRecordsResponseTypeDef(BaseValidatorModel):
+class GetApproximateUsageRecordsResponse(BaseValidatorModel):
     Services: Dict[str, int]
     TotalRecords: int
-    LookbackPeriod: DateIntervalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LookbackPeriod: DateInterval
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCostCategoriesResponseTypeDef(BaseValidatorModel):
+class GetCostCategoriesResponse(BaseValidatorModel):
     NextPageToken: str
     CostCategoryNames: List[str]
     CostCategoryValues: List[str]
     ReturnSize: int
     TotalSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTagsResponseTypeDef(BaseValidatorModel):
+class GetTagsResponse(BaseValidatorModel):
     NextPageToken: str
     Tags: List[str]
     ReturnSize: int
     TotalSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCostAllocationTagBackfillHistoryResponseTypeDef(BaseValidatorModel):
-    BackfillRequests: List[CostAllocationTagBackfillRequestTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCostAllocationTagBackfillHistoryResponse(BaseValidatorModel):
+    BackfillRequests: List[CostAllocationTagBackfillRequest]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CostAllocationTagTypeDef(BaseValidatorModel):
+class CostAllocationTag(BaseValidatorModel):
     pass
 
 
-class ListCostAllocationTagsResponseTypeDef(BaseValidatorModel):
-    CostAllocationTags: List[CostAllocationTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCostAllocationTagsResponse(BaseValidatorModel):
+    CostAllocationTags: List[CostAllocationTag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    ResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvideAnomalyFeedbackResponseTypeDef(BaseValidatorModel):
+class ProvideAnomalyFeedbackResponse(BaseValidatorModel):
     AnomalyId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartCommitmentPurchaseAnalysisResponseTypeDef(BaseValidatorModel):
+class StartCommitmentPurchaseAnalysisResponse(BaseValidatorModel):
     AnalysisId: str
     AnalysisStartedTime: str
     EstimatedCompletionTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartCostAllocationTagBackfillResponseTypeDef(BaseValidatorModel):
-    BackfillRequest: CostAllocationTagBackfillRequestTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartCostAllocationTagBackfillResponse(BaseValidatorModel):
+    BackfillRequest: CostAllocationTagBackfillRequest
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSavingsPlansPurchaseRecommendationGenerationResponseTypeDef(BaseValidatorModel):
+class StartSavingsPlansPurchaseRecommendationGenerationResponse(BaseValidatorModel):
     RecommendationId: str
     GenerationStartedTime: str
     EstimatedCompletionTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAnomalyMonitorResponseTypeDef(BaseValidatorModel):
+class UpdateAnomalyMonitorResponse(BaseValidatorModel):
     MonitorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAnomalySubscriptionResponseTypeDef(BaseValidatorModel):
+class UpdateAnomalySubscriptionResponse(BaseValidatorModel):
     SubscriptionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
+class UpdateCostCategoryDefinitionResponse(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveStart: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExpressionOutputTypeDef(BaseValidatorModel):
+class ExpressionOutput(BaseValidatorModel):
     Or: Optional[List[Dict[str, Any]]] = None
     And: Optional[List[Dict[str, Any]]] = None
     Not: Optional[Dict[str, Any]] = None
-    Dimensions: Optional[DimensionValuesOutputTypeDef] = None
-    Tags: Optional[TagValuesOutputTypeDef] = None
-    CostCategories: Optional[CostCategoryValuesOutputTypeDef] = None
+    Dimensions: Optional[DimensionValuesOutput] = None
+    Tags: Optional[TagValuesOutput] = None
+    CostCategories: Optional[CostCategoryValuesOutput] = None
 
 
-class GetDimensionValuesResponseTypeDef(BaseValidatorModel):
-    DimensionValues: List[DimensionValuesWithAttributesTypeDef]
+class GetDimensionValuesResponse(BaseValidatorModel):
+    DimensionValues: List[DimensionValuesWithAttributes]
     ReturnSize: int
     TotalSize: int
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReservedCapacityDetailsTypeDef(BaseValidatorModel):
-    DynamoDBCapacityDetails: Optional[DynamoDBCapacityDetailsTypeDef] = None
+class ReservedCapacityDetails(BaseValidatorModel):
+    DynamoDBCapacityDetails: Optional[DynamoDBCapacityDetails] = None
 
 
-class ResourceDetailsTypeDef(BaseValidatorModel):
-    EC2ResourceDetails: Optional[EC2ResourceDetailsTypeDef] = None
+class ResourceDetails(BaseValidatorModel):
+    EC2ResourceDetails: Optional[EC2ResourceDetails] = None
 
 
-class EC2ResourceUtilizationTypeDef(BaseValidatorModel):
+class EC2ResourceUtilization(BaseValidatorModel):
     MaxCpuUtilizationPercentage: Optional[str] = None
     MaxMemoryUtilizationPercentage: Optional[str] = None
     MaxStorageUtilizationPercentage: Optional[str] = None
-    EBSResourceUtilization: Optional[EBSResourceUtilizationTypeDef] = None
-    DiskResourceUtilization: Optional[DiskResourceUtilizationTypeDef] = None
-    NetworkResourceUtilization: Optional[NetworkResourceUtilizationTypeDef] = None
+    EBSResourceUtilization: Optional[EBSResourceUtilization] = None
+    DiskResourceUtilization: Optional[DiskResourceUtilization] = None
+    NetworkResourceUtilization: Optional[NetworkResourceUtilization] = None
 
 
-class ServiceSpecificationTypeDef(BaseValidatorModel):
-    EC2Specification: Optional[EC2SpecificationTypeDef] = None
+class ServiceSpecification(BaseValidatorModel):
+    EC2Specification: Optional[EC2Specification] = None
 
 
-class ListSavingsPlansPurchaseRecommendationGenerationResponseTypeDef(BaseValidatorModel):
-    GenerationSummaryList: List[GenerationSummaryTypeDef]
+class ListSavingsPlansPurchaseRecommendationGenerationResponse(BaseValidatorModel):
+    GenerationSummaryList: List[GenerationSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAnomaliesRequestTypeDef(BaseValidatorModel):
-    DateInterval: AnomalyDateIntervalTypeDef
+class GetAnomaliesRequest(BaseValidatorModel):
+    DateInterval: AnomalyDateInterval
     MonitorArn: Optional[str] = None
     Feedback: Optional[AnomalyFeedbackTypeType] = None
-    TotalImpact: Optional[TotalImpactFilterTypeDef] = None
+    TotalImpact: Optional[TotalImpactFilter] = None
     NextPageToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     Keys: Optional[List[str]] = None
-    Metrics: Optional[Dict[str, MetricValueTypeDef]] = None
+    Metrics: Optional[Dict[str, MetricValue]] = None
 
 
-class ReservationUtilizationGroupTypeDef(BaseValidatorModel):
+class ReservationUtilizationGroup(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
-    Utilization: Optional[ReservationAggregatesTypeDef] = None
+    Utilization: Optional[ReservationAggregates] = None
 
 
-class InstanceDetailsTypeDef(BaseValidatorModel):
-    EC2InstanceDetails: Optional[EC2InstanceDetailsTypeDef] = None
-    RDSInstanceDetails: Optional[RDSInstanceDetailsTypeDef] = None
-    RedshiftInstanceDetails: Optional[RedshiftInstanceDetailsTypeDef] = None
-    ElastiCacheInstanceDetails: Optional[ElastiCacheInstanceDetailsTypeDef] = None
-    ESInstanceDetails: Optional[ESInstanceDetailsTypeDef] = None
-    MemoryDBInstanceDetails: Optional[MemoryDBInstanceDetailsTypeDef] = None
+class InstanceDetails(BaseValidatorModel):
+    EC2InstanceDetails: Optional[EC2InstanceDetails] = None
+    RDSInstanceDetails: Optional[RDSInstanceDetails] = None
+    RedshiftInstanceDetails: Optional[RedshiftInstanceDetails] = None
+    ElastiCacheInstanceDetails: Optional[ElastiCacheInstanceDetails] = None
+    ESInstanceDetails: Optional[ESInstanceDetails] = None
+    MemoryDBInstanceDetails: Optional[MemoryDBInstanceDetails] = None
 
 
-class RecommendationDetailDataTypeDef(BaseValidatorModel):
+class RecommendationDetailData(BaseValidatorModel):
     AccountScope: Optional[AccountScopeType] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
     SavingsPlansType: Optional[SupportedSavingsPlansTypeType] = None
@@ -733,10 +733,10 @@ class RecommendationDetailDataTypeDef(BaseValidatorModel):
     UpfrontCost: Optional[str] = None
     CurrentAverageCoverage: Optional[str] = None
     EstimatedAverageCoverage: Optional[str] = None
-    MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetricsTypeDef]] = None
+    MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetrics]] = None
 
 
-class SavingsPlansPurchaseAnalysisDetailsTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseAnalysisDetails(BaseValidatorModel):
     CurrencyCode: Optional[str] = None
     LookbackPeriodInHours: Optional[str] = None
     CurrentAverageCoverage: Optional[str] = None
@@ -758,26 +758,26 @@ class SavingsPlansPurchaseAnalysisDetailsTypeDef(BaseValidatorModel):
     LatestUsageTimestamp: Optional[str] = None
     UpfrontCost: Optional[str] = None
     AdditionalMetadata: Optional[str] = None
-    MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetricsTypeDef]] = None
+    MetricsOverLookbackPeriod: Optional[List[RecommendationDetailHourlyMetrics]] = None
 
 
-class RootCauseTypeDef(BaseValidatorModel):
+class RootCause(BaseValidatorModel):
     Service: Optional[str] = None
     Region: Optional[str] = None
     LinkedAccount: Optional[str] = None
     LinkedAccountName: Optional[str] = None
     UsageType: Optional[str] = None
-    Impact: Optional[RootCauseImpactTypeDef] = None
+    Impact: Optional[RootCauseImpact] = None
 
 
-class SavingsPlansCoverageTypeDef(BaseValidatorModel):
+class SavingsPlansCoverage(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
-    Coverage: Optional[SavingsPlansCoverageDataTypeDef] = None
-    TimePeriod: Optional[DateIntervalTypeDef] = None
+    Coverage: Optional[SavingsPlansCoverageData] = None
+    TimePeriod: Optional[DateInterval] = None
 
 
-class SavingsPlansPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
-    SavingsPlansDetails: Optional[SavingsPlansDetailsTypeDef] = None
+class SavingsPlansPurchaseRecommendationDetail(BaseValidatorModel):
+    SavingsPlansDetails: Optional[SavingsPlansDetails] = None
     AccountId: Optional[str] = None
     UpfrontCost: Optional[str] = None
     EstimatedROI: Optional[str] = None
@@ -796,85 +796,85 @@ class SavingsPlansPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
     RecommendationDetailId: Optional[str] = None
 
 
-class SavingsPlansPurchaseAnalysisConfigurationOutputTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseAnalysisConfigurationOutput(BaseValidatorModel):
     AnalysisType: AnalysisTypeType
-    SavingsPlansToAdd: List[SavingsPlansTypeDef]
-    LookBackTimePeriod: DateIntervalTypeDef
+    SavingsPlansToAdd: List[SavingsPlans]
+    LookBackTimePeriod: DateInterval
     AccountScope: Optional[AccountScopeType] = None
     AccountId: Optional[str] = None
     SavingsPlansToExclude: Optional[List[str]] = None
 
 
-class SavingsPlansPurchaseAnalysisConfigurationTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseAnalysisConfiguration(BaseValidatorModel):
     AnalysisType: AnalysisTypeType
-    SavingsPlansToAdd: Sequence[SavingsPlansTypeDef]
-    LookBackTimePeriod: DateIntervalTypeDef
+    SavingsPlansToAdd: Sequence[SavingsPlans]
+    LookBackTimePeriod: DateInterval
     AccountScope: Optional[AccountScopeType] = None
     AccountId: Optional[str] = None
     SavingsPlansToExclude: Optional[Sequence[str]] = None
 
 
-class SavingsPlansUtilizationAggregatesTypeDef(BaseValidatorModel):
-    Utilization: SavingsPlansUtilizationTypeDef
-    Savings: Optional[SavingsPlansSavingsTypeDef] = None
-    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitmentTypeDef] = None
+class SavingsPlansUtilizationAggregates(BaseValidatorModel):
+    Utilization: SavingsPlansUtilization
+    Savings: Optional[SavingsPlansSavings] = None
+    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitment] = None
 
 
-class SavingsPlansUtilizationByTimeTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
-    Utilization: SavingsPlansUtilizationTypeDef
-    Savings: Optional[SavingsPlansSavingsTypeDef] = None
-    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitmentTypeDef] = None
+class SavingsPlansUtilizationByTime(BaseValidatorModel):
+    TimePeriod: DateInterval
+    Utilization: SavingsPlansUtilization
+    Savings: Optional[SavingsPlansSavings] = None
+    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitment] = None
 
 
-class SavingsPlansUtilizationDetailTypeDef(BaseValidatorModel):
+class SavingsPlansUtilizationDetail(BaseValidatorModel):
     SavingsPlanArn: Optional[str] = None
     Attributes: Optional[Dict[str, str]] = None
-    Utilization: Optional[SavingsPlansUtilizationTypeDef] = None
-    Savings: Optional[SavingsPlansSavingsTypeDef] = None
-    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitmentTypeDef] = None
+    Utilization: Optional[SavingsPlansUtilization] = None
+    Savings: Optional[SavingsPlansSavings] = None
+    AmortizedCommitment: Optional[SavingsPlansAmortizedCommitment] = None
 
 
-class UpdateCostAllocationTagsStatusResponseTypeDef(BaseValidatorModel):
-    Errors: List[UpdateCostAllocationTagsStatusErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateCostAllocationTagsStatusResponse(BaseValidatorModel):
+    Errors: List[UpdateCostAllocationTagsStatusError]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCostCategoryDefinitionsResponseTypeDef(BaseValidatorModel):
-    CostCategoryReferences: List[CostCategoryReferenceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCostCategoryDefinitionsResponse(BaseValidatorModel):
+    CostCategoryReferences: List[CostCategoryReference]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CostCategorySplitChargeRuleParameterUnionTypeDef(BaseValidatorModel):
+class CostCategorySplitChargeRuleParameterUnion(BaseValidatorModel):
     pass
 
 
-class CostCategorySplitChargeRuleTypeDef(BaseValidatorModel):
+class CostCategorySplitChargeRule(BaseValidatorModel):
     Source: str
     Targets: Sequence[str]
     Method: CostCategorySplitChargeMethodType
-    Parameters: Optional[Sequence[CostCategorySplitChargeRuleParameterUnionTypeDef]] = None
+    Parameters: Optional[Sequence[CostCategorySplitChargeRuleParameterUnion]] = None
 
 
-class GetCostForecastResponseTypeDef(BaseValidatorModel):
-    Total: MetricValueTypeDef
-    ForecastResultsByTime: List[ForecastResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCostForecastResponse(BaseValidatorModel):
+    Total: MetricValue
+    ForecastResultsByTime: List[ForecastResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetUsageForecastResponseTypeDef(BaseValidatorModel):
-    Total: MetricValueTypeDef
-    ForecastResultsByTime: List[ForecastResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUsageForecastResponse(BaseValidatorModel):
+    Total: MetricValue
+    ForecastResultsByTime: List[ForecastResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class ReservationCoverageGroupTypeDef(BaseValidatorModel):
+class ReservationCoverageGroup(BaseValidatorModel):
     Attributes: Optional[Dict[str, str]] = None
-    Coverage: Optional[CoverageTypeDef] = None
+    Coverage: Optional[Coverage] = None
 
 
-class AnomalyMonitorOutputTypeDef(BaseValidatorModel):
+class AnomalyMonitorOutput(BaseValidatorModel):
     MonitorName: str
     MonitorType: MonitorTypeType
     MonitorArn: Optional[str] = None
@@ -882,45 +882,45 @@ class AnomalyMonitorOutputTypeDef(BaseValidatorModel):
     LastUpdatedDate: Optional[str] = None
     LastEvaluatedDate: Optional[str] = None
     MonitorDimension: Optional[Literal["SERVICE"]] = None
-    MonitorSpecification: Optional[ExpressionOutputTypeDef] = None
+    MonitorSpecification: Optional[ExpressionOutput] = None
     DimensionalValueCount: Optional[int] = None
 
 
-class SubscriberTypeDef(BaseValidatorModel):
+class Subscriber(BaseValidatorModel):
     pass
 
 
-class AnomalySubscriptionOutputTypeDef(BaseValidatorModel):
+class AnomalySubscriptionOutput(BaseValidatorModel):
     MonitorArnList: List[str]
-    Subscribers: List[SubscriberTypeDef]
+    Subscribers: List[Subscriber]
     Frequency: AnomalySubscriptionFrequencyType
     SubscriptionName: str
     SubscriptionArn: Optional[str] = None
     AccountId: Optional[str] = None
     Threshold: Optional[float] = None
-    ThresholdExpression: Optional[ExpressionOutputTypeDef] = None
+    ThresholdExpression: Optional[ExpressionOutput] = None
 
 
-class ResourceUtilizationTypeDef(BaseValidatorModel):
-    EC2ResourceUtilization: Optional[EC2ResourceUtilizationTypeDef] = None
+class ResourceUtilization(BaseValidatorModel):
+    EC2ResourceUtilization: Optional[EC2ResourceUtilization] = None
 
 
-class ResultByTimeTypeDef(BaseValidatorModel):
-    TimePeriod: Optional[DateIntervalTypeDef] = None
-    Total: Optional[Dict[str, MetricValueTypeDef]] = None
-    Groups: Optional[List[GroupTypeDef]] = None
+class ResultByTime(BaseValidatorModel):
+    TimePeriod: Optional[DateInterval] = None
+    Total: Optional[Dict[str, MetricValue]] = None
+    Groups: Optional[List[Group]] = None
     Estimated: Optional[bool] = None
 
 
-class UtilizationByTimeTypeDef(BaseValidatorModel):
-    TimePeriod: Optional[DateIntervalTypeDef] = None
-    Groups: Optional[List[ReservationUtilizationGroupTypeDef]] = None
-    Total: Optional[ReservationAggregatesTypeDef] = None
+class UtilizationByTime(BaseValidatorModel):
+    TimePeriod: Optional[DateInterval] = None
+    Groups: Optional[List[ReservationUtilizationGroup]] = None
+    Total: Optional[ReservationAggregates] = None
 
 
-class ReservationPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
+class ReservationPurchaseRecommendationDetail(BaseValidatorModel):
     AccountId: Optional[str] = None
-    InstanceDetails: Optional[InstanceDetailsTypeDef] = None
+    InstanceDetails: Optional[InstanceDetails] = None
     RecommendedNumberOfInstancesToPurchase: Optional[str] = None
     RecommendedNormalizedUnitsToPurchase: Optional[str] = None
     MinimumNumberOfInstancesUsedPerHour: Optional[str] = None
@@ -938,134 +938,134 @@ class ReservationPurchaseRecommendationDetailTypeDef(BaseValidatorModel):
     EstimatedReservationCostForLookbackPeriod: Optional[str] = None
     UpfrontCost: Optional[str] = None
     RecurringStandardMonthlyCost: Optional[str] = None
-    ReservedCapacityDetails: Optional[ReservedCapacityDetailsTypeDef] = None
+    ReservedCapacityDetails: Optional[ReservedCapacityDetails] = None
     RecommendedNumberOfCapacityUnitsToPurchase: Optional[str] = None
     MinimumNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
     MaximumNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
     AverageNumberOfCapacityUnitsUsedPerHour: Optional[str] = None
 
 
-class GetSavingsPlanPurchaseRecommendationDetailsResponseTypeDef(BaseValidatorModel):
+class GetSavingsPlanPurchaseRecommendationDetailsResponse(BaseValidatorModel):
     RecommendationDetailId: str
-    RecommendationDetailData: RecommendationDetailDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RecommendationDetailData: RecommendationDetailData
+    ResponseMetadata: ResponseMetadata
 
 
-class AnalysisDetailsTypeDef(BaseValidatorModel):
-    SavingsPlansPurchaseAnalysisDetails: Optional[SavingsPlansPurchaseAnalysisDetailsTypeDef] = None
+class AnalysisDetails(BaseValidatorModel):
+    SavingsPlansPurchaseAnalysisDetails: Optional[SavingsPlansPurchaseAnalysisDetails] = None
 
 
-class AnomalyTypeDef(BaseValidatorModel):
+class Anomaly(BaseValidatorModel):
     AnomalyId: str
-    AnomalyScore: AnomalyScoreTypeDef
-    Impact: ImpactTypeDef
+    AnomalyScore: AnomalyScore
+    Impact: Impact
     MonitorArn: str
     AnomalyStartDate: Optional[str] = None
     AnomalyEndDate: Optional[str] = None
     DimensionValue: Optional[str] = None
-    RootCauses: Optional[List[RootCauseTypeDef]] = None
+    RootCauses: Optional[List[RootCause]] = None
     Feedback: Optional[AnomalyFeedbackTypeType] = None
 
 
-class GetSavingsPlansCoverageResponseTypeDef(BaseValidatorModel):
-    SavingsPlansCoverages: List[SavingsPlansCoverageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSavingsPlansCoverageResponse(BaseValidatorModel):
+    SavingsPlansCoverages: List[SavingsPlansCoverage]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SavingsPlansPurchaseRecommendationTypeDef(BaseValidatorModel):
+class SavingsPlansPurchaseRecommendation(BaseValidatorModel):
     AccountScope: Optional[AccountScopeType] = None
     SavingsPlansType: Optional[SupportedSavingsPlansTypeType] = None
     TermInYears: Optional[TermInYearsType] = None
     PaymentOption: Optional[PaymentOptionType] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
-    SavingsPlansPurchaseRecommendationDetails: Optional[ List[SavingsPlansPurchaseRecommendationDetailTypeDef] ] = None
-    SavingsPlansPurchaseRecommendationSummary: Optional[ SavingsPlansPurchaseRecommendationSummaryTypeDef ] = None
+    SavingsPlansPurchaseRecommendationDetails: Optional[ List[SavingsPlansPurchaseRecommendationDetail] ] = None
+    SavingsPlansPurchaseRecommendationSummary: Optional[ SavingsPlansPurchaseRecommendationSummary ] = None
 
 
-class CommitmentPurchaseAnalysisConfigurationOutputTypeDef(BaseValidatorModel):
-    SavingsPlansPurchaseAnalysisConfiguration: Optional[ SavingsPlansPurchaseAnalysisConfigurationOutputTypeDef ] = None
+class CommitmentPurchaseAnalysisConfigurationOutput(BaseValidatorModel):
+    SavingsPlansPurchaseAnalysisConfiguration: Optional[ SavingsPlansPurchaseAnalysisConfigurationOutput ] = None
 
 
-class CommitmentPurchaseAnalysisConfigurationTypeDef(BaseValidatorModel):
-    SavingsPlansPurchaseAnalysisConfiguration: Optional[ SavingsPlansPurchaseAnalysisConfigurationTypeDef ] = None
+class CommitmentPurchaseAnalysisConfiguration(BaseValidatorModel):
+    SavingsPlansPurchaseAnalysisConfiguration: Optional[ SavingsPlansPurchaseAnalysisConfiguration ] = None
 
 
-class GetSavingsPlansUtilizationResponseTypeDef(BaseValidatorModel):
-    SavingsPlansUtilizationsByTime: List[SavingsPlansUtilizationByTimeTypeDef]
-    Total: SavingsPlansUtilizationAggregatesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSavingsPlansUtilizationResponse(BaseValidatorModel):
+    SavingsPlansUtilizationsByTime: List[SavingsPlansUtilizationByTime]
+    Total: SavingsPlansUtilizationAggregates
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSavingsPlansUtilizationDetailsResponseTypeDef(BaseValidatorModel):
-    SavingsPlansUtilizationDetails: List[SavingsPlansUtilizationDetailTypeDef]
-    Total: SavingsPlansUtilizationAggregatesTypeDef
-    TimePeriod: DateIntervalTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSavingsPlansUtilizationDetailsResponse(BaseValidatorModel):
+    SavingsPlansUtilizationDetails: List[SavingsPlansUtilizationDetail]
+    Total: SavingsPlansUtilizationAggregates
+    TimePeriod: DateInterval
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CostCategoryValuesUnionTypeDef(BaseValidatorModel):
+class CostCategoryValuesUnion(BaseValidatorModel):
     pass
 
 
-class DimensionValuesUnionTypeDef(BaseValidatorModel):
+class DimensionValuesUnion(BaseValidatorModel):
     pass
 
 
-class TagValuesUnionTypeDef(BaseValidatorModel):
+class TagValuesUnion(BaseValidatorModel):
     pass
 
 
-class ExpressionTypeDef(BaseValidatorModel):
+class Expression(BaseValidatorModel):
     Or: Optional[Sequence[Mapping[str, Any]]] = None
     And: Optional[Sequence[Mapping[str, Any]]] = None
     Not: Optional[Mapping[str, Any]] = None
-    Dimensions: Optional[DimensionValuesUnionTypeDef] = None
-    Tags: Optional[TagValuesUnionTypeDef] = None
-    CostCategories: Optional[CostCategoryValuesUnionTypeDef] = None
+    Dimensions: Optional[DimensionValuesUnion] = None
+    Tags: Optional[TagValuesUnion] = None
+    CostCategories: Optional[CostCategoryValuesUnion] = None
 
 
-class CoverageByTimeTypeDef(BaseValidatorModel):
-    TimePeriod: Optional[DateIntervalTypeDef] = None
-    Groups: Optional[List[ReservationCoverageGroupTypeDef]] = None
-    Total: Optional[CoverageTypeDef] = None
+class CoverageByTime(BaseValidatorModel):
+    TimePeriod: Optional[DateInterval] = None
+    Groups: Optional[List[ReservationCoverageGroup]] = None
+    Total: Optional[Coverage] = None
 
 
-class GetAnomalyMonitorsResponseTypeDef(BaseValidatorModel):
-    AnomalyMonitors: List[AnomalyMonitorOutputTypeDef]
+class GetAnomalyMonitorsResponse(BaseValidatorModel):
+    AnomalyMonitors: List[AnomalyMonitorOutput]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAnomalySubscriptionsResponseTypeDef(BaseValidatorModel):
-    AnomalySubscriptions: List[AnomalySubscriptionOutputTypeDef]
+class GetAnomalySubscriptionsResponse(BaseValidatorModel):
+    AnomalySubscriptions: List[AnomalySubscriptionOutput]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CostCategoryRuleOutputTypeDef(BaseValidatorModel):
+class CostCategoryRuleOutput(BaseValidatorModel):
     pass
 
 
-class CostCategoryTypeDef(BaseValidatorModel):
+class CostCategory(BaseValidatorModel):
     CostCategoryArn: str
     EffectiveStart: str
     Name: str
     RuleVersion: Literal["CostCategoryExpression.v1"]
-    Rules: List[CostCategoryRuleOutputTypeDef]
+    Rules: List[CostCategoryRuleOutput]
     EffectiveEnd: Optional[str] = None
-    SplitChargeRules: Optional[List[CostCategorySplitChargeRuleOutputTypeDef]] = None
-    ProcessingStatus: Optional[List[CostCategoryProcessingStatusTypeDef]] = None
+    SplitChargeRules: Optional[List[CostCategorySplitChargeRuleOutput]] = None
+    ProcessingStatus: Optional[List[CostCategoryProcessingStatus]] = None
     DefaultValue: Optional[str] = None
 
 
-class CurrentInstanceTypeDef(BaseValidatorModel):
+class CurrentInstance(BaseValidatorModel):
     ResourceId: Optional[str] = None
     InstanceName: Optional[str] = None
-    Tags: Optional[List[TagValuesOutputTypeDef]] = None
-    ResourceDetails: Optional[ResourceDetailsTypeDef] = None
-    ResourceUtilization: Optional[ResourceUtilizationTypeDef] = None
+    Tags: Optional[List[TagValuesOutput]] = None
+    ResourceDetails: Optional[ResourceDetails] = None
+    ResourceUtilization: Optional[ResourceUtilization] = None
     ReservationCoveredHoursInLookbackPeriod: Optional[str] = None
     SavingsPlansCoveredHoursInLookbackPeriod: Optional[str] = None
     OnDemandHoursInLookbackPeriod: Optional[str] = None
@@ -1074,89 +1074,89 @@ class CurrentInstanceTypeDef(BaseValidatorModel):
     CurrencyCode: Optional[str] = None
 
 
-class TargetInstanceTypeDef(BaseValidatorModel):
+class TargetInstance(BaseValidatorModel):
     EstimatedMonthlyCost: Optional[str] = None
     EstimatedMonthlySavings: Optional[str] = None
     CurrencyCode: Optional[str] = None
     DefaultTargetInstance: Optional[bool] = None
-    ResourceDetails: Optional[ResourceDetailsTypeDef] = None
-    ExpectedResourceUtilization: Optional[ResourceUtilizationTypeDef] = None
+    ResourceDetails: Optional[ResourceDetails] = None
+    ExpectedResourceUtilization: Optional[ResourceUtilization] = None
     PlatformDifferences: Optional[List[PlatformDifferenceType]] = None
 
 
-class GroupDefinitionTypeDef(BaseValidatorModel):
+class GroupDefinition(BaseValidatorModel):
     pass
 
 
-class GetCostAndUsageResponseTypeDef(BaseValidatorModel):
+class GetCostAndUsageResponse(BaseValidatorModel):
     NextPageToken: str
-    GroupDefinitions: List[GroupDefinitionTypeDef]
-    ResultsByTime: List[ResultByTimeTypeDef]
-    DimensionValueAttributes: List[DimensionValuesWithAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    GroupDefinitions: List[GroupDefinition]
+    ResultsByTime: List[ResultByTime]
+    DimensionValueAttributes: List[DimensionValuesWithAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCostAndUsageWithResourcesResponseTypeDef(BaseValidatorModel):
+class GetCostAndUsageWithResourcesResponse(BaseValidatorModel):
     NextPageToken: str
-    GroupDefinitions: List[GroupDefinitionTypeDef]
-    ResultsByTime: List[ResultByTimeTypeDef]
-    DimensionValueAttributes: List[DimensionValuesWithAttributesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    GroupDefinitions: List[GroupDefinition]
+    ResultsByTime: List[ResultByTime]
+    DimensionValueAttributes: List[DimensionValuesWithAttributes]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetReservationUtilizationResponseTypeDef(BaseValidatorModel):
-    UtilizationsByTime: List[UtilizationByTimeTypeDef]
-    Total: ReservationAggregatesTypeDef
+class GetReservationUtilizationResponse(BaseValidatorModel):
+    UtilizationsByTime: List[UtilizationByTime]
+    Total: ReservationAggregates
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReservationPurchaseRecommendationTypeDef(BaseValidatorModel):
+class ReservationPurchaseRecommendation(BaseValidatorModel):
     AccountScope: Optional[AccountScopeType] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
     TermInYears: Optional[TermInYearsType] = None
     PaymentOption: Optional[PaymentOptionType] = None
-    ServiceSpecification: Optional[ServiceSpecificationTypeDef] = None
-    RecommendationDetails: Optional[List[ReservationPurchaseRecommendationDetailTypeDef]] = None
-    RecommendationSummary: Optional[ReservationPurchaseRecommendationSummaryTypeDef] = None
+    ServiceSpecification: Optional[ServiceSpecification] = None
+    RecommendationDetails: Optional[List[ReservationPurchaseRecommendationDetail]] = None
+    RecommendationSummary: Optional[ReservationPurchaseRecommendationSummary] = None
 
 
-class GetAnomaliesResponseTypeDef(BaseValidatorModel):
-    Anomalies: List[AnomalyTypeDef]
+class GetAnomaliesResponse(BaseValidatorModel):
+    Anomalies: List[Anomaly]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSavingsPlansPurchaseRecommendationResponseTypeDef(BaseValidatorModel):
-    Metadata: SavingsPlansPurchaseRecommendationMetadataTypeDef
-    SavingsPlansPurchaseRecommendation: SavingsPlansPurchaseRecommendationTypeDef
+class GetSavingsPlansPurchaseRecommendationResponse(BaseValidatorModel):
+    Metadata: SavingsPlansPurchaseRecommendationMetadata
+    SavingsPlansPurchaseRecommendation: SavingsPlansPurchaseRecommendation
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AnalysisSummaryTypeDef(BaseValidatorModel):
+class AnalysisSummary(BaseValidatorModel):
     EstimatedCompletionTime: Optional[str] = None
     AnalysisCompletionTime: Optional[str] = None
     AnalysisStartedTime: Optional[str] = None
     AnalysisStatus: Optional[AnalysisStatusType] = None
     ErrorCode: Optional[ErrorCodeType] = None
     AnalysisId: Optional[str] = None
-    CommitmentPurchaseAnalysisConfiguration: Optional[ CommitmentPurchaseAnalysisConfigurationOutputTypeDef ] = None
+    CommitmentPurchaseAnalysisConfiguration: Optional[ CommitmentPurchaseAnalysisConfigurationOutput ] = None
 
 
-class GetCommitmentPurchaseAnalysisResponseTypeDef(BaseValidatorModel):
+class GetCommitmentPurchaseAnalysisResponse(BaseValidatorModel):
     EstimatedCompletionTime: str
     AnalysisCompletionTime: str
     AnalysisStartedTime: str
     AnalysisId: str
     AnalysisStatus: AnalysisStatusType
     ErrorCode: ErrorCodeType
-    AnalysisDetails: AnalysisDetailsTypeDef
-    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AnalysisDetails: AnalysisDetails
+    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class AnomalyMonitorTypeDef(BaseValidatorModel):
+class AnomalyMonitor(BaseValidatorModel):
     MonitorName: str
     MonitorType: MonitorTypeType
     MonitorArn: Optional[str] = None
@@ -1164,168 +1164,168 @@ class AnomalyMonitorTypeDef(BaseValidatorModel):
     LastUpdatedDate: Optional[str] = None
     LastEvaluatedDate: Optional[str] = None
     MonitorDimension: Optional[Literal["SERVICE"]] = None
-    MonitorSpecification: Optional[ExpressionTypeDef] = None
+    MonitorSpecification: Optional[Expression] = None
     DimensionalValueCount: Optional[int] = None
 
 
-class AnomalySubscriptionTypeDef(BaseValidatorModel):
+class AnomalySubscription(BaseValidatorModel):
     MonitorArnList: Sequence[str]
-    Subscribers: Sequence[SubscriberTypeDef]
+    Subscribers: Sequence[Subscriber]
     Frequency: AnomalySubscriptionFrequencyType
     SubscriptionName: str
     SubscriptionArn: Optional[str] = None
     AccountId: Optional[str] = None
     Threshold: Optional[float] = None
-    ThresholdExpression: Optional[ExpressionTypeDef] = None
+    ThresholdExpression: Optional[Expression] = None
 
 
-class GetReservationCoverageResponseTypeDef(BaseValidatorModel):
-    CoveragesByTime: List[CoverageByTimeTypeDef]
-    Total: CoverageTypeDef
+class GetReservationCoverageResponse(BaseValidatorModel):
+    CoveragesByTime: List[CoverageByTime]
+    Total: Coverage
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeCostCategoryDefinitionResponseTypeDef(BaseValidatorModel):
-    CostCategory: CostCategoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCostCategoryDefinitionResponse(BaseValidatorModel):
+    CostCategory: CostCategory
+    ResponseMetadata: ResponseMetadata
 
 
-class ModifyRecommendationDetailTypeDef(BaseValidatorModel):
-    TargetInstances: Optional[List[TargetInstanceTypeDef]] = None
+class ModifyRecommendationDetail(BaseValidatorModel):
+    TargetInstances: Optional[List[TargetInstance]] = None
 
 
-class GetReservationPurchaseRecommendationResponseTypeDef(BaseValidatorModel):
-    Metadata: ReservationPurchaseRecommendationMetadataTypeDef
-    Recommendations: List[ReservationPurchaseRecommendationTypeDef]
+class GetReservationPurchaseRecommendationResponse(BaseValidatorModel):
+    Metadata: ReservationPurchaseRecommendationMetadata
+    Recommendations: List[ReservationPurchaseRecommendation]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCommitmentPurchaseAnalysesResponseTypeDef(BaseValidatorModel):
-    AnalysisSummaryList: List[AnalysisSummaryTypeDef]
+class ListCommitmentPurchaseAnalysesResponse(BaseValidatorModel):
+    AnalysisSummaryList: List[AnalysisSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CommitmentPurchaseAnalysisConfigurationUnionTypeDef(BaseValidatorModel):
+class CommitmentPurchaseAnalysisConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartCommitmentPurchaseAnalysisRequestTypeDef(BaseValidatorModel):
-    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationUnionTypeDef
+class StartCommitmentPurchaseAnalysisRequest(BaseValidatorModel):
+    CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfigurationUnion
 
 
-class ExpressionUnionTypeDef(BaseValidatorModel):
+class ExpressionUnion(BaseValidatorModel):
     pass
 
 
-class GetCostAndUsageRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetCostAndUsageRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Granularity: GranularityType
     Metrics: Sequence[str]
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    GroupBy: Optional[Sequence[GroupDefinitionTypeDef]] = None
+    Filter: Optional[ExpressionUnion] = None
+    GroupBy: Optional[Sequence[GroupDefinition]] = None
     BillingViewArn: Optional[str] = None
     NextPageToken: Optional[str] = None
 
 
-class GetCostAndUsageWithResourcesRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetCostAndUsageWithResourcesRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Granularity: GranularityType
-    Filter: ExpressionUnionTypeDef
+    Filter: ExpressionUnion
     Metrics: Optional[Sequence[str]] = None
-    GroupBy: Optional[Sequence[GroupDefinitionTypeDef]] = None
+    GroupBy: Optional[Sequence[GroupDefinition]] = None
     BillingViewArn: Optional[str] = None
     NextPageToken: Optional[str] = None
 
 
-class GetCostCategoriesRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetCostCategoriesRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     SearchString: Optional[str] = None
     CostCategoryName: Optional[str] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    SortBy: Optional[Sequence[SortDefinitionTypeDef]] = None
+    Filter: Optional[ExpressionUnion] = None
+    SortBy: Optional[Sequence[SortDefinition]] = None
     BillingViewArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class GetCostForecastRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetCostForecastRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Metric: MetricType
     Granularity: GranularityType
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
     BillingViewArn: Optional[str] = None
     PredictionIntervalLevel: Optional[int] = None
 
 
-class GetDimensionValuesRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetDimensionValuesRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Dimension: DimensionType
     SearchString: Optional[str] = None
     Context: Optional[ContextType] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    SortBy: Optional[Sequence[SortDefinitionTypeDef]] = None
+    Filter: Optional[ExpressionUnion] = None
+    SortBy: Optional[Sequence[SortDefinition]] = None
     BillingViewArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class GetReservationCoverageRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
-    GroupBy: Optional[Sequence[GroupDefinitionTypeDef]] = None
+class GetReservationCoverageRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
+    GroupBy: Optional[Sequence[GroupDefinition]] = None
     Granularity: Optional[GranularityType] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
     Metrics: Optional[Sequence[str]] = None
     NextPageToken: Optional[str] = None
-    SortBy: Optional[SortDefinitionTypeDef] = None
+    SortBy: Optional[SortDefinition] = None
     MaxResults: Optional[int] = None
 
 
-class GetReservationPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
+class GetReservationPurchaseRecommendationRequest(BaseValidatorModel):
     Service: str
     AccountId: Optional[str] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
     AccountScope: Optional[AccountScopeType] = None
     LookbackPeriodInDays: Optional[LookbackPeriodInDaysType] = None
     TermInYears: Optional[TermInYearsType] = None
     PaymentOption: Optional[PaymentOptionType] = None
-    ServiceSpecification: Optional[ServiceSpecificationTypeDef] = None
+    ServiceSpecification: Optional[ServiceSpecification] = None
     PageSize: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class GetReservationUtilizationRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
-    GroupBy: Optional[Sequence[GroupDefinitionTypeDef]] = None
+class GetReservationUtilizationRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
+    GroupBy: Optional[Sequence[GroupDefinition]] = None
     Granularity: Optional[GranularityType] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    SortBy: Optional[SortDefinitionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
+    SortBy: Optional[SortDefinition] = None
     NextPageToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetRightsizingRecommendationRequestTypeDef(BaseValidatorModel):
+class GetRightsizingRecommendationRequest(BaseValidatorModel):
     Service: str
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    Configuration: Optional[RightsizingRecommendationConfigurationTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
+    Configuration: Optional[RightsizingRecommendationConfiguration] = None
     PageSize: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class GetSavingsPlansCoverageRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
-    GroupBy: Optional[Sequence[GroupDefinitionTypeDef]] = None
+class GetSavingsPlansCoverageRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
+    GroupBy: Optional[Sequence[GroupDefinition]] = None
     Granularity: Optional[GranularityType] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
     Metrics: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    SortBy: Optional[SortDefinitionTypeDef] = None
+    SortBy: Optional[SortDefinition] = None
 
 
-class GetSavingsPlansPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
+class GetSavingsPlansPurchaseRecommendationRequest(BaseValidatorModel):
     SavingsPlansType: SupportedSavingsPlansTypeType
     TermInYears: TermInYearsType
     PaymentOption: PaymentOptionType
@@ -1333,115 +1333,115 @@ class GetSavingsPlansPurchaseRecommendationRequestTypeDef(BaseValidatorModel):
     AccountScope: Optional[AccountScopeType] = None
     NextPageToken: Optional[str] = None
     PageSize: Optional[int] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
 
 
-class GetSavingsPlansUtilizationDetailsRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
-    Filter: Optional[ExpressionUnionTypeDef] = None
+class GetSavingsPlansUtilizationDetailsRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
+    Filter: Optional[ExpressionUnion] = None
     DataType: Optional[Sequence[SavingsPlansDataTypeType]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    SortBy: Optional[SortDefinitionTypeDef] = None
+    SortBy: Optional[SortDefinition] = None
 
 
-class GetSavingsPlansUtilizationRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetSavingsPlansUtilizationRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Granularity: Optional[GranularityType] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    SortBy: Optional[SortDefinitionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
+    SortBy: Optional[SortDefinition] = None
 
 
-class GetTagsRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetTagsRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     SearchString: Optional[str] = None
     TagKey: Optional[str] = None
-    Filter: Optional[ExpressionUnionTypeDef] = None
-    SortBy: Optional[Sequence[SortDefinitionTypeDef]] = None
+    Filter: Optional[ExpressionUnion] = None
+    SortBy: Optional[Sequence[SortDefinition]] = None
     BillingViewArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextPageToken: Optional[str] = None
 
 
-class GetUsageForecastRequestTypeDef(BaseValidatorModel):
-    TimePeriod: DateIntervalTypeDef
+class GetUsageForecastRequest(BaseValidatorModel):
+    TimePeriod: DateInterval
     Metric: MetricType
     Granularity: GranularityType
-    Filter: Optional[ExpressionUnionTypeDef] = None
+    Filter: Optional[ExpressionUnion] = None
     BillingViewArn: Optional[str] = None
     PredictionIntervalLevel: Optional[int] = None
 
 
-class UpdateAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
+class UpdateAnomalySubscriptionRequest(BaseValidatorModel):
     SubscriptionArn: str
     Threshold: Optional[float] = None
     Frequency: Optional[AnomalySubscriptionFrequencyType] = None
     MonitorArnList: Optional[Sequence[str]] = None
-    Subscribers: Optional[Sequence[SubscriberTypeDef]] = None
+    Subscribers: Optional[Sequence[Subscriber]] = None
     SubscriptionName: Optional[str] = None
-    ThresholdExpression: Optional[ExpressionUnionTypeDef] = None
+    ThresholdExpression: Optional[ExpressionUnion] = None
 
 
-class RightsizingRecommendationTypeDef(BaseValidatorModel):
+class RightsizingRecommendation(BaseValidatorModel):
     AccountId: Optional[str] = None
-    CurrentInstance: Optional[CurrentInstanceTypeDef] = None
+    CurrentInstance: Optional[CurrentInstance] = None
     RightsizingType: Optional[RightsizingTypeType] = None
-    ModifyRecommendationDetail: Optional[ModifyRecommendationDetailTypeDef] = None
-    TerminateRecommendationDetail: Optional[TerminateRecommendationDetailTypeDef] = None
+    ModifyRecommendationDetail: Optional[ModifyRecommendationDetail] = None
+    TerminateRecommendationDetail: Optional[TerminateRecommendationDetail] = None
     FindingReasonCodes: Optional[List[FindingReasonCodeType]] = None
 
 
-class AnomalyMonitorUnionTypeDef(BaseValidatorModel):
+class AnomalyMonitorUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnomalyMonitorRequestTypeDef(BaseValidatorModel):
-    AnomalyMonitor: AnomalyMonitorUnionTypeDef
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+class CreateAnomalyMonitorRequest(BaseValidatorModel):
+    AnomalyMonitor: AnomalyMonitorUnion
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class AnomalySubscriptionUnionTypeDef(BaseValidatorModel):
+class AnomalySubscriptionUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnomalySubscriptionRequestTypeDef(BaseValidatorModel):
-    AnomalySubscription: AnomalySubscriptionUnionTypeDef
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+class CreateAnomalySubscriptionRequest(BaseValidatorModel):
+    AnomalySubscription: AnomalySubscriptionUnion
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class GetRightsizingRecommendationResponseTypeDef(BaseValidatorModel):
-    Metadata: RightsizingRecommendationMetadataTypeDef
-    Summary: RightsizingRecommendationSummaryTypeDef
-    RightsizingRecommendations: List[RightsizingRecommendationTypeDef]
+class GetRightsizingRecommendationResponse(BaseValidatorModel):
+    Metadata: RightsizingRecommendationMetadata
+    Summary: RightsizingRecommendationSummary
+    RightsizingRecommendations: List[RightsizingRecommendation]
     NextPageToken: str
-    Configuration: RightsizingRecommendationConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Configuration: RightsizingRecommendationConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class CostCategoryRuleUnionTypeDef(BaseValidatorModel):
+class CostCategoryRuleUnion(BaseValidatorModel):
     pass
 
 
-class CostCategorySplitChargeRuleUnionTypeDef(BaseValidatorModel):
+class CostCategorySplitChargeRuleUnion(BaseValidatorModel):
     pass
 
 
-class CreateCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
+class CreateCostCategoryDefinitionRequest(BaseValidatorModel):
     Name: str
     RuleVersion: Literal["CostCategoryExpression.v1"]
-    Rules: Sequence[CostCategoryRuleUnionTypeDef]
+    Rules: Sequence[CostCategoryRuleUnion]
     EffectiveStart: Optional[str] = None
     DefaultValue: Optional[str] = None
-    SplitChargeRules: Optional[Sequence[CostCategorySplitChargeRuleUnionTypeDef]] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    SplitChargeRules: Optional[Sequence[CostCategorySplitChargeRuleUnion]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class UpdateCostCategoryDefinitionRequestTypeDef(BaseValidatorModel):
+class UpdateCostCategoryDefinitionRequest(BaseValidatorModel):
     CostCategoryArn: str
     RuleVersion: Literal["CostCategoryExpression.v1"]
-    Rules: Sequence[CostCategoryRuleUnionTypeDef]
+    Rules: Sequence[CostCategoryRuleUnion]
     EffectiveStart: Optional[str] = None
     DefaultValue: Optional[str] = None
-    SplitChargeRules: Optional[Sequence[CostCategorySplitChargeRuleUnionTypeDef]] = None
+    SplitChargeRules: Optional[Sequence[CostCategorySplitChargeRuleUnion]] = None
 
 

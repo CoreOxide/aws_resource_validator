@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.gameliftstreams_constants import *
 
-class LocationConfigurationTypeDef(BaseValidatorModel):
+class LocationConfiguration(BaseValidatorModel):
     LocationName: str
     AlwaysOnCapacity: Optional[int] = None
     OnDemandCapacity: Optional[int] = None
 
 
-class LocationStateTypeDef(BaseValidatorModel):
+class LocationState(BaseValidatorModel):
     AllocatedCapacity: Optional[int] = None
     AlwaysOnCapacity: Optional[int] = None
     IdleCapacity: Optional[int] = None
@@ -28,7 +28,7 @@ class LocationStateTypeDef(BaseValidatorModel):
     Status: Optional[StreamGroupLocationStatusType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,95 +36,95 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociateApplicationsInputTypeDef(BaseValidatorModel):
+class AssociateApplicationsInput(BaseValidatorModel):
     ApplicationIdentifiers: Sequence[str]
     Identifier: str
 
 
-class ReplicationStatusTypeDef(BaseValidatorModel):
+class ReplicationStatus(BaseValidatorModel):
     Location: Optional[str] = None
     Status: Optional[ReplicationStatusTypeType] = None
 
 
-class DefaultApplicationTypeDef(BaseValidatorModel):
+class DefaultApplication(BaseValidatorModel):
     Arn: Optional[str] = None
     Id: Optional[str] = None
 
 
-class CreateStreamSessionConnectionInputTypeDef(BaseValidatorModel):
+class CreateStreamSessionConnectionInput(BaseValidatorModel):
     Identifier: str
     SignalRequest: str
     StreamSessionIdentifier: str
     ClientToken: Optional[str] = None
 
 
-class DeleteApplicationInputTypeDef(BaseValidatorModel):
+class DeleteApplicationInput(BaseValidatorModel):
     Identifier: str
 
 
-class DeleteStreamGroupInputTypeDef(BaseValidatorModel):
+class DeleteStreamGroupInput(BaseValidatorModel):
     Identifier: str
 
 
-class DisassociateApplicationsInputTypeDef(BaseValidatorModel):
+class DisassociateApplicationsInput(BaseValidatorModel):
     ApplicationIdentifiers: Sequence[str]
     Identifier: str
 
 
-class ExportFilesMetadataTypeDef(BaseValidatorModel):
+class ExportFilesMetadata(BaseValidatorModel):
     OutputUri: Optional[str] = None
     Status: Optional[ExportFilesStatusType] = None
     StatusReason: Optional[str] = None
 
 
-class ExportStreamSessionFilesInputTypeDef(BaseValidatorModel):
+class ExportStreamSessionFilesInput(BaseValidatorModel):
     Identifier: str
     OutputUri: str
     StreamSessionIdentifier: str
 
 
-class GetApplicationInputTypeDef(BaseValidatorModel):
+class GetApplicationInput(BaseValidatorModel):
     Identifier: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetStreamGroupInputTypeDef(BaseValidatorModel):
+class GetStreamGroupInput(BaseValidatorModel):
     Identifier: str
 
 
-class GetStreamSessionInputTypeDef(BaseValidatorModel):
+class GetStreamSessionInput(BaseValidatorModel):
     Identifier: str
     StreamSessionIdentifier: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationsInputTypeDef(BaseValidatorModel):
+class ListApplicationsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListStreamGroupsInputTypeDef(BaseValidatorModel):
+class ListStreamGroupsInput(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListStreamSessionsByAccountInputTypeDef(BaseValidatorModel):
+class ListStreamSessionsByAccountInput(BaseValidatorModel):
     ExportFilesStatus: Optional[ExportFilesStatusType] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Status: Optional[StreamSessionStatusType] = None
 
 
-class ListStreamSessionsInputTypeDef(BaseValidatorModel):
+class ListStreamSessionsInput(BaseValidatorModel):
     Identifier: str
     ExportFilesStatus: Optional[ExportFilesStatusType] = None
     MaxResults: Optional[int] = None
@@ -132,115 +132,115 @@ class ListStreamSessionsInputTypeDef(BaseValidatorModel):
     Status: Optional[StreamSessionStatusType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class RemoveStreamGroupLocationsInputTypeDef(BaseValidatorModel):
+class RemoveStreamGroupLocationsInput(BaseValidatorModel):
     Identifier: str
     Locations: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class TerminateStreamSessionInputTypeDef(BaseValidatorModel):
+class TerminateStreamSessionInput(BaseValidatorModel):
     Identifier: str
     StreamSessionIdentifier: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateApplicationInputTypeDef(BaseValidatorModel):
+class UpdateApplicationInput(BaseValidatorModel):
     Identifier: str
     ApplicationLogOutputUri: Optional[str] = None
     ApplicationLogPaths: Optional[Sequence[str]] = None
     Description: Optional[str] = None
 
 
-class AddStreamGroupLocationsInputTypeDef(BaseValidatorModel):
+class AddStreamGroupLocationsInput(BaseValidatorModel):
     Identifier: str
-    LocationConfigurations: Sequence[LocationConfigurationTypeDef]
+    LocationConfigurations: Sequence[LocationConfiguration]
 
 
-class CreateStreamGroupInputTypeDef(BaseValidatorModel):
+class CreateStreamGroupInput(BaseValidatorModel):
     Description: str
     StreamClass: StreamClassType
     ClientToken: Optional[str] = None
     DefaultApplicationIdentifier: Optional[str] = None
-    LocationConfigurations: Optional[Sequence[LocationConfigurationTypeDef]] = None
+    LocationConfigurations: Optional[Sequence[LocationConfiguration]] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateStreamGroupInputTypeDef(BaseValidatorModel):
+class UpdateStreamGroupInput(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
-    LocationConfigurations: Optional[Sequence[LocationConfigurationTypeDef]] = None
+    LocationConfigurations: Optional[Sequence[LocationConfiguration]] = None
 
 
-class AddStreamGroupLocationsOutputTypeDef(BaseValidatorModel):
+class AddStreamGroupLocationsOutput(BaseValidatorModel):
     Identifier: str
-    Locations: List[LocationStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Locations: List[LocationState]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateApplicationsOutputTypeDef(BaseValidatorModel):
+class AssociateApplicationsOutput(BaseValidatorModel):
     ApplicationArns: List[str]
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamSessionConnectionOutputTypeDef(BaseValidatorModel):
+class CreateStreamSessionConnectionOutput(BaseValidatorModel):
     SignalResponse: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateApplicationsOutputTypeDef(BaseValidatorModel):
+class DisassociateApplicationsOutput(BaseValidatorModel):
     ApplicationArns: List[str]
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RuntimeEnvironmentTypeDef(BaseValidatorModel):
+class RuntimeEnvironment(BaseValidatorModel):
     pass
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     Arn: str
     CreatedAt: Optional[datetime] = None
     Description: Optional[str] = None
     Id: Optional[str] = None
     LastUpdatedAt: Optional[datetime] = None
-    RuntimeEnvironment: Optional[RuntimeEnvironmentTypeDef] = None
+    RuntimeEnvironment: Optional[RuntimeEnvironment] = None
     Status: Optional[ApplicationStatusType] = None
 
 
-class CreateApplicationInputTypeDef(BaseValidatorModel):
+class CreateApplicationInput(BaseValidatorModel):
     ApplicationSourceUri: str
     Description: str
     ExecutablePath: str
-    RuntimeEnvironment: RuntimeEnvironmentTypeDef
+    RuntimeEnvironment: RuntimeEnvironment
     ApplicationLogOutputUri: Optional[str] = None
     ApplicationLogPaths: Optional[Sequence[str]] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateApplicationOutputTypeDef(BaseValidatorModel):
+class CreateApplicationOutput(BaseValidatorModel):
     ApplicationLogOutputUri: str
     ApplicationLogPaths: List[str]
     ApplicationSourceUri: str
@@ -251,14 +251,14 @@ class CreateApplicationOutputTypeDef(BaseValidatorModel):
     ExecutablePath: str
     Id: str
     LastUpdatedAt: datetime
-    ReplicationStatuses: List[ReplicationStatusTypeDef]
-    RuntimeEnvironment: RuntimeEnvironmentTypeDef
+    ReplicationStatuses: List[ReplicationStatus]
+    RuntimeEnvironment: RuntimeEnvironment
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApplicationOutputTypeDef(BaseValidatorModel):
+class GetApplicationOutput(BaseValidatorModel):
     ApplicationLogOutputUri: str
     ApplicationLogPaths: List[str]
     ApplicationSourceUri: str
@@ -269,14 +269,14 @@ class GetApplicationOutputTypeDef(BaseValidatorModel):
     ExecutablePath: str
     Id: str
     LastUpdatedAt: datetime
-    ReplicationStatuses: List[ReplicationStatusTypeDef]
-    RuntimeEnvironment: RuntimeEnvironmentTypeDef
+    ReplicationStatuses: List[ReplicationStatus]
+    RuntimeEnvironment: RuntimeEnvironment
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationOutputTypeDef(BaseValidatorModel):
+class UpdateApplicationOutput(BaseValidatorModel):
     ApplicationLogOutputUri: str
     ApplicationLogPaths: List[str]
     ApplicationSourceUri: str
@@ -287,47 +287,47 @@ class UpdateApplicationOutputTypeDef(BaseValidatorModel):
     ExecutablePath: str
     Id: str
     LastUpdatedAt: datetime
-    ReplicationStatuses: List[ReplicationStatusTypeDef]
-    RuntimeEnvironment: RuntimeEnvironmentTypeDef
+    ReplicationStatuses: List[ReplicationStatus]
+    RuntimeEnvironment: RuntimeEnvironment
     Status: ApplicationStatusType
     StatusReason: ApplicationStatusReasonType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStreamGroupOutputTypeDef(BaseValidatorModel):
+class CreateStreamGroupOutput(BaseValidatorModel):
     Arn: str
     AssociatedApplications: List[str]
     CreatedAt: datetime
-    DefaultApplication: DefaultApplicationTypeDef
+    DefaultApplication: DefaultApplication
     Description: str
     Id: str
     LastUpdatedAt: datetime
-    LocationStates: List[LocationStateTypeDef]
+    LocationStates: List[LocationState]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     StreamClass: StreamClassType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStreamGroupOutputTypeDef(BaseValidatorModel):
+class GetStreamGroupOutput(BaseValidatorModel):
     Arn: str
     AssociatedApplications: List[str]
     CreatedAt: datetime
-    DefaultApplication: DefaultApplicationTypeDef
+    DefaultApplication: DefaultApplication
     Description: str
     Id: str
     LastUpdatedAt: datetime
-    LocationStates: List[LocationStateTypeDef]
+    LocationStates: List[LocationState]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     StreamClass: StreamClassType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StreamGroupSummaryTypeDef(BaseValidatorModel):
+class StreamGroupSummary(BaseValidatorModel):
     Arn: str
     CreatedAt: Optional[datetime] = None
-    DefaultApplication: Optional[DefaultApplicationTypeDef] = None
+    DefaultApplication: Optional[DefaultApplication] = None
     Description: Optional[str] = None
     Id: Optional[str] = None
     LastUpdatedAt: Optional[datetime] = None
@@ -335,93 +335,93 @@ class StreamGroupSummaryTypeDef(BaseValidatorModel):
     StreamClass: Optional[StreamClassType] = None
 
 
-class UpdateStreamGroupOutputTypeDef(BaseValidatorModel):
+class UpdateStreamGroupOutput(BaseValidatorModel):
     Arn: str
     AssociatedApplications: List[str]
     CreatedAt: datetime
-    DefaultApplication: DefaultApplicationTypeDef
+    DefaultApplication: DefaultApplication
     Description: str
     Id: str
     LastUpdatedAt: datetime
-    LocationStates: List[LocationStateTypeDef]
+    LocationStates: List[LocationState]
     Status: StreamGroupStatusType
     StatusReason: StreamGroupStatusReasonType
     StreamClass: StreamClassType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApplicationInputWaitExtraTypeDef(BaseValidatorModel):
+class GetApplicationInputWaitExtra(BaseValidatorModel):
     Identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetApplicationInputWaitTypeDef(BaseValidatorModel):
+class GetApplicationInputWait(BaseValidatorModel):
     Identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetStreamGroupInputWaitExtraTypeDef(BaseValidatorModel):
+class GetStreamGroupInputWaitExtra(BaseValidatorModel):
     Identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetStreamGroupInputWaitTypeDef(BaseValidatorModel):
+class GetStreamGroupInputWait(BaseValidatorModel):
     Identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetStreamSessionInputWaitTypeDef(BaseValidatorModel):
+class GetStreamSessionInputWait(BaseValidatorModel):
     Identifier: str
     StreamSessionIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class ListApplicationsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamGroupsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListStreamGroupsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamSessionsByAccountInputPaginateTypeDef(BaseValidatorModel):
+class ListStreamSessionsByAccountInputPaginate(BaseValidatorModel):
     ExportFilesStatus: Optional[ExportFilesStatusType] = None
     Status: Optional[StreamSessionStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStreamSessionsInputPaginateTypeDef(BaseValidatorModel):
+class ListStreamSessionsInputPaginate(BaseValidatorModel):
     Identifier: str
     ExportFilesStatus: Optional[ExportFilesStatusType] = None
     Status: Optional[StreamSessionStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsOutputTypeDef(BaseValidatorModel):
-    Items: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsOutput(BaseValidatorModel):
+    Items: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStreamGroupsOutputTypeDef(BaseValidatorModel):
-    Items: List[StreamGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamGroupsOutput(BaseValidatorModel):
+    Items: List[StreamGroupSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StreamSessionSummaryTypeDef(BaseValidatorModel):
+class StreamSessionSummary(BaseValidatorModel):
     pass
 
 
-class ListStreamSessionsByAccountOutputTypeDef(BaseValidatorModel):
-    Items: List[StreamSessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamSessionsByAccountOutput(BaseValidatorModel):
+    Items: List[StreamSessionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListStreamSessionsOutputTypeDef(BaseValidatorModel):
-    Items: List[StreamSessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStreamSessionsOutput(BaseValidatorModel):
+    Items: List[StreamSessionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

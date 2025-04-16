@@ -1,17 +1,17 @@
 # Cloudsearch Classes
 
-# AccessPoliciesStatusTypeDef
+# AccessPoliciesStatus
 
 ### Options
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# AnalysisOptionsTypeDef
+# AnalysisOptions
 
 ### Synonyms
 - **Type**: typing.Optional[str]
@@ -29,18 +29,7 @@
 - **Type**: typing.Optional[typing.Literal['full', 'light', 'minimal', 'none']]
 
 
-# AnalysisSchemeStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# AnalysisSchemeTypeDef
+# AnalysisScheme
 
 ### AnalysisSchemeName
 - **Type**: <class 'str'>
@@ -51,17 +40,28 @@
 - **Required**: Yes
 
 ### AnalysisOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AvailabilityOptionsStatusTypeDef
+# AnalysisSchemeStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisScheme'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# AvailabilityOptionsStatus
 
 ### Options
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
@@ -71,43 +71,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BuildSuggestersRequestTypeDef
+# BuildSuggestersRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# BuildSuggestersResponseTypeDef
+# BuildSuggestersResponse
 
 ### FieldNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDomainRequestTypeDef
+# CreateDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateDomainResponseTypeDef
+# CreateDomainResponse
 
 ### DomainStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DateArrayOptionsTypeDef
+# DateArrayOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -125,7 +125,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DateOptionsTypeDef
+# DateOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -146,95 +146,95 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DefineAnalysisSchemeRequestTypeDef
+# DefineAnalysisSchemeRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AnalysisScheme
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisScheme'>
 - **Required**: Yes
 
 
-# DefineAnalysisSchemeResponseTypeDef
+# DefineAnalysisSchemeResponse
 
 ### AnalysisScheme
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DefineExpressionRequestTypeDef
+# DefineExpressionRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Expression
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.Expression'>
 - **Required**: Yes
 
 
-# DefineExpressionResponseTypeDef
+# DefineExpressionResponse
 
 ### Expression
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DefineIndexFieldRequestTypeDef
+# DefineIndexFieldRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IndexField
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexField'>
 - **Required**: Yes
 
 
-# DefineIndexFieldResponseTypeDef
+# DefineIndexFieldResponse
 
 ### IndexField
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DefineSuggesterRequestTypeDef
+# DefineSuggesterRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Suggester
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.Suggester'>
 - **Required**: Yes
 
 
-# DefineSuggesterResponseTypeDef
+# DefineSuggesterResponse
 
 ### Suggester
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAnalysisSchemeRequestTypeDef
+# DeleteAnalysisSchemeRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -245,36 +245,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteAnalysisSchemeResponseTypeDef
+# DeleteAnalysisSchemeResponse
 
 ### AnalysisScheme
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDomainRequestTypeDef
+# DeleteDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDomainResponseTypeDef
+# DeleteDomainResponse
 
 ### DomainStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteExpressionRequestTypeDef
+# DeleteExpressionRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -285,18 +285,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteExpressionResponseTypeDef
+# DeleteExpressionResponse
 
 ### Expression
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteIndexFieldRequestTypeDef
+# DeleteIndexFieldRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -307,18 +307,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIndexFieldResponseTypeDef
+# DeleteIndexFieldResponse
 
 ### IndexField
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSuggesterRequestTypeDef
+# DeleteSuggesterRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -329,18 +329,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSuggesterResponseTypeDef
+# DeleteSuggesterResponse
 
 ### Suggester
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAnalysisSchemesRequestTypeDef
+# DescribeAnalysisSchemesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -353,18 +353,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeAnalysisSchemesResponseTypeDef
+# DescribeAnalysisSchemesResponse
 
 ### AnalysisSchemes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.AnalysisSchemeStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAvailabilityOptionsRequestTypeDef
+# DescribeAvailabilityOptionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -374,18 +374,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeAvailabilityOptionsResponseTypeDef
+# DescribeAvailabilityOptionsResponse
 
 ### AvailabilityOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AvailabilityOptionsStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AvailabilityOptionsStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainEndpointOptionsRequestTypeDef
+# DescribeDomainEndpointOptionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -395,35 +395,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDomainEndpointOptionsResponseTypeDef
+# DescribeDomainEndpointOptionsResponse
 
 ### DomainEndpointOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainsRequestTypeDef
+# DescribeDomainsRequest
 
 ### DomainNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeDomainsResponseTypeDef
+# DescribeDomainsResponse
 
 ### DomainStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.DomainStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeExpressionsRequestTypeDef
+# DescribeExpressionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -436,18 +436,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeExpressionsResponseTypeDef
+# DescribeExpressionsResponse
 
 ### Expressions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeIndexFieldsRequestTypeDef
+# DescribeIndexFieldsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -460,36 +460,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeIndexFieldsResponseTypeDef
+# DescribeIndexFieldsResponse
 
 ### IndexFields
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeScalingParametersRequestTypeDef
+# DescribeScalingParametersRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeScalingParametersResponseTypeDef
+# DescribeScalingParametersResponse
 
 ### ScalingParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeServiceAccessPoliciesRequestTypeDef
+# DescribeServiceAccessPoliciesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -499,18 +499,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeServiceAccessPoliciesResponseTypeDef
+# DescribeServiceAccessPoliciesResponse
 
 ### AccessPolicies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AccessPoliciesStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AccessPoliciesStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSuggestersRequestTypeDef
+# DescribeSuggestersRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -523,18 +523,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeSuggestersResponseTypeDef
+# DescribeSuggestersResponse
 
 ### Suggesters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DocumentSuggesterOptionsTypeDef
+# DocumentSuggesterOptions
 
 ### SourceField
 - **Type**: <class 'str'>
@@ -547,18 +547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DomainEndpointOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# DomainEndpointOptionsTypeDef
+# DomainEndpointOptions
 
 ### EnforceHTTPS
 - **Type**: typing.Optional[bool]
@@ -567,7 +556,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Policy-Min-TLS-1-0-2019-07', 'Policy-Min-TLS-1-2-2019-07']]
 
 
-# DomainStatusTypeDef
+# DomainEndpointOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# DomainStatus
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -591,10 +591,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### DocService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.ServiceEndpointTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.ServiceEndpoint]
 
 ### SearchService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.ServiceEndpointTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.ServiceEndpoint]
 
 ### Processing
 - **Type**: typing.Optional[bool]
@@ -609,10 +609,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.LimitsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DoubleArrayOptionsTypeDef
+# DoubleArrayOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[float]
@@ -630,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DoubleOptionsTypeDef
+# DoubleOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[float]
@@ -651,18 +651,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ExpressionStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ExpressionTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# ExpressionTypeDef
+# Expression
 
 ### ExpressionName
 - **Type**: <class 'str'>
@@ -673,36 +662,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IndexDocumentsRequestTypeDef
+# ExpressionStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.Expression'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# IndexDocumentsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# IndexDocumentsResponseTypeDef
+# IndexDocumentsResponse
 
 ### FieldNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IndexFieldStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexFieldTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# IndexFieldTypeDef
+# IndexField
 
 ### IndexFieldName
 - **Type**: <class 'str'>
@@ -713,40 +702,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IntOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.IntOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DoubleOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.DoubleOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LiteralOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.LiteralOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TextOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.TextOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DateOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.DateOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LatLonOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.LatLonOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IntArrayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.IntArrayOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DoubleArrayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.DoubleArrayOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LiteralArrayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.LiteralArrayOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TextArrayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.TextArrayOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DateArrayOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudsearch_classes.DateArrayOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# IntArrayOptionsTypeDef
+# IndexFieldStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.IndexField'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# IntArrayOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[int]
@@ -764,7 +764,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# IntOptionsTypeDef
+# IntOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[int]
@@ -785,7 +785,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LatLonOptionsTypeDef
+# LatLonOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -806,7 +806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LimitsTypeDef
+# Limits
 
 ### MaximumReplicationCount
 - **Type**: <class 'int'>
@@ -817,18 +817,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListDomainNamesResponseTypeDef
+# ListDomainNamesResponse
 
 ### DomainNames
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LiteralArrayOptionsTypeDef
+# LiteralArrayOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -846,7 +846,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LiteralOptionsTypeDef
+# LiteralOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -867,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OptionStatusTypeDef
+# OptionStatus
 
 ### CreationDate
 - **Type**: <class 'datetime.datetime'>
@@ -888,7 +888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -910,18 +910,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScalingParametersStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# ScalingParametersTypeDef
+# ScalingParameters
 
 ### DesiredInstanceType
 - **Type**: typing.Optional[typing.Literal['search.2xlarge', 'search.large', 'search.m1.large', 'search.m1.small', 'search.m2.2xlarge', 'search.m2.xlarge', 'search.m3.2xlarge', 'search.m3.large', 'search.m3.medium', 'search.m3.xlarge', 'search.medium', 'search.previousgeneration.2xlarge', 'search.previousgeneration.large', 'search.previousgeneration.small', 'search.previousgeneration.xlarge', 'search.small', 'search.xlarge']]
@@ -933,35 +922,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ServiceEndpointTypeDef
+# ScalingParametersStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParameters'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# ServiceEndpoint
 
 ### Endpoint
 - **Type**: typing.Optional[str]
 
 
-# SuggesterStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.SuggesterTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# SuggesterTypeDef
+# Suggester
 
 ### SuggesterName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DocumentSuggesterOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DocumentSuggesterOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DocumentSuggesterOptions'>
 - **Required**: Yes
 
 
-# TextArrayOptionsTypeDef
+# SuggesterStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.Suggester'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# TextArrayOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -979,7 +979,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TextOptionsTypeDef
+# TextOptions
 
 ### DefaultValue
 - **Type**: typing.Optional[str]
@@ -1000,7 +1000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAvailabilityOptionsRequestTypeDef
+# UpdateAvailabilityOptionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1011,62 +1011,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAvailabilityOptionsResponseTypeDef
+# UpdateAvailabilityOptionsResponse
 
 ### AvailabilityOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AvailabilityOptionsStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AvailabilityOptionsStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDomainEndpointOptionsRequestTypeDef
+# UpdateDomainEndpointOptionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DomainEndpointOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptions'>
 - **Required**: Yes
 
 
-# UpdateDomainEndpointOptionsResponseTypeDef
+# UpdateDomainEndpointOptionsResponse
 
 ### DomainEndpointOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.DomainEndpointOptionsStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateScalingParametersRequestTypeDef
+# UpdateScalingParametersRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ScalingParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParameters'>
 - **Required**: Yes
 
 
-# UpdateScalingParametersResponseTypeDef
+# UpdateScalingParametersResponse
 
 ### ScalingParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ScalingParametersStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateServiceAccessPoliciesRequestTypeDef
+# UpdateServiceAccessPoliciesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1077,14 +1077,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServiceAccessPoliciesResponseTypeDef
+# UpdateServiceAccessPoliciesResponse
 
 ### AccessPolicies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AccessPoliciesStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.AccessPoliciesStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

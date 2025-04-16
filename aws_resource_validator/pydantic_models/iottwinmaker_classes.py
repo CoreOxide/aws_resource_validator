@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iottwinmaker_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,49 +20,49 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BundleInformationTypeDef(BaseValidatorModel):
+class BundleInformation(BaseValidatorModel):
     bundleNames: List[str]
     pricingTier: Optional[PricingTierType] = None
 
 
-class CancelMetadataTransferJobRequestTypeDef(BaseValidatorModel):
+class CancelMetadataTransferJobRequest(BaseValidatorModel):
     metadataTransferJobId: str
 
 
-class MetadataTransferJobProgressTypeDef(BaseValidatorModel):
+class MetadataTransferJobProgress(BaseValidatorModel):
     totalCount: Optional[int] = None
     succeededCount: Optional[int] = None
     skippedCount: Optional[int] = None
     failedCount: Optional[int] = None
 
 
-class ComponentPropertyGroupRequestTypeDef(BaseValidatorModel):
+class ComponentPropertyGroupRequest(BaseValidatorModel):
     groupType: Optional[Literal["TABULAR"]] = None
     propertyNames: Optional[Sequence[str]] = None
     updateType: Optional[PropertyGroupUpdateTypeType] = None
 
 
-class ComponentPropertyGroupResponseTypeDef(BaseValidatorModel):
+class ComponentPropertyGroupResponse(BaseValidatorModel):
     groupType: Literal["TABULAR"]
     propertyNames: List[str]
     isInherited: bool
 
 
-class CompositeComponentTypeRequestTypeDef(BaseValidatorModel):
+class CompositeComponentTypeRequest(BaseValidatorModel):
     componentTypeId: Optional[str] = None
 
 
-class CompositeComponentTypeResponseTypeDef(BaseValidatorModel):
+class CompositeComponentTypeResponse(BaseValidatorModel):
     componentTypeId: Optional[str] = None
     isInherited: Optional[bool] = None
 
 
-class PropertyGroupRequestTypeDef(BaseValidatorModel):
+class PropertyGroupRequest(BaseValidatorModel):
     groupType: Optional[Literal["TABULAR"]] = None
     propertyNames: Optional[Sequence[str]] = None
 
 
-class CreateSceneRequestTypeDef(BaseValidatorModel):
+class CreateSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
     contentLocation: str
@@ -72,14 +72,14 @@ class CreateSceneRequestTypeDef(BaseValidatorModel):
     sceneMetadata: Optional[Mapping[str, str]] = None
 
 
-class CreateSyncJobRequestTypeDef(BaseValidatorModel):
+class CreateSyncJobRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
     syncRole: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
+class CreateWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     description: Optional[str] = None
     s3Location: Optional[str] = None
@@ -87,54 +87,54 @@ class CreateWorkspaceRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class LambdaFunctionTypeDef(BaseValidatorModel):
+class LambdaFunction(BaseValidatorModel):
     arn: str
 
 
-class RelationshipTypeDef(BaseValidatorModel):
+class Relationship(BaseValidatorModel):
     targetComponentTypeId: Optional[str] = None
     relationshipType: Optional[str] = None
 
 
-class RelationshipValueTypeDef(BaseValidatorModel):
+class RelationshipValue(BaseValidatorModel):
     targetEntityId: Optional[str] = None
     targetComponentName: Optional[str] = None
 
 
-class DeleteComponentTypeRequestTypeDef(BaseValidatorModel):
+class DeleteComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
 
 
-class DeleteEntityRequestTypeDef(BaseValidatorModel):
+class DeleteEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
     isRecursive: Optional[bool] = None
 
 
-class DeleteSceneRequestTypeDef(BaseValidatorModel):
+class DeleteSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
 
 
-class DeleteSyncJobRequestTypeDef(BaseValidatorModel):
+class DeleteSyncJobRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
 
 
-class DeleteWorkspaceRequestTypeDef(BaseValidatorModel):
+class DeleteWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class IotTwinMakerDestinationConfigurationTypeDef(BaseValidatorModel):
+class IotTwinMakerDestinationConfiguration(BaseValidatorModel):
     workspace: str
 
 
-class S3DestinationConfigurationTypeDef(BaseValidatorModel):
+class S3DestinationConfiguration(BaseValidatorModel):
     location: str
 
 
-class EntityPropertyReferenceOutputTypeDef(BaseValidatorModel):
+class EntityPropertyReferenceOutput(BaseValidatorModel):
     propertyName: str
     componentName: Optional[str] = None
     componentPath: Optional[str] = None
@@ -142,7 +142,7 @@ class EntityPropertyReferenceOutputTypeDef(BaseValidatorModel):
     entityId: Optional[str] = None
 
 
-class EntityPropertyReferenceTypeDef(BaseValidatorModel):
+class EntityPropertyReference(BaseValidatorModel):
     propertyName: str
     componentName: Optional[str] = None
     componentPath: Optional[str] = None
@@ -150,95 +150,95 @@ class EntityPropertyReferenceTypeDef(BaseValidatorModel):
     entityId: Optional[str] = None
 
 
-class ErrorDetailsTypeDef(BaseValidatorModel):
+class ErrorDetails(BaseValidatorModel):
     code: Optional[ErrorCodeType] = None
     message: Optional[str] = None
 
 
-class ExecuteQueryRequestTypeDef(BaseValidatorModel):
+class ExecuteQueryRequest(BaseValidatorModel):
     workspaceId: str
     queryStatement: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class RowTypeDef(BaseValidatorModel):
+class Row(BaseValidatorModel):
     rowData: Optional[List[Dict[str, Any]]] = None
 
 
-class FilterByAssetModelTypeDef(BaseValidatorModel):
+class FilterByAssetModel(BaseValidatorModel):
     assetModelId: Optional[str] = None
     assetModelExternalId: Optional[str] = None
     includeOffspring: Optional[bool] = None
     includeAssets: Optional[bool] = None
 
 
-class FilterByAssetTypeDef(BaseValidatorModel):
+class FilterByAsset(BaseValidatorModel):
     assetId: Optional[str] = None
     assetExternalId: Optional[str] = None
     includeOffspring: Optional[bool] = None
     includeAssetModel: Optional[bool] = None
 
 
-class FilterByComponentTypeTypeDef(BaseValidatorModel):
+class FilterByComponentType(BaseValidatorModel):
     componentTypeId: str
 
 
-class FilterByEntityTypeDef(BaseValidatorModel):
+class FilterByEntity(BaseValidatorModel):
     entityId: str
 
 
-class GetComponentTypeRequestTypeDef(BaseValidatorModel):
+class GetComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
 
 
-class PropertyGroupResponseTypeDef(BaseValidatorModel):
+class PropertyGroupResponse(BaseValidatorModel):
     groupType: Literal["TABULAR"]
     propertyNames: List[str]
     isInherited: bool
 
 
-class GetEntityRequestTypeDef(BaseValidatorModel):
+class GetEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
 
 
-class GetMetadataTransferJobRequestTypeDef(BaseValidatorModel):
+class GetMetadataTransferJobRequest(BaseValidatorModel):
     metadataTransferJobId: str
 
 
-class InterpolationParametersTypeDef(BaseValidatorModel):
+class InterpolationParameters(BaseValidatorModel):
     interpolationType: Optional[Literal["LINEAR"]] = None
     intervalInSeconds: Optional[int] = None
 
 
-class GetSceneRequestTypeDef(BaseValidatorModel):
+class GetSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
 
 
-class SceneErrorTypeDef(BaseValidatorModel):
+class SceneError(BaseValidatorModel):
     code: Optional[Literal["MATTERPORT_ERROR"]] = None
     message: Optional[str] = None
 
 
-class GetSyncJobRequestTypeDef(BaseValidatorModel):
+class GetSyncJobRequest(BaseValidatorModel):
     syncSource: str
     workspaceId: Optional[str] = None
 
 
-class GetWorkspaceRequestTypeDef(BaseValidatorModel):
+class GetWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
 
 
-class ListComponentTypesFilterTypeDef(BaseValidatorModel):
+class ListComponentTypesFilter(BaseValidatorModel):
     extendsFrom: Optional[str] = None
     namespace: Optional[str] = None
     isAbstract: Optional[bool] = None
 
 
-class ListComponentsRequestTypeDef(BaseValidatorModel):
+class ListComponentsRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
     componentPath: Optional[str] = None
@@ -246,18 +246,18 @@ class ListComponentsRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListEntitiesFilterTypeDef(BaseValidatorModel):
+class ListEntitiesFilter(BaseValidatorModel):
     parentEntityId: Optional[str] = None
     componentTypeId: Optional[str] = None
     externalId: Optional[str] = None
 
 
-class ListMetadataTransferJobsFilterTypeDef(BaseValidatorModel):
+class ListMetadataTransferJobsFilter(BaseValidatorModel):
     workspaceId: Optional[str] = None
     state: Optional[MetadataTransferJobStateType] = None
 
 
-class ListPropertiesRequestTypeDef(BaseValidatorModel):
+class ListPropertiesRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
     componentName: Optional[str] = None
@@ -266,13 +266,13 @@ class ListPropertiesRequestTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListScenesRequestTypeDef(BaseValidatorModel):
+class ListScenesRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SceneSummaryTypeDef(BaseValidatorModel):
+class SceneSummary(BaseValidatorModel):
     sceneId: str
     contentLocation: str
     arn: str
@@ -281,31 +281,31 @@ class SceneSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class ListSyncJobsRequestTypeDef(BaseValidatorModel):
+class ListSyncJobsRequest(BaseValidatorModel):
     workspaceId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SyncResourceFilterTypeDef(BaseValidatorModel):
+class SyncResourceFilter(BaseValidatorModel):
     state: Optional[SyncResourceStateType] = None
     resourceType: Optional[SyncResourceTypeType] = None
     resourceId: Optional[str] = None
     externalId: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkspacesRequestTypeDef(BaseValidatorModel):
+class ListWorkspacesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class WorkspaceSummaryTypeDef(BaseValidatorModel):
+class WorkspaceSummary(BaseValidatorModel):
     workspaceId: str
     arn: str
     creationDateTime: datetime
@@ -314,36 +314,36 @@ class WorkspaceSummaryTypeDef(BaseValidatorModel):
     linkedServices: Optional[List[str]] = None
 
 
-class OrderByTypeDef(BaseValidatorModel):
+class OrderBy(BaseValidatorModel):
     propertyName: str
     order: Optional[OrderType] = None
 
 
-class ParentEntityUpdateRequestTypeDef(BaseValidatorModel):
+class ParentEntityUpdateRequest(BaseValidatorModel):
     updateType: ParentEntityUpdateTypeType
     parentEntityId: Optional[str] = None
 
 
-class S3SourceConfigurationTypeDef(BaseValidatorModel):
+class S3SourceConfiguration(BaseValidatorModel):
     location: str
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
 
-class UpdatePricingPlanRequestTypeDef(BaseValidatorModel):
+class UpdatePricingPlanRequest(BaseValidatorModel):
     pricingMode: PricingModeType
     bundleNames: Optional[Sequence[str]] = None
 
 
-class UpdateSceneRequestTypeDef(BaseValidatorModel):
+class UpdateSceneRequest(BaseValidatorModel):
     workspaceId: str
     sceneId: str
     contentLocation: Optional[str] = None
@@ -352,68 +352,68 @@ class UpdateSceneRequestTypeDef(BaseValidatorModel):
     sceneMetadata: Optional[Mapping[str, str]] = None
 
 
-class UpdateWorkspaceRequestTypeDef(BaseValidatorModel):
+class UpdateWorkspaceRequest(BaseValidatorModel):
     workspaceId: str
     description: Optional[str] = None
     role: Optional[str] = None
     s3Location: Optional[str] = None
 
 
-class CreateComponentTypeResponseTypeDef(BaseValidatorModel):
+class CreateComponentTypeResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEntityResponseTypeDef(BaseValidatorModel):
+class CreateEntityResponse(BaseValidatorModel):
     entityId: str
     arn: str
     creationDateTime: datetime
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSceneResponseTypeDef(BaseValidatorModel):
+class CreateSceneResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSyncJobResponseTypeDef(BaseValidatorModel):
+class CreateSyncJobResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
     state: SyncJobStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkspaceResponseTypeDef(BaseValidatorModel):
+class CreateWorkspaceResponse(BaseValidatorModel):
     arn: str
     creationDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteComponentTypeResponseTypeDef(BaseValidatorModel):
+class DeleteComponentTypeResponse(BaseValidatorModel):
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteEntityResponseTypeDef(BaseValidatorModel):
+class DeleteEntityResponse(BaseValidatorModel):
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSyncJobResponseTypeDef(BaseValidatorModel):
+class DeleteSyncJobResponse(BaseValidatorModel):
     state: SyncJobStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkspaceResponseTypeDef(BaseValidatorModel):
+class DeleteWorkspaceResponse(BaseValidatorModel):
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetWorkspaceResponseTypeDef(BaseValidatorModel):
+class GetWorkspaceResponse(BaseValidatorModel):
     workspaceId: str
     arn: str
     description: str
@@ -422,49 +422,49 @@ class GetWorkspaceResponseTypeDef(BaseValidatorModel):
     role: str
     creationDateTime: datetime
     updateDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateComponentTypeResponseTypeDef(BaseValidatorModel):
+class UpdateComponentTypeResponse(BaseValidatorModel):
     workspaceId: str
     arn: str
     componentTypeId: str
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEntityResponseTypeDef(BaseValidatorModel):
+class UpdateEntityResponse(BaseValidatorModel):
     updateDateTime: datetime
     state: StateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSceneResponseTypeDef(BaseValidatorModel):
+class UpdateSceneResponse(BaseValidatorModel):
     updateDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWorkspaceResponseTypeDef(BaseValidatorModel):
+class UpdateWorkspaceResponse(BaseValidatorModel):
     updateDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PricingPlanTypeDef(BaseValidatorModel):
+class PricingPlan(BaseValidatorModel):
     effectiveDateTime: datetime
     pricingMode: PricingModeType
     updateDateTime: datetime
     updateReason: UpdateReasonType
     billableEntityCount: Optional[int] = None
-    bundleInformation: Optional[BundleInformationTypeDef] = None
+    bundleInformation: Optional[BundleInformation] = None
 
 
-class DataValueOutputTypeDef(BaseValidatorModel):
+class DataValueOutput(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     integerValue: Optional[int] = None
@@ -472,11 +472,11 @@ class DataValueOutputTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
     listValue: Optional[List[Dict[str, Any]]] = None
     mapValue: Optional[Dict[str, Dict[str, Any]]] = None
-    relationshipValue: Optional[RelationshipValueTypeDef] = None
+    relationshipValue: Optional[RelationshipValue] = None
     expression: Optional[str] = None
 
 
-class DataValueTypeDef(BaseValidatorModel):
+class DataValue(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     integerValue: Optional[int] = None
@@ -484,53 +484,53 @@ class DataValueTypeDef(BaseValidatorModel):
     stringValue: Optional[str] = None
     listValue: Optional[Sequence[Mapping[str, Any]]] = None
     mapValue: Optional[Mapping[str, Mapping[str, Any]]] = None
-    relationshipValue: Optional[RelationshipValueTypeDef] = None
+    relationshipValue: Optional[RelationshipValue] = None
     expression: Optional[str] = None
 
 
-class MetadataTransferJobStatusTypeDef(BaseValidatorModel):
+class MetadataTransferJobStatus(BaseValidatorModel):
     state: Optional[MetadataTransferJobStateType] = None
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
     queuedPosition: Optional[int] = None
 
 
-class StatusTypeDef(BaseValidatorModel):
+class Status(BaseValidatorModel):
     state: Optional[StateType] = None
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class SyncJobStatusTypeDef(BaseValidatorModel):
+class SyncJobStatus(BaseValidatorModel):
     state: Optional[SyncJobStateType] = None
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class SyncResourceStatusTypeDef(BaseValidatorModel):
+class SyncResourceStatus(BaseValidatorModel):
     state: Optional[SyncResourceStateType] = None
-    error: Optional[ErrorDetailsTypeDef] = None
+    error: Optional[ErrorDetails] = None
 
 
-class ColumnDescriptionTypeDef(BaseValidatorModel):
+class ColumnDescription(BaseValidatorModel):
     pass
 
 
-class ExecuteQueryResponseTypeDef(BaseValidatorModel):
-    columnDescriptions: List[ColumnDescriptionTypeDef]
-    rows: List[RowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteQueryResponse(BaseValidatorModel):
+    columnDescriptions: List[ColumnDescription]
+    rows: List[Row]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IotSiteWiseSourceConfigurationFilterTypeDef(BaseValidatorModel):
-    filterByAssetModel: Optional[FilterByAssetModelTypeDef] = None
-    filterByAsset: Optional[FilterByAssetTypeDef] = None
+class IotSiteWiseSourceConfigurationFilter(BaseValidatorModel):
+    filterByAssetModel: Optional[FilterByAssetModel] = None
+    filterByAsset: Optional[FilterByAsset] = None
 
 
-class IotTwinMakerSourceConfigurationFilterTypeDef(BaseValidatorModel):
-    filterByComponentType: Optional[FilterByComponentTypeTypeDef] = None
-    filterByEntity: Optional[FilterByEntityTypeDef] = None
+class IotTwinMakerSourceConfigurationFilter(BaseValidatorModel):
+    filterByComponentType: Optional[FilterByComponentType] = None
+    filterByEntity: Optional[FilterByEntity] = None
 
 
-class GetSceneResponseTypeDef(BaseValidatorModel):
+class GetSceneResponse(BaseValidatorModel):
     workspaceId: str
     sceneId: str
     contentLocation: str
@@ -541,144 +541,144 @@ class GetSceneResponseTypeDef(BaseValidatorModel):
     capabilities: List[str]
     sceneMetadata: Dict[str, str]
     generatedSceneMetadata: Dict[str, str]
-    error: SceneErrorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    error: SceneError
+    ResponseMetadata: ResponseMetadata
 
 
-class ListComponentTypesRequestTypeDef(BaseValidatorModel):
+class ListComponentTypesRequest(BaseValidatorModel):
     workspaceId: str
-    filters: Optional[Sequence[ListComponentTypesFilterTypeDef]] = None
+    filters: Optional[Sequence[ListComponentTypesFilter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListEntitiesRequestTypeDef(BaseValidatorModel):
+class ListEntitiesRequest(BaseValidatorModel):
     workspaceId: str
-    filters: Optional[Sequence[ListEntitiesFilterTypeDef]] = None
+    filters: Optional[Sequence[ListEntitiesFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListMetadataTransferJobsRequestTypeDef(BaseValidatorModel):
+class ListMetadataTransferJobsRequest(BaseValidatorModel):
     sourceType: SourceTypeType
     destinationType: DestinationTypeType
-    filters: Optional[Sequence[ListMetadataTransferJobsFilterTypeDef]] = None
+    filters: Optional[Sequence[ListMetadataTransferJobsFilter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListScenesResponseTypeDef(BaseValidatorModel):
-    sceneSummaries: List[SceneSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListScenesResponse(BaseValidatorModel):
+    sceneSummaries: List[SceneSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSyncResourcesRequestTypeDef(BaseValidatorModel):
+class ListSyncResourcesRequest(BaseValidatorModel):
     workspaceId: str
     syncSource: str
-    filters: Optional[Sequence[SyncResourceFilterTypeDef]] = None
+    filters: Optional[Sequence[SyncResourceFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListWorkspacesResponseTypeDef(BaseValidatorModel):
-    workspaceSummaries: List[WorkspaceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkspacesResponse(BaseValidatorModel):
+    workspaceSummaries: List[WorkspaceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetPricingPlanResponseTypeDef(BaseValidatorModel):
-    currentPricingPlan: PricingPlanTypeDef
-    pendingPricingPlan: PricingPlanTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPricingPlanResponse(BaseValidatorModel):
+    currentPricingPlan: PricingPlan
+    pendingPricingPlan: PricingPlan
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePricingPlanResponseTypeDef(BaseValidatorModel):
-    currentPricingPlan: PricingPlanTypeDef
-    pendingPricingPlan: PricingPlanTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePricingPlanResponse(BaseValidatorModel):
+    currentPricingPlan: PricingPlan
+    pendingPricingPlan: PricingPlan
+    ResponseMetadata: ResponseMetadata
 
 
-class DataConnectorTypeDef(BaseValidatorModel):
+class DataConnector(BaseValidatorModel):
     pass
 
 
-class FunctionRequestTypeDef(BaseValidatorModel):
+class FunctionRequest(BaseValidatorModel):
     requiredProperties: Optional[Sequence[str]] = None
     scope: Optional[ScopeType] = None
-    implementedBy: Optional[DataConnectorTypeDef] = None
+    implementedBy: Optional[DataConnector] = None
 
 
-class FunctionResponseTypeDef(BaseValidatorModel):
+class FunctionResponse(BaseValidatorModel):
     requiredProperties: Optional[List[str]] = None
     scope: Optional[ScopeType] = None
-    implementedBy: Optional[DataConnectorTypeDef] = None
+    implementedBy: Optional[DataConnector] = None
     isInherited: Optional[bool] = None
 
 
-class PropertyLatestValueTypeDef(BaseValidatorModel):
-    propertyReference: EntityPropertyReferenceOutputTypeDef
-    propertyValue: Optional[DataValueOutputTypeDef] = None
+class PropertyLatestValue(BaseValidatorModel):
+    propertyReference: EntityPropertyReferenceOutput
+    propertyValue: Optional[DataValueOutput] = None
 
 
-class PropertyValueOutputTypeDef(BaseValidatorModel):
-    value: DataValueOutputTypeDef
+class PropertyValueOutput(BaseValidatorModel):
+    value: DataValueOutput
     timestamp: Optional[datetime] = None
     time: Optional[str] = None
 
 
-class CancelMetadataTransferJobResponseTypeDef(BaseValidatorModel):
+class CancelMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
     updateDateTime: datetime
-    status: MetadataTransferJobStatusTypeDef
-    progress: MetadataTransferJobProgressTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: MetadataTransferJobStatus
+    progress: MetadataTransferJobProgress
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMetadataTransferJobResponseTypeDef(BaseValidatorModel):
+class CreateMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
     creationDateTime: datetime
-    status: MetadataTransferJobStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: MetadataTransferJobStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class MetadataTransferJobSummaryTypeDef(BaseValidatorModel):
+class MetadataTransferJobSummary(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
     creationDateTime: datetime
     updateDateTime: datetime
-    status: MetadataTransferJobStatusTypeDef
-    progress: Optional[MetadataTransferJobProgressTypeDef] = None
+    status: MetadataTransferJobStatus
+    progress: Optional[MetadataTransferJobProgress] = None
 
 
-class ComponentSummaryTypeDef(BaseValidatorModel):
+class ComponentSummary(BaseValidatorModel):
     componentName: str
     componentTypeId: str
-    status: StatusTypeDef
+    status: Status
     definedIn: Optional[str] = None
     description: Optional[str] = None
-    propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponseTypeDef]] = None
+    propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponse]] = None
     syncSource: Optional[str] = None
     componentPath: Optional[str] = None
 
 
-class ComponentTypeSummaryTypeDef(BaseValidatorModel):
+class ComponentTypeSummary(BaseValidatorModel):
     arn: str
     componentTypeId: str
     creationDateTime: datetime
     updateDateTime: datetime
     description: Optional[str] = None
-    status: Optional[StatusTypeDef] = None
+    status: Optional[Status] = None
     componentTypeName: Optional[str] = None
 
 
-class EntitySummaryTypeDef(BaseValidatorModel):
+class EntitySummary(BaseValidatorModel):
     entityId: str
     entityName: str
     arn: str
-    status: StatusTypeDef
+    status: Status
     creationDateTime: datetime
     updateDateTime: datetime
     parentEntityId: Optional[str] = None
@@ -686,58 +686,58 @@ class EntitySummaryTypeDef(BaseValidatorModel):
     hasChildEntities: Optional[bool] = None
 
 
-class GetSyncJobResponseTypeDef(BaseValidatorModel):
+class GetSyncJobResponse(BaseValidatorModel):
     arn: str
     workspaceId: str
     syncSource: str
     syncRole: str
-    status: SyncJobStatusTypeDef
+    status: SyncJobStatus
     creationDateTime: datetime
     updateDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SyncJobSummaryTypeDef(BaseValidatorModel):
+class SyncJobSummary(BaseValidatorModel):
     arn: Optional[str] = None
     workspaceId: Optional[str] = None
     syncSource: Optional[str] = None
-    status: Optional[SyncJobStatusTypeDef] = None
+    status: Optional[SyncJobStatus] = None
     creationDateTime: Optional[datetime] = None
     updateDateTime: Optional[datetime] = None
 
 
-class SyncResourceSummaryTypeDef(BaseValidatorModel):
+class SyncResourceSummary(BaseValidatorModel):
     resourceType: Optional[SyncResourceTypeType] = None
     externalId: Optional[str] = None
     resourceId: Optional[str] = None
-    status: Optional[SyncResourceStatusTypeDef] = None
+    status: Optional[SyncResourceStatus] = None
     updateDateTime: Optional[datetime] = None
 
 
-class IotSiteWiseSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    filters: Optional[List[IotSiteWiseSourceConfigurationFilterTypeDef]] = None
+class IotSiteWiseSourceConfigurationOutput(BaseValidatorModel):
+    filters: Optional[List[IotSiteWiseSourceConfigurationFilter]] = None
 
 
-class IotSiteWiseSourceConfigurationTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[IotSiteWiseSourceConfigurationFilterTypeDef]] = None
+class IotSiteWiseSourceConfiguration(BaseValidatorModel):
+    filters: Optional[Sequence[IotSiteWiseSourceConfigurationFilter]] = None
 
 
-class IotTwinMakerSourceConfigurationOutputTypeDef(BaseValidatorModel):
+class IotTwinMakerSourceConfigurationOutput(BaseValidatorModel):
     workspace: str
-    filters: Optional[List[IotTwinMakerSourceConfigurationFilterTypeDef]] = None
+    filters: Optional[List[IotTwinMakerSourceConfigurationFilter]] = None
 
 
-class IotTwinMakerSourceConfigurationTypeDef(BaseValidatorModel):
+class IotTwinMakerSourceConfiguration(BaseValidatorModel):
     workspace: str
-    filters: Optional[Sequence[IotTwinMakerSourceConfigurationFilterTypeDef]] = None
+    filters: Optional[Sequence[IotTwinMakerSourceConfigurationFilter]] = None
 
 
-class DataTypeOutputTypeDef(BaseValidatorModel):
+class DataTypeOutput(BaseValidatorModel):
     pass
 
 
-class PropertyDefinitionResponseTypeDef(BaseValidatorModel):
-    dataType: DataTypeOutputTypeDef
+class PropertyDefinitionResponse(BaseValidatorModel):
+    dataType: DataTypeOutput
     isTimeSeries: bool
     isRequiredInEntity: bool
     isExternalId: bool
@@ -745,141 +745,141 @@ class PropertyDefinitionResponseTypeDef(BaseValidatorModel):
     isImported: bool
     isFinal: bool
     isInherited: bool
-    defaultValue: Optional[DataValueOutputTypeDef] = None
+    defaultValue: Optional[DataValueOutput] = None
     configuration: Optional[Dict[str, str]] = None
     displayName: Optional[str] = None
 
 
-class GetPropertyValueResponseTypeDef(BaseValidatorModel):
-    propertyValues: Dict[str, PropertyLatestValueTypeDef]
-    tabularPropertyValues: List[List[Dict[str, DataValueOutputTypeDef]]]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPropertyValueResponse(BaseValidatorModel):
+    propertyValues: Dict[str, PropertyLatestValue]
+    tabularPropertyValues: List[List[Dict[str, DataValueOutput]]]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PropertyValueEntryOutputTypeDef(BaseValidatorModel):
-    entityPropertyReference: EntityPropertyReferenceOutputTypeDef
-    propertyValues: Optional[List[PropertyValueOutputTypeDef]] = None
+class PropertyValueEntryOutput(BaseValidatorModel):
+    entityPropertyReference: EntityPropertyReferenceOutput
+    propertyValues: Optional[List[PropertyValueOutput]] = None
 
 
-class PropertyValueHistoryTypeDef(BaseValidatorModel):
-    entityPropertyReference: EntityPropertyReferenceOutputTypeDef
-    values: Optional[List[PropertyValueOutputTypeDef]] = None
+class PropertyValueHistory(BaseValidatorModel):
+    entityPropertyReference: EntityPropertyReferenceOutput
+    values: Optional[List[PropertyValueOutput]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DataValueUnionTypeDef(BaseValidatorModel):
+class DataValueUnion(BaseValidatorModel):
     pass
 
 
-class PropertyValueTypeDef(BaseValidatorModel):
-    value: DataValueUnionTypeDef
-    timestamp: Optional[TimestampTypeDef] = None
+class PropertyValue(BaseValidatorModel):
+    value: DataValueUnion
+    timestamp: Optional[Timestamp] = None
     time: Optional[str] = None
 
 
-class ListMetadataTransferJobsResponseTypeDef(BaseValidatorModel):
-    metadataTransferJobSummaries: List[MetadataTransferJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMetadataTransferJobsResponse(BaseValidatorModel):
+    metadataTransferJobSummaries: List[MetadataTransferJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListComponentsResponseTypeDef(BaseValidatorModel):
-    componentSummaries: List[ComponentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComponentsResponse(BaseValidatorModel):
+    componentSummaries: List[ComponentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListComponentTypesResponseTypeDef(BaseValidatorModel):
+class ListComponentTypesResponse(BaseValidatorModel):
     workspaceId: str
-    componentTypeSummaries: List[ComponentTypeSummaryTypeDef]
+    componentTypeSummaries: List[ComponentTypeSummary]
     maxResults: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEntitiesResponseTypeDef(BaseValidatorModel):
-    entitySummaries: List[EntitySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntitiesResponse(BaseValidatorModel):
+    entitySummaries: List[EntitySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSyncJobsResponseTypeDef(BaseValidatorModel):
-    syncJobSummaries: List[SyncJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSyncJobsResponse(BaseValidatorModel):
+    syncJobSummaries: List[SyncJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSyncResourcesResponseTypeDef(BaseValidatorModel):
-    syncResources: List[SyncResourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSyncResourcesResponse(BaseValidatorModel):
+    syncResources: List[SyncResourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetComponentTypeResponseTypeDef(BaseValidatorModel):
+class GetComponentTypeResponse(BaseValidatorModel):
     workspaceId: str
     isSingleton: bool
     componentTypeId: str
     description: str
-    propertyDefinitions: Dict[str, PropertyDefinitionResponseTypeDef]
+    propertyDefinitions: Dict[str, PropertyDefinitionResponse]
     extendsFrom: List[str]
-    functions: Dict[str, FunctionResponseTypeDef]
+    functions: Dict[str, FunctionResponse]
     creationDateTime: datetime
     updateDateTime: datetime
     arn: str
     isAbstract: bool
     isSchemaInitialized: bool
-    status: StatusTypeDef
-    propertyGroups: Dict[str, PropertyGroupResponseTypeDef]
+    status: Status
+    propertyGroups: Dict[str, PropertyGroupResponse]
     syncSource: str
     componentTypeName: str
-    compositeComponentTypes: Dict[str, CompositeComponentTypeResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    compositeComponentTypes: Dict[str, CompositeComponentTypeResponse]
+    ResponseMetadata: ResponseMetadata
 
 
-class PropertyResponseTypeDef(BaseValidatorModel):
-    definition: Optional[PropertyDefinitionResponseTypeDef] = None
-    value: Optional[DataValueOutputTypeDef] = None
+class PropertyResponse(BaseValidatorModel):
+    definition: Optional[PropertyDefinitionResponse] = None
+    value: Optional[DataValueOutput] = None
     areAllPropertyValuesReturned: Optional[bool] = None
 
 
-class PropertySummaryTypeDef(BaseValidatorModel):
+class PropertySummary(BaseValidatorModel):
     propertyName: str
-    definition: Optional[PropertyDefinitionResponseTypeDef] = None
-    value: Optional[DataValueOutputTypeDef] = None
+    definition: Optional[PropertyDefinitionResponse] = None
+    value: Optional[DataValueOutput] = None
     areAllPropertyValuesReturned: Optional[bool] = None
 
 
-class BatchPutPropertyErrorTypeDef(BaseValidatorModel):
+class BatchPutPropertyError(BaseValidatorModel):
     errorCode: str
     errorMessage: str
-    entry: PropertyValueEntryOutputTypeDef
+    entry: PropertyValueEntryOutput
 
 
-class GetPropertyValueHistoryResponseTypeDef(BaseValidatorModel):
-    propertyValues: List[PropertyValueHistoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPropertyValueHistoryResponse(BaseValidatorModel):
+    propertyValues: List[PropertyValueHistory]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PropertyFilterTypeDef(BaseValidatorModel):
+class PropertyFilter(BaseValidatorModel):
     pass
 
 
-class GetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
+class GetPropertyValueHistoryRequest(BaseValidatorModel):
     workspaceId: str
     selectedProperties: Sequence[str]
     entityId: Optional[str] = None
     componentName: Optional[str] = None
     componentPath: Optional[str] = None
     componentTypeId: Optional[str] = None
-    propertyFilters: Optional[Sequence[PropertyFilterTypeDef]] = None
-    startDateTime: Optional[TimestampTypeDef] = None
-    endDateTime: Optional[TimestampTypeDef] = None
-    interpolation: Optional[InterpolationParametersTypeDef] = None
+    propertyFilters: Optional[Sequence[PropertyFilter]] = None
+    startDateTime: Optional[Timestamp] = None
+    endDateTime: Optional[Timestamp] = None
+    interpolation: Optional[InterpolationParameters] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     orderByTime: Optional[OrderByTimeType] = None
@@ -887,74 +887,74 @@ class GetPropertyValueHistoryRequestTypeDef(BaseValidatorModel):
     endTime: Optional[str] = None
 
 
-class TabularConditionsTypeDef(BaseValidatorModel):
-    orderBy: Optional[Sequence[OrderByTypeDef]] = None
-    propertyFilters: Optional[Sequence[PropertyFilterTypeDef]] = None
+class TabularConditions(BaseValidatorModel):
+    orderBy: Optional[Sequence[OrderBy]] = None
+    propertyFilters: Optional[Sequence[PropertyFilter]] = None
 
 
-class SourceConfigurationOutputTypeDef(BaseValidatorModel):
+class SourceConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class DestinationConfigurationTypeDef(BaseValidatorModel):
+class DestinationConfiguration(BaseValidatorModel):
     pass
 
 
-class GetMetadataTransferJobResponseTypeDef(BaseValidatorModel):
+class GetMetadataTransferJobResponse(BaseValidatorModel):
     metadataTransferJobId: str
     arn: str
     description: str
-    sources: List[SourceConfigurationOutputTypeDef]
-    destination: DestinationConfigurationTypeDef
+    sources: List[SourceConfigurationOutput]
+    destination: DestinationConfiguration
     metadataTransferJobRole: str
     reportUrl: str
     creationDateTime: datetime
     updateDateTime: datetime
-    status: MetadataTransferJobStatusTypeDef
-    progress: MetadataTransferJobProgressTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: MetadataTransferJobStatus
+    progress: MetadataTransferJobProgress
+    ResponseMetadata: ResponseMetadata
 
 
-class ComponentResponseTypeDef(BaseValidatorModel):
+class ComponentResponse(BaseValidatorModel):
     componentName: Optional[str] = None
     description: Optional[str] = None
     componentTypeId: Optional[str] = None
-    status: Optional[StatusTypeDef] = None
+    status: Optional[Status] = None
     definedIn: Optional[str] = None
-    properties: Optional[Dict[str, PropertyResponseTypeDef]] = None
-    propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponseTypeDef]] = None
+    properties: Optional[Dict[str, PropertyResponse]] = None
+    propertyGroups: Optional[Dict[str, ComponentPropertyGroupResponse]] = None
     syncSource: Optional[str] = None
     areAllPropertiesReturned: Optional[bool] = None
-    compositeComponents: Optional[Dict[str, ComponentSummaryTypeDef]] = None
+    compositeComponents: Optional[Dict[str, ComponentSummary]] = None
     areAllCompositeComponentsReturned: Optional[bool] = None
 
 
-class ListPropertiesResponseTypeDef(BaseValidatorModel):
-    propertySummaries: List[PropertySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPropertiesResponse(BaseValidatorModel):
+    propertySummaries: List[PropertySummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchPutPropertyErrorEntryTypeDef(BaseValidatorModel):
-    errors: List[BatchPutPropertyErrorTypeDef]
+class BatchPutPropertyErrorEntry(BaseValidatorModel):
+    errors: List[BatchPutPropertyError]
 
 
-class DataTypeUnionTypeDef(BaseValidatorModel):
+class DataTypeUnion(BaseValidatorModel):
     pass
 
 
-class PropertyDefinitionRequestTypeDef(BaseValidatorModel):
-    dataType: Optional[DataTypeUnionTypeDef] = None
+class PropertyDefinitionRequest(BaseValidatorModel):
+    dataType: Optional[DataTypeUnion] = None
     isRequiredInEntity: Optional[bool] = None
     isExternalId: Optional[bool] = None
     isStoredExternally: Optional[bool] = None
     isTimeSeries: Optional[bool] = None
-    defaultValue: Optional[DataValueUnionTypeDef] = None
+    defaultValue: Optional[DataValueUnion] = None
     configuration: Optional[Mapping[str, str]] = None
     displayName: Optional[str] = None
 
 
-class GetPropertyValueRequestTypeDef(BaseValidatorModel):
+class GetPropertyValueRequest(BaseValidatorModel):
     selectedProperties: Sequence[str]
     workspaceId: str
     componentName: Optional[str] = None
@@ -964,143 +964,143 @@ class GetPropertyValueRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     propertyGroupName: Optional[str] = None
-    tabularConditions: Optional[TabularConditionsTypeDef] = None
+    tabularConditions: Optional[TabularConditions] = None
 
 
-class EntityPropertyReferenceUnionTypeDef(BaseValidatorModel):
+class EntityPropertyReferenceUnion(BaseValidatorModel):
     pass
 
 
-class PropertyValueUnionTypeDef(BaseValidatorModel):
+class PropertyValueUnion(BaseValidatorModel):
     pass
 
 
-class PropertyValueEntryTypeDef(BaseValidatorModel):
-    entityPropertyReference: EntityPropertyReferenceUnionTypeDef
-    propertyValues: Optional[Sequence[PropertyValueUnionTypeDef]] = None
+class PropertyValueEntry(BaseValidatorModel):
+    entityPropertyReference: EntityPropertyReferenceUnion
+    propertyValues: Optional[Sequence[PropertyValueUnion]] = None
 
 
-class GetEntityResponseTypeDef(BaseValidatorModel):
+class GetEntityResponse(BaseValidatorModel):
     entityId: str
     entityName: str
     arn: str
-    status: StatusTypeDef
+    status: Status
     workspaceId: str
     description: str
-    components: Dict[str, ComponentResponseTypeDef]
+    components: Dict[str, ComponentResponse]
     parentEntityId: str
     hasChildEntities: bool
     creationDateTime: datetime
     updateDateTime: datetime
     syncSource: str
     areAllComponentsReturned: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutPropertyValuesResponseTypeDef(BaseValidatorModel):
-    errorEntries: List[BatchPutPropertyErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutPropertyValuesResponse(BaseValidatorModel):
+    errorEntries: List[BatchPutPropertyErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateComponentTypeRequestTypeDef(BaseValidatorModel):
+class CreateComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
     isSingleton: Optional[bool] = None
     description: Optional[str] = None
-    propertyDefinitions: Optional[Mapping[str, PropertyDefinitionRequestTypeDef]] = None
+    propertyDefinitions: Optional[Mapping[str, PropertyDefinitionRequest]] = None
     extendsFrom: Optional[Sequence[str]] = None
-    functions: Optional[Mapping[str, FunctionRequestTypeDef]] = None
+    functions: Optional[Mapping[str, FunctionRequest]] = None
     tags: Optional[Mapping[str, str]] = None
-    propertyGroups: Optional[Mapping[str, PropertyGroupRequestTypeDef]] = None
+    propertyGroups: Optional[Mapping[str, PropertyGroupRequest]] = None
     componentTypeName: Optional[str] = None
-    compositeComponentTypes: Optional[Mapping[str, CompositeComponentTypeRequestTypeDef]] = None
+    compositeComponentTypes: Optional[Mapping[str, CompositeComponentTypeRequest]] = None
 
 
-class PropertyRequestTypeDef(BaseValidatorModel):
-    definition: Optional[PropertyDefinitionRequestTypeDef] = None
-    value: Optional[DataValueUnionTypeDef] = None
+class PropertyRequest(BaseValidatorModel):
+    definition: Optional[PropertyDefinitionRequest] = None
+    value: Optional[DataValueUnion] = None
     updateType: Optional[PropertyUpdateTypeType] = None
 
 
-class UpdateComponentTypeRequestTypeDef(BaseValidatorModel):
+class UpdateComponentTypeRequest(BaseValidatorModel):
     workspaceId: str
     componentTypeId: str
     isSingleton: Optional[bool] = None
     description: Optional[str] = None
-    propertyDefinitions: Optional[Mapping[str, PropertyDefinitionRequestTypeDef]] = None
+    propertyDefinitions: Optional[Mapping[str, PropertyDefinitionRequest]] = None
     extendsFrom: Optional[Sequence[str]] = None
-    functions: Optional[Mapping[str, FunctionRequestTypeDef]] = None
-    propertyGroups: Optional[Mapping[str, PropertyGroupRequestTypeDef]] = None
+    functions: Optional[Mapping[str, FunctionRequest]] = None
+    propertyGroups: Optional[Mapping[str, PropertyGroupRequest]] = None
     componentTypeName: Optional[str] = None
-    compositeComponentTypes: Optional[Mapping[str, CompositeComponentTypeRequestTypeDef]] = None
+    compositeComponentTypes: Optional[Mapping[str, CompositeComponentTypeRequest]] = None
 
 
-class SourceConfigurationUnionTypeDef(BaseValidatorModel):
+class SourceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateMetadataTransferJobRequestTypeDef(BaseValidatorModel):
-    sources: Sequence[SourceConfigurationUnionTypeDef]
-    destination: DestinationConfigurationTypeDef
+class CreateMetadataTransferJobRequest(BaseValidatorModel):
+    sources: Sequence[SourceConfigurationUnion]
+    destination: DestinationConfiguration
     metadataTransferJobId: Optional[str] = None
     description: Optional[str] = None
 
 
-class ComponentRequestTypeDef(BaseValidatorModel):
+class ComponentRequest(BaseValidatorModel):
     description: Optional[str] = None
     componentTypeId: Optional[str] = None
-    properties: Optional[Mapping[str, PropertyRequestTypeDef]] = None
-    propertyGroups: Optional[Mapping[str, ComponentPropertyGroupRequestTypeDef]] = None
+    properties: Optional[Mapping[str, PropertyRequest]] = None
+    propertyGroups: Optional[Mapping[str, ComponentPropertyGroupRequest]] = None
 
 
-class ComponentUpdateRequestTypeDef(BaseValidatorModel):
+class ComponentUpdateRequest(BaseValidatorModel):
     updateType: Optional[ComponentUpdateTypeType] = None
     description: Optional[str] = None
     componentTypeId: Optional[str] = None
-    propertyUpdates: Optional[Mapping[str, PropertyRequestTypeDef]] = None
-    propertyGroupUpdates: Optional[Mapping[str, ComponentPropertyGroupRequestTypeDef]] = None
+    propertyUpdates: Optional[Mapping[str, PropertyRequest]] = None
+    propertyGroupUpdates: Optional[Mapping[str, ComponentPropertyGroupRequest]] = None
 
 
-class CompositeComponentRequestTypeDef(BaseValidatorModel):
+class CompositeComponentRequest(BaseValidatorModel):
     description: Optional[str] = None
-    properties: Optional[Mapping[str, PropertyRequestTypeDef]] = None
-    propertyGroups: Optional[Mapping[str, ComponentPropertyGroupRequestTypeDef]] = None
+    properties: Optional[Mapping[str, PropertyRequest]] = None
+    propertyGroups: Optional[Mapping[str, ComponentPropertyGroupRequest]] = None
 
 
-class CompositeComponentUpdateRequestTypeDef(BaseValidatorModel):
+class CompositeComponentUpdateRequest(BaseValidatorModel):
     updateType: Optional[ComponentUpdateTypeType] = None
     description: Optional[str] = None
-    propertyUpdates: Optional[Mapping[str, PropertyRequestTypeDef]] = None
-    propertyGroupUpdates: Optional[Mapping[str, ComponentPropertyGroupRequestTypeDef]] = None
+    propertyUpdates: Optional[Mapping[str, PropertyRequest]] = None
+    propertyGroupUpdates: Optional[Mapping[str, ComponentPropertyGroupRequest]] = None
 
 
-class PropertyValueEntryUnionTypeDef(BaseValidatorModel):
+class PropertyValueEntryUnion(BaseValidatorModel):
     pass
 
 
-class BatchPutPropertyValuesRequestTypeDef(BaseValidatorModel):
+class BatchPutPropertyValuesRequest(BaseValidatorModel):
     workspaceId: str
-    entries: Sequence[PropertyValueEntryUnionTypeDef]
+    entries: Sequence[PropertyValueEntryUnion]
 
 
-class CreateEntityRequestTypeDef(BaseValidatorModel):
+class CreateEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityName: str
     entityId: Optional[str] = None
     description: Optional[str] = None
-    components: Optional[Mapping[str, ComponentRequestTypeDef]] = None
-    compositeComponents: Optional[Mapping[str, CompositeComponentRequestTypeDef]] = None
+    components: Optional[Mapping[str, ComponentRequest]] = None
+    compositeComponents: Optional[Mapping[str, CompositeComponentRequest]] = None
     parentEntityId: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateEntityRequestTypeDef(BaseValidatorModel):
+class UpdateEntityRequest(BaseValidatorModel):
     workspaceId: str
     entityId: str
     entityName: Optional[str] = None
     description: Optional[str] = None
-    componentUpdates: Optional[Mapping[str, ComponentUpdateRequestTypeDef]] = None
-    compositeComponentUpdates: Optional[Mapping[str, CompositeComponentUpdateRequestTypeDef]] = None
-    parentEntityUpdate: Optional[ParentEntityUpdateRequestTypeDef] = None
+    componentUpdates: Optional[Mapping[str, ComponentUpdateRequest]] = None
+    compositeComponentUpdates: Optional[Mapping[str, CompositeComponentUpdateRequest]] = None
+    parentEntityUpdate: Optional[ParentEntityUpdateRequest] = None
 
 

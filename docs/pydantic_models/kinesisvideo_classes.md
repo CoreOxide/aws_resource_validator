@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChannelInfoTypeDef
+# ChannelInfo
 
 ### ChannelName
 - **Type**: typing.Optional[str]
@@ -24,13 +24,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### SingleMasterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.SingleMasterConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Version
 - **Type**: typing.Optional[str]
 
 
-# ChannelNameConditionTypeDef
+# ChannelNameCondition
 
 ### ComparisonOperator
 - **Type**: typing.Optional[typing.Literal['BEGINS_WITH']]
@@ -39,7 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSignalingChannelInputTypeDef
+# CreateSignalingChannelInput
 
 ### ChannelName
 - **Type**: <class 'str'>
@@ -49,24 +49,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FULL_MESH', 'SINGLE_MASTER']]
 
 ### SingleMasterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.SingleMasterConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisvideo_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.kinesisvideo_classes.Tag]]
 
 
-# CreateSignalingChannelOutputTypeDef
+# CreateSignalingChannelOutput
 
 ### ChannelARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStreamInputTypeDef
+# CreateStreamInput
 
 ### StreamName
 - **Type**: <class 'str'>
@@ -88,18 +88,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateStreamOutputTypeDef
+# CreateStreamOutput
 
 ### StreamARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEdgeConfigurationInputTypeDef
+# DeleteEdgeConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -108,7 +108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteSignalingChannelInputTypeDef
+# DeleteSignalingChannelInput
 
 ### ChannelARN
 - **Type**: <class 'str'>
@@ -118,7 +118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteStreamInputTypeDef
+# DeleteStreamInput
 
 ### StreamARN
 - **Type**: <class 'str'>
@@ -128,19 +128,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletionConfigTypeDef
+# DeletionConfig
 
 ### EdgeRetentionInHours
 - **Type**: typing.Optional[int]
 
 ### LocalSizeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.LocalSizeConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeleteAfterUpload
 - **Type**: typing.Optional[bool]
 
 
-# DescribeEdgeConfigurationInputTypeDef
+# DescribeEdgeConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEdgeConfigurationOutputTypeDef
+# DescribeEdgeConfigurationOutput
 
 ### StreamName
 - **Type**: <class 'str'>
@@ -176,19 +176,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EdgeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfig'>
 - **Required**: Yes
 
 ### EdgeAgentStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeAgentStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeAgentStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeImageGenerationConfigurationInputTypeDef
+# DescribeImageGenerationConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -197,30 +197,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeImageGenerationConfigurationOutputTypeDef
+# DescribeImageGenerationConfigurationOutput
 
 ### ImageGenerationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeMappedResourceConfigurationInputPaginateTypeDef
-
-### StreamName
-- **Type**: typing.Optional[str]
-
-### StreamARN
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfigTypeDef]
-
-
-# DescribeMappedResourceConfigurationInputTypeDef
+# DescribeMappedResourceConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -235,21 +223,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeMappedResourceConfigurationOutputTypeDef
+# DescribeMappedResourceConfigurationInputPaginate
+
+### StreamName
+- **Type**: typing.Optional[str]
+
+### StreamARN
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfig]
+
+
+# DescribeMappedResourceConfigurationOutput
 
 ### MappedResourceConfigurationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.MappedResourceConfigurationListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.MappedResourceConfigurationListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeMediaStorageConfigurationInputTypeDef
+# DescribeMediaStorageConfigurationInput
 
 ### ChannelName
 - **Type**: typing.Optional[str]
@@ -258,18 +258,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeMediaStorageConfigurationOutputTypeDef
+# DescribeMediaStorageConfigurationOutput
 
 ### MediaStorageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaStorageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaStorageConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeNotificationConfigurationInputTypeDef
+# DescribeNotificationConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -278,18 +278,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeNotificationConfigurationOutputTypeDef
+# DescribeNotificationConfigurationOutput
 
 ### NotificationConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.NotificationConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.NotificationConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSignalingChannelInputTypeDef
+# DescribeSignalingChannelInput
 
 ### ChannelName
 - **Type**: typing.Optional[str]
@@ -298,18 +298,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeSignalingChannelOutputTypeDef
+# DescribeSignalingChannelOutput
 
 ### ChannelInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeStreamInputTypeDef
+# DescribeStreamInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -318,44 +318,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeStreamOutputTypeDef
+# DescribeStreamOutput
 
 ### StreamInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamInfo'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EdgeAgentStatusTypeDef
+# EdgeAgentStatus
 
 ### LastRecorderStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.LastRecorderStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LastUploaderStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.LastUploaderStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EdgeConfigTypeDef
+# EdgeConfig
 
 ### HubDeviceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RecorderConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.RecorderConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.RecorderConfig'>
 - **Required**: Yes
 
 ### UploaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.UploaderConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DeletionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.DeletionConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetDataEndpointInputTypeDef
+# GetDataEndpointInput
 
 ### APIName
 - **Type**: typing.Literal['GET_CLIP', 'GET_DASH_STREAMING_SESSION_URL', 'GET_HLS_STREAMING_SESSION_URL', 'GET_IMAGES', 'GET_MEDIA', 'GET_MEDIA_FOR_FRAGMENT_LIST', 'LIST_FRAGMENTS', 'PUT_MEDIA']
@@ -368,39 +368,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDataEndpointOutputTypeDef
+# GetDataEndpointOutput
 
 ### DataEndpoint
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSignalingChannelEndpointInputTypeDef
+# GetSignalingChannelEndpointInput
 
 ### ChannelARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SingleMasterChannelEndpointConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.SingleMasterChannelEndpointConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetSignalingChannelEndpointOutputTypeDef
+# GetSignalingChannelEndpointOutput
 
 ### ResourceEndpointList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ResourceEndpointListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ResourceEndpointListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImageGenerationConfigurationOutputTypeDef
+# ImageGenerationConfiguration
 
 ### Status
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
@@ -411,39 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationDestinationConfigTypeDef'>
-- **Required**: Yes
-
-### SamplingInterval
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Format
-- **Type**: typing.Literal['JPEG', 'PNG']
-- **Required**: Yes
-
-### FormatConfig
-- **Type**: typing.Optional[typing.Dict[typing.Literal['JPEGQuality'], str]]
-
-### WidthPixels
-- **Type**: typing.Optional[int]
-
-### HeightPixels
-- **Type**: typing.Optional[int]
-
-
-# ImageGenerationConfigurationTypeDef
-
-### Status
-- **Type**: typing.Literal['DISABLED', 'ENABLED']
-- **Required**: Yes
-
-### ImageSelectorType
-- **Type**: typing.Literal['PRODUCER_TIMESTAMP', 'SERVER_TIMESTAMP']
-- **Required**: Yes
-
-### DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationDestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationDestinationConfig'>
 - **Required**: Yes
 
 ### SamplingInterval
@@ -464,13 +432,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ImageGenerationConfigurationUnionTypeDef
+# ImageGenerationConfigurationOutput
+
+### Status
+- **Type**: typing.Literal['DISABLED', 'ENABLED']
+- **Required**: Yes
+
+### ImageSelectorType
+- **Type**: typing.Literal['PRODUCER_TIMESTAMP', 'SERVER_TIMESTAMP']
+- **Required**: Yes
+
+### DestinationConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationDestinationConfig'>
+- **Required**: Yes
+
+### SamplingInterval
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Format
+- **Type**: typing.Literal['JPEG', 'PNG']
+- **Required**: Yes
+
+### FormatConfig
+- **Type**: typing.Optional[typing.Dict[typing.Literal['JPEGQuality'], str]]
+
+### WidthPixels
+- **Type**: typing.Optional[int]
+
+### HeightPixels
+- **Type**: typing.Optional[int]
+
+
+# ImageGenerationConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImageGenerationDestinationConfigTypeDef
+# ImageGenerationDestinationConfig
 
 ### Uri
 - **Type**: <class 'str'>
@@ -481,7 +481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LastRecorderStatusTypeDef
+# LastRecorderStatus
 
 ### JobStatusDetails
 - **Type**: typing.Optional[str]
@@ -496,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SUCCESS', 'SYSTEM_ERROR', 'USER_ERROR']]
 
 
-# LastUploaderStatusTypeDef
+# LastUploaderStatus
 
 ### JobStatusDetails
 - **Type**: typing.Optional[str]
@@ -511,7 +511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['SUCCESS', 'SYSTEM_ERROR', 'USER_ERROR']]
 
 
-# ListEdgeAgentConfigurationsEdgeConfigTypeDef
+# ListEdgeAgentConfigurationsEdgeConfig
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -532,20 +532,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EdgeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListEdgeAgentConfigurationsInputPaginateTypeDef
-
-### HubDeviceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfigTypeDef]
-
-
-# ListEdgeAgentConfigurationsInputTypeDef
+# ListEdgeAgentConfigurationsInput
 
 ### HubDeviceArn
 - **Type**: <class 'str'>
@@ -558,30 +548,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEdgeAgentConfigurationsOutputTypeDef
+# ListEdgeAgentConfigurationsInputPaginate
+
+### HubDeviceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfig]
+
+
+# ListEdgeAgentConfigurationsOutput
 
 ### EdgeConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ListEdgeAgentConfigurationsEdgeConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ListEdgeAgentConfigurationsEdgeConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSignalingChannelsInputPaginateTypeDef
-
-### ChannelNameCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelNameConditionTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfigTypeDef]
-
-
-# ListSignalingChannelsInputTypeDef
+# ListSignalingChannelsInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -590,33 +581,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ChannelNameCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelNameConditionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListSignalingChannelsOutputTypeDef
+# ListSignalingChannelsInputPaginate
+
+### ChannelNameCondition
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfig]
+
+
+# ListSignalingChannelsOutput
 
 ### ChannelInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.ChannelInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListStreamsInputPaginateTypeDef
-
-### StreamNameCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamNameConditionTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfigTypeDef]
-
-
-# ListStreamsInputTypeDef
+# ListStreamsInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -625,24 +616,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StreamNameCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamNameConditionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListStreamsOutputTypeDef
+# ListStreamsInputPaginate
+
+### StreamNameCondition
+- **Type**: <class 'NoneType'>
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.PaginatorConfig]
+
+
+# ListStreamsOutput
 
 ### StreamInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.kinesisvideo_classes.StreamInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -652,21 +652,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForStreamInputTypeDef
+# ListTagsForStreamInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -678,21 +678,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForStreamOutputTypeDef
+# ListTagsForStreamOutput
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# LocalSizeConfigTypeDef
+# LocalSizeConfig
 
 ### MaxLocalMediaSizeInMB
 - **Type**: typing.Optional[int]
@@ -701,13 +701,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETE_OLDEST_MEDIA', 'DENY_NEW_MEDIA']]
 
 
-# MappedResourceConfigurationListItemTypeDef
+# MappedResourceConfigurationListItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MediaSourceConfigTypeDef
+# MediaSourceConfig
 
 ### MediaUriSecretArn
 - **Type**: <class 'str'>
@@ -718,7 +718,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MediaStorageConfigurationTypeDef
+# MediaStorageConfiguration
 
 ### Status
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
@@ -728,25 +728,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NotificationConfigurationTypeDef
+# NotificationConfiguration
 
 ### Status
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
 - **Required**: Yes
 
 ### DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.NotificationDestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.NotificationDestinationConfig'>
 - **Required**: Yes
 
 
-# NotificationDestinationConfigTypeDef
+# NotificationDestinationConfig
 
 ### Uri
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -758,23 +758,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecorderConfigTypeDef
+# RecorderConfig
 
 ### MediaSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaSourceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaSourceConfig'>
 - **Required**: Yes
 
 ### ScheduleConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.ScheduleConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResourceEndpointListItemTypeDef
+# ResourceEndpointListItem
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -796,7 +796,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleConfigTypeDef
+# ScheduleConfig
 
 ### ScheduleExpression
 - **Type**: <class 'str'>
@@ -807,7 +807,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SingleMasterChannelEndpointConfigurationTypeDef
+# SingleMasterChannelEndpointConfiguration
 
 ### Protocols
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['HTTPS', 'WEBRTC', 'WSS']]]
@@ -816,16 +816,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['MASTER', 'VIEWER']]
 
 
-# SingleMasterConfigurationTypeDef
+# SingleMasterConfiguration
 
 ### MessageTtlSeconds
 - **Type**: typing.Optional[int]
 
 
-# StartEdgeConfigurationUpdateInputTypeDef
+# StartEdgeConfigurationUpdateInput
 
 ### EdgeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfig'>
 - **Required**: Yes
 
 ### StreamName
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartEdgeConfigurationUpdateOutputTypeDef
+# StartEdgeConfigurationUpdateOutput
 
 ### StreamName
 - **Type**: <class 'str'>
@@ -862,15 +862,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EdgeConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.EdgeConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StreamInfoTypeDef
+# StreamInfo
 
 ### DeviceName
 - **Type**: typing.Optional[str]
@@ -900,7 +900,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StreamNameConditionTypeDef
+# StreamNameCondition
 
 ### ComparisonOperator
 - **Type**: typing.Optional[typing.Literal['BEGINS_WITH']]
@@ -909,18 +909,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputTypeDef
+# Tag
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# TagResourceInput
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisvideo_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.kinesisvideo_classes.Tag]
 - **Required**: Yes
 
 
-# TagStreamInputTypeDef
+# TagStreamInput
 
 ### Tags
 - **Type**: typing.Mapping[str, str]
@@ -933,18 +944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
-
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -955,7 +955,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagStreamInputTypeDef
+# UntagStreamInput
 
 ### TagKeyList
 - **Type**: typing.Sequence[str]
@@ -968,7 +968,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDataRetentionInputTypeDef
+# UpdateDataRetentionInput
 
 ### CurrentVersion
 - **Type**: <class 'str'>
@@ -989,7 +989,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateImageGenerationConfigurationInputTypeDef
+# UpdateImageGenerationConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -998,21 +998,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImageGenerationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.ImageGenerationConfigurationUnion]
 
 
-# UpdateMediaStorageConfigurationInputTypeDef
+# UpdateMediaStorageConfigurationInput
 
 ### ChannelARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MediaStorageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaStorageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.MediaStorageConfiguration'>
 - **Required**: Yes
 
 
-# UpdateNotificationConfigurationInputTypeDef
+# UpdateNotificationConfigurationInput
 
 ### StreamName
 - **Type**: typing.Optional[str]
@@ -1021,10 +1021,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NotificationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.NotificationConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateSignalingChannelInputTypeDef
+# UpdateSignalingChannelInput
 
 ### ChannelARN
 - **Type**: <class 'str'>
@@ -1035,10 +1035,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SingleMasterConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.kinesisvideo_classes.SingleMasterConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateStreamInputTypeDef
+# UpdateStreamInput
 
 ### CurrentVersion
 - **Type**: <class 'str'>
@@ -1057,10 +1057,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UploaderConfigTypeDef
+# UploaderConfig
 
 ### ScheduleConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ScheduleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.kinesisvideo_classes.ScheduleConfig'>
 - **Required**: Yes
 
 

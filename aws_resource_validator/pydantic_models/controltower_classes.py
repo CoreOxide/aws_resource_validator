@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.controltower_constants import *
 
-class BaselineOperationTypeDef(BaseValidatorModel):
+class BaselineOperation(BaseValidatorModel):
     endTime: Optional[datetime] = None
     operationIdentifier: Optional[str] = None
     operationType: Optional[BaselineOperationTypeType] = None
@@ -21,13 +21,13 @@ class BaselineOperationTypeDef(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
-class BaselineSummaryTypeDef(BaseValidatorModel):
+class BaselineSummary(BaseValidatorModel):
     arn: str
     name: str
     description: Optional[str] = None
 
 
-class ControlOperationFilterTypeDef(BaseValidatorModel):
+class ControlOperationFilter(BaseValidatorModel):
     controlIdentifiers: Optional[Sequence[str]] = None
     controlOperationTypes: Optional[Sequence[ControlOperationTypeType]] = None
     enabledControlIdentifiers: Optional[Sequence[str]] = None
@@ -35,7 +35,7 @@ class ControlOperationFilterTypeDef(BaseValidatorModel):
     targetIdentifiers: Optional[Sequence[str]] = None
 
 
-class ControlOperationSummaryTypeDef(BaseValidatorModel):
+class ControlOperationSummary(BaseValidatorModel):
     controlIdentifier: Optional[str] = None
     enabledControlIdentifier: Optional[str] = None
     endTime: Optional[datetime] = None
@@ -47,7 +47,7 @@ class ControlOperationSummaryTypeDef(BaseValidatorModel):
     targetIdentifier: Optional[str] = None
 
 
-class ControlOperationTypeDef(BaseValidatorModel):
+class ControlOperation(BaseValidatorModel):
     controlIdentifier: Optional[str] = None
     enabledControlIdentifier: Optional[str] = None
     endTime: Optional[datetime] = None
@@ -59,13 +59,13 @@ class ControlOperationTypeDef(BaseValidatorModel):
     targetIdentifier: Optional[str] = None
 
 
-class CreateLandingZoneInputTypeDef(BaseValidatorModel):
+class CreateLandingZoneInput(BaseValidatorModel):
     manifest: Mapping[str, Any]
     version: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -73,93 +73,93 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteLandingZoneInputTypeDef(BaseValidatorModel):
+class DeleteLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
 
-class DisableBaselineInputTypeDef(BaseValidatorModel):
+class DisableBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
-class DisableControlInputTypeDef(BaseValidatorModel):
+class DisableControlInput(BaseValidatorModel):
     controlIdentifier: str
     targetIdentifier: str
 
 
-class DriftStatusSummaryTypeDef(BaseValidatorModel):
+class DriftStatusSummary(BaseValidatorModel):
     driftStatus: Optional[DriftStatusType] = None
 
 
-class EnabledBaselineParameterTypeDef(BaseValidatorModel):
+class EnabledBaselineParameter(BaseValidatorModel):
     key: str
     value: Mapping[str, Any]
 
 
-class EnabledControlParameterTypeDef(BaseValidatorModel):
+class EnabledControlParameter(BaseValidatorModel):
     key: str
     value: Mapping[str, Any]
 
 
-class EnabledBaselineParameterSummaryTypeDef(BaseValidatorModel):
+class EnabledBaselineParameterSummary(BaseValidatorModel):
     key: str
     value: Dict[str, Any]
 
 
-class EnablementStatusSummaryTypeDef(BaseValidatorModel):
+class EnablementStatusSummary(BaseValidatorModel):
     lastOperationIdentifier: Optional[str] = None
     status: Optional[EnablementStatusType] = None
 
 
-class EnabledBaselineFilterTypeDef(BaseValidatorModel):
+class EnabledBaselineFilter(BaseValidatorModel):
     baselineIdentifiers: Optional[Sequence[str]] = None
     parentIdentifiers: Optional[Sequence[str]] = None
     targetIdentifiers: Optional[Sequence[str]] = None
 
 
-class EnabledControlParameterSummaryTypeDef(BaseValidatorModel):
+class EnabledControlParameterSummary(BaseValidatorModel):
     key: str
     value: Dict[str, Any]
 
 
-class RegionTypeDef(BaseValidatorModel):
+class Region(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class EnabledControlFilterTypeDef(BaseValidatorModel):
+class EnabledControlFilter(BaseValidatorModel):
     controlIdentifiers: Optional[Sequence[str]] = None
     driftStatuses: Optional[Sequence[DriftStatusType]] = None
     statuses: Optional[Sequence[EnablementStatusType]] = None
 
 
-class GetBaselineInputTypeDef(BaseValidatorModel):
+class GetBaselineInput(BaseValidatorModel):
     baselineIdentifier: str
 
 
-class GetBaselineOperationInputTypeDef(BaseValidatorModel):
+class GetBaselineOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
 
-class GetControlOperationInputTypeDef(BaseValidatorModel):
+class GetControlOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
 
-class GetEnabledBaselineInputTypeDef(BaseValidatorModel):
+class GetEnabledBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
-class GetEnabledControlInputTypeDef(BaseValidatorModel):
+class GetEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
 
 
-class GetLandingZoneInputTypeDef(BaseValidatorModel):
+class GetLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
 
-class GetLandingZoneOperationInputTypeDef(BaseValidatorModel):
+class GetLandingZoneOperationInput(BaseValidatorModel):
     operationIdentifier: str
 
 
-class LandingZoneOperationDetailTypeDef(BaseValidatorModel):
+class LandingZoneOperationDetail(BaseValidatorModel):
     endTime: Optional[datetime] = None
     operationIdentifier: Optional[str] = None
     operationType: Optional[LandingZoneOperationTypeType] = None
@@ -168,286 +168,286 @@ class LandingZoneOperationDetailTypeDef(BaseValidatorModel):
     statusMessage: Optional[str] = None
 
 
-class LandingZoneDriftStatusSummaryTypeDef(BaseValidatorModel):
+class LandingZoneDriftStatusSummary(BaseValidatorModel):
     status: Optional[LandingZoneDriftStatusType] = None
 
 
-class LandingZoneOperationSummaryTypeDef(BaseValidatorModel):
+class LandingZoneOperationSummary(BaseValidatorModel):
     operationIdentifier: Optional[str] = None
     operationType: Optional[LandingZoneOperationTypeType] = None
     status: Optional[LandingZoneOperationStatusType] = None
 
 
-class LandingZoneSummaryTypeDef(BaseValidatorModel):
+class LandingZoneSummary(BaseValidatorModel):
     arn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBaselinesInputTypeDef(BaseValidatorModel):
+class ListBaselinesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListLandingZonesInputTypeDef(BaseValidatorModel):
+class ListLandingZonesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class ResetEnabledBaselineInputTypeDef(BaseValidatorModel):
+class ResetEnabledBaselineInput(BaseValidatorModel):
     enabledBaselineIdentifier: str
 
 
-class ResetEnabledControlInputTypeDef(BaseValidatorModel):
+class ResetEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
 
 
-class ResetLandingZoneInputTypeDef(BaseValidatorModel):
+class ResetLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateLandingZoneInputTypeDef(BaseValidatorModel):
+class UpdateLandingZoneInput(BaseValidatorModel):
     landingZoneIdentifier: str
     manifest: Mapping[str, Any]
     version: str
 
 
-class CreateLandingZoneOutputTypeDef(BaseValidatorModel):
+class CreateLandingZoneOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteLandingZoneOutputTypeDef(BaseValidatorModel):
+class DeleteLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableBaselineOutputTypeDef(BaseValidatorModel):
+class DisableBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableControlOutputTypeDef(BaseValidatorModel):
+class DisableControlOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableBaselineOutputTypeDef(BaseValidatorModel):
+class EnableBaselineOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableControlOutputTypeDef(BaseValidatorModel):
+class EnableControlOutput(BaseValidatorModel):
     arn: str
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBaselineOperationOutputTypeDef(BaseValidatorModel):
-    baselineOperation: BaselineOperationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBaselineOperationOutput(BaseValidatorModel):
+    baselineOperation: BaselineOperation
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBaselineOutputTypeDef(BaseValidatorModel):
+class GetBaselineOutput(BaseValidatorModel):
     arn: str
     description: str
     name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetControlOperationOutputTypeDef(BaseValidatorModel):
-    controlOperation: ControlOperationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetControlOperationOutput(BaseValidatorModel):
+    controlOperation: ControlOperation
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBaselinesOutputTypeDef(BaseValidatorModel):
-    baselines: List[BaselineSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBaselinesOutput(BaseValidatorModel):
+    baselines: List[BaselineSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListControlOperationsOutputTypeDef(BaseValidatorModel):
-    controlOperations: List[ControlOperationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListControlOperationsOutput(BaseValidatorModel):
+    controlOperations: List[ControlOperationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResetEnabledBaselineOutputTypeDef(BaseValidatorModel):
+class ResetEnabledBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResetEnabledControlOutputTypeDef(BaseValidatorModel):
+class ResetEnabledControlOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResetLandingZoneOutputTypeDef(BaseValidatorModel):
+class ResetLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEnabledBaselineOutputTypeDef(BaseValidatorModel):
+class UpdateEnabledBaselineOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEnabledControlOutputTypeDef(BaseValidatorModel):
+class UpdateEnabledControlOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateLandingZoneOutputTypeDef(BaseValidatorModel):
+class UpdateLandingZoneOutput(BaseValidatorModel):
     operationIdentifier: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EnableBaselineInputTypeDef(BaseValidatorModel):
+class EnableBaselineInput(BaseValidatorModel):
     baselineIdentifier: str
     baselineVersion: str
     targetIdentifier: str
-    parameters: Optional[Sequence[EnabledBaselineParameterTypeDef]] = None
+    parameters: Optional[Sequence[EnabledBaselineParameter]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateEnabledBaselineInputTypeDef(BaseValidatorModel):
+class UpdateEnabledBaselineInput(BaseValidatorModel):
     baselineVersion: str
     enabledBaselineIdentifier: str
-    parameters: Optional[Sequence[EnabledBaselineParameterTypeDef]] = None
+    parameters: Optional[Sequence[EnabledBaselineParameter]] = None
 
 
-class EnableControlInputTypeDef(BaseValidatorModel):
+class EnableControlInput(BaseValidatorModel):
     controlIdentifier: str
     targetIdentifier: str
-    parameters: Optional[Sequence[EnabledControlParameterTypeDef]] = None
+    parameters: Optional[Sequence[EnabledControlParameter]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateEnabledControlInputTypeDef(BaseValidatorModel):
+class UpdateEnabledControlInput(BaseValidatorModel):
     enabledControlIdentifier: str
-    parameters: Sequence[EnabledControlParameterTypeDef]
+    parameters: Sequence[EnabledControlParameter]
 
 
-class EnabledBaselineDetailsTypeDef(BaseValidatorModel):
+class EnabledBaselineDetails(BaseValidatorModel):
     arn: str
     baselineIdentifier: str
-    statusSummary: EnablementStatusSummaryTypeDef
+    statusSummary: EnablementStatusSummary
     targetIdentifier: str
     baselineVersion: Optional[str] = None
-    parameters: Optional[List[EnabledBaselineParameterSummaryTypeDef]] = None
+    parameters: Optional[List[EnabledBaselineParameterSummary]] = None
     parentIdentifier: Optional[str] = None
 
 
-class EnabledBaselineSummaryTypeDef(BaseValidatorModel):
+class EnabledBaselineSummary(BaseValidatorModel):
     arn: str
     baselineIdentifier: str
-    statusSummary: EnablementStatusSummaryTypeDef
+    statusSummary: EnablementStatusSummary
     targetIdentifier: str
     baselineVersion: Optional[str] = None
     parentIdentifier: Optional[str] = None
 
 
-class EnabledControlSummaryTypeDef(BaseValidatorModel):
+class EnabledControlSummary(BaseValidatorModel):
     arn: Optional[str] = None
     controlIdentifier: Optional[str] = None
-    driftStatusSummary: Optional[DriftStatusSummaryTypeDef] = None
-    statusSummary: Optional[EnablementStatusSummaryTypeDef] = None
+    driftStatusSummary: Optional[DriftStatusSummary] = None
+    statusSummary: Optional[EnablementStatusSummary] = None
     targetIdentifier: Optional[str] = None
 
 
-class EnabledControlDetailsTypeDef(BaseValidatorModel):
+class EnabledControlDetails(BaseValidatorModel):
     arn: Optional[str] = None
     controlIdentifier: Optional[str] = None
-    driftStatusSummary: Optional[DriftStatusSummaryTypeDef] = None
-    parameters: Optional[List[EnabledControlParameterSummaryTypeDef]] = None
-    statusSummary: Optional[EnablementStatusSummaryTypeDef] = None
+    driftStatusSummary: Optional[DriftStatusSummary] = None
+    parameters: Optional[List[EnabledControlParameterSummary]] = None
+    statusSummary: Optional[EnablementStatusSummary] = None
     targetIdentifier: Optional[str] = None
-    targetRegions: Optional[List[RegionTypeDef]] = None
+    targetRegions: Optional[List[Region]] = None
 
 
-class GetLandingZoneOperationOutputTypeDef(BaseValidatorModel):
-    operationDetails: LandingZoneOperationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLandingZoneOperationOutput(BaseValidatorModel):
+    operationDetails: LandingZoneOperationDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class LandingZoneDetailTypeDef(BaseValidatorModel):
+class LandingZoneDetail(BaseValidatorModel):
     manifest: Dict[str, Any]
     version: str
     arn: Optional[str] = None
-    driftStatus: Optional[LandingZoneDriftStatusSummaryTypeDef] = None
+    driftStatus: Optional[LandingZoneDriftStatusSummary] = None
     latestAvailableVersion: Optional[str] = None
     status: Optional[LandingZoneStatusType] = None
 
 
-class ListLandingZoneOperationsOutputTypeDef(BaseValidatorModel):
-    landingZoneOperations: List[LandingZoneOperationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLandingZoneOperationsOutput(BaseValidatorModel):
+    landingZoneOperations: List[LandingZoneOperationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListLandingZonesOutputTypeDef(BaseValidatorModel):
-    landingZones: List[LandingZoneSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLandingZonesOutput(BaseValidatorModel):
+    landingZones: List[LandingZoneSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListBaselinesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListBaselinesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLandingZonesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLandingZonesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetEnabledBaselineOutputTypeDef(BaseValidatorModel):
-    enabledBaselineDetails: EnabledBaselineDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEnabledBaselineOutput(BaseValidatorModel):
+    enabledBaselineDetails: EnabledBaselineDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnabledBaselinesOutputTypeDef(BaseValidatorModel):
-    enabledBaselines: List[EnabledBaselineSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnabledBaselinesOutput(BaseValidatorModel):
+    enabledBaselines: List[EnabledBaselineSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEnabledControlsOutputTypeDef(BaseValidatorModel):
-    enabledControls: List[EnabledControlSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnabledControlsOutput(BaseValidatorModel):
+    enabledControls: List[EnabledControlSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetEnabledControlOutputTypeDef(BaseValidatorModel):
-    enabledControlDetails: EnabledControlDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetEnabledControlOutput(BaseValidatorModel):
+    enabledControlDetails: EnabledControlDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class GetLandingZoneOutputTypeDef(BaseValidatorModel):
-    landingZone: LandingZoneDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLandingZoneOutput(BaseValidatorModel):
+    landingZone: LandingZoneDetail
+    ResponseMetadata: ResponseMetadata
 
 

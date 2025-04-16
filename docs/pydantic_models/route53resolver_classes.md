@@ -1,6 +1,6 @@
 # Route53Resolver Classes
 
-# AssociateFirewallRuleGroupRequestTypeDef
+# AssociateFirewallRuleGroupRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -26,43 +26,43 @@
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# AssociateFirewallRuleGroupResponseTypeDef
+# AssociateFirewallRuleGroupResponse
 
 ### FirewallRuleGroupAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateResolverEndpointIpAddressRequestTypeDef
+# AssociateResolverEndpointIpAddressRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IpAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressUpdate'>
 - **Required**: Yes
 
 
-# AssociateResolverEndpointIpAddressResponseTypeDef
+# AssociateResolverEndpointIpAddressResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateResolverQueryLogConfigRequestTypeDef
+# AssociateResolverQueryLogConfigRequest
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -73,18 +73,18 @@
 - **Required**: Yes
 
 
-# AssociateResolverQueryLogConfigResponseTypeDef
+# AssociateResolverQueryLogConfigResponse
 
 ### ResolverQueryLogConfigAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateResolverRuleRequestTypeDef
+# AssociateResolverRuleRequest
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
@@ -98,14 +98,14 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateResolverRuleResponseTypeDef
+# AssociateResolverRuleResponse
 
 ### ResolverRuleAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -115,7 +115,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateFirewallDomainListRequestTypeDef
+# CreateFirewallDomainListRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -126,21 +126,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# CreateFirewallDomainListResponseTypeDef
+# CreateFirewallDomainListResponse
 
 ### FirewallDomainList
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFirewallRuleGroupRequestTypeDef
+# CreateFirewallRuleGroupRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -151,21 +151,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# CreateFirewallRuleGroupResponseTypeDef
+# CreateFirewallRuleGroupResponse
 
 ### FirewallRuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFirewallRuleRequestTypeDef
+# CreateFirewallRuleRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -215,18 +215,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
 
 
-# CreateFirewallRuleResponseTypeDef
+# CreateFirewallRuleResponse
 
 ### FirewallRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOutpostResolverRequestTypeDef
+# CreateOutpostResolverRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -248,21 +248,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# CreateOutpostResolverResponseTypeDef
+# CreateOutpostResolverResponse
 
 ### OutpostResolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResolverEndpointRequestTypeDef
+# CreateResolverEndpointRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -277,7 +277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### IpAddresses
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressRequestTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressRequest]
 - **Required**: Yes
 
 ### Name
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 ### ResolverEndpointType
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4', 'IPV6']]
@@ -299,18 +299,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Do53', 'DoH', 'DoH-FIPS']]]
 
 
-# CreateResolverEndpointResponseTypeDef
+# CreateResolverEndpointResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResolverQueryLogConfigRequestTypeDef
+# CreateResolverQueryLogConfigRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -325,21 +325,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# CreateResolverQueryLogConfigResponseTypeDef
+# CreateResolverQueryLogConfigResponse
 
 ### ResolverQueryLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResolverRuleRequestTypeDef
+# CreateResolverRuleRequest
 
 ### CreatorRequestId
 - **Type**: <class 'str'>
@@ -356,63 +356,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetIps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddressTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddress]]
 
 ### ResolverEndpointId
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]]
 
 
-# CreateResolverRuleResponseTypeDef
+# CreateResolverRuleResponse
 
 ### ResolverRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteFirewallDomainListRequestTypeDef
+# DeleteFirewallDomainListRequest
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFirewallDomainListResponseTypeDef
+# DeleteFirewallDomainListResponse
 
 ### FirewallDomainList
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteFirewallRuleGroupRequestTypeDef
+# DeleteFirewallRuleGroupRequest
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFirewallRuleGroupResponseTypeDef
+# DeleteFirewallRuleGroupResponse
 
 ### FirewallRuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteFirewallRuleRequestTypeDef
+# DeleteFirewallRuleRequest
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -428,130 +428,130 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFirewallRuleResponseTypeDef
+# DeleteFirewallRuleResponse
 
 ### FirewallRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteOutpostResolverRequestTypeDef
+# DeleteOutpostResolverRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOutpostResolverResponseTypeDef
+# DeleteOutpostResolverResponse
 
 ### OutpostResolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResolverEndpointRequestTypeDef
+# DeleteResolverEndpointRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResolverEndpointResponseTypeDef
+# DeleteResolverEndpointResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResolverQueryLogConfigRequestTypeDef
+# DeleteResolverQueryLogConfigRequest
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResolverQueryLogConfigResponseTypeDef
+# DeleteResolverQueryLogConfigResponse
 
 ### ResolverQueryLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResolverRuleRequestTypeDef
+# DeleteResolverRuleRequest
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResolverRuleResponseTypeDef
+# DeleteResolverRuleResponse
 
 ### ResolverRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateFirewallRuleGroupRequestTypeDef
+# DisassociateFirewallRuleGroupRequest
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisassociateFirewallRuleGroupResponseTypeDef
+# DisassociateFirewallRuleGroupResponse
 
 ### FirewallRuleGroupAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateResolverEndpointIpAddressRequestTypeDef
+# DisassociateResolverEndpointIpAddressRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IpAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressUpdate'>
 - **Required**: Yes
 
 
-# DisassociateResolverEndpointIpAddressResponseTypeDef
+# DisassociateResolverEndpointIpAddressResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateResolverQueryLogConfigRequestTypeDef
+# DisassociateResolverQueryLogConfigRequest
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
@@ -562,18 +562,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResolverQueryLogConfigResponseTypeDef
+# DisassociateResolverQueryLogConfigResponse
 
 ### ResolverQueryLogConfigAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateResolverRuleRequestTypeDef
+# DisassociateResolverRuleRequest
 
 ### VPCId
 - **Type**: <class 'str'>
@@ -584,18 +584,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResolverRuleResponseTypeDef
+# DisassociateResolverRuleResponse
 
 ### ResolverRuleAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FilterTypeDef
+# Filter
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -604,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FirewallConfigTypeDef
+# FirewallConfig
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -619,25 +619,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'USE_LOCAL_RESOURCE_SETTING']]
 
 
-# FirewallDomainListMetadataTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-### ManagedOwnerName
-- **Type**: typing.Optional[str]
-
-
-# FirewallDomainListTypeDef
+# FirewallDomainList
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -670,7 +652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FirewallRuleGroupAssociationTypeDef
+# FirewallDomainListMetadata
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -678,98 +660,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### Arn
 - **Type**: typing.Optional[str]
 
-### FirewallRuleGroupId
-- **Type**: typing.Optional[str]
-
-### VpcId
-- **Type**: typing.Optional[str]
-
 ### Name
 - **Type**: typing.Optional[str]
 
-### Priority
-- **Type**: typing.Optional[int]
-
-### MutationProtection
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+### CreatorRequestId
+- **Type**: typing.Optional[str]
 
 ### ManagedOwnerName
 - **Type**: typing.Optional[str]
 
-### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
 
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-### CreationTime
-- **Type**: typing.Optional[str]
-
-### ModificationTime
-- **Type**: typing.Optional[str]
-
-
-# FirewallRuleGroupMetadataTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### OwnerId
-- **Type**: typing.Optional[str]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-### ShareStatus
-- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
-
-
-# FirewallRuleGroupTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### RuleCount
-- **Type**: typing.Optional[int]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### OwnerId
-- **Type**: typing.Optional[str]
-
-### CreatorRequestId
-- **Type**: typing.Optional[str]
-
-### ShareStatus
-- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
-
-### CreationTime
-- **Type**: typing.Optional[str]
-
-### ModificationTime
-- **Type**: typing.Optional[str]
-
-
-# FirewallRuleTypeDef
+# FirewallRule
 
 ### FirewallRuleGroupId
 - **Type**: typing.Optional[str]
@@ -823,277 +724,376 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
 
 
-# GetFirewallConfigRequestTypeDef
+# FirewallRuleGroup
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### RuleCount
+- **Type**: typing.Optional[int]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### CreatorRequestId
+- **Type**: typing.Optional[str]
+
+### ShareStatus
+- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
+
+### CreationTime
+- **Type**: typing.Optional[str]
+
+### ModificationTime
+- **Type**: typing.Optional[str]
+
+
+# FirewallRuleGroupAssociation
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### FirewallRuleGroupId
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### MutationProtection
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### ManagedOwnerName
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### CreatorRequestId
+- **Type**: typing.Optional[str]
+
+### CreationTime
+- **Type**: typing.Optional[str]
+
+### ModificationTime
+- **Type**: typing.Optional[str]
+
+
+# FirewallRuleGroupMetadata
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### CreatorRequestId
+- **Type**: typing.Optional[str]
+
+### ShareStatus
+- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
+
+
+# GetFirewallConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFirewallConfigResponseTypeDef
+# GetFirewallConfigResponse
 
 ### FirewallConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFirewallDomainListRequestTypeDef
+# GetFirewallDomainListRequest
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFirewallDomainListResponseTypeDef
+# GetFirewallDomainListResponse
 
 ### FirewallDomainList
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupAssociationRequestTypeDef
+# GetFirewallRuleGroupAssociationRequest
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupAssociationResponseTypeDef
+# GetFirewallRuleGroupAssociationResponse
 
 ### FirewallRuleGroupAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupPolicyRequestTypeDef
+# GetFirewallRuleGroupPolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupPolicyResponseTypeDef
+# GetFirewallRuleGroupPolicyResponse
 
 ### FirewallRuleGroupPolicy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupRequestTypeDef
+# GetFirewallRuleGroupRequest
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFirewallRuleGroupResponseTypeDef
+# GetFirewallRuleGroupResponse
 
 ### FirewallRuleGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOutpostResolverRequestTypeDef
+# GetOutpostResolverRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOutpostResolverResponseTypeDef
+# GetOutpostResolverResponse
 
 ### OutpostResolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverConfigRequestTypeDef
+# GetResolverConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverConfigResponseTypeDef
+# GetResolverConfigResponse
 
 ### ResolverConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverDnssecConfigRequestTypeDef
+# GetResolverDnssecConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverDnssecConfigResponseTypeDef
+# GetResolverDnssecConfigResponse
 
 ### ResolverDNSSECConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverEndpointRequestTypeDef
+# GetResolverEndpointRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverEndpointResponseTypeDef
+# GetResolverEndpointResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigAssociationRequestTypeDef
+# GetResolverQueryLogConfigAssociationRequest
 
 ### ResolverQueryLogConfigAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigAssociationResponseTypeDef
+# GetResolverQueryLogConfigAssociationResponse
 
 ### ResolverQueryLogConfigAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigPolicyRequestTypeDef
+# GetResolverQueryLogConfigPolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigPolicyResponseTypeDef
+# GetResolverQueryLogConfigPolicyResponse
 
 ### ResolverQueryLogConfigPolicy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigRequestTypeDef
+# GetResolverQueryLogConfigRequest
 
 ### ResolverQueryLogConfigId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverQueryLogConfigResponseTypeDef
+# GetResolverQueryLogConfigResponse
 
 ### ResolverQueryLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverRuleAssociationRequestTypeDef
+# GetResolverRuleAssociationRequest
 
 ### ResolverRuleAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverRuleAssociationResponseTypeDef
+# GetResolverRuleAssociationResponse
 
 ### ResolverRuleAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverRulePolicyRequestTypeDef
+# GetResolverRulePolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverRulePolicyResponseTypeDef
+# GetResolverRulePolicyResponse
 
 ### ResolverRulePolicy
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResolverRuleRequestTypeDef
+# GetResolverRuleRequest
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResolverRuleResponseTypeDef
+# GetResolverRuleResponse
 
 ### ResolverRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportFirewallDomainsRequestTypeDef
+# ImportFirewallDomainsRequest
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -1108,7 +1108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ImportFirewallDomainsResponseTypeDef
+# ImportFirewallDomainsResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -1127,11 +1127,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IpAddressRequestTypeDef
+# IpAddressRequest
 
 ### SubnetId
 - **Type**: <class 'str'>
@@ -1144,7 +1144,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IpAddressResponseTypeDef
+# IpAddressResponse
 
 ### IpId
 - **Type**: typing.Optional[str]
@@ -1171,7 +1171,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IpAddressUpdateTypeDef
+# IpAddressUpdate
 
 ### IpId
 - **Type**: typing.Optional[str]
@@ -1186,13 +1186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallConfigsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallConfigsRequestTypeDef
+# ListFirewallConfigsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1201,27 +1195,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallConfigsResponseTypeDef
+# ListFirewallConfigsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallConfigsResponse
 
 ### FirewallConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainListsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallDomainListsRequestTypeDef
+# ListFirewallDomainListsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1230,31 +1224,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainListsResponseTypeDef
+# ListFirewallDomainListsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallDomainListsResponse
 
 ### FirewallDomainLists
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainListMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallDomainListMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainsRequestPaginateTypeDef
-
-### FirewallDomainListId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallDomainsRequestTypeDef
+# ListFirewallDomainsRequest
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -1267,39 +1257,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallDomainsResponseTypeDef
+# ListFirewallDomainsRequestPaginate
+
+### FirewallDomainListId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallDomainsResponse
 
 ### Domains
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupAssociationsRequestPaginateTypeDef
-
-### FirewallRuleGroupId
-- **Type**: typing.Optional[str]
-
-### VpcId
-- **Type**: typing.Optional[str]
-
-### Priority
-- **Type**: typing.Optional[int]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallRuleGroupAssociationsRequestTypeDef
+# ListFirewallRuleGroupAssociationsRequest
 
 ### FirewallRuleGroupId
 - **Type**: typing.Optional[str]
@@ -1320,27 +1302,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupAssociationsResponseTypeDef
+# ListFirewallRuleGroupAssociationsRequestPaginate
+
+### FirewallRuleGroupId
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'DELETING', 'UPDATING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallRuleGroupAssociationsResponse
 
 ### FirewallRuleGroupAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallRuleGroupsRequestTypeDef
+# ListFirewallRuleGroupsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1349,37 +1343,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRuleGroupsResponseTypeDef
+# ListFirewallRuleGroupsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallRuleGroupsResponse
 
 ### FirewallRuleGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRulesRequestPaginateTypeDef
-
-### FirewallRuleGroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Priority
-- **Type**: typing.Optional[int]
-
-### Action
-- **Type**: typing.Optional[typing.Literal['ALERT', 'ALLOW', 'BLOCK']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListFirewallRulesRequestTypeDef
+# ListFirewallRulesRequest
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -1398,30 +1382,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFirewallRulesResponseTypeDef
+# ListFirewallRulesRequestPaginate
+
+### FirewallRuleGroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Priority
+- **Type**: typing.Optional[int]
+
+### Action
+- **Type**: typing.Optional[typing.Literal['ALERT', 'ALLOW', 'BLOCK']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListFirewallRulesResponse
 
 ### FirewallRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOutpostResolversRequestPaginateTypeDef
-
-### OutpostArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListOutpostResolversRequestTypeDef
+# ListOutpostResolversRequest
 
 ### OutpostArn
 - **Type**: typing.Optional[str]
@@ -1433,27 +1424,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOutpostResolversResponseTypeDef
+# ListOutpostResolversRequestPaginate
+
+### OutpostArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListOutpostResolversResponse
 
 ### OutpostResolvers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolverTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolver]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverConfigsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverConfigsRequestTypeDef
+# ListResolverConfigsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1462,30 +1456,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverConfigsResponseTypeDef
+# ListResolverConfigsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverConfigsResponse
 
 ### ResolverConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverDnssecConfigsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverDnssecConfigsRequestTypeDef
+# ListResolverDnssecConfigsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1494,34 +1485,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 
-# ListResolverDnssecConfigsResponseTypeDef
+# ListResolverDnssecConfigsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverDnssecConfigsResponse
 
 ### ResolverDnssecConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverEndpointIpAddressesRequestPaginateTypeDef
-
-### ResolverEndpointId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverEndpointIpAddressesRequestTypeDef
+# ListResolverEndpointIpAddressesRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -1534,34 +1524,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListResolverEndpointIpAddressesResponseTypeDef
+# ListResolverEndpointIpAddressesRequestPaginate
+
+### ResolverEndpointId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverEndpointIpAddressesResponse
 
 ### MaxResults
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### IpAddresses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.IpAddressResponse]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverEndpointsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverEndpointsRequestTypeDef
+# ListResolverEndpointsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1570,43 +1561,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 
-# ListResolverEndpointsResponseTypeDef
+# ListResolverEndpointsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverEndpointsResponse
 
 ### MaxResults
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResolverEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverQueryLogConfigAssociationsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### SortBy
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverQueryLogConfigAssociationsRequestTypeDef
+# ListResolverQueryLogConfigAssociationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1615,7 +1600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -1624,7 +1609,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ListResolverQueryLogConfigAssociationsResponseTypeDef
+# ListResolverQueryLogConfigAssociationsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### SortBy
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverQueryLogConfigAssociationsResponse
 
 ### TotalCount
 - **Type**: <class 'int'>
@@ -1635,33 +1635,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResolverQueryLogConfigAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverQueryLogConfigsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### SortBy
-- **Type**: typing.Optional[str]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverQueryLogConfigsRequestTypeDef
+# ListResolverQueryLogConfigsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1670,7 +1655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 ### SortBy
 - **Type**: typing.Optional[str]
@@ -1679,7 +1664,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ListResolverQueryLogConfigsResponseTypeDef
+# ListResolverQueryLogConfigsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### SortBy
+- **Type**: typing.Optional[str]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverQueryLogConfigsResponse
 
 ### TotalCount
 - **Type**: <class 'int'>
@@ -1690,27 +1690,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResolverQueryLogConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverQueryLogConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverRuleAssociationsRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverRuleAssociationsRequestTypeDef
+# ListResolverRuleAssociationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1719,37 +1710,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 
-# ListResolverRuleAssociationsResponseTypeDef
+# ListResolverRuleAssociationsRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverRuleAssociationsResponse
 
 ### MaxResults
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResolverRuleAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListResolverRulesRequestPaginateTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListResolverRulesRequestTypeDef
+# ListResolverRulesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1758,38 +1749,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
 
 
-# ListResolverRulesResponseTypeDef
+# ListResolverRulesRequestPaginate
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Filter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListResolverRulesResponse
 
 ### MaxResults
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResolverRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRule]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1802,21 +1792,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53resolver_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# OutpostResolverTypeDef
+# OutpostResolver
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -1852,7 +1852,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1864,7 +1864,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutFirewallRuleGroupPolicyRequestTypeDef
+# PutFirewallRuleGroupPolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1875,18 +1875,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFirewallRuleGroupPolicyResponseTypeDef
+# PutFirewallRuleGroupPolicyResponse
 
 ### ReturnValue
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResolverQueryLogConfigPolicyRequestTypeDef
+# PutResolverQueryLogConfigPolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1897,18 +1897,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResolverQueryLogConfigPolicyResponseTypeDef
+# PutResolverQueryLogConfigPolicyResponse
 
 ### ReturnValue
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResolverRulePolicyRequestTypeDef
+# PutResolverRulePolicyRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1919,18 +1919,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResolverRulePolicyResponseTypeDef
+# PutResolverRulePolicyResponse
 
 ### ReturnValue
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolverConfigTypeDef
+# ResolverConfig
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1945,7 +1945,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING', 'USE_LOCAL_RESOURCE_SETTING']]
 
 
-# ResolverDnssecConfigTypeDef
+# ResolverDnssecConfig
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -1960,7 +1960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLING', 'UPDATING_TO_USE_LOCAL_RESOURCE_SETTING', 'USE_LOCAL_RESOURCE_SETTING']]
 
 
-# ResolverEndpointTypeDef
+# ResolverEndpoint
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2011,31 +2011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['Do53', 'DoH', 'DoH-FIPS']]]
 
 
-# ResolverQueryLogConfigAssociationTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### ResolverQueryLogConfigId
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTION_NEEDED', 'ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
-
-### Error
-- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'DESTINATION_NOT_FOUND', 'INTERNAL_SERVICE_ERROR', 'NONE']]
-
-### ErrorMessage
-- **Type**: typing.Optional[str]
-
-### CreationTime
-- **Type**: typing.Optional[str]
-
-
-# ResolverQueryLogConfigTypeDef
+# ResolverQueryLogConfig
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2068,40 +2044,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResolverRuleAssociationTypeDef
+# ResolverQueryLogConfigAssociation
 
 ### Id
 - **Type**: typing.Optional[str]
 
-### ResolverRuleId
+### ResolverQueryLogConfigId
 - **Type**: typing.Optional[str]
 
-### Name
-- **Type**: typing.Optional[str]
-
-### VPCId
+### ResourceId
 - **Type**: typing.Optional[str]
 
 ### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'CREATING', 'DELETING', 'FAILED', 'OVERRIDDEN']]
+- **Type**: typing.Optional[typing.Literal['ACTION_NEEDED', 'ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
-### StatusMessage
+### Error
+- **Type**: typing.Optional[typing.Literal['ACCESS_DENIED', 'DESTINATION_NOT_FOUND', 'INTERNAL_SERVICE_ERROR', 'NONE']]
+
+### ErrorMessage
+- **Type**: typing.Optional[str]
+
+### CreationTime
 - **Type**: typing.Optional[str]
 
 
-# ResolverRuleConfigTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### TargetIps
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddressTypeDef]]
-
-### ResolverEndpointId
-- **Type**: typing.Optional[str]
-
-
-# ResolverRuleTypeDef
+# ResolverRule
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -2128,7 +2095,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TargetIps
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddressTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddress]]
 
 ### ResolverEndpointId
 - **Type**: typing.Optional[str]
@@ -2146,7 +2113,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResolverRuleAssociation
+
+### Id
+- **Type**: typing.Optional[str]
+
+### ResolverRuleId
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### VPCId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'CREATING', 'DELETING', 'FAILED', 'OVERRIDDEN']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+
+# ResolverRuleConfig
+
+### Name
+- **Type**: typing.Optional[str]
+
+### TargetIps
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TargetAddress]]
+
+### ResolverEndpointId
+- **Type**: typing.Optional[str]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2168,18 +2168,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -2190,13 +2179,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TargetAddressTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.Tag]
+- **Required**: Yes
+
+
+# TargetAddress
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -2207,7 +2207,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallConfigRequestTypeDef
+# UpdateFirewallConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2218,18 +2218,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallConfigResponseTypeDef
+# UpdateFirewallConfigResponse
 
 ### FirewallConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFirewallDomainsRequestTypeDef
+# UpdateFirewallDomainsRequest
 
 ### FirewallDomainListId
 - **Type**: <class 'str'>
@@ -2244,7 +2244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFirewallDomainsResponseTypeDef
+# UpdateFirewallDomainsResponse
 
 ### Id
 - **Type**: <class 'str'>
@@ -2263,11 +2263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFirewallRuleGroupAssociationRequestTypeDef
+# UpdateFirewallRuleGroupAssociationRequest
 
 ### FirewallRuleGroupAssociationId
 - **Type**: <class 'str'>
@@ -2283,18 +2283,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFirewallRuleGroupAssociationResponseTypeDef
+# UpdateFirewallRuleGroupAssociationResponse
 
 ### FirewallRuleGroupAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleGroupAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFirewallRuleRequestTypeDef
+# UpdateFirewallRuleRequest
 
 ### FirewallRuleGroupId
 - **Type**: <class 'str'>
@@ -2340,18 +2340,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
 
 
-# UpdateFirewallRuleResponseTypeDef
+# UpdateFirewallRuleResponse
 
 ### FirewallRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.FirewallRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIpAddressTypeDef
+# UpdateIpAddress
 
 ### IpId
 - **Type**: <class 'str'>
@@ -2362,7 +2362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateOutpostResolverRequestTypeDef
+# UpdateOutpostResolverRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -2378,18 +2378,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateOutpostResolverResponseTypeDef
+# UpdateOutpostResolverResponse
 
 ### OutpostResolver
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolverTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.OutpostResolver'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResolverConfigRequestTypeDef
+# UpdateResolverConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2400,18 +2400,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverConfigResponseTypeDef
+# UpdateResolverConfigResponse
 
 ### ResolverConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResolverDnssecConfigRequestTypeDef
+# UpdateResolverDnssecConfigRequest
 
 ### ResourceId
 - **Type**: <class 'str'>
@@ -2422,18 +2422,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateResolverDnssecConfigResponseTypeDef
+# UpdateResolverDnssecConfigResponse
 
 ### ResolverDNSSECConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverDnssecConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResolverEndpointRequestTypeDef
+# UpdateResolverEndpointRequest
 
 ### ResolverEndpointId
 - **Type**: <class 'str'>
@@ -2446,42 +2446,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DUALSTACK', 'IPV4', 'IPV6']]
 
 ### UpdateIpAddresses
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.UpdateIpAddressTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53resolver_classes.UpdateIpAddress]]
 
 ### Protocols
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Do53', 'DoH', 'DoH-FIPS']]]
 
 
-# UpdateResolverEndpointResponseTypeDef
+# UpdateResolverEndpointResponse
 
 ### ResolverEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResolverRuleRequestTypeDef
+# UpdateResolverRuleRequest
 
 ### ResolverRuleId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Config
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleConfig'>
 - **Default**: <class 'aws_resource_validator.pydantic_models.base_validator_model.BaseValidatorModel.Config'>
 
 
-# UpdateResolverRuleResponseTypeDef
+# UpdateResolverRuleResponse
 
 ### ResolverRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRuleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResolverRule'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53resolver_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

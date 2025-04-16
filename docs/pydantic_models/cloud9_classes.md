@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateEnvironmentEC2RequestTypeDef
+# CreateEnvironmentEC2Request
 
 ### name
 - **Type**: <class 'str'>
@@ -36,7 +36,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.Tag]]
 
 ### connectionType
 - **Type**: typing.Optional[typing.Literal['CONNECT_SSH', 'CONNECT_SSM']]
@@ -45,18 +45,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateEnvironmentEC2ResultTypeDef
+# CreateEnvironmentEC2Result
 
 ### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEnvironmentMembershipRequestTypeDef
+# CreateEnvironmentMembershipRequest
 
 ### environmentId
 - **Type**: <class 'str'>
@@ -71,18 +71,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEnvironmentMembershipResultTypeDef
+# CreateEnvironmentMembershipResult
 
 ### membership
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMemberTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEnvironmentMembershipRequestTypeDef
+# DeleteEnvironmentMembershipRequest
 
 ### environmentId
 - **Type**: <class 'str'>
@@ -93,29 +93,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEnvironmentRequestTypeDef
+# DeleteEnvironmentRequest
 
 ### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEnvironmentMembershipsRequestPaginateTypeDef
-
-### userArn
-- **Type**: typing.Optional[str]
-
-### environmentId
-- **Type**: typing.Optional[str]
-
-### permissions
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['owner', 'read-only', 'read-write']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEnvironmentMembershipsRequestTypeDef
+# DescribeEnvironmentMembershipsRequest
 
 ### userArn
 - **Type**: typing.Optional[str]
@@ -133,28 +118,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeEnvironmentMembershipsResultTypeDef
+# DescribeEnvironmentMembershipsRequestPaginate
+
+### userArn
+- **Type**: typing.Optional[str]
+
+### environmentId
+- **Type**: typing.Optional[str]
+
+### permissions
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['owner', 'read-only', 'read-write']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfig]
+
+
+# DescribeEnvironmentMembershipsResult
 
 ### memberships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeEnvironmentStatusRequestTypeDef
+# DescribeEnvironmentStatusRequest
 
 ### environmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEnvironmentStatusResultTypeDef
+# DescribeEnvironmentStatusResult
 
 ### status
 - **Type**: typing.Literal['connecting', 'creating', 'deleting', 'error', 'ready', 'stopped', 'stopping']
@@ -165,29 +165,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEnvironmentsRequestTypeDef
+# DescribeEnvironmentsRequest
 
 ### environmentIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeEnvironmentsResultTypeDef
+# DescribeEnvironmentsResult
 
 ### environments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.Environment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnvironmentLifecycleTypeDef
+# Environment
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EnvironmentLifecycle
 
 ### status
 - **Type**: typing.Optional[typing.Literal['CREATED', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING']]
@@ -199,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentMemberTypeDef
+# EnvironmentMember
 
 ### permissions
 - **Type**: typing.Literal['owner', 'read-only', 'read-write']
@@ -221,19 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# EnvironmentTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ListEnvironmentsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfigTypeDef]
-
-
-# ListEnvironmentsRequestTypeDef
+# ListEnvironmentsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -242,39 +236,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEnvironmentsResultTypeDef
+# ListEnvironmentsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloud9_classes.PaginatorConfig]
+
+
+# ListEnvironmentsResult
 
 ### environmentIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloud9_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -286,7 +286,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -308,18 +308,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -330,7 +319,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloud9_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceARN
 - **Type**: <class 'str'>
@@ -341,7 +341,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEnvironmentMembershipRequestTypeDef
+# UpdateEnvironmentMembershipRequest
 
 ### environmentId
 - **Type**: <class 'str'>
@@ -356,18 +356,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEnvironmentMembershipResultTypeDef
+# UpdateEnvironmentMembershipResult
 
 ### membership
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMemberTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.EnvironmentMember'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloud9_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnvironmentRequestTypeDef
+# UpdateEnvironmentRequest
 
 ### environmentId
 - **Type**: <class 'str'>

@@ -12,27 +12,27 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.pca_connector_ad_constants import *
 
-class AccessRightsTypeDef(BaseValidatorModel):
+class AccessRights(BaseValidatorModel):
     AutoEnroll: Optional[AccessRightType] = None
     Enroll: Optional[AccessRightType] = None
 
 
-class ApplicationPolicyTypeDef(BaseValidatorModel):
+class ApplicationPolicy(BaseValidatorModel):
     PolicyObjectIdentifier: Optional[str] = None
     PolicyType: Optional[ApplicationPolicyTypeType] = None
 
 
-class ValidityPeriodTypeDef(BaseValidatorModel):
+class ValidityPeriod(BaseValidatorModel):
     Period: int
     PeriodType: ValidityPeriodTypeType
 
 
-class VpcInformationOutputTypeDef(BaseValidatorModel):
+class VpcInformationOutput(BaseValidatorModel):
     SecurityGroupIds: List[str]
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -40,41 +40,41 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
+class CreateDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryId: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateServicePrincipalNameRequestTypeDef(BaseValidatorModel):
+class CreateServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
     ClientToken: Optional[str] = None
 
 
-class DeleteConnectorRequestTypeDef(BaseValidatorModel):
+class DeleteConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
-class DeleteDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
+class DeleteDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
 
 
-class DeleteServicePrincipalNameRequestTypeDef(BaseValidatorModel):
+class DeleteServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
 
 
-class DeleteTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
 
 
-class DeleteTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateRequest(BaseValidatorModel):
     TemplateArn: str
 
 
-class DirectoryRegistrationSummaryTypeDef(BaseValidatorModel):
+class DirectoryRegistrationSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     DirectoryId: Optional[str] = None
@@ -83,7 +83,7 @@ class DirectoryRegistrationSummaryTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class DirectoryRegistrationTypeDef(BaseValidatorModel):
+class DirectoryRegistration(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     DirectoryId: Optional[str] = None
@@ -92,7 +92,7 @@ class DirectoryRegistrationTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class EnrollmentFlagsV2TypeDef(BaseValidatorModel):
+class EnrollmentFlagsV2(BaseValidatorModel):
     EnableKeyReuseOnNtTokenKeysetStorageFull: Optional[bool] = None
     IncludeSymmetricAlgorithms: Optional[bool] = None
     NoSecurityExtension: Optional[bool] = None
@@ -100,7 +100,7 @@ class EnrollmentFlagsV2TypeDef(BaseValidatorModel):
     UserInteractionRequired: Optional[bool] = None
 
 
-class EnrollmentFlagsV3TypeDef(BaseValidatorModel):
+class EnrollmentFlagsV3(BaseValidatorModel):
     EnableKeyReuseOnNtTokenKeysetStorageFull: Optional[bool] = None
     IncludeSymmetricAlgorithms: Optional[bool] = None
     NoSecurityExtension: Optional[bool] = None
@@ -108,7 +108,7 @@ class EnrollmentFlagsV3TypeDef(BaseValidatorModel):
     UserInteractionRequired: Optional[bool] = None
 
 
-class EnrollmentFlagsV4TypeDef(BaseValidatorModel):
+class EnrollmentFlagsV4(BaseValidatorModel):
     EnableKeyReuseOnNtTokenKeysetStorageFull: Optional[bool] = None
     IncludeSymmetricAlgorithms: Optional[bool] = None
     NoSecurityExtension: Optional[bool] = None
@@ -116,35 +116,35 @@ class EnrollmentFlagsV4TypeDef(BaseValidatorModel):
     UserInteractionRequired: Optional[bool] = None
 
 
-class GeneralFlagsV2TypeDef(BaseValidatorModel):
+class GeneralFlagsV2(BaseValidatorModel):
     AutoEnrollment: Optional[bool] = None
     MachineType: Optional[bool] = None
 
 
-class GeneralFlagsV3TypeDef(BaseValidatorModel):
+class GeneralFlagsV3(BaseValidatorModel):
     AutoEnrollment: Optional[bool] = None
     MachineType: Optional[bool] = None
 
 
-class GeneralFlagsV4TypeDef(BaseValidatorModel):
+class GeneralFlagsV4(BaseValidatorModel):
     AutoEnrollment: Optional[bool] = None
     MachineType: Optional[bool] = None
 
 
-class GetConnectorRequestTypeDef(BaseValidatorModel):
+class GetConnectorRequest(BaseValidatorModel):
     ConnectorArn: str
 
 
-class GetDirectoryRegistrationRequestTypeDef(BaseValidatorModel):
+class GetDirectoryRegistrationRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
 
 
-class GetServicePrincipalNameRequestTypeDef(BaseValidatorModel):
+class GetServicePrincipalNameRequest(BaseValidatorModel):
     ConnectorArn: str
     DirectoryRegistrationArn: str
 
 
-class ServicePrincipalNameTypeDef(BaseValidatorModel):
+class ServicePrincipalName(BaseValidatorModel):
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     DirectoryRegistrationArn: Optional[str] = None
@@ -153,16 +153,16 @@ class ServicePrincipalNameTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class GetTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
+class GetTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
 
 
-class GetTemplateRequestTypeDef(BaseValidatorModel):
+class GetTemplateRequest(BaseValidatorModel):
     TemplateArn: str
 
 
-class KeyUsageFlagsTypeDef(BaseValidatorModel):
+class KeyUsageFlags(BaseValidatorModel):
     DataEncipherment: Optional[bool] = None
     DigitalSignature: Optional[bool] = None
     KeyAgreement: Optional[bool] = None
@@ -170,35 +170,35 @@ class KeyUsageFlagsTypeDef(BaseValidatorModel):
     NonRepudiation: Optional[bool] = None
 
 
-class KeyUsagePropertyFlagsTypeDef(BaseValidatorModel):
+class KeyUsagePropertyFlags(BaseValidatorModel):
     Decrypt: Optional[bool] = None
     KeyAgreement: Optional[bool] = None
     Sign: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConnectorsRequestTypeDef(BaseValidatorModel):
+class ListConnectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListDirectoryRegistrationsRequestTypeDef(BaseValidatorModel):
+class ListDirectoryRegistrationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListServicePrincipalNamesRequestTypeDef(BaseValidatorModel):
+class ListServicePrincipalNamesRequest(BaseValidatorModel):
     DirectoryRegistrationArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ServicePrincipalNameSummaryTypeDef(BaseValidatorModel):
+class ServicePrincipalNameSummary(BaseValidatorModel):
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
     DirectoryRegistrationArn: Optional[str] = None
@@ -207,48 +207,48 @@ class ServicePrincipalNameSummaryTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListTemplateGroupAccessControlEntriesRequestTypeDef(BaseValidatorModel):
+class ListTemplateGroupAccessControlEntriesRequest(BaseValidatorModel):
     TemplateArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTemplatesRequestTypeDef(BaseValidatorModel):
+class ListTemplatesRequest(BaseValidatorModel):
     ConnectorArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class PrivateKeyAttributesV2OutputTypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV2Output(BaseValidatorModel):
     KeySpec: KeySpecType
     MinimalKeyLength: int
     CryptoProviders: Optional[List[str]] = None
 
 
-class PrivateKeyAttributesV2TypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV2(BaseValidatorModel):
     KeySpec: KeySpecType
     MinimalKeyLength: int
     CryptoProviders: Optional[Sequence[str]] = None
 
 
-class PrivateKeyFlagsV2TypeDef(BaseValidatorModel):
+class PrivateKeyFlagsV2(BaseValidatorModel):
     ClientVersion: ClientCompatibilityV2Type
     ExportableKey: Optional[bool] = None
     StrongKeyProtectionRequired: Optional[bool] = None
 
 
-class PrivateKeyFlagsV3TypeDef(BaseValidatorModel):
+class PrivateKeyFlagsV3(BaseValidatorModel):
     ClientVersion: ClientCompatibilityV3Type
     ExportableKey: Optional[bool] = None
     RequireAlternateSignatureAlgorithm: Optional[bool] = None
     StrongKeyProtectionRequired: Optional[bool] = None
 
 
-class PrivateKeyFlagsV4TypeDef(BaseValidatorModel):
+class PrivateKeyFlagsV4(BaseValidatorModel):
     ClientVersion: ClientCompatibilityV4Type
     ExportableKey: Optional[bool] = None
     RequireAlternateSignatureAlgorithm: Optional[bool] = None
@@ -257,7 +257,7 @@ class PrivateKeyFlagsV4TypeDef(BaseValidatorModel):
     UseLegacyProvider: Optional[bool] = None
 
 
-class SubjectNameFlagsV2TypeDef(BaseValidatorModel):
+class SubjectNameFlagsV2(BaseValidatorModel):
     RequireCommonName: Optional[bool] = None
     RequireDirectoryPath: Optional[bool] = None
     RequireDnsAsCn: Optional[bool] = None
@@ -270,7 +270,7 @@ class SubjectNameFlagsV2TypeDef(BaseValidatorModel):
     SanRequireUpn: Optional[bool] = None
 
 
-class SubjectNameFlagsV3TypeDef(BaseValidatorModel):
+class SubjectNameFlagsV3(BaseValidatorModel):
     RequireCommonName: Optional[bool] = None
     RequireDirectoryPath: Optional[bool] = None
     RequireDnsAsCn: Optional[bool] = None
@@ -283,7 +283,7 @@ class SubjectNameFlagsV3TypeDef(BaseValidatorModel):
     SanRequireUpn: Optional[bool] = None
 
 
-class SubjectNameFlagsV4TypeDef(BaseValidatorModel):
+class SubjectNameFlagsV4(BaseValidatorModel):
     RequireCommonName: Optional[bool] = None
     RequireDirectoryPath: Optional[bool] = None
     RequireDnsAsCn: Optional[bool] = None
@@ -296,28 +296,28 @@ class SubjectNameFlagsV4TypeDef(BaseValidatorModel):
     SanRequireUpn: Optional[bool] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class TemplateRevisionTypeDef(BaseValidatorModel):
+class TemplateRevision(BaseValidatorModel):
     MajorRevision: int
     MinorRevision: int
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class VpcInformationTypeDef(BaseValidatorModel):
+class VpcInformation(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     IpAddressType: Optional[IpAddressTypeType] = None
 
 
-class AccessControlEntrySummaryTypeDef(BaseValidatorModel):
-    AccessRights: Optional[AccessRightsTypeDef] = None
+class AccessControlEntrySummary(BaseValidatorModel):
+    AccessRights: Optional[AccessRights] = None
     CreatedAt: Optional[datetime] = None
     GroupDisplayName: Optional[str] = None
     GroupSecurityIdentifier: Optional[str] = None
@@ -325,8 +325,8 @@ class AccessControlEntrySummaryTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class AccessControlEntryTypeDef(BaseValidatorModel):
-    AccessRights: Optional[AccessRightsTypeDef] = None
+class AccessControlEntry(BaseValidatorModel):
+    AccessRights: Optional[AccessRights] = None
     CreatedAt: Optional[datetime] = None
     GroupDisplayName: Optional[str] = None
     GroupSecurityIdentifier: Optional[str] = None
@@ -334,37 +334,37 @@ class AccessControlEntryTypeDef(BaseValidatorModel):
     UpdatedAt: Optional[datetime] = None
 
 
-class CreateTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
-    AccessRights: AccessRightsTypeDef
+class CreateTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
+    AccessRights: AccessRights
     GroupDisplayName: str
     GroupSecurityIdentifier: str
     TemplateArn: str
     ClientToken: Optional[str] = None
 
 
-class UpdateTemplateGroupAccessControlEntryRequestTypeDef(BaseValidatorModel):
+class UpdateTemplateGroupAccessControlEntryRequest(BaseValidatorModel):
     GroupSecurityIdentifier: str
     TemplateArn: str
-    AccessRights: Optional[AccessRightsTypeDef] = None
+    AccessRights: Optional[AccessRights] = None
     GroupDisplayName: Optional[str] = None
 
 
-class ApplicationPoliciesOutputTypeDef(BaseValidatorModel):
-    Policies: List[ApplicationPolicyTypeDef]
+class ApplicationPoliciesOutput(BaseValidatorModel):
+    Policies: List[ApplicationPolicy]
     Critical: Optional[bool] = None
 
 
-class ApplicationPoliciesTypeDef(BaseValidatorModel):
-    Policies: Sequence[ApplicationPolicyTypeDef]
+class ApplicationPolicies(BaseValidatorModel):
+    Policies: Sequence[ApplicationPolicy]
     Critical: Optional[bool] = None
 
 
-class CertificateValidityTypeDef(BaseValidatorModel):
-    RenewalPeriod: ValidityPeriodTypeDef
-    ValidityPeriod: ValidityPeriodTypeDef
+class CertificateValidity(BaseValidatorModel):
+    RenewalPeriod: ValidityPeriod
+    ValidityPeriod: ValidityPeriod
 
 
-class ConnectorSummaryTypeDef(BaseValidatorModel):
+class ConnectorSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     CertificateAuthorityArn: Optional[str] = None
     CertificateEnrollmentPolicyServerEndpoint: Optional[str] = None
@@ -373,10 +373,10 @@ class ConnectorSummaryTypeDef(BaseValidatorModel):
     Status: Optional[ConnectorStatusType] = None
     StatusReason: Optional[ConnectorStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
-    VpcInformation: Optional[VpcInformationOutputTypeDef] = None
+    VpcInformation: Optional[VpcInformationOutput] = None
 
 
-class ConnectorTypeDef(BaseValidatorModel):
+class Connector(BaseValidatorModel):
     Arn: Optional[str] = None
     CertificateAuthorityArn: Optional[str] = None
     CertificateEnrollmentPolicyServerEndpoint: Optional[str] = None
@@ -385,318 +385,318 @@ class ConnectorTypeDef(BaseValidatorModel):
     Status: Optional[ConnectorStatusType] = None
     StatusReason: Optional[ConnectorStatusReasonType] = None
     UpdatedAt: Optional[datetime] = None
-    VpcInformation: Optional[VpcInformationOutputTypeDef] = None
+    VpcInformation: Optional[VpcInformationOutput] = None
 
 
-class CreateConnectorResponseTypeDef(BaseValidatorModel):
+class CreateConnectorResponse(BaseValidatorModel):
     ConnectorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDirectoryRegistrationResponseTypeDef(BaseValidatorModel):
+class CreateDirectoryRegistrationResponse(BaseValidatorModel):
     DirectoryRegistrationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTemplateResponseTypeDef(BaseValidatorModel):
+class CreateTemplateResponse(BaseValidatorModel):
     TemplateArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDirectoryRegistrationsResponseTypeDef(BaseValidatorModel):
-    DirectoryRegistrations: List[DirectoryRegistrationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDirectoryRegistrationsResponse(BaseValidatorModel):
+    DirectoryRegistrations: List[DirectoryRegistrationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetDirectoryRegistrationResponseTypeDef(BaseValidatorModel):
-    DirectoryRegistration: DirectoryRegistrationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDirectoryRegistrationResponse(BaseValidatorModel):
+    DirectoryRegistration: DirectoryRegistration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServicePrincipalNameResponseTypeDef(BaseValidatorModel):
-    ServicePrincipalName: ServicePrincipalNameTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServicePrincipalNameResponse(BaseValidatorModel):
+    ServicePrincipalName: ServicePrincipalName
+    ResponseMetadata: ResponseMetadata
 
 
-class KeyUsageTypeDef(BaseValidatorModel):
-    UsageFlags: KeyUsageFlagsTypeDef
+class KeyUsage(BaseValidatorModel):
+    UsageFlags: KeyUsageFlags
     Critical: Optional[bool] = None
 
 
-class KeyUsagePropertyTypeDef(BaseValidatorModel):
-    PropertyFlags: Optional[KeyUsagePropertyFlagsTypeDef] = None
+class KeyUsageProperty(BaseValidatorModel):
+    PropertyFlags: Optional[KeyUsagePropertyFlags] = None
     PropertyType: Optional[Literal["ALL"]] = None
 
 
-class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConnectorsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDirectoryRegistrationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDirectoryRegistrationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServicePrincipalNamesRequestPaginateTypeDef(BaseValidatorModel):
+class ListServicePrincipalNamesRequestPaginate(BaseValidatorModel):
     DirectoryRegistrationArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateGroupAccessControlEntriesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateGroupAccessControlEntriesRequestPaginate(BaseValidatorModel):
     TemplateArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplatesRequestPaginate(BaseValidatorModel):
     ConnectorArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServicePrincipalNamesResponseTypeDef(BaseValidatorModel):
-    ServicePrincipalNames: List[ServicePrincipalNameSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListServicePrincipalNamesResponse(BaseValidatorModel):
+    ServicePrincipalNames: List[ServicePrincipalNameSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTemplateGroupAccessControlEntriesResponseTypeDef(BaseValidatorModel):
-    AccessControlEntries: List[AccessControlEntrySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplateGroupAccessControlEntriesResponse(BaseValidatorModel):
+    AccessControlEntries: List[AccessControlEntrySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetTemplateGroupAccessControlEntryResponseTypeDef(BaseValidatorModel):
-    AccessControlEntry: AccessControlEntryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTemplateGroupAccessControlEntryResponse(BaseValidatorModel):
+    AccessControlEntry: AccessControlEntry
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConnectorsResponseTypeDef(BaseValidatorModel):
-    Connectors: List[ConnectorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectorsResponse(BaseValidatorModel):
+    Connectors: List[ConnectorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetConnectorResponseTypeDef(BaseValidatorModel):
-    Connector: ConnectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetConnectorResponse(BaseValidatorModel):
+    Connector: Connector
+    ResponseMetadata: ResponseMetadata
 
 
-class ExtensionsV2OutputTypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesOutputTypeDef] = None
+class ExtensionsV2Output(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPoliciesOutput] = None
 
 
-class ExtensionsV2TypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesTypeDef] = None
+class ExtensionsV2(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPolicies] = None
 
 
-class ExtensionsV3OutputTypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesOutputTypeDef] = None
+class ExtensionsV3Output(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPoliciesOutput] = None
 
 
-class ExtensionsV3TypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesTypeDef] = None
+class ExtensionsV3(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPolicies] = None
 
 
-class ExtensionsV4OutputTypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesOutputTypeDef] = None
+class ExtensionsV4Output(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPoliciesOutput] = None
 
 
-class ExtensionsV4TypeDef(BaseValidatorModel):
-    KeyUsage: KeyUsageTypeDef
-    ApplicationPolicies: Optional[ApplicationPoliciesTypeDef] = None
+class ExtensionsV4(BaseValidatorModel):
+    KeyUsage: KeyUsage
+    ApplicationPolicies: Optional[ApplicationPolicies] = None
 
 
-class PrivateKeyAttributesV3OutputTypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV3Output(BaseValidatorModel):
     Algorithm: PrivateKeyAlgorithmType
     KeySpec: KeySpecType
-    KeyUsageProperty: KeyUsagePropertyTypeDef
+    KeyUsageProperty: KeyUsageProperty
     MinimalKeyLength: int
     CryptoProviders: Optional[List[str]] = None
 
 
-class PrivateKeyAttributesV3TypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV3(BaseValidatorModel):
     Algorithm: PrivateKeyAlgorithmType
     KeySpec: KeySpecType
-    KeyUsageProperty: KeyUsagePropertyTypeDef
+    KeyUsageProperty: KeyUsageProperty
     MinimalKeyLength: int
     CryptoProviders: Optional[Sequence[str]] = None
 
 
-class PrivateKeyAttributesV4OutputTypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV4Output(BaseValidatorModel):
     KeySpec: KeySpecType
     MinimalKeyLength: int
     Algorithm: Optional[PrivateKeyAlgorithmType] = None
     CryptoProviders: Optional[List[str]] = None
-    KeyUsageProperty: Optional[KeyUsagePropertyTypeDef] = None
+    KeyUsageProperty: Optional[KeyUsageProperty] = None
 
 
-class PrivateKeyAttributesV4TypeDef(BaseValidatorModel):
+class PrivateKeyAttributesV4(BaseValidatorModel):
     KeySpec: KeySpecType
     MinimalKeyLength: int
     Algorithm: Optional[PrivateKeyAlgorithmType] = None
     CryptoProviders: Optional[Sequence[str]] = None
-    KeyUsageProperty: Optional[KeyUsagePropertyTypeDef] = None
+    KeyUsageProperty: Optional[KeyUsageProperty] = None
 
 
-class VpcInformationUnionTypeDef(BaseValidatorModel):
+class VpcInformationUnion(BaseValidatorModel):
     pass
 
 
-class CreateConnectorRequestTypeDef(BaseValidatorModel):
+class CreateConnectorRequest(BaseValidatorModel):
     CertificateAuthorityArn: str
     DirectoryId: str
-    VpcInformation: VpcInformationUnionTypeDef
+    VpcInformation: VpcInformationUnion
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class TemplateV2OutputTypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV2TypeDef
-    Extensions: ExtensionsV2OutputTypeDef
-    GeneralFlags: GeneralFlagsV2TypeDef
-    PrivateKeyAttributes: PrivateKeyAttributesV2OutputTypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV2TypeDef
-    SubjectNameFlags: SubjectNameFlagsV2TypeDef
+class TemplateV2Output(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV2
+    Extensions: ExtensionsV2Output
+    GeneralFlags: GeneralFlagsV2
+    PrivateKeyAttributes: PrivateKeyAttributesV2Output
+    PrivateKeyFlags: PrivateKeyFlagsV2
+    SubjectNameFlags: SubjectNameFlagsV2
     SupersededTemplates: Optional[List[str]] = None
 
 
-class TemplateV2TypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV2TypeDef
-    Extensions: ExtensionsV2TypeDef
-    GeneralFlags: GeneralFlagsV2TypeDef
-    PrivateKeyAttributes: PrivateKeyAttributesV2TypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV2TypeDef
-    SubjectNameFlags: SubjectNameFlagsV2TypeDef
+class TemplateV2(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV2
+    Extensions: ExtensionsV2
+    GeneralFlags: GeneralFlagsV2
+    PrivateKeyAttributes: PrivateKeyAttributesV2
+    PrivateKeyFlags: PrivateKeyFlagsV2
+    SubjectNameFlags: SubjectNameFlagsV2
     SupersededTemplates: Optional[Sequence[str]] = None
 
 
-class TemplateV3OutputTypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV3TypeDef
-    Extensions: ExtensionsV3OutputTypeDef
-    GeneralFlags: GeneralFlagsV3TypeDef
+class TemplateV3Output(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV3
+    Extensions: ExtensionsV3Output
+    GeneralFlags: GeneralFlagsV3
     HashAlgorithm: HashAlgorithmType
-    PrivateKeyAttributes: PrivateKeyAttributesV3OutputTypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV3TypeDef
-    SubjectNameFlags: SubjectNameFlagsV3TypeDef
+    PrivateKeyAttributes: PrivateKeyAttributesV3Output
+    PrivateKeyFlags: PrivateKeyFlagsV3
+    SubjectNameFlags: SubjectNameFlagsV3
     SupersededTemplates: Optional[List[str]] = None
 
 
-class TemplateV3TypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV3TypeDef
-    Extensions: ExtensionsV3TypeDef
-    GeneralFlags: GeneralFlagsV3TypeDef
+class TemplateV3(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV3
+    Extensions: ExtensionsV3
+    GeneralFlags: GeneralFlagsV3
     HashAlgorithm: HashAlgorithmType
-    PrivateKeyAttributes: PrivateKeyAttributesV3TypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV3TypeDef
-    SubjectNameFlags: SubjectNameFlagsV3TypeDef
+    PrivateKeyAttributes: PrivateKeyAttributesV3
+    PrivateKeyFlags: PrivateKeyFlagsV3
+    SubjectNameFlags: SubjectNameFlagsV3
     SupersededTemplates: Optional[Sequence[str]] = None
 
 
-class TemplateV4OutputTypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV4TypeDef
-    Extensions: ExtensionsV4OutputTypeDef
-    GeneralFlags: GeneralFlagsV4TypeDef
-    PrivateKeyAttributes: PrivateKeyAttributesV4OutputTypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV4TypeDef
-    SubjectNameFlags: SubjectNameFlagsV4TypeDef
+class TemplateV4Output(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV4
+    Extensions: ExtensionsV4Output
+    GeneralFlags: GeneralFlagsV4
+    PrivateKeyAttributes: PrivateKeyAttributesV4Output
+    PrivateKeyFlags: PrivateKeyFlagsV4
+    SubjectNameFlags: SubjectNameFlagsV4
     HashAlgorithm: Optional[HashAlgorithmType] = None
     SupersededTemplates: Optional[List[str]] = None
 
 
-class TemplateV4TypeDef(BaseValidatorModel):
-    CertificateValidity: CertificateValidityTypeDef
-    EnrollmentFlags: EnrollmentFlagsV4TypeDef
-    Extensions: ExtensionsV4TypeDef
-    GeneralFlags: GeneralFlagsV4TypeDef
-    PrivateKeyAttributes: PrivateKeyAttributesV4TypeDef
-    PrivateKeyFlags: PrivateKeyFlagsV4TypeDef
-    SubjectNameFlags: SubjectNameFlagsV4TypeDef
+class TemplateV4(BaseValidatorModel):
+    CertificateValidity: CertificateValidity
+    EnrollmentFlags: EnrollmentFlagsV4
+    Extensions: ExtensionsV4
+    GeneralFlags: GeneralFlagsV4
+    PrivateKeyAttributes: PrivateKeyAttributesV4
+    PrivateKeyFlags: PrivateKeyFlagsV4
+    SubjectNameFlags: SubjectNameFlagsV4
     HashAlgorithm: Optional[HashAlgorithmType] = None
     SupersededTemplates: Optional[Sequence[str]] = None
 
 
-class TemplateDefinitionOutputTypeDef(BaseValidatorModel):
-    TemplateV2: Optional[TemplateV2OutputTypeDef] = None
-    TemplateV3: Optional[TemplateV3OutputTypeDef] = None
-    TemplateV4: Optional[TemplateV4OutputTypeDef] = None
+class TemplateDefinitionOutput(BaseValidatorModel):
+    TemplateV2: Optional[TemplateV2Output] = None
+    TemplateV3: Optional[TemplateV3Output] = None
+    TemplateV4: Optional[TemplateV4Output] = None
 
 
-class TemplateDefinitionTypeDef(BaseValidatorModel):
-    TemplateV2: Optional[TemplateV2TypeDef] = None
-    TemplateV3: Optional[TemplateV3TypeDef] = None
-    TemplateV4: Optional[TemplateV4TypeDef] = None
+class TemplateDefinition(BaseValidatorModel):
+    TemplateV2: Optional[TemplateV2] = None
+    TemplateV3: Optional[TemplateV3] = None
+    TemplateV4: Optional[TemplateV4] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
-    Definition: Optional[TemplateDefinitionOutputTypeDef] = None
+    Definition: Optional[TemplateDefinitionOutput] = None
     Name: Optional[str] = None
     ObjectIdentifier: Optional[str] = None
     PolicySchema: Optional[int] = None
-    Revision: Optional[TemplateRevisionTypeDef] = None
+    Revision: Optional[TemplateRevision] = None
     Status: Optional[TemplateStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class TemplateTypeDef(BaseValidatorModel):
+class Template(BaseValidatorModel):
     Arn: Optional[str] = None
     ConnectorArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
-    Definition: Optional[TemplateDefinitionOutputTypeDef] = None
+    Definition: Optional[TemplateDefinitionOutput] = None
     Name: Optional[str] = None
     ObjectIdentifier: Optional[str] = None
     PolicySchema: Optional[int] = None
-    Revision: Optional[TemplateRevisionTypeDef] = None
+    Revision: Optional[TemplateRevision] = None
     Status: Optional[TemplateStatusType] = None
     UpdatedAt: Optional[datetime] = None
 
 
-class ListTemplatesResponseTypeDef(BaseValidatorModel):
-    Templates: List[TemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplatesResponse(BaseValidatorModel):
+    Templates: List[TemplateSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetTemplateResponseTypeDef(BaseValidatorModel):
-    Template: TemplateTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetTemplateResponse(BaseValidatorModel):
+    Template: Template
+    ResponseMetadata: ResponseMetadata
 
 
-class TemplateDefinitionUnionTypeDef(BaseValidatorModel):
+class TemplateDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateTemplateRequestTypeDef(BaseValidatorModel):
+class CreateTemplateRequest(BaseValidatorModel):
     ConnectorArn: str
-    Definition: TemplateDefinitionUnionTypeDef
+    Definition: TemplateDefinitionUnion
     Name: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateTemplateRequest(BaseValidatorModel):
     TemplateArn: str
-    Definition: Optional[TemplateDefinitionUnionTypeDef] = None
+    Definition: Optional[TemplateDefinitionUnion] = None
     ReenrollAllCertificateHolders: Optional[bool] = None
 
 

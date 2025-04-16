@@ -1,6 +1,6 @@
 # Lambda Classes
 
-# AccountLimitTypeDef
+# AccountLimit
 
 ### TotalCodeSize
 - **Type**: typing.Optional[int]
@@ -18,7 +18,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AccountUsageTypeDef
+# AccountUsage
 
 ### TotalCodeSize
 - **Type**: typing.Optional[int]
@@ -27,7 +27,7 @@
 - **Type**: typing.Optional[int]
 
 
-# AddLayerVersionPermissionRequestTypeDef
+# AddLayerVersionPermissionRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -56,7 +56,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AddLayerVersionPermissionResponseTypeDef
+# AddLayerVersionPermissionResponse
 
 ### Statement
 - **Type**: <class 'str'>
@@ -67,11 +67,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddPermissionRequestTypeDef
+# AddPermissionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -111,18 +111,39 @@
 - **Type**: typing.Optional[typing.Literal['AWS_IAM', 'NONE']]
 
 
-# AddPermissionResponseTypeDef
+# AddPermissionResponse
 
 ### Statement
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AliasConfigurationResponseTypeDef
+# AliasConfiguration
+
+### AliasArn
+- **Type**: typing.Optional[str]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### FunctionVersion
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### RoutingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationOutput]
+
+### RevisionId
+- **Type**: typing.Optional[str]
+
+
+# AliasConfigurationResponse
 
 ### AliasArn
 - **Type**: <class 'str'>
@@ -141,7 +162,7 @@
 - **Required**: Yes
 
 ### RoutingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationOutput'>
 - **Required**: Yes
 
 ### RevisionId
@@ -149,70 +170,49 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AliasConfigurationTypeDef
-
-### AliasArn
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### FunctionVersion
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationOutputTypeDef]
-
-### RevisionId
-- **Type**: typing.Optional[str]
-
-
-# AliasRoutingConfigurationOutputTypeDef
-
-### AdditionalVersionWeights
-- **Type**: typing.Optional[typing.Dict[str, float]]
-
-
-# AliasRoutingConfigurationTypeDef
+# AliasRoutingConfiguration
 
 ### AdditionalVersionWeights
 - **Type**: typing.Optional[typing.Mapping[str, float]]
 
 
-# AliasRoutingConfigurationUnionTypeDef
+# AliasRoutingConfigurationOutput
+
+### AdditionalVersionWeights
+- **Type**: typing.Optional[typing.Dict[str, float]]
+
+
+# AliasRoutingConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AllowedPublishersOutputTypeDef
-
-### SigningProfileVersionArns
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-
-# AllowedPublishersTypeDef
+# AllowedPublishers
 
 ### SigningProfileVersionArns
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# AllowedPublishersUnionTypeDef
+# AllowedPublishersOutput
+
+### SigningProfileVersionArns
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+
+# AllowedPublishersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AmazonManagedKafkaEventSourceConfigTypeDef
+# AmazonManagedKafkaEventSourceConfig
 
 ### ConsumerGroupId
 - **Type**: typing.Optional[str]
@@ -224,13 +224,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CodeSigningConfigTypeDef
+# CodeSigningConfig
 
 ### CodeSigningConfigId
 - **Type**: <class 'str'>
@@ -241,11 +241,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AllowedPublishers
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersOutput'>
 - **Required**: Yes
 
 ### CodeSigningPolicies
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningPoliciesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningPolicies'>
 - **Required**: Yes
 
 ### LastModified
@@ -256,51 +256,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CodeSigningPoliciesTypeDef
+# CodeSigningPolicies
 
 ### UntrustedArtifactOnDeployment
 - **Type**: typing.Optional[typing.Literal['Enforce', 'Warn']]
 
 
-# ConcurrencyResponseTypeDef
+# Concurrency
+
+### ReservedConcurrentExecutions
+- **Type**: typing.Optional[int]
+
+
+# ConcurrencyResponse
 
 ### ReservedConcurrentExecutions
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ConcurrencyTypeDef
-
-### ReservedConcurrentExecutions
-- **Type**: typing.Optional[int]
-
-
-# CorsOutputTypeDef
-
-### AllowCredentials
-- **Type**: typing.Optional[bool]
-
-### AllowHeaders
-- **Type**: typing.Optional[typing.List[str]]
-
-### AllowMethods
-- **Type**: typing.Optional[typing.List[str]]
-
-### AllowOrigins
-- **Type**: typing.Optional[typing.List[str]]
-
-### ExposeHeaders
-- **Type**: typing.Optional[typing.List[str]]
-
-### MaxAge
-- **Type**: typing.Optional[int]
-
-
-# CorsTypeDef
+# Cors
 
 ### AllowCredentials
 - **Type**: typing.Optional[bool]
@@ -321,13 +300,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CorsUnionTypeDef
+# CorsOutput
+
+### AllowCredentials
+- **Type**: typing.Optional[bool]
+
+### AllowHeaders
+- **Type**: typing.Optional[typing.List[str]]
+
+### AllowMethods
+- **Type**: typing.Optional[typing.List[str]]
+
+### AllowOrigins
+- **Type**: typing.Optional[typing.List[str]]
+
+### ExposeHeaders
+- **Type**: typing.Optional[typing.List[str]]
+
+### MaxAge
+- **Type**: typing.Optional[int]
+
+
+# CorsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAliasRequestTypeDef
+# CreateAliasRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -345,37 +345,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationUnion]
 
 
-# CreateCodeSigningConfigRequestTypeDef
+# CreateCodeSigningConfigRequest
 
 ### AllowedPublishers
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersUnion'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### CodeSigningPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CodeSigningPoliciesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateCodeSigningConfigResponseTypeDef
+# CreateCodeSigningConfigResponse
 
 ### CodeSigningConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEventSourceMappingRequestTypeDef
+# CreateEventSourceMappingRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -391,7 +391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaUnion]
 
 ### MaximumBatchingWindowInSeconds
 - **Type**: typing.Optional[int]
@@ -403,10 +403,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AT_TIMESTAMP', 'LATEST', 'TRIM_HORIZON']]
 
 ### StartingPositionTimestamp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Timestamp]
 
 ### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaximumRecordAgeInSeconds
 - **Type**: typing.Optional[int]
@@ -430,37 +430,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### SourceAccessConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfiguration]]
 
 ### SelfManagedEventSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceUnion]
 
 ### FunctionResponseTypes
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ReportBatchItemFailures']]]
 
 ### AmazonManagedKafkaEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AmazonManagedKafkaEventSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SelfManagedKafkaEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedKafkaEventSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ScalingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ScalingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentDBEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DocumentDBEventSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyArn
 - **Type**: typing.Optional[str]
 
 ### MetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigUnion]
 
 ### ProvisionedPollerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ProvisionedPollerConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateFunctionRequestTypeDef
+# CreateFunctionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -471,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Code
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionCodeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionCode'>
 - **Required**: Yes
 
 ### Runtime
@@ -493,22 +493,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.VpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PackageType
 - **Type**: typing.Optional[typing.Literal['Image', 'Zip']]
 
 ### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DeadLetterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyArn
 - **Type**: typing.Optional[str]
 
 ### TracingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.TracingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -517,10 +517,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FileSystemConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfig]]
 
 ### ImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigUnion]
 
 ### CodeSigningConfigArn
 - **Type**: typing.Optional[str]
@@ -529,16 +529,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['arm64', 'x86_64']]]
 
 ### EphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EphemeralStorageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnapStart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SnapStartTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LoggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.LoggingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateFunctionUrlConfigRequestTypeDef
+# CreateFunctionUrlConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -552,13 +552,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Cors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsUnion]
 
 ### InvokeMode
 - **Type**: typing.Optional[typing.Literal['BUFFERED', 'RESPONSE_STREAM']]
 
 
-# CreateFunctionUrlConfigResponseTypeDef
+# CreateFunctionUrlConfigResponse
 
 ### FunctionUrl
 - **Type**: <class 'str'>
@@ -573,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Cors
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -585,17 +585,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeadLetterConfigTypeDef
+# DeadLetterConfig
 
 ### TargetArn
 - **Type**: typing.Optional[str]
 
 
-# DeleteAliasRequestTypeDef
+# DeleteAliasRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -606,45 +606,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCodeSigningConfigRequestTypeDef
+# DeleteCodeSigningConfigRequest
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventSourceMappingRequestTypeDef
+# DeleteEventSourceMappingRequest
 
 ### UUID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFunctionCodeSigningConfigRequestTypeDef
+# DeleteFunctionCodeSigningConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFunctionConcurrencyRequestTypeDef
+# DeleteFunctionConcurrencyRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFunctionEventInvokeConfigRequestTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Qualifier
-- **Type**: typing.Optional[str]
-
-
-# DeleteFunctionRequestTypeDef
+# DeleteFunctionEventInvokeConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -654,7 +644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFunctionUrlConfigRequestTypeDef
+# DeleteFunctionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -664,7 +654,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteLayerVersionRequestTypeDef
+# DeleteFunctionUrlConfigRequest
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Qualifier
+- **Type**: typing.Optional[str]
+
+
+# DeleteLayerVersionRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -675,7 +675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProvisionedConcurrencyConfigRequestTypeDef
+# DeleteProvisionedConcurrencyConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -686,16 +686,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DestinationConfigTypeDef
+# DestinationConfig
 
 ### OnSuccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.OnSuccessTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OnFailure
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.OnFailureTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DocumentDBEventSourceConfigTypeDef
+# DocumentDBEventSourceConfig
 
 ### DatabaseName
 - **Type**: typing.Optional[str]
@@ -707,14 +707,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Default', 'UpdateLookup']]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnvironmentErrorTypeDef
+# Environment
+
+### Variables
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# EnvironmentError
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -723,29 +729,122 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentResponseTypeDef
+# EnvironmentResponse
 
 ### Variables
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentError]
 
 
-# EnvironmentTypeDef
-
-### Variables
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# EphemeralStorageTypeDef
+# EphemeralStorage
 
 ### Size
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 
-# EventSourceMappingConfigurationResponseTypeDef
+# EventSourceMappingConfiguration
+
+### UUID
+- **Type**: typing.Optional[str]
+
+### StartingPosition
+- **Type**: typing.Optional[typing.Literal['AT_TIMESTAMP', 'LATEST', 'TRIM_HORIZON']]
+
+### StartingPositionTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+### BatchSize
+- **Type**: typing.Optional[int]
+
+### MaximumBatchingWindowInSeconds
+- **Type**: typing.Optional[int]
+
+### ParallelizationFactor
+- **Type**: typing.Optional[int]
+
+### EventSourceArn
+- **Type**: typing.Optional[str]
+
+### FilterCriteria
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaOutput]
+
+### FunctionArn
+- **Type**: typing.Optional[str]
+
+### LastModified
+- **Type**: typing.Optional[datetime.datetime]
+
+### LastProcessingResult
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[str]
+
+### StateTransitionReason
+- **Type**: typing.Optional[str]
+
+### DestinationConfig
+- **Type**: <class 'NoneType'>
+
+### Topics
+- **Type**: typing.Optional[typing.List[str]]
+
+### Queues
+- **Type**: typing.Optional[typing.List[str]]
+
+### SourceAccessConfigurations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfiguration]]
+
+### SelfManagedEventSource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceOutput]
+
+### MaximumRecordAgeInSeconds
+- **Type**: typing.Optional[int]
+
+### BisectBatchOnFunctionError
+- **Type**: typing.Optional[bool]
+
+### MaximumRetryAttempts
+- **Type**: typing.Optional[int]
+
+### TumblingWindowInSeconds
+- **Type**: typing.Optional[int]
+
+### FunctionResponseTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ReportBatchItemFailures']]]
+
+### AmazonManagedKafkaEventSourceConfig
+- **Type**: <class 'NoneType'>
+
+### SelfManagedKafkaEventSourceConfig
+- **Type**: <class 'NoneType'>
+
+### ScalingConfig
+- **Type**: <class 'NoneType'>
+
+### DocumentDBEventSourceConfig
+- **Type**: <class 'NoneType'>
+
+### KMSKeyArn
+- **Type**: typing.Optional[str]
+
+### FilterCriteriaError
+- **Type**: <class 'NoneType'>
+
+### EventSourceMappingArn
+- **Type**: typing.Optional[str]
+
+### MetricsConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigOutput]
+
+### ProvisionedPollerConfig
+- **Type**: <class 'NoneType'>
+
+
+# EventSourceMappingConfigurationResponse
 
 ### UUID
 - **Type**: <class 'str'>
@@ -776,7 +875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FilterCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaOutput'>
 - **Required**: Yes
 
 ### FunctionArn
@@ -800,7 +899,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DestinationConfig'>
 - **Required**: Yes
 
 ### Topics
@@ -812,11 +911,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### SourceAccessConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfiguration]
 - **Required**: Yes
 
 ### SelfManagedEventSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceOutput'>
 - **Required**: Yes
 
 ### MaximumRecordAgeInSeconds
@@ -840,19 +939,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AmazonManagedKafkaEventSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AmazonManagedKafkaEventSourceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AmazonManagedKafkaEventSourceConfig'>
 - **Required**: Yes
 
 ### SelfManagedKafkaEventSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SelfManagedKafkaEventSourceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SelfManagedKafkaEventSourceConfig'>
 - **Required**: Yes
 
 ### ScalingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ScalingConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ScalingConfig'>
 - **Required**: Yes
 
 ### DocumentDBEventSourceConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DocumentDBEventSourceConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DocumentDBEventSourceConfig'>
 - **Required**: Yes
 
 ### KMSKeyArn
@@ -860,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FilterCriteriaError
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaError'>
 - **Required**: Yes
 
 ### EventSourceMappingArn
@@ -868,136 +967,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MetricsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigOutput'>
 - **Required**: Yes
 
 ### ProvisionedPollerConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ProvisionedPollerConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ProvisionedPollerConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventSourceMappingConfigurationTypeDef
-
-### UUID
-- **Type**: typing.Optional[str]
-
-### StartingPosition
-- **Type**: typing.Optional[typing.Literal['AT_TIMESTAMP', 'LATEST', 'TRIM_HORIZON']]
-
-### StartingPositionTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-### BatchSize
-- **Type**: typing.Optional[int]
-
-### MaximumBatchingWindowInSeconds
-- **Type**: typing.Optional[int]
-
-### ParallelizationFactor
-- **Type**: typing.Optional[int]
-
-### EventSourceArn
-- **Type**: typing.Optional[str]
-
-### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaOutputTypeDef]
-
-### FunctionArn
-- **Type**: typing.Optional[str]
-
-### LastModified
-- **Type**: typing.Optional[datetime.datetime]
-
-### LastProcessingResult
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[str]
-
-### StateTransitionReason
-- **Type**: typing.Optional[str]
-
-### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
-
-### Topics
-- **Type**: typing.Optional[typing.List[str]]
-
-### Queues
-- **Type**: typing.Optional[typing.List[str]]
-
-### SourceAccessConfigurations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfigurationTypeDef]]
-
-### SelfManagedEventSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedEventSourceOutputTypeDef]
-
-### MaximumRecordAgeInSeconds
-- **Type**: typing.Optional[int]
-
-### BisectBatchOnFunctionError
-- **Type**: typing.Optional[bool]
-
-### MaximumRetryAttempts
-- **Type**: typing.Optional[int]
-
-### TumblingWindowInSeconds
-- **Type**: typing.Optional[int]
-
-### FunctionResponseTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ReportBatchItemFailures']]]
-
-### AmazonManagedKafkaEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AmazonManagedKafkaEventSourceConfigTypeDef]
-
-### SelfManagedKafkaEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SelfManagedKafkaEventSourceConfigTypeDef]
-
-### ScalingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ScalingConfigTypeDef]
-
-### DocumentDBEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DocumentDBEventSourceConfigTypeDef]
-
-### KMSKeyArn
-- **Type**: typing.Optional[str]
-
-### FilterCriteriaError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaErrorTypeDef]
-
-### EventSourceMappingArn
-- **Type**: typing.Optional[str]
-
-### MetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigOutputTypeDef]
-
-### ProvisionedPollerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ProvisionedPollerConfigTypeDef]
-
-
-# EventSourceMappingMetricsConfigOutputTypeDef
-
-### Metrics
-- **Type**: typing.Optional[typing.List[typing.Literal['EventCount']]]
-
-
-# EventSourceMappingMetricsConfigTypeDef
+# EventSourceMappingMetricsConfig
 
 ### Metrics
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EventCount']]]
 
 
-# EventSourceMappingMetricsConfigUnionTypeDef
+# EventSourceMappingMetricsConfigOutput
+
+### Metrics
+- **Type**: typing.Optional[typing.List[typing.Literal['EventCount']]]
+
+
+# EventSourceMappingMetricsConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FileSystemConfigTypeDef
+# FileSystemConfig
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1008,7 +1008,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FilterCriteriaErrorTypeDef
+# Filter
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FilterCriteria
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.Filter]]
+
+
+# FilterCriteriaError
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -1017,52 +1029,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FilterCriteriaOutputTypeDef
+# FilterCriteriaOutput
 
 ### Filters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.Filter]]
 
 
-# FilterCriteriaTypeDef
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.FilterTypeDef]]
-
-
-# FilterCriteriaUnionTypeDef
+# FilterCriteriaUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FilterTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FunctionCodeLocationTypeDef
-
-### RepositoryType
-- **Type**: typing.Optional[str]
-
-### Location
-- **Type**: typing.Optional[str]
-
-### ImageUri
-- **Type**: typing.Optional[str]
-
-### ResolvedImageUri
-- **Type**: typing.Optional[str]
-
-### SourceKMSKeyArn
-- **Type**: typing.Optional[str]
-
-
-# FunctionCodeTypeDef
+# FunctionCode
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Blob]
 
 ### S3Bucket
 - **Type**: typing.Optional[str]
@@ -1080,7 +1062,136 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FunctionConfigurationResponseTypeDef
+# FunctionCodeLocation
+
+### RepositoryType
+- **Type**: typing.Optional[str]
+
+### Location
+- **Type**: typing.Optional[str]
+
+### ImageUri
+- **Type**: typing.Optional[str]
+
+### ResolvedImageUri
+- **Type**: typing.Optional[str]
+
+### SourceKMSKeyArn
+- **Type**: typing.Optional[str]
+
+
+# FunctionConfiguration
+
+### FunctionName
+- **Type**: typing.Optional[str]
+
+### FunctionArn
+- **Type**: typing.Optional[str]
+
+### Runtime
+- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
+
+### Role
+- **Type**: typing.Optional[str]
+
+### Handler
+- **Type**: typing.Optional[str]
+
+### CodeSize
+- **Type**: typing.Optional[int]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Timeout
+- **Type**: typing.Optional[int]
+
+### MemorySize
+- **Type**: typing.Optional[int]
+
+### LastModified
+- **Type**: typing.Optional[str]
+
+### CodeSha256
+- **Type**: typing.Optional[str]
+
+### Version
+- **Type**: typing.Optional[str]
+
+### VpcConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.VpcConfigResponse]
+
+### DeadLetterConfig
+- **Type**: <class 'NoneType'>
+
+### Environment
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentResponse]
+
+### KMSKeyArn
+- **Type**: typing.Optional[str]
+
+### TracingConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.TracingConfigResponse]
+
+### MasterArn
+- **Type**: typing.Optional[str]
+
+### RevisionId
+- **Type**: typing.Optional[str]
+
+### Layers
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.Layer]]
+
+### State
+- **Type**: typing.Optional[typing.Literal['Active', 'Failed', 'Inactive', 'Pending']]
+
+### StateReason
+- **Type**: typing.Optional[str]
+
+### StateReasonCode
+- **Type**: typing.Optional[typing.Literal['Creating', 'DisabledKMSKey', 'EFSIOError', 'EFSMountConnectivityError', 'EFSMountFailure', 'EFSMountTimeout', 'EniLimitExceeded', 'FunctionError', 'Idle', 'ImageAccessDenied', 'ImageDeleted', 'InsufficientRolePermissions', 'InternalError', 'InvalidConfiguration', 'InvalidImage', 'InvalidRuntime', 'InvalidSecurityGroup', 'InvalidStateKMSKey', 'InvalidSubnet', 'InvalidZipFileException', 'KMSKeyAccessDenied', 'KMSKeyNotFound', 'Restoring', 'SubnetOutOfIPAddresses']]
+
+### LastUpdateStatus
+- **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Successful']]
+
+### LastUpdateStatusReason
+- **Type**: typing.Optional[str]
+
+### LastUpdateStatusReasonCode
+- **Type**: typing.Optional[typing.Literal['DisabledKMSKey', 'EFSIOError', 'EFSMountConnectivityError', 'EFSMountFailure', 'EFSMountTimeout', 'EniLimitExceeded', 'FunctionError', 'ImageAccessDenied', 'ImageDeleted', 'InsufficientRolePermissions', 'InternalError', 'InvalidConfiguration', 'InvalidImage', 'InvalidRuntime', 'InvalidSecurityGroup', 'InvalidStateKMSKey', 'InvalidSubnet', 'InvalidZipFileException', 'KMSKeyAccessDenied', 'KMSKeyNotFound', 'SubnetOutOfIPAddresses']]
+
+### FileSystemConfigs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfig]]
+
+### PackageType
+- **Type**: typing.Optional[typing.Literal['Image', 'Zip']]
+
+### ImageConfigResponse
+- **Type**: <class 'NoneType'>
+
+### SigningProfileVersionArn
+- **Type**: typing.Optional[str]
+
+### SigningJobArn
+- **Type**: typing.Optional[str]
+
+### Architectures
+- **Type**: typing.Optional[typing.List[typing.Literal['arm64', 'x86_64']]]
+
+### EphemeralStorage
+- **Type**: <class 'NoneType'>
+
+### SnapStart
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SnapStartResponse]
+
+### RuntimeVersionConfig
+- **Type**: <class 'NoneType'>
+
+### LoggingConfig
+- **Type**: <class 'NoneType'>
+
+
+# FunctionConfigurationResponse
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1131,15 +1242,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.VpcConfigResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.VpcConfigResponse'>
 - **Required**: Yes
 
 ### DeadLetterConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DeadLetterConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DeadLetterConfig'>
 - **Required**: Yes
 
 ### Environment
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EnvironmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EnvironmentResponse'>
 - **Required**: Yes
 
 ### KMSKeyArn
@@ -1147,7 +1258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TracingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.TracingConfigResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.TracingConfigResponse'>
 - **Required**: Yes
 
 ### MasterArn
@@ -1159,7 +1270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Layers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.Layer]
 - **Required**: Yes
 
 ### State
@@ -1187,7 +1298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FileSystemConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfig]
 - **Required**: Yes
 
 ### PackageType
@@ -1195,7 +1306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImageConfigResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ImageConfigResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ImageConfigResponse'>
 - **Required**: Yes
 
 ### SigningProfileVersionArn
@@ -1211,138 +1322,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EphemeralStorage
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EphemeralStorageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.EphemeralStorage'>
 - **Required**: Yes
 
 ### SnapStart
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SnapStartResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.SnapStartResponse'>
 - **Required**: Yes
 
 ### RuntimeVersionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.RuntimeVersionConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.RuntimeVersionConfig'>
 - **Required**: Yes
 
 ### LoggingConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LoggingConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LoggingConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FunctionConfigurationTypeDef
+# FunctionEventInvokeConfig
 
-### FunctionName
-- **Type**: typing.Optional[str]
+### LastModified
+- **Type**: typing.Optional[datetime.datetime]
 
 ### FunctionArn
 - **Type**: typing.Optional[str]
 
-### Runtime
-- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
-
-### Role
-- **Type**: typing.Optional[str]
-
-### Handler
-- **Type**: typing.Optional[str]
-
-### CodeSize
+### MaximumRetryAttempts
 - **Type**: typing.Optional[int]
 
-### Description
-- **Type**: typing.Optional[str]
-
-### Timeout
+### MaximumEventAgeInSeconds
 - **Type**: typing.Optional[int]
 
-### MemorySize
-- **Type**: typing.Optional[int]
-
-### LastModified
-- **Type**: typing.Optional[str]
-
-### CodeSha256
-- **Type**: typing.Optional[str]
-
-### Version
-- **Type**: typing.Optional[str]
-
-### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.VpcConfigResponseTypeDef]
-
-### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DeadLetterConfigTypeDef]
-
-### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentResponseTypeDef]
-
-### KMSKeyArn
-- **Type**: typing.Optional[str]
-
-### TracingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.TracingConfigResponseTypeDef]
-
-### MasterArn
-- **Type**: typing.Optional[str]
-
-### RevisionId
-- **Type**: typing.Optional[str]
-
-### Layers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayerTypeDef]]
-
-### State
-- **Type**: typing.Optional[typing.Literal['Active', 'Failed', 'Inactive', 'Pending']]
-
-### StateReason
-- **Type**: typing.Optional[str]
-
-### StateReasonCode
-- **Type**: typing.Optional[typing.Literal['Creating', 'DisabledKMSKey', 'EFSIOError', 'EFSMountConnectivityError', 'EFSMountFailure', 'EFSMountTimeout', 'EniLimitExceeded', 'FunctionError', 'Idle', 'ImageAccessDenied', 'ImageDeleted', 'InsufficientRolePermissions', 'InternalError', 'InvalidConfiguration', 'InvalidImage', 'InvalidRuntime', 'InvalidSecurityGroup', 'InvalidStateKMSKey', 'InvalidSubnet', 'InvalidZipFileException', 'KMSKeyAccessDenied', 'KMSKeyNotFound', 'Restoring', 'SubnetOutOfIPAddresses']]
-
-### LastUpdateStatus
-- **Type**: typing.Optional[typing.Literal['Failed', 'InProgress', 'Successful']]
-
-### LastUpdateStatusReason
-- **Type**: typing.Optional[str]
-
-### LastUpdateStatusReasonCode
-- **Type**: typing.Optional[typing.Literal['DisabledKMSKey', 'EFSIOError', 'EFSMountConnectivityError', 'EFSMountFailure', 'EFSMountTimeout', 'EniLimitExceeded', 'FunctionError', 'ImageAccessDenied', 'ImageDeleted', 'InsufficientRolePermissions', 'InternalError', 'InvalidConfiguration', 'InvalidImage', 'InvalidRuntime', 'InvalidSecurityGroup', 'InvalidStateKMSKey', 'InvalidSubnet', 'InvalidZipFileException', 'KMSKeyAccessDenied', 'KMSKeyNotFound', 'SubnetOutOfIPAddresses']]
-
-### FileSystemConfigs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfigTypeDef]]
-
-### PackageType
-- **Type**: typing.Optional[typing.Literal['Image', 'Zip']]
-
-### ImageConfigResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigResponseTypeDef]
-
-### SigningProfileVersionArn
-- **Type**: typing.Optional[str]
-
-### SigningJobArn
-- **Type**: typing.Optional[str]
-
-### Architectures
-- **Type**: typing.Optional[typing.List[typing.Literal['arm64', 'x86_64']]]
-
-### EphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EphemeralStorageTypeDef]
-
-### SnapStart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SnapStartResponseTypeDef]
-
-### RuntimeVersionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.RuntimeVersionConfigTypeDef]
-
-### LoggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.LoggingConfigTypeDef]
+### DestinationConfig
+- **Type**: <class 'NoneType'>
 
 
-# FunctionEventInvokeConfigResponseTypeDef
+# FunctionEventInvokeConfigResponse
 
 ### LastModified
 - **Type**: <class 'datetime.datetime'>
@@ -1361,33 +1379,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.DestinationConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FunctionEventInvokeConfigTypeDef
-
-### LastModified
-- **Type**: typing.Optional[datetime.datetime]
-
-### FunctionArn
-- **Type**: typing.Optional[str]
-
-### MaximumRetryAttempts
-- **Type**: typing.Optional[int]
-
-### MaximumEventAgeInSeconds
-- **Type**: typing.Optional[int]
-
-### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
-
-
-# FunctionUrlConfigTypeDef
+# FunctionUrlConfig
 
 ### FunctionUrl
 - **Type**: <class 'str'>
@@ -1410,28 +1410,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Cors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsOutput]
 
 ### InvokeMode
 - **Type**: typing.Optional[typing.Literal['BUFFERED', 'RESPONSE_STREAM']]
 
 
-# GetAccountSettingsResponseTypeDef
+# GetAccountSettingsResponse
 
 ### AccountLimit
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AccountLimitTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AccountLimit'>
 - **Required**: Yes
 
 ### AccountUsage
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AccountUsageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.AccountUsage'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAliasRequestTypeDef
+# GetAliasRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1442,39 +1442,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCodeSigningConfigRequestTypeDef
+# GetCodeSigningConfigRequest
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCodeSigningConfigResponseTypeDef
+# GetCodeSigningConfigResponse
 
 ### CodeSigningConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEventSourceMappingRequestTypeDef
+# GetEventSourceMappingRequest
 
 ### UUID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFunctionCodeSigningConfigRequestTypeDef
+# GetFunctionCodeSigningConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFunctionCodeSigningConfigResponseTypeDef
+# GetFunctionCodeSigningConfigResponse
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
@@ -1485,29 +1485,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionConcurrencyRequestTypeDef
+# GetFunctionConcurrencyRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFunctionConcurrencyResponseTypeDef
+# GetFunctionConcurrencyResponse
 
 ### ReservedConcurrentExecutions
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionConfigurationRequestTypeDef
+# GetFunctionConfigurationRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1517,20 +1517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFunctionConfigurationRequestWaitExtraExtraTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Qualifier
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
-
-
-# GetFunctionConfigurationRequestWaitExtraTypeDef
+# GetFunctionConfigurationRequestWait
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1540,10 +1527,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetFunctionConfigurationRequestWaitTypeDef
+# GetFunctionConfigurationRequestWaitExtra
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1553,10 +1540,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetFunctionEventInvokeConfigRequestTypeDef
+# GetFunctionConfigurationRequestWaitExtraExtra
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Qualifier
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# GetFunctionEventInvokeConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1566,25 +1566,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFunctionRecursionConfigRequestTypeDef
+# GetFunctionRecursionConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFunctionRecursionConfigResponseTypeDef
+# GetFunctionRecursionConfigResponse
 
 ### RecursiveLoop
 - **Type**: typing.Literal['Allow', 'Terminate']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionRequestTypeDef
+# GetFunctionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1594,20 +1594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFunctionRequestWaitExtraExtraTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Qualifier
-- **Type**: typing.Optional[str]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
-
-
-# GetFunctionRequestWaitExtraTypeDef
+# GetFunctionRequestWait
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1617,10 +1604,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetFunctionRequestWaitTypeDef
+# GetFunctionRequestWaitExtra
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1630,17 +1617,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetFunctionResponseTypeDef
+# GetFunctionRequestWaitExtraExtra
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Qualifier
+- **Type**: typing.Optional[str]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# GetFunctionResponse
 
 ### Configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionConfiguration'>
 - **Required**: Yes
 
 ### Code
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionCodeLocationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.FunctionCodeLocation'>
 - **Required**: Yes
 
 ### Tags
@@ -1648,19 +1648,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TagsError
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.TagsErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.TagsError'>
 - **Required**: Yes
 
 ### Concurrency
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ConcurrencyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.Concurrency'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionUrlConfigRequestTypeDef
+# GetFunctionUrlConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1670,7 +1670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFunctionUrlConfigResponseTypeDef
+# GetFunctionUrlConfigResponse
 
 ### FunctionUrl
 - **Type**: <class 'str'>
@@ -1685,7 +1685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Cors
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -1701,18 +1701,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLayerVersionByArnRequestTypeDef
+# GetLayerVersionByArnRequest
 
 ### Arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLayerVersionPolicyRequestTypeDef
+# GetLayerVersionPolicyRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -1723,7 +1723,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLayerVersionPolicyResponseTypeDef
+# GetLayerVersionPolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
@@ -1734,11 +1734,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLayerVersionRequestTypeDef
+# GetLayerVersionRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -1749,10 +1749,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetLayerVersionResponseTypeDef
+# GetLayerVersionResponse
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentOutput'>
 - **Required**: Yes
 
 ### LayerArn
@@ -1788,11 +1788,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPolicyRequestTypeDef
+# GetPolicyRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1802,7 +1802,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPolicyResponseTypeDef
+# GetPolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
@@ -1813,11 +1813,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProvisionedConcurrencyConfigRequestTypeDef
+# GetProvisionedConcurrencyConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1828,7 +1828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProvisionedConcurrencyConfigResponseTypeDef
+# GetProvisionedConcurrencyConfigResponse
 
 ### RequestedProvisionedConcurrentExecutions
 - **Type**: <class 'int'>
@@ -1855,11 +1855,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRuntimeManagementConfigRequestTypeDef
+# GetRuntimeManagementConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1869,7 +1869,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRuntimeManagementConfigResponseTypeDef
+# GetRuntimeManagementConfigResponse
 
 ### UpdateRuntimeOn
 - **Type**: typing.Literal['Auto', 'FunctionUpdate', 'Manual']
@@ -1884,11 +1884,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImageConfigErrorTypeDef
+# ImageConfig
+
+### EntryPoint
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Command
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### WorkingDirectory
+- **Type**: typing.Optional[str]
+
+
+# ImageConfigError
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -1897,7 +1909,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImageConfigOutputTypeDef
+# ImageConfigOutput
 
 ### EntryPoint
 - **Type**: typing.Optional[typing.List[str]]
@@ -1909,34 +1921,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImageConfigResponseTypeDef
+# ImageConfigResponse
 
 ### ImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigOutput]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigError]
 
 
-# ImageConfigTypeDef
-
-### EntryPoint
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Command
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### WorkingDirectory
-- **Type**: typing.Optional[str]
-
-
-# ImageConfigUnionTypeDef
+# ImageConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InvocationRequestTypeDef
+# InvocationRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -1952,13 +1952,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Blob]
 
 ### Qualifier
 - **Type**: typing.Optional[str]
 
 
-# InvocationResponseTypeDef
+# InvocationResponse
 
 ### StatusCode
 - **Type**: <class 'int'>
@@ -1981,39 +1981,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InvokeAsyncRequestTypeDef
+# InvokeAsyncRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InvokeArgs
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.Blob'>
 - **Required**: Yes
 
 
-# InvokeAsyncResponseTypeDef
+# InvokeAsyncResponse
 
 ### Status
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InvokeResponseStreamUpdateTypeDef
+# InvokeResponseStreamUpdate
 
 ### Payload
 - **Type**: typing.Optional[bytes]
 
 
-# InvokeWithResponseStreamCompleteEventTypeDef
+# InvokeWithResponseStreamCompleteEvent
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -2025,7 +2025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InvokeWithResponseStreamRequestTypeDef
+# InvokeWithResponseStreamRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2044,19 +2044,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Blob]
 
 
-# InvokeWithResponseStreamResponseEventTypeDef
-
-### PayloadChunk
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.InvokeResponseStreamUpdateTypeDef]
-
-### InvokeComplete
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.InvokeWithResponseStreamCompleteEventTypeDef]
-
-
-# InvokeWithResponseStreamResponseTypeDef
+# InvokeWithResponseStreamResponse
 
 ### StatusCode
 - **Type**: <class 'int'>
@@ -2067,7 +2058,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventStream
-- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lambda_classes.InvokeWithResponseStreamResponseEventTypeDef]
+- **Type**: aws_resource_validator.pydantic_models.base_validator_model.EventStream[aws_resource_validator.pydantic_models.lambda_classes.InvokeWithResponseStreamResponseEvent]
 - **Required**: Yes
 
 ### ResponseStreamContentType
@@ -2075,11 +2066,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LayerTypeDef
+# InvokeWithResponseStreamResponseEvent
+
+### PayloadChunk
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.InvokeResponseStreamUpdate]
+
+### InvokeComplete
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.InvokeWithResponseStreamCompleteEvent]
+
+
+# Layer
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -2094,7 +2094,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LayerVersionContentInputTypeDef
+# LayerVersionContentInput
 
 ### S3Bucket
 - **Type**: typing.Optional[str]
@@ -2106,10 +2106,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Blob]
 
 
-# LayerVersionContentOutputTypeDef
+# LayerVersionContentOutput
 
 ### Location
 - **Type**: typing.Optional[str]
@@ -2127,7 +2127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LayerVersionsListItemTypeDef
+# LayerVersionsListItem
 
 ### LayerVersionArn
 - **Type**: typing.Optional[str]
@@ -2151,7 +2151,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['arm64', 'x86_64']]]
 
 
-# LayersListItemTypeDef
+# LayersListItem
 
 ### LayerName
 - **Type**: typing.Optional[str]
@@ -2160,23 +2160,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LatestMatchingVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.LayerVersionsListItemTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.LayerVersionsListItem]
 
 
-# ListAliasesRequestPaginateTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FunctionVersion
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListAliasesRequestTypeDef
+# ListAliasesRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2192,28 +2179,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAliasesResponseTypeDef
+# ListAliasesRequestPaginate
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FunctionVersion
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListAliasesResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Aliases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.AliasConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.AliasConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCodeSigningConfigsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListCodeSigningConfigsRequestTypeDef
+# ListCodeSigningConfigsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2222,34 +2216,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCodeSigningConfigsResponseTypeDef
+# ListCodeSigningConfigsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListCodeSigningConfigsResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CodeSigningConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfig]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListEventSourceMappingsRequestPaginateTypeDef
-
-### EventSourceArn
-- **Type**: typing.Optional[str]
-
-### FunctionName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListEventSourceMappingsRequestTypeDef
+# ListEventSourceMappingsRequest
 
 ### EventSourceArn
 - **Type**: typing.Optional[str]
@@ -2264,32 +2252,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEventSourceMappingsResponseTypeDef
+# ListEventSourceMappingsRequestPaginate
+
+### EventSourceArn
+- **Type**: typing.Optional[str]
+
+### FunctionName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListEventSourceMappingsResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventSourceMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFunctionEventInvokeConfigsRequestPaginateTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListFunctionEventInvokeConfigsRequestTypeDef
+# ListFunctionEventInvokeConfigsRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2302,10 +2292,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFunctionEventInvokeConfigsResponseTypeDef
+# ListFunctionEventInvokeConfigsRequestPaginate
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListFunctionEventInvokeConfigsResponse
 
 ### FunctionEventInvokeConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionEventInvokeConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionEventInvokeConfig]
 - **Required**: Yes
 
 ### NextMarker
@@ -2313,21 +2313,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFunctionUrlConfigsRequestPaginateTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListFunctionUrlConfigsRequestTypeDef
+# ListFunctionUrlConfigsRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2340,10 +2330,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFunctionUrlConfigsResponseTypeDef
+# ListFunctionUrlConfigsRequestPaginate
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListFunctionUrlConfigsResponse
 
 ### FunctionUrlConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionUrlConfigTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionUrlConfig]
 - **Required**: Yes
 
 ### NextMarker
@@ -2351,21 +2351,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFunctionsByCodeSigningConfigRequestPaginateTypeDef
-
-### CodeSigningConfigArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListFunctionsByCodeSigningConfigRequestTypeDef
+# ListFunctionsByCodeSigningConfigRequest
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
@@ -2378,7 +2368,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFunctionsByCodeSigningConfigResponseTypeDef
+# ListFunctionsByCodeSigningConfigRequestPaginate
+
+### CodeSigningConfigArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListFunctionsByCodeSigningConfigResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
@@ -2389,23 +2389,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFunctionsRequestPaginateTypeDef
-
-### MasterRegion
-- **Type**: typing.Optional[str]
-
-### FunctionVersion
-- **Type**: typing.Optional[typing.Literal['ALL']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListFunctionsRequestTypeDef
+# ListFunctionsRequest
 
 ### MasterRegion
 - **Type**: typing.Optional[str]
@@ -2420,38 +2408,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFunctionsResponseTypeDef
+# ListFunctionsRequestPaginate
+
+### MasterRegion
+- **Type**: typing.Optional[str]
+
+### FunctionVersion
+- **Type**: typing.Optional[typing.Literal['ALL']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListFunctionsResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Functions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListLayerVersionsRequestPaginateTypeDef
-
-### LayerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CompatibleRuntime
-- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
-
-### CompatibleArchitecture
-- **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListLayerVersionsRequestTypeDef
+# ListLayerVersionsRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -2470,34 +2454,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
 
 
-# ListLayerVersionsResponseTypeDef
+# ListLayerVersionsRequestPaginate
+
+### LayerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CompatibleRuntime
+- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
+
+### CompatibleArchitecture
+- **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListLayerVersionsResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LayerVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayerVersionsListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayerVersionsListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListLayersRequestPaginateTypeDef
-
-### CompatibleRuntime
-- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
-
-### CompatibleArchitecture
-- **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListLayersRequestTypeDef
+# ListLayersRequest
 
 ### CompatibleRuntime
 - **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
@@ -2512,32 +2500,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
 
 
-# ListLayersResponseTypeDef
+# ListLayersRequestPaginate
+
+### CompatibleRuntime
+- **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
+
+### CompatibleArchitecture
+- **Type**: typing.Optional[typing.Literal['arm64', 'x86_64']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListLayersResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Layers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayersListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.LayersListItem]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListProvisionedConcurrencyConfigsRequestPaginateTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListProvisionedConcurrencyConfigsRequestTypeDef
+# ListProvisionedConcurrencyConfigsRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2550,10 +2540,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListProvisionedConcurrencyConfigsResponseTypeDef
+# ListProvisionedConcurrencyConfigsRequestPaginate
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListProvisionedConcurrencyConfigsResponse
 
 ### ProvisionedConcurrencyConfigs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.ProvisionedConcurrencyConfigListItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.ProvisionedConcurrencyConfigListItem]
 - **Required**: Yes
 
 ### NextMarker
@@ -2561,39 +2561,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsRequestTypeDef
+# ListTagsRequest
 
 ### Resource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsResponseTypeDef
+# ListTagsResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVersionsByFunctionRequestPaginateTypeDef
-
-### FunctionName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfigTypeDef]
-
-
-# ListVersionsByFunctionRequestTypeDef
+# ListVersionsByFunctionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2606,22 +2596,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListVersionsByFunctionResponseTypeDef
+# ListVersionsByFunctionRequestPaginate
+
+### FunctionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.PaginatorConfig]
+
+
+# ListVersionsByFunctionResponse
 
 ### NextMarker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Versions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.lambda_classes.FunctionConfiguration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoggingConfigTypeDef
+# LoggingConfig
 
 ### LogFormat
 - **Type**: typing.Optional[typing.Literal['JSON', 'Text']]
@@ -2636,19 +2636,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OnFailureTypeDef
+# OnFailure
 
 ### Destination
 - **Type**: typing.Optional[str]
 
 
-# OnSuccessTypeDef
+# OnSuccess
 
 ### Destination
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2660,7 +2660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProvisionedConcurrencyConfigListItemTypeDef
+# ProvisionedConcurrencyConfigListItem
 
 ### FunctionArn
 - **Type**: typing.Optional[str]
@@ -2684,7 +2684,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProvisionedPollerConfigTypeDef
+# ProvisionedPollerConfig
 
 ### MinimumPollers
 - **Type**: typing.Optional[int]
@@ -2693,14 +2693,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PublishLayerVersionRequestTypeDef
+# PublishLayerVersionRequest
 
 ### LayerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentInput'>
 - **Required**: Yes
 
 ### Description
@@ -2716,10 +2716,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['arm64', 'x86_64']]]
 
 
-# PublishLayerVersionResponseTypeDef
+# PublishLayerVersionResponse
 
 ### Content
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.LayerVersionContentOutput'>
 - **Required**: Yes
 
 ### LayerArn
@@ -2755,11 +2755,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PublishVersionRequestTypeDef
+# PublishVersionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2775,7 +2775,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutFunctionCodeSigningConfigRequestTypeDef
+# PutFunctionCodeSigningConfigRequest
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
@@ -2786,7 +2786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFunctionCodeSigningConfigResponseTypeDef
+# PutFunctionCodeSigningConfigResponse
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
@@ -2797,11 +2797,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutFunctionConcurrencyRequestTypeDef
+# PutFunctionConcurrencyRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2812,7 +2812,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFunctionEventInvokeConfigRequestTypeDef
+# PutFunctionEventInvokeConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2828,10 +2828,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutFunctionRecursionConfigRequestTypeDef
+# PutFunctionRecursionConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2842,18 +2842,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutFunctionRecursionConfigResponseTypeDef
+# PutFunctionRecursionConfigResponse
 
 ### RecursiveLoop
 - **Type**: typing.Literal['Allow', 'Terminate']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutProvisionedConcurrencyConfigRequestTypeDef
+# PutProvisionedConcurrencyConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2868,7 +2868,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutProvisionedConcurrencyConfigResponseTypeDef
+# PutProvisionedConcurrencyConfigResponse
 
 ### RequestedProvisionedConcurrentExecutions
 - **Type**: <class 'int'>
@@ -2895,11 +2895,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRuntimeManagementConfigRequestTypeDef
+# PutRuntimeManagementConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2916,7 +2916,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutRuntimeManagementConfigResponseTypeDef
+# PutRuntimeManagementConfigResponse
 
 ### UpdateRuntimeOn
 - **Type**: typing.Literal['Auto', 'FunctionUpdate', 'Manual']
@@ -2931,11 +2931,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveLayerVersionPermissionRequestTypeDef
+# RemoveLayerVersionPermissionRequest
 
 ### LayerName
 - **Type**: <class 'str'>
@@ -2953,7 +2953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RemovePermissionRequestTypeDef
+# RemovePermissionRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -2970,7 +2970,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2992,16 +2992,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RuntimeVersionConfigTypeDef
+# RuntimeVersionConfig
 
 ### RuntimeVersionArn
 - **Type**: typing.Optional[str]
 
 ### Error
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.RuntimeVersionErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.RuntimeVersionError]
 
 
-# RuntimeVersionErrorTypeDef
+# RuntimeVersionError
 
 ### ErrorCode
 - **Type**: typing.Optional[str]
@@ -3010,37 +3010,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScalingConfigTypeDef
+# ScalingConfig
 
 ### MaximumConcurrency
 - **Type**: typing.Optional[int]
 
 
-# SelfManagedEventSourceOutputTypeDef
-
-### Endpoints
-- **Type**: typing.Optional[typing.Dict[typing.Literal['KAFKA_BOOTSTRAP_SERVERS'], typing.List[str]]]
-
-
-# SelfManagedEventSourceTypeDef
+# SelfManagedEventSource
 
 ### Endpoints
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['KAFKA_BOOTSTRAP_SERVERS'], typing.Sequence[str]]]
 
 
-# SelfManagedEventSourceUnionTypeDef
+# SelfManagedEventSourceOutput
+
+### Endpoints
+- **Type**: typing.Optional[typing.Dict[typing.Literal['KAFKA_BOOTSTRAP_SERVERS'], typing.List[str]]]
+
+
+# SelfManagedEventSourceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SelfManagedKafkaEventSourceConfigTypeDef
+# SelfManagedKafkaEventSourceConfig
 
 ### ConsumerGroupId
 - **Type**: typing.Optional[str]
 
 
-# SnapStartResponseTypeDef
+# SnapStart
+
+### ApplyOn
+- **Type**: typing.Optional[typing.Literal['None', 'PublishedVersions']]
+
+
+# SnapStartResponse
 
 ### ApplyOn
 - **Type**: typing.Optional[typing.Literal['None', 'PublishedVersions']]
@@ -3049,19 +3055,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Off', 'On']]
 
 
-# SnapStartTypeDef
-
-### ApplyOn
-- **Type**: typing.Optional[typing.Literal['None', 'PublishedVersions']]
-
-
-# SourceAccessConfigurationTypeDef
+# SourceAccessConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### Resource
 - **Type**: <class 'str'>
@@ -3072,7 +3072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagsErrorTypeDef
+# TagsError
 
 ### ErrorCode
 - **Type**: <class 'str'>
@@ -3083,25 +3083,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TracingConfigResponseTypeDef
+# TracingConfig
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['Active', 'PassThrough']]
 
 
-# TracingConfigTypeDef
+# TracingConfigResponse
 
 ### Mode
 - **Type**: typing.Optional[typing.Literal['Active', 'PassThrough']]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### Resource
 - **Type**: <class 'str'>
@@ -3112,7 +3112,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAliasRequestTypeDef
+# UpdateAliasRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -3129,13 +3129,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RoutingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AliasRoutingConfigurationUnion]
 
 ### RevisionId
 - **Type**: typing.Optional[str]
 
 
-# UpdateCodeSigningConfigRequestTypeDef
+# UpdateCodeSigningConfigRequest
 
 ### CodeSigningConfigArn
 - **Type**: <class 'str'>
@@ -3145,24 +3145,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AllowedPublishers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.AllowedPublishersUnion]
 
 ### CodeSigningPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CodeSigningPoliciesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateCodeSigningConfigResponseTypeDef
+# UpdateCodeSigningConfigResponse
 
 ### CodeSigningConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CodeSigningConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEventSourceMappingRequestTypeDef
+# UpdateEventSourceMappingRequest
 
 ### UUID
 - **Type**: <class 'str'>
@@ -3178,13 +3178,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### FilterCriteria
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.FilterCriteriaUnion]
 
 ### MaximumBatchingWindowInSeconds
 - **Type**: typing.Optional[int]
 
 ### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MaximumRecordAgeInSeconds
 - **Type**: typing.Optional[int]
@@ -3199,7 +3199,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### SourceAccessConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.SourceAccessConfiguration]]
 
 ### TumblingWindowInSeconds
 - **Type**: typing.Optional[int]
@@ -3208,29 +3208,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ReportBatchItemFailures']]]
 
 ### ScalingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ScalingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DocumentDBEventSourceConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DocumentDBEventSourceConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyArn
 - **Type**: typing.Optional[str]
 
 ### MetricsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EventSourceMappingMetricsConfigUnion]
 
 ### ProvisionedPollerConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ProvisionedPollerConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateFunctionCodeRequestTypeDef
+# UpdateFunctionCodeRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ZipFile
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.Blob]
 
 ### S3Bucket
 - **Type**: typing.Optional[str]
@@ -3260,7 +3260,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFunctionConfigurationRequestTypeDef
+# UpdateFunctionConfigurationRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -3282,22 +3282,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### VpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.VpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Environment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EnvironmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Runtime
 - **Type**: typing.Optional[typing.Literal['dotnet6', 'dotnet8', 'dotnetcore1.0', 'dotnetcore2.0', 'dotnetcore2.1', 'dotnetcore3.1', 'go1.x', 'java11', 'java17', 'java21', 'java8', 'java8.al2', 'nodejs', 'nodejs10.x', 'nodejs12.x', 'nodejs14.x', 'nodejs16.x', 'nodejs18.x', 'nodejs20.x', 'nodejs22.x', 'nodejs4.3', 'nodejs4.3-edge', 'nodejs6.10', 'nodejs8.10', 'provided', 'provided.al2', 'provided.al2023', 'python2.7', 'python3.10', 'python3.11', 'python3.12', 'python3.13', 'python3.6', 'python3.7', 'python3.8', 'python3.9', 'ruby2.5', 'ruby2.7', 'ruby3.2', 'ruby3.3']]
 
 ### DeadLetterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DeadLetterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### KMSKeyArn
 - **Type**: typing.Optional[str]
 
 ### TracingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.TracingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RevisionId
 - **Type**: typing.Optional[str]
@@ -3306,22 +3306,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### FileSystemConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.lambda_classes.FileSystemConfig]]
 
 ### ImageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.ImageConfigUnion]
 
 ### EphemeralStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.EphemeralStorageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnapStart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.SnapStartTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LoggingConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.LoggingConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateFunctionEventInvokeConfigRequestTypeDef
+# UpdateFunctionEventInvokeConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -3337,10 +3337,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### DestinationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.DestinationConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateFunctionUrlConfigRequestTypeDef
+# UpdateFunctionUrlConfigRequest
 
 ### FunctionName
 - **Type**: <class 'str'>
@@ -3353,13 +3353,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS_IAM', 'NONE']]
 
 ### Cors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.lambda_classes.CorsUnion]
 
 ### InvokeMode
 - **Type**: typing.Optional[typing.Literal['BUFFERED', 'RESPONSE_STREAM']]
 
 
-# UpdateFunctionUrlConfigResponseTypeDef
+# UpdateFunctionUrlConfigResponse
 
 ### FunctionUrl
 - **Type**: <class 'str'>
@@ -3374,7 +3374,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Cors
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.CorsOutput'>
 - **Required**: Yes
 
 ### CreationTime
@@ -3390,11 +3390,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.lambda_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcConfigResponseTypeDef
+# VpcConfig
+
+### SubnetIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### SecurityGroupIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### Ipv6AllowedForDualStack
+- **Type**: typing.Optional[bool]
+
+
+# VpcConfigResponse
 
 ### SubnetIds
 - **Type**: typing.Optional[typing.List[str]]
@@ -3409,19 +3421,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# VpcConfigTypeDef
-
-### SubnetIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SecurityGroupIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### Ipv6AllowedForDualStack
-- **Type**: typing.Optional[bool]
-
-
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

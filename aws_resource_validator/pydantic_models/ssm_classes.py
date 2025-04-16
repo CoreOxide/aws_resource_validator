@@ -12,33 +12,33 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.ssm_constants import *
 
-class AccountSharingInfoTypeDef(BaseValidatorModel):
+class AccountSharingInfo(BaseValidatorModel):
     AccountId: Optional[str] = None
     SharedDocumentVersion: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class AlarmTypeDef(BaseValidatorModel):
+class Alarm(BaseValidatorModel):
     Name: str
 
 
-class AlarmStateInformationTypeDef(BaseValidatorModel):
+class AlarmStateInformation(BaseValidatorModel):
     Name: str
     State: ExternalAlarmStateType
 
 
-class AssociateOpsItemRelatedItemRequestTypeDef(BaseValidatorModel):
+class AssociateOpsItemRelatedItemRequest(BaseValidatorModel):
     OpsItemId: str
     AssociationType: str
     ResourceType: str
     ResourceUri: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -46,40 +46,40 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociationOverviewTypeDef(BaseValidatorModel):
+class AssociationOverview(BaseValidatorModel):
     Status: Optional[str] = None
     DetailedStatus: Optional[str] = None
     AssociationStatusAggregatedCount: Optional[Dict[str, int]] = None
 
 
-class AssociationStatusOutputTypeDef(BaseValidatorModel):
+class AssociationStatusOutput(BaseValidatorModel):
     Date: datetime
     Name: AssociationStatusNameType
     Message: str
     AdditionalInfo: Optional[str] = None
 
 
-class TargetOutputTypeDef(BaseValidatorModel):
+class TargetOutput(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[List[str]] = None
 
 
-class OutputSourceTypeDef(BaseValidatorModel):
+class OutputSource(BaseValidatorModel):
     OutputSourceId: Optional[str] = None
     OutputSourceType: Optional[str] = None
 
 
-class AssociationExecutionTargetsFilterTypeDef(BaseValidatorModel):
+class AssociationExecutionTargetsFilter(BaseValidatorModel):
     Key: AssociationExecutionTargetsFilterKeyType
     Value: str
 
 
-class AssociationFilterTypeDef(BaseValidatorModel):
+class AssociationFilter(BaseValidatorModel):
     key: AssociationFilterKeyType
     value: str
 
 
-class AttachmentContentTypeDef(BaseValidatorModel):
+class AttachmentContent(BaseValidatorModel):
     Name: Optional[str] = None
     Size: Optional[int] = None
     Hash: Optional[str] = None
@@ -87,32 +87,32 @@ class AttachmentContentTypeDef(BaseValidatorModel):
     Url: Optional[str] = None
 
 
-class AttachmentInformationTypeDef(BaseValidatorModel):
+class AttachmentInformation(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class AttachmentsSourceTypeDef(BaseValidatorModel):
+class AttachmentsSource(BaseValidatorModel):
     Key: Optional[AttachmentsSourceKeyType] = None
     Values: Optional[Sequence[str]] = None
     Name: Optional[str] = None
 
 
-class AutomationExecutionFilterTypeDef(BaseValidatorModel):
+class AutomationExecutionFilter(BaseValidatorModel):
     Key: AutomationExecutionFilterKeyType
     Values: Sequence[str]
 
 
-class ResolvedTargetsTypeDef(BaseValidatorModel):
+class ResolvedTargets(BaseValidatorModel):
     ParameterValues: Optional[List[str]] = None
     Truncated: Optional[bool] = None
 
 
-class TargetPreviewTypeDef(BaseValidatorModel):
+class TargetPreview(BaseValidatorModel):
     Count: Optional[int] = None
     TargetType: Optional[str] = None
 
 
-class ProgressCountersTypeDef(BaseValidatorModel):
+class ProgressCounters(BaseValidatorModel):
     TotalSteps: Optional[int] = None
     SuccessSteps: Optional[int] = None
     FailedSteps: Optional[int] = None
@@ -120,26 +120,26 @@ class ProgressCountersTypeDef(BaseValidatorModel):
     TimedOutSteps: Optional[int] = None
 
 
-class CancelCommandRequestTypeDef(BaseValidatorModel):
+class CancelCommandRequest(BaseValidatorModel):
     CommandId: str
     InstanceIds: Optional[Sequence[str]] = None
 
 
-class CancelMaintenanceWindowExecutionRequestTypeDef(BaseValidatorModel):
+class CancelMaintenanceWindowExecutionRequest(BaseValidatorModel):
     WindowExecutionId: str
 
 
-class CloudWatchOutputConfigTypeDef(BaseValidatorModel):
+class CloudWatchOutputConfig(BaseValidatorModel):
     CloudWatchLogGroupName: Optional[str] = None
     CloudWatchOutputEnabled: Optional[bool] = None
 
 
-class CommandFilterTypeDef(BaseValidatorModel):
+class CommandFilter(BaseValidatorModel):
     key: CommandFilterKeyType
     value: str
 
 
-class CommandPluginTypeDef(BaseValidatorModel):
+class CommandPlugin(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[CommandPluginStatusType] = None
     StatusDetails: Optional[str] = None
@@ -154,19 +154,19 @@ class CommandPluginTypeDef(BaseValidatorModel):
     OutputS3KeyPrefix: Optional[str] = None
 
 
-class NotificationConfigOutputTypeDef(BaseValidatorModel):
+class NotificationConfigOutput(BaseValidatorModel):
     NotificationArn: Optional[str] = None
     NotificationEvents: Optional[List[NotificationEventType]] = None
     NotificationType: Optional[NotificationTypeType] = None
 
 
-class ComplianceExecutionSummaryOutputTypeDef(BaseValidatorModel):
+class ComplianceExecutionSummaryOutput(BaseValidatorModel):
     ExecutionTime: datetime
     ExecutionId: Optional[str] = None
     ExecutionType: Optional[str] = None
 
 
-class ComplianceItemEntryTypeDef(BaseValidatorModel):
+class ComplianceItemEntry(BaseValidatorModel):
     Severity: ComplianceSeverityType
     Status: ComplianceStatusType
     Id: Optional[str] = None
@@ -174,7 +174,7 @@ class ComplianceItemEntryTypeDef(BaseValidatorModel):
     Details: Optional[Mapping[str, str]] = None
 
 
-class SeveritySummaryTypeDef(BaseValidatorModel):
+class SeveritySummary(BaseValidatorModel):
     CriticalCount: Optional[int] = None
     HighCount: Optional[int] = None
     MediumCount: Optional[int] = None
@@ -183,138 +183,138 @@ class SeveritySummaryTypeDef(BaseValidatorModel):
     UnspecifiedCount: Optional[int] = None
 
 
-class RegistrationMetadataItemTypeDef(BaseValidatorModel):
+class RegistrationMetadataItem(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DocumentRequiresTypeDef(BaseValidatorModel):
+class DocumentRequires(BaseValidatorModel):
     Name: str
     Version: Optional[str] = None
     RequireType: Optional[str] = None
     VersionName: Optional[str] = None
 
 
-class OpsItemNotificationTypeDef(BaseValidatorModel):
+class OpsItemNotification(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class RelatedOpsItemTypeDef(BaseValidatorModel):
+class RelatedOpsItem(BaseValidatorModel):
     OpsItemId: str
 
 
-class MetadataValueTypeDef(BaseValidatorModel):
+class MetadataValue(BaseValidatorModel):
     Value: Optional[str] = None
 
 
-class DeleteActivationRequestTypeDef(BaseValidatorModel):
+class DeleteActivationRequest(BaseValidatorModel):
     ActivationId: str
 
 
-class DeleteAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteAssociationRequest(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
     AssociationId: Optional[str] = None
 
 
-class DeleteDocumentRequestTypeDef(BaseValidatorModel):
+class DeleteDocumentRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: Optional[str] = None
     VersionName: Optional[str] = None
     Force: Optional[bool] = None
 
 
-class DeleteInventoryRequestTypeDef(BaseValidatorModel):
+class DeleteInventoryRequest(BaseValidatorModel):
     TypeName: str
     SchemaDeleteOption: Optional[InventorySchemaDeleteOptionType] = None
     DryRun: Optional[bool] = None
     ClientToken: Optional[str] = None
 
 
-class DeleteMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class DeleteMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
 
 
-class DeleteOpsItemRequestTypeDef(BaseValidatorModel):
+class DeleteOpsItemRequest(BaseValidatorModel):
     OpsItemId: str
 
 
-class DeleteOpsMetadataRequestTypeDef(BaseValidatorModel):
+class DeleteOpsMetadataRequest(BaseValidatorModel):
     OpsMetadataArn: str
 
 
-class DeleteParameterRequestTypeDef(BaseValidatorModel):
+class DeleteParameterRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteParametersRequestTypeDef(BaseValidatorModel):
+class DeleteParametersRequest(BaseValidatorModel):
     Names: Sequence[str]
 
 
-class DeletePatchBaselineRequestTypeDef(BaseValidatorModel):
+class DeletePatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
 
-class DeleteResourceDataSyncRequestTypeDef(BaseValidatorModel):
+class DeleteResourceDataSyncRequest(BaseValidatorModel):
     SyncName: str
     SyncType: Optional[str] = None
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     PolicyId: str
     PolicyHash: str
 
 
-class DeregisterManagedInstanceRequestTypeDef(BaseValidatorModel):
+class DeregisterManagedInstanceRequest(BaseValidatorModel):
     InstanceId: str
 
 
-class DeregisterPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
+class DeregisterPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
 
 
-class DeregisterTargetFromMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class DeregisterTargetFromMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
     Safe: Optional[bool] = None
 
 
-class DeregisterTaskFromMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class DeregisterTaskFromMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
 
 
-class DescribeActivationsFilterTypeDef(BaseValidatorModel):
+class DescribeActivationsFilter(BaseValidatorModel):
     FilterKey: Optional[DescribeActivationsFilterKeysType] = None
     FilterValues: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeAssociationRequestTypeDef(BaseValidatorModel):
+class DescribeAssociationRequest(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
     AssociationId: Optional[str] = None
     AssociationVersion: Optional[str] = None
 
 
-class StepExecutionFilterTypeDef(BaseValidatorModel):
+class StepExecutionFilter(BaseValidatorModel):
     Key: StepExecutionFilterKeyType
     Values: Sequence[str]
 
 
-class PatchOrchestratorFilterTypeDef(BaseValidatorModel):
+class PatchOrchestratorFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class PatchTypeDef(BaseValidatorModel):
+class Patch(BaseValidatorModel):
     Id: Optional[str] = None
     ReleaseDate: Optional[datetime] = None
     Title: Optional[str] = None
@@ -340,55 +340,55 @@ class PatchTypeDef(BaseValidatorModel):
     Repository: Optional[str] = None
 
 
-class DescribeDocumentPermissionRequestTypeDef(BaseValidatorModel):
+class DescribeDocumentPermissionRequest(BaseValidatorModel):
     Name: str
     PermissionType: Literal["Share"]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeDocumentRequestTypeDef(BaseValidatorModel):
+class DescribeDocumentRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: Optional[str] = None
     VersionName: Optional[str] = None
 
 
-class DescribeEffectiveInstanceAssociationsRequestTypeDef(BaseValidatorModel):
+class DescribeEffectiveInstanceAssociationsRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class InstanceAssociationTypeDef(BaseValidatorModel):
+class InstanceAssociation(BaseValidatorModel):
     AssociationId: Optional[str] = None
     InstanceId: Optional[str] = None
     Content: Optional[str] = None
     AssociationVersion: Optional[str] = None
 
 
-class DescribeEffectivePatchesForPatchBaselineRequestTypeDef(BaseValidatorModel):
+class DescribeEffectivePatchesForPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeInstanceAssociationsStatusRequestTypeDef(BaseValidatorModel):
+class DescribeInstanceAssociationsStatusRequest(BaseValidatorModel):
     InstanceId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class InstanceInformationFilterTypeDef(BaseValidatorModel):
+class InstanceInformationFilter(BaseValidatorModel):
     key: InstanceInformationFilterKeyType
     valueSet: Sequence[str]
 
 
-class InstanceInformationStringFilterTypeDef(BaseValidatorModel):
+class InstanceInformationStringFilter(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
 
 
-class InstancePatchStateTypeDef(BaseValidatorModel):
+class InstancePatchState(BaseValidatorModel):
     InstanceId: str
     PatchGroup: str
     BaselineId: str
@@ -413,13 +413,13 @@ class InstancePatchStateTypeDef(BaseValidatorModel):
     OtherNonCompliantCount: Optional[int] = None
 
 
-class DescribeInstancePatchStatesRequestTypeDef(BaseValidatorModel):
+class DescribeInstancePatchStatesRequest(BaseValidatorModel):
     InstanceIds: Sequence[str]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PatchComplianceDataTypeDef(BaseValidatorModel):
+class PatchComplianceData(BaseValidatorModel):
     Title: str
     KBId: str
     Classification: str
@@ -429,29 +429,29 @@ class PatchComplianceDataTypeDef(BaseValidatorModel):
     CVEIds: Optional[str] = None
 
 
-class InstancePropertyFilterTypeDef(BaseValidatorModel):
+class InstancePropertyFilter(BaseValidatorModel):
     key: InstancePropertyFilterKeyType
     valueSet: Sequence[str]
 
 
-class InstancePropertyStringFilterTypeDef(BaseValidatorModel):
+class InstancePropertyStringFilter(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
     Operator: Optional[InstancePropertyFilterOperatorType] = None
 
 
-class DescribeInventoryDeletionsRequestTypeDef(BaseValidatorModel):
+class DescribeInventoryDeletionsRequest(BaseValidatorModel):
     DeletionId: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class MaintenanceWindowFilterTypeDef(BaseValidatorModel):
+class MaintenanceWindowFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class MaintenanceWindowExecutionTaskInvocationIdentityTypeDef(BaseValidatorModel):
+class MaintenanceWindowExecutionTaskInvocationIdentity(BaseValidatorModel):
     WindowExecutionId: Optional[str] = None
     TaskExecutionId: Optional[str] = None
     InvocationId: Optional[str] = None
@@ -466,7 +466,7 @@ class MaintenanceWindowExecutionTaskInvocationIdentityTypeDef(BaseValidatorModel
     WindowTargetId: Optional[str] = None
 
 
-class MaintenanceWindowExecutionTypeDef(BaseValidatorModel):
+class MaintenanceWindowExecution(BaseValidatorModel):
     WindowId: Optional[str] = None
     WindowExecutionId: Optional[str] = None
     Status: Optional[MaintenanceWindowExecutionStatusType] = None
@@ -475,18 +475,18 @@ class MaintenanceWindowExecutionTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
 
 
-class ScheduledWindowExecutionTypeDef(BaseValidatorModel):
+class ScheduledWindowExecution(BaseValidatorModel):
     WindowId: Optional[str] = None
     Name: Optional[str] = None
     ExecutionTime: Optional[str] = None
 
 
-class MaintenanceWindowIdentityForTargetTypeDef(BaseValidatorModel):
+class MaintenanceWindowIdentityForTarget(BaseValidatorModel):
     WindowId: Optional[str] = None
     Name: Optional[str] = None
 
 
-class MaintenanceWindowIdentityTypeDef(BaseValidatorModel):
+class MaintenanceWindowIdentity(BaseValidatorModel):
     WindowId: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -501,24 +501,24 @@ class MaintenanceWindowIdentityTypeDef(BaseValidatorModel):
     NextExecutionTime: Optional[str] = None
 
 
-class OpsItemFilterTypeDef(BaseValidatorModel):
+class OpsItemFilter(BaseValidatorModel):
     Key: OpsItemFilterKeyType
     Values: Sequence[str]
     Operator: OpsItemFilterOperatorType
 
 
-class ParameterStringFilterTypeDef(BaseValidatorModel):
+class ParameterStringFilter(BaseValidatorModel):
     Key: str
     Option: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class ParametersFilterTypeDef(BaseValidatorModel):
+class ParametersFilter(BaseValidatorModel):
     Key: ParametersFilterKeyType
     Values: Sequence[str]
 
 
-class PatchBaselineIdentityTypeDef(BaseValidatorModel):
+class PatchBaselineIdentity(BaseValidatorModel):
     BaselineId: Optional[str] = None
     BaselineName: Optional[str] = None
     OperatingSystem: Optional[OperatingSystemType] = None
@@ -526,11 +526,11 @@ class PatchBaselineIdentityTypeDef(BaseValidatorModel):
     DefaultBaseline: Optional[bool] = None
 
 
-class DescribePatchGroupStateRequestTypeDef(BaseValidatorModel):
+class DescribePatchGroupStateRequest(BaseValidatorModel):
     PatchGroup: str
 
 
-class DescribePatchPropertiesRequestTypeDef(BaseValidatorModel):
+class DescribePatchPropertiesRequest(BaseValidatorModel):
     OperatingSystem: OperatingSystemType
     Property: PatchPropertyType
     PatchSet: Optional[PatchSetType] = None
@@ -538,39 +538,39 @@ class DescribePatchPropertiesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class SessionFilterTypeDef(BaseValidatorModel):
+class SessionFilter(BaseValidatorModel):
     key: SessionFilterKeyType
     value: str
 
 
-class DisassociateOpsItemRelatedItemRequestTypeDef(BaseValidatorModel):
+class DisassociateOpsItemRelatedItemRequest(BaseValidatorModel):
     OpsItemId: str
     AssociationId: str
 
 
-class DocumentDefaultVersionDescriptionTypeDef(BaseValidatorModel):
+class DocumentDefaultVersionDescription(BaseValidatorModel):
     Name: Optional[str] = None
     DefaultVersion: Optional[str] = None
     DefaultVersionName: Optional[str] = None
 
 
-class ReviewInformationTypeDef(BaseValidatorModel):
+class ReviewInformation(BaseValidatorModel):
     ReviewedTime: Optional[datetime] = None
     Status: Optional[ReviewStatusType] = None
     Reviewer: Optional[str] = None
 
 
-class DocumentFilterTypeDef(BaseValidatorModel):
+class DocumentFilter(BaseValidatorModel):
     key: DocumentFilterKeyType
     value: str
 
 
-class DocumentKeyValuesFilterTypeDef(BaseValidatorModel):
+class DocumentKeyValuesFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class DocumentVersionInfoTypeDef(BaseValidatorModel):
+class DocumentVersionInfo(BaseValidatorModel):
     Name: Optional[str] = None
     DisplayName: Optional[str] = None
     DocumentVersion: Optional[str] = None
@@ -583,62 +583,62 @@ class DocumentVersionInfoTypeDef(BaseValidatorModel):
     ReviewStatus: Optional[ReviewStatusType] = None
 
 
-class PatchStatusTypeDef(BaseValidatorModel):
+class PatchStatus(BaseValidatorModel):
     DeploymentStatus: Optional[PatchDeploymentStatusType] = None
     ComplianceLevel: Optional[PatchComplianceLevelType] = None
     ApprovalDate: Optional[datetime] = None
 
 
-class FailureDetailsTypeDef(BaseValidatorModel):
+class FailureDetails(BaseValidatorModel):
     FailureStage: Optional[str] = None
     FailureType: Optional[str] = None
     Details: Optional[Dict[str, List[str]]] = None
 
 
-class GetAutomationExecutionRequestTypeDef(BaseValidatorModel):
+class GetAutomationExecutionRequest(BaseValidatorModel):
     AutomationExecutionId: str
 
 
-class GetCalendarStateRequestTypeDef(BaseValidatorModel):
+class GetCalendarStateRequest(BaseValidatorModel):
     CalendarNames: Sequence[str]
     AtTime: Optional[str] = None
 
 
-class GetCommandInvocationRequestTypeDef(BaseValidatorModel):
+class GetCommandInvocationRequest(BaseValidatorModel):
     CommandId: str
     InstanceId: str
     PluginName: Optional[str] = None
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetConnectionStatusRequestTypeDef(BaseValidatorModel):
+class GetConnectionStatusRequest(BaseValidatorModel):
     Target: str
 
 
-class GetDefaultPatchBaselineRequestTypeDef(BaseValidatorModel):
+class GetDefaultPatchBaselineRequest(BaseValidatorModel):
     OperatingSystem: Optional[OperatingSystemType] = None
 
 
-class GetDocumentRequestTypeDef(BaseValidatorModel):
+class GetDocumentRequest(BaseValidatorModel):
     Name: str
     VersionName: Optional[str] = None
     DocumentVersion: Optional[str] = None
     DocumentFormat: Optional[DocumentFormatType] = None
 
 
-class GetExecutionPreviewRequestTypeDef(BaseValidatorModel):
+class GetExecutionPreviewRequest(BaseValidatorModel):
     ExecutionPreviewId: str
 
 
-class ResultAttributeTypeDef(BaseValidatorModel):
+class ResultAttribute(BaseValidatorModel):
     TypeName: str
 
 
-class GetInventorySchemaRequestTypeDef(BaseValidatorModel):
+class GetInventorySchemaRequest(BaseValidatorModel):
     TypeName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -646,104 +646,104 @@ class GetInventorySchemaRequestTypeDef(BaseValidatorModel):
     SubType: Optional[bool] = None
 
 
-class GetMaintenanceWindowExecutionRequestTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowExecutionRequest(BaseValidatorModel):
     WindowExecutionId: str
 
 
-class GetMaintenanceWindowExecutionTaskInvocationRequestTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowExecutionTaskInvocationRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
     InvocationId: str
 
 
-class GetMaintenanceWindowExecutionTaskRequestTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowExecutionTaskRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
 
 
-class MaintenanceWindowTaskParameterValueExpressionOutputTypeDef(BaseValidatorModel):
+class MaintenanceWindowTaskParameterValueExpressionOutput(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
-class GetMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
 
 
-class GetMaintenanceWindowTaskRequestTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowTaskRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
 
 
-class LoggingInfoTypeDef(BaseValidatorModel):
+class LoggingInfo(BaseValidatorModel):
     S3BucketName: str
     S3Region: str
     S3KeyPrefix: Optional[str] = None
 
 
-class GetOpsItemRequestTypeDef(BaseValidatorModel):
+class GetOpsItemRequest(BaseValidatorModel):
     OpsItemId: str
     OpsItemArn: Optional[str] = None
 
 
-class GetOpsMetadataRequestTypeDef(BaseValidatorModel):
+class GetOpsMetadataRequest(BaseValidatorModel):
     OpsMetadataArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class OpsResultAttributeTypeDef(BaseValidatorModel):
+class OpsResultAttribute(BaseValidatorModel):
     TypeName: str
 
 
-class GetParameterHistoryRequestTypeDef(BaseValidatorModel):
+class GetParameterHistoryRequest(BaseValidatorModel):
     Name: str
     WithDecryption: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetParameterRequestTypeDef(BaseValidatorModel):
+class GetParameterRequest(BaseValidatorModel):
     Name: str
     WithDecryption: Optional[bool] = None
 
 
-class GetParametersRequestTypeDef(BaseValidatorModel):
+class GetParametersRequest(BaseValidatorModel):
     Names: Sequence[str]
     WithDecryption: Optional[bool] = None
 
 
-class GetPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
+class GetPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     PatchGroup: str
     OperatingSystem: Optional[OperatingSystemType] = None
 
 
-class GetPatchBaselineRequestTypeDef(BaseValidatorModel):
+class GetPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
 
-class PatchSourceOutputTypeDef(BaseValidatorModel):
+class PatchSourceOutput(BaseValidatorModel):
     Name: str
     Products: List[str]
     Configuration: str
 
 
-class GetResourcePoliciesRequestTypeDef(BaseValidatorModel):
+class GetResourcePoliciesRequest(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetResourcePoliciesResponseEntryTypeDef(BaseValidatorModel):
+class GetResourcePoliciesResponseEntry(BaseValidatorModel):
     PolicyId: Optional[str] = None
     PolicyHash: Optional[str] = None
     Policy: Optional[str] = None
 
 
-class GetServiceSettingRequestTypeDef(BaseValidatorModel):
+class GetServiceSettingRequest(BaseValidatorModel):
     SettingId: str
 
 
-class ServiceSettingTypeDef(BaseValidatorModel):
+class ServiceSetting(BaseValidatorModel):
     SettingId: Optional[str] = None
     SettingValue: Optional[str] = None
     LastModifiedDate: Optional[datetime] = None
@@ -752,22 +752,22 @@ class ServiceSettingTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
 
 
-class InstanceAggregatedAssociationOverviewTypeDef(BaseValidatorModel):
+class InstanceAggregatedAssociationOverview(BaseValidatorModel):
     DetailedStatus: Optional[str] = None
     InstanceAssociationStatusAggregatedCount: Optional[Dict[str, int]] = None
 
 
-class S3OutputLocationTypeDef(BaseValidatorModel):
+class S3OutputLocation(BaseValidatorModel):
     OutputS3Region: Optional[str] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
 
 
-class S3OutputUrlTypeDef(BaseValidatorModel):
+class S3OutputUrl(BaseValidatorModel):
     OutputUrl: Optional[str] = None
 
 
-class InstanceInfoTypeDef(BaseValidatorModel):
+class InstanceInfo(BaseValidatorModel):
     AgentType: Optional[str] = None
     AgentVersion: Optional[str] = None
     ComputerName: Optional[str] = None
@@ -780,18 +780,18 @@ class InstanceInfoTypeDef(BaseValidatorModel):
     ResourceType: Optional[ResourceTypeType] = None
 
 
-class InventoryDeletionSummaryItemTypeDef(BaseValidatorModel):
+class InventoryDeletionSummaryItem(BaseValidatorModel):
     Version: Optional[str] = None
     Count: Optional[int] = None
     RemainingCount: Optional[int] = None
 
 
-class InventoryItemAttributeTypeDef(BaseValidatorModel):
+class InventoryItemAttribute(BaseValidatorModel):
     Name: str
     DataType: InventoryAttributeDataTypeType
 
 
-class InventoryItemTypeDef(BaseValidatorModel):
+class InventoryItem(BaseValidatorModel):
     TypeName: str
     SchemaVersion: str
     CaptureTime: str
@@ -800,7 +800,7 @@ class InventoryItemTypeDef(BaseValidatorModel):
     Context: Optional[Mapping[str, str]] = None
 
 
-class InventoryResultItemTypeDef(BaseValidatorModel):
+class InventoryResultItem(BaseValidatorModel):
     TypeName: str
     SchemaVersion: str
     Content: List[Dict[str, str]]
@@ -808,19 +808,19 @@ class InventoryResultItemTypeDef(BaseValidatorModel):
     ContentHash: Optional[str] = None
 
 
-class LabelParameterVersionRequestTypeDef(BaseValidatorModel):
+class LabelParameterVersionRequest(BaseValidatorModel):
     Name: str
     Labels: Sequence[str]
     ParameterVersion: Optional[int] = None
 
 
-class ListAssociationVersionsRequestTypeDef(BaseValidatorModel):
+class ListAssociationVersionsRequest(BaseValidatorModel):
     AssociationId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListDocumentMetadataHistoryRequestTypeDef(BaseValidatorModel):
+class ListDocumentMetadataHistoryRequest(BaseValidatorModel):
     Name: str
     Metadata: Literal["DocumentReviews"]
     DocumentVersion: Optional[str] = None
@@ -828,44 +828,44 @@ class ListDocumentMetadataHistoryRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListDocumentVersionsRequestTypeDef(BaseValidatorModel):
+class ListDocumentVersionsRequest(BaseValidatorModel):
     Name: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NodeAggregatorPaginatorTypeDef(BaseValidatorModel):
+class NodeAggregatorPaginator(BaseValidatorModel):
     AggregatorType: Literal["Count"]
     TypeName: Literal["Instance"]
     AttributeName: NodeAttributeNameType
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class NodeAggregatorTypeDef(BaseValidatorModel):
+class NodeAggregator(BaseValidatorModel):
     AggregatorType: Literal["Count"]
     TypeName: Literal["Instance"]
     AttributeName: NodeAttributeNameType
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class OpsItemEventFilterTypeDef(BaseValidatorModel):
+class OpsItemEventFilter(BaseValidatorModel):
     Key: Literal["OpsItemId"]
     Values: Sequence[str]
     Operator: Literal["Equal"]
 
 
-class OpsItemRelatedItemsFilterTypeDef(BaseValidatorModel):
+class OpsItemRelatedItemsFilter(BaseValidatorModel):
     Key: OpsItemRelatedItemsFilterKeyType
     Values: Sequence[str]
     Operator: Literal["Equal"]
 
 
-class OpsMetadataFilterTypeDef(BaseValidatorModel):
+class OpsMetadataFilter(BaseValidatorModel):
     Key: str
     Values: Sequence[str]
 
 
-class OpsMetadataTypeDef(BaseValidatorModel):
+class OpsMetadata(BaseValidatorModel):
     ResourceId: Optional[str] = None
     OpsMetadataArn: Optional[str] = None
     LastModifiedDate: Optional[datetime] = None
@@ -873,49 +873,49 @@ class OpsMetadataTypeDef(BaseValidatorModel):
     CreationDate: Optional[datetime] = None
 
 
-class ListResourceDataSyncRequestTypeDef(BaseValidatorModel):
+class ListResourceDataSyncRequest(BaseValidatorModel):
     SyncType: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceType: ResourceTypeForTaggingType
     ResourceId: str
 
 
-class MaintenanceWindowAutomationParametersOutputTypeDef(BaseValidatorModel):
+class MaintenanceWindowAutomationParametersOutput(BaseValidatorModel):
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
 
 
-class MaintenanceWindowAutomationParametersTypeDef(BaseValidatorModel):
+class MaintenanceWindowAutomationParameters(BaseValidatorModel):
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class MaintenanceWindowLambdaParametersOutputTypeDef(BaseValidatorModel):
+class MaintenanceWindowLambdaParametersOutput(BaseValidatorModel):
     ClientContext: Optional[str] = None
     Qualifier: Optional[str] = None
     Payload: Optional[bytes] = None
 
 
-class NotificationConfigTypeDef(BaseValidatorModel):
+class NotificationConfig(BaseValidatorModel):
     NotificationArn: Optional[str] = None
     NotificationEvents: Optional[Sequence[NotificationEventType]] = None
     NotificationType: Optional[NotificationTypeType] = None
 
 
-class MaintenanceWindowStepFunctionsParametersTypeDef(BaseValidatorModel):
+class MaintenanceWindowStepFunctionsParameters(BaseValidatorModel):
     Input: Optional[str] = None
     Name: Optional[str] = None
 
 
-class MaintenanceWindowTaskParameterValueExpressionTypeDef(BaseValidatorModel):
+class MaintenanceWindowTaskParameterValueExpression(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
 
 
-class ModifyDocumentPermissionRequestTypeDef(BaseValidatorModel):
+class ModifyDocumentPermissionRequest(BaseValidatorModel):
     Name: str
     PermissionType: Literal["Share"]
     AccountIdsToAdd: Optional[Sequence[str]] = None
@@ -923,28 +923,28 @@ class ModifyDocumentPermissionRequestTypeDef(BaseValidatorModel):
     SharedDocumentVersion: Optional[str] = None
 
 
-class NodeOwnerInfoTypeDef(BaseValidatorModel):
+class NodeOwnerInfo(BaseValidatorModel):
     AccountId: Optional[str] = None
     OrganizationalUnitId: Optional[str] = None
     OrganizationalUnitPath: Optional[str] = None
 
 
-class OpsEntityItemTypeDef(BaseValidatorModel):
+class OpsEntityItem(BaseValidatorModel):
     CaptureTime: Optional[str] = None
     Content: Optional[List[Dict[str, str]]] = None
 
 
-class OpsItemIdentityTypeDef(BaseValidatorModel):
+class OpsItemIdentity(BaseValidatorModel):
     Arn: Optional[str] = None
 
 
-class ParameterInlinePolicyTypeDef(BaseValidatorModel):
+class ParameterInlinePolicy(BaseValidatorModel):
     PolicyText: Optional[str] = None
     PolicyType: Optional[str] = None
     PolicyStatus: Optional[str] = None
 
 
-class ParentStepDetailsTypeDef(BaseValidatorModel):
+class ParentStepDetails(BaseValidatorModel):
     StepExecutionId: Optional[str] = None
     StepName: Optional[str] = None
     Action: Optional[str] = None
@@ -952,103 +952,103 @@ class ParentStepDetailsTypeDef(BaseValidatorModel):
     IteratorValue: Optional[str] = None
 
 
-class PatchFilterOutputTypeDef(BaseValidatorModel):
+class PatchFilterOutput(BaseValidatorModel):
     Key: PatchFilterKeyType
     Values: List[str]
 
 
-class PatchFilterTypeDef(BaseValidatorModel):
+class PatchFilter(BaseValidatorModel):
     Key: PatchFilterKeyType
     Values: Sequence[str]
 
 
-class PatchSourceTypeDef(BaseValidatorModel):
+class PatchSource(BaseValidatorModel):
     Name: str
     Products: Sequence[str]
     Configuration: str
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: str
     Policy: str
     PolicyId: Optional[str] = None
     PolicyHash: Optional[str] = None
 
 
-class RegisterDefaultPatchBaselineRequestTypeDef(BaseValidatorModel):
+class RegisterDefaultPatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
 
 
-class RegisterPatchBaselineForPatchGroupRequestTypeDef(BaseValidatorModel):
+class RegisterPatchBaselineForPatchGroupRequest(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
 
 
-class RemoveTagsFromResourceRequestTypeDef(BaseValidatorModel):
+class RemoveTagsFromResourceRequest(BaseValidatorModel):
     ResourceType: ResourceTypeForTaggingType
     ResourceId: str
     TagKeys: Sequence[str]
 
 
-class ResetServiceSettingRequestTypeDef(BaseValidatorModel):
+class ResetServiceSettingRequest(BaseValidatorModel):
     SettingId: str
 
 
-class ResourceDataSyncOrganizationalUnitTypeDef(BaseValidatorModel):
+class ResourceDataSyncOrganizationalUnit(BaseValidatorModel):
     OrganizationalUnitId: Optional[str] = None
 
 
-class ResourceDataSyncDestinationDataSharingTypeDef(BaseValidatorModel):
+class ResourceDataSyncDestinationDataSharing(BaseValidatorModel):
     DestinationDataSharingType: Optional[str] = None
 
 
-class ResumeSessionRequestTypeDef(BaseValidatorModel):
+class ResumeSessionRequest(BaseValidatorModel):
     SessionId: str
 
 
-class SendAutomationSignalRequestTypeDef(BaseValidatorModel):
+class SendAutomationSignalRequest(BaseValidatorModel):
     AutomationExecutionId: str
     SignalType: SignalTypeType
     Payload: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class SessionManagerOutputUrlTypeDef(BaseValidatorModel):
+class SessionManagerOutputUrl(BaseValidatorModel):
     S3OutputUrl: Optional[str] = None
     CloudWatchOutputUrl: Optional[str] = None
 
 
-class StartAssociationsOnceRequestTypeDef(BaseValidatorModel):
+class StartAssociationsOnceRequest(BaseValidatorModel):
     AssociationIds: Sequence[str]
 
 
-class StartSessionRequestTypeDef(BaseValidatorModel):
+class StartSessionRequest(BaseValidatorModel):
     Target: str
     DocumentName: Optional[str] = None
     Reason: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class TargetTypeDef(BaseValidatorModel):
+class Target(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class TerminateSessionRequestTypeDef(BaseValidatorModel):
+class TerminateSessionRequest(BaseValidatorModel):
     SessionId: str
 
 
-class UnlabelParameterVersionRequestTypeDef(BaseValidatorModel):
+class UnlabelParameterVersionRequest(BaseValidatorModel):
     Name: str
     ParameterVersion: int
     Labels: Sequence[str]
 
 
-class UpdateDocumentDefaultVersionRequestTypeDef(BaseValidatorModel):
+class UpdateDocumentDefaultVersionRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: str
 
 
-class UpdateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -1064,17 +1064,17 @@ class UpdateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
     Replace: Optional[bool] = None
 
 
-class UpdateManagedInstanceRoleRequestTypeDef(BaseValidatorModel):
+class UpdateManagedInstanceRoleRequest(BaseValidatorModel):
     InstanceId: str
     IamRole: str
 
 
-class UpdateServiceSettingRequestTypeDef(BaseValidatorModel):
+class UpdateServiceSettingRequest(BaseValidatorModel):
     SettingId: str
     SettingValue: str
 
 
-class ActivationTypeDef(BaseValidatorModel):
+class Activation(BaseValidatorModel):
     ActivationId: Optional[str] = None
     Description: Optional[str] = None
     DefaultInstanceName: Optional[str] = None
@@ -1084,16 +1084,16 @@ class ActivationTypeDef(BaseValidatorModel):
     ExpirationDate: Optional[datetime] = None
     Expired: Optional[bool] = None
     CreatedDate: Optional[datetime] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class AddTagsToResourceRequestTypeDef(BaseValidatorModel):
+class AddTagsToResourceRequest(BaseValidatorModel):
     ResourceType: ResourceTypeForTaggingType
     ResourceId: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class CreateMaintenanceWindowRequest(BaseValidatorModel):
     Name: str
     Schedule: str
     Duration: int
@@ -1105,98 +1105,98 @@ class CreateMaintenanceWindowRequestTypeDef(BaseValidatorModel):
     ScheduleTimezone: Optional[str] = None
     ScheduleOffset: Optional[int] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class AlarmConfigurationOutputTypeDef(BaseValidatorModel):
-    Alarms: List[AlarmTypeDef]
+class AlarmConfigurationOutput(BaseValidatorModel):
+    Alarms: List[Alarm]
     IgnorePollAlarmFailure: Optional[bool] = None
 
 
-class AlarmConfigurationTypeDef(BaseValidatorModel):
-    Alarms: Sequence[AlarmTypeDef]
+class AlarmConfiguration(BaseValidatorModel):
+    Alarms: Sequence[Alarm]
     IgnorePollAlarmFailure: Optional[bool] = None
 
 
-class AssociateOpsItemRelatedItemResponseTypeDef(BaseValidatorModel):
+class AssociateOpsItemRelatedItemResponse(BaseValidatorModel):
     AssociationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelMaintenanceWindowExecutionResultTypeDef(BaseValidatorModel):
+class CancelMaintenanceWindowExecutionResult(BaseValidatorModel):
     WindowExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateActivationResultTypeDef(BaseValidatorModel):
+class CreateActivationResult(BaseValidatorModel):
     ActivationId: str
     ActivationCode: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class CreateMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOpsItemResponseTypeDef(BaseValidatorModel):
+class CreateOpsItemResponse(BaseValidatorModel):
     OpsItemId: str
     OpsItemArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOpsMetadataResultTypeDef(BaseValidatorModel):
+class CreateOpsMetadataResult(BaseValidatorModel):
     OpsMetadataArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePatchBaselineResultTypeDef(BaseValidatorModel):
+class CreatePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class DeleteMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteParametersResultTypeDef(BaseValidatorModel):
+class DeleteParametersResult(BaseValidatorModel):
     DeletedParameters: List[str]
     InvalidParameters: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePatchBaselineResultTypeDef(BaseValidatorModel):
+class DeletePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
+class DeregisterPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterTargetFromMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class DeregisterTargetFromMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeregisterTaskFromMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class DeregisterTaskFromMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDocumentPermissionResponseTypeDef(BaseValidatorModel):
+class DescribeDocumentPermissionResponse(BaseValidatorModel):
     AccountIds: List[str]
-    AccountSharingInfoList: List[AccountSharingInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AccountSharingInfoList: List[AccountSharingInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribePatchGroupStateResultTypeDef(BaseValidatorModel):
+class DescribePatchGroupStateResult(BaseValidatorModel):
     Instances: int
     InstancesWithInstalledPatches: int
     InstancesWithInstalledOtherPatches: int
@@ -1209,53 +1209,53 @@ class DescribePatchGroupStateResultTypeDef(BaseValidatorModel):
     InstancesWithCriticalNonCompliantPatches: int
     InstancesWithSecurityNonCompliantPatches: int
     InstancesWithOtherNonCompliantPatches: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePatchPropertiesResultTypeDef(BaseValidatorModel):
+class DescribePatchPropertiesResult(BaseValidatorModel):
     Properties: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetCalendarStateResponseTypeDef(BaseValidatorModel):
+class GetCalendarStateResponse(BaseValidatorModel):
     State: CalendarStateType
     AtTime: str
     NextTransitionTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectionStatusResponseTypeDef(BaseValidatorModel):
+class GetConnectionStatusResponse(BaseValidatorModel):
     Target: str
     Status: ConnectionStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDefaultPatchBaselineResultTypeDef(BaseValidatorModel):
+class GetDefaultPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     OperatingSystem: OperatingSystemType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeployablePatchSnapshotForInstanceResultTypeDef(BaseValidatorModel):
+class GetDeployablePatchSnapshotForInstanceResult(BaseValidatorModel):
     InstanceId: str
     SnapshotId: str
     SnapshotDownloadUrl: str
     Product: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMaintenanceWindowExecutionResultTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowExecutionResult(BaseValidatorModel):
     WindowExecutionId: str
     TaskIds: List[str]
     Status: MaintenanceWindowExecutionStatusType
     StatusDetails: str
     StartTime: datetime
     EndTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMaintenanceWindowExecutionTaskInvocationResultTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowExecutionTaskInvocationResult(BaseValidatorModel):
     WindowExecutionId: str
     TaskExecutionId: str
     InvocationId: str
@@ -1268,10 +1268,10 @@ class GetMaintenanceWindowExecutionTaskInvocationResultTypeDef(BaseValidatorMode
     EndTime: datetime
     OwnerInformation: str
     WindowTargetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     Name: str
     Description: str
@@ -1287,122 +1287,122 @@ class GetMaintenanceWindowResultTypeDef(BaseValidatorModel):
     Enabled: bool
     CreatedDate: datetime
     ModifiedDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
+class GetPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
     OperatingSystem: OperatingSystemType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LabelParameterVersionResultTypeDef(BaseValidatorModel):
+class LabelParameterVersionResult(BaseValidatorModel):
     InvalidLabels: List[str]
     ParameterVersion: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInventoryEntriesResultTypeDef(BaseValidatorModel):
+class ListInventoryEntriesResult(BaseValidatorModel):
     TypeName: str
     InstanceId: str
     SchemaVersion: str
     CaptureTime: str
     Entries: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodesSummaryResultTypeDef(BaseValidatorModel):
+class ListNodesSummaryResult(BaseValidatorModel):
     Summary: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResultTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResult(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutInventoryResultTypeDef(BaseValidatorModel):
+class PutInventoryResult(BaseValidatorModel):
     Message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutParameterResultTypeDef(BaseValidatorModel):
+class PutParameterResult(BaseValidatorModel):
     Version: int
     Tier: ParameterTierType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     PolicyId: str
     PolicyHash: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterDefaultPatchBaselineResultTypeDef(BaseValidatorModel):
+class RegisterDefaultPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterPatchBaselineForPatchGroupResultTypeDef(BaseValidatorModel):
+class RegisterPatchBaselineForPatchGroupResult(BaseValidatorModel):
     BaselineId: str
     PatchGroup: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterTargetWithMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class RegisterTargetWithMaintenanceWindowResult(BaseValidatorModel):
     WindowTargetId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterTaskWithMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class RegisterTaskWithMaintenanceWindowResult(BaseValidatorModel):
     WindowTaskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResumeSessionResponseTypeDef(BaseValidatorModel):
+class ResumeSessionResponse(BaseValidatorModel):
     SessionId: str
     TokenValue: str
     StreamUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAutomationExecutionResultTypeDef(BaseValidatorModel):
+class StartAutomationExecutionResult(BaseValidatorModel):
     AutomationExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartChangeRequestExecutionResultTypeDef(BaseValidatorModel):
+class StartChangeRequestExecutionResult(BaseValidatorModel):
     AutomationExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartExecutionPreviewResponseTypeDef(BaseValidatorModel):
+class StartExecutionPreviewResponse(BaseValidatorModel):
     ExecutionPreviewId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSessionResponseTypeDef(BaseValidatorModel):
+class StartSessionResponse(BaseValidatorModel):
     SessionId: str
     TokenValue: str
     StreamUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TerminateSessionResponseTypeDef(BaseValidatorModel):
+class TerminateSessionResponse(BaseValidatorModel):
     SessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UnlabelParameterVersionResultTypeDef(BaseValidatorModel):
+class UnlabelParameterVersionResult(BaseValidatorModel):
     RemovedLabels: List[str]
     InvalidLabels: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMaintenanceWindowResultTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowResult(BaseValidatorModel):
     WindowId: str
     Name: str
     Description: str
@@ -1415,23 +1415,23 @@ class UpdateMaintenanceWindowResultTypeDef(BaseValidatorModel):
     Cutoff: int
     AllowUnassociatedTargets: bool
     Enabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateOpsMetadataResultTypeDef(BaseValidatorModel):
+class UpdateOpsMetadataResult(BaseValidatorModel):
     OpsMetadataArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociationTypeDef(BaseValidatorModel):
+class Association(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
     AssociationId: Optional[str] = None
     AssociationVersion: Optional[str] = None
     DocumentVersion: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     LastExecutionDate: Optional[datetime] = None
-    Overview: Optional[AssociationOverviewTypeDef] = None
+    Overview: Optional[AssociationOverview] = None
     ScheduleExpression: Optional[str] = None
     AssociationName: Optional[str] = None
     ScheduleOffset: Optional[int] = None
@@ -1439,38 +1439,38 @@ class AssociationTypeDef(BaseValidatorModel):
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
 
 
-class MaintenanceWindowTargetTypeDef(BaseValidatorModel):
+class MaintenanceWindowTarget(BaseValidatorModel):
     WindowId: Optional[str] = None
     WindowTargetId: Optional[str] = None
     ResourceType: Optional[MaintenanceWindowResourceTypeType] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     OwnerInformation: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
-class UpdateMaintenanceWindowTargetResultTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowTargetResult(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
-    Targets: List[TargetOutputTypeDef]
+    Targets: List[TargetOutput]
     OwnerInformation: str
     Name: str
     Description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociationExecutionFilterTypeDef(BaseValidatorModel):
+class AssociationExecutionFilter(BaseValidatorModel):
     pass
 
 
-class DescribeAssociationExecutionsRequestTypeDef(BaseValidatorModel):
+class DescribeAssociationExecutionsRequest(BaseValidatorModel):
     AssociationId: str
-    Filters: Optional[Sequence[AssociationExecutionFilterTypeDef]] = None
+    Filters: Optional[Sequence[AssociationExecutionFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class AssociationExecutionTargetTypeDef(BaseValidatorModel):
+class AssociationExecutionTarget(BaseValidatorModel):
     AssociationId: Optional[str] = None
     AssociationVersion: Optional[str] = None
     ExecutionId: Optional[str] = None
@@ -1479,44 +1479,44 @@ class AssociationExecutionTargetTypeDef(BaseValidatorModel):
     Status: Optional[str] = None
     DetailedStatus: Optional[str] = None
     LastExecutionDate: Optional[datetime] = None
-    OutputSource: Optional[OutputSourceTypeDef] = None
+    OutputSource: Optional[OutputSource] = None
 
 
-class DescribeAssociationExecutionTargetsRequestTypeDef(BaseValidatorModel):
+class DescribeAssociationExecutionTargetsRequest(BaseValidatorModel):
     AssociationId: str
     ExecutionId: str
-    Filters: Optional[Sequence[AssociationExecutionTargetsFilterTypeDef]] = None
+    Filters: Optional[Sequence[AssociationExecutionTargetsFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListAssociationsRequestTypeDef(BaseValidatorModel):
-    AssociationFilterList: Optional[Sequence[AssociationFilterTypeDef]] = None
+class ListAssociationsRequest(BaseValidatorModel):
+    AssociationFilterList: Optional[Sequence[AssociationFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class AssociationStatusTypeDef(BaseValidatorModel):
-    Date: TimestampTypeDef
+class AssociationStatus(BaseValidatorModel):
+    Date: Timestamp
     Name: AssociationStatusNameType
     Message: str
     AdditionalInfo: Optional[str] = None
 
 
-class ComplianceExecutionSummaryTypeDef(BaseValidatorModel):
-    ExecutionTime: TimestampTypeDef
+class ComplianceExecutionSummary(BaseValidatorModel):
+    ExecutionTime: Timestamp
     ExecutionId: Optional[str] = None
     ExecutionType: Optional[str] = None
 
 
-class UpdateDocumentRequestTypeDef(BaseValidatorModel):
+class UpdateDocumentRequest(BaseValidatorModel):
     Content: str
     Name: str
-    Attachments: Optional[Sequence[AttachmentsSourceTypeDef]] = None
+    Attachments: Optional[Sequence[AttachmentsSource]] = None
     DisplayName: Optional[str] = None
     VersionName: Optional[str] = None
     DocumentVersion: Optional[str] = None
@@ -1524,30 +1524,30 @@ class UpdateDocumentRequestTypeDef(BaseValidatorModel):
     TargetType: Optional[str] = None
 
 
-class DescribeAutomationExecutionsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[AutomationExecutionFilterTypeDef]] = None
+class DescribeAutomationExecutionsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[AutomationExecutionFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class AutomationExecutionPreviewTypeDef(BaseValidatorModel):
+class AutomationExecutionPreview(BaseValidatorModel):
     StepPreviews: Optional[Dict[ImpactTypeType, int]] = None
     Regions: Optional[List[str]] = None
-    TargetPreviews: Optional[List[TargetPreviewTypeDef]] = None
+    TargetPreviews: Optional[List[TargetPreview]] = None
     TotalAccounts: Optional[int] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class MaintenanceWindowLambdaParametersTypeDef(BaseValidatorModel):
+class MaintenanceWindowLambdaParameters(BaseValidatorModel):
     ClientContext: Optional[str] = None
     Qualifier: Optional[str] = None
-    Payload: Optional[BlobTypeDef] = None
+    Payload: Optional[Blob] = None
 
 
-class GetCommandInvocationResultTypeDef(BaseValidatorModel):
+class GetCommandInvocationResult(BaseValidatorModel):
     CommandId: str
     InstanceId: str
     Comment: str
@@ -1564,28 +1564,28 @@ class GetCommandInvocationResultTypeDef(BaseValidatorModel):
     StandardOutputUrl: str
     StandardErrorContent: str
     StandardErrorUrl: str
-    CloudWatchOutputConfig: CloudWatchOutputConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    CloudWatchOutputConfig: CloudWatchOutputConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCommandInvocationsRequestTypeDef(BaseValidatorModel):
+class ListCommandInvocationsRequest(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[CommandFilterTypeDef]] = None
+    Filters: Optional[Sequence[CommandFilter]] = None
     Details: Optional[bool] = None
 
 
-class ListCommandsRequestTypeDef(BaseValidatorModel):
+class ListCommandsRequest(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[CommandFilterTypeDef]] = None
+    Filters: Optional[Sequence[CommandFilter]] = None
 
 
-class CommandInvocationTypeDef(BaseValidatorModel):
+class CommandInvocation(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
     InstanceName: Optional[str] = None
@@ -1598,19 +1598,19 @@ class CommandInvocationTypeDef(BaseValidatorModel):
     TraceOutput: Optional[str] = None
     StandardOutputUrl: Optional[str] = None
     StandardErrorUrl: Optional[str] = None
-    CommandPlugins: Optional[List[CommandPluginTypeDef]] = None
+    CommandPlugins: Optional[List[CommandPlugin]] = None
     ServiceRole: Optional[str] = None
-    NotificationConfig: Optional[NotificationConfigOutputTypeDef] = None
-    CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
+    NotificationConfig: Optional[NotificationConfigOutput] = None
+    CloudWatchOutputConfig: Optional[CloudWatchOutputConfig] = None
 
 
-class MaintenanceWindowRunCommandParametersOutputTypeDef(BaseValidatorModel):
+class MaintenanceWindowRunCommandParametersOutput(BaseValidatorModel):
     Comment: Optional[str] = None
-    CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
+    CloudWatchOutputConfig: Optional[CloudWatchOutputConfig] = None
     DocumentHash: Optional[str] = None
     DocumentHashType: Optional[DocumentHashTypeType] = None
     DocumentVersion: Optional[str] = None
-    NotificationConfig: Optional[NotificationConfigOutputTypeDef] = None
+    NotificationConfig: Optional[NotificationConfigOutput] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
@@ -1618,7 +1618,7 @@ class MaintenanceWindowRunCommandParametersOutputTypeDef(BaseValidatorModel):
     TimeoutSeconds: Optional[int] = None
 
 
-class ComplianceItemTypeDef(BaseValidatorModel):
+class ComplianceItem(BaseValidatorModel):
     ComplianceType: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
@@ -1626,68 +1626,68 @@ class ComplianceItemTypeDef(BaseValidatorModel):
     Title: Optional[str] = None
     Status: Optional[ComplianceStatusType] = None
     Severity: Optional[ComplianceSeverityType] = None
-    ExecutionSummary: Optional[ComplianceExecutionSummaryOutputTypeDef] = None
+    ExecutionSummary: Optional[ComplianceExecutionSummaryOutput] = None
     Details: Optional[Dict[str, str]] = None
 
 
-class ComplianceStringFilterTypeDef(BaseValidatorModel):
+class ComplianceStringFilter(BaseValidatorModel):
     pass
 
 
-class ListComplianceItemsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
+class ListComplianceItemsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
     ResourceIds: Optional[Sequence[str]] = None
     ResourceTypes: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListComplianceSummariesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
+class ListComplianceSummariesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListResourceComplianceSummariesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
+class ListResourceComplianceSummariesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class CompliantSummaryTypeDef(BaseValidatorModel):
+class CompliantSummary(BaseValidatorModel):
     CompliantCount: Optional[int] = None
-    SeveritySummary: Optional[SeveritySummaryTypeDef] = None
+    SeveritySummary: Optional[SeveritySummary] = None
 
 
-class NonCompliantSummaryTypeDef(BaseValidatorModel):
+class NonCompliantSummary(BaseValidatorModel):
     NonCompliantCount: Optional[int] = None
-    SeveritySummary: Optional[SeveritySummaryTypeDef] = None
+    SeveritySummary: Optional[SeveritySummary] = None
 
 
-class CreateActivationRequestTypeDef(BaseValidatorModel):
+class CreateActivationRequest(BaseValidatorModel):
     IamRole: str
     Description: Optional[str] = None
     DefaultInstanceName: Optional[str] = None
     RegistrationLimit: Optional[int] = None
-    ExpirationDate: Optional[TimestampTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    RegistrationMetadata: Optional[Sequence[RegistrationMetadataItemTypeDef]] = None
+    ExpirationDate: Optional[Timestamp] = None
+    Tags: Optional[Sequence[Tag]] = None
+    RegistrationMetadata: Optional[Sequence[RegistrationMetadataItem]] = None
 
 
-class CreateDocumentRequestTypeDef(BaseValidatorModel):
+class CreateDocumentRequest(BaseValidatorModel):
     Content: str
     Name: str
-    Requires: Optional[Sequence[DocumentRequiresTypeDef]] = None
-    Attachments: Optional[Sequence[AttachmentsSourceTypeDef]] = None
+    Requires: Optional[Sequence[DocumentRequires]] = None
+    Attachments: Optional[Sequence[AttachmentsSource]] = None
     DisplayName: Optional[str] = None
     VersionName: Optional[str] = None
     DocumentType: Optional[DocumentTypeType] = None
     DocumentFormat: Optional[DocumentFormatType] = None
     TargetType: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DocumentIdentifierTypeDef(BaseValidatorModel):
+class DocumentIdentifier(BaseValidatorModel):
     Name: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     DisplayName: Optional[str] = None
@@ -1699,13 +1699,13 @@ class DocumentIdentifierTypeDef(BaseValidatorModel):
     SchemaVersion: Optional[str] = None
     DocumentFormat: Optional[DocumentFormatType] = None
     TargetType: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    Requires: Optional[List[DocumentRequiresTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
+    Requires: Optional[List[DocumentRequires]] = None
     ReviewStatus: Optional[ReviewStatusType] = None
     Author: Optional[str] = None
 
 
-class GetDocumentResultTypeDef(BaseValidatorModel):
+class GetDocumentResult(BaseValidatorModel):
     Name: str
     CreatedDate: datetime
     DisplayName: str
@@ -1716,17 +1716,17 @@ class GetDocumentResultTypeDef(BaseValidatorModel):
     Content: str
     DocumentType: DocumentTypeType
     DocumentFormat: DocumentFormatType
-    Requires: List[DocumentRequiresTypeDef]
-    AttachmentsContent: List[AttachmentContentTypeDef]
+    Requires: List[DocumentRequires]
+    AttachmentsContent: List[AttachmentContent]
     ReviewStatus: ReviewStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OpsItemDataValueTypeDef(BaseValidatorModel):
+class OpsItemDataValue(BaseValidatorModel):
     pass
 
 
-class OpsItemSummaryTypeDef(BaseValidatorModel):
+class OpsItemSummary(BaseValidatorModel):
     CreatedBy: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastModifiedBy: Optional[str] = None
@@ -1736,7 +1736,7 @@ class OpsItemSummaryTypeDef(BaseValidatorModel):
     Status: Optional[OpsItemStatusType] = None
     OpsItemId: Optional[str] = None
     Title: Optional[str] = None
-    OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
+    OperationalData: Optional[Dict[str, OpsItemDataValue]] = None
     Category: Optional[str] = None
     Severity: Optional[str] = None
     OpsItemType: Optional[str] = None
@@ -1746,41 +1746,41 @@ class OpsItemSummaryTypeDef(BaseValidatorModel):
     PlannedEndTime: Optional[datetime] = None
 
 
-class CreateOpsItemRequestTypeDef(BaseValidatorModel):
+class CreateOpsItemRequest(BaseValidatorModel):
     Description: str
     Source: str
     Title: str
     OpsItemType: Optional[str] = None
-    OperationalData: Optional[Mapping[str, OpsItemDataValueTypeDef]] = None
-    Notifications: Optional[Sequence[OpsItemNotificationTypeDef]] = None
+    OperationalData: Optional[Mapping[str, OpsItemDataValue]] = None
+    Notifications: Optional[Sequence[OpsItemNotification]] = None
     Priority: Optional[int] = None
-    RelatedOpsItems: Optional[Sequence[RelatedOpsItemTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    RelatedOpsItems: Optional[Sequence[RelatedOpsItem]] = None
+    Tags: Optional[Sequence[Tag]] = None
     Category: Optional[str] = None
     Severity: Optional[str] = None
-    ActualStartTime: Optional[TimestampTypeDef] = None
-    ActualEndTime: Optional[TimestampTypeDef] = None
-    PlannedStartTime: Optional[TimestampTypeDef] = None
-    PlannedEndTime: Optional[TimestampTypeDef] = None
+    ActualStartTime: Optional[Timestamp] = None
+    ActualEndTime: Optional[Timestamp] = None
+    PlannedStartTime: Optional[Timestamp] = None
+    PlannedEndTime: Optional[Timestamp] = None
     AccountId: Optional[str] = None
 
 
-class OpsItemTypeDef(BaseValidatorModel):
+class OpsItem(BaseValidatorModel):
     CreatedBy: Optional[str] = None
     OpsItemType: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     Description: Optional[str] = None
     LastModifiedBy: Optional[str] = None
     LastModifiedTime: Optional[datetime] = None
-    Notifications: Optional[List[OpsItemNotificationTypeDef]] = None
+    Notifications: Optional[List[OpsItemNotification]] = None
     Priority: Optional[int] = None
-    RelatedOpsItems: Optional[List[RelatedOpsItemTypeDef]] = None
+    RelatedOpsItems: Optional[List[RelatedOpsItem]] = None
     Status: Optional[OpsItemStatusType] = None
     OpsItemId: Optional[str] = None
     Version: Optional[str] = None
     Title: Optional[str] = None
     Source: Optional[str] = None
-    OperationalData: Optional[Dict[str, OpsItemDataValueTypeDef]] = None
+    OperationalData: Optional[Dict[str, OpsItemDataValue]] = None
     Category: Optional[str] = None
     Severity: Optional[str] = None
     ActualStartTime: Optional[datetime] = None
@@ -1790,494 +1790,494 @@ class OpsItemTypeDef(BaseValidatorModel):
     OpsItemArn: Optional[str] = None
 
 
-class UpdateOpsItemRequestTypeDef(BaseValidatorModel):
+class UpdateOpsItemRequest(BaseValidatorModel):
     OpsItemId: str
     Description: Optional[str] = None
-    OperationalData: Optional[Mapping[str, OpsItemDataValueTypeDef]] = None
+    OperationalData: Optional[Mapping[str, OpsItemDataValue]] = None
     OperationalDataToDelete: Optional[Sequence[str]] = None
-    Notifications: Optional[Sequence[OpsItemNotificationTypeDef]] = None
+    Notifications: Optional[Sequence[OpsItemNotification]] = None
     Priority: Optional[int] = None
-    RelatedOpsItems: Optional[Sequence[RelatedOpsItemTypeDef]] = None
+    RelatedOpsItems: Optional[Sequence[RelatedOpsItem]] = None
     Status: Optional[OpsItemStatusType] = None
     Title: Optional[str] = None
     Category: Optional[str] = None
     Severity: Optional[str] = None
-    ActualStartTime: Optional[TimestampTypeDef] = None
-    ActualEndTime: Optional[TimestampTypeDef] = None
-    PlannedStartTime: Optional[TimestampTypeDef] = None
-    PlannedEndTime: Optional[TimestampTypeDef] = None
+    ActualStartTime: Optional[Timestamp] = None
+    ActualEndTime: Optional[Timestamp] = None
+    PlannedStartTime: Optional[Timestamp] = None
+    PlannedEndTime: Optional[Timestamp] = None
     OpsItemArn: Optional[str] = None
 
 
-class CreateOpsMetadataRequestTypeDef(BaseValidatorModel):
+class CreateOpsMetadataRequest(BaseValidatorModel):
     ResourceId: str
-    Metadata: Optional[Mapping[str, MetadataValueTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Metadata: Optional[Mapping[str, MetadataValue]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class GetOpsMetadataResultTypeDef(BaseValidatorModel):
+class GetOpsMetadataResult(BaseValidatorModel):
     ResourceId: str
-    Metadata: Dict[str, MetadataValueTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Metadata: Dict[str, MetadataValue]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateOpsMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateOpsMetadataRequest(BaseValidatorModel):
     OpsMetadataArn: str
-    MetadataToUpdate: Optional[Mapping[str, MetadataValueTypeDef]] = None
+    MetadataToUpdate: Optional[Mapping[str, MetadataValue]] = None
     KeysToDelete: Optional[Sequence[str]] = None
 
 
-class DescribeActivationsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[DescribeActivationsFilterTypeDef]] = None
+class DescribeActivationsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[DescribeActivationsFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeActivationsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[DescribeActivationsFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeActivationsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[DescribeActivationsFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAssociationExecutionTargetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeAssociationExecutionTargetsRequestPaginate(BaseValidatorModel):
     AssociationId: str
     ExecutionId: str
-    Filters: Optional[Sequence[AssociationExecutionTargetsFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[AssociationExecutionTargetsFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAssociationExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeAssociationExecutionsRequestPaginate(BaseValidatorModel):
     AssociationId: str
-    Filters: Optional[Sequence[AssociationExecutionFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[AssociationExecutionFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAutomationExecutionsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[AutomationExecutionFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAutomationExecutionsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[AutomationExecutionFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEffectiveInstanceAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEffectiveInstanceAssociationsRequestPaginate(BaseValidatorModel):
     InstanceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEffectivePatchesForPatchBaselineRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEffectivePatchesForPatchBaselineRequestPaginate(BaseValidatorModel):
     BaselineId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstanceAssociationsStatusRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeInstanceAssociationsStatusRequestPaginate(BaseValidatorModel):
     InstanceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstancePatchStatesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeInstancePatchStatesRequestPaginate(BaseValidatorModel):
     InstanceIds: Sequence[str]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInventoryDeletionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeInventoryDeletionsRequestPaginate(BaseValidatorModel):
     DeletionId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePatchPropertiesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribePatchPropertiesRequestPaginate(BaseValidatorModel):
     OperatingSystem: OperatingSystemType
     Property: PatchPropertyType
     PatchSet: Optional[PatchSetType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetInventorySchemaRequestPaginateTypeDef(BaseValidatorModel):
+class GetInventorySchemaRequestPaginate(BaseValidatorModel):
     TypeName: Optional[str] = None
     Aggregator: Optional[bool] = None
     SubType: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetParameterHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class GetParameterHistoryRequestPaginate(BaseValidatorModel):
     Name: str
     WithDecryption: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetResourcePoliciesRequestPaginateTypeDef(BaseValidatorModel):
+class GetResourcePoliciesRequestPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociationVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssociationVersionsRequestPaginate(BaseValidatorModel):
     AssociationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssociationsRequestPaginateTypeDef(BaseValidatorModel):
-    AssociationFilterList: Optional[Sequence[AssociationFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAssociationsRequestPaginate(BaseValidatorModel):
+    AssociationFilterList: Optional[Sequence[AssociationFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCommandInvocationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCommandInvocationsRequestPaginate(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
-    Filters: Optional[Sequence[CommandFilterTypeDef]] = None
+    Filters: Optional[Sequence[CommandFilter]] = None
     Details: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCommandsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCommandsRequestPaginate(BaseValidatorModel):
     CommandId: Optional[str] = None
     InstanceId: Optional[str] = None
-    Filters: Optional[Sequence[CommandFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[CommandFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComplianceItemsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
+class ListComplianceItemsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
     ResourceIds: Optional[Sequence[str]] = None
     ResourceTypes: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComplianceSummariesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListComplianceSummariesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDocumentVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDocumentVersionsRequestPaginate(BaseValidatorModel):
     Name: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceComplianceSummariesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ComplianceStringFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListResourceComplianceSummariesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[ComplianceStringFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourceDataSyncRequestPaginateTypeDef(BaseValidatorModel):
+class ListResourceDataSyncRequestPaginate(BaseValidatorModel):
     SyncType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAutomationStepExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeAutomationStepExecutionsRequestPaginate(BaseValidatorModel):
     AutomationExecutionId: str
-    Filters: Optional[Sequence[StepExecutionFilterTypeDef]] = None
+    Filters: Optional[Sequence[StepExecutionFilter]] = None
     ReverseOrder: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAutomationStepExecutionsRequestTypeDef(BaseValidatorModel):
+class DescribeAutomationStepExecutionsRequest(BaseValidatorModel):
     AutomationExecutionId: str
-    Filters: Optional[Sequence[StepExecutionFilterTypeDef]] = None
+    Filters: Optional[Sequence[StepExecutionFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ReverseOrder: Optional[bool] = None
 
 
-class DescribeAvailablePatchesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeAvailablePatchesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeAvailablePatchesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
+class DescribeAvailablePatchesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeInstancePatchesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeInstancePatchesRequestPaginate(BaseValidatorModel):
     InstanceId: str
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstancePatchesRequestTypeDef(BaseValidatorModel):
+class DescribeInstancePatchesRequest(BaseValidatorModel):
     InstanceId: str
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribePatchBaselinesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribePatchBaselinesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePatchBaselinesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
+class DescribePatchBaselinesRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribePatchGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribePatchGroupsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribePatchGroupsRequestTypeDef(BaseValidatorModel):
+class DescribePatchGroupsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
     NextToken: Optional[str] = None
 
 
-class DescribeAvailablePatchesResultTypeDef(BaseValidatorModel):
-    Patches: List[PatchTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAvailablePatchesResult(BaseValidatorModel):
+    Patches: List[Patch]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeEffectiveInstanceAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[InstanceAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEffectiveInstanceAssociationsResult(BaseValidatorModel):
+    Associations: List[InstanceAssociation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInstanceInformationRequestPaginateTypeDef(BaseValidatorModel):
-    InstanceInformationFilterList: Optional[Sequence[InstanceInformationFilterTypeDef]] = None
-    Filters: Optional[Sequence[InstanceInformationStringFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeInstanceInformationRequestPaginate(BaseValidatorModel):
+    InstanceInformationFilterList: Optional[Sequence[InstanceInformationFilter]] = None
+    Filters: Optional[Sequence[InstanceInformationStringFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstanceInformationRequestTypeDef(BaseValidatorModel):
-    InstanceInformationFilterList: Optional[Sequence[InstanceInformationFilterTypeDef]] = None
-    Filters: Optional[Sequence[InstanceInformationStringFilterTypeDef]] = None
+class DescribeInstanceInformationRequest(BaseValidatorModel):
+    InstanceInformationFilterList: Optional[Sequence[InstanceInformationFilter]] = None
+    Filters: Optional[Sequence[InstanceInformationStringFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class InstancePatchStateFilterTypeDef(BaseValidatorModel):
+class InstancePatchStateFilter(BaseValidatorModel):
     pass
 
 
-class DescribeInstancePatchStatesForPatchGroupRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeInstancePatchStatesForPatchGroupRequestPaginate(BaseValidatorModel):
     PatchGroup: str
-    Filters: Optional[Sequence[InstancePatchStateFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[InstancePatchStateFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstancePatchStatesForPatchGroupRequestTypeDef(BaseValidatorModel):
+class DescribeInstancePatchStatesForPatchGroupRequest(BaseValidatorModel):
     PatchGroup: str
-    Filters: Optional[Sequence[InstancePatchStateFilterTypeDef]] = None
+    Filters: Optional[Sequence[InstancePatchStateFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeInstancePatchStatesForPatchGroupResultTypeDef(BaseValidatorModel):
-    InstancePatchStates: List[InstancePatchStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstancePatchStatesForPatchGroupResult(BaseValidatorModel):
+    InstancePatchStates: List[InstancePatchState]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInstancePatchStatesResultTypeDef(BaseValidatorModel):
-    InstancePatchStates: List[InstancePatchStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstancePatchStatesResult(BaseValidatorModel):
+    InstancePatchStates: List[InstancePatchState]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInstancePatchesResultTypeDef(BaseValidatorModel):
-    Patches: List[PatchComplianceDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstancePatchesResult(BaseValidatorModel):
+    Patches: List[PatchComplianceData]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInstancePropertiesRequestPaginateTypeDef(BaseValidatorModel):
-    InstancePropertyFilterList: Optional[Sequence[InstancePropertyFilterTypeDef]] = None
-    FiltersWithOperator: Optional[Sequence[InstancePropertyStringFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeInstancePropertiesRequestPaginate(BaseValidatorModel):
+    InstancePropertyFilterList: Optional[Sequence[InstancePropertyFilter]] = None
+    FiltersWithOperator: Optional[Sequence[InstancePropertyStringFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeInstancePropertiesRequestTypeDef(BaseValidatorModel):
-    InstancePropertyFilterList: Optional[Sequence[InstancePropertyFilterTypeDef]] = None
-    FiltersWithOperator: Optional[Sequence[InstancePropertyStringFilterTypeDef]] = None
+class DescribeInstancePropertiesRequest(BaseValidatorModel):
+    InstancePropertyFilterList: Optional[Sequence[InstancePropertyFilter]] = None
+    FiltersWithOperator: Optional[Sequence[InstancePropertyStringFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionTaskInvocationsRequestPaginate(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowExecutionTaskInvocationsRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionTaskInvocationsRequest(BaseValidatorModel):
     WindowExecutionId: str
     TaskId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowExecutionTasksRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionTasksRequestPaginate(BaseValidatorModel):
     WindowExecutionId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowExecutionTasksRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionTasksRequest(BaseValidatorModel):
     WindowExecutionId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionsRequestPaginate(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowExecutionsRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowExecutionsRequest(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowTargetsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowTargetsRequestPaginate(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowTargetsRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowTargetsRequest(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowTasksRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowTasksRequestPaginate(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowTasksRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowTasksRequest(BaseValidatorModel):
     WindowId: str
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeMaintenanceWindowsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[MaintenanceWindowFilterTypeDef]] = None
+class DescribeMaintenanceWindowsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[MaintenanceWindowFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef(BaseValidatorModel):
-    WindowExecutionTaskInvocationIdentities: List[ MaintenanceWindowExecutionTaskInvocationIdentityTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowExecutionTaskInvocationsResult(BaseValidatorModel):
+    WindowExecutionTaskInvocationIdentities: List[ MaintenanceWindowExecutionTaskInvocationIdentity ]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowExecutionsResultTypeDef(BaseValidatorModel):
-    WindowExecutions: List[MaintenanceWindowExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowExecutionsResult(BaseValidatorModel):
+    WindowExecutions: List[MaintenanceWindowExecution]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowScheduleResultTypeDef(BaseValidatorModel):
-    ScheduledWindowExecutions: List[ScheduledWindowExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowScheduleResult(BaseValidatorModel):
+    ScheduledWindowExecutions: List[ScheduledWindowExecution]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowsForTargetResultTypeDef(BaseValidatorModel):
-    WindowIdentities: List[MaintenanceWindowIdentityForTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowsForTargetResult(BaseValidatorModel):
+    WindowIdentities: List[MaintenanceWindowIdentityForTarget]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowsResultTypeDef(BaseValidatorModel):
-    WindowIdentities: List[MaintenanceWindowIdentityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowsResult(BaseValidatorModel):
+    WindowIdentities: List[MaintenanceWindowIdentity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeOpsItemsRequestPaginateTypeDef(BaseValidatorModel):
-    OpsItemFilters: Optional[Sequence[OpsItemFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class DescribeOpsItemsRequestPaginate(BaseValidatorModel):
+    OpsItemFilters: Optional[Sequence[OpsItemFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeOpsItemsRequestTypeDef(BaseValidatorModel):
-    OpsItemFilters: Optional[Sequence[OpsItemFilterTypeDef]] = None
+class DescribeOpsItemsRequest(BaseValidatorModel):
+    OpsItemFilters: Optional[Sequence[OpsItemFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class GetParametersByPathRequestPaginateTypeDef(BaseValidatorModel):
+class GetParametersByPathRequestPaginate(BaseValidatorModel):
     Path: str
     Recursive: Optional[bool] = None
-    ParameterFilters: Optional[Sequence[ParameterStringFilterTypeDef]] = None
+    ParameterFilters: Optional[Sequence[ParameterStringFilter]] = None
     WithDecryption: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetParametersByPathRequestTypeDef(BaseValidatorModel):
+class GetParametersByPathRequest(BaseValidatorModel):
     Path: str
     Recursive: Optional[bool] = None
-    ParameterFilters: Optional[Sequence[ParameterStringFilterTypeDef]] = None
+    ParameterFilters: Optional[Sequence[ParameterStringFilter]] = None
     WithDecryption: Optional[bool] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeParametersRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ParametersFilterTypeDef]] = None
-    ParameterFilters: Optional[Sequence[ParameterStringFilterTypeDef]] = None
+class DescribeParametersRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[ParametersFilter]] = None
+    ParameterFilters: Optional[Sequence[ParameterStringFilter]] = None
     Shared: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeParametersRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[ParametersFilterTypeDef]] = None
-    ParameterFilters: Optional[Sequence[ParameterStringFilterTypeDef]] = None
+class DescribeParametersRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[ParametersFilter]] = None
+    ParameterFilters: Optional[Sequence[ParameterStringFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     Shared: Optional[bool] = None
 
 
-class DescribePatchBaselinesResultTypeDef(BaseValidatorModel):
-    BaselineIdentities: List[PatchBaselineIdentityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePatchBaselinesResult(BaseValidatorModel):
+    BaselineIdentities: List[PatchBaselineIdentity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PatchGroupPatchBaselineMappingTypeDef(BaseValidatorModel):
+class PatchGroupPatchBaselineMapping(BaseValidatorModel):
     PatchGroup: Optional[str] = None
-    BaselineIdentity: Optional[PatchBaselineIdentityTypeDef] = None
+    BaselineIdentity: Optional[PatchBaselineIdentity] = None
 
 
-class DescribeSessionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSessionsRequestPaginate(BaseValidatorModel):
     State: SessionStateType
-    Filters: Optional[Sequence[SessionFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[SessionFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSessionsRequestTypeDef(BaseValidatorModel):
+class DescribeSessionsRequest(BaseValidatorModel):
     State: SessionStateType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
-    Filters: Optional[Sequence[SessionFilterTypeDef]] = None
+    Filters: Optional[Sequence[SessionFilter]] = None
 
 
-class UpdateDocumentDefaultVersionResultTypeDef(BaseValidatorModel):
-    Description: DocumentDefaultVersionDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDocumentDefaultVersionResult(BaseValidatorModel):
+    Description: DocumentDefaultVersionDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentParameterTypeDef(BaseValidatorModel):
+class DocumentParameter(BaseValidatorModel):
     pass
 
 
-class DocumentDescriptionTypeDef(BaseValidatorModel):
+class DocumentDescription(BaseValidatorModel):
     Sha1: Optional[str] = None
     Hash: Optional[str] = None
     HashType: Optional[DocumentHashTypeType] = None
@@ -2290,7 +2290,7 @@ class DocumentDescriptionTypeDef(BaseValidatorModel):
     StatusInformation: Optional[str] = None
     DocumentVersion: Optional[str] = None
     Description: Optional[str] = None
-    Parameters: Optional[List[DocumentParameterTypeDef]] = None
+    Parameters: Optional[List[DocumentParameter]] = None
     PlatformTypes: Optional[List[PlatformTypeType]] = None
     DocumentType: Optional[DocumentTypeType] = None
     SchemaVersion: Optional[str] = None
@@ -2298,11 +2298,11 @@ class DocumentDescriptionTypeDef(BaseValidatorModel):
     DefaultVersion: Optional[str] = None
     DocumentFormat: Optional[DocumentFormatType] = None
     TargetType: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    AttachmentsInformation: Optional[List[AttachmentInformationTypeDef]] = None
-    Requires: Optional[List[DocumentRequiresTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
+    AttachmentsInformation: Optional[List[AttachmentInformation]] = None
+    Requires: Optional[List[DocumentRequires]] = None
     Author: Optional[str] = None
-    ReviewInformation: Optional[List[ReviewInformationTypeDef]] = None
+    ReviewInformation: Optional[List[ReviewInformation]] = None
     ApprovedVersion: Optional[str] = None
     PendingReviewVersion: Optional[str] = None
     ReviewStatus: Optional[ReviewStatusType] = None
@@ -2310,131 +2310,131 @@ class DocumentDescriptionTypeDef(BaseValidatorModel):
     CategoryEnum: Optional[List[str]] = None
 
 
-class ListDocumentsRequestPaginateTypeDef(BaseValidatorModel):
-    DocumentFilterList: Optional[Sequence[DocumentFilterTypeDef]] = None
-    Filters: Optional[Sequence[DocumentKeyValuesFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDocumentsRequestPaginate(BaseValidatorModel):
+    DocumentFilterList: Optional[Sequence[DocumentFilter]] = None
+    Filters: Optional[Sequence[DocumentKeyValuesFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDocumentsRequestTypeDef(BaseValidatorModel):
-    DocumentFilterList: Optional[Sequence[DocumentFilterTypeDef]] = None
-    Filters: Optional[Sequence[DocumentKeyValuesFilterTypeDef]] = None
+class ListDocumentsRequest(BaseValidatorModel):
+    DocumentFilterList: Optional[Sequence[DocumentFilter]] = None
+    Filters: Optional[Sequence[DocumentKeyValuesFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DocumentReviewCommentSourceTypeDef(BaseValidatorModel):
+class DocumentReviewCommentSource(BaseValidatorModel):
     pass
 
 
-class DocumentReviewerResponseSourceTypeDef(BaseValidatorModel):
+class DocumentReviewerResponseSource(BaseValidatorModel):
     CreateTime: Optional[datetime] = None
     UpdatedTime: Optional[datetime] = None
     ReviewStatus: Optional[ReviewStatusType] = None
-    Comment: Optional[List[DocumentReviewCommentSourceTypeDef]] = None
+    Comment: Optional[List[DocumentReviewCommentSource]] = None
     Reviewer: Optional[str] = None
 
 
-class DocumentReviewsTypeDef(BaseValidatorModel):
+class DocumentReviews(BaseValidatorModel):
     Action: DocumentReviewActionType
-    Comment: Optional[Sequence[DocumentReviewCommentSourceTypeDef]] = None
+    Comment: Optional[Sequence[DocumentReviewCommentSource]] = None
 
 
-class ListDocumentVersionsResultTypeDef(BaseValidatorModel):
-    DocumentVersions: List[DocumentVersionInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentVersionsResult(BaseValidatorModel):
+    DocumentVersions: List[DocumentVersionInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EffectivePatchTypeDef(BaseValidatorModel):
-    Patch: Optional[PatchTypeDef] = None
-    PatchStatus: Optional[PatchStatusTypeDef] = None
+class EffectivePatch(BaseValidatorModel):
+    Patch: Optional[Patch] = None
+    PatchStatus: Optional[PatchStatus] = None
 
 
-class GetCommandInvocationRequestWaitTypeDef(BaseValidatorModel):
+class GetCommandInvocationRequestWait(BaseValidatorModel):
     CommandId: str
     InstanceId: str
     PluginName: Optional[str] = None
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class InventoryFilterTypeDef(BaseValidatorModel):
+class InventoryFilter(BaseValidatorModel):
     pass
 
 
-class InventoryGroupTypeDef(BaseValidatorModel):
+class InventoryGroup(BaseValidatorModel):
     Name: str
-    Filters: Sequence[InventoryFilterTypeDef]
+    Filters: Sequence[InventoryFilter]
 
 
-class ListInventoryEntriesRequestTypeDef(BaseValidatorModel):
+class ListInventoryEntriesRequest(BaseValidatorModel):
     InstanceId: str
     TypeName: str
-    Filters: Optional[Sequence[InventoryFilterTypeDef]] = None
+    Filters: Optional[Sequence[InventoryFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OpsFilterTypeDef(BaseValidatorModel):
+class OpsFilter(BaseValidatorModel):
     pass
 
 
-class OpsAggregatorPaginatorTypeDef(BaseValidatorModel):
+class OpsAggregatorPaginator(BaseValidatorModel):
     AggregatorType: Optional[str] = None
     TypeName: Optional[str] = None
     AttributeName: Optional[str] = None
     Values: Optional[Mapping[str, str]] = None
-    Filters: Optional[Sequence[OpsFilterTypeDef]] = None
+    Filters: Optional[Sequence[OpsFilter]] = None
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class OpsAggregatorTypeDef(BaseValidatorModel):
+class OpsAggregator(BaseValidatorModel):
     AggregatorType: Optional[str] = None
     TypeName: Optional[str] = None
     AttributeName: Optional[str] = None
     Values: Optional[Mapping[str, str]] = None
-    Filters: Optional[Sequence[OpsFilterTypeDef]] = None
+    Filters: Optional[Sequence[OpsFilter]] = None
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class ParameterTypeDef(BaseValidatorModel):
+class Parameter(BaseValidatorModel):
     pass
 
 
-class GetParameterResultTypeDef(BaseValidatorModel):
-    Parameter: ParameterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetParameterResult(BaseValidatorModel):
+    Parameter: Parameter
+    ResponseMetadata: ResponseMetadata
 
 
-class GetParametersByPathResultTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetParametersByPathResult(BaseValidatorModel):
+    Parameters: List[Parameter]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetParametersResultTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterTypeDef]
+class GetParametersResult(BaseValidatorModel):
+    Parameters: List[Parameter]
     InvalidParameters: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePoliciesResponseTypeDef(BaseValidatorModel):
-    Policies: List[GetResourcePoliciesResponseEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResourcePoliciesResponse(BaseValidatorModel):
+    Policies: List[GetResourcePoliciesResponseEntry]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetServiceSettingResultTypeDef(BaseValidatorModel):
-    ServiceSetting: ServiceSettingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServiceSettingResult(BaseValidatorModel):
+    ServiceSetting: ServiceSetting
+    ResponseMetadata: ResponseMetadata
 
 
-class ResetServiceSettingResultTypeDef(BaseValidatorModel):
-    ServiceSetting: ServiceSettingTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ResetServiceSettingResult(BaseValidatorModel):
+    ServiceSetting: ServiceSetting
+    ResponseMetadata: ResponseMetadata
 
 
-class InstanceInformationTypeDef(BaseValidatorModel):
+class InstanceInformation(BaseValidatorModel):
     InstanceId: Optional[str] = None
     PingStatus: Optional[PingStatusType] = None
     LastPingDateTime: Optional[datetime] = None
@@ -2453,12 +2453,12 @@ class InstanceInformationTypeDef(BaseValidatorModel):
     AssociationStatus: Optional[str] = None
     LastAssociationExecutionDate: Optional[datetime] = None
     LastSuccessfulAssociationExecutionDate: Optional[datetime] = None
-    AssociationOverview: Optional[InstanceAggregatedAssociationOverviewTypeDef] = None
+    AssociationOverview: Optional[InstanceAggregatedAssociationOverview] = None
     SourceId: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
 
 
-class InstancePropertyTypeDef(BaseValidatorModel):
+class InstanceProperty(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
     InstanceType: Optional[str] = None
@@ -2482,126 +2482,126 @@ class InstancePropertyTypeDef(BaseValidatorModel):
     AssociationStatus: Optional[str] = None
     LastAssociationExecutionDate: Optional[datetime] = None
     LastSuccessfulAssociationExecutionDate: Optional[datetime] = None
-    AssociationOverview: Optional[InstanceAggregatedAssociationOverviewTypeDef] = None
+    AssociationOverview: Optional[InstanceAggregatedAssociationOverview] = None
     SourceId: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
 
 
-class InstanceAssociationOutputLocationTypeDef(BaseValidatorModel):
-    S3Location: Optional[S3OutputLocationTypeDef] = None
+class InstanceAssociationOutputLocation(BaseValidatorModel):
+    S3Location: Optional[S3OutputLocation] = None
 
 
-class InstanceAssociationOutputUrlTypeDef(BaseValidatorModel):
-    S3OutputUrl: Optional[S3OutputUrlTypeDef] = None
+class InstanceAssociationOutputUrl(BaseValidatorModel):
+    S3OutputUrl: Optional[S3OutputUrl] = None
 
 
-class NodeTypeTypeDef(BaseValidatorModel):
-    Instance: Optional[InstanceInfoTypeDef] = None
+class NodeType(BaseValidatorModel):
+    Instance: Optional[InstanceInfo] = None
 
 
-class InventoryDeletionSummaryTypeDef(BaseValidatorModel):
+class InventoryDeletionSummary(BaseValidatorModel):
     TotalCount: Optional[int] = None
     RemainingCount: Optional[int] = None
-    SummaryItems: Optional[List[InventoryDeletionSummaryItemTypeDef]] = None
+    SummaryItems: Optional[List[InventoryDeletionSummaryItem]] = None
 
 
-class InventoryItemSchemaTypeDef(BaseValidatorModel):
+class InventoryItemSchema(BaseValidatorModel):
     TypeName: str
-    Attributes: List[InventoryItemAttributeTypeDef]
+    Attributes: List[InventoryItemAttribute]
     Version: Optional[str] = None
     DisplayName: Optional[str] = None
 
 
-class PutInventoryRequestTypeDef(BaseValidatorModel):
+class PutInventoryRequest(BaseValidatorModel):
     InstanceId: str
-    Items: Sequence[InventoryItemTypeDef]
+    Items: Sequence[InventoryItem]
 
 
-class InventoryResultEntityTypeDef(BaseValidatorModel):
+class InventoryResultEntity(BaseValidatorModel):
     Id: Optional[str] = None
-    Data: Optional[Dict[str, InventoryResultItemTypeDef]] = None
+    Data: Optional[Dict[str, InventoryResultItem]] = None
 
 
-class NodeFilterTypeDef(BaseValidatorModel):
+class NodeFilter(BaseValidatorModel):
     pass
 
 
-class ListNodesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNodesRequestPaginate(BaseValidatorModel):
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[NodeFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[NodeFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNodesRequestTypeDef(BaseValidatorModel):
+class ListNodesRequest(BaseValidatorModel):
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[NodeFilterTypeDef]] = None
+    Filters: Optional[Sequence[NodeFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListNodesSummaryRequestPaginateTypeDef(BaseValidatorModel):
-    Aggregators: Sequence[NodeAggregatorPaginatorTypeDef]
+class ListNodesSummaryRequestPaginate(BaseValidatorModel):
+    Aggregators: Sequence[NodeAggregatorPaginator]
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[NodeFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[NodeFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNodesSummaryRequestTypeDef(BaseValidatorModel):
-    Aggregators: Sequence[NodeAggregatorTypeDef]
+class ListNodesSummaryRequest(BaseValidatorModel):
+    Aggregators: Sequence[NodeAggregator]
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[NodeFilterTypeDef]] = None
+    Filters: Optional[Sequence[NodeFilter]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListOpsItemEventsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[OpsItemEventFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOpsItemEventsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[OpsItemEventFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOpsItemEventsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[OpsItemEventFilterTypeDef]] = None
+class ListOpsItemEventsRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[OpsItemEventFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOpsItemRelatedItemsRequestPaginateTypeDef(BaseValidatorModel):
+class ListOpsItemRelatedItemsRequestPaginate(BaseValidatorModel):
     OpsItemId: Optional[str] = None
-    Filters: Optional[Sequence[OpsItemRelatedItemsFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[OpsItemRelatedItemsFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOpsItemRelatedItemsRequestTypeDef(BaseValidatorModel):
+class ListOpsItemRelatedItemsRequest(BaseValidatorModel):
     OpsItemId: Optional[str] = None
-    Filters: Optional[Sequence[OpsItemRelatedItemsFilterTypeDef]] = None
+    Filters: Optional[Sequence[OpsItemRelatedItemsFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOpsMetadataRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[OpsMetadataFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOpsMetadataRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[OpsMetadataFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOpsMetadataRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[OpsMetadataFilterTypeDef]] = None
+class ListOpsMetadataRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[OpsMetadataFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOpsMetadataResultTypeDef(BaseValidatorModel):
-    OpsMetadataList: List[OpsMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOpsMetadataResult(BaseValidatorModel):
+    OpsMetadataList: List[OpsMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MaintenanceWindowRunCommandParametersTypeDef(BaseValidatorModel):
+class MaintenanceWindowRunCommandParameters(BaseValidatorModel):
     Comment: Optional[str] = None
-    CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
+    CloudWatchOutputConfig: Optional[CloudWatchOutputConfig] = None
     DocumentHash: Optional[str] = None
     DocumentHashType: Optional[DocumentHashTypeType] = None
     DocumentVersion: Optional[str] = None
-    NotificationConfig: Optional[NotificationConfigTypeDef] = None
+    NotificationConfig: Optional[NotificationConfig] = None
     OutputS3BucketName: Optional[str] = None
     OutputS3KeyPrefix: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
@@ -2609,57 +2609,57 @@ class MaintenanceWindowRunCommandParametersTypeDef(BaseValidatorModel):
     TimeoutSeconds: Optional[int] = None
 
 
-class OpsEntityTypeDef(BaseValidatorModel):
+class OpsEntity(BaseValidatorModel):
     Id: Optional[str] = None
-    Data: Optional[Dict[str, OpsEntityItemTypeDef]] = None
+    Data: Optional[Dict[str, OpsEntityItem]] = None
 
 
-class OpsItemEventSummaryTypeDef(BaseValidatorModel):
+class OpsItemEventSummary(BaseValidatorModel):
     OpsItemId: Optional[str] = None
     EventId: Optional[str] = None
     Source: Optional[str] = None
     DetailType: Optional[str] = None
     Detail: Optional[str] = None
-    CreatedBy: Optional[OpsItemIdentityTypeDef] = None
+    CreatedBy: Optional[OpsItemIdentity] = None
     CreatedTime: Optional[datetime] = None
 
 
-class OpsItemRelatedItemSummaryTypeDef(BaseValidatorModel):
+class OpsItemRelatedItemSummary(BaseValidatorModel):
     OpsItemId: Optional[str] = None
     AssociationId: Optional[str] = None
     ResourceType: Optional[str] = None
     AssociationType: Optional[str] = None
     ResourceUri: Optional[str] = None
-    CreatedBy: Optional[OpsItemIdentityTypeDef] = None
+    CreatedBy: Optional[OpsItemIdentity] = None
     CreatedTime: Optional[datetime] = None
-    LastModifiedBy: Optional[OpsItemIdentityTypeDef] = None
+    LastModifiedBy: Optional[OpsItemIdentity] = None
     LastModifiedTime: Optional[datetime] = None
 
 
-class PatchFilterGroupOutputTypeDef(BaseValidatorModel):
-    PatchFilters: List[PatchFilterOutputTypeDef]
+class PatchFilterGroupOutput(BaseValidatorModel):
+    PatchFilters: List[PatchFilterOutput]
 
 
-class ResourceDataSyncAwsOrganizationsSourceOutputTypeDef(BaseValidatorModel):
+class ResourceDataSyncAwsOrganizationsSourceOutput(BaseValidatorModel):
     OrganizationSourceType: str
-    OrganizationalUnits: Optional[List[ResourceDataSyncOrganizationalUnitTypeDef]] = None
+    OrganizationalUnits: Optional[List[ResourceDataSyncOrganizationalUnit]] = None
 
 
-class ResourceDataSyncAwsOrganizationsSourceTypeDef(BaseValidatorModel):
+class ResourceDataSyncAwsOrganizationsSource(BaseValidatorModel):
     OrganizationSourceType: str
-    OrganizationalUnits: Optional[Sequence[ResourceDataSyncOrganizationalUnitTypeDef]] = None
+    OrganizationalUnits: Optional[Sequence[ResourceDataSyncOrganizationalUnit]] = None
 
 
-class ResourceDataSyncS3DestinationTypeDef(BaseValidatorModel):
+class ResourceDataSyncS3Destination(BaseValidatorModel):
     BucketName: str
     SyncFormat: Literal["JsonSerDe"]
     Region: str
     Prefix: Optional[str] = None
     AWSKMSKeyARN: Optional[str] = None
-    DestinationDataSharing: Optional[ResourceDataSyncDestinationDataSharingTypeDef] = None
+    DestinationDataSharing: Optional[ResourceDataSyncDestinationDataSharing] = None
 
 
-class SessionTypeDef(BaseValidatorModel):
+class Session(BaseValidatorModel):
     SessionId: Optional[str] = None
     Target: Optional[str] = None
     Status: Optional[SessionStatusType] = None
@@ -2669,17 +2669,17 @@ class SessionTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
     Reason: Optional[str] = None
     Details: Optional[str] = None
-    OutputUrl: Optional[SessionManagerOutputUrlTypeDef] = None
+    OutputUrl: Optional[SessionManagerOutputUrl] = None
     MaxSessionDuration: Optional[str] = None
 
 
-class DescribeActivationsResultTypeDef(BaseValidatorModel):
-    ActivationList: List[ActivationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeActivationsResult(BaseValidatorModel):
+    ActivationList: List[Activation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociationExecutionTypeDef(BaseValidatorModel):
+class AssociationExecution(BaseValidatorModel):
     AssociationId: Optional[str] = None
     AssociationVersion: Optional[str] = None
     ExecutionId: Optional[str] = None
@@ -2688,11 +2688,11 @@ class AssociationExecutionTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     LastExecutionDate: Optional[datetime] = None
     ResourceCountByStatus: Optional[str] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
 
 
-class CommandTypeDef(BaseValidatorModel):
+class Command(BaseValidatorModel):
     CommandId: Optional[str] = None
     DocumentName: Optional[str] = None
     DocumentVersion: Optional[str] = None
@@ -2700,7 +2700,7 @@ class CommandTypeDef(BaseValidatorModel):
     ExpiresAfter: Optional[datetime] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     InstanceIds: Optional[List[str]] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     RequestedDateTime: Optional[datetime] = None
     Status: Optional[CommandStatusType] = None
     StatusDetails: Optional[str] = None
@@ -2714,14 +2714,14 @@ class CommandTypeDef(BaseValidatorModel):
     ErrorCount: Optional[int] = None
     DeliveryTimedOutCount: Optional[int] = None
     ServiceRole: Optional[str] = None
-    NotificationConfig: Optional[NotificationConfigOutputTypeDef] = None
-    CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
+    NotificationConfig: Optional[NotificationConfigOutput] = None
+    CloudWatchOutputConfig: Optional[CloudWatchOutputConfig] = None
     TimeoutSeconds: Optional[int] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
 
 
-class MaintenanceWindowExecutionTaskIdentityTypeDef(BaseValidatorModel):
+class MaintenanceWindowExecutionTaskIdentity(BaseValidatorModel):
     WindowExecutionId: Optional[str] = None
     TaskExecutionId: Optional[str] = None
     Status: Optional[MaintenanceWindowExecutionStatusType] = None
@@ -2730,178 +2730,178 @@ class MaintenanceWindowExecutionTaskIdentityTypeDef(BaseValidatorModel):
     EndTime: Optional[datetime] = None
     TaskArn: Optional[str] = None
     TaskType: Optional[MaintenanceWindowTaskTypeType] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
 
 
-class TargetLocationOutputTypeDef(BaseValidatorModel):
+class TargetLocationOutput(BaseValidatorModel):
     Accounts: Optional[List[str]] = None
     Regions: Optional[List[str]] = None
     TargetLocationMaxConcurrency: Optional[str] = None
     TargetLocationMaxErrors: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
-    TargetLocationAlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
+    TargetLocationAlarmConfiguration: Optional[AlarmConfigurationOutput] = None
     IncludeChildOrganizationUnits: Optional[bool] = None
     ExcludeAccounts: Optional[List[str]] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     TargetsMaxConcurrency: Optional[str] = None
     TargetsMaxErrors: Optional[str] = None
 
 
-class ListAssociationsResultTypeDef(BaseValidatorModel):
-    Associations: List[AssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociationsResult(BaseValidatorModel):
+    Associations: List[Association]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowTargetsResultTypeDef(BaseValidatorModel):
-    Targets: List[MaintenanceWindowTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowTargetsResult(BaseValidatorModel):
+    Targets: List[MaintenanceWindowTarget]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeAssociationExecutionTargetsResultTypeDef(BaseValidatorModel):
-    AssociationExecutionTargets: List[AssociationExecutionTargetTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAssociationExecutionTargetsResult(BaseValidatorModel):
+    AssociationExecutionTargets: List[AssociationExecutionTarget]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExecutionPreviewTypeDef(BaseValidatorModel):
-    Automation: Optional[AutomationExecutionPreviewTypeDef] = None
+class ExecutionPreview(BaseValidatorModel):
+    Automation: Optional[AutomationExecutionPreview] = None
 
 
-class ListCommandInvocationsResultTypeDef(BaseValidatorModel):
-    CommandInvocations: List[CommandInvocationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCommandInvocationsResult(BaseValidatorModel):
+    CommandInvocations: List[CommandInvocation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MaintenanceWindowTaskInvocationParametersOutputTypeDef(BaseValidatorModel):
-    RunCommand: Optional[MaintenanceWindowRunCommandParametersOutputTypeDef] = None
-    Automation: Optional[MaintenanceWindowAutomationParametersOutputTypeDef] = None
-    StepFunctions: Optional[MaintenanceWindowStepFunctionsParametersTypeDef] = None
-    Lambda: Optional[MaintenanceWindowLambdaParametersOutputTypeDef] = None
+class MaintenanceWindowTaskInvocationParametersOutput(BaseValidatorModel):
+    RunCommand: Optional[MaintenanceWindowRunCommandParametersOutput] = None
+    Automation: Optional[MaintenanceWindowAutomationParametersOutput] = None
+    StepFunctions: Optional[MaintenanceWindowStepFunctionsParameters] = None
+    Lambda: Optional[MaintenanceWindowLambdaParametersOutput] = None
 
 
-class ListComplianceItemsResultTypeDef(BaseValidatorModel):
-    ComplianceItems: List[ComplianceItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComplianceItemsResult(BaseValidatorModel):
+    ComplianceItems: List[ComplianceItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ComplianceSummaryItemTypeDef(BaseValidatorModel):
+class ComplianceSummaryItem(BaseValidatorModel):
     ComplianceType: Optional[str] = None
-    CompliantSummary: Optional[CompliantSummaryTypeDef] = None
-    NonCompliantSummary: Optional[NonCompliantSummaryTypeDef] = None
+    CompliantSummary: Optional[CompliantSummary] = None
+    NonCompliantSummary: Optional[NonCompliantSummary] = None
 
 
-class ResourceComplianceSummaryItemTypeDef(BaseValidatorModel):
+class ResourceComplianceSummaryItem(BaseValidatorModel):
     ComplianceType: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     Status: Optional[ComplianceStatusType] = None
     OverallSeverity: Optional[ComplianceSeverityType] = None
-    ExecutionSummary: Optional[ComplianceExecutionSummaryOutputTypeDef] = None
-    CompliantSummary: Optional[CompliantSummaryTypeDef] = None
-    NonCompliantSummary: Optional[NonCompliantSummaryTypeDef] = None
+    ExecutionSummary: Optional[ComplianceExecutionSummaryOutput] = None
+    CompliantSummary: Optional[CompliantSummary] = None
+    NonCompliantSummary: Optional[NonCompliantSummary] = None
 
 
-class ListDocumentsResultTypeDef(BaseValidatorModel):
-    DocumentIdentifiers: List[DocumentIdentifierTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentsResult(BaseValidatorModel):
+    DocumentIdentifiers: List[DocumentIdentifier]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeOpsItemsResponseTypeDef(BaseValidatorModel):
-    OpsItemSummaries: List[OpsItemSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeOpsItemsResponse(BaseValidatorModel):
+    OpsItemSummaries: List[OpsItemSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetOpsItemResponseTypeDef(BaseValidatorModel):
-    OpsItem: OpsItemTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOpsItemResponse(BaseValidatorModel):
+    OpsItem: OpsItem
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePatchGroupsResultTypeDef(BaseValidatorModel):
-    Mappings: List[PatchGroupPatchBaselineMappingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePatchGroupsResult(BaseValidatorModel):
+    Mappings: List[PatchGroupPatchBaselineMapping]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateDocumentResultTypeDef(BaseValidatorModel):
-    DocumentDescription: DocumentDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDocumentResult(BaseValidatorModel):
+    DocumentDescription: DocumentDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDocumentResultTypeDef(BaseValidatorModel):
-    Document: DocumentDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDocumentResult(BaseValidatorModel):
+    Document: DocumentDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDocumentResultTypeDef(BaseValidatorModel):
-    DocumentDescription: DocumentDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateDocumentResult(BaseValidatorModel):
+    DocumentDescription: DocumentDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentMetadataResponseInfoTypeDef(BaseValidatorModel):
-    ReviewerResponse: Optional[List[DocumentReviewerResponseSourceTypeDef]] = None
+class DocumentMetadataResponseInfo(BaseValidatorModel):
+    ReviewerResponse: Optional[List[DocumentReviewerResponseSource]] = None
 
 
-class UpdateDocumentMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateDocumentMetadataRequest(BaseValidatorModel):
     Name: str
-    DocumentReviews: DocumentReviewsTypeDef
+    DocumentReviews: DocumentReviews
     DocumentVersion: Optional[str] = None
 
 
-class DescribeEffectivePatchesForPatchBaselineResultTypeDef(BaseValidatorModel):
-    EffectivePatches: List[EffectivePatchTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEffectivePatchesForPatchBaselineResult(BaseValidatorModel):
+    EffectivePatches: List[EffectivePatch]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InventoryAggregatorPaginatorTypeDef(BaseValidatorModel):
+class InventoryAggregatorPaginator(BaseValidatorModel):
     Expression: Optional[str] = None
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
-    Groups: Optional[Sequence[InventoryGroupTypeDef]] = None
+    Groups: Optional[Sequence[InventoryGroup]] = None
 
 
-class InventoryAggregatorTypeDef(BaseValidatorModel):
+class InventoryAggregator(BaseValidatorModel):
     Expression: Optional[str] = None
     Aggregators: Optional[Sequence[Mapping[str, Any]]] = None
-    Groups: Optional[Sequence[InventoryGroupTypeDef]] = None
+    Groups: Optional[Sequence[InventoryGroup]] = None
 
 
-class GetOpsSummaryRequestPaginateTypeDef(BaseValidatorModel):
+class GetOpsSummaryRequestPaginate(BaseValidatorModel):
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[OpsFilterTypeDef]] = None
-    Aggregators: Optional[Sequence[OpsAggregatorPaginatorTypeDef]] = None
-    ResultAttributes: Optional[Sequence[OpsResultAttributeTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[OpsFilter]] = None
+    Aggregators: Optional[Sequence[OpsAggregatorPaginator]] = None
+    ResultAttributes: Optional[Sequence[OpsResultAttribute]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetOpsSummaryRequestTypeDef(BaseValidatorModel):
+class GetOpsSummaryRequest(BaseValidatorModel):
     SyncName: Optional[str] = None
-    Filters: Optional[Sequence[OpsFilterTypeDef]] = None
-    Aggregators: Optional[Sequence[OpsAggregatorTypeDef]] = None
-    ResultAttributes: Optional[Sequence[OpsResultAttributeTypeDef]] = None
+    Filters: Optional[Sequence[OpsFilter]] = None
+    Aggregators: Optional[Sequence[OpsAggregator]] = None
+    ResultAttributes: Optional[Sequence[OpsResultAttribute]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeInstanceInformationResultTypeDef(BaseValidatorModel):
-    InstanceInformationList: List[InstanceInformationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstanceInformationResult(BaseValidatorModel):
+    InstanceInformationList: List[InstanceInformation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInstancePropertiesResultTypeDef(BaseValidatorModel):
-    InstanceProperties: List[InstancePropertyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstancePropertiesResult(BaseValidatorModel):
+    InstanceProperties: List[InstanceProperty]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class InstanceAssociationStatusInfoTypeDef(BaseValidatorModel):
+class InstanceAssociationStatusInfo(BaseValidatorModel):
     AssociationId: Optional[str] = None
     Name: Optional[str] = None
     DocumentVersion: Optional[str] = None
@@ -2912,225 +2912,225 @@ class InstanceAssociationStatusInfoTypeDef(BaseValidatorModel):
     DetailedStatus: Optional[str] = None
     ExecutionSummary: Optional[str] = None
     ErrorCode: Optional[str] = None
-    OutputUrl: Optional[InstanceAssociationOutputUrlTypeDef] = None
+    OutputUrl: Optional[InstanceAssociationOutputUrl] = None
     AssociationName: Optional[str] = None
 
 
-class NodeTypeDef(BaseValidatorModel):
+class Node(BaseValidatorModel):
     CaptureTime: Optional[datetime] = None
     Id: Optional[str] = None
-    Owner: Optional[NodeOwnerInfoTypeDef] = None
+    Owner: Optional[NodeOwnerInfo] = None
     Region: Optional[str] = None
-    NodeType: Optional[NodeTypeTypeDef] = None
+    NodeType: Optional[NodeType] = None
 
 
-class DeleteInventoryResultTypeDef(BaseValidatorModel):
+class DeleteInventoryResult(BaseValidatorModel):
     DeletionId: str
     TypeName: str
-    DeletionSummary: InventoryDeletionSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DeletionSummary: InventoryDeletionSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class InventoryDeletionStatusItemTypeDef(BaseValidatorModel):
+class InventoryDeletionStatusItem(BaseValidatorModel):
     DeletionId: Optional[str] = None
     TypeName: Optional[str] = None
     DeletionStartTime: Optional[datetime] = None
     LastStatus: Optional[InventoryDeletionStatusType] = None
     LastStatusMessage: Optional[str] = None
-    DeletionSummary: Optional[InventoryDeletionSummaryTypeDef] = None
+    DeletionSummary: Optional[InventoryDeletionSummary] = None
     LastStatusUpdateTime: Optional[datetime] = None
 
 
-class GetInventorySchemaResultTypeDef(BaseValidatorModel):
-    Schemas: List[InventoryItemSchemaTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInventorySchemaResult(BaseValidatorModel):
+    Schemas: List[InventoryItemSchema]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetInventoryResultTypeDef(BaseValidatorModel):
-    Entities: List[InventoryResultEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetInventoryResult(BaseValidatorModel):
+    Entities: List[InventoryResultEntity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MaintenanceWindowTaskInvocationParametersTypeDef(BaseValidatorModel):
-    RunCommand: Optional[MaintenanceWindowRunCommandParametersTypeDef] = None
-    Automation: Optional[MaintenanceWindowAutomationParametersTypeDef] = None
-    StepFunctions: Optional[MaintenanceWindowStepFunctionsParametersTypeDef] = None
-    Lambda: Optional[MaintenanceWindowLambdaParametersTypeDef] = None
+class MaintenanceWindowTaskInvocationParameters(BaseValidatorModel):
+    RunCommand: Optional[MaintenanceWindowRunCommandParameters] = None
+    Automation: Optional[MaintenanceWindowAutomationParameters] = None
+    StepFunctions: Optional[MaintenanceWindowStepFunctionsParameters] = None
+    Lambda: Optional[MaintenanceWindowLambdaParameters] = None
 
 
-class GetOpsSummaryResultTypeDef(BaseValidatorModel):
-    Entities: List[OpsEntityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOpsSummaryResult(BaseValidatorModel):
+    Entities: List[OpsEntity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOpsItemEventsResponseTypeDef(BaseValidatorModel):
-    Summaries: List[OpsItemEventSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOpsItemEventsResponse(BaseValidatorModel):
+    Summaries: List[OpsItemEventSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOpsItemRelatedItemsResponseTypeDef(BaseValidatorModel):
-    Summaries: List[OpsItemRelatedItemSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOpsItemRelatedItemsResponse(BaseValidatorModel):
+    Summaries: List[OpsItemRelatedItemSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ParameterHistoryTypeDef(BaseValidatorModel):
+class ParameterHistory(BaseValidatorModel):
     pass
 
 
-class GetParameterHistoryResultTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterHistoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetParameterHistoryResult(BaseValidatorModel):
+    Parameters: List[ParameterHistory]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ParameterMetadataTypeDef(BaseValidatorModel):
+class ParameterMetadata(BaseValidatorModel):
     pass
 
 
-class DescribeParametersResultTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeParametersResult(BaseValidatorModel):
+    Parameters: List[ParameterMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PatchRuleOutputTypeDef(BaseValidatorModel):
-    PatchFilterGroup: PatchFilterGroupOutputTypeDef
+class PatchRuleOutput(BaseValidatorModel):
+    PatchFilterGroup: PatchFilterGroupOutput
     ComplianceLevel: Optional[PatchComplianceLevelType] = None
     ApproveAfterDays: Optional[int] = None
     ApproveUntilDate: Optional[str] = None
     EnableNonSecurity: Optional[bool] = None
 
 
-class PatchFilterUnionTypeDef(BaseValidatorModel):
+class PatchFilterUnion(BaseValidatorModel):
     pass
 
 
-class PatchFilterGroupTypeDef(BaseValidatorModel):
-    PatchFilters: Sequence[PatchFilterUnionTypeDef]
+class PatchFilterGroup(BaseValidatorModel):
+    PatchFilters: Sequence[PatchFilterUnion]
 
 
-class ResourceDataSyncSourceWithStateTypeDef(BaseValidatorModel):
+class ResourceDataSyncSourceWithState(BaseValidatorModel):
     SourceType: Optional[str] = None
-    AwsOrganizationsSource: Optional[ResourceDataSyncAwsOrganizationsSourceOutputTypeDef] = None
+    AwsOrganizationsSource: Optional[ResourceDataSyncAwsOrganizationsSourceOutput] = None
     SourceRegions: Optional[List[str]] = None
     IncludeFutureRegions: Optional[bool] = None
     State: Optional[str] = None
     EnableAllOpsDataSources: Optional[bool] = None
 
 
-class DescribeSessionsResponseTypeDef(BaseValidatorModel):
-    Sessions: List[SessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSessionsResponse(BaseValidatorModel):
+    Sessions: List[Session]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TargetUnionTypeDef(BaseValidatorModel):
+class TargetUnion(BaseValidatorModel):
     pass
 
 
-class DescribeMaintenanceWindowScheduleRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowScheduleRequestPaginate(BaseValidatorModel):
     WindowId: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     ResourceType: Optional[MaintenanceWindowResourceTypeType] = None
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowScheduleRequestTypeDef(BaseValidatorModel):
+class DescribeMaintenanceWindowScheduleRequest(BaseValidatorModel):
     WindowId: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     ResourceType: Optional[MaintenanceWindowResourceTypeType] = None
-    Filters: Optional[Sequence[PatchOrchestratorFilterTypeDef]] = None
+    Filters: Optional[Sequence[PatchOrchestratorFilter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeMaintenanceWindowsForTargetRequestPaginateTypeDef(BaseValidatorModel):
-    Targets: Sequence[TargetUnionTypeDef]
+class DescribeMaintenanceWindowsForTargetRequestPaginate(BaseValidatorModel):
+    Targets: Sequence[TargetUnion]
     ResourceType: MaintenanceWindowResourceTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMaintenanceWindowsForTargetRequestTypeDef(BaseValidatorModel):
-    Targets: Sequence[TargetUnionTypeDef]
+class DescribeMaintenanceWindowsForTargetRequest(BaseValidatorModel):
+    Targets: Sequence[TargetUnion]
     ResourceType: MaintenanceWindowResourceTypeType
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class RegisterTargetWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class RegisterTargetWithMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     ResourceType: MaintenanceWindowResourceTypeType
-    Targets: Sequence[TargetUnionTypeDef]
+    Targets: Sequence[TargetUnion]
     OwnerInformation: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
 
 
-class UpdateMaintenanceWindowTargetRequestTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowTargetRequest(BaseValidatorModel):
     WindowId: str
     WindowTargetId: str
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     OwnerInformation: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     Replace: Optional[bool] = None
 
 
-class DescribeAssociationExecutionsResultTypeDef(BaseValidatorModel):
-    AssociationExecutions: List[AssociationExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAssociationExecutionsResult(BaseValidatorModel):
+    AssociationExecutions: List[AssociationExecution]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCommandsResultTypeDef(BaseValidatorModel):
-    Commands: List[CommandTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCommandsResult(BaseValidatorModel):
+    Commands: List[Command]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SendCommandResultTypeDef(BaseValidatorModel):
-    Command: CommandTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class SendCommandResult(BaseValidatorModel):
+    Command: Command
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMaintenanceWindowExecutionTasksResultTypeDef(BaseValidatorModel):
-    WindowExecutionTaskIdentities: List[MaintenanceWindowExecutionTaskIdentityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowExecutionTasksResult(BaseValidatorModel):
+    WindowExecutionTaskIdentities: List[MaintenanceWindowExecutionTaskIdentity]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MaintenanceWindowTaskTypeDef(BaseValidatorModel):
+class MaintenanceWindowTask(BaseValidatorModel):
     pass
 
 
-class DescribeMaintenanceWindowTasksResultTypeDef(BaseValidatorModel):
-    Tasks: List[MaintenanceWindowTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMaintenanceWindowTasksResult(BaseValidatorModel):
+    Tasks: List[MaintenanceWindowTask]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AssociationDescriptionTypeDef(BaseValidatorModel):
+class AssociationDescription(BaseValidatorModel):
     Name: Optional[str] = None
     InstanceId: Optional[str] = None
     AssociationVersion: Optional[str] = None
     Date: Optional[datetime] = None
     LastUpdateAssociationDate: Optional[datetime] = None
-    Status: Optional[AssociationStatusOutputTypeDef] = None
-    Overview: Optional[AssociationOverviewTypeDef] = None
+    Status: Optional[AssociationStatusOutput] = None
+    Overview: Optional[AssociationOverview] = None
     DocumentVersion: Optional[str] = None
     AutomationTargetParameterName: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     AssociationId: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     LastExecutionDate: Optional[datetime] = None
     LastSuccessfulExecutionDate: Optional[datetime] = None
     AssociationName: Optional[str] = None
@@ -3140,24 +3140,24 @@ class AssociationDescriptionTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[List[str]] = None
-    TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
+    TargetLocations: Optional[List[TargetLocationOutput]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
 
 
-class AssociationVersionInfoTypeDef(BaseValidatorModel):
+class AssociationVersionInfo(BaseValidatorModel):
     AssociationId: Optional[str] = None
     AssociationVersion: Optional[str] = None
     CreatedDate: Optional[datetime] = None
     Name: Optional[str] = None
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     AssociationName: Optional[str] = None
     MaxErrors: Optional[str] = None
     MaxConcurrency: Optional[str] = None
@@ -3165,21 +3165,21 @@ class AssociationVersionInfoTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[List[str]] = None
-    TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
+    TargetLocations: Optional[List[TargetLocationOutput]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
 
 
-class CreateAssociationBatchRequestEntryOutputTypeDef(BaseValidatorModel):
+class CreateAssociationBatchRequestEntryOutput(BaseValidatorModel):
     Name: str
     InstanceId: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     AutomationTargetParameterName: Optional[str] = None
     DocumentVersion: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     AssociationName: Optional[str] = None
     MaxErrors: Optional[str] = None
     MaxConcurrency: Optional[str] = None
@@ -3187,26 +3187,26 @@ class CreateAssociationBatchRequestEntryOutputTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[List[str]] = None
-    TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
+    TargetLocations: Optional[List[TargetLocationOutput]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
 
 
-class RunbookOutputTypeDef(BaseValidatorModel):
+class RunbookOutput(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
-    TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
+    TargetLocations: Optional[List[TargetLocationOutput]] = None
 
 
-class StepExecutionTypeDef(BaseValidatorModel):
+class StepExecution(BaseValidatorModel):
     StepName: Optional[str] = None
     Action: Optional[str] = None
     TimeoutSeconds: Optional[int] = None
@@ -3220,31 +3220,31 @@ class StepExecutionTypeDef(BaseValidatorModel):
     Outputs: Optional[Dict[str, List[str]]] = None
     Response: Optional[str] = None
     FailureMessage: Optional[str] = None
-    FailureDetails: Optional[FailureDetailsTypeDef] = None
+    FailureDetails: Optional[FailureDetails] = None
     StepExecutionId: Optional[str] = None
     OverriddenParameters: Optional[Dict[str, List[str]]] = None
     IsEnd: Optional[bool] = None
     NextStep: Optional[str] = None
     IsCritical: Optional[bool] = None
     ValidNextSteps: Optional[List[str]] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
-    TargetLocation: Optional[TargetLocationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
-    ParentStepDetails: Optional[ParentStepDetailsTypeDef] = None
+    Targets: Optional[List[TargetOutput]] = None
+    TargetLocation: Optional[TargetLocationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
+    ParentStepDetails: Optional[ParentStepDetails] = None
 
 
-class AlarmConfigurationUnionTypeDef(BaseValidatorModel):
+class AlarmConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class NotificationConfigUnionTypeDef(BaseValidatorModel):
+class NotificationConfigUnion(BaseValidatorModel):
     pass
 
 
-class SendCommandRequestTypeDef(BaseValidatorModel):
+class SendCommandRequest(BaseValidatorModel):
     DocumentName: str
     InstanceIds: Optional[Sequence[str]] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     DocumentVersion: Optional[str] = None
     DocumentHash: Optional[str] = None
     DocumentHashType: Optional[DocumentHashTypeType] = None
@@ -3257,160 +3257,160 @@ class SendCommandRequestTypeDef(BaseValidatorModel):
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
     ServiceRoleArn: Optional[str] = None
-    NotificationConfig: Optional[NotificationConfigUnionTypeDef] = None
-    CloudWatchOutputConfig: Optional[CloudWatchOutputConfigTypeDef] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    NotificationConfig: Optional[NotificationConfigUnion] = None
+    CloudWatchOutputConfig: Optional[CloudWatchOutputConfig] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class TargetLocationTypeDef(BaseValidatorModel):
+class TargetLocation(BaseValidatorModel):
     Accounts: Optional[Sequence[str]] = None
     Regions: Optional[Sequence[str]] = None
     TargetLocationMaxConcurrency: Optional[str] = None
     TargetLocationMaxErrors: Optional[str] = None
     ExecutionRoleName: Optional[str] = None
-    TargetLocationAlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    TargetLocationAlarmConfiguration: Optional[AlarmConfigurationUnion] = None
     IncludeChildOrganizationUnits: Optional[bool] = None
     ExcludeAccounts: Optional[Sequence[str]] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     TargetsMaxConcurrency: Optional[str] = None
     TargetsMaxErrors: Optional[str] = None
 
 
-class AssociationStatusUnionTypeDef(BaseValidatorModel):
+class AssociationStatusUnion(BaseValidatorModel):
     pass
 
 
-class UpdateAssociationStatusRequestTypeDef(BaseValidatorModel):
+class UpdateAssociationStatusRequest(BaseValidatorModel):
     Name: str
     InstanceId: str
-    AssociationStatus: AssociationStatusUnionTypeDef
+    AssociationStatus: AssociationStatusUnion
 
 
-class ComplianceExecutionSummaryUnionTypeDef(BaseValidatorModel):
+class ComplianceExecutionSummaryUnion(BaseValidatorModel):
     pass
 
 
-class PutComplianceItemsRequestTypeDef(BaseValidatorModel):
+class PutComplianceItemsRequest(BaseValidatorModel):
     ResourceId: str
     ResourceType: str
     ComplianceType: str
-    ExecutionSummary: ComplianceExecutionSummaryUnionTypeDef
-    Items: Sequence[ComplianceItemEntryTypeDef]
+    ExecutionSummary: ComplianceExecutionSummaryUnion
+    Items: Sequence[ComplianceItemEntry]
     ItemContentHash: Optional[str] = None
     UploadType: Optional[ComplianceUploadTypeType] = None
 
 
-class GetExecutionPreviewResponseTypeDef(BaseValidatorModel):
+class GetExecutionPreviewResponse(BaseValidatorModel):
     ExecutionPreviewId: str
     EndedAt: datetime
     Status: ExecutionPreviewStatusType
     StatusMessage: str
-    ExecutionPreview: ExecutionPreviewTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExecutionPreview: ExecutionPreview
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
+class GetMaintenanceWindowTaskResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
-    Targets: List[TargetOutputTypeDef]
+    Targets: List[TargetOutput]
     TaskArn: str
     ServiceRoleArn: str
     TaskType: MaintenanceWindowTaskTypeType
-    TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]
-    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutputTypeDef
+    TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutput]
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutput
     Priority: int
     MaxConcurrency: str
     MaxErrors: str
-    LoggingInfo: LoggingInfoTypeDef
+    LoggingInfo: LoggingInfo
     Name: str
     Description: str
     CutoffBehavior: MaintenanceWindowTaskCutoffBehaviorType
-    AlarmConfiguration: AlarmConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AlarmConfiguration: AlarmConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMaintenanceWindowTaskResultTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowTaskResult(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
-    Targets: List[TargetOutputTypeDef]
+    Targets: List[TargetOutput]
     TaskArn: str
     ServiceRoleArn: str
-    TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutputTypeDef]
-    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutputTypeDef
+    TaskParameters: Dict[str, MaintenanceWindowTaskParameterValueExpressionOutput]
+    TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersOutput
     Priority: int
     MaxConcurrency: str
     MaxErrors: str
-    LoggingInfo: LoggingInfoTypeDef
+    LoggingInfo: LoggingInfo
     Name: str
     Description: str
     CutoffBehavior: MaintenanceWindowTaskCutoffBehaviorType
-    AlarmConfiguration: AlarmConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    AlarmConfiguration: AlarmConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class ListComplianceSummariesResultTypeDef(BaseValidatorModel):
-    ComplianceSummaryItems: List[ComplianceSummaryItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComplianceSummariesResult(BaseValidatorModel):
+    ComplianceSummaryItems: List[ComplianceSummaryItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceComplianceSummariesResultTypeDef(BaseValidatorModel):
-    ResourceComplianceSummaryItems: List[ResourceComplianceSummaryItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceComplianceSummariesResult(BaseValidatorModel):
+    ResourceComplianceSummaryItems: List[ResourceComplianceSummaryItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDocumentMetadataHistoryResponseTypeDef(BaseValidatorModel):
+class ListDocumentMetadataHistoryResponse(BaseValidatorModel):
     Name: str
     DocumentVersion: str
     Author: str
-    Metadata: DocumentMetadataResponseInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Metadata: DocumentMetadataResponseInfo
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetInventoryRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[InventoryFilterTypeDef]] = None
-    Aggregators: Optional[Sequence[InventoryAggregatorPaginatorTypeDef]] = None
-    ResultAttributes: Optional[Sequence[ResultAttributeTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class GetInventoryRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Sequence[InventoryFilter]] = None
+    Aggregators: Optional[Sequence[InventoryAggregatorPaginator]] = None
+    ResultAttributes: Optional[Sequence[ResultAttribute]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetInventoryRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[Sequence[InventoryFilterTypeDef]] = None
-    Aggregators: Optional[Sequence[InventoryAggregatorTypeDef]] = None
-    ResultAttributes: Optional[Sequence[ResultAttributeTypeDef]] = None
+class GetInventoryRequest(BaseValidatorModel):
+    Filters: Optional[Sequence[InventoryFilter]] = None
+    Aggregators: Optional[Sequence[InventoryAggregator]] = None
+    ResultAttributes: Optional[Sequence[ResultAttribute]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DescribeInstanceAssociationsStatusResultTypeDef(BaseValidatorModel):
-    InstanceAssociationStatusInfos: List[InstanceAssociationStatusInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInstanceAssociationsStatusResult(BaseValidatorModel):
+    InstanceAssociationStatusInfos: List[InstanceAssociationStatusInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodesResultTypeDef(BaseValidatorModel):
-    Nodes: List[NodeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNodesResult(BaseValidatorModel):
+    Nodes: List[Node]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInventoryDeletionsResultTypeDef(BaseValidatorModel):
-    InventoryDeletions: List[InventoryDeletionStatusItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInventoryDeletionsResult(BaseValidatorModel):
+    InventoryDeletions: List[InventoryDeletionStatusItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PatchRuleGroupOutputTypeDef(BaseValidatorModel):
-    PatchRules: List[PatchRuleOutputTypeDef]
+class PatchRuleGroupOutput(BaseValidatorModel):
+    PatchRules: List[PatchRuleOutput]
 
 
-class ResourceDataSyncItemTypeDef(BaseValidatorModel):
+class ResourceDataSyncItem(BaseValidatorModel):
     SyncName: Optional[str] = None
     SyncType: Optional[str] = None
-    SyncSource: Optional[ResourceDataSyncSourceWithStateTypeDef] = None
-    S3Destination: Optional[ResourceDataSyncS3DestinationTypeDef] = None
+    SyncSource: Optional[ResourceDataSyncSourceWithState] = None
+    S3Destination: Optional[ResourceDataSyncS3Destination] = None
     LastSyncTime: Optional[datetime] = None
     LastSuccessfulSyncTime: Optional[datetime] = None
     SyncLastModifiedTime: Optional[datetime] = None
@@ -3419,51 +3419,51 @@ class ResourceDataSyncItemTypeDef(BaseValidatorModel):
     LastSyncStatusMessage: Optional[str] = None
 
 
-class ResourceDataSyncAwsOrganizationsSourceUnionTypeDef(BaseValidatorModel):
+class ResourceDataSyncAwsOrganizationsSourceUnion(BaseValidatorModel):
     pass
 
 
-class ResourceDataSyncSourceTypeDef(BaseValidatorModel):
+class ResourceDataSyncSource(BaseValidatorModel):
     SourceType: str
     SourceRegions: Sequence[str]
-    AwsOrganizationsSource: Optional[ResourceDataSyncAwsOrganizationsSourceUnionTypeDef] = None
+    AwsOrganizationsSource: Optional[ResourceDataSyncAwsOrganizationsSourceUnion] = None
     IncludeFutureRegions: Optional[bool] = None
     EnableAllOpsDataSources: Optional[bool] = None
 
 
-class CreateAssociationResultTypeDef(BaseValidatorModel):
-    AssociationDescription: AssociationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssociationResult(BaseValidatorModel):
+    AssociationDescription: AssociationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAssociationResultTypeDef(BaseValidatorModel):
-    AssociationDescription: AssociationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAssociationResult(BaseValidatorModel):
+    AssociationDescription: AssociationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssociationResultTypeDef(BaseValidatorModel):
-    AssociationDescription: AssociationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssociationResult(BaseValidatorModel):
+    AssociationDescription: AssociationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssociationStatusResultTypeDef(BaseValidatorModel):
-    AssociationDescription: AssociationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssociationStatusResult(BaseValidatorModel):
+    AssociationDescription: AssociationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAssociationVersionsResultTypeDef(BaseValidatorModel):
-    AssociationVersions: List[AssociationVersionInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssociationVersionsResult(BaseValidatorModel):
+    AssociationVersions: List[AssociationVersionInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FailedCreateAssociationTypeDef(BaseValidatorModel):
-    Entry: Optional[CreateAssociationBatchRequestEntryOutputTypeDef] = None
+class FailedCreateAssociation(BaseValidatorModel):
+    Entry: Optional[CreateAssociationBatchRequestEntryOutput] = None
     Message: Optional[str] = None
     Fault: Optional[FaultType] = None
 
 
-class AutomationExecutionMetadataTypeDef(BaseValidatorModel):
+class AutomationExecutionMetadata(BaseValidatorModel):
     AutomationExecutionId: Optional[str] = None
     DocumentName: Optional[str] = None
     DocumentVersion: Optional[str] = None
@@ -3479,32 +3479,32 @@ class AutomationExecutionMetadataTypeDef(BaseValidatorModel):
     CurrentAction: Optional[str] = None
     FailureMessage: Optional[str] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    ResolvedTargets: Optional[ResolvedTargetsTypeDef] = None
+    ResolvedTargets: Optional[ResolvedTargets] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
     Target: Optional[str] = None
     AutomationType: Optional[AutomationTypeType] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
     TargetLocationsURL: Optional[str] = None
     AutomationSubtype: Optional[Literal["ChangeRequest"]] = None
     ScheduledTime: Optional[datetime] = None
-    Runbooks: Optional[List[RunbookOutputTypeDef]] = None
+    Runbooks: Optional[List[RunbookOutput]] = None
     OpsItemId: Optional[str] = None
     AssociationId: Optional[str] = None
     ChangeRequestName: Optional[str] = None
 
 
-class AutomationExecutionTypeDef(BaseValidatorModel):
+class AutomationExecution(BaseValidatorModel):
     AutomationExecutionId: Optional[str] = None
     DocumentName: Optional[str] = None
     DocumentVersion: Optional[str] = None
     ExecutionStartTime: Optional[datetime] = None
     ExecutionEndTime: Optional[datetime] = None
     AutomationExecutionStatus: Optional[AutomationExecutionStatusType] = None
-    StepExecutions: Optional[List[StepExecutionTypeDef]] = None
+    StepExecutions: Optional[List[StepExecution]] = None
     StepExecutionsTruncated: Optional[bool] = None
     Parameters: Optional[Dict[str, List[str]]] = None
     Outputs: Optional[Dict[str, List[str]]] = None
@@ -3515,84 +3515,84 @@ class AutomationExecutionTypeDef(BaseValidatorModel):
     CurrentStepName: Optional[str] = None
     CurrentAction: Optional[str] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[List[TargetOutputTypeDef]] = None
+    Targets: Optional[List[TargetOutput]] = None
     TargetMaps: Optional[List[Dict[str, List[str]]]] = None
-    ResolvedTargets: Optional[ResolvedTargetsTypeDef] = None
+    ResolvedTargets: Optional[ResolvedTargets] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
     Target: Optional[str] = None
-    TargetLocations: Optional[List[TargetLocationOutputTypeDef]] = None
-    ProgressCounters: Optional[ProgressCountersTypeDef] = None
-    AlarmConfiguration: Optional[AlarmConfigurationOutputTypeDef] = None
-    TriggeredAlarms: Optional[List[AlarmStateInformationTypeDef]] = None
+    TargetLocations: Optional[List[TargetLocationOutput]] = None
+    ProgressCounters: Optional[ProgressCounters] = None
+    AlarmConfiguration: Optional[AlarmConfigurationOutput] = None
+    TriggeredAlarms: Optional[List[AlarmStateInformation]] = None
     TargetLocationsURL: Optional[str] = None
     AutomationSubtype: Optional[Literal["ChangeRequest"]] = None
     ScheduledTime: Optional[datetime] = None
-    Runbooks: Optional[List[RunbookOutputTypeDef]] = None
+    Runbooks: Optional[List[RunbookOutput]] = None
     OpsItemId: Optional[str] = None
     AssociationId: Optional[str] = None
     ChangeRequestName: Optional[str] = None
     Variables: Optional[Dict[str, List[str]]] = None
 
 
-class DescribeAutomationStepExecutionsResultTypeDef(BaseValidatorModel):
-    StepExecutions: List[StepExecutionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAutomationStepExecutionsResult(BaseValidatorModel):
+    StepExecutions: List[StepExecution]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MaintenanceWindowTaskParameterValueExpressionUnionTypeDef(BaseValidatorModel):
+class MaintenanceWindowTaskParameterValueExpressionUnion(BaseValidatorModel):
     pass
 
 
-class MaintenanceWindowTaskInvocationParametersUnionTypeDef(BaseValidatorModel):
+class MaintenanceWindowTaskInvocationParametersUnion(BaseValidatorModel):
     pass
 
 
-class RegisterTaskWithMaintenanceWindowRequestTypeDef(BaseValidatorModel):
+class RegisterTaskWithMaintenanceWindowRequest(BaseValidatorModel):
     WindowId: str
     TaskArn: str
     TaskType: MaintenanceWindowTaskTypeType
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     ServiceRoleArn: Optional[str] = None
-    TaskParameters: Optional[ Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef] ] = None
-    TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnionTypeDef] = None
+    TaskParameters: Optional[ Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnion] ] = None
+    TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnion] = None
     Priority: Optional[int] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     CutoffBehavior: Optional[MaintenanceWindowTaskCutoffBehaviorType] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class UpdateMaintenanceWindowTaskRequestTypeDef(BaseValidatorModel):
+class UpdateMaintenanceWindowTaskRequest(BaseValidatorModel):
     WindowId: str
     WindowTaskId: str
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     TaskArn: Optional[str] = None
     ServiceRoleArn: Optional[str] = None
-    TaskParameters: Optional[ Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnionTypeDef] ] = None
-    TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnionTypeDef] = None
+    TaskParameters: Optional[ Mapping[str, MaintenanceWindowTaskParameterValueExpressionUnion] ] = None
+    TaskInvocationParameters: Optional[MaintenanceWindowTaskInvocationParametersUnion] = None
     Priority: Optional[int] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     Replace: Optional[bool] = None
     CutoffBehavior: Optional[MaintenanceWindowTaskCutoffBehaviorType] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class GetPatchBaselineResultTypeDef(BaseValidatorModel):
+class GetPatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     Name: str
     OperatingSystem: OperatingSystemType
-    GlobalFilters: PatchFilterGroupOutputTypeDef
-    ApprovalRules: PatchRuleGroupOutputTypeDef
+    GlobalFilters: PatchFilterGroupOutput
+    ApprovalRules: PatchRuleGroupOutput
     ApprovedPatches: List[str]
     ApprovedPatchesComplianceLevel: PatchComplianceLevelType
     ApprovedPatchesEnableNonSecurity: bool
@@ -3602,16 +3602,16 @@ class GetPatchBaselineResultTypeDef(BaseValidatorModel):
     CreatedDate: datetime
     ModifiedDate: datetime
     Description: str
-    Sources: List[PatchSourceOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Sources: List[PatchSourceOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePatchBaselineResultTypeDef(BaseValidatorModel):
+class UpdatePatchBaselineResult(BaseValidatorModel):
     BaselineId: str
     Name: str
     OperatingSystem: OperatingSystemType
-    GlobalFilters: PatchFilterGroupOutputTypeDef
-    ApprovalRules: PatchRuleGroupOutputTypeDef
+    GlobalFilters: PatchFilterGroupOutput
+    ApprovalRules: PatchRuleGroupOutput
     ApprovedPatches: List[str]
     ApprovedPatchesComplianceLevel: PatchComplianceLevelType
     ApprovedPatchesEnableNonSecurity: bool
@@ -3620,80 +3620,80 @@ class UpdatePatchBaselineResultTypeDef(BaseValidatorModel):
     CreatedDate: datetime
     ModifiedDate: datetime
     Description: str
-    Sources: List[PatchSourceOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Sources: List[PatchSourceOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class PatchFilterGroupUnionTypeDef(BaseValidatorModel):
+class PatchFilterGroupUnion(BaseValidatorModel):
     pass
 
 
-class PatchRuleTypeDef(BaseValidatorModel):
-    PatchFilterGroup: PatchFilterGroupUnionTypeDef
+class PatchRule(BaseValidatorModel):
+    PatchFilterGroup: PatchFilterGroupUnion
     ComplianceLevel: Optional[PatchComplianceLevelType] = None
     ApproveAfterDays: Optional[int] = None
     ApproveUntilDate: Optional[str] = None
     EnableNonSecurity: Optional[bool] = None
 
 
-class ListResourceDataSyncResultTypeDef(BaseValidatorModel):
-    ResourceDataSyncItems: List[ResourceDataSyncItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceDataSyncResult(BaseValidatorModel):
+    ResourceDataSyncItems: List[ResourceDataSyncItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateResourceDataSyncRequestTypeDef(BaseValidatorModel):
+class CreateResourceDataSyncRequest(BaseValidatorModel):
     SyncName: str
-    S3Destination: Optional[ResourceDataSyncS3DestinationTypeDef] = None
+    S3Destination: Optional[ResourceDataSyncS3Destination] = None
     SyncType: Optional[str] = None
-    SyncSource: Optional[ResourceDataSyncSourceTypeDef] = None
+    SyncSource: Optional[ResourceDataSyncSource] = None
 
 
-class UpdateResourceDataSyncRequestTypeDef(BaseValidatorModel):
+class UpdateResourceDataSyncRequest(BaseValidatorModel):
     SyncName: str
     SyncType: str
-    SyncSource: ResourceDataSyncSourceTypeDef
+    SyncSource: ResourceDataSyncSource
 
 
-class CreateAssociationBatchResultTypeDef(BaseValidatorModel):
-    Successful: List[AssociationDescriptionTypeDef]
-    Failed: List[FailedCreateAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssociationBatchResult(BaseValidatorModel):
+    Successful: List[AssociationDescription]
+    Failed: List[FailedCreateAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAutomationExecutionsResultTypeDef(BaseValidatorModel):
-    AutomationExecutionMetadataList: List[AutomationExecutionMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAutomationExecutionsResult(BaseValidatorModel):
+    AutomationExecutionMetadataList: List[AutomationExecutionMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetAutomationExecutionResultTypeDef(BaseValidatorModel):
-    AutomationExecution: AutomationExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAutomationExecutionResult(BaseValidatorModel):
+    AutomationExecution: AutomationExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class TargetLocationUnionTypeDef(BaseValidatorModel):
+class TargetLocationUnion(BaseValidatorModel):
     pass
 
 
-class AutomationExecutionInputsTypeDef(BaseValidatorModel):
+class AutomationExecutionInputs(BaseValidatorModel):
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
     TargetLocationsURL: Optional[str] = None
 
 
-class CreateAssociationBatchRequestEntryTypeDef(BaseValidatorModel):
+class CreateAssociationBatchRequestEntry(BaseValidatorModel):
     Name: str
     InstanceId: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     AutomationTargetParameterName: Optional[str] = None
     DocumentVersion: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     AssociationName: Optional[str] = None
     MaxErrors: Optional[str] = None
     MaxConcurrency: Optional[str] = None
@@ -3701,21 +3701,21 @@ class CreateAssociationBatchRequestEntryTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[Sequence[str]] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class CreateAssociationRequestTypeDef(BaseValidatorModel):
+class CreateAssociationRequest(BaseValidatorModel):
     Name: str
     DocumentVersion: Optional[str] = None
     InstanceId: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     AssociationName: Optional[str] = None
     AutomationTargetParameterName: Optional[str] = None
     MaxErrors: Optional[str] = None
@@ -3724,51 +3724,51 @@ class CreateAssociationRequestTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[Sequence[str]] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class RunbookTypeDef(BaseValidatorModel):
+class Runbook(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
 
 
-class StartAutomationExecutionRequestTypeDef(BaseValidatorModel):
+class StartAutomationExecutionRequest(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     ClientToken: Optional[str] = None
     Mode: Optional[ExecutionModeType] = None
     TargetParameterName: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
     MaxConcurrency: Optional[str] = None
     MaxErrors: Optional[str] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
     TargetLocationsURL: Optional[str] = None
 
 
-class UpdateAssociationRequestTypeDef(BaseValidatorModel):
+class UpdateAssociationRequest(BaseValidatorModel):
     AssociationId: str
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     DocumentVersion: Optional[str] = None
     ScheduleExpression: Optional[str] = None
-    OutputLocation: Optional[InstanceAssociationOutputLocationTypeDef] = None
+    OutputLocation: Optional[InstanceAssociationOutputLocation] = None
     Name: Optional[str] = None
-    Targets: Optional[Sequence[TargetUnionTypeDef]] = None
+    Targets: Optional[Sequence[TargetUnion]] = None
     AssociationName: Optional[str] = None
     AssociationVersion: Optional[str] = None
     AutomationTargetParameterName: Optional[str] = None
@@ -3778,111 +3778,111 @@ class UpdateAssociationRequestTypeDef(BaseValidatorModel):
     SyncCompliance: Optional[AssociationSyncComplianceType] = None
     ApplyOnlyAtCronInterval: Optional[bool] = None
     CalendarNames: Optional[Sequence[str]] = None
-    TargetLocations: Optional[Sequence[TargetLocationUnionTypeDef]] = None
+    TargetLocations: Optional[Sequence[TargetLocationUnion]] = None
     ScheduleOffset: Optional[int] = None
     Duration: Optional[int] = None
     TargetMaps: Optional[Sequence[Mapping[str, Sequence[str]]]] = None
-    AlarmConfiguration: Optional[AlarmConfigurationUnionTypeDef] = None
+    AlarmConfiguration: Optional[AlarmConfigurationUnion] = None
 
 
-class ExecutionInputsTypeDef(BaseValidatorModel):
-    Automation: Optional[AutomationExecutionInputsTypeDef] = None
+class ExecutionInputs(BaseValidatorModel):
+    Automation: Optional[AutomationExecutionInputs] = None
 
 
-class PatchRuleUnionTypeDef(BaseValidatorModel):
+class PatchRuleUnion(BaseValidatorModel):
     pass
 
 
-class PatchRuleGroupTypeDef(BaseValidatorModel):
-    PatchRules: Sequence[PatchRuleUnionTypeDef]
+class PatchRuleGroup(BaseValidatorModel):
+    PatchRules: Sequence[PatchRuleUnion]
 
 
-class StartExecutionPreviewRequestTypeDef(BaseValidatorModel):
+class StartExecutionPreviewRequest(BaseValidatorModel):
     DocumentName: str
     DocumentVersion: Optional[str] = None
-    ExecutionInputs: Optional[ExecutionInputsTypeDef] = None
+    ExecutionInputs: Optional[ExecutionInputs] = None
 
 
-class CreateAssociationBatchRequestEntryUnionTypeDef(BaseValidatorModel):
+class CreateAssociationBatchRequestEntryUnion(BaseValidatorModel):
     pass
 
 
-class CreateAssociationBatchRequestTypeDef(BaseValidatorModel):
-    Entries: Sequence[CreateAssociationBatchRequestEntryUnionTypeDef]
+class CreateAssociationBatchRequest(BaseValidatorModel):
+    Entries: Sequence[CreateAssociationBatchRequestEntryUnion]
 
 
-class RunbookUnionTypeDef(BaseValidatorModel):
+class RunbookUnion(BaseValidatorModel):
     pass
 
 
-class StartChangeRequestExecutionRequestTypeDef(BaseValidatorModel):
+class StartChangeRequestExecutionRequest(BaseValidatorModel):
     DocumentName: str
-    Runbooks: Sequence[RunbookUnionTypeDef]
-    ScheduledTime: Optional[TimestampTypeDef] = None
+    Runbooks: Sequence[RunbookUnion]
+    ScheduledTime: Optional[Timestamp] = None
     DocumentVersion: Optional[str] = None
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
     ChangeRequestName: Optional[str] = None
     ClientToken: Optional[str] = None
     AutoApprove: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ScheduledEndTime: Optional[TimestampTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ScheduledEndTime: Optional[Timestamp] = None
     ChangeDetails: Optional[str] = None
 
 
-class PatchRuleGroupUnionTypeDef(BaseValidatorModel):
+class PatchRuleGroupUnion(BaseValidatorModel):
     pass
 
 
-class PatchSourceUnionTypeDef(BaseValidatorModel):
+class PatchSourceUnion(BaseValidatorModel):
     pass
 
 
-class BaselineOverrideTypeDef(BaseValidatorModel):
+class BaselineOverride(BaseValidatorModel):
     OperatingSystem: Optional[OperatingSystemType] = None
-    GlobalFilters: Optional[PatchFilterGroupUnionTypeDef] = None
-    ApprovalRules: Optional[PatchRuleGroupUnionTypeDef] = None
+    GlobalFilters: Optional[PatchFilterGroupUnion] = None
+    ApprovalRules: Optional[PatchRuleGroupUnion] = None
     ApprovedPatches: Optional[Sequence[str]] = None
     ApprovedPatchesComplianceLevel: Optional[PatchComplianceLevelType] = None
     RejectedPatches: Optional[Sequence[str]] = None
     RejectedPatchesAction: Optional[PatchActionType] = None
     ApprovedPatchesEnableNonSecurity: Optional[bool] = None
-    Sources: Optional[Sequence[PatchSourceUnionTypeDef]] = None
+    Sources: Optional[Sequence[PatchSourceUnion]] = None
 
 
-class CreatePatchBaselineRequestTypeDef(BaseValidatorModel):
+class CreatePatchBaselineRequest(BaseValidatorModel):
     Name: str
     OperatingSystem: Optional[OperatingSystemType] = None
-    GlobalFilters: Optional[PatchFilterGroupUnionTypeDef] = None
-    ApprovalRules: Optional[PatchRuleGroupUnionTypeDef] = None
+    GlobalFilters: Optional[PatchFilterGroupUnion] = None
+    ApprovalRules: Optional[PatchRuleGroupUnion] = None
     ApprovedPatches: Optional[Sequence[str]] = None
     ApprovedPatchesComplianceLevel: Optional[PatchComplianceLevelType] = None
     ApprovedPatchesEnableNonSecurity: Optional[bool] = None
     RejectedPatches: Optional[Sequence[str]] = None
     RejectedPatchesAction: Optional[PatchActionType] = None
     Description: Optional[str] = None
-    Sources: Optional[Sequence[PatchSourceUnionTypeDef]] = None
+    Sources: Optional[Sequence[PatchSourceUnion]] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdatePatchBaselineRequestTypeDef(BaseValidatorModel):
+class UpdatePatchBaselineRequest(BaseValidatorModel):
     BaselineId: str
     Name: Optional[str] = None
-    GlobalFilters: Optional[PatchFilterGroupUnionTypeDef] = None
-    ApprovalRules: Optional[PatchRuleGroupUnionTypeDef] = None
+    GlobalFilters: Optional[PatchFilterGroupUnion] = None
+    ApprovalRules: Optional[PatchRuleGroupUnion] = None
     ApprovedPatches: Optional[Sequence[str]] = None
     ApprovedPatchesComplianceLevel: Optional[PatchComplianceLevelType] = None
     ApprovedPatchesEnableNonSecurity: Optional[bool] = None
     RejectedPatches: Optional[Sequence[str]] = None
     RejectedPatchesAction: Optional[PatchActionType] = None
     Description: Optional[str] = None
-    Sources: Optional[Sequence[PatchSourceUnionTypeDef]] = None
+    Sources: Optional[Sequence[PatchSourceUnion]] = None
     Replace: Optional[bool] = None
 
 
-class GetDeployablePatchSnapshotForInstanceRequestTypeDef(BaseValidatorModel):
+class GetDeployablePatchSnapshotForInstanceRequest(BaseValidatorModel):
     InstanceId: str
     SnapshotId: str
-    BaselineOverride: Optional[BaselineOverrideTypeDef] = None
+    BaselineOverride: Optional[BaselineOverride] = None
 
 

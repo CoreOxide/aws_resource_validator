@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DimensionValuesTypeDef
+# DimensionValues
 
 ### Key
 - **Type**: typing.Literal['DESCRIPTION', 'FREE_TIER_TYPE', 'OPERATION', 'REGION', 'SERVICE', 'USAGE_PERCENTAGE', 'USAGE_TYPE']
@@ -21,13 +21,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ExpressionPaginatorTypeDef
+# Expression
 
 ### And
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValues]
 
 ### Not
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
@@ -36,13 +36,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
-# ExpressionTypeDef
+# ExpressionPaginator
 
 ### And
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValuesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.freetier_classes.DimensionValues]
 
 ### Not
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, typing.Any]]]
 
 
-# FreeTierUsageTypeDef
+# FreeTierUsage
 
 ### actualUsageAmount
 - **Type**: typing.Optional[float]
@@ -84,21 +84,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetFreeTierUsageResponseTypeDef
+# GetFreeTierUsageResponse
 
 ### freeTierUsages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.freetier_classes.FreeTierUsageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.freetier_classes.FreeTierUsage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.freetier_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.freetier_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -110,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

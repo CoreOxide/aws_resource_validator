@@ -6,19 +6,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BucketInfoTypeDef
-
-### buckets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.BucketTypeDef]]
-
-
-# BucketTypeDef
+# Bucket
 
 ### value
 - **Type**: typing.Optional[str]
@@ -27,25 +21,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DocumentServiceWarningTypeDef
+# BucketInfo
+
+### buckets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.Bucket]]
+
+
+# DocumentServiceWarning
 
 ### message
 - **Type**: typing.Optional[str]
 
 
-# FieldStatsTypeDef
+# FieldStats
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HitTypeDef
+# Hit
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# HitsTypeDef
+# Hits
 
 ### found
 - **Type**: typing.Optional[int]
@@ -57,10 +57,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### hit
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.HitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.Hit]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -82,7 +82,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchRequestTypeDef
+# SearchRequest
 
 ### query
 - **Type**: <class 'str'>
@@ -128,30 +128,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchResponseTypeDef
+# SearchResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SearchStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SearchStatus'>
 - **Required**: Yes
 
 ### hits
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.HitsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.Hits'>
 - **Required**: Yes
 
 ### facets
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cloudsearchdomain_classes.BucketInfoTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cloudsearchdomain_classes.BucketInfo]
 - **Required**: Yes
 
 ### stats
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cloudsearchdomain_classes.FieldStatsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.cloudsearchdomain_classes.FieldStats]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SearchStatusTypeDef
+# SearchStatus
 
 ### timems
 - **Type**: typing.Optional[int]
@@ -160,7 +160,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SuggestModelTypeDef
+# SuggestModel
 
 ### query
 - **Type**: typing.Optional[str]
@@ -169,10 +169,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### suggestions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestionMatchTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestionMatch]]
 
 
-# SuggestRequestTypeDef
+# SuggestRequest
 
 ### query
 - **Type**: <class 'str'>
@@ -186,22 +186,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SuggestResponseTypeDef
+# SuggestResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestStatus'>
 - **Required**: Yes
 
 ### suggest
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestModelTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.SuggestModel'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SuggestStatusTypeDef
+# SuggestStatus
 
 ### timems
 - **Type**: typing.Optional[int]
@@ -210,16 +210,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SuggestionMatchTypeDef
+# SuggestionMatch
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UploadDocumentsRequestTypeDef
+# UploadDocumentsRequest
 
 ### documents
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.Blob'>
 - **Required**: Yes
 
 ### contentType
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UploadDocumentsResponseTypeDef
+# UploadDocumentsResponse
 
 ### status
 - **Type**: <class 'str'>
@@ -242,11 +242,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.DocumentServiceWarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudsearchdomain_classes.DocumentServiceWarning]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudsearchdomain_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

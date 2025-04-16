@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.quicksight_constants import *
 
-class AccountCustomizationTypeDef(BaseValidatorModel):
+class AccountCustomization(BaseValidatorModel):
     DefaultTheme: Optional[str] = None
     DefaultEmailCustomizationTemplate: Optional[str] = None
 
 
-class AccountInfoTypeDef(BaseValidatorModel):
+class AccountInfo(BaseValidatorModel):
     AccountName: Optional[str] = None
     Edition: Optional[EditionType] = None
     NotificationEmail: Optional[str] = None
@@ -26,7 +26,7 @@ class AccountInfoTypeDef(BaseValidatorModel):
     IAMIdentityCenterInstanceArn: Optional[str] = None
 
 
-class AccountSettingsTypeDef(BaseValidatorModel):
+class AccountSettings(BaseValidatorModel):
     AccountName: Optional[str] = None
     Edition: Optional[EditionType] = None
     DefaultNamespace: Optional[str] = None
@@ -35,88 +35,88 @@ class AccountSettingsTypeDef(BaseValidatorModel):
     TerminationProtectionEnabled: Optional[bool] = None
 
 
-class ActiveIAMPolicyAssignmentTypeDef(BaseValidatorModel):
+class ActiveIAMPolicyAssignment(BaseValidatorModel):
     AssignmentName: Optional[str] = None
     PolicyArn: Optional[str] = None
 
 
-class AdHocFilteringOptionTypeDef(BaseValidatorModel):
+class AdHocFilteringOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class AggFunctionOutputTypeDef(BaseValidatorModel):
+class AggFunctionOutput(BaseValidatorModel):
     Aggregation: Optional[AggTypeType] = None
     AggregationFunctionParameters: Optional[Dict[str, str]] = None
     Period: Optional[TopicTimeGranularityType] = None
     PeriodField: Optional[str] = None
 
 
-class AggFunctionTypeDef(BaseValidatorModel):
+class AggFunction(BaseValidatorModel):
     Aggregation: Optional[AggTypeType] = None
     AggregationFunctionParameters: Optional[Mapping[str, str]] = None
     Period: Optional[TopicTimeGranularityType] = None
     PeriodField: Optional[str] = None
 
 
-class AttributeAggregationFunctionTypeDef(BaseValidatorModel):
+class AttributeAggregationFunction(BaseValidatorModel):
     SimpleAttributeAggregation: Optional[Literal["UNIQUE_VALUE"]] = None
     ValueForMultipleValues: Optional[str] = None
 
 
-class AggregationPartitionByTypeDef(BaseValidatorModel):
+class AggregationPartitionBy(BaseValidatorModel):
     FieldName: Optional[str] = None
     TimeGranularity: Optional[TimeGranularityType] = None
 
 
-class ColumnIdentifierTypeDef(BaseValidatorModel):
+class ColumnIdentifier(BaseValidatorModel):
     DataSetIdentifier: str
     ColumnName: str
 
 
-class AmazonElasticsearchParametersTypeDef(BaseValidatorModel):
+class AmazonElasticsearchParameters(BaseValidatorModel):
     Domain: str
 
 
-class AmazonOpenSearchParametersTypeDef(BaseValidatorModel):
+class AmazonOpenSearchParameters(BaseValidatorModel):
     Domain: str
 
 
-class AssetOptionsTypeDef(BaseValidatorModel):
+class AssetOptions(BaseValidatorModel):
     Timezone: Optional[str] = None
     WeekStart: Optional[DayOfTheWeekType] = None
 
 
-class CalculatedFieldTypeDef(BaseValidatorModel):
+class CalculatedField(BaseValidatorModel):
     DataSetIdentifier: str
     Name: str
     Expression: str
 
 
-class DataSetIdentifierDeclarationTypeDef(BaseValidatorModel):
+class DataSetIdentifierDeclaration(BaseValidatorModel):
     Identifier: str
     DataSetArn: str
 
 
-class QueryExecutionOptionsTypeDef(BaseValidatorModel):
+class QueryExecutionOptions(BaseValidatorModel):
     QueryExecutionMode: Optional[QueryExecutionModeType] = None
 
 
-class EntityTypeDef(BaseValidatorModel):
+class Entity(BaseValidatorModel):
     Path: Optional[str] = None
 
 
-class AnalysisSearchFilterTypeDef(BaseValidatorModel):
+class AnalysisSearchFilter(BaseValidatorModel):
     Operator: Optional[FilterOperatorType] = None
     Name: Optional[AnalysisFilterAttributeType] = None
     Value: Optional[str] = None
 
 
-class DataSetReferenceTypeDef(BaseValidatorModel):
+class DataSetReference(BaseValidatorModel):
     DataSetPlaceholder: str
     DataSetArn: str
 
 
-class AnalysisSummaryTypeDef(BaseValidatorModel):
+class AnalysisSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     AnalysisId: Optional[str] = None
     Name: Optional[str] = None
@@ -125,134 +125,134 @@ class AnalysisSummaryTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class AnchorDateConfigurationTypeDef(BaseValidatorModel):
+class AnchorDateConfiguration(BaseValidatorModel):
     AnchorOption: Optional[Literal["NOW"]] = None
     ParameterName: Optional[str] = None
 
 
-class AnchorTypeDef(BaseValidatorModel):
+class Anchor(BaseValidatorModel):
     AnchorType: Optional[Literal["TODAY"]] = None
     TimeGranularity: Optional[TimeGranularityType] = None
     Offset: Optional[int] = None
 
 
-class SharedViewConfigurationsTypeDef(BaseValidatorModel):
+class SharedViewConfigurations(BaseValidatorModel):
     Enabled: bool
 
 
-class DashboardVisualIdTypeDef(BaseValidatorModel):
+class DashboardVisualId(BaseValidatorModel):
     DashboardId: str
     SheetId: str
     VisualId: str
 
 
-class AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class AnonymousUserGenerativeQnAEmbeddingConfiguration(BaseValidatorModel):
     InitialTopicId: str
 
 
-class AnonymousUserQSearchBarEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class AnonymousUserQSearchBarEmbeddingConfiguration(BaseValidatorModel):
     InitialTopicId: str
 
 
-class ArcAxisDisplayRangeTypeDef(BaseValidatorModel):
+class ArcAxisDisplayRange(BaseValidatorModel):
     Min: Optional[float] = None
     Max: Optional[float] = None
 
 
-class ArcConfigurationTypeDef(BaseValidatorModel):
+class ArcConfiguration(BaseValidatorModel):
     ArcAngle: Optional[float] = None
     ArcThickness: Optional[ArcThicknessOptionsType] = None
 
 
-class ArcOptionsTypeDef(BaseValidatorModel):
+class ArcOptions(BaseValidatorModel):
     ArcThickness: Optional[ArcThicknessType] = None
 
 
-class AssetBundleExportJobAnalysisOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobAnalysisOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[Literal["Name"]]
 
 
-class AssetBundleExportJobDashboardOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDashboardOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[Literal["Name"]]
 
 
-class AssetBundleExportJobDataSetOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDataSetOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[Literal["Name"]]
 
 
-class AssetBundleExportJobDataSourceOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDataSourceOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[AssetBundleExportJobDataSourcePropertyToOverrideType]
 
 
-class AssetBundleExportJobFolderOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobFolderOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[AssetBundleExportJobFolderPropertyToOverrideType]
 
 
-class AssetBundleExportJobRefreshScheduleOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobRefreshScheduleOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[Literal["StartAfterDateTime"]]
 
 
-class AssetBundleExportJobResourceIdOverrideConfigurationTypeDef(BaseValidatorModel):
+class AssetBundleExportJobResourceIdOverrideConfiguration(BaseValidatorModel):
     PrefixForAllResources: Optional[bool] = None
 
 
-class AssetBundleExportJobThemeOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobThemeOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[Literal["Name"]]
 
 
-class AssetBundleExportJobVPCConnectionOverridePropertiesOutputTypeDef(BaseValidatorModel):
+class AssetBundleExportJobVPCConnectionOverridePropertiesOutput(BaseValidatorModel):
     Arn: str
     Properties: List[AssetBundleExportJobVPCConnectionPropertyToOverrideType]
 
 
-class AssetBundleExportJobAnalysisOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobAnalysisOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[Literal["Name"]]
 
 
-class AssetBundleExportJobDashboardOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDashboardOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[Literal["Name"]]
 
 
-class AssetBundleExportJobDataSetOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDataSetOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[Literal["Name"]]
 
 
-class AssetBundleExportJobDataSourceOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobDataSourceOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[AssetBundleExportJobDataSourcePropertyToOverrideType]
 
 
-class AssetBundleExportJobFolderOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobFolderOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[AssetBundleExportJobFolderPropertyToOverrideType]
 
 
-class AssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobRefreshScheduleOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[Literal["StartAfterDateTime"]]
 
 
-class AssetBundleExportJobThemeOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobThemeOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[Literal["Name"]]
 
 
-class AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef(BaseValidatorModel):
+class AssetBundleExportJobVPCConnectionOverrideProperties(BaseValidatorModel):
     Arn: str
     Properties: Sequence[AssetBundleExportJobVPCConnectionPropertyToOverrideType]
 
 
-class AssetBundleExportJobSummaryTypeDef(BaseValidatorModel):
+class AssetBundleExportJobSummary(BaseValidatorModel):
     JobStatus: Optional[AssetBundleExportJobStatusType] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -263,80 +263,80 @@ class AssetBundleExportJobSummaryTypeDef(BaseValidatorModel):
     IncludeTags: Optional[bool] = None
 
 
-class AssetBundleExportJobValidationStrategyTypeDef(BaseValidatorModel):
+class AssetBundleExportJobValidationStrategy(BaseValidatorModel):
     StrictModeForAllResources: Optional[bool] = None
 
 
-class AssetBundleExportJobWarningTypeDef(BaseValidatorModel):
+class AssetBundleExportJobWarning(BaseValidatorModel):
     Arn: Optional[str] = None
     Message: Optional[str] = None
 
 
-class AssetBundleImportJobAnalysisOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobAnalysisOverrideParameters(BaseValidatorModel):
     AnalysisId: str
     Name: Optional[str] = None
 
 
-class AssetBundleResourcePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleResourcePermissionsOutput(BaseValidatorModel):
     Principals: List[str]
     Actions: List[str]
 
 
-class AssetBundleResourcePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleResourcePermissions(BaseValidatorModel):
     Principals: Sequence[str]
     Actions: Sequence[str]
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class AssetBundleImportJobDashboardOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDashboardOverrideParameters(BaseValidatorModel):
     DashboardId: str
     Name: Optional[str] = None
 
 
-class AssetBundleImportJobDataSetOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSetOverrideParameters(BaseValidatorModel):
     DataSetId: str
     Name: Optional[str] = None
 
 
-class AssetBundleImportJobDataSourceCredentialPairTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceCredentialPair(BaseValidatorModel):
     Username: str
     Password: str
 
 
-class SslPropertiesTypeDef(BaseValidatorModel):
+class SslProperties(BaseValidatorModel):
     DisableSsl: Optional[bool] = None
 
 
-class VpcConnectionPropertiesTypeDef(BaseValidatorModel):
+class VpcConnectionProperties(BaseValidatorModel):
     VpcConnectionArn: str
 
 
-class AssetBundleImportJobFolderOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobFolderOverrideParameters(BaseValidatorModel):
     FolderId: str
     Name: Optional[str] = None
     ParentFolderArn: Optional[str] = None
 
 
-class AssetBundleImportJobRefreshScheduleOverrideParametersOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobRefreshScheduleOverrideParametersOutput(BaseValidatorModel):
     DataSetId: str
     ScheduleId: str
     StartAfterDateTime: Optional[datetime] = None
 
 
-class AssetBundleImportJobResourceIdOverrideConfigurationTypeDef(BaseValidatorModel):
+class AssetBundleImportJobResourceIdOverrideConfiguration(BaseValidatorModel):
     PrefixForAllResources: Optional[str] = None
 
 
-class AssetBundleImportJobThemeOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobThemeOverrideParameters(BaseValidatorModel):
     ThemeId: str
     Name: Optional[str] = None
 
 
-class AssetBundleImportJobVPCConnectionOverrideParametersOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobVPCConnectionOverrideParametersOutput(BaseValidatorModel):
     VPCConnectionId: str
     Name: Optional[str] = None
     SubnetIds: Optional[List[str]] = None
@@ -345,7 +345,7 @@ class AssetBundleImportJobVPCConnectionOverrideParametersOutputTypeDef(BaseValid
     RoleArn: Optional[str] = None
 
 
-class AssetBundleImportJobVPCConnectionOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobVPCConnectionOverrideParameters(BaseValidatorModel):
     VPCConnectionId: str
     Name: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
@@ -354,11 +354,11 @@ class AssetBundleImportJobVPCConnectionOverrideParametersTypeDef(BaseValidatorMo
     RoleArn: Optional[str] = None
 
 
-class AssetBundleImportJobOverrideValidationStrategyTypeDef(BaseValidatorModel):
+class AssetBundleImportJobOverrideValidationStrategy(BaseValidatorModel):
     StrictModeForAllResources: Optional[bool] = None
 
 
-class AssetBundleImportJobSummaryTypeDef(BaseValidatorModel):
+class AssetBundleImportJobSummary(BaseValidatorModel):
     JobStatus: Optional[AssetBundleImportJobStatusType] = None
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
@@ -366,71 +366,71 @@ class AssetBundleImportJobSummaryTypeDef(BaseValidatorModel):
     FailureAction: Optional[AssetBundleImportFailureActionType] = None
 
 
-class AssetBundleImportJobWarningTypeDef(BaseValidatorModel):
+class AssetBundleImportJobWarning(BaseValidatorModel):
     Arn: Optional[str] = None
     Message: Optional[str] = None
 
 
-class AssetBundleImportSourceDescriptionTypeDef(BaseValidatorModel):
+class AssetBundleImportSourceDescription(BaseValidatorModel):
     Body: Optional[str] = None
     S3Uri: Optional[str] = None
 
 
-class AthenaParametersTypeDef(BaseValidatorModel):
+class AthenaParameters(BaseValidatorModel):
     WorkGroup: Optional[str] = None
     RoleArn: Optional[str] = None
 
 
-class AuroraParametersTypeDef(BaseValidatorModel):
+class AuroraParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class AuroraPostgreSqlParametersTypeDef(BaseValidatorModel):
+class AuroraPostgreSqlParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class AuthorizedTargetsByServiceTypeDef(BaseValidatorModel):
+class AuthorizedTargetsByService(BaseValidatorModel):
     Service: Optional[ServiceTypeType] = None
     AuthorizedTargets: Optional[List[str]] = None
 
 
-class AwsIotAnalyticsParametersTypeDef(BaseValidatorModel):
+class AwsIotAnalyticsParameters(BaseValidatorModel):
     DataSetName: str
 
 
-class DateAxisOptionsTypeDef(BaseValidatorModel):
+class DateAxisOptions(BaseValidatorModel):
     MissingDateVisibility: Optional[VisibilityType] = None
 
 
-class AxisDisplayMinMaxRangeTypeDef(BaseValidatorModel):
+class AxisDisplayMinMaxRange(BaseValidatorModel):
     Minimum: Optional[float] = None
     Maximum: Optional[float] = None
 
 
-class AxisLinearScaleTypeDef(BaseValidatorModel):
+class AxisLinearScale(BaseValidatorModel):
     StepCount: Optional[int] = None
     StepSize: Optional[float] = None
 
 
-class AxisLogarithmicScaleTypeDef(BaseValidatorModel):
+class AxisLogarithmicScale(BaseValidatorModel):
     Base: Optional[float] = None
 
 
-class ItemsLimitConfigurationTypeDef(BaseValidatorModel):
+class ItemsLimitConfiguration(BaseValidatorModel):
     ItemsLimit: Optional[int] = None
     OtherCategories: Optional[OtherCategoriesType] = None
 
 
-class InvalidTopicReviewedAnswerTypeDef(BaseValidatorModel):
+class InvalidTopicReviewedAnswer(BaseValidatorModel):
     AnswerId: Optional[str] = None
     Error: Optional[ReviewedAnswerErrorCodeType] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -438,57 +438,57 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class SucceededTopicReviewedAnswerTypeDef(BaseValidatorModel):
+class SucceededTopicReviewedAnswer(BaseValidatorModel):
     AnswerId: Optional[str] = None
 
 
-class BatchDeleteTopicReviewedAnswerRequestTypeDef(BaseValidatorModel):
+class BatchDeleteTopicReviewedAnswerRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     AnswerIds: Optional[Sequence[str]] = None
 
 
-class BigQueryParametersTypeDef(BaseValidatorModel):
+class BigQueryParameters(BaseValidatorModel):
     ProjectId: str
     DataSetRegion: Optional[str] = None
 
 
-class BinCountOptionsTypeDef(BaseValidatorModel):
+class BinCountOptions(BaseValidatorModel):
     Value: Optional[int] = None
 
 
-class BinWidthOptionsTypeDef(BaseValidatorModel):
+class BinWidthOptions(BaseValidatorModel):
     Value: Optional[float] = None
     BinCountLimit: Optional[int] = None
 
 
-class SectionAfterPageBreakTypeDef(BaseValidatorModel):
+class SectionAfterPageBreak(BaseValidatorModel):
     Status: Optional[SectionPageBreakStatusType] = None
 
 
-class BookmarksConfigurationsTypeDef(BaseValidatorModel):
+class BookmarksConfigurations(BaseValidatorModel):
     Enabled: bool
 
 
-class BorderStyleTypeDef(BaseValidatorModel):
+class BorderStyle(BaseValidatorModel):
     Show: Optional[bool] = None
 
 
-class BoxPlotStyleOptionsTypeDef(BaseValidatorModel):
+class BoxPlotStyleOptions(BaseValidatorModel):
     FillStyle: Optional[BoxPlotFillStyleType] = None
 
 
-class PaginationConfigurationTypeDef(BaseValidatorModel):
+class PaginationConfiguration(BaseValidatorModel):
     PageSize: int
     PageNumber: int
 
 
-class PaletteTypeDef(BaseValidatorModel):
+class Palette(BaseValidatorModel):
     Foreground: Optional[str] = None
     Background: Optional[str] = None
 
 
-class BrandSummaryTypeDef(BaseValidatorModel):
+class BrandSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     BrandId: Optional[str] = None
     BrandName: Optional[str] = None
@@ -498,24 +498,24 @@ class BrandSummaryTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class CalculatedColumnTypeDef(BaseValidatorModel):
+class CalculatedColumn(BaseValidatorModel):
     ColumnName: str
     ColumnId: str
     Expression: str
 
 
-class CalculatedMeasureFieldTypeDef(BaseValidatorModel):
+class CalculatedMeasureField(BaseValidatorModel):
     FieldId: str
     Expression: str
 
 
-class CancelIngestionRequestTypeDef(BaseValidatorModel):
+class CancelIngestionRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     IngestionId: str
 
 
-class CapabilitiesTypeDef(BaseValidatorModel):
+class Capabilities(BaseValidatorModel):
     ExportToCsv: Optional[Literal["DENY"]] = None
     ExportToExcel: Optional[Literal["DENY"]] = None
     CreateAndUpdateThemes: Optional[Literal["DENY"]] = None
@@ -535,14 +535,14 @@ class CapabilitiesTypeDef(BaseValidatorModel):
     CreateSPICEDataset: Optional[Literal["DENY"]] = None
 
 
-class CastColumnTypeOperationTypeDef(BaseValidatorModel):
+class CastColumnTypeOperation(BaseValidatorModel):
     ColumnName: str
     NewColumnType: ColumnDataTypeType
     SubType: Optional[ColumnDataSubTypeType] = None
     Format: Optional[str] = None
 
 
-class CustomFilterConfigurationTypeDef(BaseValidatorModel):
+class CustomFilterConfiguration(BaseValidatorModel):
     MatchOperator: CategoryFilterMatchOperatorType
     NullOption: FilterNullOptionType
     CategoryValue: Optional[str] = None
@@ -550,138 +550,138 @@ class CustomFilterConfigurationTypeDef(BaseValidatorModel):
     ParameterName: Optional[str] = None
 
 
-class CustomFilterListConfigurationOutputTypeDef(BaseValidatorModel):
+class CustomFilterListConfigurationOutput(BaseValidatorModel):
     MatchOperator: CategoryFilterMatchOperatorType
     NullOption: FilterNullOptionType
     CategoryValues: Optional[List[str]] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
 
 
-class FilterListConfigurationOutputTypeDef(BaseValidatorModel):
+class FilterListConfigurationOutput(BaseValidatorModel):
     MatchOperator: CategoryFilterMatchOperatorType
     CategoryValues: Optional[List[str]] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
     NullOption: Optional[FilterNullOptionType] = None
 
 
-class CustomFilterListConfigurationTypeDef(BaseValidatorModel):
+class CustomFilterListConfiguration(BaseValidatorModel):
     MatchOperator: CategoryFilterMatchOperatorType
     NullOption: FilterNullOptionType
     CategoryValues: Optional[Sequence[str]] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
 
 
-class FilterListConfigurationTypeDef(BaseValidatorModel):
+class FilterListConfiguration(BaseValidatorModel):
     MatchOperator: CategoryFilterMatchOperatorType
     CategoryValues: Optional[Sequence[str]] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
     NullOption: Optional[FilterNullOptionType] = None
 
 
-class CellValueSynonymOutputTypeDef(BaseValidatorModel):
+class CellValueSynonymOutput(BaseValidatorModel):
     CellValue: Optional[str] = None
     Synonyms: Optional[List[str]] = None
 
 
-class CellValueSynonymTypeDef(BaseValidatorModel):
+class CellValueSynonym(BaseValidatorModel):
     CellValue: Optional[str] = None
     Synonyms: Optional[Sequence[str]] = None
 
 
-class SimpleClusterMarkerTypeDef(BaseValidatorModel):
+class SimpleClusterMarker(BaseValidatorModel):
     Color: Optional[str] = None
 
 
-class CollectiveConstantEntryTypeDef(BaseValidatorModel):
+class CollectiveConstantEntry(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     Value: Optional[str] = None
 
 
-class CollectiveConstantOutputTypeDef(BaseValidatorModel):
+class CollectiveConstantOutput(BaseValidatorModel):
     ValueList: Optional[List[str]] = None
 
 
-class CollectiveConstantTypeDef(BaseValidatorModel):
+class CollectiveConstant(BaseValidatorModel):
     ValueList: Optional[Sequence[str]] = None
 
 
-class DataColorTypeDef(BaseValidatorModel):
+class DataColor(BaseValidatorModel):
     Color: Optional[str] = None
     DataValue: Optional[float] = None
 
 
-class CustomColorTypeDef(BaseValidatorModel):
+class CustomColor(BaseValidatorModel):
     Color: str
     FieldValue: Optional[str] = None
     SpecialValue: Optional[SpecialValueType] = None
 
 
-class ColumnGroupColumnSchemaTypeDef(BaseValidatorModel):
+class ColumnGroupColumnSchema(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class GeoSpatialColumnGroupOutputTypeDef(BaseValidatorModel):
+class GeoSpatialColumnGroupOutput(BaseValidatorModel):
     Name: str
     Columns: List[str]
     CountryCode: Optional[Literal["US"]] = None
 
 
-class ColumnLevelPermissionRuleOutputTypeDef(BaseValidatorModel):
+class ColumnLevelPermissionRuleOutput(BaseValidatorModel):
     Principals: Optional[List[str]] = None
     ColumnNames: Optional[List[str]] = None
 
 
-class ColumnLevelPermissionRuleTypeDef(BaseValidatorModel):
+class ColumnLevelPermissionRule(BaseValidatorModel):
     Principals: Optional[Sequence[str]] = None
     ColumnNames: Optional[Sequence[str]] = None
 
 
-class ColumnSchemaTypeDef(BaseValidatorModel):
+class ColumnSchema(BaseValidatorModel):
     Name: Optional[str] = None
     DataType: Optional[str] = None
     GeographicRole: Optional[str] = None
 
 
-class ComparativeOrderOutputTypeDef(BaseValidatorModel):
+class ComparativeOrderOutput(BaseValidatorModel):
     UseOrdering: Optional[ColumnOrderingTypeType] = None
     SpecifedOrder: Optional[List[str]] = None
     TreatUndefinedSpecifiedValues: Optional[UndefinedSpecifiedValueTypeType] = None
 
 
-class ComparativeOrderTypeDef(BaseValidatorModel):
+class ComparativeOrder(BaseValidatorModel):
     UseOrdering: Optional[ColumnOrderingTypeType] = None
     SpecifedOrder: Optional[Sequence[str]] = None
     TreatUndefinedSpecifiedValues: Optional[UndefinedSpecifiedValueTypeType] = None
 
 
-class ConditionalFormattingSolidColorTypeDef(BaseValidatorModel):
+class ConditionalFormattingSolidColor(BaseValidatorModel):
     Expression: str
     Color: Optional[str] = None
 
 
-class ConditionalFormattingCustomIconOptionsTypeDef(BaseValidatorModel):
+class ConditionalFormattingCustomIconOptions(BaseValidatorModel):
     Icon: Optional[IconType] = None
     UnicodeIcon: Optional[str] = None
 
 
-class ConditionalFormattingIconDisplayConfigurationTypeDef(BaseValidatorModel):
+class ConditionalFormattingIconDisplayConfiguration(BaseValidatorModel):
     IconDisplayOption: Optional[Literal["ICON_ONLY"]] = None
 
 
-class ConditionalFormattingIconSetTypeDef(BaseValidatorModel):
+class ConditionalFormattingIconSet(BaseValidatorModel):
     Expression: str
     IconSetType: Optional[ConditionalFormattingIconSetTypeType] = None
 
 
-class ContextMenuOptionTypeDef(BaseValidatorModel):
+class ContextMenuOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class ContributionAnalysisFactorTypeDef(BaseValidatorModel):
+class ContributionAnalysisFactor(BaseValidatorModel):
     FieldName: Optional[str] = None
 
 
-class CreateAccountSubscriptionRequestTypeDef(BaseValidatorModel):
+class CreateAccountSubscriptionRequest(BaseValidatorModel):
     AuthenticationMethod: AuthenticationMethodOptionType
     AwsAccountId: str
     AccountName: str
@@ -703,23 +703,23 @@ class CreateAccountSubscriptionRequestTypeDef(BaseValidatorModel):
     IAMIdentityCenterInstanceArn: Optional[str] = None
 
 
-class SignupResponseTypeDef(BaseValidatorModel):
+class SignupResponse(BaseValidatorModel):
     IAMUser: Optional[bool] = None
     userLoginName: Optional[str] = None
     accountName: Optional[str] = None
     directoryType: Optional[str] = None
 
 
-class ValidationStrategyTypeDef(BaseValidatorModel):
+class ValidationStrategy(BaseValidatorModel):
     Mode: ValidationStrategyModeType
 
 
-class DataSetUsageConfigurationTypeDef(BaseValidatorModel):
+class DataSetUsageConfiguration(BaseValidatorModel):
     DisableUseAsDirectQuerySource: Optional[bool] = None
     DisableUseAsImportedSource: Optional[bool] = None
 
 
-class RowLevelPermissionDataSetTypeDef(BaseValidatorModel):
+class RowLevelPermissionDataSet(BaseValidatorModel):
     Arn: str
     PermissionPolicy: RowLevelPermissionPolicyType
     Namespace: Optional[str] = None
@@ -727,45 +727,45 @@ class RowLevelPermissionDataSetTypeDef(BaseValidatorModel):
     Status: Optional[StatusType] = None
 
 
-class CreateFolderMembershipRequestTypeDef(BaseValidatorModel):
+class CreateFolderMembershipRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     MemberId: str
     MemberType: MemberTypeType
 
 
-class FolderMemberTypeDef(BaseValidatorModel):
+class FolderMember(BaseValidatorModel):
     MemberId: Optional[str] = None
     MemberType: Optional[MemberTypeType] = None
 
 
-class CreateGroupMembershipRequestTypeDef(BaseValidatorModel):
+class CreateGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
-class GroupMemberTypeDef(BaseValidatorModel):
+class GroupMember(BaseValidatorModel):
     Arn: Optional[str] = None
     MemberName: Optional[str] = None
 
 
-class CreateGroupRequestTypeDef(BaseValidatorModel):
+class CreateGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
     Description: Optional[str] = None
 
 
-class GroupTypeDef(BaseValidatorModel):
+class Group(BaseValidatorModel):
     Arn: Optional[str] = None
     GroupName: Optional[str] = None
     Description: Optional[str] = None
     PrincipalId: Optional[str] = None
 
 
-class CreateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
+class CreateIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
     AssignmentStatus: AssignmentStatusType
@@ -774,121 +774,121 @@ class CreateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
     Identities: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class CreateIngestionRequestTypeDef(BaseValidatorModel):
+class CreateIngestionRequest(BaseValidatorModel):
     DataSetId: str
     IngestionId: str
     AwsAccountId: str
     IngestionType: Optional[IngestionTypeType] = None
 
 
-class CreateRoleMembershipRequestTypeDef(BaseValidatorModel):
+class CreateRoleMembershipRequest(BaseValidatorModel):
     MemberName: str
     AwsAccountId: str
     Namespace: str
     Role: RoleType
 
 
-class CreateTemplateAliasRequestTypeDef(BaseValidatorModel):
+class CreateTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
     TemplateVersionNumber: int
 
 
-class TemplateAliasTypeDef(BaseValidatorModel):
+class TemplateAlias(BaseValidatorModel):
     AliasName: Optional[str] = None
     Arn: Optional[str] = None
     TemplateVersionNumber: Optional[int] = None
 
 
-class CreateThemeAliasRequestTypeDef(BaseValidatorModel):
+class CreateThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
     ThemeVersionNumber: int
 
 
-class ThemeAliasTypeDef(BaseValidatorModel):
+class ThemeAlias(BaseValidatorModel):
     Arn: Optional[str] = None
     AliasName: Optional[str] = None
     ThemeVersionNumber: Optional[int] = None
 
 
-class DecimalPlacesConfigurationTypeDef(BaseValidatorModel):
+class DecimalPlacesConfiguration(BaseValidatorModel):
     DecimalPlaces: int
 
 
-class NegativeValueConfigurationTypeDef(BaseValidatorModel):
+class NegativeValueConfiguration(BaseValidatorModel):
     DisplayMode: NegativeValueDisplayModeType
 
 
-class NullValueFormatConfigurationTypeDef(BaseValidatorModel):
+class NullValueFormatConfiguration(BaseValidatorModel):
     NullString: str
 
 
-class LocalNavigationConfigurationTypeDef(BaseValidatorModel):
+class LocalNavigationConfiguration(BaseValidatorModel):
     TargetSheetId: str
 
 
-class CustomActionURLOperationTypeDef(BaseValidatorModel):
+class CustomActionURLOperation(BaseValidatorModel):
     URLTemplate: str
     URLTarget: URLTargetConfigurationType
 
 
-class CustomNarrativeOptionsTypeDef(BaseValidatorModel):
+class CustomNarrativeOptions(BaseValidatorModel):
     Narrative: str
 
 
-class CustomParameterValuesOutputTypeDef(BaseValidatorModel):
+class CustomParameterValuesOutput(BaseValidatorModel):
     StringValues: Optional[List[str]] = None
     IntegerValues: Optional[List[int]] = None
     DecimalValues: Optional[List[float]] = None
     DateTimeValues: Optional[List[datetime]] = None
 
 
-class DataPointDrillUpDownOptionTypeDef(BaseValidatorModel):
+class DataPointDrillUpDownOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class DataPointMenuLabelOptionTypeDef(BaseValidatorModel):
+class DataPointMenuLabelOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class DataPointTooltipOptionTypeDef(BaseValidatorModel):
+class DataPointTooltipOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class ExportToCSVOptionTypeDef(BaseValidatorModel):
+class ExportToCSVOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class ExportWithHiddenFieldsOptionTypeDef(BaseValidatorModel):
+class ExportWithHiddenFieldsOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class SheetControlsOptionTypeDef(BaseValidatorModel):
+class SheetControlsOption(BaseValidatorModel):
     VisibilityState: Optional[DashboardUIStateType] = None
 
 
-class SheetLayoutElementMaximizationOptionTypeDef(BaseValidatorModel):
+class SheetLayoutElementMaximizationOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class VisualAxisSortOptionTypeDef(BaseValidatorModel):
+class VisualAxisSortOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class VisualMenuOptionTypeDef(BaseValidatorModel):
+class VisualMenuOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class DashboardSearchFilterTypeDef(BaseValidatorModel):
+class DashboardSearchFilter(BaseValidatorModel):
     Operator: FilterOperatorType
     Name: Optional[DashboardFilterAttributeType] = None
     Value: Optional[str] = None
 
 
-class DashboardSummaryTypeDef(BaseValidatorModel):
+class DashboardSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     DashboardId: Optional[str] = None
     Name: Optional[str] = None
@@ -898,7 +898,7 @@ class DashboardSummaryTypeDef(BaseValidatorModel):
     LastPublishedTime: Optional[datetime] = None
 
 
-class DashboardVersionSummaryTypeDef(BaseValidatorModel):
+class DashboardVersionSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     VersionNumber: Optional[int] = None
@@ -907,11 +907,11 @@ class DashboardVersionSummaryTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class ExportHiddenFieldsOptionTypeDef(BaseValidatorModel):
+class ExportHiddenFieldsOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class DashboardVisualResultTypeDef(BaseValidatorModel):
+class DashboardVisualResult(BaseValidatorModel):
     DashboardId: Optional[str] = None
     DashboardName: Optional[str] = None
     SheetId: Optional[str] = None
@@ -922,530 +922,530 @@ class DashboardVisualResultTypeDef(BaseValidatorModel):
     DashboardUrl: Optional[str] = None
 
 
-class DataAggregationTypeDef(BaseValidatorModel):
+class DataAggregation(BaseValidatorModel):
     DatasetRowDateGranularity: Optional[TopicTimeGranularityType] = None
     DefaultDateColumnName: Optional[str] = None
 
 
-class DataBarsOptionsTypeDef(BaseValidatorModel):
+class DataBarsOptions(BaseValidatorModel):
     FieldId: str
     PositiveColor: Optional[str] = None
     NegativeColor: Optional[str] = None
 
 
-class DataColorPaletteOutputTypeDef(BaseValidatorModel):
+class DataColorPaletteOutput(BaseValidatorModel):
     Colors: Optional[List[str]] = None
     MinMaxGradient: Optional[List[str]] = None
     EmptyFillColor: Optional[str] = None
 
 
-class DataColorPaletteTypeDef(BaseValidatorModel):
+class DataColorPalette(BaseValidatorModel):
     Colors: Optional[Sequence[str]] = None
     MinMaxGradient: Optional[Sequence[str]] = None
     EmptyFillColor: Optional[str] = None
 
 
-class DataPathLabelTypeTypeDef(BaseValidatorModel):
+class DataPathLabelType(BaseValidatorModel):
     FieldId: Optional[str] = None
     FieldValue: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class FieldLabelTypeTypeDef(BaseValidatorModel):
+class FieldLabelType(BaseValidatorModel):
     FieldId: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class MaximumLabelTypeTypeDef(BaseValidatorModel):
+class MaximumLabelType(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class MinimumLabelTypeTypeDef(BaseValidatorModel):
+class MinimumLabelType(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class RangeEndsLabelTypeTypeDef(BaseValidatorModel):
+class RangeEndsLabelType(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class DataPathTypeTypeDef(BaseValidatorModel):
+class DataPathType(BaseValidatorModel):
     PivotTableDataPathType: Optional[PivotTableDataPathTypeType] = None
 
 
-class DataSetSearchFilterTypeDef(BaseValidatorModel):
+class DataSetSearchFilter(BaseValidatorModel):
     Operator: FilterOperatorType
     Name: DataSetFilterAttributeType
     Value: str
 
 
-class FieldFolderOutputTypeDef(BaseValidatorModel):
+class FieldFolderOutput(BaseValidatorModel):
     description: Optional[str] = None
     columns: Optional[List[str]] = None
 
 
-class DatabricksParametersTypeDef(BaseValidatorModel):
+class DatabricksParameters(BaseValidatorModel):
     Host: str
     Port: int
     SqlEndpointPath: str
 
 
-class ExasolParametersTypeDef(BaseValidatorModel):
+class ExasolParameters(BaseValidatorModel):
     Host: str
     Port: int
 
 
-class JiraParametersTypeDef(BaseValidatorModel):
+class JiraParameters(BaseValidatorModel):
     SiteBaseUrl: str
 
 
-class MariaDbParametersTypeDef(BaseValidatorModel):
+class MariaDbParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class MySqlParametersTypeDef(BaseValidatorModel):
+class MySqlParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class OracleParametersTypeDef(BaseValidatorModel):
+class OracleParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class PostgreSqlParametersTypeDef(BaseValidatorModel):
+class PostgreSqlParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class PrestoParametersTypeDef(BaseValidatorModel):
+class PrestoParameters(BaseValidatorModel):
     Host: str
     Port: int
     Catalog: str
 
 
-class RdsParametersTypeDef(BaseValidatorModel):
+class RdsParameters(BaseValidatorModel):
     InstanceId: str
     Database: str
 
 
-class ServiceNowParametersTypeDef(BaseValidatorModel):
+class ServiceNowParameters(BaseValidatorModel):
     SiteBaseUrl: str
 
 
-class SparkParametersTypeDef(BaseValidatorModel):
+class SparkParameters(BaseValidatorModel):
     Host: str
     Port: int
 
 
-class SqlServerParametersTypeDef(BaseValidatorModel):
-    Host: str
-    Port: int
-    Database: str
-
-
-class TeradataParametersTypeDef(BaseValidatorModel):
+class SqlServerParameters(BaseValidatorModel):
     Host: str
     Port: int
     Database: str
 
 
-class TrinoParametersTypeDef(BaseValidatorModel):
+class TeradataParameters(BaseValidatorModel):
+    Host: str
+    Port: int
+    Database: str
+
+
+class TrinoParameters(BaseValidatorModel):
     Host: str
     Port: int
     Catalog: str
 
 
-class TwitterParametersTypeDef(BaseValidatorModel):
+class TwitterParameters(BaseValidatorModel):
     Query: str
     MaxRows: int
 
 
-class DataSourceSearchFilterTypeDef(BaseValidatorModel):
+class DataSourceSearchFilter(BaseValidatorModel):
     Operator: FilterOperatorType
     Name: DataSourceFilterAttributeType
     Value: str
 
 
-class DateTimeDatasetParameterDefaultValuesOutputTypeDef(BaseValidatorModel):
+class DateTimeDatasetParameterDefaultValuesOutput(BaseValidatorModel):
     StaticValues: Optional[List[datetime]] = None
 
 
-class RollingDateConfigurationTypeDef(BaseValidatorModel):
+class RollingDateConfiguration(BaseValidatorModel):
     Expression: str
     DataSetIdentifier: Optional[str] = None
 
 
-class DateTimeValueWhenUnsetConfigurationOutputTypeDef(BaseValidatorModel):
+class DateTimeValueWhenUnsetConfigurationOutput(BaseValidatorModel):
     ValueWhenUnsetOption: Optional[ValueWhenUnsetOptionType] = None
     CustomValue: Optional[datetime] = None
 
 
-class MappedDataSetParameterTypeDef(BaseValidatorModel):
+class MappedDataSetParameter(BaseValidatorModel):
     DataSetIdentifier: str
     DataSetParameterName: str
 
 
-class DateTimeParameterOutputTypeDef(BaseValidatorModel):
+class DateTimeParameterOutput(BaseValidatorModel):
     Name: str
     Values: List[datetime]
 
 
-class SheetControlInfoIconLabelOptionsTypeDef(BaseValidatorModel):
+class SheetControlInfoIconLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     InfoIconText: Optional[str] = None
 
 
-class DecimalDatasetParameterDefaultValuesOutputTypeDef(BaseValidatorModel):
+class DecimalDatasetParameterDefaultValuesOutput(BaseValidatorModel):
     StaticValues: Optional[List[float]] = None
 
 
-class DecimalDatasetParameterDefaultValuesTypeDef(BaseValidatorModel):
+class DecimalDatasetParameterDefaultValues(BaseValidatorModel):
     StaticValues: Optional[Sequence[float]] = None
 
 
-class DecimalValueWhenUnsetConfigurationTypeDef(BaseValidatorModel):
+class DecimalValueWhenUnsetConfiguration(BaseValidatorModel):
     ValueWhenUnsetOption: Optional[ValueWhenUnsetOptionType] = None
     CustomValue: Optional[float] = None
 
 
-class DecimalParameterOutputTypeDef(BaseValidatorModel):
+class DecimalParameterOutput(BaseValidatorModel):
     Name: str
     Values: List[float]
 
 
-class DecimalParameterTypeDef(BaseValidatorModel):
+class DecimalParameter(BaseValidatorModel):
     Name: str
     Values: Sequence[float]
 
 
-class FilterSelectableValuesOutputTypeDef(BaseValidatorModel):
+class FilterSelectableValuesOutput(BaseValidatorModel):
     Values: Optional[List[str]] = None
 
 
-class FilterSelectableValuesTypeDef(BaseValidatorModel):
+class FilterSelectableValues(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
 
 
-class DeleteAccountCustomizationRequestTypeDef(BaseValidatorModel):
+class DeleteAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
 
 
-class DeleteAccountSubscriptionRequestTypeDef(BaseValidatorModel):
+class DeleteAccountSubscriptionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DeleteAnalysisRequestTypeDef(BaseValidatorModel):
+class DeleteAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
     RecoveryWindowInDays: Optional[int] = None
     ForceDeleteWithoutRecovery: Optional[bool] = None
 
 
-class DeleteBrandAssignmentRequestTypeDef(BaseValidatorModel):
+class DeleteBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DeleteBrandRequestTypeDef(BaseValidatorModel):
+class DeleteBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
 
 
-class DeleteCustomPermissionsRequestTypeDef(BaseValidatorModel):
+class DeleteCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
 
 
-class DeleteDashboardRequestTypeDef(BaseValidatorModel):
+class DeleteDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: Optional[int] = None
 
 
-class DeleteDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
+class DeleteDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
-class DeleteDataSetRequestTypeDef(BaseValidatorModel):
+class DeleteDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
-class DeleteDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
 
 
-class DeleteFolderMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteFolderMembershipRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     MemberId: str
     MemberType: MemberTypeType
 
 
-class DeleteFolderRequestTypeDef(BaseValidatorModel):
+class DeleteFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
 
 
-class DeleteGroupMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteGroupRequestTypeDef(BaseValidatorModel):
+class DeleteGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
+class DeleteIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
     Namespace: str
 
 
-class DeleteIdentityPropagationConfigRequestTypeDef(BaseValidatorModel):
+class DeleteIdentityPropagationConfigRequest(BaseValidatorModel):
     AwsAccountId: str
     Service: ServiceTypeType
 
 
-class DeleteNamespaceRequestTypeDef(BaseValidatorModel):
+class DeleteNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class DeleteRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
     ScheduleId: str
 
 
-class DeleteRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
+class DeleteRoleCustomPermissionRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteRoleMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteRoleMembershipRequest(BaseValidatorModel):
     MemberName: str
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteTemplateAliasRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
 
 
-class DeleteTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     VersionNumber: Optional[int] = None
 
 
-class DeleteThemeAliasRequestTypeDef(BaseValidatorModel):
+class DeleteThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
 
 
-class DeleteThemeRequestTypeDef(BaseValidatorModel):
+class DeleteThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     VersionNumber: Optional[int] = None
 
 
-class DeleteTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class DeleteTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     DatasetId: str
 
 
-class DeleteTopicRequestTypeDef(BaseValidatorModel):
+class DeleteTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
-class DeleteUserByPrincipalIdRequestTypeDef(BaseValidatorModel):
+class DeleteUserByPrincipalIdRequest(BaseValidatorModel):
     PrincipalId: str
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteUserCustomPermissionRequestTypeDef(BaseValidatorModel):
+class DeleteUserCustomPermissionRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DeleteVPCConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
 
 
-class DescribeAccountCustomizationRequestTypeDef(BaseValidatorModel):
+class DescribeAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
     Resolved: Optional[bool] = None
 
 
-class DescribeAccountSettingsRequestTypeDef(BaseValidatorModel):
+class DescribeAccountSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeAccountSubscriptionRequestTypeDef(BaseValidatorModel):
+class DescribeAccountSubscriptionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeAnalysisDefinitionRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    AnalysisId: str
-
-
-class DescribeAnalysisPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeAnalysisDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
 
 
-class ResourcePermissionOutputTypeDef(BaseValidatorModel):
+class DescribeAnalysisPermissionsRequest(BaseValidatorModel):
+    AwsAccountId: str
+    AnalysisId: str
+
+
+class ResourcePermissionOutput(BaseValidatorModel):
     Principal: str
     Actions: List[str]
 
 
-class DescribeAnalysisRequestTypeDef(BaseValidatorModel):
+class DescribeAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
 
 
-class DescribeAssetBundleExportJobRequestTypeDef(BaseValidatorModel):
+class DescribeAssetBundleExportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleExportJobId: str
 
 
-class DescribeAssetBundleImportJobRequestTypeDef(BaseValidatorModel):
+class DescribeAssetBundleImportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleImportJobId: str
 
 
-class DescribeBrandAssignmentRequestTypeDef(BaseValidatorModel):
+class DescribeBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeBrandPublishedVersionRequestTypeDef(BaseValidatorModel):
+class DescribeBrandPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
 
 
-class DescribeBrandRequestTypeDef(BaseValidatorModel):
+class DescribeBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
     VersionId: Optional[str] = None
 
 
-class DescribeCustomPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
 
 
-class DescribeDashboardDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: Optional[int] = None
     AliasName: Optional[str] = None
 
 
-class DescribeDashboardPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
 
 
-class DescribeDashboardRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: Optional[int] = None
     AliasName: Optional[str] = None
 
 
-class DescribeDashboardSnapshotJobRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardSnapshotJobRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     SnapshotJobId: str
 
 
-class DescribeDashboardSnapshotJobResultRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardSnapshotJobResultRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     SnapshotJobId: str
 
 
-class SnapshotJobErrorInfoTypeDef(BaseValidatorModel):
+class SnapshotJobErrorInfo(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
     ErrorType: Optional[str] = None
 
 
-class DescribeDashboardsQAConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeDashboardsQAConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeDataSetPermissionsRequestTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    DataSetId: str
-
-
-class DescribeDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
+class DescribeDataSetPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
-class DescribeDataSetRequestTypeDef(BaseValidatorModel):
+class DescribeDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
-class DescribeDataSourcePermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeDataSetRequest(BaseValidatorModel):
+    AwsAccountId: str
+    DataSetId: str
+
+
+class DescribeDataSourcePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
-class DescribeDataSourceRequestTypeDef(BaseValidatorModel):
+class DescribeDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
 
 
-class DescribeDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
+class DescribeDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeFolderPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeFolderPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Namespace: Optional[str] = None
@@ -1453,12 +1453,12 @@ class DescribeFolderPermissionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeFolderRequestTypeDef(BaseValidatorModel):
+class DescribeFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
 
 
-class DescribeFolderResolvedPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeFolderResolvedPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Namespace: Optional[str] = None
@@ -1466,7 +1466,7 @@ class DescribeFolderResolvedPermissionsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class FolderTypeDef(BaseValidatorModel):
+class Folder(BaseValidatorModel):
     FolderId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -1477,26 +1477,26 @@ class FolderTypeDef(BaseValidatorModel):
     SharingModel: Optional[SharingModelType] = None
 
 
-class DescribeGroupMembershipRequestTypeDef(BaseValidatorModel):
+class DescribeGroupMembershipRequest(BaseValidatorModel):
     MemberName: str
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DescribeGroupRequestTypeDef(BaseValidatorModel):
+class DescribeGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
 
 
-class DescribeIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
+class DescribeIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
     Namespace: str
 
 
-class IAMPolicyAssignmentTypeDef(BaseValidatorModel):
+class IAMPolicyAssignment(BaseValidatorModel):
     AwsAccountId: Optional[str] = None
     AssignmentId: Optional[str] = None
     AssignmentName: Optional[str] = None
@@ -1505,118 +1505,118 @@ class IAMPolicyAssignmentTypeDef(BaseValidatorModel):
     AssignmentStatus: Optional[AssignmentStatusType] = None
 
 
-class DescribeIngestionRequestTypeDef(BaseValidatorModel):
+class DescribeIngestionRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     IngestionId: str
 
 
-class DescribeIpRestrictionRequestTypeDef(BaseValidatorModel):
+class DescribeIpRestrictionRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeKeyRegistrationRequestTypeDef(BaseValidatorModel):
+class DescribeKeyRegistrationRequest(BaseValidatorModel):
     AwsAccountId: str
     DefaultKeyOnly: Optional[bool] = None
 
 
-class RegisteredCustomerManagedKeyTypeDef(BaseValidatorModel):
+class RegisteredCustomerManagedKey(BaseValidatorModel):
     KeyArn: Optional[str] = None
     DefaultKey: Optional[bool] = None
 
 
-class DescribeNamespaceRequestTypeDef(BaseValidatorModel):
+class DescribeNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
-class DescribeQPersonalizationConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeQPersonalizationConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeQuickSightQSearchConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeQuickSightQSearchConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
 
 
-class DescribeRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class DescribeRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     ScheduleId: str
 
 
-class DescribeRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
+class DescribeRoleCustomPermissionRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
-class DescribeTemplateAliasRequestTypeDef(BaseValidatorModel):
+class DescribeTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
 
 
-class DescribeTemplateDefinitionRequestTypeDef(BaseValidatorModel):
+class DescribeTemplateDefinitionRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     VersionNumber: Optional[int] = None
     AliasName: Optional[str] = None
 
 
-class DescribeTemplatePermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeTemplatePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
 
 
-class DescribeTemplateRequestTypeDef(BaseValidatorModel):
+class DescribeTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     VersionNumber: Optional[int] = None
     AliasName: Optional[str] = None
 
 
-class DescribeThemeAliasRequestTypeDef(BaseValidatorModel):
+class DescribeThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
 
 
-class DescribeThemePermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeThemePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
 
 
-class DescribeThemeRequestTypeDef(BaseValidatorModel):
+class DescribeThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     VersionNumber: Optional[int] = None
     AliasName: Optional[str] = None
 
 
-class DescribeTopicPermissionsRequestTypeDef(BaseValidatorModel):
+class DescribeTopicPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
-class DescribeTopicRefreshRequestTypeDef(BaseValidatorModel):
+class DescribeTopicRefreshRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     RefreshId: str
 
 
-class TopicRefreshDetailsTypeDef(BaseValidatorModel):
+class TopicRefreshDetails(BaseValidatorModel):
     RefreshArn: Optional[str] = None
     RefreshId: Optional[str] = None
     RefreshStatus: Optional[TopicRefreshStatusType] = None
 
 
-class DescribeTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class DescribeTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     DatasetId: str
 
 
-class TopicRefreshScheduleOutputTypeDef(BaseValidatorModel):
+class TopicRefreshScheduleOutput(BaseValidatorModel):
     IsEnabled: bool
     BasedOnSpiceSchedule: bool
     StartingAt: Optional[datetime] = None
@@ -1625,18 +1625,18 @@ class TopicRefreshScheduleOutputTypeDef(BaseValidatorModel):
     TopicScheduleType: Optional[TopicScheduleTypeType] = None
 
 
-class DescribeTopicRequestTypeDef(BaseValidatorModel):
+class DescribeTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
-class DescribeUserRequestTypeDef(BaseValidatorModel):
+class DescribeUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     Arn: Optional[str] = None
     UserName: Optional[str] = None
     Email: Optional[str] = None
@@ -1650,83 +1650,83 @@ class UserTypeDef(BaseValidatorModel):
     ExternalLoginId: Optional[str] = None
 
 
-class DescribeVPCConnectionRequestTypeDef(BaseValidatorModel):
+class DescribeVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
 
 
-class NegativeFormatTypeDef(BaseValidatorModel):
+class NegativeFormat(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
 
 
-class DonutCenterOptionsTypeDef(BaseValidatorModel):
+class DonutCenterOptions(BaseValidatorModel):
     LabelVisibility: Optional[VisibilityType] = None
 
 
-class ListControlSelectAllOptionsTypeDef(BaseValidatorModel):
+class ListControlSelectAllOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class ExcludePeriodConfigurationTypeDef(BaseValidatorModel):
+class ExcludePeriodConfiguration(BaseValidatorModel):
     Amount: int
     Granularity: TimeGranularityType
     Status: Optional[WidgetStatusType] = None
 
 
-class FailedKeyRegistrationEntryTypeDef(BaseValidatorModel):
+class FailedKeyRegistrationEntry(BaseValidatorModel):
     Message: str
     StatusCode: int
     SenderFault: bool
     KeyArn: Optional[str] = None
 
 
-class FieldFolderTypeDef(BaseValidatorModel):
+class FieldFolder(BaseValidatorModel):
     description: Optional[str] = None
     columns: Optional[Sequence[str]] = None
 
 
-class FieldSortTypeDef(BaseValidatorModel):
+class FieldSort(BaseValidatorModel):
     FieldId: str
     Direction: SortDirectionType
 
 
-class FieldTooltipItemTypeDef(BaseValidatorModel):
+class FieldTooltipItem(BaseValidatorModel):
     FieldId: str
     Label: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
     TooltipTarget: Optional[TooltipTargetType] = None
 
 
-class GeospatialMapStyleOptionsTypeDef(BaseValidatorModel):
+class GeospatialMapStyleOptions(BaseValidatorModel):
     BaseMapStyle: Optional[BaseMapStyleTypeType] = None
 
 
-class IdentifierTypeDef(BaseValidatorModel):
+class Identifier(BaseValidatorModel):
     Identity: str
 
 
-class SameSheetTargetVisualConfigurationOutputTypeDef(BaseValidatorModel):
+class SameSheetTargetVisualConfigurationOutput(BaseValidatorModel):
     TargetVisuals: Optional[List[str]] = None
     TargetVisualOptions: Optional[Literal["ALL_VISUALS"]] = None
 
 
-class SameSheetTargetVisualConfigurationTypeDef(BaseValidatorModel):
+class SameSheetTargetVisualConfiguration(BaseValidatorModel):
     TargetVisuals: Optional[Sequence[str]] = None
     TargetVisualOptions: Optional[Literal["ALL_VISUALS"]] = None
 
 
-class FilterOperationTypeDef(BaseValidatorModel):
+class FilterOperation(BaseValidatorModel):
     ConditionExpression: str
 
 
-class FolderSearchFilterTypeDef(BaseValidatorModel):
+class FolderSearchFilter(BaseValidatorModel):
     Operator: Optional[FilterOperatorType] = None
     Name: Optional[FolderFilterAttributeType] = None
     Value: Optional[str] = None
 
 
-class FolderSummaryTypeDef(BaseValidatorModel):
+class FolderSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     FolderId: Optional[str] = None
     Name: Optional[str] = None
@@ -1736,20 +1736,20 @@ class FolderSummaryTypeDef(BaseValidatorModel):
     SharingModel: Optional[SharingModelType] = None
 
 
-class FontSizeTypeDef(BaseValidatorModel):
+class FontSize(BaseValidatorModel):
     Relative: Optional[RelativeFontSizeType] = None
     Absolute: Optional[str] = None
 
 
-class FontWeightTypeDef(BaseValidatorModel):
+class FontWeight(BaseValidatorModel):
     Name: Optional[FontWeightNameType] = None
 
 
-class FontTypeDef(BaseValidatorModel):
+class Font(BaseValidatorModel):
     FontFamily: Optional[str] = None
 
 
-class TimeBasedForecastPropertiesTypeDef(BaseValidatorModel):
+class TimeBasedForecastProperties(BaseValidatorModel):
     PeriodsForward: Optional[int] = None
     PeriodsBackward: Optional[int] = None
     UpperBoundary: Optional[float] = None
@@ -1758,46 +1758,46 @@ class TimeBasedForecastPropertiesTypeDef(BaseValidatorModel):
     Seasonality: Optional[int] = None
 
 
-class WhatIfPointScenarioOutputTypeDef(BaseValidatorModel):
+class WhatIfPointScenarioOutput(BaseValidatorModel):
     Date: datetime
     Value: float
 
 
-class WhatIfRangeScenarioOutputTypeDef(BaseValidatorModel):
+class WhatIfRangeScenarioOutput(BaseValidatorModel):
     StartDate: datetime
     EndDate: datetime
     Value: float
 
 
-class FreeFormLayoutScreenCanvasSizeOptionsTypeDef(BaseValidatorModel):
+class FreeFormLayoutScreenCanvasSizeOptions(BaseValidatorModel):
     OptimizedViewPortWidth: str
 
 
-class FreeFormLayoutElementBackgroundStyleTypeDef(BaseValidatorModel):
+class FreeFormLayoutElementBackgroundStyle(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     Color: Optional[str] = None
 
 
-class FreeFormLayoutElementBorderStyleTypeDef(BaseValidatorModel):
+class FreeFormLayoutElementBorderStyle(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     Color: Optional[str] = None
 
 
-class LoadingAnimationTypeDef(BaseValidatorModel):
+class LoadingAnimation(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class GaugeChartColorConfigurationTypeDef(BaseValidatorModel):
+class GaugeChartColorConfiguration(BaseValidatorModel):
     ForegroundColor: Optional[str] = None
     BackgroundColor: Optional[str] = None
 
 
-class SessionTagTypeDef(BaseValidatorModel):
+class SessionTag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class GeneratedAnswerResultTypeDef(BaseValidatorModel):
+class GeneratedAnswerResult(BaseValidatorModel):
     QuestionText: Optional[str] = None
     AnswerStatus: Optional[GeneratedAnswerStatusType] = None
     TopicId: Optional[str] = None
@@ -1808,63 +1808,63 @@ class GeneratedAnswerResultTypeDef(BaseValidatorModel):
     QuestionUrl: Optional[str] = None
 
 
-class GeoSpatialColumnGroupTypeDef(BaseValidatorModel):
+class GeoSpatialColumnGroup(BaseValidatorModel):
     Name: str
     Columns: Sequence[str]
     CountryCode: Optional[Literal["US"]] = None
 
 
-class GeospatialCategoricalDataColorTypeDef(BaseValidatorModel):
+class GeospatialCategoricalDataColor(BaseValidatorModel):
     Color: str
     DataValue: str
 
 
-class GeospatialCircleRadiusTypeDef(BaseValidatorModel):
+class GeospatialCircleRadius(BaseValidatorModel):
     Radius: Optional[float] = None
 
 
-class GeospatialLineWidthTypeDef(BaseValidatorModel):
+class GeospatialLineWidth(BaseValidatorModel):
     LineWidth: Optional[float] = None
 
 
-class GeospatialSolidColorTypeDef(BaseValidatorModel):
+class GeospatialSolidColor(BaseValidatorModel):
     Color: str
     State: Optional[GeospatialColorStateType] = None
 
 
-class GeospatialCoordinateBoundsTypeDef(BaseValidatorModel):
+class GeospatialCoordinateBounds(BaseValidatorModel):
     North: float
     South: float
     West: float
     East: float
 
 
-class GeospatialStaticFileSourceTypeDef(BaseValidatorModel):
+class GeospatialStaticFileSource(BaseValidatorModel):
     StaticFileId: str
 
 
-class GeospatialGradientStepColorTypeDef(BaseValidatorModel):
+class GeospatialGradientStepColor(BaseValidatorModel):
     Color: str
     DataValue: float
 
 
-class GeospatialHeatmapDataColorTypeDef(BaseValidatorModel):
+class GeospatialHeatmapDataColor(BaseValidatorModel):
     Color: str
 
 
-class GeospatialMapStyleTypeDef(BaseValidatorModel):
+class GeospatialMapStyle(BaseValidatorModel):
     BaseMapStyle: Optional[BaseMapStyleTypeType] = None
     BackgroundColor: Optional[str] = None
     BaseMapVisibility: Optional[VisibilityType] = None
 
 
-class GeospatialNullSymbolStyleTypeDef(BaseValidatorModel):
+class GeospatialNullSymbolStyle(BaseValidatorModel):
     FillColor: Optional[str] = None
     StrokeColor: Optional[str] = None
     StrokeWidth: Optional[float] = None
 
 
-class GetDashboardEmbedUrlRequestTypeDef(BaseValidatorModel):
+class GetDashboardEmbedUrlRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     IdentityType: EmbeddingIdentityTypeType
@@ -1877,31 +1877,31 @@ class GetDashboardEmbedUrlRequestTypeDef(BaseValidatorModel):
     AdditionalDashboardIds: Optional[Sequence[str]] = None
 
 
-class GetSessionEmbedUrlRequestTypeDef(BaseValidatorModel):
+class GetSessionEmbedUrlRequest(BaseValidatorModel):
     AwsAccountId: str
     EntryPoint: Optional[str] = None
     SessionLifetimeInMinutes: Optional[int] = None
     UserArn: Optional[str] = None
 
 
-class TableBorderOptionsTypeDef(BaseValidatorModel):
+class TableBorderOptions(BaseValidatorModel):
     Color: Optional[str] = None
     Thickness: Optional[int] = None
     Style: Optional[TableBorderStyleType] = None
 
 
-class GradientStopTypeDef(BaseValidatorModel):
+class GradientStop(BaseValidatorModel):
     GradientOffset: float
     DataValue: Optional[float] = None
     Color: Optional[str] = None
 
 
-class GridLayoutScreenCanvasSizeOptionsTypeDef(BaseValidatorModel):
+class GridLayoutScreenCanvasSizeOptions(BaseValidatorModel):
     ResizeOption: ResizeOptionType
     OptimizedViewPortWidth: Optional[str] = None
 
 
-class GridLayoutElementTypeDef(BaseValidatorModel):
+class GridLayoutElement(BaseValidatorModel):
     ElementId: str
     ElementType: LayoutElementTypeType
     ColumnSpan: int
@@ -1910,198 +1910,198 @@ class GridLayoutElementTypeDef(BaseValidatorModel):
     RowIndex: Optional[int] = None
 
 
-class GroupSearchFilterTypeDef(BaseValidatorModel):
+class GroupSearchFilter(BaseValidatorModel):
     Operator: Literal["StartsWith"]
     Name: Literal["GROUP_NAME"]
     Value: str
 
 
-class GutterStyleTypeDef(BaseValidatorModel):
+class GutterStyle(BaseValidatorModel):
     Show: Optional[bool] = None
 
 
-class IAMPolicyAssignmentSummaryTypeDef(BaseValidatorModel):
+class IAMPolicyAssignmentSummary(BaseValidatorModel):
     AssignmentName: Optional[str] = None
     AssignmentStatus: Optional[AssignmentStatusType] = None
 
 
-class IdentityCenterConfigurationTypeDef(BaseValidatorModel):
+class IdentityCenterConfiguration(BaseValidatorModel):
     EnableIdentityPropagation: Optional[bool] = None
 
 
-class ImageSourceTypeDef(BaseValidatorModel):
+class ImageSource(BaseValidatorModel):
     PublicUrl: Optional[str] = None
     S3Uri: Optional[str] = None
 
 
-class ImageMenuOptionTypeDef(BaseValidatorModel):
+class ImageMenuOption(BaseValidatorModel):
     AvailabilityStatus: Optional[DashboardBehaviorType] = None
 
 
-class LookbackWindowTypeDef(BaseValidatorModel):
+class LookbackWindow(BaseValidatorModel):
     ColumnName: str
     Size: int
     SizeUnit: LookbackWindowSizeUnitType
 
 
-class QueueInfoTypeDef(BaseValidatorModel):
+class QueueInfo(BaseValidatorModel):
     WaitingOnIngestion: str
     QueuedIngestion: str
 
 
-class RowInfoTypeDef(BaseValidatorModel):
+class RowInfo(BaseValidatorModel):
     RowsIngested: Optional[int] = None
     RowsDropped: Optional[int] = None
     TotalRowsInDataset: Optional[int] = None
 
 
-class IntegerDatasetParameterDefaultValuesOutputTypeDef(BaseValidatorModel):
+class IntegerDatasetParameterDefaultValuesOutput(BaseValidatorModel):
     StaticValues: Optional[List[int]] = None
 
 
-class IntegerDatasetParameterDefaultValuesTypeDef(BaseValidatorModel):
+class IntegerDatasetParameterDefaultValues(BaseValidatorModel):
     StaticValues: Optional[Sequence[int]] = None
 
 
-class IntegerValueWhenUnsetConfigurationTypeDef(BaseValidatorModel):
+class IntegerValueWhenUnsetConfiguration(BaseValidatorModel):
     ValueWhenUnsetOption: Optional[ValueWhenUnsetOptionType] = None
     CustomValue: Optional[int] = None
 
 
-class IntegerParameterOutputTypeDef(BaseValidatorModel):
+class IntegerParameterOutput(BaseValidatorModel):
     Name: str
     Values: List[int]
 
 
-class IntegerParameterTypeDef(BaseValidatorModel):
+class IntegerParameter(BaseValidatorModel):
     Name: str
     Values: Sequence[int]
 
 
-class JoinKeyPropertiesTypeDef(BaseValidatorModel):
+class JoinKeyProperties(BaseValidatorModel):
     UniqueKey: Optional[bool] = None
 
 
-class ProgressBarOptionsTypeDef(BaseValidatorModel):
+class ProgressBarOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class SecondaryValueOptionsTypeDef(BaseValidatorModel):
+class SecondaryValueOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class TrendArrowOptionsTypeDef(BaseValidatorModel):
+class TrendArrowOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class LineChartLineStyleSettingsTypeDef(BaseValidatorModel):
+class LineChartLineStyleSettings(BaseValidatorModel):
     LineVisibility: Optional[VisibilityType] = None
     LineInterpolation: Optional[LineInterpolationType] = None
     LineStyle: Optional[LineChartLineStyleType] = None
     LineWidth: Optional[str] = None
 
 
-class LineChartMarkerStyleSettingsTypeDef(BaseValidatorModel):
+class LineChartMarkerStyleSettings(BaseValidatorModel):
     MarkerVisibility: Optional[VisibilityType] = None
     MarkerShape: Optional[LineChartMarkerShapeType] = None
     MarkerSize: Optional[str] = None
     MarkerColor: Optional[str] = None
 
 
-class MissingDataConfigurationTypeDef(BaseValidatorModel):
+class MissingDataConfiguration(BaseValidatorModel):
     TreatmentOption: Optional[MissingDataTreatmentOptionType] = None
 
 
-class ResourcePermissionTypeDef(BaseValidatorModel):
+class ResourcePermission(BaseValidatorModel):
     Principal: str
     Actions: Sequence[str]
 
 
-class ListAnalysesRequestTypeDef(BaseValidatorModel):
+class ListAnalysesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAssetBundleExportJobsRequestTypeDef(BaseValidatorModel):
+class ListAssetBundleExportJobsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAssetBundleImportJobsRequestTypeDef(BaseValidatorModel):
+class ListAssetBundleImportJobsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListBrandsRequestTypeDef(BaseValidatorModel):
+class ListBrandsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListControlSearchOptionsTypeDef(BaseValidatorModel):
+class ListControlSearchOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class ListCustomPermissionsRequestTypeDef(BaseValidatorModel):
+class ListCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListDashboardVersionsRequestTypeDef(BaseValidatorModel):
+class ListDashboardVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDashboardsRequestTypeDef(BaseValidatorModel):
+class ListDashboardsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataSetsRequestTypeDef(BaseValidatorModel):
+class ListDataSetsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFolderMembersRequestTypeDef(BaseValidatorModel):
+class ListFolderMembersRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class MemberIdArnPairTypeDef(BaseValidatorModel):
+class MemberIdArnPair(BaseValidatorModel):
     MemberId: Optional[str] = None
     MemberArn: Optional[str] = None
 
 
-class ListFoldersForResourceRequestTypeDef(BaseValidatorModel):
+class ListFoldersForResourceRequest(BaseValidatorModel):
     AwsAccountId: str
     ResourceArn: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFoldersRequestTypeDef(BaseValidatorModel):
+class ListFoldersRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListGroupMembershipsRequestTypeDef(BaseValidatorModel):
+class ListGroupMembershipsRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
@@ -2109,14 +2109,14 @@ class ListGroupMembershipsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListGroupsRequestTypeDef(BaseValidatorModel):
+class ListGroupsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListIAMPolicyAssignmentsForUserRequestTypeDef(BaseValidatorModel):
+class ListIAMPolicyAssignmentsForUserRequest(BaseValidatorModel):
     AwsAccountId: str
     UserName: str
     Namespace: str
@@ -2124,7 +2124,7 @@ class ListIAMPolicyAssignmentsForUserRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListIAMPolicyAssignmentsRequestTypeDef(BaseValidatorModel):
+class ListIAMPolicyAssignmentsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     AssignmentStatus: Optional[AssignmentStatusType] = None
@@ -2132,31 +2132,31 @@ class ListIAMPolicyAssignmentsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListIdentityPropagationConfigsRequestTypeDef(BaseValidatorModel):
+class ListIdentityPropagationConfigsRequest(BaseValidatorModel):
     AwsAccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListIngestionsRequestTypeDef(BaseValidatorModel):
+class ListIngestionsRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListNamespacesRequestTypeDef(BaseValidatorModel):
+class ListNamespacesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListRefreshSchedulesRequestTypeDef(BaseValidatorModel):
+class ListRefreshSchedulesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
 
 
-class ListRoleMembershipsRequestTypeDef(BaseValidatorModel):
+class ListRoleMembershipsRequest(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
@@ -2164,25 +2164,25 @@ class ListRoleMembershipsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListTemplateAliasesRequestTypeDef(BaseValidatorModel):
+class ListTemplateAliasesRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTemplateVersionsRequestTypeDef(BaseValidatorModel):
+class ListTemplateVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TemplateVersionSummaryTypeDef(BaseValidatorModel):
+class TemplateVersionSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     VersionNumber: Optional[int] = None
     CreatedTime: Optional[datetime] = None
@@ -2190,13 +2190,13 @@ class TemplateVersionSummaryTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class ListTemplatesRequestTypeDef(BaseValidatorModel):
+class ListTemplatesRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     TemplateId: Optional[str] = None
     Name: Optional[str] = None
@@ -2205,21 +2205,21 @@ class TemplateSummaryTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class ListThemeAliasesRequestTypeDef(BaseValidatorModel):
+class ListThemeAliasesRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListThemeVersionsRequestTypeDef(BaseValidatorModel):
+class ListThemeVersionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ThemeVersionSummaryTypeDef(BaseValidatorModel):
+class ThemeVersionSummary(BaseValidatorModel):
     VersionNumber: Optional[int] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
@@ -2227,7 +2227,7 @@ class ThemeVersionSummaryTypeDef(BaseValidatorModel):
     Status: Optional[ResourceStatusType] = None
 
 
-class ThemeSummaryTypeDef(BaseValidatorModel):
+class ThemeSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
     ThemeId: Optional[str] = None
@@ -2236,30 +2236,30 @@ class ThemeSummaryTypeDef(BaseValidatorModel):
     LastUpdatedTime: Optional[datetime] = None
 
 
-class ListTopicRefreshSchedulesRequestTypeDef(BaseValidatorModel):
+class ListTopicRefreshSchedulesRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
-class ListTopicReviewedAnswersRequestTypeDef(BaseValidatorModel):
+class ListTopicReviewedAnswersRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
 
 
-class ListTopicsRequestTypeDef(BaseValidatorModel):
+class ListTopicsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TopicSummaryTypeDef(BaseValidatorModel):
+class TopicSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     TopicId: Optional[str] = None
     Name: Optional[str] = None
     UserExperienceVersion: Optional[TopicUserExperienceVersionType] = None
 
 
-class ListUserGroupsRequestTypeDef(BaseValidatorModel):
+class ListUserGroupsRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
@@ -2267,48 +2267,48 @@ class ListUserGroupsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ListUsersRequestTypeDef(BaseValidatorModel):
+class ListUsersRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListVPCConnectionsRequestTypeDef(BaseValidatorModel):
+class ListVPCConnectionsRequest(BaseValidatorModel):
     AwsAccountId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class LongFormatTextTypeDef(BaseValidatorModel):
+class LongFormatText(BaseValidatorModel):
     PlainText: Optional[str] = None
     RichText: Optional[str] = None
 
 
-class ManifestFileLocationTypeDef(BaseValidatorModel):
+class ManifestFileLocation(BaseValidatorModel):
     Bucket: str
     Key: str
 
 
-class MarginStyleTypeDef(BaseValidatorModel):
+class MarginStyle(BaseValidatorModel):
     Show: Optional[bool] = None
 
 
-class NamedEntityDefinitionMetricOutputTypeDef(BaseValidatorModel):
+class NamedEntityDefinitionMetricOutput(BaseValidatorModel):
     Aggregation: Optional[NamedEntityAggTypeType] = None
     AggregationFunctionParameters: Optional[Dict[str, str]] = None
 
 
-class NamedEntityDefinitionMetricTypeDef(BaseValidatorModel):
+class NamedEntityDefinitionMetric(BaseValidatorModel):
     Aggregation: Optional[NamedEntityAggTypeType] = None
     AggregationFunctionParameters: Optional[Mapping[str, str]] = None
 
 
-class NamedEntityRefTypeDef(BaseValidatorModel):
+class NamedEntityRef(BaseValidatorModel):
     NamedEntityName: Optional[str] = None
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     SubnetId: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     ErrorMessage: Optional[str] = None
@@ -2316,97 +2316,97 @@ class NetworkInterfaceTypeDef(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
 
 
-class NewDefaultValuesOutputTypeDef(BaseValidatorModel):
+class NewDefaultValuesOutput(BaseValidatorModel):
     StringStaticValues: Optional[List[str]] = None
     DecimalStaticValues: Optional[List[float]] = None
     DateTimeStaticValues: Optional[List[datetime]] = None
     IntegerStaticValues: Optional[List[int]] = None
 
 
-class NumericRangeFilterValueTypeDef(BaseValidatorModel):
+class NumericRangeFilterValue(BaseValidatorModel):
     StaticValue: Optional[float] = None
     Parameter: Optional[str] = None
 
 
-class ThousandSeparatorOptionsTypeDef(BaseValidatorModel):
+class ThousandSeparatorOptions(BaseValidatorModel):
     Symbol: Optional[NumericSeparatorSymbolType] = None
     Visibility: Optional[VisibilityType] = None
     GroupingStyle: Optional[DigitGroupingStyleType] = None
 
 
-class PercentileAggregationTypeDef(BaseValidatorModel):
+class PercentileAggregation(BaseValidatorModel):
     PercentileValue: Optional[float] = None
 
 
-class StringParameterOutputTypeDef(BaseValidatorModel):
+class StringParameterOutput(BaseValidatorModel):
     Name: str
     Values: List[str]
 
 
-class StringParameterTypeDef(BaseValidatorModel):
+class StringParameter(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
 
-class PercentVisibleRangeTypeDef(BaseValidatorModel):
+class PercentVisibleRange(BaseValidatorModel):
     From: Optional[float] = None
     To: Optional[float] = None
 
 
-class UniqueKeyOutputTypeDef(BaseValidatorModel):
+class UniqueKeyOutput(BaseValidatorModel):
     ColumnNames: List[str]
 
 
-class UniqueKeyTypeDef(BaseValidatorModel):
+class UniqueKey(BaseValidatorModel):
     ColumnNames: Sequence[str]
 
 
-class PivotTableConditionalFormattingScopeTypeDef(BaseValidatorModel):
+class PivotTableConditionalFormattingScope(BaseValidatorModel):
     Role: Optional[PivotTableConditionalFormattingScopeRoleType] = None
 
 
-class PivotTablePaginatedReportOptionsTypeDef(BaseValidatorModel):
+class PivotTablePaginatedReportOptions(BaseValidatorModel):
     VerticalOverflowVisibility: Optional[VisibilityType] = None
     OverflowColumnHeaderVisibility: Optional[VisibilityType] = None
 
 
-class PivotTableFieldOptionTypeDef(BaseValidatorModel):
+class PivotTableFieldOption(BaseValidatorModel):
     FieldId: str
     CustomLabel: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class PivotTableFieldSubtotalOptionsTypeDef(BaseValidatorModel):
+class PivotTableFieldSubtotalOptions(BaseValidatorModel):
     FieldId: Optional[str] = None
 
 
-class PivotTableRowsLabelOptionsTypeDef(BaseValidatorModel):
+class PivotTableRowsLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     CustomLabel: Optional[str] = None
 
 
-class RowAlternateColorOptionsOutputTypeDef(BaseValidatorModel):
+class RowAlternateColorOptionsOutput(BaseValidatorModel):
     Status: Optional[WidgetStatusType] = None
     RowAlternateColors: Optional[List[str]] = None
     UsePrimaryBackgroundColor: Optional[WidgetStatusType] = None
 
 
-class RowAlternateColorOptionsTypeDef(BaseValidatorModel):
+class RowAlternateColorOptions(BaseValidatorModel):
     Status: Optional[WidgetStatusType] = None
     RowAlternateColors: Optional[Sequence[str]] = None
     UsePrimaryBackgroundColor: Optional[WidgetStatusType] = None
 
 
-class PluginVisualItemsLimitConfigurationTypeDef(BaseValidatorModel):
+class PluginVisualItemsLimitConfiguration(BaseValidatorModel):
     ItemsLimit: Optional[int] = None
 
 
-class PluginVisualPropertyTypeDef(BaseValidatorModel):
+class PluginVisualProperty(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class PredictQAResultsRequestTypeDef(BaseValidatorModel):
+class PredictQAResultsRequest(BaseValidatorModel):
     AwsAccountId: str
     QueryText: str
     IncludeQuickSightQIndex: Optional[IncludeQuickSightQIndexType] = None
@@ -2414,87 +2414,87 @@ class PredictQAResultsRequestTypeDef(BaseValidatorModel):
     MaxTopicsToConsider: Optional[int] = None
 
 
-class ProjectOperationOutputTypeDef(BaseValidatorModel):
+class ProjectOperationOutput(BaseValidatorModel):
     ProjectedColumns: List[str]
 
 
-class ProjectOperationTypeDef(BaseValidatorModel):
+class ProjectOperation(BaseValidatorModel):
     ProjectedColumns: Sequence[str]
 
 
-class RadarChartAreaStyleSettingsTypeDef(BaseValidatorModel):
+class RadarChartAreaStyleSettings(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class RangeConstantTypeDef(BaseValidatorModel):
+class RangeConstant(BaseValidatorModel):
     Minimum: Optional[str] = None
     Maximum: Optional[str] = None
 
 
-class RedshiftIAMParametersOutputTypeDef(BaseValidatorModel):
+class RedshiftIAMParametersOutput(BaseValidatorModel):
     RoleArn: str
     DatabaseUser: Optional[str] = None
     DatabaseGroups: Optional[List[str]] = None
     AutoCreateDatabaseUser: Optional[bool] = None
 
 
-class RedshiftIAMParametersTypeDef(BaseValidatorModel):
+class RedshiftIAMParameters(BaseValidatorModel):
     RoleArn: str
     DatabaseUser: Optional[str] = None
     DatabaseGroups: Optional[Sequence[str]] = None
     AutoCreateDatabaseUser: Optional[bool] = None
 
 
-class ReferenceLineCustomLabelConfigurationTypeDef(BaseValidatorModel):
+class ReferenceLineCustomLabelConfiguration(BaseValidatorModel):
     CustomLabel: str
 
 
-class ReferenceLineStaticDataConfigurationTypeDef(BaseValidatorModel):
+class ReferenceLineStaticDataConfiguration(BaseValidatorModel):
     Value: float
 
 
-class ScheduleRefreshOnEntityTypeDef(BaseValidatorModel):
+class ScheduleRefreshOnEntity(BaseValidatorModel):
     DayOfWeek: Optional[DayOfWeekType] = None
     DayOfMonth: Optional[str] = None
 
 
-class StatePersistenceConfigurationsTypeDef(BaseValidatorModel):
+class StatePersistenceConfigurations(BaseValidatorModel):
     Enabled: bool
 
 
-class RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class RegisteredUserGenerativeQnAEmbeddingConfiguration(BaseValidatorModel):
     InitialTopicId: Optional[str] = None
 
 
-class RegisteredUserQSearchBarEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class RegisteredUserQSearchBarEmbeddingConfiguration(BaseValidatorModel):
     InitialTopicId: Optional[str] = None
 
 
-class RenameColumnOperationTypeDef(BaseValidatorModel):
+class RenameColumnOperation(BaseValidatorModel):
     ColumnName: str
     NewColumnName: str
 
 
-class RestoreAnalysisRequestTypeDef(BaseValidatorModel):
+class RestoreAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
     RestoreToFolders: Optional[bool] = None
 
 
-class RowLevelPermissionTagRuleTypeDef(BaseValidatorModel):
+class RowLevelPermissionTagRule(BaseValidatorModel):
     TagKey: str
     ColumnName: str
     TagMultiValueDelimiter: Optional[str] = None
     MatchAllValue: Optional[str] = None
 
 
-class S3BucketConfigurationTypeDef(BaseValidatorModel):
+class S3BucketConfiguration(BaseValidatorModel):
     BucketName: str
     BucketPrefix: str
     BucketRegion: str
 
 
-class UploadSettingsTypeDef(BaseValidatorModel):
+class UploadSettings(BaseValidatorModel):
     Format: Optional[FileFormatType] = None
     StartFromRow: Optional[int] = None
     ContainsHeader: Optional[bool] = None
@@ -2502,44 +2502,44 @@ class UploadSettingsTypeDef(BaseValidatorModel):
     Delimiter: Optional[str] = None
 
 
-class TopicSearchFilterTypeDef(BaseValidatorModel):
+class TopicSearchFilter(BaseValidatorModel):
     Operator: TopicFilterOperatorType
     Name: TopicFilterAttributeType
     Value: str
 
 
-class SpacingTypeDef(BaseValidatorModel):
+class Spacing(BaseValidatorModel):
     Top: Optional[str] = None
     Bottom: Optional[str] = None
     Left: Optional[str] = None
     Right: Optional[str] = None
 
 
-class SheetVisualScopingConfigurationOutputTypeDef(BaseValidatorModel):
+class SheetVisualScopingConfigurationOutput(BaseValidatorModel):
     SheetId: str
     Scope: FilterVisualScopeType
     VisualIds: Optional[List[str]] = None
 
 
-class SheetVisualScopingConfigurationTypeDef(BaseValidatorModel):
+class SheetVisualScopingConfiguration(BaseValidatorModel):
     SheetId: str
     Scope: FilterVisualScopeType
     VisualIds: Optional[Sequence[str]] = None
 
 
-class SemanticEntityTypeOutputTypeDef(BaseValidatorModel):
+class SemanticEntityTypeOutput(BaseValidatorModel):
     TypeName: Optional[str] = None
     SubTypeName: Optional[str] = None
     TypeParameters: Optional[Dict[str, str]] = None
 
 
-class SemanticEntityTypeTypeDef(BaseValidatorModel):
+class SemanticEntityType(BaseValidatorModel):
     TypeName: Optional[str] = None
     SubTypeName: Optional[str] = None
     TypeParameters: Optional[Mapping[str, str]] = None
 
 
-class SemanticTypeOutputTypeDef(BaseValidatorModel):
+class SemanticTypeOutput(BaseValidatorModel):
     TypeName: Optional[str] = None
     SubTypeName: Optional[str] = None
     TypeParameters: Optional[Dict[str, str]] = None
@@ -2549,7 +2549,7 @@ class SemanticTypeOutputTypeDef(BaseValidatorModel):
     FalseyCellValueSynonyms: Optional[List[str]] = None
 
 
-class SemanticTypeTypeDef(BaseValidatorModel):
+class SemanticType(BaseValidatorModel):
     TypeName: Optional[str] = None
     SubTypeName: Optional[str] = None
     TypeParameters: Optional[Mapping[str, str]] = None
@@ -2559,222 +2559,222 @@ class SemanticTypeTypeDef(BaseValidatorModel):
     FalseyCellValueSynonyms: Optional[Sequence[str]] = None
 
 
-class SheetTextBoxTypeDef(BaseValidatorModel):
+class SheetTextBox(BaseValidatorModel):
     SheetTextBoxId: str
     Content: Optional[str] = None
 
 
-class SheetElementConfigurationOverridesTypeDef(BaseValidatorModel):
+class SheetElementConfigurationOverrides(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class SheetImageScalingConfigurationTypeDef(BaseValidatorModel):
+class SheetImageScalingConfiguration(BaseValidatorModel):
     ScalingType: Optional[SheetImageScalingTypeType] = None
 
 
-class SheetImageStaticFileSourceTypeDef(BaseValidatorModel):
+class SheetImageStaticFileSource(BaseValidatorModel):
     StaticFileId: str
 
 
-class SheetImageTooltipTextTypeDef(BaseValidatorModel):
+class SheetImageTooltipText(BaseValidatorModel):
     PlainText: Optional[str] = None
 
 
-class ShortFormatTextTypeDef(BaseValidatorModel):
+class ShortFormatText(BaseValidatorModel):
     PlainText: Optional[str] = None
     RichText: Optional[str] = None
 
 
-class YAxisOptionsTypeDef(BaseValidatorModel):
+class YAxisOptions(BaseValidatorModel):
     YAxis: Literal["PRIMARY_Y_AXIS"]
 
 
-class SlotTypeDef(BaseValidatorModel):
+class Slot(BaseValidatorModel):
     SlotId: Optional[str] = None
     VisualId: Optional[str] = None
 
 
-class SmallMultiplesAxisPropertiesTypeDef(BaseValidatorModel):
+class SmallMultiplesAxisProperties(BaseValidatorModel):
     Scale: Optional[SmallMultiplesAxisScaleType] = None
     Placement: Optional[SmallMultiplesAxisPlacementType] = None
 
 
-class SnapshotAnonymousUserRedactedTypeDef(BaseValidatorModel):
+class SnapshotAnonymousUserRedacted(BaseValidatorModel):
     RowLevelPermissionTagKeys: Optional[List[str]] = None
 
 
-class SnapshotFileSheetSelectionOutputTypeDef(BaseValidatorModel):
+class SnapshotFileSheetSelectionOutput(BaseValidatorModel):
     SheetId: str
     SelectionScope: SnapshotFileSheetSelectionScopeType
     VisualIds: Optional[List[str]] = None
 
 
-class SnapshotFileSheetSelectionTypeDef(BaseValidatorModel):
+class SnapshotFileSheetSelection(BaseValidatorModel):
     SheetId: str
     SelectionScope: SnapshotFileSheetSelectionScopeType
     VisualIds: Optional[Sequence[str]] = None
 
 
-class SnapshotJobResultErrorInfoTypeDef(BaseValidatorModel):
+class SnapshotJobResultErrorInfo(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
     ErrorType: Optional[str] = None
 
 
-class StartDashboardSnapshotJobScheduleRequestTypeDef(BaseValidatorModel):
+class StartDashboardSnapshotJobScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     ScheduleId: str
 
 
-class StaticFileS3SourceOptionsTypeDef(BaseValidatorModel):
+class StaticFileS3SourceOptions(BaseValidatorModel):
     BucketName: str
     ObjectKey: str
     Region: str
 
 
-class StaticFileUrlSourceOptionsTypeDef(BaseValidatorModel):
+class StaticFileUrlSourceOptions(BaseValidatorModel):
     Url: str
 
 
-class StringDatasetParameterDefaultValuesOutputTypeDef(BaseValidatorModel):
+class StringDatasetParameterDefaultValuesOutput(BaseValidatorModel):
     StaticValues: Optional[List[str]] = None
 
 
-class StringDatasetParameterDefaultValuesTypeDef(BaseValidatorModel):
+class StringDatasetParameterDefaultValues(BaseValidatorModel):
     StaticValues: Optional[Sequence[str]] = None
 
 
-class StringValueWhenUnsetConfigurationTypeDef(BaseValidatorModel):
+class StringValueWhenUnsetConfiguration(BaseValidatorModel):
     ValueWhenUnsetOption: Optional[ValueWhenUnsetOptionType] = None
     CustomValue: Optional[str] = None
 
 
-class TableStyleTargetTypeDef(BaseValidatorModel):
+class TableStyleTarget(BaseValidatorModel):
     CellType: StyledCellTypeType
 
 
-class SuccessfulKeyRegistrationEntryTypeDef(BaseValidatorModel):
+class SuccessfulKeyRegistrationEntry(BaseValidatorModel):
     KeyArn: str
     StatusCode: int
 
 
-class TableCellImageSizingConfigurationTypeDef(BaseValidatorModel):
+class TableCellImageSizingConfiguration(BaseValidatorModel):
     TableCellImageScalingConfiguration: Optional[TableCellImageScalingConfigurationType] = None
 
 
-class TablePaginatedReportOptionsTypeDef(BaseValidatorModel):
+class TablePaginatedReportOptions(BaseValidatorModel):
     VerticalOverflowVisibility: Optional[VisibilityType] = None
     OverflowColumnHeaderVisibility: Optional[VisibilityType] = None
 
 
-class TableFieldCustomIconContentTypeDef(BaseValidatorModel):
+class TableFieldCustomIconContent(BaseValidatorModel):
     Icon: Optional[Literal["LINK"]] = None
 
 
-class TablePinnedFieldOptionsOutputTypeDef(BaseValidatorModel):
+class TablePinnedFieldOptionsOutput(BaseValidatorModel):
     PinnedLeftFields: Optional[List[str]] = None
 
 
-class TablePinnedFieldOptionsTypeDef(BaseValidatorModel):
+class TablePinnedFieldOptions(BaseValidatorModel):
     PinnedLeftFields: Optional[Sequence[str]] = None
 
 
-class TemplateSourceTemplateTypeDef(BaseValidatorModel):
+class TemplateSourceTemplate(BaseValidatorModel):
     Arn: str
 
 
-class TextControlPlaceholderOptionsTypeDef(BaseValidatorModel):
+class TextControlPlaceholderOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
 
 
-class TopicConfigOptionsTypeDef(BaseValidatorModel):
+class TopicConfigOptions(BaseValidatorModel):
     QBusinessInsightsEnabled: Optional[bool] = None
 
 
-class TopicSingularFilterConstantTypeDef(BaseValidatorModel):
+class TopicSingularFilterConstant(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     SingularConstant: Optional[str] = None
 
 
-class TotalAggregationFunctionTypeDef(BaseValidatorModel):
+class TotalAggregationFunction(BaseValidatorModel):
     SimpleTotalAggregationFunction: Optional[SimpleTotalAggregationFunctionType] = None
 
 
-class UntagColumnOperationOutputTypeDef(BaseValidatorModel):
+class UntagColumnOperationOutput(BaseValidatorModel):
     ColumnName: str
     TagNames: List[ColumnTagNameType]
 
 
-class UntagColumnOperationTypeDef(BaseValidatorModel):
+class UntagColumnOperation(BaseValidatorModel):
     ColumnName: str
     TagNames: Sequence[ColumnTagNameType]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
     DefaultNamespace: str
     NotificationEmail: Optional[str] = None
     TerminationProtectionEnabled: Optional[bool] = None
 
 
-class UpdateApplicationWithTokenExchangeGrantRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationWithTokenExchangeGrantRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
 
 
-class UpdateBrandAssignmentRequestTypeDef(BaseValidatorModel):
+class UpdateBrandAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandArn: str
 
 
-class UpdateBrandPublishedVersionRequestTypeDef(BaseValidatorModel):
+class UpdateBrandPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
     VersionId: str
 
 
-class UpdateDashboardLinksRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardLinksRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     LinkEntities: Sequence[str]
 
 
-class UpdateDashboardPublishedVersionRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardPublishedVersionRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     VersionNumber: int
 
 
-class UpdateDashboardsQAConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardsQAConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardsQAStatus: DashboardsQAStatusType
 
 
-class UpdateDefaultQBusinessApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateDefaultQBusinessApplicationRequest(BaseValidatorModel):
     AwsAccountId: str
     ApplicationId: str
     Namespace: Optional[str] = None
 
 
-class UpdateFolderRequestTypeDef(BaseValidatorModel):
+class UpdateFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Name: str
 
 
-class UpdateGroupRequestTypeDef(BaseValidatorModel):
+class UpdateGroupRequest(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
     Description: Optional[str] = None
 
 
-class UpdateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
+class UpdateIAMPolicyAssignmentRequest(BaseValidatorModel):
     AwsAccountId: str
     AssignmentName: str
     Namespace: str
@@ -2783,13 +2783,13 @@ class UpdateIAMPolicyAssignmentRequestTypeDef(BaseValidatorModel):
     Identities: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class UpdateIdentityPropagationConfigRequestTypeDef(BaseValidatorModel):
+class UpdateIdentityPropagationConfigRequest(BaseValidatorModel):
     AwsAccountId: str
     Service: ServiceTypeType
     AuthorizedTargets: Optional[Sequence[str]] = None
 
 
-class UpdateIpRestrictionRequestTypeDef(BaseValidatorModel):
+class UpdateIpRestrictionRequest(BaseValidatorModel):
     AwsAccountId: str
     IpRestrictionRuleMap: Optional[Mapping[str, str]] = None
     VpcIdRestrictionRuleMap: Optional[Mapping[str, str]] = None
@@ -2797,55 +2797,55 @@ class UpdateIpRestrictionRequestTypeDef(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class UpdatePublicSharingSettingsRequestTypeDef(BaseValidatorModel):
+class UpdatePublicSharingSettingsRequest(BaseValidatorModel):
     AwsAccountId: str
     PublicSharingEnabled: Optional[bool] = None
 
 
-class UpdateQPersonalizationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateQPersonalizationConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     PersonalizationMode: PersonalizationModeType
 
 
-class UpdateQuickSightQSearchConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateQuickSightQSearchConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     QSearchStatus: QSearchStatusType
 
 
-class UpdateRoleCustomPermissionRequestTypeDef(BaseValidatorModel):
+class UpdateRoleCustomPermissionRequest(BaseValidatorModel):
     CustomPermissionsName: str
     Role: RoleType
     AwsAccountId: str
     Namespace: str
 
 
-class UpdateSPICECapacityConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateSPICECapacityConfigurationRequest(BaseValidatorModel):
     AwsAccountId: str
     PurchaseMode: PurchaseModeType
 
 
-class UpdateTemplateAliasRequestTypeDef(BaseValidatorModel):
+class UpdateTemplateAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     AliasName: str
     TemplateVersionNumber: int
 
 
-class UpdateThemeAliasRequestTypeDef(BaseValidatorModel):
+class UpdateThemeAliasRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     AliasName: str
     ThemeVersionNumber: int
 
 
-class UpdateUserCustomPermissionRequestTypeDef(BaseValidatorModel):
+class UpdateUserCustomPermissionRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
     CustomPermissionsName: str
 
 
-class UpdateUserRequestTypeDef(BaseValidatorModel):
+class UpdateUserRequest(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
@@ -2858,7 +2858,7 @@ class UpdateUserRequestTypeDef(BaseValidatorModel):
     ExternalLoginId: Optional[str] = None
 
 
-class UpdateVPCConnectionRequestTypeDef(BaseValidatorModel):
+class UpdateVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
     Name: str
@@ -2868,17 +2868,17 @@ class UpdateVPCConnectionRequestTypeDef(BaseValidatorModel):
     DnsResolvers: Optional[Sequence[str]] = None
 
 
-class WaterfallChartGroupColorConfigurationTypeDef(BaseValidatorModel):
+class WaterfallChartGroupColorConfiguration(BaseValidatorModel):
     PositiveBarColor: Optional[str] = None
     NegativeBarColor: Optional[str] = None
     TotalBarColor: Optional[str] = None
 
 
-class WaterfallChartOptionsTypeDef(BaseValidatorModel):
+class WaterfallChartOptions(BaseValidatorModel):
     TotalBarLabel: Optional[str] = None
 
 
-class WordCloudOptionsTypeDef(BaseValidatorModel):
+class WordCloudOptions(BaseValidatorModel):
     WordOrientation: Optional[WordCloudWordOrientationType] = None
     WordScaling: Optional[WordCloudWordScalingType] = None
     CloudLayout: Optional[WordCloudCloudLayoutType] = None
@@ -2887,288 +2887,288 @@ class WordCloudOptionsTypeDef(BaseValidatorModel):
     MaximumStringLength: Optional[int] = None
 
 
-class UpdateAccountCustomizationRequestTypeDef(BaseValidatorModel):
+class UpdateAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
-    AccountCustomization: AccountCustomizationTypeDef
+    AccountCustomization: AccountCustomization
     Namespace: Optional[str] = None
 
 
-class AxisLabelReferenceOptionsTypeDef(BaseValidatorModel):
+class AxisLabelReferenceOptions(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
 
 
-class CascadingControlSourceTypeDef(BaseValidatorModel):
+class CascadingControlSource(BaseValidatorModel):
     SourceSheetControlId: Optional[str] = None
-    ColumnToMatch: Optional[ColumnIdentifierTypeDef] = None
+    ColumnToMatch: Optional[ColumnIdentifier] = None
 
 
-class CategoryDrillDownFilterOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class CategoryDrillDownFilterOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
     CategoryValues: List[str]
 
 
-class CategoryDrillDownFilterTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class CategoryDrillDownFilter(BaseValidatorModel):
+    Column: ColumnIdentifier
     CategoryValues: Sequence[str]
 
 
-class ContributionAnalysisDefaultOutputTypeDef(BaseValidatorModel):
+class ContributionAnalysisDefaultOutput(BaseValidatorModel):
     MeasureFieldId: str
-    ContributorDimensions: List[ColumnIdentifierTypeDef]
+    ContributorDimensions: List[ColumnIdentifier]
 
 
-class ContributionAnalysisDefaultTypeDef(BaseValidatorModel):
+class ContributionAnalysisDefault(BaseValidatorModel):
     MeasureFieldId: str
-    ContributorDimensions: Sequence[ColumnIdentifierTypeDef]
+    ContributorDimensions: Sequence[ColumnIdentifier]
 
 
-class DynamicDefaultValueTypeDef(BaseValidatorModel):
-    DefaultValueColumn: ColumnIdentifierTypeDef
-    UserNameColumn: Optional[ColumnIdentifierTypeDef] = None
-    GroupNameColumn: Optional[ColumnIdentifierTypeDef] = None
+class DynamicDefaultValue(BaseValidatorModel):
+    DefaultValueColumn: ColumnIdentifier
+    UserNameColumn: Optional[ColumnIdentifier] = None
+    GroupNameColumn: Optional[ColumnIdentifier] = None
 
 
-class FilterOperationSelectedFieldsConfigurationOutputTypeDef(BaseValidatorModel):
+class FilterOperationSelectedFieldsConfigurationOutput(BaseValidatorModel):
     SelectedFields: Optional[List[str]] = None
     SelectedFieldOptions: Optional[Literal["ALL_FIELDS"]] = None
-    SelectedColumns: Optional[List[ColumnIdentifierTypeDef]] = None
+    SelectedColumns: Optional[List[ColumnIdentifier]] = None
 
 
-class FilterOperationSelectedFieldsConfigurationTypeDef(BaseValidatorModel):
+class FilterOperationSelectedFieldsConfiguration(BaseValidatorModel):
     SelectedFields: Optional[Sequence[str]] = None
     SelectedFieldOptions: Optional[Literal["ALL_FIELDS"]] = None
-    SelectedColumns: Optional[Sequence[ColumnIdentifierTypeDef]] = None
+    SelectedColumns: Optional[Sequence[ColumnIdentifier]] = None
 
 
-class NumericEqualityDrillDownFilterTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class NumericEqualityDrillDownFilter(BaseValidatorModel):
+    Column: ColumnIdentifier
     Value: float
 
 
-class ParameterSelectableValuesOutputTypeDef(BaseValidatorModel):
+class ParameterSelectableValuesOutput(BaseValidatorModel):
     Values: Optional[List[str]] = None
-    LinkToDataSetColumn: Optional[ColumnIdentifierTypeDef] = None
+    LinkToDataSetColumn: Optional[ColumnIdentifier] = None
 
 
-class ParameterSelectableValuesTypeDef(BaseValidatorModel):
+class ParameterSelectableValues(BaseValidatorModel):
     Values: Optional[Sequence[str]] = None
-    LinkToDataSetColumn: Optional[ColumnIdentifierTypeDef] = None
+    LinkToDataSetColumn: Optional[ColumnIdentifier] = None
 
 
-class TimeRangeDrillDownFilterOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class TimeRangeDrillDownFilterOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
     RangeMinimum: datetime
     RangeMaximum: datetime
     TimeGranularity: TimeGranularityType
 
 
-class SearchAnalysesRequestTypeDef(BaseValidatorModel):
+class SearchAnalysesRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[AnalysisSearchFilterTypeDef]
+    Filters: Sequence[AnalysisSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class AnalysisSourceTemplateTypeDef(BaseValidatorModel):
-    DataSetReferences: Sequence[DataSetReferenceTypeDef]
+class AnalysisSourceTemplate(BaseValidatorModel):
+    DataSetReferences: Sequence[DataSetReference]
     Arn: str
 
 
-class DashboardSourceTemplateTypeDef(BaseValidatorModel):
-    DataSetReferences: Sequence[DataSetReferenceTypeDef]
+class DashboardSourceTemplate(BaseValidatorModel):
+    DataSetReferences: Sequence[DataSetReference]
     Arn: str
 
 
-class TemplateSourceAnalysisTypeDef(BaseValidatorModel):
+class TemplateSourceAnalysis(BaseValidatorModel):
     Arn: str
-    DataSetReferences: Sequence[DataSetReferenceTypeDef]
+    DataSetReferences: Sequence[DataSetReference]
 
 
-class AnonymousUserDashboardFeatureConfigurationsTypeDef(BaseValidatorModel):
-    SharedView: Optional[SharedViewConfigurationsTypeDef] = None
+class AnonymousUserDashboardFeatureConfigurations(BaseValidatorModel):
+    SharedView: Optional[SharedViewConfigurations] = None
 
 
-class AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialDashboardVisualId: DashboardVisualIdTypeDef
+class AnonymousUserDashboardVisualEmbeddingConfiguration(BaseValidatorModel):
+    InitialDashboardVisualId: DashboardVisualId
 
 
-class RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef(BaseValidatorModel):
-    InitialDashboardVisualId: DashboardVisualIdTypeDef
+class RegisteredUserDashboardVisualEmbeddingConfiguration(BaseValidatorModel):
+    InitialDashboardVisualId: DashboardVisualId
 
 
-class ArcAxisConfigurationTypeDef(BaseValidatorModel):
-    Range: Optional[ArcAxisDisplayRangeTypeDef] = None
+class ArcAxisConfiguration(BaseValidatorModel):
+    Range: Optional[ArcAxisDisplayRange] = None
     ReserveRange: Optional[int] = None
 
 
-class AssetBundleCloudFormationOverridePropertyConfigurationOutputTypeDef(BaseValidatorModel):
-    ResourceIdOverrideConfiguration: Optional[ AssetBundleExportJobResourceIdOverrideConfigurationTypeDef ] = None
-    VPCConnections: Optional[ List[AssetBundleExportJobVPCConnectionOverridePropertiesOutputTypeDef] ] = None
-    RefreshSchedules: Optional[ List[AssetBundleExportJobRefreshScheduleOverridePropertiesOutputTypeDef] ] = None
-    DataSources: Optional[List[AssetBundleExportJobDataSourceOverridePropertiesOutputTypeDef]] = None
-    DataSets: Optional[List[AssetBundleExportJobDataSetOverridePropertiesOutputTypeDef]] = None
-    Themes: Optional[List[AssetBundleExportJobThemeOverridePropertiesOutputTypeDef]] = None
-    Analyses: Optional[List[AssetBundleExportJobAnalysisOverridePropertiesOutputTypeDef]] = None
-    Dashboards: Optional[List[AssetBundleExportJobDashboardOverridePropertiesOutputTypeDef]] = None
-    Folders: Optional[List[AssetBundleExportJobFolderOverridePropertiesOutputTypeDef]] = None
+class AssetBundleCloudFormationOverridePropertyConfigurationOutput(BaseValidatorModel):
+    ResourceIdOverrideConfiguration: Optional[ AssetBundleExportJobResourceIdOverrideConfiguration ] = None
+    VPCConnections: Optional[ List[AssetBundleExportJobVPCConnectionOverridePropertiesOutput] ] = None
+    RefreshSchedules: Optional[ List[AssetBundleExportJobRefreshScheduleOverridePropertiesOutput] ] = None
+    DataSources: Optional[List[AssetBundleExportJobDataSourceOverridePropertiesOutput]] = None
+    DataSets: Optional[List[AssetBundleExportJobDataSetOverridePropertiesOutput]] = None
+    Themes: Optional[List[AssetBundleExportJobThemeOverridePropertiesOutput]] = None
+    Analyses: Optional[List[AssetBundleExportJobAnalysisOverridePropertiesOutput]] = None
+    Dashboards: Optional[List[AssetBundleExportJobDashboardOverridePropertiesOutput]] = None
+    Folders: Optional[List[AssetBundleExportJobFolderOverridePropertiesOutput]] = None
 
 
-class AssetBundleCloudFormationOverridePropertyConfigurationTypeDef(BaseValidatorModel):
-    ResourceIdOverrideConfiguration: Optional[ AssetBundleExportJobResourceIdOverrideConfigurationTypeDef ] = None
-    VPCConnections: Optional[ Sequence[AssetBundleExportJobVPCConnectionOverridePropertiesTypeDef] ] = None
-    RefreshSchedules: Optional[ Sequence[AssetBundleExportJobRefreshScheduleOverridePropertiesTypeDef] ] = None
-    DataSources: Optional[Sequence[AssetBundleExportJobDataSourceOverridePropertiesTypeDef]] = None
-    DataSets: Optional[Sequence[AssetBundleExportJobDataSetOverridePropertiesTypeDef]] = None
-    Themes: Optional[Sequence[AssetBundleExportJobThemeOverridePropertiesTypeDef]] = None
-    Analyses: Optional[Sequence[AssetBundleExportJobAnalysisOverridePropertiesTypeDef]] = None
-    Dashboards: Optional[Sequence[AssetBundleExportJobDashboardOverridePropertiesTypeDef]] = None
-    Folders: Optional[Sequence[AssetBundleExportJobFolderOverridePropertiesTypeDef]] = None
+class AssetBundleCloudFormationOverridePropertyConfiguration(BaseValidatorModel):
+    ResourceIdOverrideConfiguration: Optional[ AssetBundleExportJobResourceIdOverrideConfiguration ] = None
+    VPCConnections: Optional[ Sequence[AssetBundleExportJobVPCConnectionOverrideProperties] ] = None
+    RefreshSchedules: Optional[ Sequence[AssetBundleExportJobRefreshScheduleOverrideProperties] ] = None
+    DataSources: Optional[Sequence[AssetBundleExportJobDataSourceOverrideProperties]] = None
+    DataSets: Optional[Sequence[AssetBundleExportJobDataSetOverrideProperties]] = None
+    Themes: Optional[Sequence[AssetBundleExportJobThemeOverrideProperties]] = None
+    Analyses: Optional[Sequence[AssetBundleExportJobAnalysisOverrideProperties]] = None
+    Dashboards: Optional[Sequence[AssetBundleExportJobDashboardOverrideProperties]] = None
+    Folders: Optional[Sequence[AssetBundleExportJobFolderOverrideProperties]] = None
 
 
-class AssetBundleImportJobAnalysisOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobAnalysisOverridePermissionsOutput(BaseValidatorModel):
     AnalysisIds: List[str]
-    Permissions: AssetBundleResourcePermissionsOutputTypeDef
+    Permissions: AssetBundleResourcePermissionsOutput
 
 
-class AssetBundleImportJobDataSetOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSetOverridePermissionsOutput(BaseValidatorModel):
     DataSetIds: List[str]
-    Permissions: AssetBundleResourcePermissionsOutputTypeDef
+    Permissions: AssetBundleResourcePermissionsOutput
 
 
-class AssetBundleImportJobDataSourceOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverridePermissionsOutput(BaseValidatorModel):
     DataSourceIds: List[str]
-    Permissions: AssetBundleResourcePermissionsOutputTypeDef
+    Permissions: AssetBundleResourcePermissionsOutput
 
 
-class AssetBundleImportJobFolderOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobFolderOverridePermissionsOutput(BaseValidatorModel):
     FolderIds: List[str]
-    Permissions: Optional[AssetBundleResourcePermissionsOutputTypeDef] = None
+    Permissions: Optional[AssetBundleResourcePermissionsOutput] = None
 
 
-class AssetBundleImportJobThemeOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobThemeOverridePermissionsOutput(BaseValidatorModel):
     ThemeIds: List[str]
-    Permissions: AssetBundleResourcePermissionsOutputTypeDef
+    Permissions: AssetBundleResourcePermissionsOutput
 
 
-class AssetBundleResourceLinkSharingConfigurationOutputTypeDef(BaseValidatorModel):
-    Permissions: Optional[AssetBundleResourcePermissionsOutputTypeDef] = None
+class AssetBundleResourceLinkSharingConfigurationOutput(BaseValidatorModel):
+    Permissions: Optional[AssetBundleResourcePermissionsOutput] = None
 
 
-class AssetBundleImportJobAnalysisOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobAnalysisOverridePermissions(BaseValidatorModel):
     AnalysisIds: Sequence[str]
-    Permissions: AssetBundleResourcePermissionsTypeDef
+    Permissions: AssetBundleResourcePermissions
 
 
-class AssetBundleImportJobDataSetOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSetOverridePermissions(BaseValidatorModel):
     DataSetIds: Sequence[str]
-    Permissions: AssetBundleResourcePermissionsTypeDef
+    Permissions: AssetBundleResourcePermissions
 
 
-class AssetBundleImportJobDataSourceOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverridePermissions(BaseValidatorModel):
     DataSourceIds: Sequence[str]
-    Permissions: AssetBundleResourcePermissionsTypeDef
+    Permissions: AssetBundleResourcePermissions
 
 
-class AssetBundleImportJobFolderOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobFolderOverridePermissions(BaseValidatorModel):
     FolderIds: Sequence[str]
-    Permissions: Optional[AssetBundleResourcePermissionsTypeDef] = None
+    Permissions: Optional[AssetBundleResourcePermissions] = None
 
 
-class AssetBundleImportJobThemeOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobThemeOverridePermissions(BaseValidatorModel):
     ThemeIds: Sequence[str]
-    Permissions: AssetBundleResourcePermissionsTypeDef
+    Permissions: AssetBundleResourcePermissions
 
 
-class AssetBundleResourceLinkSharingConfigurationTypeDef(BaseValidatorModel):
-    Permissions: Optional[AssetBundleResourcePermissionsTypeDef] = None
+class AssetBundleResourceLinkSharingConfiguration(BaseValidatorModel):
+    Permissions: Optional[AssetBundleResourcePermissions] = None
 
 
-class AssetBundleImportJobAnalysisOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobAnalysisOverrideTagsOutput(BaseValidatorModel):
     AnalysisIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobAnalysisOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobAnalysisOverrideTags(BaseValidatorModel):
     AnalysisIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobDashboardOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDashboardOverrideTagsOutput(BaseValidatorModel):
     DashboardIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobDashboardOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDashboardOverrideTags(BaseValidatorModel):
     DashboardIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobDataSetOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSetOverrideTagsOutput(BaseValidatorModel):
     DataSetIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobDataSetOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSetOverrideTags(BaseValidatorModel):
     DataSetIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobDataSourceOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverrideTagsOutput(BaseValidatorModel):
     DataSourceIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobDataSourceOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverrideTags(BaseValidatorModel):
     DataSourceIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobFolderOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobFolderOverrideTagsOutput(BaseValidatorModel):
     FolderIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobFolderOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobFolderOverrideTags(BaseValidatorModel):
     FolderIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobThemeOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobThemeOverrideTagsOutput(BaseValidatorModel):
     ThemeIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobThemeOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobThemeOverrideTags(BaseValidatorModel):
     ThemeIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobVPCConnectionOverrideTagsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobVPCConnectionOverrideTagsOutput(BaseValidatorModel):
     VPCConnectionIds: List[str]
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
 
 
-class AssetBundleImportJobVPCConnectionOverrideTagsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobVPCConnectionOverrideTags(BaseValidatorModel):
     VPCConnectionIds: Sequence[str]
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateAccountCustomizationRequestTypeDef(BaseValidatorModel):
+class CreateAccountCustomizationRequest(BaseValidatorModel):
     AwsAccountId: str
-    AccountCustomization: AccountCustomizationTypeDef
+    AccountCustomization: AccountCustomization
     Namespace: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateNamespaceRequestTypeDef(BaseValidatorModel):
+class CreateNamespaceRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     IdentityStore: Literal["QUICKSIGHT"]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateVPCConnectionRequestTypeDef(BaseValidatorModel):
+class CreateVPCConnectionRequest(BaseValidatorModel):
     AwsAccountId: str
     VPCConnectionId: str
     Name: str
@@ -3176,10 +3176,10 @@ class CreateVPCConnectionRequestTypeDef(BaseValidatorModel):
     SecurityGroupIds: Sequence[str]
     RoleArn: str
     DnsResolvers: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class RegisterUserRequestTypeDef(BaseValidatorModel):
+class RegisterUserRequest(BaseValidatorModel):
     IdentityType: IdentityTypeType
     Email: str
     UserRole: UserRoleType
@@ -3192,191 +3192,191 @@ class RegisterUserRequestTypeDef(BaseValidatorModel):
     ExternalLoginFederationProviderType: Optional[str] = None
     CustomFederationProviderUrl: Optional[str] = None
     ExternalLoginId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class AssetBundleImportJobDataSourceCredentialsTypeDef(BaseValidatorModel):
-    CredentialPair: Optional[AssetBundleImportJobDataSourceCredentialPairTypeDef] = None
+class AssetBundleImportJobDataSourceCredentials(BaseValidatorModel):
+    CredentialPair: Optional[AssetBundleImportJobDataSourceCredentialPair] = None
     SecretArn: Optional[str] = None
 
 
-class OAuthParametersTypeDef(BaseValidatorModel):
+class OAuthParameters(BaseValidatorModel):
     TokenProviderUrl: str
     OAuthScope: Optional[str] = None
-    IdentityProviderVpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
+    IdentityProviderVpcConnectionProperties: Optional[VpcConnectionProperties] = None
     IdentityProviderResourceUri: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class AssetBundleImportJobRefreshScheduleOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobRefreshScheduleOverrideParameters(BaseValidatorModel):
     DataSetId: str
     ScheduleId: str
-    StartAfterDateTime: Optional[TimestampTypeDef] = None
+    StartAfterDateTime: Optional[Timestamp] = None
 
 
-class CustomParameterValuesTypeDef(BaseValidatorModel):
+class CustomParameterValues(BaseValidatorModel):
     StringValues: Optional[Sequence[str]] = None
     IntegerValues: Optional[Sequence[int]] = None
     DecimalValues: Optional[Sequence[float]] = None
-    DateTimeValues: Optional[Sequence[TimestampTypeDef]] = None
+    DateTimeValues: Optional[Sequence[Timestamp]] = None
 
 
-class DateTimeDatasetParameterDefaultValuesTypeDef(BaseValidatorModel):
-    StaticValues: Optional[Sequence[TimestampTypeDef]] = None
+class DateTimeDatasetParameterDefaultValues(BaseValidatorModel):
+    StaticValues: Optional[Sequence[Timestamp]] = None
 
 
-class DateTimeParameterTypeDef(BaseValidatorModel):
+class DateTimeParameter(BaseValidatorModel):
     Name: str
-    Values: Sequence[TimestampTypeDef]
+    Values: Sequence[Timestamp]
 
 
-class DateTimeValueWhenUnsetConfigurationTypeDef(BaseValidatorModel):
+class DateTimeValueWhenUnsetConfiguration(BaseValidatorModel):
     ValueWhenUnsetOption: Optional[ValueWhenUnsetOptionType] = None
-    CustomValue: Optional[TimestampTypeDef] = None
+    CustomValue: Optional[Timestamp] = None
 
 
-class NewDefaultValuesTypeDef(BaseValidatorModel):
+class NewDefaultValues(BaseValidatorModel):
     StringStaticValues: Optional[Sequence[str]] = None
     DecimalStaticValues: Optional[Sequence[float]] = None
-    DateTimeStaticValues: Optional[Sequence[TimestampTypeDef]] = None
+    DateTimeStaticValues: Optional[Sequence[Timestamp]] = None
     IntegerStaticValues: Optional[Sequence[int]] = None
 
 
-class TimeRangeDrillDownFilterTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    RangeMinimum: TimestampTypeDef
-    RangeMaximum: TimestampTypeDef
+class TimeRangeDrillDownFilter(BaseValidatorModel):
+    Column: ColumnIdentifier
+    RangeMinimum: Timestamp
+    RangeMaximum: Timestamp
     TimeGranularity: TimeGranularityType
 
 
-class TopicRefreshScheduleTypeDef(BaseValidatorModel):
+class TopicRefreshSchedule(BaseValidatorModel):
     IsEnabled: bool
     BasedOnSpiceSchedule: bool
-    StartingAt: Optional[TimestampTypeDef] = None
+    StartingAt: Optional[Timestamp] = None
     Timezone: Optional[str] = None
     RepeatAt: Optional[str] = None
     TopicScheduleType: Optional[TopicScheduleTypeType] = None
 
 
-class WhatIfPointScenarioTypeDef(BaseValidatorModel):
-    Date: TimestampTypeDef
+class WhatIfPointScenario(BaseValidatorModel):
+    Date: Timestamp
     Value: float
 
 
-class WhatIfRangeScenarioTypeDef(BaseValidatorModel):
-    StartDate: TimestampTypeDef
-    EndDate: TimestampTypeDef
+class WhatIfRangeScenario(BaseValidatorModel):
+    StartDate: Timestamp
+    EndDate: Timestamp
     Value: float
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class AssetBundleImportSourceTypeDef(BaseValidatorModel):
-    Body: Optional[BlobTypeDef] = None
+class AssetBundleImportSource(BaseValidatorModel):
+    Body: Optional[Blob] = None
     S3Uri: Optional[str] = None
 
 
-class AxisDisplayRangeOutputTypeDef(BaseValidatorModel):
-    MinMax: Optional[AxisDisplayMinMaxRangeTypeDef] = None
+class AxisDisplayRangeOutput(BaseValidatorModel):
+    MinMax: Optional[AxisDisplayMinMaxRange] = None
     DataDriven: Optional[Dict[str, Any]] = None
 
 
-class AxisDisplayRangeTypeDef(BaseValidatorModel):
-    MinMax: Optional[AxisDisplayMinMaxRangeTypeDef] = None
+class AxisDisplayRange(BaseValidatorModel):
+    MinMax: Optional[AxisDisplayMinMaxRange] = None
     DataDriven: Optional[Mapping[str, Any]] = None
 
 
-class AxisScaleTypeDef(BaseValidatorModel):
-    Linear: Optional[AxisLinearScaleTypeDef] = None
-    Logarithmic: Optional[AxisLogarithmicScaleTypeDef] = None
+class AxisScale(BaseValidatorModel):
+    Linear: Optional[AxisLinearScale] = None
+    Logarithmic: Optional[AxisLogarithmicScale] = None
 
 
-class ScatterPlotSortConfigurationTypeDef(BaseValidatorModel):
-    ScatterPlotLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class ScatterPlotSortConfiguration(BaseValidatorModel):
+    ScatterPlotLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class CancelIngestionResponseTypeDef(BaseValidatorModel):
+class CancelIngestionResponse(BaseValidatorModel):
     Arn: str
     IngestionId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAccountCustomizationResponseTypeDef(BaseValidatorModel):
+class CreateAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
     Namespace: str
-    AccountCustomization: AccountCustomizationTypeDef
+    AccountCustomization: AccountCustomization
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAnalysisResponseTypeDef(BaseValidatorModel):
+class CreateAnalysisResponse(BaseValidatorModel):
     Arn: str
     AnalysisId: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCustomPermissionsResponseTypeDef(BaseValidatorModel):
+class CreateCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDashboardResponseTypeDef(BaseValidatorModel):
+class CreateDashboardResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
     DashboardId: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataSetResponseTypeDef(BaseValidatorModel):
+class CreateDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
     IngestionArn: str
     IngestionId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataSourceResponseTypeDef(BaseValidatorModel):
+class CreateDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
     CreationStatus: ResourceStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFolderResponseTypeDef(BaseValidatorModel):
+class CreateFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
     FolderId: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
+class CreateIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     AssignmentId: str
     AssignmentStatus: AssignmentStatusType
@@ -3384,19 +3384,19 @@ class CreateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
     Identities: Dict[str, List[str]]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIngestionResponseTypeDef(BaseValidatorModel):
+class CreateIngestionResponse(BaseValidatorModel):
     Arn: str
     IngestionId: str
     IngestionStatus: IngestionStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNamespaceResponseTypeDef(BaseValidatorModel):
+class CreateNamespaceResponse(BaseValidatorModel):
     Arn: str
     Name: str
     CapacityRegion: str
@@ -3404,334 +3404,334 @@ class CreateNamespaceResponseTypeDef(BaseValidatorModel):
     IdentityStore: Literal["QUICKSIGHT"]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class CreateRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
     ScheduleId: str
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRoleMembershipResponseTypeDef(BaseValidatorModel):
+class CreateRoleMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTemplateResponseTypeDef(BaseValidatorModel):
+class CreateTemplateResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
     TemplateId: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateThemeResponseTypeDef(BaseValidatorModel):
+class CreateThemeResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
     ThemeId: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class CreateTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
     DatasetArn: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTopicResponseTypeDef(BaseValidatorModel):
+class CreateTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
     RefreshArn: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVPCConnectionResponseTypeDef(BaseValidatorModel):
+class CreateVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
     CreationStatus: VPCConnectionResourceStatusType
     AvailabilityStatus: VPCConnectionAvailabilityStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAccountCustomizationResponseTypeDef(BaseValidatorModel):
+class DeleteAccountCustomizationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAccountSubscriptionResponseTypeDef(BaseValidatorModel):
+class DeleteAccountSubscriptionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAnalysisResponseTypeDef(BaseValidatorModel):
+class DeleteAnalysisResponse(BaseValidatorModel):
     Status: int
     Arn: str
     AnalysisId: str
     DeletionTime: datetime
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBrandAssignmentResponseTypeDef(BaseValidatorModel):
+class DeleteBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBrandResponseTypeDef(BaseValidatorModel):
+class DeleteBrandResponse(BaseValidatorModel):
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCustomPermissionsResponseTypeDef(BaseValidatorModel):
+class DeleteCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDashboardResponseTypeDef(BaseValidatorModel):
+class DeleteDashboardResponse(BaseValidatorModel):
     Status: int
     Arn: str
     DashboardId: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataSetRefreshPropertiesResponseTypeDef(BaseValidatorModel):
+class DeleteDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataSetResponseTypeDef(BaseValidatorModel):
+class DeleteDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDataSourceResponseTypeDef(BaseValidatorModel):
+class DeleteDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDefaultQBusinessApplicationResponseTypeDef(BaseValidatorModel):
+class DeleteDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFolderMembershipResponseTypeDef(BaseValidatorModel):
+class DeleteFolderMembershipResponse(BaseValidatorModel):
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFolderResponseTypeDef(BaseValidatorModel):
+class DeleteFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
     FolderId: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGroupMembershipResponseTypeDef(BaseValidatorModel):
+class DeleteGroupMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGroupResponseTypeDef(BaseValidatorModel):
+class DeleteGroupResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
+class DeleteIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteIdentityPropagationConfigResponseTypeDef(BaseValidatorModel):
+class DeleteIdentityPropagationConfigResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteNamespaceResponseTypeDef(BaseValidatorModel):
+class DeleteNamespaceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class DeleteRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
     ScheduleId: str
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRoleCustomPermissionResponseTypeDef(BaseValidatorModel):
+class DeleteRoleCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteRoleMembershipResponseTypeDef(BaseValidatorModel):
+class DeleteRoleMembershipResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTemplateAliasResponseTypeDef(BaseValidatorModel):
+class DeleteTemplateAliasResponse(BaseValidatorModel):
     Status: int
     TemplateId: str
     AliasName: str
     Arn: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTemplateResponseTypeDef(BaseValidatorModel):
+class DeleteTemplateResponse(BaseValidatorModel):
     RequestId: str
     Arn: str
     TemplateId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteThemeAliasResponseTypeDef(BaseValidatorModel):
+class DeleteThemeAliasResponse(BaseValidatorModel):
     AliasName: str
     Arn: str
     RequestId: str
     Status: int
     ThemeId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteThemeResponseTypeDef(BaseValidatorModel):
+class DeleteThemeResponse(BaseValidatorModel):
     Arn: str
     RequestId: str
     Status: int
     ThemeId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class DeleteTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
     DatasetArn: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTopicResponseTypeDef(BaseValidatorModel):
+class DeleteTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteUserByPrincipalIdResponseTypeDef(BaseValidatorModel):
+class DeleteUserByPrincipalIdResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteUserCustomPermissionResponseTypeDef(BaseValidatorModel):
+class DeleteUserCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteUserResponseTypeDef(BaseValidatorModel):
+class DeleteUserResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVPCConnectionResponseTypeDef(BaseValidatorModel):
+class DeleteVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
     DeletionStatus: VPCConnectionResourceStatusType
     AvailabilityStatus: VPCConnectionAvailabilityStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountCustomizationResponseTypeDef(BaseValidatorModel):
+class DescribeAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
     Namespace: str
-    AccountCustomization: AccountCustomizationTypeDef
+    AccountCustomization: AccountCustomization
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountSettingsResponseTypeDef(BaseValidatorModel):
-    AccountSettings: AccountSettingsTypeDef
+class DescribeAccountSettingsResponse(BaseValidatorModel):
+    AccountSettings: AccountSettings
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountSubscriptionResponseTypeDef(BaseValidatorModel):
-    AccountInfo: AccountInfoTypeDef
+class DescribeAccountSubscriptionResponse(BaseValidatorModel):
+    AccountInfo: AccountInfo
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBrandAssignmentResponseTypeDef(BaseValidatorModel):
+class DescribeBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
     BrandArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDashboardsQAConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardsQAConfigurationResponse(BaseValidatorModel):
     DashboardsQAStatus: DashboardsQAStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDefaultQBusinessApplicationResponseTypeDef(BaseValidatorModel):
+class DescribeDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     ApplicationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeIpRestrictionResponseTypeDef(BaseValidatorModel):
+class DescribeIpRestrictionResponse(BaseValidatorModel):
     AwsAccountId: str
     IpRestrictionRuleMap: Dict[str, str]
     VpcIdRestrictionRuleMap: Dict[str, str]
@@ -3739,327 +3739,327 @@ class DescribeIpRestrictionResponseTypeDef(BaseValidatorModel):
     Enabled: bool
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeQPersonalizationConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeQPersonalizationConfigurationResponse(BaseValidatorModel):
     PersonalizationMode: PersonalizationModeType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeQuickSightQSearchConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     QSearchStatus: QSearchStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRoleCustomPermissionResponseTypeDef(BaseValidatorModel):
+class DescribeRoleCustomPermissionResponse(BaseValidatorModel):
     CustomPermissionsName: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GenerateEmbedUrlForAnonymousUserResponseTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForAnonymousUserResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
     RequestId: str
     AnonymousUserArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GenerateEmbedUrlForRegisteredUserResponseTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForRegisteredUserResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GenerateEmbedUrlForRegisteredUserWithIdentityResponseTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForRegisteredUserWithIdentityResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDashboardEmbedUrlResponseTypeDef(BaseValidatorModel):
+class GetDashboardEmbedUrlResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSessionEmbedUrlResponseTypeDef(BaseValidatorModel):
+class GetSessionEmbedUrlResponse(BaseValidatorModel):
     EmbedUrl: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAnalysesResponseTypeDef(BaseValidatorModel):
-    AnalysisSummaryList: List[AnalysisSummaryTypeDef]
+class ListAnalysesResponse(BaseValidatorModel):
+    AnalysisSummaryList: List[AnalysisSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAssetBundleExportJobsResponseTypeDef(BaseValidatorModel):
-    AssetBundleExportJobSummaryList: List[AssetBundleExportJobSummaryTypeDef]
+class ListAssetBundleExportJobsResponse(BaseValidatorModel):
+    AssetBundleExportJobSummaryList: List[AssetBundleExportJobSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAssetBundleImportJobsResponseTypeDef(BaseValidatorModel):
-    AssetBundleImportJobSummaryList: List[AssetBundleImportJobSummaryTypeDef]
+class ListAssetBundleImportJobsResponse(BaseValidatorModel):
+    AssetBundleImportJobSummaryList: List[AssetBundleImportJobSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListFoldersForResourceResponseTypeDef(BaseValidatorModel):
+class ListFoldersForResourceResponse(BaseValidatorModel):
     Status: int
     Folders: List[str]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIAMPolicyAssignmentsForUserResponseTypeDef(BaseValidatorModel):
-    ActiveAssignments: List[ActiveIAMPolicyAssignmentTypeDef]
+class ListIAMPolicyAssignmentsForUserResponse(BaseValidatorModel):
+    ActiveAssignments: List[ActiveIAMPolicyAssignment]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListIdentityPropagationConfigsResponseTypeDef(BaseValidatorModel):
-    Services: List[AuthorizedTargetsByServiceTypeDef]
+class ListIdentityPropagationConfigsResponse(BaseValidatorModel):
+    Services: List[AuthorizedTargetsByService]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListRoleMembershipsResponseTypeDef(BaseValidatorModel):
+class ListRoleMembershipsResponse(BaseValidatorModel):
     MembersList: List[str]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDataSetRefreshPropertiesResponseTypeDef(BaseValidatorModel):
+class PutDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreAnalysisResponseTypeDef(BaseValidatorModel):
+class RestoreAnalysisResponse(BaseValidatorModel):
     Status: int
     Arn: str
     AnalysisId: str
     RequestId: str
     RestorationFailedFolderArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchAnalysesResponseTypeDef(BaseValidatorModel):
-    AnalysisSummaryList: List[AnalysisSummaryTypeDef]
+class SearchAnalysesResponse(BaseValidatorModel):
+    AnalysisSummaryList: List[AnalysisSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
+class StartAssetBundleExportJobResponse(BaseValidatorModel):
     Arn: str
     AssetBundleExportJobId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAssetBundleImportJobResponseTypeDef(BaseValidatorModel):
+class StartAssetBundleImportJobResponse(BaseValidatorModel):
     Arn: str
     AssetBundleImportJobId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDashboardSnapshotJobResponseTypeDef(BaseValidatorModel):
+class StartDashboardSnapshotJobResponse(BaseValidatorModel):
     Arn: str
     SnapshotJobId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDashboardSnapshotJobScheduleResponseTypeDef(BaseValidatorModel):
+class StartDashboardSnapshotJobScheduleResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceResponseTypeDef(BaseValidatorModel):
+class TagResourceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UntagResourceResponseTypeDef(BaseValidatorModel):
+class UntagResourceResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountCustomizationResponseTypeDef(BaseValidatorModel):
+class UpdateAccountCustomizationResponse(BaseValidatorModel):
     Arn: str
     AwsAccountId: str
     Namespace: str
-    AccountCustomization: AccountCustomizationTypeDef
+    AccountCustomization: AccountCustomization
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountSettingsResponseTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAnalysisResponseTypeDef(BaseValidatorModel):
+class UpdateAnalysisResponse(BaseValidatorModel):
     Arn: str
     AnalysisId: str
     UpdateStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationWithTokenExchangeGrantResponseTypeDef(BaseValidatorModel):
+class UpdateApplicationWithTokenExchangeGrantResponse(BaseValidatorModel):
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrandAssignmentResponseTypeDef(BaseValidatorModel):
+class UpdateBrandAssignmentResponse(BaseValidatorModel):
     RequestId: str
     BrandArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrandPublishedVersionResponseTypeDef(BaseValidatorModel):
+class UpdateBrandPublishedVersionResponse(BaseValidatorModel):
     RequestId: str
     VersionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCustomPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateCustomPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDashboardLinksResponseTypeDef(BaseValidatorModel):
+class UpdateDashboardLinksResponse(BaseValidatorModel):
     RequestId: str
     Status: int
     DashboardArn: str
     LinkEntities: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDashboardPublishedVersionResponseTypeDef(BaseValidatorModel):
+class UpdateDashboardPublishedVersionResponse(BaseValidatorModel):
     DashboardId: str
     DashboardArn: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDashboardResponseTypeDef(BaseValidatorModel):
+class UpdateDashboardResponse(BaseValidatorModel):
     Arn: str
     VersionArn: str
     DashboardId: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDashboardsQAConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateDashboardsQAConfigurationResponse(BaseValidatorModel):
     DashboardsQAStatus: DashboardsQAStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSetPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateDataSetPermissionsResponse(BaseValidatorModel):
     DataSetArn: str
     DataSetId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSetResponseTypeDef(BaseValidatorModel):
+class UpdateDataSetResponse(BaseValidatorModel):
     Arn: str
     DataSetId: str
     IngestionArn: str
     IngestionId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSourcePermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateDataSourcePermissionsResponse(BaseValidatorModel):
     DataSourceArn: str
     DataSourceId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDataSourceResponseTypeDef(BaseValidatorModel):
+class UpdateDataSourceResponse(BaseValidatorModel):
     Arn: str
     DataSourceId: str
     UpdateStatus: ResourceStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDefaultQBusinessApplicationResponseTypeDef(BaseValidatorModel):
+class UpdateDefaultQBusinessApplicationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFolderResponseTypeDef(BaseValidatorModel):
+class UpdateFolderResponse(BaseValidatorModel):
     Status: int
     Arn: str
     FolderId: str
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
+class UpdateIAMPolicyAssignmentResponse(BaseValidatorModel):
     AssignmentName: str
     AssignmentId: str
     PolicyArn: str
@@ -4067,993 +4067,993 @@ class UpdateIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
     AssignmentStatus: AssignmentStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIdentityPropagationConfigResponseTypeDef(BaseValidatorModel):
+class UpdateIdentityPropagationConfigResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateIpRestrictionResponseTypeDef(BaseValidatorModel):
+class UpdateIpRestrictionResponse(BaseValidatorModel):
     AwsAccountId: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePublicSharingSettingsResponseTypeDef(BaseValidatorModel):
+class UpdatePublicSharingSettingsResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQPersonalizationConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateQPersonalizationConfigurationResponse(BaseValidatorModel):
     PersonalizationMode: PersonalizationModeType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQuickSightQSearchConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateQuickSightQSearchConfigurationResponse(BaseValidatorModel):
     QSearchStatus: QSearchStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class UpdateRefreshScheduleResponse(BaseValidatorModel):
     Status: int
     RequestId: str
     ScheduleId: str
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRoleCustomPermissionResponseTypeDef(BaseValidatorModel):
+class UpdateRoleCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSPICECapacityConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateSPICECapacityConfigurationResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTemplateResponseTypeDef(BaseValidatorModel):
+class UpdateTemplateResponse(BaseValidatorModel):
     TemplateId: str
     Arn: str
     VersionArn: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateThemeResponseTypeDef(BaseValidatorModel):
+class UpdateThemeResponse(BaseValidatorModel):
     ThemeId: str
     Arn: str
     VersionArn: str
     CreationStatus: ResourceStatusType
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class UpdateTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
     DatasetArn: str
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTopicResponseTypeDef(BaseValidatorModel):
+class UpdateTopicResponse(BaseValidatorModel):
     TopicId: str
     Arn: str
     RefreshArn: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserCustomPermissionResponseTypeDef(BaseValidatorModel):
+class UpdateUserCustomPermissionResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVPCConnectionResponseTypeDef(BaseValidatorModel):
+class UpdateVPCConnectionResponse(BaseValidatorModel):
     Arn: str
     VPCConnectionId: str
     UpdateStatus: VPCConnectionResourceStatusType
     AvailabilityStatus: VPCConnectionAvailabilityStatusType
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchCreateTopicReviewedAnswerResponseTypeDef(BaseValidatorModel):
+class BatchCreateTopicReviewedAnswerResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    SucceededAnswers: List[SucceededTopicReviewedAnswerTypeDef]
-    InvalidAnswers: List[InvalidTopicReviewedAnswerTypeDef]
+    SucceededAnswers: List[SucceededTopicReviewedAnswer]
+    InvalidAnswers: List[InvalidTopicReviewedAnswer]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeleteTopicReviewedAnswerResponseTypeDef(BaseValidatorModel):
+class BatchDeleteTopicReviewedAnswerResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    SucceededAnswers: List[SucceededTopicReviewedAnswerTypeDef]
-    InvalidAnswers: List[InvalidTopicReviewedAnswerTypeDef]
+    SucceededAnswers: List[SucceededTopicReviewedAnswer]
+    InvalidAnswers: List[InvalidTopicReviewedAnswer]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class HistogramBinOptionsTypeDef(BaseValidatorModel):
+class HistogramBinOptions(BaseValidatorModel):
     SelectedBinType: Optional[HistogramBinTypeType] = None
-    BinCount: Optional[BinCountOptionsTypeDef] = None
-    BinWidth: Optional[BinWidthOptionsTypeDef] = None
+    BinCount: Optional[BinCountOptions] = None
+    BinWidth: Optional[BinWidthOptions] = None
     StartValue: Optional[float] = None
 
 
-class BodySectionRepeatPageBreakConfigurationTypeDef(BaseValidatorModel):
-    After: Optional[SectionAfterPageBreakTypeDef] = None
+class BodySectionRepeatPageBreakConfiguration(BaseValidatorModel):
+    After: Optional[SectionAfterPageBreak] = None
 
 
-class SectionPageBreakConfigurationTypeDef(BaseValidatorModel):
-    After: Optional[SectionAfterPageBreakTypeDef] = None
+class SectionPageBreakConfiguration(BaseValidatorModel):
+    After: Optional[SectionAfterPageBreak] = None
 
 
-class TileStyleTypeDef(BaseValidatorModel):
-    Border: Optional[BorderStyleTypeDef] = None
+class TileStyle(BaseValidatorModel):
+    Border: Optional[BorderStyle] = None
 
 
-class BoxPlotOptionsTypeDef(BaseValidatorModel):
-    StyleOptions: Optional[BoxPlotStyleOptionsTypeDef] = None
+class BoxPlotOptions(BaseValidatorModel):
+    StyleOptions: Optional[BoxPlotStyleOptions] = None
     OutlierVisibility: Optional[VisibilityType] = None
     AllDataPointsVisibility: Optional[VisibilityType] = None
 
 
-class NavbarStyleTypeDef(BaseValidatorModel):
-    GlobalNavbar: Optional[PaletteTypeDef] = None
-    ContextualNavbar: Optional[PaletteTypeDef] = None
+class NavbarStyle(BaseValidatorModel):
+    GlobalNavbar: Optional[Palette] = None
+    ContextualNavbar: Optional[Palette] = None
 
 
-class ListBrandsResponseTypeDef(BaseValidatorModel):
-    Brands: List[BrandSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBrandsResponse(BaseValidatorModel):
+    Brands: List[BrandSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateColumnsOperationOutputTypeDef(BaseValidatorModel):
-    Columns: List[CalculatedColumnTypeDef]
+class CreateColumnsOperationOutput(BaseValidatorModel):
+    Columns: List[CalculatedColumn]
 
 
-class CreateColumnsOperationTypeDef(BaseValidatorModel):
-    Columns: Sequence[CalculatedColumnTypeDef]
+class CreateColumnsOperation(BaseValidatorModel):
+    Columns: Sequence[CalculatedColumn]
 
 
-class CreateCustomPermissionsRequestTypeDef(BaseValidatorModel):
+class CreateCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
-    Capabilities: Optional[CapabilitiesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Capabilities: Optional[Capabilities] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CustomPermissionsTypeDef(BaseValidatorModel):
+class CustomPermissions(BaseValidatorModel):
     Arn: Optional[str] = None
     CustomPermissionsName: Optional[str] = None
-    Capabilities: Optional[CapabilitiesTypeDef] = None
+    Capabilities: Optional[Capabilities] = None
 
 
-class UpdateCustomPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateCustomPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     CustomPermissionsName: str
-    Capabilities: Optional[CapabilitiesTypeDef] = None
+    Capabilities: Optional[Capabilities] = None
 
 
-class CategoryFilterConfigurationOutputTypeDef(BaseValidatorModel):
-    FilterListConfiguration: Optional[FilterListConfigurationOutputTypeDef] = None
-    CustomFilterListConfiguration: Optional[CustomFilterListConfigurationOutputTypeDef] = None
-    CustomFilterConfiguration: Optional[CustomFilterConfigurationTypeDef] = None
+class CategoryFilterConfigurationOutput(BaseValidatorModel):
+    FilterListConfiguration: Optional[FilterListConfigurationOutput] = None
+    CustomFilterListConfiguration: Optional[CustomFilterListConfigurationOutput] = None
+    CustomFilterConfiguration: Optional[CustomFilterConfiguration] = None
 
 
-class CategoryFilterConfigurationTypeDef(BaseValidatorModel):
-    FilterListConfiguration: Optional[FilterListConfigurationTypeDef] = None
-    CustomFilterListConfiguration: Optional[CustomFilterListConfigurationTypeDef] = None
-    CustomFilterConfiguration: Optional[CustomFilterConfigurationTypeDef] = None
+class CategoryFilterConfiguration(BaseValidatorModel):
+    FilterListConfiguration: Optional[FilterListConfiguration] = None
+    CustomFilterListConfiguration: Optional[CustomFilterListConfiguration] = None
+    CustomFilterConfiguration: Optional[CustomFilterConfiguration] = None
 
 
-class ClusterMarkerTypeDef(BaseValidatorModel):
-    SimpleClusterMarker: Optional[SimpleClusterMarkerTypeDef] = None
+class ClusterMarker(BaseValidatorModel):
+    SimpleClusterMarker: Optional[SimpleClusterMarker] = None
 
 
-class TopicConstantValueOutputTypeDef(BaseValidatorModel):
+class TopicConstantValueOutput(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     Value: Optional[str] = None
     Minimum: Optional[str] = None
     Maximum: Optional[str] = None
-    ValueList: Optional[List[CollectiveConstantEntryTypeDef]] = None
+    ValueList: Optional[List[CollectiveConstantEntry]] = None
 
 
-class TopicConstantValueTypeDef(BaseValidatorModel):
+class TopicConstantValue(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     Value: Optional[str] = None
     Minimum: Optional[str] = None
     Maximum: Optional[str] = None
-    ValueList: Optional[Sequence[CollectiveConstantEntryTypeDef]] = None
+    ValueList: Optional[Sequence[CollectiveConstantEntry]] = None
 
 
-class TopicCategoryFilterConstantOutputTypeDef(BaseValidatorModel):
+class TopicCategoryFilterConstantOutput(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     SingularConstant: Optional[str] = None
-    CollectiveConstant: Optional[CollectiveConstantOutputTypeDef] = None
+    CollectiveConstant: Optional[CollectiveConstantOutput] = None
 
 
-class TopicCategoryFilterConstantTypeDef(BaseValidatorModel):
+class TopicCategoryFilterConstant(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
     SingularConstant: Optional[str] = None
-    CollectiveConstant: Optional[CollectiveConstantTypeDef] = None
+    CollectiveConstant: Optional[CollectiveConstant] = None
 
 
-class ColorScaleOutputTypeDef(BaseValidatorModel):
-    Colors: List[DataColorTypeDef]
+class ColorScaleOutput(BaseValidatorModel):
+    Colors: List[DataColor]
     ColorFillType: ColorFillTypeType
-    NullValueColor: Optional[DataColorTypeDef] = None
+    NullValueColor: Optional[DataColor] = None
 
 
-class ColorScaleTypeDef(BaseValidatorModel):
-    Colors: Sequence[DataColorTypeDef]
+class ColorScale(BaseValidatorModel):
+    Colors: Sequence[DataColor]
     ColorFillType: ColorFillTypeType
-    NullValueColor: Optional[DataColorTypeDef] = None
+    NullValueColor: Optional[DataColor] = None
 
 
-class ColorsConfigurationOutputTypeDef(BaseValidatorModel):
-    CustomColors: Optional[List[CustomColorTypeDef]] = None
+class ColorsConfigurationOutput(BaseValidatorModel):
+    CustomColors: Optional[List[CustomColor]] = None
 
 
-class ColorsConfigurationTypeDef(BaseValidatorModel):
-    CustomColors: Optional[Sequence[CustomColorTypeDef]] = None
+class ColorsConfiguration(BaseValidatorModel):
+    CustomColors: Optional[Sequence[CustomColor]] = None
 
 
-class ColumnDescriptionTypeDef(BaseValidatorModel):
+class ColumnDescription(BaseValidatorModel):
     pass
 
 
-class ColumnTagTypeDef(BaseValidatorModel):
+class ColumnTag(BaseValidatorModel):
     ColumnGeographicRole: Optional[GeoSpatialDataRoleType] = None
-    ColumnDescription: Optional[ColumnDescriptionTypeDef] = None
+    ColumnDescription: Optional[ColumnDescription] = None
 
 
-class ColumnGroupSchemaOutputTypeDef(BaseValidatorModel):
+class ColumnGroupSchemaOutput(BaseValidatorModel):
     Name: Optional[str] = None
-    ColumnGroupColumnSchemaList: Optional[List[ColumnGroupColumnSchemaTypeDef]] = None
+    ColumnGroupColumnSchemaList: Optional[List[ColumnGroupColumnSchema]] = None
 
 
-class ColumnGroupSchemaTypeDef(BaseValidatorModel):
+class ColumnGroupSchema(BaseValidatorModel):
     Name: Optional[str] = None
-    ColumnGroupColumnSchemaList: Optional[Sequence[ColumnGroupColumnSchemaTypeDef]] = None
+    ColumnGroupColumnSchemaList: Optional[Sequence[ColumnGroupColumnSchema]] = None
 
 
-class ColumnGroupOutputTypeDef(BaseValidatorModel):
-    GeoSpatialColumnGroup: Optional[GeoSpatialColumnGroupOutputTypeDef] = None
+class ColumnGroupOutput(BaseValidatorModel):
+    GeoSpatialColumnGroup: Optional[GeoSpatialColumnGroupOutput] = None
 
 
-class DataSetSchemaOutputTypeDef(BaseValidatorModel):
-    ColumnSchemaList: Optional[List[ColumnSchemaTypeDef]] = None
+class DataSetSchemaOutput(BaseValidatorModel):
+    ColumnSchemaList: Optional[List[ColumnSchema]] = None
 
 
-class DataSetSchemaTypeDef(BaseValidatorModel):
-    ColumnSchemaList: Optional[Sequence[ColumnSchemaTypeDef]] = None
+class DataSetSchema(BaseValidatorModel):
+    ColumnSchemaList: Optional[Sequence[ColumnSchema]] = None
 
 
-class ConditionalFormattingCustomIconConditionTypeDef(BaseValidatorModel):
+class ConditionalFormattingCustomIconCondition(BaseValidatorModel):
     Expression: str
-    IconOptions: ConditionalFormattingCustomIconOptionsTypeDef
+    IconOptions: ConditionalFormattingCustomIconOptions
     Color: Optional[str] = None
-    DisplayConfiguration: Optional[ConditionalFormattingIconDisplayConfigurationTypeDef] = None
+    DisplayConfiguration: Optional[ConditionalFormattingIconDisplayConfiguration] = None
 
 
-class CreateAccountSubscriptionResponseTypeDef(BaseValidatorModel):
-    SignupResponse: SignupResponseTypeDef
+class CreateAccountSubscriptionResponse(BaseValidatorModel):
+    SignupResponse: SignupResponse
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSetSummaryTypeDef(BaseValidatorModel):
+class DataSetSummary(BaseValidatorModel):
     Arn: Optional[str] = None
     DataSetId: Optional[str] = None
     Name: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     ImportMode: Optional[DataSetImportModeType] = None
-    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSetTypeDef] = None
+    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSet] = None
     RowLevelPermissionTagConfigurationApplied: Optional[bool] = None
     ColumnLevelPermissionRulesApplied: Optional[bool] = None
 
 
-class CreateFolderMembershipResponseTypeDef(BaseValidatorModel):
+class CreateFolderMembershipResponse(BaseValidatorModel):
     Status: int
-    FolderMember: FolderMemberTypeDef
+    FolderMember: FolderMember
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGroupMembershipResponseTypeDef(BaseValidatorModel):
-    GroupMember: GroupMemberTypeDef
-    RequestId: str
-    Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class DescribeGroupMembershipResponseTypeDef(BaseValidatorModel):
-    GroupMember: GroupMemberTypeDef
+class CreateGroupMembershipResponse(BaseValidatorModel):
+    GroupMember: GroupMember
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupMembershipsResponseTypeDef(BaseValidatorModel):
-    GroupMemberList: List[GroupMemberTypeDef]
+class DescribeGroupMembershipResponse(BaseValidatorModel):
+    GroupMember: GroupMember
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
+
+
+class ListGroupMembershipsResponse(BaseValidatorModel):
+    GroupMemberList: List[GroupMember]
+    RequestId: str
+    Status: int
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateGroupResponseTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
+class CreateGroupResponse(BaseValidatorModel):
+    Group: Group
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGroupResponseTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
+class DescribeGroupResponse(BaseValidatorModel):
+    Group: Group
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGroupsResponseTypeDef(BaseValidatorModel):
-    GroupList: List[GroupTypeDef]
+class ListGroupsResponse(BaseValidatorModel):
+    GroupList: List[Group]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListUserGroupsResponseTypeDef(BaseValidatorModel):
-    GroupList: List[GroupTypeDef]
+class ListUserGroupsResponse(BaseValidatorModel):
+    GroupList: List[Group]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchGroupsResponseTypeDef(BaseValidatorModel):
-    GroupList: List[GroupTypeDef]
+class SearchGroupsResponse(BaseValidatorModel):
+    GroupList: List[Group]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateGroupResponseTypeDef(BaseValidatorModel):
-    Group: GroupTypeDef
+class UpdateGroupResponse(BaseValidatorModel):
+    Group: Group
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTemplateAliasResponseTypeDef(BaseValidatorModel):
-    TemplateAlias: TemplateAliasTypeDef
+class CreateTemplateAliasResponse(BaseValidatorModel):
+    TemplateAlias: TemplateAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTemplateAliasResponseTypeDef(BaseValidatorModel):
-    TemplateAlias: TemplateAliasTypeDef
+class DescribeTemplateAliasResponse(BaseValidatorModel):
+    TemplateAlias: TemplateAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTemplateAliasesResponseTypeDef(BaseValidatorModel):
-    TemplateAliasList: List[TemplateAliasTypeDef]
+class ListTemplateAliasesResponse(BaseValidatorModel):
+    TemplateAliasList: List[TemplateAlias]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateTemplateAliasResponseTypeDef(BaseValidatorModel):
-    TemplateAlias: TemplateAliasTypeDef
+class UpdateTemplateAliasResponse(BaseValidatorModel):
+    TemplateAlias: TemplateAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateThemeAliasResponseTypeDef(BaseValidatorModel):
-    ThemeAlias: ThemeAliasTypeDef
+class CreateThemeAliasResponse(BaseValidatorModel):
+    ThemeAlias: ThemeAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeThemeAliasResponseTypeDef(BaseValidatorModel):
-    ThemeAlias: ThemeAliasTypeDef
+class DescribeThemeAliasResponse(BaseValidatorModel):
+    ThemeAlias: ThemeAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListThemeAliasesResponseTypeDef(BaseValidatorModel):
-    ThemeAliasList: List[ThemeAliasTypeDef]
+class ListThemeAliasesResponse(BaseValidatorModel):
+    ThemeAliasList: List[ThemeAlias]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateThemeAliasResponseTypeDef(BaseValidatorModel):
-    ThemeAlias: ThemeAliasTypeDef
+class UpdateThemeAliasResponse(BaseValidatorModel):
+    ThemeAlias: ThemeAlias
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CustomActionNavigationOperationTypeDef(BaseValidatorModel):
-    LocalNavigationConfiguration: Optional[LocalNavigationConfigurationTypeDef] = None
+class CustomActionNavigationOperation(BaseValidatorModel):
+    LocalNavigationConfiguration: Optional[LocalNavigationConfiguration] = None
 
 
-class CustomValuesConfigurationOutputTypeDef(BaseValidatorModel):
-    CustomValues: CustomParameterValuesOutputTypeDef
+class CustomValuesConfigurationOutput(BaseValidatorModel):
+    CustomValues: CustomParameterValuesOutput
     IncludeNullValue: Optional[bool] = None
 
 
-class InputColumnTypeDef(BaseValidatorModel):
+class InputColumn(BaseValidatorModel):
     pass
 
 
-class CustomSqlOutputTypeDef(BaseValidatorModel):
+class CustomSqlOutput(BaseValidatorModel):
     DataSourceArn: str
     Name: str
     SqlQuery: str
-    Columns: Optional[List[InputColumnTypeDef]] = None
+    Columns: Optional[List[InputColumn]] = None
 
 
-class CustomSqlTypeDef(BaseValidatorModel):
+class CustomSql(BaseValidatorModel):
     DataSourceArn: str
     Name: str
     SqlQuery: str
-    Columns: Optional[Sequence[InputColumnTypeDef]] = None
+    Columns: Optional[Sequence[InputColumn]] = None
 
 
-class RelationalTableOutputTypeDef(BaseValidatorModel):
+class RelationalTableOutput(BaseValidatorModel):
     DataSourceArn: str
     Name: str
-    InputColumns: List[InputColumnTypeDef]
+    InputColumns: List[InputColumn]
     Catalog: Optional[str] = None
     Schema: Optional[str] = None
 
 
-class RelationalTableTypeDef(BaseValidatorModel):
+class RelationalTable(BaseValidatorModel):
     DataSourceArn: str
     Name: str
-    InputColumns: Sequence[InputColumnTypeDef]
+    InputColumns: Sequence[InputColumn]
     Catalog: Optional[str] = None
     Schema: Optional[str] = None
 
 
-class VisualInteractionOptionsTypeDef(BaseValidatorModel):
-    VisualMenuOption: Optional[VisualMenuOptionTypeDef] = None
-    ContextMenuOption: Optional[ContextMenuOptionTypeDef] = None
+class VisualInteractionOptions(BaseValidatorModel):
+    VisualMenuOption: Optional[VisualMenuOption] = None
+    ContextMenuOption: Optional[ContextMenuOption] = None
 
 
-class SearchDashboardsRequestTypeDef(BaseValidatorModel):
+class SearchDashboardsRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DashboardSearchFilterTypeDef]
+    Filters: Sequence[DashboardSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDashboardsResponseTypeDef(BaseValidatorModel):
-    DashboardSummaryList: List[DashboardSummaryTypeDef]
+class ListDashboardsResponse(BaseValidatorModel):
+    DashboardSummaryList: List[DashboardSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchDashboardsResponseTypeDef(BaseValidatorModel):
-    DashboardSummaryList: List[DashboardSummaryTypeDef]
+class SearchDashboardsResponse(BaseValidatorModel):
+    DashboardSummaryList: List[DashboardSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDashboardVersionsResponseTypeDef(BaseValidatorModel):
-    DashboardVersionSummaryList: List[DashboardVersionSummaryTypeDef]
+class ListDashboardVersionsResponse(BaseValidatorModel):
+    DashboardVersionSummaryList: List[DashboardVersionSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DashboardVisualPublishOptionsTypeDef(BaseValidatorModel):
-    ExportHiddenFieldsOption: Optional[ExportHiddenFieldsOptionTypeDef] = None
+class DashboardVisualPublishOptions(BaseValidatorModel):
+    ExportHiddenFieldsOption: Optional[ExportHiddenFieldsOption] = None
 
 
-class TableInlineVisualizationTypeDef(BaseValidatorModel):
-    DataBars: Optional[DataBarsOptionsTypeDef] = None
+class TableInlineVisualization(BaseValidatorModel):
+    DataBars: Optional[DataBarsOptions] = None
 
 
-class DataLabelTypeTypeDef(BaseValidatorModel):
-    FieldLabelType: Optional[FieldLabelTypeTypeDef] = None
-    DataPathLabelType: Optional[DataPathLabelTypeTypeDef] = None
-    RangeEndsLabelType: Optional[RangeEndsLabelTypeTypeDef] = None
-    MinimumLabelType: Optional[MinimumLabelTypeTypeDef] = None
-    MaximumLabelType: Optional[MaximumLabelTypeTypeDef] = None
+class DataLabelType(BaseValidatorModel):
+    FieldLabelType: Optional[FieldLabelType] = None
+    DataPathLabelType: Optional[DataPathLabelType] = None
+    RangeEndsLabelType: Optional[RangeEndsLabelType] = None
+    MinimumLabelType: Optional[MinimumLabelType] = None
+    MaximumLabelType: Optional[MaximumLabelType] = None
 
 
-class DataPathValueTypeDef(BaseValidatorModel):
+class DataPathValue(BaseValidatorModel):
     FieldId: Optional[str] = None
     FieldValue: Optional[str] = None
-    DataPathType: Optional[DataPathTypeTypeDef] = None
+    DataPathType: Optional[DataPathType] = None
 
 
-class SearchDataSetsRequestTypeDef(BaseValidatorModel):
+class SearchDataSetsRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DataSetSearchFilterTypeDef]
+    Filters: Sequence[DataSetSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SearchDataSourcesRequestTypeDef(BaseValidatorModel):
+class SearchDataSourcesRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DataSourceSearchFilterTypeDef]
+    Filters: Sequence[DataSourceSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class DataSourceSummaryTypeDef(BaseValidatorModel):
+class DataSourceSummary(BaseValidatorModel):
     pass
 
 
-class SearchDataSourcesResponseTypeDef(BaseValidatorModel):
-    DataSourceSummaries: List[DataSourceSummaryTypeDef]
+class SearchDataSourcesResponse(BaseValidatorModel):
+    DataSourceSummaries: List[DataSourceSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DateTimeDatasetParameterOutputTypeDef(BaseValidatorModel):
+class DateTimeDatasetParameterOutput(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
     TimeGranularity: Optional[TimeGranularityType] = None
-    DefaultValues: Optional[DateTimeDatasetParameterDefaultValuesOutputTypeDef] = None
+    DefaultValues: Optional[DateTimeDatasetParameterDefaultValuesOutput] = None
 
 
-class TimeRangeFilterValueOutputTypeDef(BaseValidatorModel):
+class TimeRangeFilterValueOutput(BaseValidatorModel):
     StaticValue: Optional[datetime] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
     Parameter: Optional[str] = None
 
 
-class TimeRangeFilterValueTypeDef(BaseValidatorModel):
-    StaticValue: Optional[TimestampTypeDef] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
+class TimeRangeFilterValue(BaseValidatorModel):
+    StaticValue: Optional[Timestamp] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
     Parameter: Optional[str] = None
 
 
-class DecimalDatasetParameterOutputTypeDef(BaseValidatorModel):
+class DecimalDatasetParameterOutput(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[DecimalDatasetParameterDefaultValuesOutputTypeDef] = None
+    DefaultValues: Optional[DecimalDatasetParameterDefaultValuesOutput] = None
 
 
-class DescribeAnalysisPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeAnalysisPermissionsResponse(BaseValidatorModel):
     AnalysisId: str
     AnalysisArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDataSetPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeDataSetPermissionsResponse(BaseValidatorModel):
     DataSetArn: str
     DataSetId: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDataSourcePermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeDataSourcePermissionsResponse(BaseValidatorModel):
     DataSourceArn: str
     DataSourceId: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFolderPermissionsResponseTypeDef(BaseValidatorModel):
-    Status: int
-    FolderId: str
-    Arn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
-    RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
-    NextToken: Optional[str] = None
-
-
-class DescribeFolderResolvedPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeFolderPermissionsResponse(BaseValidatorModel):
     Status: int
     FolderId: str
     Arn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeTemplatePermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeFolderResolvedPermissionsResponse(BaseValidatorModel):
+    Status: int
+    FolderId: str
+    Arn: str
+    Permissions: List[ResourcePermissionOutput]
+    RequestId: str
+    ResponseMetadata: ResponseMetadata
+    NextToken: Optional[str] = None
+
+
+class DescribeTemplatePermissionsResponse(BaseValidatorModel):
     TemplateId: str
     TemplateArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeThemePermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeThemePermissionsResponse(BaseValidatorModel):
     ThemeId: str
     ThemeArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTopicPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeTopicPermissionsResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LinkSharingConfigurationOutputTypeDef(BaseValidatorModel):
-    Permissions: Optional[List[ResourcePermissionOutputTypeDef]] = None
+class LinkSharingConfigurationOutput(BaseValidatorModel):
+    Permissions: Optional[List[ResourcePermissionOutput]] = None
 
 
-class UpdateAnalysisPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateAnalysisPermissionsResponse(BaseValidatorModel):
     AnalysisArn: str
     AnalysisId: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFolderPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateFolderPermissionsResponse(BaseValidatorModel):
     Status: int
     Arn: str
     FolderId: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTemplatePermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateTemplatePermissionsResponse(BaseValidatorModel):
     TemplateId: str
     TemplateArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateThemePermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateThemePermissionsResponse(BaseValidatorModel):
     ThemeId: str
     ThemeArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTopicPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateTopicPermissionsResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFolderPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeFolderPermissionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Namespace: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFolderResolvedPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeFolderResolvedPermissionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Namespace: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAnalysesRequestPaginateTypeDef(BaseValidatorModel):
+class ListAnalysesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetBundleExportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssetBundleExportJobsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetBundleImportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssetBundleImportJobsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBrandsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBrandsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomPermissionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCustomPermissionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDashboardVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDashboardVersionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDashboardsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDashboardsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSetsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSourcesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFolderMembersRequestPaginateTypeDef(BaseValidatorModel):
+class ListFolderMembersRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFoldersForResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListFoldersForResourceRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFoldersRequestPaginateTypeDef(BaseValidatorModel):
+class ListFoldersRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupMembershipsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupMembershipsRequestPaginate(BaseValidatorModel):
     GroupName: str
     AwsAccountId: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIAMPolicyAssignmentsForUserRequestPaginateTypeDef(BaseValidatorModel):
+class ListIAMPolicyAssignmentsForUserRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     UserName: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIAMPolicyAssignmentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIAMPolicyAssignmentsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     AssignmentStatus: Optional[AssignmentStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIngestionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListIngestionsRequestPaginate(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNamespacesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNamespacesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRoleMembershipsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRoleMembershipsRequestPaginate(BaseValidatorModel):
     Role: RoleType
     AwsAccountId: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateAliasesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateAliasesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplateVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplateVersionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListTemplatesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListThemeVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListThemeVersionsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUserGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListUserGroupsRequestPaginate(BaseValidatorModel):
     UserName: str
     AwsAccountId: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListUsersRequestPaginateTypeDef(BaseValidatorModel):
+class ListUsersRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchAnalysesRequestPaginateTypeDef(BaseValidatorModel):
+class SearchAnalysesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[AnalysisSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[AnalysisSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchDashboardsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchDashboardsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DashboardSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[DashboardSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchDataSetsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchDataSetsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DataSetSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[DataSetSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchDataSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class SearchDataSourcesRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[DataSourceSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[DataSourceSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeFolderResponseTypeDef(BaseValidatorModel):
+class DescribeFolderResponse(BaseValidatorModel):
     Status: int
-    Folder: FolderTypeDef
+    Folder: Folder
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeIAMPolicyAssignmentResponseTypeDef(BaseValidatorModel):
-    IAMPolicyAssignment: IAMPolicyAssignmentTypeDef
-    RequestId: str
-    Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class DescribeKeyRegistrationResponseTypeDef(BaseValidatorModel):
-    AwsAccountId: str
-    KeyRegistration: List[RegisteredCustomerManagedKeyTypeDef]
+class DescribeIAMPolicyAssignmentResponse(BaseValidatorModel):
+    IAMPolicyAssignment: IAMPolicyAssignment
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKeyRegistrationRequestTypeDef(BaseValidatorModel):
+class DescribeKeyRegistrationResponse(BaseValidatorModel):
     AwsAccountId: str
-    KeyRegistration: Sequence[RegisteredCustomerManagedKeyTypeDef]
-
-
-class DescribeTopicRefreshResponseTypeDef(BaseValidatorModel):
-    RefreshDetails: TopicRefreshDetailsTypeDef
+    KeyRegistration: List[RegisteredCustomerManagedKey]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTopicRefreshScheduleResponseTypeDef(BaseValidatorModel):
+class UpdateKeyRegistrationRequest(BaseValidatorModel):
+    AwsAccountId: str
+    KeyRegistration: Sequence[RegisteredCustomerManagedKey]
+
+
+class DescribeTopicRefreshResponse(BaseValidatorModel):
+    RefreshDetails: TopicRefreshDetails
+    RequestId: str
+    Status: int
+    ResponseMetadata: ResponseMetadata
+
+
+class DescribeTopicRefreshScheduleResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
     DatasetArn: str
-    RefreshSchedule: TopicRefreshScheduleOutputTypeDef
+    RefreshSchedule: TopicRefreshScheduleOutput
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TopicRefreshScheduleSummaryTypeDef(BaseValidatorModel):
+class TopicRefreshScheduleSummary(BaseValidatorModel):
     DatasetId: Optional[str] = None
     DatasetArn: Optional[str] = None
     DatasetName: Optional[str] = None
-    RefreshSchedule: Optional[TopicRefreshScheduleOutputTypeDef] = None
+    RefreshSchedule: Optional[TopicRefreshScheduleOutput] = None
 
 
-class DescribeUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
+class DescribeUserResponse(BaseValidatorModel):
+    User: User
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListUsersResponseTypeDef(BaseValidatorModel):
-    UserList: List[UserTypeDef]
+class ListUsersResponse(BaseValidatorModel):
+    UserList: List[User]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RegisterUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
+class RegisterUserResponse(BaseValidatorModel):
+    User: User
     UserInvitationUrl: str
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
+class UpdateUserResponse(BaseValidatorModel):
+    User: User
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisplayFormatOptionsTypeDef(BaseValidatorModel):
+class DisplayFormatOptions(BaseValidatorModel):
     UseBlankCellFormat: Optional[bool] = None
     BlankCellFormat: Optional[str] = None
     DateFormat: Optional[str] = None
@@ -5064,337 +5064,337 @@ class DisplayFormatOptionsTypeDef(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
     UnitScaler: Optional[NumberScaleType] = None
-    NegativeFormat: Optional[NegativeFormatTypeDef] = None
+    NegativeFormat: Optional[NegativeFormat] = None
     CurrencySymbol: Optional[str] = None
 
 
-class DonutOptionsTypeDef(BaseValidatorModel):
-    ArcOptions: Optional[ArcOptionsTypeDef] = None
-    DonutCenterOptions: Optional[DonutCenterOptionsTypeDef] = None
+class DonutOptions(BaseValidatorModel):
+    ArcOptions: Optional[ArcOptions] = None
+    DonutCenterOptions: Optional[DonutCenterOptions] = None
 
 
-class FilterAggMetricsTypeDef(BaseValidatorModel):
-    MetricOperand: Optional[IdentifierTypeDef] = None
+class FilterAggMetrics(BaseValidatorModel):
+    MetricOperand: Optional[Identifier] = None
     Function: Optional[AggTypeType] = None
     SortDirection: Optional[TopicSortDirectionType] = None
 
 
-class TopicSortClauseTypeDef(BaseValidatorModel):
-    Operand: Optional[IdentifierTypeDef] = None
+class TopicSortClause(BaseValidatorModel):
+    Operand: Optional[Identifier] = None
     SortDirection: Optional[TopicSortDirectionType] = None
 
 
-class FilterOperationTargetVisualsConfigurationOutputTypeDef(BaseValidatorModel):
-    SameSheetTargetVisualConfiguration: Optional[SameSheetTargetVisualConfigurationOutputTypeDef] = None
+class FilterOperationTargetVisualsConfigurationOutput(BaseValidatorModel):
+    SameSheetTargetVisualConfiguration: Optional[SameSheetTargetVisualConfigurationOutput] = None
 
 
-class FilterOperationTargetVisualsConfigurationTypeDef(BaseValidatorModel):
-    SameSheetTargetVisualConfiguration: Optional[SameSheetTargetVisualConfigurationTypeDef] = None
+class FilterOperationTargetVisualsConfiguration(BaseValidatorModel):
+    SameSheetTargetVisualConfiguration: Optional[SameSheetTargetVisualConfiguration] = None
 
 
-class SearchFoldersRequestPaginateTypeDef(BaseValidatorModel):
+class SearchFoldersRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[FolderSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[FolderSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchFoldersRequestTypeDef(BaseValidatorModel):
+class SearchFoldersRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[FolderSearchFilterTypeDef]
+    Filters: Sequence[FolderSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListFoldersResponseTypeDef(BaseValidatorModel):
+class ListFoldersResponse(BaseValidatorModel):
     Status: int
-    FolderSummaryList: List[FolderSummaryTypeDef]
+    FolderSummaryList: List[FolderSummary]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchFoldersResponseTypeDef(BaseValidatorModel):
+class SearchFoldersResponse(BaseValidatorModel):
     Status: int
-    FolderSummaryList: List[FolderSummaryTypeDef]
+    FolderSummaryList: List[FolderSummary]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FontConfigurationTypeDef(BaseValidatorModel):
-    FontSize: Optional[FontSizeTypeDef] = None
+class FontConfiguration(BaseValidatorModel):
+    FontSize: Optional[FontSize] = None
     FontDecoration: Optional[FontDecorationType] = None
     FontColor: Optional[str] = None
-    FontWeight: Optional[FontWeightTypeDef] = None
+    FontWeight: Optional[FontWeight] = None
     FontStyle: Optional[FontStyleType] = None
     FontFamily: Optional[str] = None
 
 
-class TypographyOutputTypeDef(BaseValidatorModel):
-    FontFamilies: Optional[List[FontTypeDef]] = None
+class TypographyOutput(BaseValidatorModel):
+    FontFamilies: Optional[List[Font]] = None
 
 
-class TypographyTypeDef(BaseValidatorModel):
-    FontFamilies: Optional[Sequence[FontTypeDef]] = None
+class Typography(BaseValidatorModel):
+    FontFamilies: Optional[Sequence[Font]] = None
 
 
-class ForecastScenarioOutputTypeDef(BaseValidatorModel):
-    WhatIfPointScenario: Optional[WhatIfPointScenarioOutputTypeDef] = None
-    WhatIfRangeScenario: Optional[WhatIfRangeScenarioOutputTypeDef] = None
+class ForecastScenarioOutput(BaseValidatorModel):
+    WhatIfPointScenario: Optional[WhatIfPointScenarioOutput] = None
+    WhatIfRangeScenario: Optional[WhatIfRangeScenarioOutput] = None
 
 
-class FreeFormLayoutCanvasSizeOptionsTypeDef(BaseValidatorModel):
-    ScreenCanvasSizeOptions: Optional[FreeFormLayoutScreenCanvasSizeOptionsTypeDef] = None
+class FreeFormLayoutCanvasSizeOptions(BaseValidatorModel):
+    ScreenCanvasSizeOptions: Optional[FreeFormLayoutScreenCanvasSizeOptions] = None
 
 
-class SnapshotAnonymousUserTypeDef(BaseValidatorModel):
-    RowLevelPermissionTags: Optional[Sequence[SessionTagTypeDef]] = None
+class SnapshotAnonymousUser(BaseValidatorModel):
+    RowLevelPermissionTags: Optional[Sequence[SessionTag]] = None
 
 
-class QAResultTypeDef(BaseValidatorModel):
+class QAResult(BaseValidatorModel):
     ResultType: Optional[QAResultTypeType] = None
-    DashboardVisual: Optional[DashboardVisualResultTypeDef] = None
-    GeneratedAnswer: Optional[GeneratedAnswerResultTypeDef] = None
+    DashboardVisual: Optional[DashboardVisualResult] = None
+    GeneratedAnswer: Optional[GeneratedAnswerResult] = None
 
 
-class GeospatialMapStateTypeDef(BaseValidatorModel):
-    Bounds: Optional[GeospatialCoordinateBoundsTypeDef] = None
+class GeospatialMapState(BaseValidatorModel):
+    Bounds: Optional[GeospatialCoordinateBounds] = None
     MapNavigation: Optional[GeospatialMapNavigationType] = None
 
 
-class GeospatialWindowOptionsTypeDef(BaseValidatorModel):
-    Bounds: Optional[GeospatialCoordinateBoundsTypeDef] = None
+class GeospatialWindowOptions(BaseValidatorModel):
+    Bounds: Optional[GeospatialCoordinateBounds] = None
     MapZoomMode: Optional[MapZoomModeType] = None
 
 
-class GeospatialDataSourceItemTypeDef(BaseValidatorModel):
-    StaticFileDataSource: Optional[GeospatialStaticFileSourceTypeDef] = None
+class GeospatialDataSourceItem(BaseValidatorModel):
+    StaticFileDataSource: Optional[GeospatialStaticFileSource] = None
 
 
-class GeospatialHeatmapColorScaleOutputTypeDef(BaseValidatorModel):
-    Colors: Optional[List[GeospatialHeatmapDataColorTypeDef]] = None
+class GeospatialHeatmapColorScaleOutput(BaseValidatorModel):
+    Colors: Optional[List[GeospatialHeatmapDataColor]] = None
 
 
-class GeospatialHeatmapColorScaleTypeDef(BaseValidatorModel):
-    Colors: Optional[Sequence[GeospatialHeatmapDataColorTypeDef]] = None
+class GeospatialHeatmapColorScale(BaseValidatorModel):
+    Colors: Optional[Sequence[GeospatialHeatmapDataColor]] = None
 
 
-class GeospatialNullDataSettingsTypeDef(BaseValidatorModel):
-    SymbolStyle: GeospatialNullSymbolStyleTypeDef
+class GeospatialNullDataSettings(BaseValidatorModel):
+    SymbolStyle: GeospatialNullSymbolStyle
 
 
-class TableSideBorderOptionsTypeDef(BaseValidatorModel):
-    InnerVertical: Optional[TableBorderOptionsTypeDef] = None
-    InnerHorizontal: Optional[TableBorderOptionsTypeDef] = None
-    Left: Optional[TableBorderOptionsTypeDef] = None
-    Right: Optional[TableBorderOptionsTypeDef] = None
-    Top: Optional[TableBorderOptionsTypeDef] = None
-    Bottom: Optional[TableBorderOptionsTypeDef] = None
+class TableSideBorderOptions(BaseValidatorModel):
+    InnerVertical: Optional[TableBorderOptions] = None
+    InnerHorizontal: Optional[TableBorderOptions] = None
+    Left: Optional[TableBorderOptions] = None
+    Right: Optional[TableBorderOptions] = None
+    Top: Optional[TableBorderOptions] = None
+    Bottom: Optional[TableBorderOptions] = None
 
 
-class GradientColorOutputTypeDef(BaseValidatorModel):
-    Stops: Optional[List[GradientStopTypeDef]] = None
+class GradientColorOutput(BaseValidatorModel):
+    Stops: Optional[List[GradientStop]] = None
 
 
-class GradientColorTypeDef(BaseValidatorModel):
-    Stops: Optional[Sequence[GradientStopTypeDef]] = None
+class GradientColor(BaseValidatorModel):
+    Stops: Optional[Sequence[GradientStop]] = None
 
 
-class GridLayoutCanvasSizeOptionsTypeDef(BaseValidatorModel):
-    ScreenCanvasSizeOptions: Optional[GridLayoutScreenCanvasSizeOptionsTypeDef] = None
+class GridLayoutCanvasSizeOptions(BaseValidatorModel):
+    ScreenCanvasSizeOptions: Optional[GridLayoutScreenCanvasSizeOptions] = None
 
 
-class SearchGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchGroupsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
-    Filters: Sequence[GroupSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[GroupSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchGroupsRequestTypeDef(BaseValidatorModel):
+class SearchGroupsRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
-    Filters: Sequence[GroupSearchFilterTypeDef]
+    Filters: Sequence[GroupSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListIAMPolicyAssignmentsResponseTypeDef(BaseValidatorModel):
-    IAMPolicyAssignments: List[IAMPolicyAssignmentSummaryTypeDef]
+class ListIAMPolicyAssignmentsResponse(BaseValidatorModel):
+    IAMPolicyAssignments: List[IAMPolicyAssignmentSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ImageConfigurationTypeDef(BaseValidatorModel):
-    Source: Optional[ImageSourceTypeDef] = None
+class ImageConfiguration(BaseValidatorModel):
+    Source: Optional[ImageSource] = None
 
 
-class ImageTypeDef(BaseValidatorModel):
-    Source: Optional[ImageSourceTypeDef] = None
+class Image(BaseValidatorModel):
+    Source: Optional[ImageSource] = None
     GeneratedImageUrl: Optional[str] = None
 
 
-class ImageInteractionOptionsTypeDef(BaseValidatorModel):
-    ImageMenuOption: Optional[ImageMenuOptionTypeDef] = None
+class ImageInteractionOptions(BaseValidatorModel):
+    ImageMenuOption: Optional[ImageMenuOption] = None
 
 
-class IncrementalRefreshTypeDef(BaseValidatorModel):
-    LookbackWindow: LookbackWindowTypeDef
+class IncrementalRefresh(BaseValidatorModel):
+    LookbackWindow: LookbackWindow
 
 
-class ErrorInfoTypeDef(BaseValidatorModel):
+class ErrorInfo(BaseValidatorModel):
     pass
 
 
-class IngestionTypeDef(BaseValidatorModel):
+class Ingestion(BaseValidatorModel):
     Arn: str
     IngestionStatus: IngestionStatusType
     CreatedTime: datetime
     IngestionId: Optional[str] = None
-    ErrorInfo: Optional[ErrorInfoTypeDef] = None
-    RowInfo: Optional[RowInfoTypeDef] = None
-    QueueInfo: Optional[QueueInfoTypeDef] = None
+    ErrorInfo: Optional[ErrorInfo] = None
+    RowInfo: Optional[RowInfo] = None
+    QueueInfo: Optional[QueueInfo] = None
     IngestionTimeInSeconds: Optional[int] = None
     IngestionSizeInBytes: Optional[int] = None
     RequestSource: Optional[IngestionRequestSourceType] = None
     RequestType: Optional[IngestionRequestTypeType] = None
 
 
-class IntegerDatasetParameterOutputTypeDef(BaseValidatorModel):
+class IntegerDatasetParameterOutput(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[IntegerDatasetParameterDefaultValuesOutputTypeDef] = None
+    DefaultValues: Optional[IntegerDatasetParameterDefaultValuesOutput] = None
 
 
-class KPIVisualStandardLayoutTypeDef(BaseValidatorModel):
+class KPIVisualStandardLayout(BaseValidatorModel):
     pass
 
 
-class KPIVisualLayoutOptionsTypeDef(BaseValidatorModel):
-    StandardLayout: Optional[KPIVisualStandardLayoutTypeDef] = None
+class KPIVisualLayoutOptions(BaseValidatorModel):
+    StandardLayout: Optional[KPIVisualStandardLayout] = None
 
 
-class LineChartDefaultSeriesSettingsTypeDef(BaseValidatorModel):
+class LineChartDefaultSeriesSettings(BaseValidatorModel):
     AxisBinding: Optional[AxisBindingType] = None
-    LineStyleSettings: Optional[LineChartLineStyleSettingsTypeDef] = None
-    MarkerStyleSettings: Optional[LineChartMarkerStyleSettingsTypeDef] = None
+    LineStyleSettings: Optional[LineChartLineStyleSettings] = None
+    MarkerStyleSettings: Optional[LineChartMarkerStyleSettings] = None
 
 
-class LineChartSeriesSettingsTypeDef(BaseValidatorModel):
-    LineStyleSettings: Optional[LineChartLineStyleSettingsTypeDef] = None
-    MarkerStyleSettings: Optional[LineChartMarkerStyleSettingsTypeDef] = None
+class LineChartSeriesSettings(BaseValidatorModel):
+    LineStyleSettings: Optional[LineChartLineStyleSettings] = None
+    MarkerStyleSettings: Optional[LineChartMarkerStyleSettings] = None
 
 
-class LinkSharingConfigurationTypeDef(BaseValidatorModel):
-    Permissions: Optional[Sequence[ResourcePermissionTypeDef]] = None
+class LinkSharingConfiguration(BaseValidatorModel):
+    Permissions: Optional[Sequence[ResourcePermission]] = None
 
 
-class ListFolderMembersResponseTypeDef(BaseValidatorModel):
+class ListFolderMembersResponse(BaseValidatorModel):
     Status: int
-    FolderMemberList: List[MemberIdArnPairTypeDef]
+    FolderMemberList: List[MemberIdArnPair]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTemplateVersionsResponseTypeDef(BaseValidatorModel):
-    TemplateVersionSummaryList: List[TemplateVersionSummaryTypeDef]
+class ListTemplateVersionsResponse(BaseValidatorModel):
+    TemplateVersionSummaryList: List[TemplateVersionSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTemplatesResponseTypeDef(BaseValidatorModel):
-    TemplateSummaryList: List[TemplateSummaryTypeDef]
+class ListTemplatesResponse(BaseValidatorModel):
+    TemplateSummaryList: List[TemplateSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListThemeVersionsResponseTypeDef(BaseValidatorModel):
-    ThemeVersionSummaryList: List[ThemeVersionSummaryTypeDef]
+class ListThemeVersionsResponse(BaseValidatorModel):
+    ThemeVersionSummaryList: List[ThemeVersionSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListThemesResponseTypeDef(BaseValidatorModel):
-    ThemeSummaryList: List[ThemeSummaryTypeDef]
+class ListThemesResponse(BaseValidatorModel):
+    ThemeSummaryList: List[ThemeSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTopicsResponseTypeDef(BaseValidatorModel):
-    TopicsSummaries: List[TopicSummaryTypeDef]
+class ListTopicsResponse(BaseValidatorModel):
+    TopicsSummaries: List[TopicSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchTopicsResponseTypeDef(BaseValidatorModel):
-    TopicSummaryList: List[TopicSummaryTypeDef]
+class SearchTopicsResponse(BaseValidatorModel):
+    TopicSummaryList: List[TopicSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class VisualSubtitleLabelOptionsTypeDef(BaseValidatorModel):
+class VisualSubtitleLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    FormatText: Optional[LongFormatTextTypeDef] = None
+    FormatText: Optional[LongFormatText] = None
 
 
-class S3ParametersTypeDef(BaseValidatorModel):
-    ManifestFileLocation: ManifestFileLocationTypeDef
+class S3Parameters(BaseValidatorModel):
+    ManifestFileLocation: ManifestFileLocation
     RoleArn: Optional[str] = None
 
 
-class TileLayoutStyleTypeDef(BaseValidatorModel):
-    Gutter: Optional[GutterStyleTypeDef] = None
-    Margin: Optional[MarginStyleTypeDef] = None
+class TileLayoutStyle(BaseValidatorModel):
+    Gutter: Optional[GutterStyle] = None
+    Margin: Optional[MarginStyle] = None
 
 
-class NamedEntityDefinitionOutputTypeDef(BaseValidatorModel):
+class NamedEntityDefinitionOutput(BaseValidatorModel):
     FieldName: Optional[str] = None
     PropertyName: Optional[str] = None
     PropertyRole: Optional[PropertyRoleType] = None
     PropertyUsage: Optional[PropertyUsageType] = None
-    Metric: Optional[NamedEntityDefinitionMetricOutputTypeDef] = None
+    Metric: Optional[NamedEntityDefinitionMetricOutput] = None
 
 
-class NamedEntityDefinitionTypeDef(BaseValidatorModel):
+class NamedEntityDefinition(BaseValidatorModel):
     FieldName: Optional[str] = None
     PropertyName: Optional[str] = None
     PropertyRole: Optional[PropertyRoleType] = None
     PropertyUsage: Optional[PropertyUsageType] = None
-    Metric: Optional[NamedEntityDefinitionMetricTypeDef] = None
+    Metric: Optional[NamedEntityDefinitionMetric] = None
 
 
-class NamespaceErrorTypeDef(BaseValidatorModel):
+class NamespaceError(BaseValidatorModel):
     pass
 
 
-class NamespaceInfoV2TypeDef(BaseValidatorModel):
+class NamespaceInfoV2(BaseValidatorModel):
     Name: Optional[str] = None
     Arn: Optional[str] = None
     CapacityRegion: Optional[str] = None
     CreationStatus: Optional[NamespaceStatusType] = None
     IdentityStore: Optional[Literal["QUICKSIGHT"]] = None
-    NamespaceError: Optional[NamespaceErrorTypeDef] = None
+    NamespaceError: Optional[NamespaceError] = None
     IamIdentityCenterApplicationArn: Optional[str] = None
     IamIdentityCenterInstanceArn: Optional[str] = None
 
 
-class VPCConnectionSummaryTypeDef(BaseValidatorModel):
+class VPCConnectionSummary(BaseValidatorModel):
     VPCConnectionId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -5403,13 +5403,13 @@ class VPCConnectionSummaryTypeDef(BaseValidatorModel):
     DnsResolvers: Optional[List[str]] = None
     Status: Optional[VPCConnectionResourceStatusType] = None
     AvailabilityStatus: Optional[VPCConnectionAvailabilityStatusType] = None
-    NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
+    NetworkInterfaces: Optional[List[NetworkInterface]] = None
     RoleArn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
-class VPCConnectionTypeDef(BaseValidatorModel):
+class VPCConnection(BaseValidatorModel):
     VPCConnectionId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
@@ -5418,325 +5418,325 @@ class VPCConnectionTypeDef(BaseValidatorModel):
     DnsResolvers: Optional[List[str]] = None
     Status: Optional[VPCConnectionResourceStatusType] = None
     AvailabilityStatus: Optional[VPCConnectionAvailabilityStatusType] = None
-    NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
+    NetworkInterfaces: Optional[List[NetworkInterface]] = None
     RoleArn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
-class OverrideDatasetParameterOperationOutputTypeDef(BaseValidatorModel):
+class OverrideDatasetParameterOperationOutput(BaseValidatorModel):
     ParameterName: str
     NewParameterName: Optional[str] = None
-    NewDefaultValues: Optional[NewDefaultValuesOutputTypeDef] = None
+    NewDefaultValues: Optional[NewDefaultValuesOutput] = None
 
 
-class NumericSeparatorConfigurationTypeDef(BaseValidatorModel):
+class NumericSeparatorConfiguration(BaseValidatorModel):
     DecimalSeparator: Optional[NumericSeparatorSymbolType] = None
-    ThousandsSeparator: Optional[ThousandSeparatorOptionsTypeDef] = None
+    ThousandsSeparator: Optional[ThousandSeparatorOptions] = None
 
 
-class NumericalAggregationFunctionTypeDef(BaseValidatorModel):
+class NumericalAggregationFunction(BaseValidatorModel):
     SimpleNumericalAggregation: Optional[SimpleNumericalAggregationFunctionType] = None
-    PercentileAggregation: Optional[PercentileAggregationTypeDef] = None
+    PercentileAggregation: Optional[PercentileAggregation] = None
 
 
-class ParametersOutputTypeDef(BaseValidatorModel):
-    StringParameters: Optional[List[StringParameterOutputTypeDef]] = None
-    IntegerParameters: Optional[List[IntegerParameterOutputTypeDef]] = None
-    DecimalParameters: Optional[List[DecimalParameterOutputTypeDef]] = None
-    DateTimeParameters: Optional[List[DateTimeParameterOutputTypeDef]] = None
+class ParametersOutput(BaseValidatorModel):
+    StringParameters: Optional[List[StringParameterOutput]] = None
+    IntegerParameters: Optional[List[IntegerParameterOutput]] = None
+    DecimalParameters: Optional[List[DecimalParameterOutput]] = None
+    DateTimeParameters: Optional[List[DateTimeParameterOutput]] = None
 
 
-class VisibleRangeOptionsTypeDef(BaseValidatorModel):
-    PercentRange: Optional[PercentVisibleRangeTypeDef] = None
+class VisibleRangeOptions(BaseValidatorModel):
+    PercentRange: Optional[PercentVisibleRange] = None
 
 
-class PerformanceConfigurationOutputTypeDef(BaseValidatorModel):
-    UniqueKeys: Optional[List[UniqueKeyOutputTypeDef]] = None
+class PerformanceConfigurationOutput(BaseValidatorModel):
+    UniqueKeys: Optional[List[UniqueKeyOutput]] = None
 
 
-class PerformanceConfigurationTypeDef(BaseValidatorModel):
-    UniqueKeys: Optional[Sequence[UniqueKeyTypeDef]] = None
+class PerformanceConfiguration(BaseValidatorModel):
+    UniqueKeys: Optional[Sequence[UniqueKey]] = None
 
 
-class PluginVisualOptionsOutputTypeDef(BaseValidatorModel):
-    VisualProperties: Optional[List[PluginVisualPropertyTypeDef]] = None
+class PluginVisualOptionsOutput(BaseValidatorModel):
+    VisualProperties: Optional[List[PluginVisualProperty]] = None
 
 
-class PluginVisualOptionsTypeDef(BaseValidatorModel):
-    VisualProperties: Optional[Sequence[PluginVisualPropertyTypeDef]] = None
+class PluginVisualOptions(BaseValidatorModel):
+    VisualProperties: Optional[Sequence[PluginVisualProperty]] = None
 
 
-class RadarChartSeriesSettingsTypeDef(BaseValidatorModel):
-    AreaStyleSettings: Optional[RadarChartAreaStyleSettingsTypeDef] = None
+class RadarChartSeriesSettings(BaseValidatorModel):
+    AreaStyleSettings: Optional[RadarChartAreaStyleSettings] = None
 
 
-class TopicRangeFilterConstantTypeDef(BaseValidatorModel):
+class TopicRangeFilterConstant(BaseValidatorModel):
     ConstantType: Optional[ConstantTypeType] = None
-    RangeConstant: Optional[RangeConstantTypeDef] = None
+    RangeConstant: Optional[RangeConstant] = None
 
 
-class RedshiftParametersOutputTypeDef(BaseValidatorModel):
+class RedshiftParametersOutput(BaseValidatorModel):
     Database: str
     Host: Optional[str] = None
     Port: Optional[int] = None
     ClusterId: Optional[str] = None
-    IAMParameters: Optional[RedshiftIAMParametersOutputTypeDef] = None
-    IdentityCenterConfiguration: Optional[IdentityCenterConfigurationTypeDef] = None
+    IAMParameters: Optional[RedshiftIAMParametersOutput] = None
+    IdentityCenterConfiguration: Optional[IdentityCenterConfiguration] = None
 
 
-class RefreshFrequencyTypeDef(BaseValidatorModel):
+class RefreshFrequency(BaseValidatorModel):
     Interval: RefreshIntervalType
-    RefreshOnDay: Optional[ScheduleRefreshOnEntityTypeDef] = None
+    RefreshOnDay: Optional[ScheduleRefreshOnEntity] = None
     Timezone: Optional[str] = None
     TimeOfTheDay: Optional[str] = None
 
 
-class RegisteredUserConsoleFeatureConfigurationsTypeDef(BaseValidatorModel):
-    StatePersistence: Optional[StatePersistenceConfigurationsTypeDef] = None
-    SharedView: Optional[SharedViewConfigurationsTypeDef] = None
+class RegisteredUserConsoleFeatureConfigurations(BaseValidatorModel):
+    StatePersistence: Optional[StatePersistenceConfigurations] = None
+    SharedView: Optional[SharedViewConfigurations] = None
 
 
-class RegisteredUserDashboardFeatureConfigurationsTypeDef(BaseValidatorModel):
-    StatePersistence: Optional[StatePersistenceConfigurationsTypeDef] = None
-    SharedView: Optional[SharedViewConfigurationsTypeDef] = None
-    Bookmarks: Optional[BookmarksConfigurationsTypeDef] = None
+class RegisteredUserDashboardFeatureConfigurations(BaseValidatorModel):
+    StatePersistence: Optional[StatePersistenceConfigurations] = None
+    SharedView: Optional[SharedViewConfigurations] = None
+    Bookmarks: Optional[BookmarksConfigurations] = None
 
 
-class RowLevelPermissionTagConfigurationOutputTypeDef(BaseValidatorModel):
-    TagRules: List[RowLevelPermissionTagRuleTypeDef]
+class RowLevelPermissionTagConfigurationOutput(BaseValidatorModel):
+    TagRules: List[RowLevelPermissionTagRule]
     Status: Optional[StatusType] = None
     TagRuleConfigurations: Optional[List[List[str]]] = None
 
 
-class RowLevelPermissionTagConfigurationTypeDef(BaseValidatorModel):
-    TagRules: Sequence[RowLevelPermissionTagRuleTypeDef]
+class RowLevelPermissionTagConfiguration(BaseValidatorModel):
+    TagRules: Sequence[RowLevelPermissionTagRule]
     Status: Optional[StatusType] = None
     TagRuleConfigurations: Optional[Sequence[Sequence[str]]] = None
 
 
-class SnapshotS3DestinationConfigurationTypeDef(BaseValidatorModel):
-    BucketConfiguration: S3BucketConfigurationTypeDef
+class SnapshotS3DestinationConfiguration(BaseValidatorModel):
+    BucketConfiguration: S3BucketConfiguration
 
 
-class S3SourceOutputTypeDef(BaseValidatorModel):
+class S3SourceOutput(BaseValidatorModel):
     DataSourceArn: str
-    InputColumns: List[InputColumnTypeDef]
-    UploadSettings: Optional[UploadSettingsTypeDef] = None
+    InputColumns: List[InputColumn]
+    UploadSettings: Optional[UploadSettings] = None
 
 
-class S3SourceTypeDef(BaseValidatorModel):
+class S3Source(BaseValidatorModel):
     DataSourceArn: str
-    InputColumns: Sequence[InputColumnTypeDef]
-    UploadSettings: Optional[UploadSettingsTypeDef] = None
+    InputColumns: Sequence[InputColumn]
+    UploadSettings: Optional[UploadSettings] = None
 
 
-class SearchTopicsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchTopicsRequestPaginate(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[TopicSearchFilterTypeDef]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Sequence[TopicSearchFilter]
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchTopicsRequestTypeDef(BaseValidatorModel):
+class SearchTopicsRequest(BaseValidatorModel):
     AwsAccountId: str
-    Filters: Sequence[TopicSearchFilterTypeDef]
+    Filters: Sequence[TopicSearchFilter]
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class SectionBasedLayoutPaperCanvasSizeOptionsTypeDef(BaseValidatorModel):
+class SectionBasedLayoutPaperCanvasSizeOptions(BaseValidatorModel):
     PaperSize: Optional[PaperSizeType] = None
     PaperOrientation: Optional[PaperOrientationType] = None
-    PaperMargin: Optional[SpacingTypeDef] = None
+    PaperMargin: Optional[Spacing] = None
 
 
-class SectionStyleTypeDef(BaseValidatorModel):
+class SectionStyle(BaseValidatorModel):
     Height: Optional[str] = None
-    Padding: Optional[SpacingTypeDef] = None
+    Padding: Optional[Spacing] = None
 
 
-class SelectedSheetsFilterScopeConfigurationOutputTypeDef(BaseValidatorModel):
-    SheetVisualScopingConfigurations: Optional[ List[SheetVisualScopingConfigurationOutputTypeDef] ] = None
+class SelectedSheetsFilterScopeConfigurationOutput(BaseValidatorModel):
+    SheetVisualScopingConfigurations: Optional[ List[SheetVisualScopingConfigurationOutput] ] = None
 
 
-class SelectedSheetsFilterScopeConfigurationTypeDef(BaseValidatorModel):
-    SheetVisualScopingConfigurations: Optional[Sequence[SheetVisualScopingConfigurationTypeDef]] = None
+class SelectedSheetsFilterScopeConfiguration(BaseValidatorModel):
+    SheetVisualScopingConfigurations: Optional[Sequence[SheetVisualScopingConfiguration]] = None
 
 
-class SheetElementRenderingRuleTypeDef(BaseValidatorModel):
+class SheetElementRenderingRule(BaseValidatorModel):
     Expression: str
-    ConfigurationOverrides: SheetElementConfigurationOverridesTypeDef
+    ConfigurationOverrides: SheetElementConfigurationOverrides
 
 
-class SheetImageSourceTypeDef(BaseValidatorModel):
-    SheetImageStaticFileSource: Optional[SheetImageStaticFileSourceTypeDef] = None
+class SheetImageSource(BaseValidatorModel):
+    SheetImageStaticFileSource: Optional[SheetImageStaticFileSource] = None
 
 
-class SheetImageTooltipConfigurationTypeDef(BaseValidatorModel):
-    TooltipText: Optional[SheetImageTooltipTextTypeDef] = None
+class SheetImageTooltipConfiguration(BaseValidatorModel):
+    TooltipText: Optional[SheetImageTooltipText] = None
     Visibility: Optional[VisibilityType] = None
 
 
-class VisualTitleLabelOptionsTypeDef(BaseValidatorModel):
+class VisualTitleLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    FormatText: Optional[ShortFormatTextTypeDef] = None
+    FormatText: Optional[ShortFormatText] = None
 
 
-class SingleAxisOptionsTypeDef(BaseValidatorModel):
-    YAxisOptions: Optional[YAxisOptionsTypeDef] = None
+class SingleAxisOptions(BaseValidatorModel):
+    YAxisOptions: Optional[YAxisOptions] = None
 
 
-class TopicTemplateOutputTypeDef(BaseValidatorModel):
+class TopicTemplateOutput(BaseValidatorModel):
     TemplateType: Optional[str] = None
-    Slots: Optional[List[SlotTypeDef]] = None
+    Slots: Optional[List[Slot]] = None
 
 
-class TopicTemplateTypeDef(BaseValidatorModel):
+class TopicTemplate(BaseValidatorModel):
     TemplateType: Optional[str] = None
-    Slots: Optional[Sequence[SlotTypeDef]] = None
+    Slots: Optional[Sequence[Slot]] = None
 
 
-class SnapshotUserConfigurationRedactedTypeDef(BaseValidatorModel):
-    AnonymousUsers: Optional[List[SnapshotAnonymousUserRedactedTypeDef]] = None
+class SnapshotUserConfigurationRedacted(BaseValidatorModel):
+    AnonymousUsers: Optional[List[SnapshotAnonymousUserRedacted]] = None
 
 
-class SnapshotFileOutputTypeDef(BaseValidatorModel):
-    SheetSelections: List[SnapshotFileSheetSelectionOutputTypeDef]
+class SnapshotFileOutput(BaseValidatorModel):
+    SheetSelections: List[SnapshotFileSheetSelectionOutput]
     FormatType: SnapshotFileFormatTypeType
 
 
-class SnapshotFileTypeDef(BaseValidatorModel):
-    SheetSelections: Sequence[SnapshotFileSheetSelectionTypeDef]
+class SnapshotFile(BaseValidatorModel):
+    SheetSelections: Sequence[SnapshotFileSheetSelection]
     FormatType: SnapshotFileFormatTypeType
 
 
-class StaticFileSourceTypeDef(BaseValidatorModel):
-    UrlOptions: Optional[StaticFileUrlSourceOptionsTypeDef] = None
-    S3Options: Optional[StaticFileS3SourceOptionsTypeDef] = None
+class StaticFileSource(BaseValidatorModel):
+    UrlOptions: Optional[StaticFileUrlSourceOptions] = None
+    S3Options: Optional[StaticFileS3SourceOptions] = None
 
 
-class StringDatasetParameterOutputTypeDef(BaseValidatorModel):
+class StringDatasetParameterOutput(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[StringDatasetParameterDefaultValuesOutputTypeDef] = None
+    DefaultValues: Optional[StringDatasetParameterDefaultValuesOutput] = None
 
 
-class UpdateKeyRegistrationResponseTypeDef(BaseValidatorModel):
-    FailedKeyRegistration: List[FailedKeyRegistrationEntryTypeDef]
-    SuccessfulKeyRegistration: List[SuccessfulKeyRegistrationEntryTypeDef]
+class UpdateKeyRegistrationResponse(BaseValidatorModel):
+    FailedKeyRegistration: List[FailedKeyRegistrationEntry]
+    SuccessfulKeyRegistration: List[SuccessfulKeyRegistrationEntry]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TableFieldImageConfigurationTypeDef(BaseValidatorModel):
-    SizingOptions: Optional[TableCellImageSizingConfigurationTypeDef] = None
+class TableFieldImageConfiguration(BaseValidatorModel):
+    SizingOptions: Optional[TableCellImageSizingConfiguration] = None
 
 
-class TopicNumericEqualityFilterTypeDef(BaseValidatorModel):
-    Constant: Optional[TopicSingularFilterConstantTypeDef] = None
+class TopicNumericEqualityFilter(BaseValidatorModel):
+    Constant: Optional[TopicSingularFilterConstant] = None
     Aggregation: Optional[NamedFilterAggTypeType] = None
 
 
-class TopicRelativeDateFilterTypeDef(BaseValidatorModel):
+class TopicRelativeDateFilter(BaseValidatorModel):
     TimeGranularity: Optional[TopicTimeGranularityType] = None
     RelativeDateFilterFunction: Optional[TopicRelativeDateFilterFunctionType] = None
-    Constant: Optional[TopicSingularFilterConstantTypeDef] = None
+    Constant: Optional[TopicSingularFilterConstant] = None
 
 
-class TotalAggregationOptionTypeDef(BaseValidatorModel):
+class TotalAggregationOption(BaseValidatorModel):
     FieldId: str
-    TotalAggregationFunction: TotalAggregationFunctionTypeDef
+    TotalAggregationFunction: TotalAggregationFunction
 
 
-class WaterfallChartColorConfigurationTypeDef(BaseValidatorModel):
-    GroupColorConfiguration: Optional[WaterfallChartGroupColorConfigurationTypeDef] = None
+class WaterfallChartColorConfiguration(BaseValidatorModel):
+    GroupColorConfiguration: Optional[WaterfallChartGroupColorConfiguration] = None
 
 
-class CascadingControlConfigurationOutputTypeDef(BaseValidatorModel):
-    SourceControls: Optional[List[CascadingControlSourceTypeDef]] = None
+class CascadingControlConfigurationOutput(BaseValidatorModel):
+    SourceControls: Optional[List[CascadingControlSource]] = None
 
 
-class CascadingControlConfigurationTypeDef(BaseValidatorModel):
-    SourceControls: Optional[Sequence[CascadingControlSourceTypeDef]] = None
+class CascadingControlConfiguration(BaseValidatorModel):
+    SourceControls: Optional[Sequence[CascadingControlSource]] = None
 
 
-class DateTimeDefaultValuesOutputTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class DateTimeDefaultValuesOutput(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[List[datetime]] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
 
 
-class DateTimeDefaultValuesTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
-    StaticValues: Optional[Sequence[TimestampTypeDef]] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
+class DateTimeDefaultValues(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
+    StaticValues: Optional[Sequence[Timestamp]] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
 
 
-class DecimalDefaultValuesOutputTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class DecimalDefaultValuesOutput(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[List[float]] = None
 
 
-class DecimalDefaultValuesTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class DecimalDefaultValues(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[Sequence[float]] = None
 
 
-class IntegerDefaultValuesOutputTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class IntegerDefaultValuesOutput(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[List[int]] = None
 
 
-class IntegerDefaultValuesTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class IntegerDefaultValues(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[Sequence[int]] = None
 
 
-class StringDefaultValuesOutputTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class StringDefaultValuesOutput(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[List[str]] = None
 
 
-class StringDefaultValuesTypeDef(BaseValidatorModel):
-    DynamicValue: Optional[DynamicDefaultValueTypeDef] = None
+class StringDefaultValues(BaseValidatorModel):
+    DynamicValue: Optional[DynamicDefaultValue] = None
     StaticValues: Optional[Sequence[str]] = None
 
 
-class DrillDownFilterOutputTypeDef(BaseValidatorModel):
-    NumericEqualityFilter: Optional[NumericEqualityDrillDownFilterTypeDef] = None
-    CategoryFilter: Optional[CategoryDrillDownFilterOutputTypeDef] = None
-    TimeRangeFilter: Optional[TimeRangeDrillDownFilterOutputTypeDef] = None
+class DrillDownFilterOutput(BaseValidatorModel):
+    NumericEqualityFilter: Optional[NumericEqualityDrillDownFilter] = None
+    CategoryFilter: Optional[CategoryDrillDownFilterOutput] = None
+    TimeRangeFilter: Optional[TimeRangeDrillDownFilterOutput] = None
 
 
-class AnalysisSourceEntityTypeDef(BaseValidatorModel):
-    SourceTemplate: Optional[AnalysisSourceTemplateTypeDef] = None
+class AnalysisSourceEntity(BaseValidatorModel):
+    SourceTemplate: Optional[AnalysisSourceTemplate] = None
 
 
-class DashboardSourceEntityTypeDef(BaseValidatorModel):
-    SourceTemplate: Optional[DashboardSourceTemplateTypeDef] = None
+class DashboardSourceEntity(BaseValidatorModel):
+    SourceTemplate: Optional[DashboardSourceTemplate] = None
 
 
-class TemplateSourceEntityTypeDef(BaseValidatorModel):
-    SourceAnalysis: Optional[TemplateSourceAnalysisTypeDef] = None
-    SourceTemplate: Optional[TemplateSourceTemplateTypeDef] = None
+class TemplateSourceEntity(BaseValidatorModel):
+    SourceAnalysis: Optional[TemplateSourceAnalysis] = None
+    SourceTemplate: Optional[TemplateSourceTemplate] = None
 
 
-class AnonymousUserDashboardEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class AnonymousUserDashboardEmbeddingConfiguration(BaseValidatorModel):
     InitialDashboardId: str
     EnabledFeatures: Optional[Sequence[Literal["SHARED_VIEW"]]] = None
     DisabledFeatures: Optional[Sequence[Literal["SHARED_VIEW"]]] = None
-    FeatureConfigurations: Optional[AnonymousUserDashboardFeatureConfigurationsTypeDef] = None
+    FeatureConfigurations: Optional[AnonymousUserDashboardFeatureConfigurations] = None
 
 
-class AssetBundleExportJobErrorTypeDef(BaseValidatorModel):
+class AssetBundleExportJobError(BaseValidatorModel):
     pass
 
 
-class DescribeAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
+class DescribeAssetBundleExportJobResponse(BaseValidatorModel):
     JobStatus: AssetBundleExportJobStatusType
     DownloadUrl: str
-    Errors: List[AssetBundleExportJobErrorTypeDef]
+    Errors: List[AssetBundleExportJobError]
     Arn: str
     CreatedTime: datetime
     AssetBundleExportJobId: str
@@ -5744,831 +5744,831 @@ class DescribeAssetBundleExportJobResponseTypeDef(BaseValidatorModel):
     ResourceArns: List[str]
     IncludeAllDependencies: bool
     ExportFormat: AssetBundleExportFormatType
-    CloudFormationOverridePropertyConfiguration: ( AssetBundleCloudFormationOverridePropertyConfigurationOutputTypeDef )
+    CloudFormationOverridePropertyConfiguration: ( AssetBundleCloudFormationOverridePropertyConfigurationOutput )
     RequestId: str
     Status: int
     IncludePermissions: bool
     IncludeTags: bool
-    ValidationStrategy: AssetBundleExportJobValidationStrategyTypeDef
-    Warnings: List[AssetBundleExportJobWarningTypeDef]
+    ValidationStrategy: AssetBundleExportJobValidationStrategy
+    Warnings: List[AssetBundleExportJobWarning]
     IncludeFolderMemberships: bool
     IncludeFolderMembers: IncludeFolderMembersType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetBundleImportJobDashboardOverridePermissionsOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDashboardOverridePermissionsOutput(BaseValidatorModel):
     DashboardIds: List[str]
-    Permissions: Optional[AssetBundleResourcePermissionsOutputTypeDef] = None
-    LinkSharingConfiguration: Optional[AssetBundleResourceLinkSharingConfigurationOutputTypeDef] = None
+    Permissions: Optional[AssetBundleResourcePermissionsOutput] = None
+    LinkSharingConfiguration: Optional[AssetBundleResourceLinkSharingConfigurationOutput] = None
 
 
-class AssetBundleImportJobDashboardOverridePermissionsTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDashboardOverridePermissions(BaseValidatorModel):
     DashboardIds: Sequence[str]
-    Permissions: Optional[AssetBundleResourcePermissionsTypeDef] = None
-    LinkSharingConfiguration: Optional[AssetBundleResourceLinkSharingConfigurationTypeDef] = None
+    Permissions: Optional[AssetBundleResourcePermissions] = None
+    LinkSharingConfiguration: Optional[AssetBundleResourceLinkSharingConfiguration] = None
 
 
-class AssetBundleImportJobOverrideTagsOutputTypeDef(BaseValidatorModel):
-    VPCConnections: Optional[List[AssetBundleImportJobVPCConnectionOverrideTagsOutputTypeDef]] = None
-    DataSources: Optional[List[AssetBundleImportJobDataSourceOverrideTagsOutputTypeDef]] = None
-    DataSets: Optional[List[AssetBundleImportJobDataSetOverrideTagsOutputTypeDef]] = None
-    Themes: Optional[List[AssetBundleImportJobThemeOverrideTagsOutputTypeDef]] = None
-    Analyses: Optional[List[AssetBundleImportJobAnalysisOverrideTagsOutputTypeDef]] = None
-    Dashboards: Optional[List[AssetBundleImportJobDashboardOverrideTagsOutputTypeDef]] = None
-    Folders: Optional[List[AssetBundleImportJobFolderOverrideTagsOutputTypeDef]] = None
+class AssetBundleImportJobOverrideTagsOutput(BaseValidatorModel):
+    VPCConnections: Optional[List[AssetBundleImportJobVPCConnectionOverrideTagsOutput]] = None
+    DataSources: Optional[List[AssetBundleImportJobDataSourceOverrideTagsOutput]] = None
+    DataSets: Optional[List[AssetBundleImportJobDataSetOverrideTagsOutput]] = None
+    Themes: Optional[List[AssetBundleImportJobThemeOverrideTagsOutput]] = None
+    Analyses: Optional[List[AssetBundleImportJobAnalysisOverrideTagsOutput]] = None
+    Dashboards: Optional[List[AssetBundleImportJobDashboardOverrideTagsOutput]] = None
+    Folders: Optional[List[AssetBundleImportJobFolderOverrideTagsOutput]] = None
 
 
-class AssetBundleImportJobOverrideTagsTypeDef(BaseValidatorModel):
-    VPCConnections: Optional[Sequence[AssetBundleImportJobVPCConnectionOverrideTagsTypeDef]] = None
-    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverrideTagsTypeDef]] = None
-    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverrideTagsTypeDef]] = None
-    Themes: Optional[Sequence[AssetBundleImportJobThemeOverrideTagsTypeDef]] = None
-    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverrideTagsTypeDef]] = None
-    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverrideTagsTypeDef]] = None
-    Folders: Optional[Sequence[AssetBundleImportJobFolderOverrideTagsTypeDef]] = None
+class AssetBundleImportJobOverrideTags(BaseValidatorModel):
+    VPCConnections: Optional[Sequence[AssetBundleImportJobVPCConnectionOverrideTags]] = None
+    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverrideTags]] = None
+    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverrideTags]] = None
+    Themes: Optional[Sequence[AssetBundleImportJobThemeOverrideTags]] = None
+    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverrideTags]] = None
+    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverrideTags]] = None
+    Folders: Optional[Sequence[AssetBundleImportJobFolderOverrideTags]] = None
 
 
-class SnowflakeParametersTypeDef(BaseValidatorModel):
+class SnowflakeParameters(BaseValidatorModel):
     Host: str
     Database: str
     Warehouse: str
     AuthenticationType: Optional[AuthenticationTypeType] = None
     DatabaseAccessControlRole: Optional[str] = None
-    OAuthParameters: Optional[OAuthParametersTypeDef] = None
+    OAuthParameters: Optional[OAuthParameters] = None
 
 
-class StarburstParametersTypeDef(BaseValidatorModel):
+class StarburstParameters(BaseValidatorModel):
     Host: str
     Port: int
     Catalog: str
     ProductType: Optional[StarburstProductTypeType] = None
     DatabaseAccessControlRole: Optional[str] = None
     AuthenticationType: Optional[AuthenticationTypeType] = None
-    OAuthParameters: Optional[OAuthParametersTypeDef] = None
+    OAuthParameters: Optional[OAuthParameters] = None
 
 
-class CustomValuesConfigurationTypeDef(BaseValidatorModel):
-    CustomValues: CustomParameterValuesTypeDef
+class CustomValuesConfiguration(BaseValidatorModel):
+    CustomValues: CustomParameterValues
     IncludeNullValue: Optional[bool] = None
 
 
-class ParametersTypeDef(BaseValidatorModel):
-    StringParameters: Optional[Sequence[StringParameterTypeDef]] = None
-    IntegerParameters: Optional[Sequence[IntegerParameterTypeDef]] = None
-    DecimalParameters: Optional[Sequence[DecimalParameterTypeDef]] = None
-    DateTimeParameters: Optional[Sequence[DateTimeParameterTypeDef]] = None
+class Parameters(BaseValidatorModel):
+    StringParameters: Optional[Sequence[StringParameter]] = None
+    IntegerParameters: Optional[Sequence[IntegerParameter]] = None
+    DecimalParameters: Optional[Sequence[DecimalParameter]] = None
+    DateTimeParameters: Optional[Sequence[DateTimeParameter]] = None
 
 
-class DrillDownFilterTypeDef(BaseValidatorModel):
-    NumericEqualityFilter: Optional[NumericEqualityDrillDownFilterTypeDef] = None
-    CategoryFilter: Optional[CategoryDrillDownFilterTypeDef] = None
-    TimeRangeFilter: Optional[TimeRangeDrillDownFilterTypeDef] = None
+class DrillDownFilter(BaseValidatorModel):
+    NumericEqualityFilter: Optional[NumericEqualityDrillDownFilter] = None
+    CategoryFilter: Optional[CategoryDrillDownFilter] = None
+    TimeRangeFilter: Optional[TimeRangeDrillDownFilter] = None
 
 
-class ForecastScenarioTypeDef(BaseValidatorModel):
-    WhatIfPointScenario: Optional[WhatIfPointScenarioTypeDef] = None
-    WhatIfRangeScenario: Optional[WhatIfRangeScenarioTypeDef] = None
+class ForecastScenario(BaseValidatorModel):
+    WhatIfPointScenario: Optional[WhatIfPointScenario] = None
+    WhatIfRangeScenario: Optional[WhatIfRangeScenario] = None
 
 
-class NumericAxisOptionsOutputTypeDef(BaseValidatorModel):
-    Scale: Optional[AxisScaleTypeDef] = None
-    Range: Optional[AxisDisplayRangeOutputTypeDef] = None
+class NumericAxisOptionsOutput(BaseValidatorModel):
+    Scale: Optional[AxisScale] = None
+    Range: Optional[AxisDisplayRangeOutput] = None
 
 
-class NumericAxisOptionsTypeDef(BaseValidatorModel):
-    Scale: Optional[AxisScaleTypeDef] = None
-    Range: Optional[AxisDisplayRangeTypeDef] = None
+class NumericAxisOptions(BaseValidatorModel):
+    Scale: Optional[AxisScale] = None
+    Range: Optional[AxisDisplayRange] = None
 
 
-class BrandElementStyleTypeDef(BaseValidatorModel):
-    NavbarStyle: Optional[NavbarStyleTypeDef] = None
+class BrandElementStyle(BaseValidatorModel):
+    NavbarStyle: Optional[NavbarStyle] = None
 
 
-class DescribeCustomPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeCustomPermissionsResponse(BaseValidatorModel):
     Status: int
-    CustomPermissions: CustomPermissionsTypeDef
+    CustomPermissions: CustomPermissions
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCustomPermissionsResponseTypeDef(BaseValidatorModel):
+class ListCustomPermissionsResponse(BaseValidatorModel):
     Status: int
-    CustomPermissionsList: List[CustomPermissionsTypeDef]
+    CustomPermissionsList: List[CustomPermissions]
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClusterMarkerConfigurationTypeDef(BaseValidatorModel):
-    ClusterMarker: Optional[ClusterMarkerTypeDef] = None
+class ClusterMarkerConfiguration(BaseValidatorModel):
+    ClusterMarker: Optional[ClusterMarker] = None
 
 
-class TopicCategoryFilterOutputTypeDef(BaseValidatorModel):
+class TopicCategoryFilterOutput(BaseValidatorModel):
     CategoryFilterFunction: Optional[CategoryFilterFunctionType] = None
     CategoryFilterType: Optional[CategoryFilterTypeType] = None
-    Constant: Optional[TopicCategoryFilterConstantOutputTypeDef] = None
+    Constant: Optional[TopicCategoryFilterConstantOutput] = None
     Inverse: Optional[bool] = None
 
 
-class TopicCategoryFilterTypeDef(BaseValidatorModel):
+class TopicCategoryFilter(BaseValidatorModel):
     CategoryFilterFunction: Optional[CategoryFilterFunctionType] = None
     CategoryFilterType: Optional[CategoryFilterTypeType] = None
-    Constant: Optional[TopicCategoryFilterConstantTypeDef] = None
+    Constant: Optional[TopicCategoryFilterConstant] = None
     Inverse: Optional[bool] = None
 
 
-class TagColumnOperationOutputTypeDef(BaseValidatorModel):
+class TagColumnOperationOutput(BaseValidatorModel):
     ColumnName: str
-    Tags: List[ColumnTagTypeDef]
+    Tags: List[ColumnTag]
 
 
-class TagColumnOperationTypeDef(BaseValidatorModel):
+class TagColumnOperation(BaseValidatorModel):
     ColumnName: str
-    Tags: Sequence[ColumnTagTypeDef]
+    Tags: Sequence[ColumnTag]
 
 
-class DataSetConfigurationOutputTypeDef(BaseValidatorModel):
+class DataSetConfigurationOutput(BaseValidatorModel):
     Placeholder: Optional[str] = None
-    DataSetSchema: Optional[DataSetSchemaOutputTypeDef] = None
-    ColumnGroupSchemaList: Optional[List[ColumnGroupSchemaOutputTypeDef]] = None
+    DataSetSchema: Optional[DataSetSchemaOutput] = None
+    ColumnGroupSchemaList: Optional[List[ColumnGroupSchemaOutput]] = None
 
 
-class DataSetConfigurationTypeDef(BaseValidatorModel):
+class DataSetConfiguration(BaseValidatorModel):
     Placeholder: Optional[str] = None
-    DataSetSchema: Optional[DataSetSchemaTypeDef] = None
-    ColumnGroupSchemaList: Optional[Sequence[ColumnGroupSchemaTypeDef]] = None
+    DataSetSchema: Optional[DataSetSchema] = None
+    ColumnGroupSchemaList: Optional[Sequence[ColumnGroupSchema]] = None
 
 
-class ConditionalFormattingIconTypeDef(BaseValidatorModel):
-    IconSet: Optional[ConditionalFormattingIconSetTypeDef] = None
-    CustomCondition: Optional[ConditionalFormattingCustomIconConditionTypeDef] = None
+class ConditionalFormattingIcon(BaseValidatorModel):
+    IconSet: Optional[ConditionalFormattingIconSet] = None
+    CustomCondition: Optional[ConditionalFormattingCustomIconCondition] = None
 
 
-class ListDataSetsResponseTypeDef(BaseValidatorModel):
-    DataSetSummaries: List[DataSetSummaryTypeDef]
+class ListDataSetsResponse(BaseValidatorModel):
+    DataSetSummaries: List[DataSetSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchDataSetsResponseTypeDef(BaseValidatorModel):
-    DataSetSummaries: List[DataSetSummaryTypeDef]
+class SearchDataSetsResponse(BaseValidatorModel):
+    DataSetSummaries: List[DataSetSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DestinationParameterValueConfigurationOutputTypeDef(BaseValidatorModel):
-    CustomValuesConfiguration: Optional[CustomValuesConfigurationOutputTypeDef] = None
+class DestinationParameterValueConfigurationOutput(BaseValidatorModel):
+    CustomValuesConfiguration: Optional[CustomValuesConfigurationOutput] = None
     SelectAllValueOptions: Optional[Literal["ALL_VALUES"]] = None
     SourceParameterName: Optional[str] = None
     SourceField: Optional[str] = None
-    SourceColumn: Optional[ColumnIdentifierTypeDef] = None
+    SourceColumn: Optional[ColumnIdentifier] = None
 
 
-class CustomContentConfigurationTypeDef(BaseValidatorModel):
+class CustomContentConfiguration(BaseValidatorModel):
     ContentUrl: Optional[str] = None
     ContentType: Optional[CustomContentTypeType] = None
     ImageScaling: Optional[CustomContentImageScalingConfigurationType] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class DashboardPublishOptionsTypeDef(BaseValidatorModel):
-    AdHocFilteringOption: Optional[AdHocFilteringOptionTypeDef] = None
-    ExportToCSVOption: Optional[ExportToCSVOptionTypeDef] = None
-    SheetControlsOption: Optional[SheetControlsOptionTypeDef] = None
-    VisualPublishOptions: Optional[DashboardVisualPublishOptionsTypeDef] = None
-    SheetLayoutElementMaximizationOption: Optional[SheetLayoutElementMaximizationOptionTypeDef] = None
-    VisualMenuOption: Optional[VisualMenuOptionTypeDef] = None
-    VisualAxisSortOption: Optional[VisualAxisSortOptionTypeDef] = None
-    ExportWithHiddenFieldsOption: Optional[ExportWithHiddenFieldsOptionTypeDef] = None
-    DataPointDrillUpDownOption: Optional[DataPointDrillUpDownOptionTypeDef] = None
-    DataPointMenuLabelOption: Optional[DataPointMenuLabelOptionTypeDef] = None
-    DataPointTooltipOption: Optional[DataPointTooltipOptionTypeDef] = None
+class DashboardPublishOptions(BaseValidatorModel):
+    AdHocFilteringOption: Optional[AdHocFilteringOption] = None
+    ExportToCSVOption: Optional[ExportToCSVOption] = None
+    SheetControlsOption: Optional[SheetControlsOption] = None
+    VisualPublishOptions: Optional[DashboardVisualPublishOptions] = None
+    SheetLayoutElementMaximizationOption: Optional[SheetLayoutElementMaximizationOption] = None
+    VisualMenuOption: Optional[VisualMenuOption] = None
+    VisualAxisSortOption: Optional[VisualAxisSortOption] = None
+    ExportWithHiddenFieldsOption: Optional[ExportWithHiddenFieldsOption] = None
+    DataPointDrillUpDownOption: Optional[DataPointDrillUpDownOption] = None
+    DataPointMenuLabelOption: Optional[DataPointMenuLabelOption] = None
+    DataPointTooltipOption: Optional[DataPointTooltipOption] = None
 
 
-class DataPathColorTypeDef(BaseValidatorModel):
-    Element: DataPathValueTypeDef
+class DataPathColor(BaseValidatorModel):
+    Element: DataPathValue
     Color: str
     TimeGranularity: Optional[TimeGranularityType] = None
 
 
-class DataPathSortOutputTypeDef(BaseValidatorModel):
+class DataPathSortOutput(BaseValidatorModel):
     Direction: SortDirectionType
-    SortPaths: List[DataPathValueTypeDef]
+    SortPaths: List[DataPathValue]
 
 
-class DataPathSortTypeDef(BaseValidatorModel):
+class DataPathSort(BaseValidatorModel):
     Direction: SortDirectionType
-    SortPaths: Sequence[DataPathValueTypeDef]
+    SortPaths: Sequence[DataPathValue]
 
 
-class PivotTableDataPathOptionOutputTypeDef(BaseValidatorModel):
-    DataPathList: List[DataPathValueTypeDef]
+class PivotTableDataPathOptionOutput(BaseValidatorModel):
+    DataPathList: List[DataPathValue]
     Width: Optional[str] = None
 
 
-class PivotTableDataPathOptionTypeDef(BaseValidatorModel):
-    DataPathList: Sequence[DataPathValueTypeDef]
+class PivotTableDataPathOption(BaseValidatorModel):
+    DataPathList: Sequence[DataPathValue]
     Width: Optional[str] = None
 
 
-class PivotTableFieldCollapseStateTargetOutputTypeDef(BaseValidatorModel):
+class PivotTableFieldCollapseStateTargetOutput(BaseValidatorModel):
     FieldId: Optional[str] = None
-    FieldDataPathValues: Optional[List[DataPathValueTypeDef]] = None
+    FieldDataPathValues: Optional[List[DataPathValue]] = None
 
 
-class PivotTableFieldCollapseStateTargetTypeDef(BaseValidatorModel):
+class PivotTableFieldCollapseStateTarget(BaseValidatorModel):
     FieldId: Optional[str] = None
-    FieldDataPathValues: Optional[Sequence[DataPathValueTypeDef]] = None
+    FieldDataPathValues: Optional[Sequence[DataPathValue]] = None
 
 
-class DecimalDatasetParameterDefaultValuesUnionTypeDef(BaseValidatorModel):
+class DecimalDatasetParameterDefaultValuesUnion(BaseValidatorModel):
     pass
 
 
-class DecimalDatasetParameterTypeDef(BaseValidatorModel):
+class DecimalDatasetParameter(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[DecimalDatasetParameterDefaultValuesUnionTypeDef] = None
+    DefaultValues: Optional[DecimalDatasetParameterDefaultValuesUnion] = None
 
 
-class DescribeDashboardPermissionsResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardPermissionsResponse(BaseValidatorModel):
     DashboardId: str
     DashboardArn: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     Status: int
     RequestId: str
-    LinkSharingConfiguration: LinkSharingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LinkSharingConfiguration: LinkSharingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDashboardPermissionsResponseTypeDef(BaseValidatorModel):
+class UpdateDashboardPermissionsResponse(BaseValidatorModel):
     DashboardArn: str
     DashboardId: str
-    Permissions: List[ResourcePermissionOutputTypeDef]
+    Permissions: List[ResourcePermissionOutput]
     RequestId: str
     Status: int
-    LinkSharingConfiguration: LinkSharingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LinkSharingConfiguration: LinkSharingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTopicRefreshSchedulesResponseTypeDef(BaseValidatorModel):
+class ListTopicRefreshSchedulesResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    RefreshSchedules: List[TopicRefreshScheduleSummaryTypeDef]
+    RefreshSchedules: List[TopicRefreshScheduleSummary]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DefaultFormattingTypeDef(BaseValidatorModel):
+class DefaultFormatting(BaseValidatorModel):
     DisplayFormat: Optional[DisplayFormatType] = None
-    DisplayFormatOptions: Optional[DisplayFormatOptionsTypeDef] = None
+    DisplayFormatOptions: Optional[DisplayFormatOptions] = None
 
 
-class TopicIRComparisonMethodTypeDef(BaseValidatorModel):
+class TopicIRComparisonMethod(BaseValidatorModel):
     pass
 
 
-class TopicIRMetricOutputTypeDef(BaseValidatorModel):
-    MetricId: Optional[IdentifierTypeDef] = None
-    Function: Optional[AggFunctionOutputTypeDef] = None
-    Operands: Optional[List[IdentifierTypeDef]] = None
-    ComparisonMethod: Optional[TopicIRComparisonMethodTypeDef] = None
+class TopicIRMetricOutput(BaseValidatorModel):
+    MetricId: Optional[Identifier] = None
+    Function: Optional[AggFunctionOutput] = None
+    Operands: Optional[List[Identifier]] = None
+    ComparisonMethod: Optional[TopicIRComparisonMethod] = None
     Expression: Optional[str] = None
-    CalculatedFieldReferences: Optional[List[IdentifierTypeDef]] = None
+    CalculatedFieldReferences: Optional[List[Identifier]] = None
     DisplayFormat: Optional[DisplayFormatType] = None
-    DisplayFormatOptions: Optional[DisplayFormatOptionsTypeDef] = None
-    NamedEntity: Optional[NamedEntityRefTypeDef] = None
+    DisplayFormatOptions: Optional[DisplayFormatOptions] = None
+    NamedEntity: Optional[NamedEntityRef] = None
 
 
-class AggFunctionUnionTypeDef(BaseValidatorModel):
+class AggFunctionUnion(BaseValidatorModel):
     pass
 
 
-class TopicIRMetricTypeDef(BaseValidatorModel):
-    MetricId: Optional[IdentifierTypeDef] = None
-    Function: Optional[AggFunctionUnionTypeDef] = None
-    Operands: Optional[Sequence[IdentifierTypeDef]] = None
-    ComparisonMethod: Optional[TopicIRComparisonMethodTypeDef] = None
+class TopicIRMetric(BaseValidatorModel):
+    MetricId: Optional[Identifier] = None
+    Function: Optional[AggFunctionUnion] = None
+    Operands: Optional[Sequence[Identifier]] = None
+    ComparisonMethod: Optional[TopicIRComparisonMethod] = None
     Expression: Optional[str] = None
-    CalculatedFieldReferences: Optional[Sequence[IdentifierTypeDef]] = None
+    CalculatedFieldReferences: Optional[Sequence[Identifier]] = None
     DisplayFormat: Optional[DisplayFormatType] = None
-    DisplayFormatOptions: Optional[DisplayFormatOptionsTypeDef] = None
-    NamedEntity: Optional[NamedEntityRefTypeDef] = None
+    DisplayFormatOptions: Optional[DisplayFormatOptions] = None
+    NamedEntity: Optional[NamedEntityRef] = None
 
 
-class TopicIRFilterOptionOutputTypeDef(BaseValidatorModel):
+class TopicIRFilterOptionOutput(BaseValidatorModel):
     FilterType: Optional[TopicIRFilterTypeType] = None
     FilterClass: Optional[FilterClassType] = None
-    OperandField: Optional[IdentifierTypeDef] = None
+    OperandField: Optional[Identifier] = None
     Function: Optional[TopicIRFilterFunctionType] = None
-    Constant: Optional[TopicConstantValueOutputTypeDef] = None
+    Constant: Optional[TopicConstantValueOutput] = None
     Inverse: Optional[bool] = None
     NullFilter: Optional[NullFilterOptionType] = None
     Aggregation: Optional[AggTypeType] = None
     AggregationFunctionParameters: Optional[Dict[str, str]] = None
-    AggregationPartitionBy: Optional[List[AggregationPartitionByTypeDef]] = None
-    Range: Optional[TopicConstantValueOutputTypeDef] = None
+    AggregationPartitionBy: Optional[List[AggregationPartitionBy]] = None
+    Range: Optional[TopicConstantValueOutput] = None
     Inclusive: Optional[bool] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    LastNextOffset: Optional[TopicConstantValueOutputTypeDef] = None
-    AggMetrics: Optional[List[FilterAggMetricsTypeDef]] = None
-    TopBottomLimit: Optional[TopicConstantValueOutputTypeDef] = None
+    LastNextOffset: Optional[TopicConstantValueOutput] = None
+    AggMetrics: Optional[List[FilterAggMetrics]] = None
+    TopBottomLimit: Optional[TopicConstantValueOutput] = None
     SortDirection: Optional[TopicSortDirectionType] = None
-    Anchor: Optional[AnchorTypeDef] = None
+    Anchor: Optional[Anchor] = None
 
 
-class TopicIRGroupByTypeDef(BaseValidatorModel):
-    FieldName: Optional[IdentifierTypeDef] = None
+class TopicIRGroupBy(BaseValidatorModel):
+    FieldName: Optional[Identifier] = None
     TimeGranularity: Optional[TopicTimeGranularityType] = None
-    Sort: Optional[TopicSortClauseTypeDef] = None
+    Sort: Optional[TopicSortClause] = None
     DisplayFormat: Optional[DisplayFormatType] = None
-    DisplayFormatOptions: Optional[DisplayFormatOptionsTypeDef] = None
-    NamedEntity: Optional[NamedEntityRefTypeDef] = None
+    DisplayFormatOptions: Optional[DisplayFormatOptions] = None
+    NamedEntity: Optional[NamedEntityRef] = None
 
 
-class CustomActionFilterOperationOutputTypeDef(BaseValidatorModel):
-    SelectedFieldsConfiguration: FilterOperationSelectedFieldsConfigurationOutputTypeDef
-    TargetVisualsConfiguration: FilterOperationTargetVisualsConfigurationOutputTypeDef
+class CustomActionFilterOperationOutput(BaseValidatorModel):
+    SelectedFieldsConfiguration: FilterOperationSelectedFieldsConfigurationOutput
+    TargetVisualsConfiguration: FilterOperationTargetVisualsConfigurationOutput
 
 
-class CustomActionFilterOperationTypeDef(BaseValidatorModel):
-    SelectedFieldsConfiguration: FilterOperationSelectedFieldsConfigurationTypeDef
-    TargetVisualsConfiguration: FilterOperationTargetVisualsConfigurationTypeDef
+class CustomActionFilterOperation(BaseValidatorModel):
+    SelectedFieldsConfiguration: FilterOperationSelectedFieldsConfiguration
+    TargetVisualsConfiguration: FilterOperationTargetVisualsConfiguration
 
 
-class AxisLabelOptionsTypeDef(BaseValidatorModel):
-    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+class AxisLabelOptions(BaseValidatorModel):
+    FontConfiguration: Optional[FontConfiguration] = None
     CustomLabel: Optional[str] = None
-    ApplyTo: Optional[AxisLabelReferenceOptionsTypeDef] = None
+    ApplyTo: Optional[AxisLabelReferenceOptions] = None
 
 
-class DataLabelOptionsOutputTypeDef(BaseValidatorModel):
+class DataLabelOptionsOutput(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     CategoryLabelVisibility: Optional[VisibilityType] = None
     MeasureLabelVisibility: Optional[VisibilityType] = None
-    DataLabelTypes: Optional[List[DataLabelTypeTypeDef]] = None
+    DataLabelTypes: Optional[List[DataLabelType]] = None
     Position: Optional[DataLabelPositionType] = None
     LabelContent: Optional[DataLabelContentType] = None
-    LabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
+    LabelFontConfiguration: Optional[FontConfiguration] = None
     LabelColor: Optional[str] = None
     Overlap: Optional[DataLabelOverlapType] = None
     TotalsVisibility: Optional[VisibilityType] = None
 
 
-class DataLabelOptionsTypeDef(BaseValidatorModel):
+class DataLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     CategoryLabelVisibility: Optional[VisibilityType] = None
     MeasureLabelVisibility: Optional[VisibilityType] = None
-    DataLabelTypes: Optional[Sequence[DataLabelTypeTypeDef]] = None
+    DataLabelTypes: Optional[Sequence[DataLabelType]] = None
     Position: Optional[DataLabelPositionType] = None
     LabelContent: Optional[DataLabelContentType] = None
-    LabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
+    LabelFontConfiguration: Optional[FontConfiguration] = None
     LabelColor: Optional[str] = None
     Overlap: Optional[DataLabelOverlapType] = None
     TotalsVisibility: Optional[VisibilityType] = None
 
 
-class FunnelChartDataLabelOptionsTypeDef(BaseValidatorModel):
+class FunnelChartDataLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     CategoryLabelVisibility: Optional[VisibilityType] = None
     MeasureLabelVisibility: Optional[VisibilityType] = None
     Position: Optional[DataLabelPositionType] = None
-    LabelFontConfiguration: Optional[FontConfigurationTypeDef] = None
+    LabelFontConfiguration: Optional[FontConfiguration] = None
     LabelColor: Optional[str] = None
     MeasureDataLabelStyle: Optional[FunnelChartMeasureDataLabelStyleType] = None
 
 
-class LabelOptionsTypeDef(BaseValidatorModel):
+class LabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+    FontConfiguration: Optional[FontConfiguration] = None
     CustomLabel: Optional[str] = None
 
 
-class PanelTitleOptionsTypeDef(BaseValidatorModel):
+class PanelTitleOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+    FontConfiguration: Optional[FontConfiguration] = None
     HorizontalTextAlignment: Optional[HorizontalTextAlignmentType] = None
 
 
-class TableFieldCustomTextContentTypeDef(BaseValidatorModel):
-    FontConfiguration: FontConfigurationTypeDef
+class TableFieldCustomTextContent(BaseValidatorModel):
+    FontConfiguration: FontConfiguration
     Value: Optional[str] = None
 
 
-class ForecastConfigurationOutputTypeDef(BaseValidatorModel):
-    ForecastProperties: Optional[TimeBasedForecastPropertiesTypeDef] = None
-    Scenario: Optional[ForecastScenarioOutputTypeDef] = None
+class ForecastConfigurationOutput(BaseValidatorModel):
+    ForecastProperties: Optional[TimeBasedForecastProperties] = None
+    Scenario: Optional[ForecastScenarioOutput] = None
 
 
-class DefaultFreeFormLayoutConfigurationTypeDef(BaseValidatorModel):
-    CanvasSizeOptions: FreeFormLayoutCanvasSizeOptionsTypeDef
+class DefaultFreeFormLayoutConfiguration(BaseValidatorModel):
+    CanvasSizeOptions: FreeFormLayoutCanvasSizeOptions
 
 
-class SnapshotUserConfigurationTypeDef(BaseValidatorModel):
-    AnonymousUsers: Optional[Sequence[SnapshotAnonymousUserTypeDef]] = None
+class SnapshotUserConfiguration(BaseValidatorModel):
+    AnonymousUsers: Optional[Sequence[SnapshotAnonymousUser]] = None
 
 
-class PredictQAResultsResponseTypeDef(BaseValidatorModel):
-    PrimaryResult: QAResultTypeDef
-    AdditionalResults: List[QAResultTypeDef]
+class PredictQAResultsResponse(BaseValidatorModel):
+    PrimaryResult: QAResult
+    AdditionalResults: List[QAResult]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GeoSpatialColumnGroupUnionTypeDef(BaseValidatorModel):
+class GeoSpatialColumnGroupUnion(BaseValidatorModel):
     pass
 
 
-class ColumnGroupTypeDef(BaseValidatorModel):
-    GeoSpatialColumnGroup: Optional[GeoSpatialColumnGroupUnionTypeDef] = None
+class ColumnGroup(BaseValidatorModel):
+    GeoSpatialColumnGroup: Optional[GeoSpatialColumnGroupUnion] = None
 
 
-class GeospatialHeatmapConfigurationOutputTypeDef(BaseValidatorModel):
-    HeatmapColor: Optional[GeospatialHeatmapColorScaleOutputTypeDef] = None
+class GeospatialHeatmapConfigurationOutput(BaseValidatorModel):
+    HeatmapColor: Optional[GeospatialHeatmapColorScaleOutput] = None
 
 
-class GeospatialHeatmapConfigurationTypeDef(BaseValidatorModel):
-    HeatmapColor: Optional[GeospatialHeatmapColorScaleTypeDef] = None
+class GeospatialHeatmapConfiguration(BaseValidatorModel):
+    HeatmapColor: Optional[GeospatialHeatmapColorScale] = None
 
 
-class GeospatialCategoricalColorOutputTypeDef(BaseValidatorModel):
-    CategoryDataColors: List[GeospatialCategoricalDataColorTypeDef]
+class GeospatialCategoricalColorOutput(BaseValidatorModel):
+    CategoryDataColors: List[GeospatialCategoricalDataColor]
     NullDataVisibility: Optional[VisibilityType] = None
-    NullDataSettings: Optional[GeospatialNullDataSettingsTypeDef] = None
+    NullDataSettings: Optional[GeospatialNullDataSettings] = None
     DefaultOpacity: Optional[float] = None
 
 
-class GeospatialCategoricalColorTypeDef(BaseValidatorModel):
-    CategoryDataColors: Sequence[GeospatialCategoricalDataColorTypeDef]
+class GeospatialCategoricalColor(BaseValidatorModel):
+    CategoryDataColors: Sequence[GeospatialCategoricalDataColor]
     NullDataVisibility: Optional[VisibilityType] = None
-    NullDataSettings: Optional[GeospatialNullDataSettingsTypeDef] = None
+    NullDataSettings: Optional[GeospatialNullDataSettings] = None
     DefaultOpacity: Optional[float] = None
 
 
-class GeospatialGradientColorOutputTypeDef(BaseValidatorModel):
-    StepColors: List[GeospatialGradientStepColorTypeDef]
+class GeospatialGradientColorOutput(BaseValidatorModel):
+    StepColors: List[GeospatialGradientStepColor]
     NullDataVisibility: Optional[VisibilityType] = None
-    NullDataSettings: Optional[GeospatialNullDataSettingsTypeDef] = None
+    NullDataSettings: Optional[GeospatialNullDataSettings] = None
     DefaultOpacity: Optional[float] = None
 
 
-class GeospatialGradientColorTypeDef(BaseValidatorModel):
-    StepColors: Sequence[GeospatialGradientStepColorTypeDef]
+class GeospatialGradientColor(BaseValidatorModel):
+    StepColors: Sequence[GeospatialGradientStepColor]
     NullDataVisibility: Optional[VisibilityType] = None
-    NullDataSettings: Optional[GeospatialNullDataSettingsTypeDef] = None
+    NullDataSettings: Optional[GeospatialNullDataSettings] = None
     DefaultOpacity: Optional[float] = None
 
 
-class GlobalTableBorderOptionsTypeDef(BaseValidatorModel):
-    UniformBorder: Optional[TableBorderOptionsTypeDef] = None
-    SideSpecificBorder: Optional[TableSideBorderOptionsTypeDef] = None
+class GlobalTableBorderOptions(BaseValidatorModel):
+    UniformBorder: Optional[TableBorderOptions] = None
+    SideSpecificBorder: Optional[TableSideBorderOptions] = None
 
 
-class ConditionalFormattingGradientColorOutputTypeDef(BaseValidatorModel):
+class ConditionalFormattingGradientColorOutput(BaseValidatorModel):
     Expression: str
-    Color: GradientColorOutputTypeDef
+    Color: GradientColorOutput
 
 
-class ConditionalFormattingGradientColorTypeDef(BaseValidatorModel):
+class ConditionalFormattingGradientColor(BaseValidatorModel):
     Expression: str
-    Color: GradientColorTypeDef
+    Color: GradientColor
 
 
-class DefaultGridLayoutConfigurationTypeDef(BaseValidatorModel):
-    CanvasSizeOptions: GridLayoutCanvasSizeOptionsTypeDef
+class DefaultGridLayoutConfiguration(BaseValidatorModel):
+    CanvasSizeOptions: GridLayoutCanvasSizeOptions
 
 
-class GridLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    Elements: List[GridLayoutElementTypeDef]
-    CanvasSizeOptions: Optional[GridLayoutCanvasSizeOptionsTypeDef] = None
+class GridLayoutConfigurationOutput(BaseValidatorModel):
+    Elements: List[GridLayoutElement]
+    CanvasSizeOptions: Optional[GridLayoutCanvasSizeOptions] = None
 
 
-class GridLayoutConfigurationTypeDef(BaseValidatorModel):
-    Elements: Sequence[GridLayoutElementTypeDef]
-    CanvasSizeOptions: Optional[GridLayoutCanvasSizeOptionsTypeDef] = None
+class GridLayoutConfiguration(BaseValidatorModel):
+    Elements: Sequence[GridLayoutElement]
+    CanvasSizeOptions: Optional[GridLayoutCanvasSizeOptions] = None
 
 
-class ImageSetConfigurationTypeDef(BaseValidatorModel):
-    Original: ImageConfigurationTypeDef
+class ImageSetConfiguration(BaseValidatorModel):
+    Original: ImageConfiguration
 
 
-class ImageSetTypeDef(BaseValidatorModel):
-    Original: ImageTypeDef
-    Height64: Optional[ImageTypeDef] = None
-    Height32: Optional[ImageTypeDef] = None
+class ImageSet(BaseValidatorModel):
+    Original: Image
+    Height64: Optional[Image] = None
+    Height32: Optional[Image] = None
 
 
-class RefreshConfigurationTypeDef(BaseValidatorModel):
-    IncrementalRefresh: IncrementalRefreshTypeDef
+class RefreshConfiguration(BaseValidatorModel):
+    IncrementalRefresh: IncrementalRefresh
 
 
-class DescribeIngestionResponseTypeDef(BaseValidatorModel):
-    Ingestion: IngestionTypeDef
+class DescribeIngestionResponse(BaseValidatorModel):
+    Ingestion: Ingestion
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListIngestionsResponseTypeDef(BaseValidatorModel):
-    Ingestions: List[IngestionTypeDef]
+class ListIngestionsResponse(BaseValidatorModel):
+    Ingestions: List[Ingestion]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IntegerDatasetParameterDefaultValuesUnionTypeDef(BaseValidatorModel):
+class IntegerDatasetParameterDefaultValuesUnion(BaseValidatorModel):
     pass
 
 
-class IntegerDatasetParameterTypeDef(BaseValidatorModel):
+class IntegerDatasetParameter(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[IntegerDatasetParameterDefaultValuesUnionTypeDef] = None
+    DefaultValues: Optional[IntegerDatasetParameterDefaultValuesUnion] = None
 
 
-class JoinInstructionTypeDef(BaseValidatorModel):
+class JoinInstruction(BaseValidatorModel):
     pass
 
 
-class LogicalTableSourceTypeDef(BaseValidatorModel):
-    JoinInstruction: Optional[JoinInstructionTypeDef] = None
+class LogicalTableSource(BaseValidatorModel):
+    JoinInstruction: Optional[JoinInstruction] = None
     PhysicalTableId: Optional[str] = None
     DataSetArn: Optional[str] = None
 
 
-class DataFieldSeriesItemTypeDef(BaseValidatorModel):
+class DataFieldSeriesItem(BaseValidatorModel):
     FieldId: str
     AxisBinding: AxisBindingType
     FieldValue: Optional[str] = None
-    Settings: Optional[LineChartSeriesSettingsTypeDef] = None
+    Settings: Optional[LineChartSeriesSettings] = None
 
 
-class FieldSeriesItemTypeDef(BaseValidatorModel):
+class FieldSeriesItem(BaseValidatorModel):
     FieldId: str
     AxisBinding: AxisBindingType
-    Settings: Optional[LineChartSeriesSettingsTypeDef] = None
+    Settings: Optional[LineChartSeriesSettings] = None
 
 
-class ResourcePermissionUnionTypeDef(BaseValidatorModel):
+class ResourcePermissionUnion(BaseValidatorModel):
     pass
 
 
-class CreateFolderRequestTypeDef(BaseValidatorModel):
+class CreateFolderRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
     Name: Optional[str] = None
     FolderType: Optional[FolderTypeType] = None
     ParentFolderArn: Optional[str] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
     SharingModel: Optional[SharingModelType] = None
 
 
-class UpdateAnalysisPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateAnalysisPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateDashboardPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    GrantLinkPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokeLinkPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    GrantLinkPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokeLinkPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateDataSetPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateDataSetPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateDataSourcePermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateDataSourcePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateFolderPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateFolderPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     FolderId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateTemplatePermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateTemplatePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateThemePermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateThemePermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class UpdateTopicPermissionsRequestTypeDef(BaseValidatorModel):
+class UpdateTopicPermissionsRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
-    GrantPermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RevokePermissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
+    GrantPermissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RevokePermissions: Optional[Sequence[ResourcePermissionUnion]] = None
 
 
-class SheetStyleTypeDef(BaseValidatorModel):
-    Tile: Optional[TileStyleTypeDef] = None
-    TileLayout: Optional[TileLayoutStyleTypeDef] = None
+class SheetStyle(BaseValidatorModel):
+    Tile: Optional[TileStyle] = None
+    TileLayout: Optional[TileLayoutStyle] = None
 
 
-class TopicNamedEntityOutputTypeDef(BaseValidatorModel):
+class TopicNamedEntityOutput(BaseValidatorModel):
     EntityName: str
     EntityDescription: Optional[str] = None
     EntitySynonyms: Optional[List[str]] = None
-    SemanticEntityType: Optional[SemanticEntityTypeOutputTypeDef] = None
-    Definition: Optional[List[NamedEntityDefinitionOutputTypeDef]] = None
+    SemanticEntityType: Optional[SemanticEntityTypeOutput] = None
+    Definition: Optional[List[NamedEntityDefinitionOutput]] = None
 
 
-class TopicNamedEntityTypeDef(BaseValidatorModel):
+class TopicNamedEntity(BaseValidatorModel):
     EntityName: str
     EntityDescription: Optional[str] = None
     EntitySynonyms: Optional[Sequence[str]] = None
-    SemanticEntityType: Optional[SemanticEntityTypeTypeDef] = None
-    Definition: Optional[Sequence[NamedEntityDefinitionTypeDef]] = None
+    SemanticEntityType: Optional[SemanticEntityType] = None
+    Definition: Optional[Sequence[NamedEntityDefinition]] = None
 
 
-class DescribeNamespaceResponseTypeDef(BaseValidatorModel):
-    Namespace: NamespaceInfoV2TypeDef
+class DescribeNamespaceResponse(BaseValidatorModel):
+    Namespace: NamespaceInfoV2
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListNamespacesResponseTypeDef(BaseValidatorModel):
-    Namespaces: List[NamespaceInfoV2TypeDef]
+class ListNamespacesResponse(BaseValidatorModel):
+    Namespaces: List[NamespaceInfoV2]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListVPCConnectionsResponseTypeDef(BaseValidatorModel):
-    VPCConnectionSummaries: List[VPCConnectionSummaryTypeDef]
+class ListVPCConnectionsResponse(BaseValidatorModel):
+    VPCConnectionSummaries: List[VPCConnectionSummary]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeVPCConnectionResponseTypeDef(BaseValidatorModel):
-    VPCConnection: VPCConnectionTypeDef
+class DescribeVPCConnectionResponse(BaseValidatorModel):
+    VPCConnection: VPCConnection
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CurrencyDisplayFormatConfigurationTypeDef(BaseValidatorModel):
+class CurrencyDisplayFormatConfiguration(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
-    SeparatorConfiguration: Optional[NumericSeparatorConfigurationTypeDef] = None
+    SeparatorConfiguration: Optional[NumericSeparatorConfiguration] = None
     Symbol: Optional[str] = None
-    DecimalPlacesConfiguration: Optional[DecimalPlacesConfigurationTypeDef] = None
+    DecimalPlacesConfiguration: Optional[DecimalPlacesConfiguration] = None
     NumberScale: Optional[NumberScaleType] = None
-    NegativeValueConfiguration: Optional[NegativeValueConfigurationTypeDef] = None
-    NullValueFormatConfiguration: Optional[NullValueFormatConfigurationTypeDef] = None
+    NegativeValueConfiguration: Optional[NegativeValueConfiguration] = None
+    NullValueFormatConfiguration: Optional[NullValueFormatConfiguration] = None
 
 
-class NumberDisplayFormatConfigurationTypeDef(BaseValidatorModel):
+class NumberDisplayFormatConfiguration(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
-    SeparatorConfiguration: Optional[NumericSeparatorConfigurationTypeDef] = None
-    DecimalPlacesConfiguration: Optional[DecimalPlacesConfigurationTypeDef] = None
+    SeparatorConfiguration: Optional[NumericSeparatorConfiguration] = None
+    DecimalPlacesConfiguration: Optional[DecimalPlacesConfiguration] = None
     NumberScale: Optional[NumberScaleType] = None
-    NegativeValueConfiguration: Optional[NegativeValueConfigurationTypeDef] = None
-    NullValueFormatConfiguration: Optional[NullValueFormatConfigurationTypeDef] = None
+    NegativeValueConfiguration: Optional[NegativeValueConfiguration] = None
+    NullValueFormatConfiguration: Optional[NullValueFormatConfiguration] = None
 
 
-class PercentageDisplayFormatConfigurationTypeDef(BaseValidatorModel):
+class PercentageDisplayFormatConfiguration(BaseValidatorModel):
     Prefix: Optional[str] = None
     Suffix: Optional[str] = None
-    SeparatorConfiguration: Optional[NumericSeparatorConfigurationTypeDef] = None
-    DecimalPlacesConfiguration: Optional[DecimalPlacesConfigurationTypeDef] = None
-    NegativeValueConfiguration: Optional[NegativeValueConfigurationTypeDef] = None
-    NullValueFormatConfiguration: Optional[NullValueFormatConfigurationTypeDef] = None
+    SeparatorConfiguration: Optional[NumericSeparatorConfiguration] = None
+    DecimalPlacesConfiguration: Optional[DecimalPlacesConfiguration] = None
+    NegativeValueConfiguration: Optional[NegativeValueConfiguration] = None
+    NullValueFormatConfiguration: Optional[NullValueFormatConfiguration] = None
 
 
-class AggregationFunctionTypeDef(BaseValidatorModel):
-    NumericalAggregationFunction: Optional[NumericalAggregationFunctionTypeDef] = None
+class AggregationFunction(BaseValidatorModel):
+    NumericalAggregationFunction: Optional[NumericalAggregationFunction] = None
     CategoricalAggregationFunction: Optional[CategoricalAggregationFunctionType] = None
     DateAggregationFunction: Optional[DateAggregationFunctionType] = None
-    AttributeAggregationFunction: Optional[AttributeAggregationFunctionTypeDef] = None
+    AttributeAggregationFunction: Optional[AttributeAggregationFunction] = None
 
 
-class ScrollBarOptionsTypeDef(BaseValidatorModel):
+class ScrollBarOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    VisibleRange: Optional[VisibleRangeOptionsTypeDef] = None
+    VisibleRange: Optional[VisibleRangeOptions] = None
 
 
-class TopicDateRangeFilterTypeDef(BaseValidatorModel):
+class TopicDateRangeFilter(BaseValidatorModel):
     Inclusive: Optional[bool] = None
-    Constant: Optional[TopicRangeFilterConstantTypeDef] = None
+    Constant: Optional[TopicRangeFilterConstant] = None
 
 
-class TopicNumericRangeFilterTypeDef(BaseValidatorModel):
+class TopicNumericRangeFilter(BaseValidatorModel):
     Inclusive: Optional[bool] = None
-    Constant: Optional[TopicRangeFilterConstantTypeDef] = None
+    Constant: Optional[TopicRangeFilterConstant] = None
     Aggregation: Optional[NamedFilterAggTypeType] = None
 
 
-class RedshiftIAMParametersUnionTypeDef(BaseValidatorModel):
+class RedshiftIAMParametersUnion(BaseValidatorModel):
     pass
 
 
-class RedshiftParametersTypeDef(BaseValidatorModel):
+class RedshiftParameters(BaseValidatorModel):
     Database: str
     Host: Optional[str] = None
     Port: Optional[int] = None
     ClusterId: Optional[str] = None
-    IAMParameters: Optional[RedshiftIAMParametersUnionTypeDef] = None
-    IdentityCenterConfiguration: Optional[IdentityCenterConfigurationTypeDef] = None
+    IAMParameters: Optional[RedshiftIAMParametersUnion] = None
+    IdentityCenterConfiguration: Optional[IdentityCenterConfiguration] = None
 
 
-class RefreshScheduleOutputTypeDef(BaseValidatorModel):
+class RefreshScheduleOutput(BaseValidatorModel):
     ScheduleId: str
-    ScheduleFrequency: RefreshFrequencyTypeDef
+    ScheduleFrequency: RefreshFrequency
     RefreshType: IngestionTypeType
     StartAfterDateTime: Optional[datetime] = None
     Arn: Optional[str] = None
 
 
-class RefreshScheduleTypeDef(BaseValidatorModel):
+class RefreshSchedule(BaseValidatorModel):
     ScheduleId: str
-    ScheduleFrequency: RefreshFrequencyTypeDef
+    ScheduleFrequency: RefreshFrequency
     RefreshType: IngestionTypeType
-    StartAfterDateTime: Optional[TimestampTypeDef] = None
+    StartAfterDateTime: Optional[Timestamp] = None
     Arn: Optional[str] = None
 
 
-class RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class RegisteredUserQuickSightConsoleEmbeddingConfiguration(BaseValidatorModel):
     InitialPath: Optional[str] = None
-    FeatureConfigurations: Optional[RegisteredUserConsoleFeatureConfigurationsTypeDef] = None
+    FeatureConfigurations: Optional[RegisteredUserConsoleFeatureConfigurations] = None
 
 
-class RegisteredUserDashboardEmbeddingConfigurationTypeDef(BaseValidatorModel):
+class RegisteredUserDashboardEmbeddingConfiguration(BaseValidatorModel):
     InitialDashboardId: str
-    FeatureConfigurations: Optional[RegisteredUserDashboardFeatureConfigurationsTypeDef] = None
+    FeatureConfigurations: Optional[RegisteredUserDashboardFeatureConfigurations] = None
 
 
-class SnapshotDestinationConfigurationOutputTypeDef(BaseValidatorModel):
-    S3Destinations: Optional[List[SnapshotS3DestinationConfigurationTypeDef]] = None
+class SnapshotDestinationConfigurationOutput(BaseValidatorModel):
+    S3Destinations: Optional[List[SnapshotS3DestinationConfiguration]] = None
 
 
-class SnapshotDestinationConfigurationTypeDef(BaseValidatorModel):
-    S3Destinations: Optional[Sequence[SnapshotS3DestinationConfigurationTypeDef]] = None
+class SnapshotDestinationConfiguration(BaseValidatorModel):
+    S3Destinations: Optional[Sequence[SnapshotS3DestinationConfiguration]] = None
 
 
-class SnapshotJobS3ResultTypeDef(BaseValidatorModel):
-    S3DestinationConfiguration: Optional[SnapshotS3DestinationConfigurationTypeDef] = None
+class SnapshotJobS3Result(BaseValidatorModel):
+    S3DestinationConfiguration: Optional[SnapshotS3DestinationConfiguration] = None
     S3Uri: Optional[str] = None
-    ErrorInfo: Optional[List[SnapshotJobResultErrorInfoTypeDef]] = None
+    ErrorInfo: Optional[List[SnapshotJobResultErrorInfo]] = None
 
 
-class PhysicalTableOutputTypeDef(BaseValidatorModel):
-    RelationalTable: Optional[RelationalTableOutputTypeDef] = None
-    CustomSql: Optional[CustomSqlOutputTypeDef] = None
-    S3Source: Optional[S3SourceOutputTypeDef] = None
+class PhysicalTableOutput(BaseValidatorModel):
+    RelationalTable: Optional[RelationalTableOutput] = None
+    CustomSql: Optional[CustomSqlOutput] = None
+    S3Source: Optional[S3SourceOutput] = None
 
 
-class SectionBasedLayoutCanvasSizeOptionsTypeDef(BaseValidatorModel):
-    PaperCanvasSizeOptions: Optional[SectionBasedLayoutPaperCanvasSizeOptionsTypeDef] = None
+class SectionBasedLayoutCanvasSizeOptions(BaseValidatorModel):
+    PaperCanvasSizeOptions: Optional[SectionBasedLayoutPaperCanvasSizeOptions] = None
 
 
-class FilterScopeConfigurationOutputTypeDef(BaseValidatorModel):
-    SelectedSheets: Optional[SelectedSheetsFilterScopeConfigurationOutputTypeDef] = None
+class FilterScopeConfigurationOutput(BaseValidatorModel):
+    SelectedSheets: Optional[SelectedSheetsFilterScopeConfigurationOutput] = None
     AllSheets: Optional[Dict[str, Any]] = None
 
 
-class FilterScopeConfigurationTypeDef(BaseValidatorModel):
-    SelectedSheets: Optional[SelectedSheetsFilterScopeConfigurationTypeDef] = None
+class FilterScopeConfiguration(BaseValidatorModel):
+    SelectedSheets: Optional[SelectedSheetsFilterScopeConfiguration] = None
     AllSheets: Optional[Mapping[str, Any]] = None
 
 
-class FreeFormLayoutElementOutputTypeDef(BaseValidatorModel):
+class FreeFormLayoutElementOutput(BaseValidatorModel):
     ElementId: str
     ElementType: LayoutElementTypeType
     XAxisLocation: str
@@ -6576,14 +6576,14 @@ class FreeFormLayoutElementOutputTypeDef(BaseValidatorModel):
     Width: str
     Height: str
     Visibility: Optional[VisibilityType] = None
-    RenderingRules: Optional[List[SheetElementRenderingRuleTypeDef]] = None
-    BorderStyle: Optional[FreeFormLayoutElementBorderStyleTypeDef] = None
-    SelectedBorderStyle: Optional[FreeFormLayoutElementBorderStyleTypeDef] = None
-    BackgroundStyle: Optional[FreeFormLayoutElementBackgroundStyleTypeDef] = None
-    LoadingAnimation: Optional[LoadingAnimationTypeDef] = None
+    RenderingRules: Optional[List[SheetElementRenderingRule]] = None
+    BorderStyle: Optional[FreeFormLayoutElementBorderStyle] = None
+    SelectedBorderStyle: Optional[FreeFormLayoutElementBorderStyle] = None
+    BackgroundStyle: Optional[FreeFormLayoutElementBackgroundStyle] = None
+    LoadingAnimation: Optional[LoadingAnimation] = None
 
 
-class FreeFormLayoutElementTypeDef(BaseValidatorModel):
+class FreeFormLayoutElement(BaseValidatorModel):
     ElementId: str
     ElementType: LayoutElementTypeType
     XAxisLocation: str
@@ -6591,366 +6591,366 @@ class FreeFormLayoutElementTypeDef(BaseValidatorModel):
     Width: str
     Height: str
     Visibility: Optional[VisibilityType] = None
-    RenderingRules: Optional[Sequence[SheetElementRenderingRuleTypeDef]] = None
-    BorderStyle: Optional[FreeFormLayoutElementBorderStyleTypeDef] = None
-    SelectedBorderStyle: Optional[FreeFormLayoutElementBorderStyleTypeDef] = None
-    BackgroundStyle: Optional[FreeFormLayoutElementBackgroundStyleTypeDef] = None
-    LoadingAnimation: Optional[LoadingAnimationTypeDef] = None
+    RenderingRules: Optional[Sequence[SheetElementRenderingRule]] = None
+    BorderStyle: Optional[FreeFormLayoutElementBorderStyle] = None
+    SelectedBorderStyle: Optional[FreeFormLayoutElementBorderStyle] = None
+    BackgroundStyle: Optional[FreeFormLayoutElementBackgroundStyle] = None
+    LoadingAnimation: Optional[LoadingAnimation] = None
 
 
-class SnapshotFileGroupOutputTypeDef(BaseValidatorModel):
-    Files: Optional[List[SnapshotFileOutputTypeDef]] = None
+class SnapshotFileGroupOutput(BaseValidatorModel):
+    Files: Optional[List[SnapshotFileOutput]] = None
 
 
-class SnapshotFileGroupTypeDef(BaseValidatorModel):
-    Files: Optional[Sequence[SnapshotFileTypeDef]] = None
+class SnapshotFileGroup(BaseValidatorModel):
+    Files: Optional[Sequence[SnapshotFile]] = None
 
 
-class ImageStaticFileTypeDef(BaseValidatorModel):
+class ImageStaticFile(BaseValidatorModel):
     StaticFileId: str
-    Source: Optional[StaticFileSourceTypeDef] = None
+    Source: Optional[StaticFileSource] = None
 
 
-class SpatialStaticFileTypeDef(BaseValidatorModel):
+class SpatialStaticFile(BaseValidatorModel):
     StaticFileId: str
-    Source: Optional[StaticFileSourceTypeDef] = None
+    Source: Optional[StaticFileSource] = None
 
 
-class DatasetParameterOutputTypeDef(BaseValidatorModel):
-    StringDatasetParameter: Optional[StringDatasetParameterOutputTypeDef] = None
-    DecimalDatasetParameter: Optional[DecimalDatasetParameterOutputTypeDef] = None
-    IntegerDatasetParameter: Optional[IntegerDatasetParameterOutputTypeDef] = None
-    DateTimeDatasetParameter: Optional[DateTimeDatasetParameterOutputTypeDef] = None
+class DatasetParameterOutput(BaseValidatorModel):
+    StringDatasetParameter: Optional[StringDatasetParameterOutput] = None
+    DecimalDatasetParameter: Optional[DecimalDatasetParameterOutput] = None
+    IntegerDatasetParameter: Optional[IntegerDatasetParameterOutput] = None
+    DateTimeDatasetParameter: Optional[DateTimeDatasetParameterOutput] = None
 
 
-class StringDatasetParameterDefaultValuesUnionTypeDef(BaseValidatorModel):
+class StringDatasetParameterDefaultValuesUnion(BaseValidatorModel):
     pass
 
 
-class StringDatasetParameterTypeDef(BaseValidatorModel):
+class StringDatasetParameter(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
-    DefaultValues: Optional[StringDatasetParameterDefaultValuesUnionTypeDef] = None
+    DefaultValues: Optional[StringDatasetParameterDefaultValuesUnion] = None
 
 
-class FilterCrossSheetControlOutputTypeDef(BaseValidatorModel):
+class FilterCrossSheetControlOutput(BaseValidatorModel):
     FilterControlId: str
     SourceFilterId: str
-    CascadingControlConfiguration: Optional[CascadingControlConfigurationOutputTypeDef] = None
+    CascadingControlConfiguration: Optional[CascadingControlConfigurationOutput] = None
 
 
-class FilterCrossSheetControlTypeDef(BaseValidatorModel):
+class FilterCrossSheetControl(BaseValidatorModel):
     FilterControlId: str
     SourceFilterId: str
-    CascadingControlConfiguration: Optional[CascadingControlConfigurationTypeDef] = None
+    CascadingControlConfiguration: Optional[CascadingControlConfiguration] = None
 
 
-class DateTimeParameterDeclarationOutputTypeDef(BaseValidatorModel):
+class DateTimeParameterDeclarationOutput(BaseValidatorModel):
     Name: str
-    DefaultValues: Optional[DateTimeDefaultValuesOutputTypeDef] = None
+    DefaultValues: Optional[DateTimeDefaultValuesOutput] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    ValueWhenUnset: Optional[DateTimeValueWhenUnsetConfigurationOutputTypeDef] = None
-    MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
+    ValueWhenUnset: Optional[DateTimeValueWhenUnsetConfigurationOutput] = None
+    MappedDataSetParameters: Optional[List[MappedDataSetParameter]] = None
 
 
-class DateTimeParameterDeclarationTypeDef(BaseValidatorModel):
+class DateTimeParameterDeclaration(BaseValidatorModel):
     Name: str
-    DefaultValues: Optional[DateTimeDefaultValuesTypeDef] = None
+    DefaultValues: Optional[DateTimeDefaultValues] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    ValueWhenUnset: Optional[DateTimeValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameterTypeDef]] = None
+    ValueWhenUnset: Optional[DateTimeValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameter]] = None
 
 
-class DecimalParameterDeclarationOutputTypeDef(BaseValidatorModel):
+class DecimalParameterDeclarationOutput(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[DecimalDefaultValuesOutputTypeDef] = None
-    ValueWhenUnset: Optional[DecimalValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[DecimalDefaultValuesOutput] = None
+    ValueWhenUnset: Optional[DecimalValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[List[MappedDataSetParameter]] = None
 
 
-class DecimalParameterDeclarationTypeDef(BaseValidatorModel):
+class DecimalParameterDeclaration(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[DecimalDefaultValuesTypeDef] = None
-    ValueWhenUnset: Optional[DecimalValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[DecimalDefaultValues] = None
+    ValueWhenUnset: Optional[DecimalValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameter]] = None
 
 
-class IntegerParameterDeclarationOutputTypeDef(BaseValidatorModel):
+class IntegerParameterDeclarationOutput(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[IntegerDefaultValuesOutputTypeDef] = None
-    ValueWhenUnset: Optional[IntegerValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[IntegerDefaultValuesOutput] = None
+    ValueWhenUnset: Optional[IntegerValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[List[MappedDataSetParameter]] = None
 
 
-class IntegerParameterDeclarationTypeDef(BaseValidatorModel):
+class IntegerParameterDeclaration(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[IntegerDefaultValuesTypeDef] = None
-    ValueWhenUnset: Optional[IntegerValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[IntegerDefaultValues] = None
+    ValueWhenUnset: Optional[IntegerValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameter]] = None
 
 
-class StringParameterDeclarationOutputTypeDef(BaseValidatorModel):
+class StringParameterDeclarationOutput(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[StringDefaultValuesOutputTypeDef] = None
-    ValueWhenUnset: Optional[StringValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[List[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[StringDefaultValuesOutput] = None
+    ValueWhenUnset: Optional[StringValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[List[MappedDataSetParameter]] = None
 
 
-class StringParameterDeclarationTypeDef(BaseValidatorModel):
+class StringParameterDeclaration(BaseValidatorModel):
     ParameterValueType: ParameterValueTypeType
     Name: str
-    DefaultValues: Optional[StringDefaultValuesTypeDef] = None
-    ValueWhenUnset: Optional[StringValueWhenUnsetConfigurationTypeDef] = None
-    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameterTypeDef]] = None
+    DefaultValues: Optional[StringDefaultValues] = None
+    ValueWhenUnset: Optional[StringValueWhenUnsetConfiguration] = None
+    MappedDataSetParameters: Optional[Sequence[MappedDataSetParameter]] = None
 
 
-class DateTimeHierarchyOutputTypeDef(BaseValidatorModel):
+class DateTimeHierarchyOutput(BaseValidatorModel):
     HierarchyId: str
-    DrillDownFilters: Optional[List[DrillDownFilterOutputTypeDef]] = None
+    DrillDownFilters: Optional[List[DrillDownFilterOutput]] = None
 
 
-class ExplicitHierarchyOutputTypeDef(BaseValidatorModel):
+class ExplicitHierarchyOutput(BaseValidatorModel):
     HierarchyId: str
-    Columns: List[ColumnIdentifierTypeDef]
-    DrillDownFilters: Optional[List[DrillDownFilterOutputTypeDef]] = None
+    Columns: List[ColumnIdentifier]
+    DrillDownFilters: Optional[List[DrillDownFilterOutput]] = None
 
 
-class PredefinedHierarchyOutputTypeDef(BaseValidatorModel):
+class PredefinedHierarchyOutput(BaseValidatorModel):
     HierarchyId: str
-    Columns: List[ColumnIdentifierTypeDef]
-    DrillDownFilters: Optional[List[DrillDownFilterOutputTypeDef]] = None
+    Columns: List[ColumnIdentifier]
+    DrillDownFilters: Optional[List[DrillDownFilterOutput]] = None
 
 
-class AnonymousUserEmbeddingExperienceConfigurationTypeDef(BaseValidatorModel):
-    Dashboard: Optional[AnonymousUserDashboardEmbeddingConfigurationTypeDef] = None
-    DashboardVisual: Optional[AnonymousUserDashboardVisualEmbeddingConfigurationTypeDef] = None
-    QSearchBar: Optional[AnonymousUserQSearchBarEmbeddingConfigurationTypeDef] = None
-    GenerativeQnA: Optional[AnonymousUserGenerativeQnAEmbeddingConfigurationTypeDef] = None
+class AnonymousUserEmbeddingExperienceConfiguration(BaseValidatorModel):
+    Dashboard: Optional[AnonymousUserDashboardEmbeddingConfiguration] = None
+    DashboardVisual: Optional[AnonymousUserDashboardVisualEmbeddingConfiguration] = None
+    QSearchBar: Optional[AnonymousUserQSearchBarEmbeddingConfiguration] = None
+    GenerativeQnA: Optional[AnonymousUserGenerativeQnAEmbeddingConfiguration] = None
 
 
-class AssetBundleCloudFormationOverridePropertyConfigurationUnionTypeDef(BaseValidatorModel):
+class AssetBundleCloudFormationOverridePropertyConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartAssetBundleExportJobRequestTypeDef(BaseValidatorModel):
+class StartAssetBundleExportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleExportJobId: str
     ResourceArns: Sequence[str]
     ExportFormat: AssetBundleExportFormatType
     IncludeAllDependencies: Optional[bool] = None
-    CloudFormationOverridePropertyConfiguration: Optional[ AssetBundleCloudFormationOverridePropertyConfigurationUnionTypeDef ] = None
+    CloudFormationOverridePropertyConfiguration: Optional[ AssetBundleCloudFormationOverridePropertyConfigurationUnion ] = None
     IncludePermissions: Optional[bool] = None
     IncludeTags: Optional[bool] = None
-    ValidationStrategy: Optional[AssetBundleExportJobValidationStrategyTypeDef] = None
+    ValidationStrategy: Optional[AssetBundleExportJobValidationStrategy] = None
     IncludeFolderMemberships: Optional[bool] = None
     IncludeFolderMembers: Optional[IncludeFolderMembersType] = None
 
 
-class AssetBundleImportJobOverridePermissionsOutputTypeDef(BaseValidatorModel):
-    DataSources: Optional[List[AssetBundleImportJobDataSourceOverridePermissionsOutputTypeDef]] = None
-    DataSets: Optional[List[AssetBundleImportJobDataSetOverridePermissionsOutputTypeDef]] = None
-    Themes: Optional[List[AssetBundleImportJobThemeOverridePermissionsOutputTypeDef]] = None
-    Analyses: Optional[List[AssetBundleImportJobAnalysisOverridePermissionsOutputTypeDef]] = None
-    Dashboards: Optional[List[AssetBundleImportJobDashboardOverridePermissionsOutputTypeDef]] = None
-    Folders: Optional[List[AssetBundleImportJobFolderOverridePermissionsOutputTypeDef]] = None
+class AssetBundleImportJobOverridePermissionsOutput(BaseValidatorModel):
+    DataSources: Optional[List[AssetBundleImportJobDataSourceOverridePermissionsOutput]] = None
+    DataSets: Optional[List[AssetBundleImportJobDataSetOverridePermissionsOutput]] = None
+    Themes: Optional[List[AssetBundleImportJobThemeOverridePermissionsOutput]] = None
+    Analyses: Optional[List[AssetBundleImportJobAnalysisOverridePermissionsOutput]] = None
+    Dashboards: Optional[List[AssetBundleImportJobDashboardOverridePermissionsOutput]] = None
+    Folders: Optional[List[AssetBundleImportJobFolderOverridePermissionsOutput]] = None
 
 
-class AssetBundleImportJobOverridePermissionsTypeDef(BaseValidatorModel):
-    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverridePermissionsTypeDef]] = None
-    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverridePermissionsTypeDef]] = None
-    Themes: Optional[Sequence[AssetBundleImportJobThemeOverridePermissionsTypeDef]] = None
-    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverridePermissionsTypeDef]] = None
-    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverridePermissionsTypeDef]] = None
-    Folders: Optional[Sequence[AssetBundleImportJobFolderOverridePermissionsTypeDef]] = None
+class AssetBundleImportJobOverridePermissions(BaseValidatorModel):
+    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverridePermissions]] = None
+    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverridePermissions]] = None
+    Themes: Optional[Sequence[AssetBundleImportJobThemeOverridePermissions]] = None
+    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverridePermissions]] = None
+    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverridePermissions]] = None
+    Folders: Optional[Sequence[AssetBundleImportJobFolderOverridePermissions]] = None
 
 
-class DataSourceParametersOutputTypeDef(BaseValidatorModel):
-    AmazonElasticsearchParameters: Optional[AmazonElasticsearchParametersTypeDef] = None
-    AthenaParameters: Optional[AthenaParametersTypeDef] = None
-    AuroraParameters: Optional[AuroraParametersTypeDef] = None
-    AuroraPostgreSqlParameters: Optional[AuroraPostgreSqlParametersTypeDef] = None
-    AwsIotAnalyticsParameters: Optional[AwsIotAnalyticsParametersTypeDef] = None
-    JiraParameters: Optional[JiraParametersTypeDef] = None
-    MariaDbParameters: Optional[MariaDbParametersTypeDef] = None
-    MySqlParameters: Optional[MySqlParametersTypeDef] = None
-    OracleParameters: Optional[OracleParametersTypeDef] = None
-    PostgreSqlParameters: Optional[PostgreSqlParametersTypeDef] = None
-    PrestoParameters: Optional[PrestoParametersTypeDef] = None
-    RdsParameters: Optional[RdsParametersTypeDef] = None
-    RedshiftParameters: Optional[RedshiftParametersOutputTypeDef] = None
-    S3Parameters: Optional[S3ParametersTypeDef] = None
-    ServiceNowParameters: Optional[ServiceNowParametersTypeDef] = None
-    SnowflakeParameters: Optional[SnowflakeParametersTypeDef] = None
-    SparkParameters: Optional[SparkParametersTypeDef] = None
-    SqlServerParameters: Optional[SqlServerParametersTypeDef] = None
-    TeradataParameters: Optional[TeradataParametersTypeDef] = None
-    TwitterParameters: Optional[TwitterParametersTypeDef] = None
-    AmazonOpenSearchParameters: Optional[AmazonOpenSearchParametersTypeDef] = None
-    ExasolParameters: Optional[ExasolParametersTypeDef] = None
-    DatabricksParameters: Optional[DatabricksParametersTypeDef] = None
-    StarburstParameters: Optional[StarburstParametersTypeDef] = None
-    TrinoParameters: Optional[TrinoParametersTypeDef] = None
-    BigQueryParameters: Optional[BigQueryParametersTypeDef] = None
+class DataSourceParametersOutput(BaseValidatorModel):
+    AmazonElasticsearchParameters: Optional[AmazonElasticsearchParameters] = None
+    AthenaParameters: Optional[AthenaParameters] = None
+    AuroraParameters: Optional[AuroraParameters] = None
+    AuroraPostgreSqlParameters: Optional[AuroraPostgreSqlParameters] = None
+    AwsIotAnalyticsParameters: Optional[AwsIotAnalyticsParameters] = None
+    JiraParameters: Optional[JiraParameters] = None
+    MariaDbParameters: Optional[MariaDbParameters] = None
+    MySqlParameters: Optional[MySqlParameters] = None
+    OracleParameters: Optional[OracleParameters] = None
+    PostgreSqlParameters: Optional[PostgreSqlParameters] = None
+    PrestoParameters: Optional[PrestoParameters] = None
+    RdsParameters: Optional[RdsParameters] = None
+    RedshiftParameters: Optional[RedshiftParametersOutput] = None
+    S3Parameters: Optional[S3Parameters] = None
+    ServiceNowParameters: Optional[ServiceNowParameters] = None
+    SnowflakeParameters: Optional[SnowflakeParameters] = None
+    SparkParameters: Optional[SparkParameters] = None
+    SqlServerParameters: Optional[SqlServerParameters] = None
+    TeradataParameters: Optional[TeradataParameters] = None
+    TwitterParameters: Optional[TwitterParameters] = None
+    AmazonOpenSearchParameters: Optional[AmazonOpenSearchParameters] = None
+    ExasolParameters: Optional[ExasolParameters] = None
+    DatabricksParameters: Optional[DatabricksParameters] = None
+    StarburstParameters: Optional[StarburstParameters] = None
+    TrinoParameters: Optional[TrinoParameters] = None
+    BigQueryParameters: Optional[BigQueryParameters] = None
 
 
-class DestinationParameterValueConfigurationTypeDef(BaseValidatorModel):
-    CustomValuesConfiguration: Optional[CustomValuesConfigurationTypeDef] = None
+class DestinationParameterValueConfiguration(BaseValidatorModel):
+    CustomValuesConfiguration: Optional[CustomValuesConfiguration] = None
     SelectAllValueOptions: Optional[Literal["ALL_VALUES"]] = None
     SourceParameterName: Optional[str] = None
     SourceField: Optional[str] = None
-    SourceColumn: Optional[ColumnIdentifierTypeDef] = None
+    SourceColumn: Optional[ColumnIdentifier] = None
 
 
-class DateTimeDatasetParameterDefaultValuesUnionTypeDef(BaseValidatorModel):
+class DateTimeDatasetParameterDefaultValuesUnion(BaseValidatorModel):
     pass
 
 
-class DateTimeDatasetParameterTypeDef(BaseValidatorModel):
+class DateTimeDatasetParameter(BaseValidatorModel):
     Id: str
     Name: str
     ValueType: DatasetParameterValueTypeType
     TimeGranularity: Optional[TimeGranularityType] = None
-    DefaultValues: Optional[DateTimeDatasetParameterDefaultValuesUnionTypeDef] = None
+    DefaultValues: Optional[DateTimeDatasetParameterDefaultValuesUnion] = None
 
 
-class NewDefaultValuesUnionTypeDef(BaseValidatorModel):
+class NewDefaultValuesUnion(BaseValidatorModel):
     pass
 
 
-class OverrideDatasetParameterOperationTypeDef(BaseValidatorModel):
+class OverrideDatasetParameterOperation(BaseValidatorModel):
     ParameterName: str
     NewParameterName: Optional[str] = None
-    NewDefaultValues: Optional[NewDefaultValuesUnionTypeDef] = None
+    NewDefaultValues: Optional[NewDefaultValuesUnion] = None
 
 
-class DateTimeHierarchyTypeDef(BaseValidatorModel):
+class DateTimeHierarchy(BaseValidatorModel):
     HierarchyId: str
-    DrillDownFilters: Optional[Sequence[DrillDownFilterTypeDef]] = None
+    DrillDownFilters: Optional[Sequence[DrillDownFilter]] = None
 
 
-class ExplicitHierarchyTypeDef(BaseValidatorModel):
+class ExplicitHierarchy(BaseValidatorModel):
     HierarchyId: str
-    Columns: Sequence[ColumnIdentifierTypeDef]
-    DrillDownFilters: Optional[Sequence[DrillDownFilterTypeDef]] = None
+    Columns: Sequence[ColumnIdentifier]
+    DrillDownFilters: Optional[Sequence[DrillDownFilter]] = None
 
 
-class PredefinedHierarchyTypeDef(BaseValidatorModel):
+class PredefinedHierarchy(BaseValidatorModel):
     HierarchyId: str
-    Columns: Sequence[ColumnIdentifierTypeDef]
-    DrillDownFilters: Optional[Sequence[DrillDownFilterTypeDef]] = None
+    Columns: Sequence[ColumnIdentifier]
+    DrillDownFilters: Optional[Sequence[DrillDownFilter]] = None
 
 
-class TopicRefreshScheduleUnionTypeDef(BaseValidatorModel):
+class TopicRefreshScheduleUnion(BaseValidatorModel):
     pass
 
 
-class CreateTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class CreateTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     DatasetArn: str
-    RefreshSchedule: TopicRefreshScheduleUnionTypeDef
+    RefreshSchedule: TopicRefreshScheduleUnion
     DatasetName: Optional[str] = None
 
 
-class UpdateTopicRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class UpdateTopicRefreshScheduleRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
     DatasetId: str
-    RefreshSchedule: TopicRefreshScheduleUnionTypeDef
+    RefreshSchedule: TopicRefreshScheduleUnion
 
 
-class ForecastConfigurationTypeDef(BaseValidatorModel):
-    ForecastProperties: Optional[TimeBasedForecastPropertiesTypeDef] = None
-    Scenario: Optional[ForecastScenarioTypeDef] = None
+class ForecastConfiguration(BaseValidatorModel):
+    ForecastProperties: Optional[TimeBasedForecastProperties] = None
+    Scenario: Optional[ForecastScenario] = None
 
 
-class AxisDataOptionsOutputTypeDef(BaseValidatorModel):
-    NumericAxisOptions: Optional[NumericAxisOptionsOutputTypeDef] = None
-    DateAxisOptions: Optional[DateAxisOptionsTypeDef] = None
+class AxisDataOptionsOutput(BaseValidatorModel):
+    NumericAxisOptions: Optional[NumericAxisOptionsOutput] = None
+    DateAxisOptions: Optional[DateAxisOptions] = None
 
 
-class AxisDataOptionsTypeDef(BaseValidatorModel):
-    NumericAxisOptions: Optional[NumericAxisOptionsTypeDef] = None
-    DateAxisOptions: Optional[DateAxisOptionsTypeDef] = None
+class AxisDataOptions(BaseValidatorModel):
+    NumericAxisOptions: Optional[NumericAxisOptions] = None
+    DateAxisOptions: Optional[DateAxisOptions] = None
 
 
-class BrandColorPaletteTypeDef(BaseValidatorModel):
+class BrandColorPalette(BaseValidatorModel):
     pass
 
 
-class ApplicationThemeTypeDef(BaseValidatorModel):
-    BrandColorPalette: Optional[BrandColorPaletteTypeDef] = None
-    BrandElementStyle: Optional[BrandElementStyleTypeDef] = None
+class ApplicationTheme(BaseValidatorModel):
+    BrandColorPalette: Optional[BrandColorPalette] = None
+    BrandElementStyle: Optional[BrandElementStyle] = None
 
 
-class TopicConstantValueUnionTypeDef(BaseValidatorModel):
+class TopicConstantValueUnion(BaseValidatorModel):
     pass
 
 
-class TopicIRFilterOptionTypeDef(BaseValidatorModel):
+class TopicIRFilterOption(BaseValidatorModel):
     FilterType: Optional[TopicIRFilterTypeType] = None
     FilterClass: Optional[FilterClassType] = None
-    OperandField: Optional[IdentifierTypeDef] = None
+    OperandField: Optional[Identifier] = None
     Function: Optional[TopicIRFilterFunctionType] = None
-    Constant: Optional[TopicConstantValueUnionTypeDef] = None
+    Constant: Optional[TopicConstantValueUnion] = None
     Inverse: Optional[bool] = None
     NullFilter: Optional[NullFilterOptionType] = None
     Aggregation: Optional[AggTypeType] = None
     AggregationFunctionParameters: Optional[Mapping[str, str]] = None
-    AggregationPartitionBy: Optional[Sequence[AggregationPartitionByTypeDef]] = None
-    Range: Optional[TopicConstantValueUnionTypeDef] = None
+    AggregationPartitionBy: Optional[Sequence[AggregationPartitionBy]] = None
+    Range: Optional[TopicConstantValueUnion] = None
     Inclusive: Optional[bool] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    LastNextOffset: Optional[TopicConstantValueUnionTypeDef] = None
-    AggMetrics: Optional[Sequence[FilterAggMetricsTypeDef]] = None
-    TopBottomLimit: Optional[TopicConstantValueUnionTypeDef] = None
+    LastNextOffset: Optional[TopicConstantValueUnion] = None
+    AggMetrics: Optional[Sequence[FilterAggMetrics]] = None
+    TopBottomLimit: Optional[TopicConstantValueUnion] = None
     SortDirection: Optional[TopicSortDirectionType] = None
-    Anchor: Optional[AnchorTypeDef] = None
+    Anchor: Optional[Anchor] = None
 
 
-class TransformOperationOutputTypeDef(BaseValidatorModel):
-    ProjectOperation: Optional[ProjectOperationOutputTypeDef] = None
-    FilterOperation: Optional[FilterOperationTypeDef] = None
-    CreateColumnsOperation: Optional[CreateColumnsOperationOutputTypeDef] = None
-    RenameColumnOperation: Optional[RenameColumnOperationTypeDef] = None
-    CastColumnTypeOperation: Optional[CastColumnTypeOperationTypeDef] = None
-    TagColumnOperation: Optional[TagColumnOperationOutputTypeDef] = None
-    UntagColumnOperation: Optional[UntagColumnOperationOutputTypeDef] = None
-    OverrideDatasetParameterOperation: Optional[OverrideDatasetParameterOperationOutputTypeDef] = None
+class TransformOperationOutput(BaseValidatorModel):
+    ProjectOperation: Optional[ProjectOperationOutput] = None
+    FilterOperation: Optional[FilterOperation] = None
+    CreateColumnsOperation: Optional[CreateColumnsOperationOutput] = None
+    RenameColumnOperation: Optional[RenameColumnOperation] = None
+    CastColumnTypeOperation: Optional[CastColumnTypeOperation] = None
+    TagColumnOperation: Optional[TagColumnOperationOutput] = None
+    UntagColumnOperation: Optional[UntagColumnOperationOutput] = None
+    OverrideDatasetParameterOperation: Optional[OverrideDatasetParameterOperationOutput] = None
 
 
-class SetParameterValueConfigurationOutputTypeDef(BaseValidatorModel):
+class SetParameterValueConfigurationOutput(BaseValidatorModel):
     DestinationParameterName: str
-    Value: DestinationParameterValueConfigurationOutputTypeDef
+    Value: DestinationParameterValueConfigurationOutput
 
 
-class VisualPaletteOutputTypeDef(BaseValidatorModel):
+class VisualPaletteOutput(BaseValidatorModel):
     ChartColor: Optional[str] = None
-    ColorMap: Optional[List[DataPathColorTypeDef]] = None
+    ColorMap: Optional[List[DataPathColor]] = None
 
 
-class VisualPaletteTypeDef(BaseValidatorModel):
+class VisualPalette(BaseValidatorModel):
     ChartColor: Optional[str] = None
-    ColorMap: Optional[Sequence[DataPathColorTypeDef]] = None
+    ColorMap: Optional[Sequence[DataPathColor]] = None
 
 
-class PivotTableFieldCollapseStateOptionOutputTypeDef(BaseValidatorModel):
-    Target: PivotTableFieldCollapseStateTargetOutputTypeDef
+class PivotTableFieldCollapseStateOptionOutput(BaseValidatorModel):
+    Target: PivotTableFieldCollapseStateTargetOutput
     State: Optional[PivotTableFieldCollapseStateType] = None
 
 
-class PivotTableFieldCollapseStateOptionTypeDef(BaseValidatorModel):
-    Target: PivotTableFieldCollapseStateTargetTypeDef
+class PivotTableFieldCollapseStateOption(BaseValidatorModel):
+    Target: PivotTableFieldCollapseStateTarget
     State: Optional[PivotTableFieldCollapseStateType] = None
 
 
-class TopicCalculatedFieldOutputTypeDef(BaseValidatorModel):
+class TopicCalculatedFieldOutput(BaseValidatorModel):
     CalculatedFieldName: str
     Expression: str
     CalculatedFieldDescription: Optional[str] = None
@@ -6959,18 +6959,18 @@ class TopicCalculatedFieldOutputTypeDef(BaseValidatorModel):
     DisableIndexing: Optional[bool] = None
     ColumnDataRole: Optional[ColumnDataRoleType] = None
     TimeGranularity: Optional[TopicTimeGranularityType] = None
-    DefaultFormatting: Optional[DefaultFormattingTypeDef] = None
+    DefaultFormatting: Optional[DefaultFormatting] = None
     Aggregation: Optional[DefaultAggregationType] = None
-    ComparativeOrder: Optional[ComparativeOrderOutputTypeDef] = None
-    SemanticType: Optional[SemanticTypeOutputTypeDef] = None
+    ComparativeOrder: Optional[ComparativeOrderOutput] = None
+    SemanticType: Optional[SemanticTypeOutput] = None
     AllowedAggregations: Optional[List[AuthorSpecifiedAggregationType]] = None
     NotAllowedAggregations: Optional[List[AuthorSpecifiedAggregationType]] = None
     NeverAggregateInFilter: Optional[bool] = None
-    CellValueSynonyms: Optional[List[CellValueSynonymOutputTypeDef]] = None
+    CellValueSynonyms: Optional[List[CellValueSynonymOutput]] = None
     NonAdditive: Optional[bool] = None
 
 
-class TopicCalculatedFieldTypeDef(BaseValidatorModel):
+class TopicCalculatedField(BaseValidatorModel):
     CalculatedFieldName: str
     Expression: str
     CalculatedFieldDescription: Optional[str] = None
@@ -6979,18 +6979,18 @@ class TopicCalculatedFieldTypeDef(BaseValidatorModel):
     DisableIndexing: Optional[bool] = None
     ColumnDataRole: Optional[ColumnDataRoleType] = None
     TimeGranularity: Optional[TopicTimeGranularityType] = None
-    DefaultFormatting: Optional[DefaultFormattingTypeDef] = None
+    DefaultFormatting: Optional[DefaultFormatting] = None
     Aggregation: Optional[DefaultAggregationType] = None
-    ComparativeOrder: Optional[ComparativeOrderTypeDef] = None
-    SemanticType: Optional[SemanticTypeTypeDef] = None
+    ComparativeOrder: Optional[ComparativeOrder] = None
+    SemanticType: Optional[SemanticType] = None
     AllowedAggregations: Optional[Sequence[AuthorSpecifiedAggregationType]] = None
     NotAllowedAggregations: Optional[Sequence[AuthorSpecifiedAggregationType]] = None
     NeverAggregateInFilter: Optional[bool] = None
-    CellValueSynonyms: Optional[Sequence[CellValueSynonymTypeDef]] = None
+    CellValueSynonyms: Optional[Sequence[CellValueSynonym]] = None
     NonAdditive: Optional[bool] = None
 
 
-class TopicColumnOutputTypeDef(BaseValidatorModel):
+class TopicColumnOutput(BaseValidatorModel):
     ColumnName: str
     ColumnFriendlyName: Optional[str] = None
     ColumnDescription: Optional[str] = None
@@ -6999,18 +6999,18 @@ class TopicColumnOutputTypeDef(BaseValidatorModel):
     Aggregation: Optional[DefaultAggregationType] = None
     IsIncludedInTopic: Optional[bool] = None
     DisableIndexing: Optional[bool] = None
-    ComparativeOrder: Optional[ComparativeOrderOutputTypeDef] = None
-    SemanticType: Optional[SemanticTypeOutputTypeDef] = None
+    ComparativeOrder: Optional[ComparativeOrderOutput] = None
+    SemanticType: Optional[SemanticTypeOutput] = None
     TimeGranularity: Optional[TopicTimeGranularityType] = None
     AllowedAggregations: Optional[List[AuthorSpecifiedAggregationType]] = None
     NotAllowedAggregations: Optional[List[AuthorSpecifiedAggregationType]] = None
-    DefaultFormatting: Optional[DefaultFormattingTypeDef] = None
+    DefaultFormatting: Optional[DefaultFormatting] = None
     NeverAggregateInFilter: Optional[bool] = None
-    CellValueSynonyms: Optional[List[CellValueSynonymOutputTypeDef]] = None
+    CellValueSynonyms: Optional[List[CellValueSynonymOutput]] = None
     NonAdditive: Optional[bool] = None
 
 
-class TopicColumnTypeDef(BaseValidatorModel):
+class TopicColumn(BaseValidatorModel):
     ColumnName: str
     ColumnFriendlyName: Optional[str] = None
     ColumnDescription: Optional[str] = None
@@ -7019,94 +7019,94 @@ class TopicColumnTypeDef(BaseValidatorModel):
     Aggregation: Optional[DefaultAggregationType] = None
     IsIncludedInTopic: Optional[bool] = None
     DisableIndexing: Optional[bool] = None
-    ComparativeOrder: Optional[ComparativeOrderTypeDef] = None
-    SemanticType: Optional[SemanticTypeTypeDef] = None
+    ComparativeOrder: Optional[ComparativeOrder] = None
+    SemanticType: Optional[SemanticType] = None
     TimeGranularity: Optional[TopicTimeGranularityType] = None
     AllowedAggregations: Optional[Sequence[AuthorSpecifiedAggregationType]] = None
     NotAllowedAggregations: Optional[Sequence[AuthorSpecifiedAggregationType]] = None
-    DefaultFormatting: Optional[DefaultFormattingTypeDef] = None
+    DefaultFormatting: Optional[DefaultFormatting] = None
     NeverAggregateInFilter: Optional[bool] = None
-    CellValueSynonyms: Optional[Sequence[CellValueSynonymTypeDef]] = None
+    CellValueSynonyms: Optional[Sequence[CellValueSynonym]] = None
     NonAdditive: Optional[bool] = None
 
 
-class ContributionAnalysisTimeRangesOutputTypeDef(BaseValidatorModel):
-    StartRange: Optional[TopicIRFilterOptionOutputTypeDef] = None
-    EndRange: Optional[TopicIRFilterOptionOutputTypeDef] = None
+class ContributionAnalysisTimeRangesOutput(BaseValidatorModel):
+    StartRange: Optional[TopicIRFilterOptionOutput] = None
+    EndRange: Optional[TopicIRFilterOptionOutput] = None
 
 
-class ChartAxisLabelOptionsOutputTypeDef(BaseValidatorModel):
+class ChartAxisLabelOptionsOutput(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     SortIconVisibility: Optional[VisibilityType] = None
-    AxisLabelOptions: Optional[List[AxisLabelOptionsTypeDef]] = None
+    AxisLabelOptions: Optional[List[AxisLabelOptions]] = None
 
 
-class ChartAxisLabelOptionsTypeDef(BaseValidatorModel):
+class ChartAxisLabelOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
     SortIconVisibility: Optional[VisibilityType] = None
-    AxisLabelOptions: Optional[Sequence[AxisLabelOptionsTypeDef]] = None
+    AxisLabelOptions: Optional[Sequence[AxisLabelOptions]] = None
 
 
-class AxisTickLabelOptionsTypeDef(BaseValidatorModel):
-    LabelOptions: Optional[LabelOptionsTypeDef] = None
+class AxisTickLabelOptions(BaseValidatorModel):
+    LabelOptions: Optional[LabelOptions] = None
     RotationAngle: Optional[float] = None
 
 
-class DateTimePickerControlDisplayOptionsTypeDef(BaseValidatorModel):
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
+class DateTimePickerControlDisplayOptions(BaseValidatorModel):
+    TitleOptions: Optional[LabelOptions] = None
     DateTimeFormat: Optional[str] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
     HelperTextVisibility: Optional[VisibilityType] = None
     DateIconVisibility: Optional[VisibilityType] = None
 
 
-class DropDownControlDisplayOptionsTypeDef(BaseValidatorModel):
-    SelectAllOptions: Optional[ListControlSelectAllOptionsTypeDef] = None
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+class DropDownControlDisplayOptions(BaseValidatorModel):
+    SelectAllOptions: Optional[ListControlSelectAllOptions] = None
+    TitleOptions: Optional[LabelOptions] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class LegendOptionsTypeDef(BaseValidatorModel):
+class LegendOptions(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    Title: Optional[LabelOptionsTypeDef] = None
+    Title: Optional[LabelOptions] = None
     Position: Optional[LegendPositionType] = None
     Width: Optional[str] = None
     Height: Optional[str] = None
-    ValueFontConfiguration: Optional[FontConfigurationTypeDef] = None
+    ValueFontConfiguration: Optional[FontConfiguration] = None
 
 
-class ListControlDisplayOptionsTypeDef(BaseValidatorModel):
-    SearchOptions: Optional[ListControlSearchOptionsTypeDef] = None
-    SelectAllOptions: Optional[ListControlSelectAllOptionsTypeDef] = None
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+class ListControlDisplayOptions(BaseValidatorModel):
+    SearchOptions: Optional[ListControlSearchOptions] = None
+    SelectAllOptions: Optional[ListControlSelectAllOptions] = None
+    TitleOptions: Optional[LabelOptions] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class RelativeDateTimeControlDisplayOptionsTypeDef(BaseValidatorModel):
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
+class RelativeDateTimeControlDisplayOptions(BaseValidatorModel):
+    TitleOptions: Optional[LabelOptions] = None
     DateTimeFormat: Optional[str] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class SliderControlDisplayOptionsTypeDef(BaseValidatorModel):
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+class SliderControlDisplayOptions(BaseValidatorModel):
+    TitleOptions: Optional[LabelOptions] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class TextAreaControlDisplayOptionsTypeDef(BaseValidatorModel):
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
-    PlaceholderOptions: Optional[TextControlPlaceholderOptionsTypeDef] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+class TextAreaControlDisplayOptions(BaseValidatorModel):
+    TitleOptions: Optional[LabelOptions] = None
+    PlaceholderOptions: Optional[TextControlPlaceholderOptions] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class TextFieldControlDisplayOptionsTypeDef(BaseValidatorModel):
-    TitleOptions: Optional[LabelOptionsTypeDef] = None
-    PlaceholderOptions: Optional[TextControlPlaceholderOptionsTypeDef] = None
-    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptionsTypeDef] = None
+class TextFieldControlDisplayOptions(BaseValidatorModel):
+    TitleOptions: Optional[LabelOptions] = None
+    PlaceholderOptions: Optional[TextControlPlaceholderOptions] = None
+    InfoIconLabelOptions: Optional[SheetControlInfoIconLabelOptions] = None
 
 
-class PanelConfigurationTypeDef(BaseValidatorModel):
-    Title: Optional[PanelTitleOptionsTypeDef] = None
+class PanelConfiguration(BaseValidatorModel):
+    Title: Optional[PanelTitleOptions] = None
     BorderVisibility: Optional[VisibilityType] = None
     BorderThickness: Optional[str] = None
     BorderStyle: Optional[PanelBorderStyleType] = None
@@ -7117,1225 +7117,1225 @@ class PanelConfigurationTypeDef(BaseValidatorModel):
     BackgroundColor: Optional[str] = None
 
 
-class TableFieldLinkContentConfigurationTypeDef(BaseValidatorModel):
-    CustomTextContent: Optional[TableFieldCustomTextContentTypeDef] = None
-    CustomIconContent: Optional[TableFieldCustomIconContentTypeDef] = None
+class TableFieldLinkContentConfiguration(BaseValidatorModel):
+    CustomTextContent: Optional[TableFieldCustomTextContent] = None
+    CustomIconContent: Optional[TableFieldCustomIconContent] = None
 
 
-class GeospatialPointStyleOptionsOutputTypeDef(BaseValidatorModel):
+class GeospatialPointStyleOptionsOutput(BaseValidatorModel):
     SelectedPointStyle: Optional[GeospatialSelectedPointStyleType] = None
-    ClusterMarkerConfiguration: Optional[ClusterMarkerConfigurationTypeDef] = None
-    HeatmapConfiguration: Optional[GeospatialHeatmapConfigurationOutputTypeDef] = None
+    ClusterMarkerConfiguration: Optional[ClusterMarkerConfiguration] = None
+    HeatmapConfiguration: Optional[GeospatialHeatmapConfigurationOutput] = None
 
 
-class GeospatialPointStyleOptionsTypeDef(BaseValidatorModel):
+class GeospatialPointStyleOptions(BaseValidatorModel):
     SelectedPointStyle: Optional[GeospatialSelectedPointStyleType] = None
-    ClusterMarkerConfiguration: Optional[ClusterMarkerConfigurationTypeDef] = None
-    HeatmapConfiguration: Optional[GeospatialHeatmapConfigurationTypeDef] = None
+    ClusterMarkerConfiguration: Optional[ClusterMarkerConfiguration] = None
+    HeatmapConfiguration: Optional[GeospatialHeatmapConfiguration] = None
 
 
-class GeospatialColorOutputTypeDef(BaseValidatorModel):
-    Solid: Optional[GeospatialSolidColorTypeDef] = None
-    Gradient: Optional[GeospatialGradientColorOutputTypeDef] = None
-    Categorical: Optional[GeospatialCategoricalColorOutputTypeDef] = None
+class GeospatialColorOutput(BaseValidatorModel):
+    Solid: Optional[GeospatialSolidColor] = None
+    Gradient: Optional[GeospatialGradientColorOutput] = None
+    Categorical: Optional[GeospatialCategoricalColorOutput] = None
 
 
-class GeospatialColorTypeDef(BaseValidatorModel):
-    Solid: Optional[GeospatialSolidColorTypeDef] = None
-    Gradient: Optional[GeospatialGradientColorTypeDef] = None
-    Categorical: Optional[GeospatialCategoricalColorTypeDef] = None
+class GeospatialColor(BaseValidatorModel):
+    Solid: Optional[GeospatialSolidColor] = None
+    Gradient: Optional[GeospatialGradientColor] = None
+    Categorical: Optional[GeospatialCategoricalColor] = None
 
 
-class TableCellStyleTypeDef(BaseValidatorModel):
+class TableCellStyle(BaseValidatorModel):
     Visibility: Optional[VisibilityType] = None
-    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+    FontConfiguration: Optional[FontConfiguration] = None
     TextWrap: Optional[TextWrapType] = None
     HorizontalTextAlignment: Optional[HorizontalTextAlignmentType] = None
     VerticalTextAlignment: Optional[VerticalTextAlignmentType] = None
     BackgroundColor: Optional[str] = None
     Height: Optional[int] = None
-    Border: Optional[GlobalTableBorderOptionsTypeDef] = None
+    Border: Optional[GlobalTableBorderOptions] = None
 
 
-class ConditionalFormattingColorOutputTypeDef(BaseValidatorModel):
-    Solid: Optional[ConditionalFormattingSolidColorTypeDef] = None
-    Gradient: Optional[ConditionalFormattingGradientColorOutputTypeDef] = None
+class ConditionalFormattingColorOutput(BaseValidatorModel):
+    Solid: Optional[ConditionalFormattingSolidColor] = None
+    Gradient: Optional[ConditionalFormattingGradientColorOutput] = None
 
 
-class ConditionalFormattingColorTypeDef(BaseValidatorModel):
-    Solid: Optional[ConditionalFormattingSolidColorTypeDef] = None
-    Gradient: Optional[ConditionalFormattingGradientColorTypeDef] = None
+class ConditionalFormattingColor(BaseValidatorModel):
+    Solid: Optional[ConditionalFormattingSolidColor] = None
+    Gradient: Optional[ConditionalFormattingGradientColor] = None
 
 
-class DefaultInteractiveLayoutConfigurationTypeDef(BaseValidatorModel):
-    Grid: Optional[DefaultGridLayoutConfigurationTypeDef] = None
-    FreeForm: Optional[DefaultFreeFormLayoutConfigurationTypeDef] = None
+class DefaultInteractiveLayoutConfiguration(BaseValidatorModel):
+    Grid: Optional[DefaultGridLayoutConfiguration] = None
+    FreeForm: Optional[DefaultFreeFormLayoutConfiguration] = None
 
 
-class SheetControlLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    GridLayout: Optional[GridLayoutConfigurationOutputTypeDef] = None
+class SheetControlLayoutConfigurationOutput(BaseValidatorModel):
+    GridLayout: Optional[GridLayoutConfigurationOutput] = None
 
 
-class SheetControlLayoutConfigurationTypeDef(BaseValidatorModel):
-    GridLayout: Optional[GridLayoutConfigurationTypeDef] = None
+class SheetControlLayoutConfiguration(BaseValidatorModel):
+    GridLayout: Optional[GridLayoutConfiguration] = None
 
 
-class LogoSetConfigurationTypeDef(BaseValidatorModel):
-    Primary: ImageSetConfigurationTypeDef
-    Favicon: Optional[ImageSetConfigurationTypeDef] = None
+class LogoSetConfiguration(BaseValidatorModel):
+    Primary: ImageSetConfiguration
+    Favicon: Optional[ImageSetConfiguration] = None
 
 
-class LogoSetTypeDef(BaseValidatorModel):
-    Primary: ImageSetTypeDef
-    Favicon: Optional[ImageSetTypeDef] = None
+class LogoSet(BaseValidatorModel):
+    Primary: ImageSet
+    Favicon: Optional[ImageSet] = None
 
 
-class DataSetRefreshPropertiesTypeDef(BaseValidatorModel):
-    RefreshConfiguration: RefreshConfigurationTypeDef
+class DataSetRefreshProperties(BaseValidatorModel):
+    RefreshConfiguration: RefreshConfiguration
 
 
-class SeriesItemTypeDef(BaseValidatorModel):
-    FieldSeriesItem: Optional[FieldSeriesItemTypeDef] = None
-    DataFieldSeriesItem: Optional[DataFieldSeriesItemTypeDef] = None
+class SeriesItem(BaseValidatorModel):
+    FieldSeriesItem: Optional[FieldSeriesItem] = None
+    DataFieldSeriesItem: Optional[DataFieldSeriesItem] = None
 
 
-class UIColorPaletteTypeDef(BaseValidatorModel):
+class UIColorPalette(BaseValidatorModel):
     pass
 
 
-class ThemeConfigurationOutputTypeDef(BaseValidatorModel):
-    DataColorPalette: Optional[DataColorPaletteOutputTypeDef] = None
-    UIColorPalette: Optional[UIColorPaletteTypeDef] = None
-    Sheet: Optional[SheetStyleTypeDef] = None
-    Typography: Optional[TypographyOutputTypeDef] = None
+class ThemeConfigurationOutput(BaseValidatorModel):
+    DataColorPalette: Optional[DataColorPaletteOutput] = None
+    UIColorPalette: Optional[UIColorPalette] = None
+    Sheet: Optional[SheetStyle] = None
+    Typography: Optional[TypographyOutput] = None
 
 
-class ThemeConfigurationTypeDef(BaseValidatorModel):
-    DataColorPalette: Optional[DataColorPaletteTypeDef] = None
-    UIColorPalette: Optional[UIColorPaletteTypeDef] = None
-    Sheet: Optional[SheetStyleTypeDef] = None
-    Typography: Optional[TypographyTypeDef] = None
+class ThemeConfiguration(BaseValidatorModel):
+    DataColorPalette: Optional[DataColorPalette] = None
+    UIColorPalette: Optional[UIColorPalette] = None
+    Sheet: Optional[SheetStyle] = None
+    Typography: Optional[Typography] = None
 
 
-class ComparisonFormatConfigurationTypeDef(BaseValidatorModel):
-    NumberDisplayFormatConfiguration: Optional[NumberDisplayFormatConfigurationTypeDef] = None
-    PercentageDisplayFormatConfiguration: Optional[PercentageDisplayFormatConfigurationTypeDef] = None
+class ComparisonFormatConfiguration(BaseValidatorModel):
+    NumberDisplayFormatConfiguration: Optional[NumberDisplayFormatConfiguration] = None
+    PercentageDisplayFormatConfiguration: Optional[PercentageDisplayFormatConfiguration] = None
 
 
-class NumericFormatConfigurationTypeDef(BaseValidatorModel):
-    NumberDisplayFormatConfiguration: Optional[NumberDisplayFormatConfigurationTypeDef] = None
-    CurrencyDisplayFormatConfiguration: Optional[CurrencyDisplayFormatConfigurationTypeDef] = None
-    PercentageDisplayFormatConfiguration: Optional[PercentageDisplayFormatConfigurationTypeDef] = None
+class NumericFormatConfiguration(BaseValidatorModel):
+    NumberDisplayFormatConfiguration: Optional[NumberDisplayFormatConfiguration] = None
+    CurrencyDisplayFormatConfiguration: Optional[CurrencyDisplayFormatConfiguration] = None
+    PercentageDisplayFormatConfiguration: Optional[PercentageDisplayFormatConfiguration] = None
 
 
-class AggregationSortConfigurationTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class AggregationSortConfiguration(BaseValidatorModel):
+    Column: ColumnIdentifier
     SortDirection: SortDirectionType
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
 
 
-class ColumnSortTypeDef(BaseValidatorModel):
-    SortBy: ColumnIdentifierTypeDef
+class ColumnSort(BaseValidatorModel):
+    SortBy: ColumnIdentifier
     Direction: SortDirectionType
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
 
 
-class ColumnTooltipItemTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class ColumnTooltipItem(BaseValidatorModel):
+    Column: ColumnIdentifier
     Label: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
-    Aggregation: Optional[AggregationFunctionTypeDef] = None
+    Aggregation: Optional[AggregationFunction] = None
     TooltipTarget: Optional[TooltipTargetType] = None
 
 
-class ReferenceLineDynamicDataConfigurationTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    Calculation: NumericalAggregationFunctionTypeDef
-    MeasureAggregationFunction: Optional[AggregationFunctionTypeDef] = None
+class ReferenceLineDynamicDataConfiguration(BaseValidatorModel):
+    Column: ColumnIdentifier
+    Calculation: NumericalAggregationFunction
+    MeasureAggregationFunction: Optional[AggregationFunction] = None
 
 
-class TopicFilterOutputTypeDef(BaseValidatorModel):
+class TopicFilterOutput(BaseValidatorModel):
     FilterName: str
     OperandFieldName: str
     FilterDescription: Optional[str] = None
     FilterClass: Optional[FilterClassType] = None
     FilterSynonyms: Optional[List[str]] = None
     FilterType: Optional[NamedFilterTypeType] = None
-    CategoryFilter: Optional[TopicCategoryFilterOutputTypeDef] = None
-    NumericEqualityFilter: Optional[TopicNumericEqualityFilterTypeDef] = None
-    NumericRangeFilter: Optional[TopicNumericRangeFilterTypeDef] = None
-    DateRangeFilter: Optional[TopicDateRangeFilterTypeDef] = None
-    RelativeDateFilter: Optional[TopicRelativeDateFilterTypeDef] = None
+    CategoryFilter: Optional[TopicCategoryFilterOutput] = None
+    NumericEqualityFilter: Optional[TopicNumericEqualityFilter] = None
+    NumericRangeFilter: Optional[TopicNumericRangeFilter] = None
+    DateRangeFilter: Optional[TopicDateRangeFilter] = None
+    RelativeDateFilter: Optional[TopicRelativeDateFilter] = None
 
 
-class TopicFilterTypeDef(BaseValidatorModel):
+class TopicFilter(BaseValidatorModel):
     FilterName: str
     OperandFieldName: str
     FilterDescription: Optional[str] = None
     FilterClass: Optional[FilterClassType] = None
     FilterSynonyms: Optional[Sequence[str]] = None
     FilterType: Optional[NamedFilterTypeType] = None
-    CategoryFilter: Optional[TopicCategoryFilterTypeDef] = None
-    NumericEqualityFilter: Optional[TopicNumericEqualityFilterTypeDef] = None
-    NumericRangeFilter: Optional[TopicNumericRangeFilterTypeDef] = None
-    DateRangeFilter: Optional[TopicDateRangeFilterTypeDef] = None
-    RelativeDateFilter: Optional[TopicRelativeDateFilterTypeDef] = None
+    CategoryFilter: Optional[TopicCategoryFilter] = None
+    NumericEqualityFilter: Optional[TopicNumericEqualityFilter] = None
+    NumericRangeFilter: Optional[TopicNumericRangeFilter] = None
+    DateRangeFilter: Optional[TopicDateRangeFilter] = None
+    RelativeDateFilter: Optional[TopicRelativeDateFilter] = None
 
 
-class DescribeRefreshScheduleResponseTypeDef(BaseValidatorModel):
-    RefreshSchedule: RefreshScheduleOutputTypeDef
+class DescribeRefreshScheduleResponse(BaseValidatorModel):
+    RefreshSchedule: RefreshScheduleOutput
     Status: int
     RequestId: str
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRefreshSchedulesResponseTypeDef(BaseValidatorModel):
-    RefreshSchedules: List[RefreshScheduleOutputTypeDef]
+class ListRefreshSchedulesResponse(BaseValidatorModel):
+    RefreshSchedules: List[RefreshScheduleOutput]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisteredUserEmbeddingExperienceConfigurationTypeDef(BaseValidatorModel):
-    Dashboard: Optional[RegisteredUserDashboardEmbeddingConfigurationTypeDef] = None
-    QuickSightConsole: Optional[RegisteredUserQuickSightConsoleEmbeddingConfigurationTypeDef] = None
-    QSearchBar: Optional[RegisteredUserQSearchBarEmbeddingConfigurationTypeDef] = None
-    DashboardVisual: Optional[RegisteredUserDashboardVisualEmbeddingConfigurationTypeDef] = None
-    GenerativeQnA: Optional[RegisteredUserGenerativeQnAEmbeddingConfigurationTypeDef] = None
+class RegisteredUserEmbeddingExperienceConfiguration(BaseValidatorModel):
+    Dashboard: Optional[RegisteredUserDashboardEmbeddingConfiguration] = None
+    QuickSightConsole: Optional[RegisteredUserQuickSightConsoleEmbeddingConfiguration] = None
+    QSearchBar: Optional[RegisteredUserQSearchBarEmbeddingConfiguration] = None
+    DashboardVisual: Optional[RegisteredUserDashboardVisualEmbeddingConfiguration] = None
+    GenerativeQnA: Optional[RegisteredUserGenerativeQnAEmbeddingConfiguration] = None
 
 
-class SnapshotJobResultFileGroupTypeDef(BaseValidatorModel):
-    Files: Optional[List[SnapshotFileOutputTypeDef]] = None
-    S3Results: Optional[List[SnapshotJobS3ResultTypeDef]] = None
+class SnapshotJobResultFileGroup(BaseValidatorModel):
+    Files: Optional[List[SnapshotFileOutput]] = None
+    S3Results: Optional[List[SnapshotJobS3Result]] = None
 
 
-class CustomSqlUnionTypeDef(BaseValidatorModel):
+class CustomSqlUnion(BaseValidatorModel):
     pass
 
 
-class RelationalTableUnionTypeDef(BaseValidatorModel):
+class RelationalTableUnion(BaseValidatorModel):
     pass
 
 
-class S3SourceUnionTypeDef(BaseValidatorModel):
+class S3SourceUnion(BaseValidatorModel):
     pass
 
 
-class PhysicalTableTypeDef(BaseValidatorModel):
-    RelationalTable: Optional[RelationalTableUnionTypeDef] = None
-    CustomSql: Optional[CustomSqlUnionTypeDef] = None
-    S3Source: Optional[S3SourceUnionTypeDef] = None
+class PhysicalTable(BaseValidatorModel):
+    RelationalTable: Optional[RelationalTableUnion] = None
+    CustomSql: Optional[CustomSqlUnion] = None
+    S3Source: Optional[S3SourceUnion] = None
 
 
-class DefaultSectionBasedLayoutConfigurationTypeDef(BaseValidatorModel):
-    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptionsTypeDef
+class DefaultSectionBasedLayoutConfiguration(BaseValidatorModel):
+    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions
 
 
-class FreeFormLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    Elements: List[FreeFormLayoutElementOutputTypeDef]
-    CanvasSizeOptions: Optional[FreeFormLayoutCanvasSizeOptionsTypeDef] = None
+class FreeFormLayoutConfigurationOutput(BaseValidatorModel):
+    Elements: List[FreeFormLayoutElementOutput]
+    CanvasSizeOptions: Optional[FreeFormLayoutCanvasSizeOptions] = None
 
 
-class FreeFormSectionLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    Elements: List[FreeFormLayoutElementOutputTypeDef]
+class FreeFormSectionLayoutConfigurationOutput(BaseValidatorModel):
+    Elements: List[FreeFormLayoutElementOutput]
 
 
-class FreeFormLayoutConfigurationTypeDef(BaseValidatorModel):
-    Elements: Sequence[FreeFormLayoutElementTypeDef]
-    CanvasSizeOptions: Optional[FreeFormLayoutCanvasSizeOptionsTypeDef] = None
+class FreeFormLayoutConfiguration(BaseValidatorModel):
+    Elements: Sequence[FreeFormLayoutElement]
+    CanvasSizeOptions: Optional[FreeFormLayoutCanvasSizeOptions] = None
 
 
-class FreeFormSectionLayoutConfigurationTypeDef(BaseValidatorModel):
-    Elements: Sequence[FreeFormLayoutElementTypeDef]
+class FreeFormSectionLayoutConfiguration(BaseValidatorModel):
+    Elements: Sequence[FreeFormLayoutElement]
 
 
-class SnapshotConfigurationOutputTypeDef(BaseValidatorModel):
-    FileGroups: List[SnapshotFileGroupOutputTypeDef]
-    DestinationConfiguration: Optional[SnapshotDestinationConfigurationOutputTypeDef] = None
-    Parameters: Optional[ParametersOutputTypeDef] = None
+class SnapshotConfigurationOutput(BaseValidatorModel):
+    FileGroups: List[SnapshotFileGroupOutput]
+    DestinationConfiguration: Optional[SnapshotDestinationConfigurationOutput] = None
+    Parameters: Optional[ParametersOutput] = None
 
 
-class SnapshotConfigurationTypeDef(BaseValidatorModel):
-    FileGroups: Sequence[SnapshotFileGroupTypeDef]
-    DestinationConfiguration: Optional[SnapshotDestinationConfigurationTypeDef] = None
-    Parameters: Optional[ParametersTypeDef] = None
+class SnapshotConfiguration(BaseValidatorModel):
+    FileGroups: Sequence[SnapshotFileGroup]
+    DestinationConfiguration: Optional[SnapshotDestinationConfiguration] = None
+    Parameters: Optional[Parameters] = None
 
 
-class StaticFileTypeDef(BaseValidatorModel):
-    ImageStaticFile: Optional[ImageStaticFileTypeDef] = None
-    SpatialStaticFile: Optional[SpatialStaticFileTypeDef] = None
+class StaticFile(BaseValidatorModel):
+    ImageStaticFile: Optional[ImageStaticFile] = None
+    SpatialStaticFile: Optional[SpatialStaticFile] = None
 
 
-class ParameterDeclarationOutputTypeDef(BaseValidatorModel):
-    StringParameterDeclaration: Optional[StringParameterDeclarationOutputTypeDef] = None
-    DecimalParameterDeclaration: Optional[DecimalParameterDeclarationOutputTypeDef] = None
-    IntegerParameterDeclaration: Optional[IntegerParameterDeclarationOutputTypeDef] = None
-    DateTimeParameterDeclaration: Optional[DateTimeParameterDeclarationOutputTypeDef] = None
+class ParameterDeclarationOutput(BaseValidatorModel):
+    StringParameterDeclaration: Optional[StringParameterDeclarationOutput] = None
+    DecimalParameterDeclaration: Optional[DecimalParameterDeclarationOutput] = None
+    IntegerParameterDeclaration: Optional[IntegerParameterDeclarationOutput] = None
+    DateTimeParameterDeclaration: Optional[DateTimeParameterDeclarationOutput] = None
 
 
-class ParameterDeclarationTypeDef(BaseValidatorModel):
-    StringParameterDeclaration: Optional[StringParameterDeclarationTypeDef] = None
-    DecimalParameterDeclaration: Optional[DecimalParameterDeclarationTypeDef] = None
-    IntegerParameterDeclaration: Optional[IntegerParameterDeclarationTypeDef] = None
-    DateTimeParameterDeclaration: Optional[DateTimeParameterDeclarationTypeDef] = None
+class ParameterDeclaration(BaseValidatorModel):
+    StringParameterDeclaration: Optional[StringParameterDeclaration] = None
+    DecimalParameterDeclaration: Optional[DecimalParameterDeclaration] = None
+    IntegerParameterDeclaration: Optional[IntegerParameterDeclaration] = None
+    DateTimeParameterDeclaration: Optional[DateTimeParameterDeclaration] = None
 
 
-class ColumnHierarchyOutputTypeDef(BaseValidatorModel):
-    ExplicitHierarchy: Optional[ExplicitHierarchyOutputTypeDef] = None
-    DateTimeHierarchy: Optional[DateTimeHierarchyOutputTypeDef] = None
-    PredefinedHierarchy: Optional[PredefinedHierarchyOutputTypeDef] = None
+class ColumnHierarchyOutput(BaseValidatorModel):
+    ExplicitHierarchy: Optional[ExplicitHierarchyOutput] = None
+    DateTimeHierarchy: Optional[DateTimeHierarchyOutput] = None
+    PredefinedHierarchy: Optional[PredefinedHierarchyOutput] = None
 
 
-class GenerateEmbedUrlForAnonymousUserRequestTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForAnonymousUserRequest(BaseValidatorModel):
     AwsAccountId: str
     Namespace: str
     AuthorizedResourceArns: Sequence[str]
-    ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfigurationTypeDef
+    ExperienceConfiguration: AnonymousUserEmbeddingExperienceConfiguration
     SessionLifetimeInMinutes: Optional[int] = None
-    SessionTags: Optional[Sequence[SessionTagTypeDef]] = None
+    SessionTags: Optional[Sequence[SessionTag]] = None
     AllowedDomains: Optional[Sequence[str]] = None
 
 
-class AssetBundleImportJobDataSourceOverrideParametersOutputTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverrideParametersOutput(BaseValidatorModel):
     DataSourceId: str
     Name: Optional[str] = None
-    DataSourceParameters: Optional[DataSourceParametersOutputTypeDef] = None
-    VpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
-    SslProperties: Optional[SslPropertiesTypeDef] = None
-    Credentials: Optional[AssetBundleImportJobDataSourceCredentialsTypeDef] = None
+    DataSourceParameters: Optional[DataSourceParametersOutput] = None
+    VpcConnectionProperties: Optional[VpcConnectionProperties] = None
+    SslProperties: Optional[SslProperties] = None
+    Credentials: Optional[AssetBundleImportJobDataSourceCredentials] = None
 
 
-class SetParameterValueConfigurationTypeDef(BaseValidatorModel):
+class SetParameterValueConfiguration(BaseValidatorModel):
     DestinationParameterName: str
-    Value: DestinationParameterValueConfigurationTypeDef
+    Value: DestinationParameterValueConfiguration
 
 
-class ColumnHierarchyTypeDef(BaseValidatorModel):
-    ExplicitHierarchy: Optional[ExplicitHierarchyTypeDef] = None
-    DateTimeHierarchy: Optional[DateTimeHierarchyTypeDef] = None
-    PredefinedHierarchy: Optional[PredefinedHierarchyTypeDef] = None
+class ColumnHierarchy(BaseValidatorModel):
+    ExplicitHierarchy: Optional[ExplicitHierarchy] = None
+    DateTimeHierarchy: Optional[DateTimeHierarchy] = None
+    PredefinedHierarchy: Optional[PredefinedHierarchy] = None
 
 
-class LogicalTableOutputTypeDef(BaseValidatorModel):
+class LogicalTableOutput(BaseValidatorModel):
     Alias: str
-    Source: LogicalTableSourceTypeDef
-    DataTransforms: Optional[List[TransformOperationOutputTypeDef]] = None
+    Source: LogicalTableSource
+    DataTransforms: Optional[List[TransformOperationOutput]] = None
 
 
-class CustomActionSetParametersOperationOutputTypeDef(BaseValidatorModel):
-    ParameterValueConfigurations: List[SetParameterValueConfigurationOutputTypeDef]
+class CustomActionSetParametersOperationOutput(BaseValidatorModel):
+    ParameterValueConfigurations: List[SetParameterValueConfigurationOutput]
 
 
-class PivotTableFieldOptionsOutputTypeDef(BaseValidatorModel):
-    SelectedFieldOptions: Optional[List[PivotTableFieldOptionTypeDef]] = None
-    DataPathOptions: Optional[List[PivotTableDataPathOptionOutputTypeDef]] = None
-    CollapseStateOptions: Optional[List[PivotTableFieldCollapseStateOptionOutputTypeDef]] = None
+class PivotTableFieldOptionsOutput(BaseValidatorModel):
+    SelectedFieldOptions: Optional[List[PivotTableFieldOption]] = None
+    DataPathOptions: Optional[List[PivotTableDataPathOptionOutput]] = None
+    CollapseStateOptions: Optional[List[PivotTableFieldCollapseStateOptionOutput]] = None
 
 
-class PivotTableFieldOptionsTypeDef(BaseValidatorModel):
-    SelectedFieldOptions: Optional[Sequence[PivotTableFieldOptionTypeDef]] = None
-    DataPathOptions: Optional[Sequence[PivotTableDataPathOptionTypeDef]] = None
-    CollapseStateOptions: Optional[Sequence[PivotTableFieldCollapseStateOptionTypeDef]] = None
+class PivotTableFieldOptions(BaseValidatorModel):
+    SelectedFieldOptions: Optional[Sequence[PivotTableFieldOption]] = None
+    DataPathOptions: Optional[Sequence[PivotTableDataPathOption]] = None
+    CollapseStateOptions: Optional[Sequence[PivotTableFieldCollapseStateOption]] = None
 
 
-class TopicIRContributionAnalysisOutputTypeDef(BaseValidatorModel):
-    Factors: Optional[List[ContributionAnalysisFactorTypeDef]] = None
-    TimeRanges: Optional[ContributionAnalysisTimeRangesOutputTypeDef] = None
+class TopicIRContributionAnalysisOutput(BaseValidatorModel):
+    Factors: Optional[List[ContributionAnalysisFactor]] = None
+    TimeRanges: Optional[ContributionAnalysisTimeRangesOutput] = None
     Direction: Optional[ContributionAnalysisDirectionType] = None
     SortType: Optional[ContributionAnalysisSortTypeType] = None
 
 
-class AxisDisplayOptionsOutputTypeDef(BaseValidatorModel):
-    TickLabelOptions: Optional[AxisTickLabelOptionsTypeDef] = None
+class AxisDisplayOptionsOutput(BaseValidatorModel):
+    TickLabelOptions: Optional[AxisTickLabelOptions] = None
     AxisLineVisibility: Optional[VisibilityType] = None
     GridLineVisibility: Optional[VisibilityType] = None
-    DataOptions: Optional[AxisDataOptionsOutputTypeDef] = None
-    ScrollbarOptions: Optional[ScrollBarOptionsTypeDef] = None
+    DataOptions: Optional[AxisDataOptionsOutput] = None
+    ScrollbarOptions: Optional[ScrollBarOptions] = None
     AxisOffset: Optional[str] = None
 
 
-class AxisDisplayOptionsTypeDef(BaseValidatorModel):
-    TickLabelOptions: Optional[AxisTickLabelOptionsTypeDef] = None
+class AxisDisplayOptions(BaseValidatorModel):
+    TickLabelOptions: Optional[AxisTickLabelOptions] = None
     AxisLineVisibility: Optional[VisibilityType] = None
     GridLineVisibility: Optional[VisibilityType] = None
-    DataOptions: Optional[AxisDataOptionsTypeDef] = None
-    ScrollbarOptions: Optional[ScrollBarOptionsTypeDef] = None
+    DataOptions: Optional[AxisDataOptions] = None
+    ScrollbarOptions: Optional[ScrollBarOptions] = None
     AxisOffset: Optional[str] = None
 
 
-class ParameterDateTimePickerControlTypeDef(BaseValidatorModel):
+class ParameterDateTimePickerControl(BaseValidatorModel):
     ParameterControlId: str
     Title: str
     SourceParameterName: str
-    DisplayOptions: Optional[DateTimePickerControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[DateTimePickerControlDisplayOptions] = None
 
 
-class DefaultRelativeDateTimeControlOptionsTypeDef(BaseValidatorModel):
-    DisplayOptions: Optional[RelativeDateTimeControlDisplayOptionsTypeDef] = None
+class DefaultRelativeDateTimeControlOptions(BaseValidatorModel):
+    DisplayOptions: Optional[RelativeDateTimeControlDisplayOptions] = None
     CommitMode: Optional[CommitModeType] = None
 
 
-class FilterRelativeDateTimeControlTypeDef(BaseValidatorModel):
+class FilterRelativeDateTimeControl(BaseValidatorModel):
     FilterControlId: str
     Title: str
     SourceFilterId: str
-    DisplayOptions: Optional[RelativeDateTimeControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[RelativeDateTimeControlDisplayOptions] = None
     CommitMode: Optional[CommitModeType] = None
 
 
-class ParameterSliderControlTypeDef(BaseValidatorModel):
+class ParameterSliderControl(BaseValidatorModel):
     ParameterControlId: str
     Title: str
     SourceParameterName: str
     MaximumValue: float
     MinimumValue: float
     StepSize: float
-    DisplayOptions: Optional[SliderControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[SliderControlDisplayOptions] = None
 
 
-class DefaultTextAreaControlOptionsTypeDef(BaseValidatorModel):
+class DefaultTextAreaControlOptions(BaseValidatorModel):
     Delimiter: Optional[str] = None
-    DisplayOptions: Optional[TextAreaControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[TextAreaControlDisplayOptions] = None
 
 
-class FilterTextAreaControlTypeDef(BaseValidatorModel):
+class FilterTextAreaControl(BaseValidatorModel):
     FilterControlId: str
     Title: str
     SourceFilterId: str
     Delimiter: Optional[str] = None
-    DisplayOptions: Optional[TextAreaControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[TextAreaControlDisplayOptions] = None
 
 
-class ParameterTextAreaControlTypeDef(BaseValidatorModel):
+class ParameterTextAreaControl(BaseValidatorModel):
     ParameterControlId: str
     Title: str
     SourceParameterName: str
     Delimiter: Optional[str] = None
-    DisplayOptions: Optional[TextAreaControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[TextAreaControlDisplayOptions] = None
 
 
-class DefaultTextFieldControlOptionsTypeDef(BaseValidatorModel):
-    DisplayOptions: Optional[TextFieldControlDisplayOptionsTypeDef] = None
+class DefaultTextFieldControlOptions(BaseValidatorModel):
+    DisplayOptions: Optional[TextFieldControlDisplayOptions] = None
 
 
-class FilterTextFieldControlTypeDef(BaseValidatorModel):
+class FilterTextFieldControl(BaseValidatorModel):
     FilterControlId: str
     Title: str
     SourceFilterId: str
-    DisplayOptions: Optional[TextFieldControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[TextFieldControlDisplayOptions] = None
 
 
-class ParameterTextFieldControlTypeDef(BaseValidatorModel):
+class ParameterTextFieldControl(BaseValidatorModel):
     ParameterControlId: str
     Title: str
     SourceParameterName: str
-    DisplayOptions: Optional[TextFieldControlDisplayOptionsTypeDef] = None
+    DisplayOptions: Optional[TextFieldControlDisplayOptions] = None
 
 
-class SmallMultiplesOptionsTypeDef(BaseValidatorModel):
+class SmallMultiplesOptions(BaseValidatorModel):
     MaxVisibleRows: Optional[int] = None
     MaxVisibleColumns: Optional[int] = None
-    PanelConfiguration: Optional[PanelConfigurationTypeDef] = None
-    XAxis: Optional[SmallMultiplesAxisPropertiesTypeDef] = None
-    YAxis: Optional[SmallMultiplesAxisPropertiesTypeDef] = None
+    PanelConfiguration: Optional[PanelConfiguration] = None
+    XAxis: Optional[SmallMultiplesAxisProperties] = None
+    YAxis: Optional[SmallMultiplesAxisProperties] = None
 
 
-class TableFieldLinkConfigurationTypeDef(BaseValidatorModel):
+class TableFieldLinkConfiguration(BaseValidatorModel):
     Target: URLTargetConfigurationType
-    Content: TableFieldLinkContentConfigurationTypeDef
+    Content: TableFieldLinkContentConfiguration
 
 
-class GeospatialCircleSymbolStyleOutputTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorOutputTypeDef] = None
-    StrokeColor: Optional[GeospatialColorOutputTypeDef] = None
-    StrokeWidth: Optional[GeospatialLineWidthTypeDef] = None
-    CircleRadius: Optional[GeospatialCircleRadiusTypeDef] = None
+class GeospatialCircleSymbolStyleOutput(BaseValidatorModel):
+    FillColor: Optional[GeospatialColorOutput] = None
+    StrokeColor: Optional[GeospatialColorOutput] = None
+    StrokeWidth: Optional[GeospatialLineWidth] = None
+    CircleRadius: Optional[GeospatialCircleRadius] = None
 
 
-class GeospatialLineSymbolStyleOutputTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorOutputTypeDef] = None
-    LineWidth: Optional[GeospatialLineWidthTypeDef] = None
+class GeospatialLineSymbolStyleOutput(BaseValidatorModel):
+    FillColor: Optional[GeospatialColorOutput] = None
+    LineWidth: Optional[GeospatialLineWidth] = None
 
 
-class GeospatialPolygonSymbolStyleOutputTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorOutputTypeDef] = None
-    StrokeColor: Optional[GeospatialColorOutputTypeDef] = None
-    StrokeWidth: Optional[GeospatialLineWidthTypeDef] = None
+class GeospatialPolygonSymbolStyleOutput(BaseValidatorModel):
+    FillColor: Optional[GeospatialColorOutput] = None
+    StrokeColor: Optional[GeospatialColorOutput] = None
+    StrokeWidth: Optional[GeospatialLineWidth] = None
 
 
-class GeospatialCircleSymbolStyleTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorTypeDef] = None
-    StrokeColor: Optional[GeospatialColorTypeDef] = None
-    StrokeWidth: Optional[GeospatialLineWidthTypeDef] = None
-    CircleRadius: Optional[GeospatialCircleRadiusTypeDef] = None
+class GeospatialCircleSymbolStyle(BaseValidatorModel):
+    FillColor: Optional[GeospatialColor] = None
+    StrokeColor: Optional[GeospatialColor] = None
+    StrokeWidth: Optional[GeospatialLineWidth] = None
+    CircleRadius: Optional[GeospatialCircleRadius] = None
 
 
-class GeospatialLineSymbolStyleTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorTypeDef] = None
-    LineWidth: Optional[GeospatialLineWidthTypeDef] = None
+class GeospatialLineSymbolStyle(BaseValidatorModel):
+    FillColor: Optional[GeospatialColor] = None
+    LineWidth: Optional[GeospatialLineWidth] = None
 
 
-class GeospatialPolygonSymbolStyleTypeDef(BaseValidatorModel):
-    FillColor: Optional[GeospatialColorTypeDef] = None
-    StrokeColor: Optional[GeospatialColorTypeDef] = None
-    StrokeWidth: Optional[GeospatialLineWidthTypeDef] = None
+class GeospatialPolygonSymbolStyle(BaseValidatorModel):
+    FillColor: Optional[GeospatialColor] = None
+    StrokeColor: Optional[GeospatialColor] = None
+    StrokeWidth: Optional[GeospatialLineWidth] = None
 
 
-class PivotTableOptionsOutputTypeDef(BaseValidatorModel):
+class PivotTableOptionsOutput(BaseValidatorModel):
     MetricPlacement: Optional[PivotTableMetricPlacementType] = None
     SingleMetricVisibility: Optional[VisibilityType] = None
     ColumnNamesVisibility: Optional[VisibilityType] = None
     ToggleButtonsVisibility: Optional[VisibilityType] = None
-    ColumnHeaderStyle: Optional[TableCellStyleTypeDef] = None
-    RowHeaderStyle: Optional[TableCellStyleTypeDef] = None
-    CellStyle: Optional[TableCellStyleTypeDef] = None
-    RowFieldNamesStyle: Optional[TableCellStyleTypeDef] = None
-    RowAlternateColorOptions: Optional[RowAlternateColorOptionsOutputTypeDef] = None
+    ColumnHeaderStyle: Optional[TableCellStyle] = None
+    RowHeaderStyle: Optional[TableCellStyle] = None
+    CellStyle: Optional[TableCellStyle] = None
+    RowFieldNamesStyle: Optional[TableCellStyle] = None
+    RowAlternateColorOptions: Optional[RowAlternateColorOptionsOutput] = None
     CollapsedRowDimensionsVisibility: Optional[VisibilityType] = None
     RowsLayout: Optional[PivotTableRowsLayoutType] = None
-    RowsLabelOptions: Optional[PivotTableRowsLabelOptionsTypeDef] = None
+    RowsLabelOptions: Optional[PivotTableRowsLabelOptions] = None
     DefaultCellWidth: Optional[str] = None
 
 
-class PivotTableOptionsTypeDef(BaseValidatorModel):
+class PivotTableOptions(BaseValidatorModel):
     MetricPlacement: Optional[PivotTableMetricPlacementType] = None
     SingleMetricVisibility: Optional[VisibilityType] = None
     ColumnNamesVisibility: Optional[VisibilityType] = None
     ToggleButtonsVisibility: Optional[VisibilityType] = None
-    ColumnHeaderStyle: Optional[TableCellStyleTypeDef] = None
-    RowHeaderStyle: Optional[TableCellStyleTypeDef] = None
-    CellStyle: Optional[TableCellStyleTypeDef] = None
-    RowFieldNamesStyle: Optional[TableCellStyleTypeDef] = None
-    RowAlternateColorOptions: Optional[RowAlternateColorOptionsTypeDef] = None
+    ColumnHeaderStyle: Optional[TableCellStyle] = None
+    RowHeaderStyle: Optional[TableCellStyle] = None
+    CellStyle: Optional[TableCellStyle] = None
+    RowFieldNamesStyle: Optional[TableCellStyle] = None
+    RowAlternateColorOptions: Optional[RowAlternateColorOptions] = None
     CollapsedRowDimensionsVisibility: Optional[VisibilityType] = None
     RowsLayout: Optional[PivotTableRowsLayoutType] = None
-    RowsLabelOptions: Optional[PivotTableRowsLabelOptionsTypeDef] = None
+    RowsLabelOptions: Optional[PivotTableRowsLabelOptions] = None
     DefaultCellWidth: Optional[str] = None
 
 
-class PivotTotalOptionsOutputTypeDef(BaseValidatorModel):
+class PivotTotalOptionsOutput(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     Placement: Optional[TableTotalsPlacementType] = None
     ScrollStatus: Optional[TableTotalsScrollStatusType] = None
     CustomLabel: Optional[str] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    ValueCellStyle: Optional[TableCellStyleTypeDef] = None
-    MetricHeaderCellStyle: Optional[TableCellStyleTypeDef] = None
-    TotalAggregationOptions: Optional[List[TotalAggregationOptionTypeDef]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    ValueCellStyle: Optional[TableCellStyle] = None
+    MetricHeaderCellStyle: Optional[TableCellStyle] = None
+    TotalAggregationOptions: Optional[List[TotalAggregationOption]] = None
 
 
-class PivotTotalOptionsTypeDef(BaseValidatorModel):
+class PivotTotalOptions(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     Placement: Optional[TableTotalsPlacementType] = None
     ScrollStatus: Optional[TableTotalsScrollStatusType] = None
     CustomLabel: Optional[str] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    ValueCellStyle: Optional[TableCellStyleTypeDef] = None
-    MetricHeaderCellStyle: Optional[TableCellStyleTypeDef] = None
-    TotalAggregationOptions: Optional[Sequence[TotalAggregationOptionTypeDef]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    ValueCellStyle: Optional[TableCellStyle] = None
+    MetricHeaderCellStyle: Optional[TableCellStyle] = None
+    TotalAggregationOptions: Optional[Sequence[TotalAggregationOption]] = None
 
 
-class SubtotalOptionsOutputTypeDef(BaseValidatorModel):
+class SubtotalOptionsOutput(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     CustomLabel: Optional[str] = None
     FieldLevel: Optional[PivotTableSubtotalLevelType] = None
-    FieldLevelOptions: Optional[List[PivotTableFieldSubtotalOptionsTypeDef]] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    ValueCellStyle: Optional[TableCellStyleTypeDef] = None
-    MetricHeaderCellStyle: Optional[TableCellStyleTypeDef] = None
-    StyleTargets: Optional[List[TableStyleTargetTypeDef]] = None
+    FieldLevelOptions: Optional[List[PivotTableFieldSubtotalOptions]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    ValueCellStyle: Optional[TableCellStyle] = None
+    MetricHeaderCellStyle: Optional[TableCellStyle] = None
+    StyleTargets: Optional[List[TableStyleTarget]] = None
 
 
-class SubtotalOptionsTypeDef(BaseValidatorModel):
+class SubtotalOptions(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     CustomLabel: Optional[str] = None
     FieldLevel: Optional[PivotTableSubtotalLevelType] = None
-    FieldLevelOptions: Optional[Sequence[PivotTableFieldSubtotalOptionsTypeDef]] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    ValueCellStyle: Optional[TableCellStyleTypeDef] = None
-    MetricHeaderCellStyle: Optional[TableCellStyleTypeDef] = None
-    StyleTargets: Optional[Sequence[TableStyleTargetTypeDef]] = None
+    FieldLevelOptions: Optional[Sequence[PivotTableFieldSubtotalOptions]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    ValueCellStyle: Optional[TableCellStyle] = None
+    MetricHeaderCellStyle: Optional[TableCellStyle] = None
+    StyleTargets: Optional[Sequence[TableStyleTarget]] = None
 
 
-class TableOptionsOutputTypeDef(BaseValidatorModel):
+class TableOptionsOutput(BaseValidatorModel):
     Orientation: Optional[TableOrientationType] = None
-    HeaderStyle: Optional[TableCellStyleTypeDef] = None
-    CellStyle: Optional[TableCellStyleTypeDef] = None
-    RowAlternateColorOptions: Optional[RowAlternateColorOptionsOutputTypeDef] = None
+    HeaderStyle: Optional[TableCellStyle] = None
+    CellStyle: Optional[TableCellStyle] = None
+    RowAlternateColorOptions: Optional[RowAlternateColorOptionsOutput] = None
 
 
-class TableOptionsTypeDef(BaseValidatorModel):
+class TableOptions(BaseValidatorModel):
     Orientation: Optional[TableOrientationType] = None
-    HeaderStyle: Optional[TableCellStyleTypeDef] = None
-    CellStyle: Optional[TableCellStyleTypeDef] = None
-    RowAlternateColorOptions: Optional[RowAlternateColorOptionsTypeDef] = None
+    HeaderStyle: Optional[TableCellStyle] = None
+    CellStyle: Optional[TableCellStyle] = None
+    RowAlternateColorOptions: Optional[RowAlternateColorOptions] = None
 
 
-class TotalOptionsOutputTypeDef(BaseValidatorModel):
+class TotalOptionsOutput(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     Placement: Optional[TableTotalsPlacementType] = None
     ScrollStatus: Optional[TableTotalsScrollStatusType] = None
     CustomLabel: Optional[str] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    TotalAggregationOptions: Optional[List[TotalAggregationOptionTypeDef]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    TotalAggregationOptions: Optional[List[TotalAggregationOption]] = None
 
 
-class TotalOptionsTypeDef(BaseValidatorModel):
+class TotalOptions(BaseValidatorModel):
     TotalsVisibility: Optional[VisibilityType] = None
     Placement: Optional[TableTotalsPlacementType] = None
     ScrollStatus: Optional[TableTotalsScrollStatusType] = None
     CustomLabel: Optional[str] = None
-    TotalCellStyle: Optional[TableCellStyleTypeDef] = None
-    TotalAggregationOptions: Optional[Sequence[TotalAggregationOptionTypeDef]] = None
+    TotalCellStyle: Optional[TableCellStyle] = None
+    TotalAggregationOptions: Optional[Sequence[TotalAggregationOption]] = None
 
 
-class GaugeChartArcConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ForegroundColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
+class GaugeChartArcConditionalFormattingOutput(BaseValidatorModel):
+    ForegroundColor: Optional[ConditionalFormattingColorOutput] = None
 
 
-class GaugeChartPrimaryValueConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class GaugeChartPrimaryValueConditionalFormattingOutput(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIActualValueConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIActualValueConditionalFormattingOutput(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIComparisonValueConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIComparisonValueConditionalFormattingOutput(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIPrimaryValueConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIPrimaryValueConditionalFormattingOutput(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIProgressBarConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ForegroundColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
+class KPIProgressBarConditionalFormattingOutput(BaseValidatorModel):
+    ForegroundColor: Optional[ConditionalFormattingColorOutput] = None
 
 
-class ShapeConditionalFormatOutputTypeDef(BaseValidatorModel):
-    BackgroundColor: ConditionalFormattingColorOutputTypeDef
+class ShapeConditionalFormatOutput(BaseValidatorModel):
+    BackgroundColor: ConditionalFormattingColorOutput
 
 
-class TableRowConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    BackgroundColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
+class TableRowConditionalFormattingOutput(BaseValidatorModel):
+    BackgroundColor: Optional[ConditionalFormattingColorOutput] = None
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
 
 
-class TextConditionalFormatOutputTypeDef(BaseValidatorModel):
-    BackgroundColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    TextColor: Optional[ConditionalFormattingColorOutputTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class TextConditionalFormatOutput(BaseValidatorModel):
+    BackgroundColor: Optional[ConditionalFormattingColorOutput] = None
+    TextColor: Optional[ConditionalFormattingColorOutput] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class GaugeChartArcConditionalFormattingTypeDef(BaseValidatorModel):
-    ForegroundColor: Optional[ConditionalFormattingColorTypeDef] = None
+class GaugeChartArcConditionalFormatting(BaseValidatorModel):
+    ForegroundColor: Optional[ConditionalFormattingColor] = None
 
 
-class GaugeChartPrimaryValueConditionalFormattingTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class GaugeChartPrimaryValueConditionalFormatting(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColor] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIActualValueConditionalFormattingTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIActualValueConditionalFormatting(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColor] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIComparisonValueConditionalFormattingTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIComparisonValueConditionalFormatting(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColor] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIPrimaryValueConditionalFormattingTypeDef(BaseValidatorModel):
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class KPIPrimaryValueConditionalFormatting(BaseValidatorModel):
+    TextColor: Optional[ConditionalFormattingColor] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class KPIProgressBarConditionalFormattingTypeDef(BaseValidatorModel):
-    ForegroundColor: Optional[ConditionalFormattingColorTypeDef] = None
+class KPIProgressBarConditionalFormatting(BaseValidatorModel):
+    ForegroundColor: Optional[ConditionalFormattingColor] = None
 
 
-class ShapeConditionalFormatTypeDef(BaseValidatorModel):
-    BackgroundColor: ConditionalFormattingColorTypeDef
+class ShapeConditionalFormat(BaseValidatorModel):
+    BackgroundColor: ConditionalFormattingColor
 
 
-class TableRowConditionalFormattingTypeDef(BaseValidatorModel):
-    BackgroundColor: Optional[ConditionalFormattingColorTypeDef] = None
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
+class TableRowConditionalFormatting(BaseValidatorModel):
+    BackgroundColor: Optional[ConditionalFormattingColor] = None
+    TextColor: Optional[ConditionalFormattingColor] = None
 
 
-class TextConditionalFormatTypeDef(BaseValidatorModel):
-    BackgroundColor: Optional[ConditionalFormattingColorTypeDef] = None
-    TextColor: Optional[ConditionalFormattingColorTypeDef] = None
-    Icon: Optional[ConditionalFormattingIconTypeDef] = None
+class TextConditionalFormat(BaseValidatorModel):
+    BackgroundColor: Optional[ConditionalFormattingColor] = None
+    TextColor: Optional[ConditionalFormattingColor] = None
+    Icon: Optional[ConditionalFormattingIcon] = None
 
 
-class SheetControlLayoutOutputTypeDef(BaseValidatorModel):
-    Configuration: SheetControlLayoutConfigurationOutputTypeDef
+class SheetControlLayoutOutput(BaseValidatorModel):
+    Configuration: SheetControlLayoutConfigurationOutput
 
 
-class SheetControlLayoutTypeDef(BaseValidatorModel):
-    Configuration: SheetControlLayoutConfigurationTypeDef
+class SheetControlLayout(BaseValidatorModel):
+    Configuration: SheetControlLayoutConfiguration
 
 
-class LogoConfigurationTypeDef(BaseValidatorModel):
+class LogoConfiguration(BaseValidatorModel):
     AltText: str
-    LogoSet: LogoSetConfigurationTypeDef
+    LogoSet: LogoSetConfiguration
 
 
-class LogoTypeDef(BaseValidatorModel):
+class Logo(BaseValidatorModel):
     AltText: str
-    LogoSet: LogoSetTypeDef
+    LogoSet: LogoSet
 
 
-class DescribeDataSetRefreshPropertiesResponseTypeDef(BaseValidatorModel):
+class DescribeDataSetRefreshPropertiesResponse(BaseValidatorModel):
     RequestId: str
     Status: int
-    DataSetRefreshProperties: DataSetRefreshPropertiesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DataSetRefreshProperties: DataSetRefreshProperties
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDataSetRefreshPropertiesRequestTypeDef(BaseValidatorModel):
+class PutDataSetRefreshPropertiesRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
-    DataSetRefreshProperties: DataSetRefreshPropertiesTypeDef
+    DataSetRefreshProperties: DataSetRefreshProperties
 
 
-class ThemeErrorTypeDef(BaseValidatorModel):
+class ThemeError(BaseValidatorModel):
     pass
 
 
-class ThemeVersionTypeDef(BaseValidatorModel):
+class ThemeVersion(BaseValidatorModel):
     VersionNumber: Optional[int] = None
     Arn: Optional[str] = None
     Description: Optional[str] = None
     BaseThemeId: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    Configuration: Optional[ThemeConfigurationOutputTypeDef] = None
-    Errors: Optional[List[ThemeErrorTypeDef]] = None
+    Configuration: Optional[ThemeConfigurationOutput] = None
+    Errors: Optional[List[ThemeError]] = None
     Status: Optional[ResourceStatusType] = None
 
 
-class ComparisonConfigurationTypeDef(BaseValidatorModel):
+class ComparisonConfiguration(BaseValidatorModel):
     ComparisonMethod: Optional[ComparisonMethodType] = None
-    ComparisonFormat: Optional[ComparisonFormatConfigurationTypeDef] = None
+    ComparisonFormat: Optional[ComparisonFormatConfiguration] = None
 
 
-class DateTimeFormatConfigurationTypeDef(BaseValidatorModel):
+class DateTimeFormatConfiguration(BaseValidatorModel):
     DateTimeFormat: Optional[str] = None
-    NullValueFormatConfiguration: Optional[NullValueFormatConfigurationTypeDef] = None
-    NumericFormatConfiguration: Optional[NumericFormatConfigurationTypeDef] = None
+    NullValueFormatConfiguration: Optional[NullValueFormatConfiguration] = None
+    NumericFormatConfiguration: Optional[NumericFormatConfiguration] = None
 
 
-class NumberFormatConfigurationTypeDef(BaseValidatorModel):
-    FormatConfiguration: Optional[NumericFormatConfigurationTypeDef] = None
+class NumberFormatConfiguration(BaseValidatorModel):
+    FormatConfiguration: Optional[NumericFormatConfiguration] = None
 
 
-class ReferenceLineValueLabelConfigurationTypeDef(BaseValidatorModel):
+class ReferenceLineValueLabelConfiguration(BaseValidatorModel):
     RelativePosition: Optional[ReferenceLineValueLabelRelativePositionType] = None
-    FormatConfiguration: Optional[NumericFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[NumericFormatConfiguration] = None
 
 
-class StringFormatConfigurationTypeDef(BaseValidatorModel):
-    NullValueFormatConfiguration: Optional[NullValueFormatConfigurationTypeDef] = None
-    NumericFormatConfiguration: Optional[NumericFormatConfigurationTypeDef] = None
+class StringFormatConfiguration(BaseValidatorModel):
+    NullValueFormatConfiguration: Optional[NullValueFormatConfiguration] = None
+    NumericFormatConfiguration: Optional[NumericFormatConfiguration] = None
 
 
-class BodySectionDynamicCategoryDimensionConfigurationOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class BodySectionDynamicCategoryDimensionConfigurationOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
     Limit: Optional[int] = None
-    SortByMetrics: Optional[List[ColumnSortTypeDef]] = None
+    SortByMetrics: Optional[List[ColumnSort]] = None
 
 
-class BodySectionDynamicCategoryDimensionConfigurationTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class BodySectionDynamicCategoryDimensionConfiguration(BaseValidatorModel):
+    Column: ColumnIdentifier
     Limit: Optional[int] = None
-    SortByMetrics: Optional[Sequence[ColumnSortTypeDef]] = None
+    SortByMetrics: Optional[Sequence[ColumnSort]] = None
 
 
-class BodySectionDynamicNumericDimensionConfigurationOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class BodySectionDynamicNumericDimensionConfigurationOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
     Limit: Optional[int] = None
-    SortByMetrics: Optional[List[ColumnSortTypeDef]] = None
+    SortByMetrics: Optional[List[ColumnSort]] = None
 
 
-class BodySectionDynamicNumericDimensionConfigurationTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
+class BodySectionDynamicNumericDimensionConfiguration(BaseValidatorModel):
+    Column: ColumnIdentifier
     Limit: Optional[int] = None
-    SortByMetrics: Optional[Sequence[ColumnSortTypeDef]] = None
+    SortByMetrics: Optional[Sequence[ColumnSort]] = None
 
 
-class FieldSortOptionsTypeDef(BaseValidatorModel):
-    FieldSort: Optional[FieldSortTypeDef] = None
-    ColumnSort: Optional[ColumnSortTypeDef] = None
+class FieldSortOptions(BaseValidatorModel):
+    FieldSort: Optional[FieldSort] = None
+    ColumnSort: Optional[ColumnSort] = None
 
 
-class PivotTableSortByOutputTypeDef(BaseValidatorModel):
-    Field: Optional[FieldSortTypeDef] = None
-    Column: Optional[ColumnSortTypeDef] = None
-    DataPath: Optional[DataPathSortOutputTypeDef] = None
+class PivotTableSortByOutput(BaseValidatorModel):
+    Field: Optional[FieldSort] = None
+    Column: Optional[ColumnSort] = None
+    DataPath: Optional[DataPathSortOutput] = None
 
 
-class PivotTableSortByTypeDef(BaseValidatorModel):
-    Field: Optional[FieldSortTypeDef] = None
-    Column: Optional[ColumnSortTypeDef] = None
-    DataPath: Optional[DataPathSortTypeDef] = None
+class PivotTableSortBy(BaseValidatorModel):
+    Field: Optional[FieldSort] = None
+    Column: Optional[ColumnSort] = None
+    DataPath: Optional[DataPathSort] = None
 
 
-class TooltipItemTypeDef(BaseValidatorModel):
-    FieldTooltipItem: Optional[FieldTooltipItemTypeDef] = None
-    ColumnTooltipItem: Optional[ColumnTooltipItemTypeDef] = None
+class TooltipItem(BaseValidatorModel):
+    FieldTooltipItem: Optional[FieldTooltipItem] = None
+    ColumnTooltipItem: Optional[ColumnTooltipItem] = None
 
 
-class ReferenceLineDataConfigurationTypeDef(BaseValidatorModel):
-    StaticConfiguration: Optional[ReferenceLineStaticDataConfigurationTypeDef] = None
-    DynamicConfiguration: Optional[ReferenceLineDynamicDataConfigurationTypeDef] = None
+class ReferenceLineDataConfiguration(BaseValidatorModel):
+    StaticConfiguration: Optional[ReferenceLineStaticDataConfiguration] = None
+    DynamicConfiguration: Optional[ReferenceLineDynamicDataConfiguration] = None
     AxisBinding: Optional[AxisBindingType] = None
     SeriesType: Optional[ReferenceLineSeriesTypeType] = None
 
 
-class DatasetMetadataOutputTypeDef(BaseValidatorModel):
+class DatasetMetadataOutput(BaseValidatorModel):
     DatasetArn: str
     DatasetName: Optional[str] = None
     DatasetDescription: Optional[str] = None
-    DataAggregation: Optional[DataAggregationTypeDef] = None
-    Filters: Optional[List[TopicFilterOutputTypeDef]] = None
-    Columns: Optional[List[TopicColumnOutputTypeDef]] = None
-    CalculatedFields: Optional[List[TopicCalculatedFieldOutputTypeDef]] = None
-    NamedEntities: Optional[List[TopicNamedEntityOutputTypeDef]] = None
+    DataAggregation: Optional[DataAggregation] = None
+    Filters: Optional[List[TopicFilterOutput]] = None
+    Columns: Optional[List[TopicColumnOutput]] = None
+    CalculatedFields: Optional[List[TopicCalculatedFieldOutput]] = None
+    NamedEntities: Optional[List[TopicNamedEntityOutput]] = None
 
 
-class DatasetMetadataTypeDef(BaseValidatorModel):
+class DatasetMetadata(BaseValidatorModel):
     DatasetArn: str
     DatasetName: Optional[str] = None
     DatasetDescription: Optional[str] = None
-    DataAggregation: Optional[DataAggregationTypeDef] = None
-    Filters: Optional[Sequence[TopicFilterTypeDef]] = None
-    Columns: Optional[Sequence[TopicColumnTypeDef]] = None
-    CalculatedFields: Optional[Sequence[TopicCalculatedFieldTypeDef]] = None
-    NamedEntities: Optional[Sequence[TopicNamedEntityTypeDef]] = None
+    DataAggregation: Optional[DataAggregation] = None
+    Filters: Optional[Sequence[TopicFilter]] = None
+    Columns: Optional[Sequence[TopicColumn]] = None
+    CalculatedFields: Optional[Sequence[TopicCalculatedField]] = None
+    NamedEntities: Optional[Sequence[TopicNamedEntity]] = None
 
 
-class RedshiftParametersUnionTypeDef(BaseValidatorModel):
+class RedshiftParametersUnion(BaseValidatorModel):
     pass
 
 
-class DataSourceParametersTypeDef(BaseValidatorModel):
-    AmazonElasticsearchParameters: Optional[AmazonElasticsearchParametersTypeDef] = None
-    AthenaParameters: Optional[AthenaParametersTypeDef] = None
-    AuroraParameters: Optional[AuroraParametersTypeDef] = None
-    AuroraPostgreSqlParameters: Optional[AuroraPostgreSqlParametersTypeDef] = None
-    AwsIotAnalyticsParameters: Optional[AwsIotAnalyticsParametersTypeDef] = None
-    JiraParameters: Optional[JiraParametersTypeDef] = None
-    MariaDbParameters: Optional[MariaDbParametersTypeDef] = None
-    MySqlParameters: Optional[MySqlParametersTypeDef] = None
-    OracleParameters: Optional[OracleParametersTypeDef] = None
-    PostgreSqlParameters: Optional[PostgreSqlParametersTypeDef] = None
-    PrestoParameters: Optional[PrestoParametersTypeDef] = None
-    RdsParameters: Optional[RdsParametersTypeDef] = None
-    RedshiftParameters: Optional[RedshiftParametersUnionTypeDef] = None
-    S3Parameters: Optional[S3ParametersTypeDef] = None
-    ServiceNowParameters: Optional[ServiceNowParametersTypeDef] = None
-    SnowflakeParameters: Optional[SnowflakeParametersTypeDef] = None
-    SparkParameters: Optional[SparkParametersTypeDef] = None
-    SqlServerParameters: Optional[SqlServerParametersTypeDef] = None
-    TeradataParameters: Optional[TeradataParametersTypeDef] = None
-    TwitterParameters: Optional[TwitterParametersTypeDef] = None
-    AmazonOpenSearchParameters: Optional[AmazonOpenSearchParametersTypeDef] = None
-    ExasolParameters: Optional[ExasolParametersTypeDef] = None
-    DatabricksParameters: Optional[DatabricksParametersTypeDef] = None
-    StarburstParameters: Optional[StarburstParametersTypeDef] = None
-    TrinoParameters: Optional[TrinoParametersTypeDef] = None
-    BigQueryParameters: Optional[BigQueryParametersTypeDef] = None
+class DataSourceParameters(BaseValidatorModel):
+    AmazonElasticsearchParameters: Optional[AmazonElasticsearchParameters] = None
+    AthenaParameters: Optional[AthenaParameters] = None
+    AuroraParameters: Optional[AuroraParameters] = None
+    AuroraPostgreSqlParameters: Optional[AuroraPostgreSqlParameters] = None
+    AwsIotAnalyticsParameters: Optional[AwsIotAnalyticsParameters] = None
+    JiraParameters: Optional[JiraParameters] = None
+    MariaDbParameters: Optional[MariaDbParameters] = None
+    MySqlParameters: Optional[MySqlParameters] = None
+    OracleParameters: Optional[OracleParameters] = None
+    PostgreSqlParameters: Optional[PostgreSqlParameters] = None
+    PrestoParameters: Optional[PrestoParameters] = None
+    RdsParameters: Optional[RdsParameters] = None
+    RedshiftParameters: Optional[RedshiftParametersUnion] = None
+    S3Parameters: Optional[S3Parameters] = None
+    ServiceNowParameters: Optional[ServiceNowParameters] = None
+    SnowflakeParameters: Optional[SnowflakeParameters] = None
+    SparkParameters: Optional[SparkParameters] = None
+    SqlServerParameters: Optional[SqlServerParameters] = None
+    TeradataParameters: Optional[TeradataParameters] = None
+    TwitterParameters: Optional[TwitterParameters] = None
+    AmazonOpenSearchParameters: Optional[AmazonOpenSearchParameters] = None
+    ExasolParameters: Optional[ExasolParameters] = None
+    DatabricksParameters: Optional[DatabricksParameters] = None
+    StarburstParameters: Optional[StarburstParameters] = None
+    TrinoParameters: Optional[TrinoParameters] = None
+    BigQueryParameters: Optional[BigQueryParameters] = None
 
 
-class RefreshScheduleUnionTypeDef(BaseValidatorModel):
+class RefreshScheduleUnion(BaseValidatorModel):
     pass
 
 
-class CreateRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class CreateRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
-    Schedule: RefreshScheduleUnionTypeDef
+    Schedule: RefreshScheduleUnion
 
 
-class UpdateRefreshScheduleRequestTypeDef(BaseValidatorModel):
+class UpdateRefreshScheduleRequest(BaseValidatorModel):
     DataSetId: str
     AwsAccountId: str
-    Schedule: RefreshScheduleUnionTypeDef
+    Schedule: RefreshScheduleUnion
 
 
-class GenerateEmbedUrlForRegisteredUserRequestTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForRegisteredUserRequest(BaseValidatorModel):
     AwsAccountId: str
     UserArn: str
-    ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfigurationTypeDef
+    ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration
     SessionLifetimeInMinutes: Optional[int] = None
     AllowedDomains: Optional[Sequence[str]] = None
 
 
-class GenerateEmbedUrlForRegisteredUserWithIdentityRequestTypeDef(BaseValidatorModel):
+class GenerateEmbedUrlForRegisteredUserWithIdentityRequest(BaseValidatorModel):
     AwsAccountId: str
-    ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfigurationTypeDef
+    ExperienceConfiguration: RegisteredUserEmbeddingExperienceConfiguration
     SessionLifetimeInMinutes: Optional[int] = None
     AllowedDomains: Optional[Sequence[str]] = None
 
 
-class AnonymousUserSnapshotJobResultTypeDef(BaseValidatorModel):
-    FileGroups: Optional[List[SnapshotJobResultFileGroupTypeDef]] = None
+class AnonymousUserSnapshotJobResult(BaseValidatorModel):
+    FileGroups: Optional[List[SnapshotJobResultFileGroup]] = None
 
 
-class DefaultPaginatedLayoutConfigurationTypeDef(BaseValidatorModel):
-    SectionBased: Optional[DefaultSectionBasedLayoutConfigurationTypeDef] = None
+class DefaultPaginatedLayoutConfiguration(BaseValidatorModel):
+    SectionBased: Optional[DefaultSectionBasedLayoutConfiguration] = None
 
 
-class SectionLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    FreeFormLayout: FreeFormSectionLayoutConfigurationOutputTypeDef
+class SectionLayoutConfigurationOutput(BaseValidatorModel):
+    FreeFormLayout: FreeFormSectionLayoutConfigurationOutput
 
 
-class SectionLayoutConfigurationTypeDef(BaseValidatorModel):
-    FreeFormLayout: FreeFormSectionLayoutConfigurationTypeDef
+class SectionLayoutConfiguration(BaseValidatorModel):
+    FreeFormLayout: FreeFormSectionLayoutConfiguration
 
 
-class DescribeDashboardSnapshotJobResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardSnapshotJobResponse(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     SnapshotJobId: str
-    UserConfiguration: SnapshotUserConfigurationRedactedTypeDef
-    SnapshotConfiguration: SnapshotConfigurationOutputTypeDef
+    UserConfiguration: SnapshotUserConfigurationRedacted
+    SnapshotConfiguration: SnapshotConfigurationOutput
     Arn: str
     JobStatus: SnapshotJobStatusType
     CreatedTime: datetime
     LastUpdatedTime: datetime
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetBundleImportJobOverrideParametersOutputTypeDef(BaseValidatorModel):
-    ResourceIdOverrideConfiguration: Optional[ AssetBundleImportJobResourceIdOverrideConfigurationTypeDef ] = None
-    VPCConnections: Optional[ List[AssetBundleImportJobVPCConnectionOverrideParametersOutputTypeDef] ] = None
-    RefreshSchedules: Optional[ List[AssetBundleImportJobRefreshScheduleOverrideParametersOutputTypeDef] ] = None
-    DataSources: Optional[List[AssetBundleImportJobDataSourceOverrideParametersOutputTypeDef]] = None
-    DataSets: Optional[List[AssetBundleImportJobDataSetOverrideParametersTypeDef]] = None
-    Themes: Optional[List[AssetBundleImportJobThemeOverrideParametersTypeDef]] = None
-    Analyses: Optional[List[AssetBundleImportJobAnalysisOverrideParametersTypeDef]] = None
-    Dashboards: Optional[List[AssetBundleImportJobDashboardOverrideParametersTypeDef]] = None
-    Folders: Optional[List[AssetBundleImportJobFolderOverrideParametersTypeDef]] = None
+class AssetBundleImportJobOverrideParametersOutput(BaseValidatorModel):
+    ResourceIdOverrideConfiguration: Optional[ AssetBundleImportJobResourceIdOverrideConfiguration ] = None
+    VPCConnections: Optional[ List[AssetBundleImportJobVPCConnectionOverrideParametersOutput] ] = None
+    RefreshSchedules: Optional[ List[AssetBundleImportJobRefreshScheduleOverrideParametersOutput] ] = None
+    DataSources: Optional[List[AssetBundleImportJobDataSourceOverrideParametersOutput]] = None
+    DataSets: Optional[List[AssetBundleImportJobDataSetOverrideParameters]] = None
+    Themes: Optional[List[AssetBundleImportJobThemeOverrideParameters]] = None
+    Analyses: Optional[List[AssetBundleImportJobAnalysisOverrideParameters]] = None
+    Dashboards: Optional[List[AssetBundleImportJobDashboardOverrideParameters]] = None
+    Folders: Optional[List[AssetBundleImportJobFolderOverrideParameters]] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     pass
 
 
-class DescribeDataSourceResponseTypeDef(BaseValidatorModel):
-    DataSource: DataSourceTypeDef
+class DescribeDataSourceResponse(BaseValidatorModel):
+    DataSource: DataSource
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    DataSources: List[DataSourceTypeDef]
+class ListDataSourcesResponse(BaseValidatorModel):
+    DataSources: List[DataSource]
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CustomActionSetParametersOperationTypeDef(BaseValidatorModel):
-    ParameterValueConfigurations: Sequence[SetParameterValueConfigurationTypeDef]
+class CustomActionSetParametersOperation(BaseValidatorModel):
+    ParameterValueConfigurations: Sequence[SetParameterValueConfiguration]
 
 
-class DecimalDatasetParameterUnionTypeDef(BaseValidatorModel):
+class DecimalDatasetParameterUnion(BaseValidatorModel):
     pass
 
 
-class IntegerDatasetParameterUnionTypeDef(BaseValidatorModel):
+class IntegerDatasetParameterUnion(BaseValidatorModel):
     pass
 
 
-class StringDatasetParameterUnionTypeDef(BaseValidatorModel):
+class StringDatasetParameterUnion(BaseValidatorModel):
     pass
 
 
-class DateTimeDatasetParameterUnionTypeDef(BaseValidatorModel):
+class DateTimeDatasetParameterUnion(BaseValidatorModel):
     pass
 
 
-class DatasetParameterTypeDef(BaseValidatorModel):
-    StringDatasetParameter: Optional[StringDatasetParameterUnionTypeDef] = None
-    DecimalDatasetParameter: Optional[DecimalDatasetParameterUnionTypeDef] = None
-    IntegerDatasetParameter: Optional[IntegerDatasetParameterUnionTypeDef] = None
-    DateTimeDatasetParameter: Optional[DateTimeDatasetParameterUnionTypeDef] = None
+class DatasetParameter(BaseValidatorModel):
+    StringDatasetParameter: Optional[StringDatasetParameterUnion] = None
+    DecimalDatasetParameter: Optional[DecimalDatasetParameterUnion] = None
+    IntegerDatasetParameter: Optional[IntegerDatasetParameterUnion] = None
+    DateTimeDatasetParameter: Optional[DateTimeDatasetParameterUnion] = None
 
 
-class UntagColumnOperationUnionTypeDef(BaseValidatorModel):
+class UntagColumnOperationUnion(BaseValidatorModel):
     pass
 
 
-class OverrideDatasetParameterOperationUnionTypeDef(BaseValidatorModel):
+class OverrideDatasetParameterOperationUnion(BaseValidatorModel):
     pass
 
 
-class ProjectOperationUnionTypeDef(BaseValidatorModel):
+class ProjectOperationUnion(BaseValidatorModel):
     pass
 
 
-class CreateColumnsOperationUnionTypeDef(BaseValidatorModel):
+class CreateColumnsOperationUnion(BaseValidatorModel):
     pass
 
 
-class TagColumnOperationUnionTypeDef(BaseValidatorModel):
+class TagColumnOperationUnion(BaseValidatorModel):
     pass
 
 
-class TransformOperationTypeDef(BaseValidatorModel):
-    ProjectOperation: Optional[ProjectOperationUnionTypeDef] = None
-    FilterOperation: Optional[FilterOperationTypeDef] = None
-    CreateColumnsOperation: Optional[CreateColumnsOperationUnionTypeDef] = None
-    RenameColumnOperation: Optional[RenameColumnOperationTypeDef] = None
-    CastColumnTypeOperation: Optional[CastColumnTypeOperationTypeDef] = None
-    TagColumnOperation: Optional[TagColumnOperationUnionTypeDef] = None
-    UntagColumnOperation: Optional[UntagColumnOperationUnionTypeDef] = None
-    OverrideDatasetParameterOperation: Optional[OverrideDatasetParameterOperationUnionTypeDef] = None
+class TransformOperation(BaseValidatorModel):
+    ProjectOperation: Optional[ProjectOperationUnion] = None
+    FilterOperation: Optional[FilterOperation] = None
+    CreateColumnsOperation: Optional[CreateColumnsOperationUnion] = None
+    RenameColumnOperation: Optional[RenameColumnOperation] = None
+    CastColumnTypeOperation: Optional[CastColumnTypeOperation] = None
+    TagColumnOperation: Optional[TagColumnOperationUnion] = None
+    UntagColumnOperation: Optional[UntagColumnOperationUnion] = None
+    OverrideDatasetParameterOperation: Optional[OverrideDatasetParameterOperationUnion] = None
 
 
-class TopicIRFilterOptionUnionTypeDef(BaseValidatorModel):
+class TopicIRFilterOptionUnion(BaseValidatorModel):
     pass
 
 
-class ContributionAnalysisTimeRangesTypeDef(BaseValidatorModel):
-    StartRange: Optional[TopicIRFilterOptionUnionTypeDef] = None
-    EndRange: Optional[TopicIRFilterOptionUnionTypeDef] = None
+class ContributionAnalysisTimeRanges(BaseValidatorModel):
+    StartRange: Optional[TopicIRFilterOptionUnion] = None
+    EndRange: Optional[TopicIRFilterOptionUnion] = None
 
 
-class OutputColumnTypeDef(BaseValidatorModel):
+class OutputColumn(BaseValidatorModel):
     pass
 
 
-class DataSetTypeDef(BaseValidatorModel):
+class DataSet(BaseValidatorModel):
     Arn: Optional[str] = None
     DataSetId: Optional[str] = None
     Name: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    PhysicalTableMap: Optional[Dict[str, PhysicalTableOutputTypeDef]] = None
-    LogicalTableMap: Optional[Dict[str, LogicalTableOutputTypeDef]] = None
-    OutputColumns: Optional[List[OutputColumnTypeDef]] = None
+    PhysicalTableMap: Optional[Dict[str, PhysicalTableOutput]] = None
+    LogicalTableMap: Optional[Dict[str, LogicalTableOutput]] = None
+    OutputColumns: Optional[List[OutputColumn]] = None
     ImportMode: Optional[DataSetImportModeType] = None
     ConsumedSpiceCapacityInBytes: Optional[int] = None
-    ColumnGroups: Optional[List[ColumnGroupOutputTypeDef]] = None
-    FieldFolders: Optional[Dict[str, FieldFolderOutputTypeDef]] = None
-    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSetTypeDef] = None
-    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationOutputTypeDef] = None
-    ColumnLevelPermissionRules: Optional[List[ColumnLevelPermissionRuleOutputTypeDef]] = None
-    DataSetUsageConfiguration: Optional[DataSetUsageConfigurationTypeDef] = None
-    DatasetParameters: Optional[List[DatasetParameterOutputTypeDef]] = None
-    PerformanceConfiguration: Optional[PerformanceConfigurationOutputTypeDef] = None
+    ColumnGroups: Optional[List[ColumnGroupOutput]] = None
+    FieldFolders: Optional[Dict[str, FieldFolderOutput]] = None
+    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSet] = None
+    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationOutput] = None
+    ColumnLevelPermissionRules: Optional[List[ColumnLevelPermissionRuleOutput]] = None
+    DataSetUsageConfiguration: Optional[DataSetUsageConfiguration] = None
+    DatasetParameters: Optional[List[DatasetParameterOutput]] = None
+    PerformanceConfiguration: Optional[PerformanceConfigurationOutput] = None
 
 
-class ImageCustomActionOperationOutputTypeDef(BaseValidatorModel):
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationOutputTypeDef] = None
+class ImageCustomActionOperationOutput(BaseValidatorModel):
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperationOutput] = None
 
 
-class LayerCustomActionOperationOutputTypeDef(BaseValidatorModel):
-    FilterOperation: Optional[CustomActionFilterOperationOutputTypeDef] = None
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationOutputTypeDef] = None
+class LayerCustomActionOperationOutput(BaseValidatorModel):
+    FilterOperation: Optional[CustomActionFilterOperationOutput] = None
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperationOutput] = None
 
 
-class VisualCustomActionOperationOutputTypeDef(BaseValidatorModel):
-    FilterOperation: Optional[CustomActionFilterOperationOutputTypeDef] = None
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationOutputTypeDef] = None
+class VisualCustomActionOperationOutput(BaseValidatorModel):
+    FilterOperation: Optional[CustomActionFilterOperationOutput] = None
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperationOutput] = None
 
 
-class VisualOptionsTypeDef(BaseValidatorModel):
+class VisualOptions(BaseValidatorModel):
     pass
 
 
-class TopicIROutputTypeDef(BaseValidatorModel):
-    Metrics: Optional[List[TopicIRMetricOutputTypeDef]] = None
-    GroupByList: Optional[List[TopicIRGroupByTypeDef]] = None
-    Filters: Optional[List[List[TopicIRFilterOptionOutputTypeDef]]] = None
-    Sort: Optional[TopicSortClauseTypeDef] = None
-    ContributionAnalysis: Optional[TopicIRContributionAnalysisOutputTypeDef] = None
-    Visual: Optional[VisualOptionsTypeDef] = None
+class TopicIROutput(BaseValidatorModel):
+    Metrics: Optional[List[TopicIRMetricOutput]] = None
+    GroupByList: Optional[List[TopicIRGroupBy]] = None
+    Filters: Optional[List[List[TopicIRFilterOptionOutput]]] = None
+    Sort: Optional[TopicSortClause] = None
+    ContributionAnalysis: Optional[TopicIRContributionAnalysisOutput] = None
+    Visual: Optional[VisualOptions] = None
 
 
-class LineSeriesAxisDisplayOptionsOutputTypeDef(BaseValidatorModel):
-    AxisOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    MissingDataConfigurations: Optional[List[MissingDataConfigurationTypeDef]] = None
+class LineSeriesAxisDisplayOptionsOutput(BaseValidatorModel):
+    AxisOptions: Optional[AxisDisplayOptionsOutput] = None
+    MissingDataConfigurations: Optional[List[MissingDataConfiguration]] = None
 
 
-class LineSeriesAxisDisplayOptionsTypeDef(BaseValidatorModel):
-    AxisOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    MissingDataConfigurations: Optional[Sequence[MissingDataConfigurationTypeDef]] = None
+class LineSeriesAxisDisplayOptions(BaseValidatorModel):
+    AxisOptions: Optional[AxisDisplayOptions] = None
+    MissingDataConfigurations: Optional[Sequence[MissingDataConfiguration]] = None
 
 
-class DefaultDateTimePickerControlOptionsTypeDef(BaseValidatorModel):
+class DefaultDateTimePickerControlOptions(BaseValidatorModel):
     pass
 
 
-class DefaultFilterListControlOptionsOutputTypeDef(BaseValidatorModel):
+class DefaultFilterListControlOptionsOutput(BaseValidatorModel):
     pass
 
 
-class DefaultFilterDropDownControlOptionsOutputTypeDef(BaseValidatorModel):
+class DefaultFilterDropDownControlOptionsOutput(BaseValidatorModel):
     pass
 
 
-class DefaultSliderControlOptionsTypeDef(BaseValidatorModel):
+class DefaultSliderControlOptions(BaseValidatorModel):
     pass
 
 
-class DefaultFilterControlOptionsOutputTypeDef(BaseValidatorModel):
-    DefaultDateTimePickerOptions: Optional[DefaultDateTimePickerControlOptionsTypeDef] = None
-    DefaultListOptions: Optional[DefaultFilterListControlOptionsOutputTypeDef] = None
-    DefaultDropdownOptions: Optional[DefaultFilterDropDownControlOptionsOutputTypeDef] = None
-    DefaultTextFieldOptions: Optional[DefaultTextFieldControlOptionsTypeDef] = None
-    DefaultTextAreaOptions: Optional[DefaultTextAreaControlOptionsTypeDef] = None
-    DefaultSliderOptions: Optional[DefaultSliderControlOptionsTypeDef] = None
-    DefaultRelativeDateTimeOptions: Optional[DefaultRelativeDateTimeControlOptionsTypeDef] = None
+class DefaultFilterControlOptionsOutput(BaseValidatorModel):
+    DefaultDateTimePickerOptions: Optional[DefaultDateTimePickerControlOptions] = None
+    DefaultListOptions: Optional[DefaultFilterListControlOptionsOutput] = None
+    DefaultDropdownOptions: Optional[DefaultFilterDropDownControlOptionsOutput] = None
+    DefaultTextFieldOptions: Optional[DefaultTextFieldControlOptions] = None
+    DefaultTextAreaOptions: Optional[DefaultTextAreaControlOptions] = None
+    DefaultSliderOptions: Optional[DefaultSliderControlOptions] = None
+    DefaultRelativeDateTimeOptions: Optional[DefaultRelativeDateTimeControlOptions] = None
 
 
-class DefaultFilterListControlOptionsTypeDef(BaseValidatorModel):
+class DefaultFilterListControlOptions(BaseValidatorModel):
     pass
 
 
-class DefaultFilterDropDownControlOptionsTypeDef(BaseValidatorModel):
+class DefaultFilterDropDownControlOptions(BaseValidatorModel):
     pass
 
 
-class DefaultFilterControlOptionsTypeDef(BaseValidatorModel):
-    DefaultDateTimePickerOptions: Optional[DefaultDateTimePickerControlOptionsTypeDef] = None
-    DefaultListOptions: Optional[DefaultFilterListControlOptionsTypeDef] = None
-    DefaultDropdownOptions: Optional[DefaultFilterDropDownControlOptionsTypeDef] = None
-    DefaultTextFieldOptions: Optional[DefaultTextFieldControlOptionsTypeDef] = None
-    DefaultTextAreaOptions: Optional[DefaultTextAreaControlOptionsTypeDef] = None
-    DefaultSliderOptions: Optional[DefaultSliderControlOptionsTypeDef] = None
-    DefaultRelativeDateTimeOptions: Optional[DefaultRelativeDateTimeControlOptionsTypeDef] = None
+class DefaultFilterControlOptions(BaseValidatorModel):
+    DefaultDateTimePickerOptions: Optional[DefaultDateTimePickerControlOptions] = None
+    DefaultListOptions: Optional[DefaultFilterListControlOptions] = None
+    DefaultDropdownOptions: Optional[DefaultFilterDropDownControlOptions] = None
+    DefaultTextFieldOptions: Optional[DefaultTextFieldControlOptions] = None
+    DefaultTextAreaOptions: Optional[DefaultTextAreaControlOptions] = None
+    DefaultSliderOptions: Optional[DefaultSliderControlOptions] = None
+    DefaultRelativeDateTimeOptions: Optional[DefaultRelativeDateTimeControlOptions] = None
 
 
-class TableFieldURLConfigurationTypeDef(BaseValidatorModel):
-    LinkConfiguration: Optional[TableFieldLinkConfigurationTypeDef] = None
-    ImageConfiguration: Optional[TableFieldImageConfigurationTypeDef] = None
+class TableFieldURLConfiguration(BaseValidatorModel):
+    LinkConfiguration: Optional[TableFieldLinkConfiguration] = None
+    ImageConfiguration: Optional[TableFieldImageConfiguration] = None
 
 
-class GeospatialPointStyleOutputTypeDef(BaseValidatorModel):
-    CircleSymbolStyle: Optional[GeospatialCircleSymbolStyleOutputTypeDef] = None
+class GeospatialPointStyleOutput(BaseValidatorModel):
+    CircleSymbolStyle: Optional[GeospatialCircleSymbolStyleOutput] = None
 
 
-class GeospatialLineStyleOutputTypeDef(BaseValidatorModel):
-    LineSymbolStyle: Optional[GeospatialLineSymbolStyleOutputTypeDef] = None
+class GeospatialLineStyleOutput(BaseValidatorModel):
+    LineSymbolStyle: Optional[GeospatialLineSymbolStyleOutput] = None
 
 
-class GeospatialPolygonStyleOutputTypeDef(BaseValidatorModel):
-    PolygonSymbolStyle: Optional[GeospatialPolygonSymbolStyleOutputTypeDef] = None
+class GeospatialPolygonStyleOutput(BaseValidatorModel):
+    PolygonSymbolStyle: Optional[GeospatialPolygonSymbolStyleOutput] = None
 
 
-class GeospatialPointStyleTypeDef(BaseValidatorModel):
-    CircleSymbolStyle: Optional[GeospatialCircleSymbolStyleTypeDef] = None
+class GeospatialPointStyle(BaseValidatorModel):
+    CircleSymbolStyle: Optional[GeospatialCircleSymbolStyle] = None
 
 
-class GeospatialLineStyleTypeDef(BaseValidatorModel):
-    LineSymbolStyle: Optional[GeospatialLineSymbolStyleTypeDef] = None
+class GeospatialLineStyle(BaseValidatorModel):
+    LineSymbolStyle: Optional[GeospatialLineSymbolStyle] = None
 
 
-class GeospatialPolygonStyleTypeDef(BaseValidatorModel):
-    PolygonSymbolStyle: Optional[GeospatialPolygonSymbolStyleTypeDef] = None
+class GeospatialPolygonStyle(BaseValidatorModel):
+    PolygonSymbolStyle: Optional[GeospatialPolygonSymbolStyle] = None
 
 
-class PivotTableTotalOptionsOutputTypeDef(BaseValidatorModel):
-    RowSubtotalOptions: Optional[SubtotalOptionsOutputTypeDef] = None
-    ColumnSubtotalOptions: Optional[SubtotalOptionsOutputTypeDef] = None
-    RowTotalOptions: Optional[PivotTotalOptionsOutputTypeDef] = None
-    ColumnTotalOptions: Optional[PivotTotalOptionsOutputTypeDef] = None
+class PivotTableTotalOptionsOutput(BaseValidatorModel):
+    RowSubtotalOptions: Optional[SubtotalOptionsOutput] = None
+    ColumnSubtotalOptions: Optional[SubtotalOptionsOutput] = None
+    RowTotalOptions: Optional[PivotTotalOptionsOutput] = None
+    ColumnTotalOptions: Optional[PivotTotalOptionsOutput] = None
 
 
-class PivotTableTotalOptionsTypeDef(BaseValidatorModel):
-    RowSubtotalOptions: Optional[SubtotalOptionsTypeDef] = None
-    ColumnSubtotalOptions: Optional[SubtotalOptionsTypeDef] = None
-    RowTotalOptions: Optional[PivotTotalOptionsTypeDef] = None
-    ColumnTotalOptions: Optional[PivotTotalOptionsTypeDef] = None
+class PivotTableTotalOptions(BaseValidatorModel):
+    RowSubtotalOptions: Optional[SubtotalOptions] = None
+    ColumnSubtotalOptions: Optional[SubtotalOptions] = None
+    RowTotalOptions: Optional[PivotTotalOptions] = None
+    ColumnTotalOptions: Optional[PivotTotalOptions] = None
 
 
-class GaugeChartConditionalFormattingOptionOutputTypeDef(BaseValidatorModel):
-    PrimaryValue: Optional[GaugeChartPrimaryValueConditionalFormattingOutputTypeDef] = None
-    Arc: Optional[GaugeChartArcConditionalFormattingOutputTypeDef] = None
+class GaugeChartConditionalFormattingOptionOutput(BaseValidatorModel):
+    PrimaryValue: Optional[GaugeChartPrimaryValueConditionalFormattingOutput] = None
+    Arc: Optional[GaugeChartArcConditionalFormattingOutput] = None
 
 
-class KPIConditionalFormattingOptionOutputTypeDef(BaseValidatorModel):
-    PrimaryValue: Optional[KPIPrimaryValueConditionalFormattingOutputTypeDef] = None
-    ProgressBar: Optional[KPIProgressBarConditionalFormattingOutputTypeDef] = None
-    ActualValue: Optional[KPIActualValueConditionalFormattingOutputTypeDef] = None
-    ComparisonValue: Optional[KPIComparisonValueConditionalFormattingOutputTypeDef] = None
+class KPIConditionalFormattingOptionOutput(BaseValidatorModel):
+    PrimaryValue: Optional[KPIPrimaryValueConditionalFormattingOutput] = None
+    ProgressBar: Optional[KPIProgressBarConditionalFormattingOutput] = None
+    ActualValue: Optional[KPIActualValueConditionalFormattingOutput] = None
+    ComparisonValue: Optional[KPIComparisonValueConditionalFormattingOutput] = None
 
 
-class FilledMapShapeConditionalFormattingOutputTypeDef(BaseValidatorModel):
+class FilledMapShapeConditionalFormattingOutput(BaseValidatorModel):
     FieldId: str
-    Format: Optional[ShapeConditionalFormatOutputTypeDef] = None
+    Format: Optional[ShapeConditionalFormatOutput] = None
 
 
-class PivotTableCellConditionalFormattingOutputTypeDef(BaseValidatorModel):
+class PivotTableCellConditionalFormattingOutput(BaseValidatorModel):
     FieldId: str
-    TextFormat: Optional[TextConditionalFormatOutputTypeDef] = None
-    Scope: Optional[PivotTableConditionalFormattingScopeTypeDef] = None
-    Scopes: Optional[List[PivotTableConditionalFormattingScopeTypeDef]] = None
+    TextFormat: Optional[TextConditionalFormatOutput] = None
+    Scope: Optional[PivotTableConditionalFormattingScope] = None
+    Scopes: Optional[List[PivotTableConditionalFormattingScope]] = None
 
 
-class TableCellConditionalFormattingOutputTypeDef(BaseValidatorModel):
+class TableCellConditionalFormattingOutput(BaseValidatorModel):
     FieldId: str
-    TextFormat: Optional[TextConditionalFormatOutputTypeDef] = None
+    TextFormat: Optional[TextConditionalFormatOutput] = None
 
 
-class GaugeChartConditionalFormattingOptionTypeDef(BaseValidatorModel):
-    PrimaryValue: Optional[GaugeChartPrimaryValueConditionalFormattingTypeDef] = None
-    Arc: Optional[GaugeChartArcConditionalFormattingTypeDef] = None
+class GaugeChartConditionalFormattingOption(BaseValidatorModel):
+    PrimaryValue: Optional[GaugeChartPrimaryValueConditionalFormatting] = None
+    Arc: Optional[GaugeChartArcConditionalFormatting] = None
 
 
-class KPIConditionalFormattingOptionTypeDef(BaseValidatorModel):
-    PrimaryValue: Optional[KPIPrimaryValueConditionalFormattingTypeDef] = None
-    ProgressBar: Optional[KPIProgressBarConditionalFormattingTypeDef] = None
-    ActualValue: Optional[KPIActualValueConditionalFormattingTypeDef] = None
-    ComparisonValue: Optional[KPIComparisonValueConditionalFormattingTypeDef] = None
+class KPIConditionalFormattingOption(BaseValidatorModel):
+    PrimaryValue: Optional[KPIPrimaryValueConditionalFormatting] = None
+    ProgressBar: Optional[KPIProgressBarConditionalFormatting] = None
+    ActualValue: Optional[KPIActualValueConditionalFormatting] = None
+    ComparisonValue: Optional[KPIComparisonValueConditionalFormatting] = None
 
 
-class FilledMapShapeConditionalFormattingTypeDef(BaseValidatorModel):
+class FilledMapShapeConditionalFormatting(BaseValidatorModel):
     FieldId: str
-    Format: Optional[ShapeConditionalFormatTypeDef] = None
+    Format: Optional[ShapeConditionalFormat] = None
 
 
-class PivotTableCellConditionalFormattingTypeDef(BaseValidatorModel):
+class PivotTableCellConditionalFormatting(BaseValidatorModel):
     FieldId: str
-    TextFormat: Optional[TextConditionalFormatTypeDef] = None
-    Scope: Optional[PivotTableConditionalFormattingScopeTypeDef] = None
-    Scopes: Optional[Sequence[PivotTableConditionalFormattingScopeTypeDef]] = None
+    TextFormat: Optional[TextConditionalFormat] = None
+    Scope: Optional[PivotTableConditionalFormattingScope] = None
+    Scopes: Optional[Sequence[PivotTableConditionalFormattingScope]] = None
 
 
-class TableCellConditionalFormattingTypeDef(BaseValidatorModel):
+class TableCellConditionalFormatting(BaseValidatorModel):
     FieldId: str
-    TextFormat: Optional[TextConditionalFormatTypeDef] = None
+    TextFormat: Optional[TextConditionalFormat] = None
 
 
-class BrandDefinitionTypeDef(BaseValidatorModel):
+class BrandDefinition(BaseValidatorModel):
     BrandName: str
     Description: Optional[str] = None
-    ApplicationTheme: Optional[ApplicationThemeTypeDef] = None
-    LogoConfiguration: Optional[LogoConfigurationTypeDef] = None
+    ApplicationTheme: Optional[ApplicationTheme] = None
+    LogoConfiguration: Optional[LogoConfiguration] = None
 
 
-class BrandDetailTypeDef(BaseValidatorModel):
+class BrandDetail(BaseValidatorModel):
     BrandId: str
     Arn: Optional[str] = None
     BrandStatus: Optional[BrandStatusType] = None
@@ -8344,1109 +8344,1109 @@ class BrandDetailTypeDef(BaseValidatorModel):
     VersionId: Optional[str] = None
     VersionStatus: Optional[BrandVersionStatusType] = None
     Errors: Optional[List[str]] = None
-    Logo: Optional[LogoTypeDef] = None
+    Logo: Optional[Logo] = None
 
 
-class ThemeConfigurationUnionTypeDef(BaseValidatorModel):
+class ThemeConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateThemeRequestTypeDef(BaseValidatorModel):
+class CreateThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     Name: str
     BaseThemeId: str
-    Configuration: ThemeConfigurationUnionTypeDef
+    Configuration: ThemeConfigurationUnion
     VersionDescription: Optional[str] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateThemeRequestTypeDef(BaseValidatorModel):
+class UpdateThemeRequest(BaseValidatorModel):
     AwsAccountId: str
     ThemeId: str
     BaseThemeId: str
     Name: Optional[str] = None
     VersionDescription: Optional[str] = None
-    Configuration: Optional[ThemeConfigurationUnionTypeDef] = None
+    Configuration: Optional[ThemeConfigurationUnion] = None
 
 
-class GaugeChartOptionsTypeDef(BaseValidatorModel):
+class GaugeChartOptions(BaseValidatorModel):
     PrimaryValueDisplayType: Optional[PrimaryValueDisplayTypeType] = None
-    Comparison: Optional[ComparisonConfigurationTypeDef] = None
-    ArcAxis: Optional[ArcAxisConfigurationTypeDef] = None
-    Arc: Optional[ArcConfigurationTypeDef] = None
-    PrimaryValueFontConfiguration: Optional[FontConfigurationTypeDef] = None
+    Comparison: Optional[ComparisonConfiguration] = None
+    ArcAxis: Optional[ArcAxisConfiguration] = None
+    Arc: Optional[ArcConfiguration] = None
+    PrimaryValueFontConfiguration: Optional[FontConfiguration] = None
 
 
-class KPISparklineOptionsTypeDef(BaseValidatorModel):
+class KPISparklineOptions(BaseValidatorModel):
     pass
 
 
-class KPIOptionsTypeDef(BaseValidatorModel):
-    ProgressBar: Optional[ProgressBarOptionsTypeDef] = None
-    TrendArrows: Optional[TrendArrowOptionsTypeDef] = None
-    SecondaryValue: Optional[SecondaryValueOptionsTypeDef] = None
-    Comparison: Optional[ComparisonConfigurationTypeDef] = None
+class KPIOptions(BaseValidatorModel):
+    ProgressBar: Optional[ProgressBarOptions] = None
+    TrendArrows: Optional[TrendArrowOptions] = None
+    SecondaryValue: Optional[SecondaryValueOptions] = None
+    Comparison: Optional[ComparisonConfiguration] = None
     PrimaryValueDisplayType: Optional[PrimaryValueDisplayTypeType] = None
-    PrimaryValueFontConfiguration: Optional[FontConfigurationTypeDef] = None
-    SecondaryValueFontConfiguration: Optional[FontConfigurationTypeDef] = None
-    Sparkline: Optional[KPISparklineOptionsTypeDef] = None
-    VisualLayoutOptions: Optional[KPIVisualLayoutOptionsTypeDef] = None
+    PrimaryValueFontConfiguration: Optional[FontConfiguration] = None
+    SecondaryValueFontConfiguration: Optional[FontConfiguration] = None
+    Sparkline: Optional[KPISparklineOptions] = None
+    VisualLayoutOptions: Optional[KPIVisualLayoutOptions] = None
 
 
-class DateDimensionFieldTypeDef(BaseValidatorModel):
+class DateDimensionField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     DateGranularity: Optional[TimeGranularityType] = None
     HierarchyId: Optional[str] = None
-    FormatConfiguration: Optional[DateTimeFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[DateTimeFormatConfiguration] = None
 
 
-class DateMeasureFieldTypeDef(BaseValidatorModel):
+class DateMeasureField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     AggregationFunction: Optional[DateAggregationFunctionType] = None
-    FormatConfiguration: Optional[DateTimeFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[DateTimeFormatConfiguration] = None
 
 
-class NumericalDimensionFieldTypeDef(BaseValidatorModel):
+class NumericalDimensionField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     HierarchyId: Optional[str] = None
-    FormatConfiguration: Optional[NumberFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[NumberFormatConfiguration] = None
 
 
-class NumericalMeasureFieldTypeDef(BaseValidatorModel):
+class NumericalMeasureField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
-    AggregationFunction: Optional[NumericalAggregationFunctionTypeDef] = None
-    FormatConfiguration: Optional[NumberFormatConfigurationTypeDef] = None
+    Column: ColumnIdentifier
+    AggregationFunction: Optional[NumericalAggregationFunction] = None
+    FormatConfiguration: Optional[NumberFormatConfiguration] = None
 
 
-class ReferenceLineLabelConfigurationTypeDef(BaseValidatorModel):
-    ValueLabelConfiguration: Optional[ReferenceLineValueLabelConfigurationTypeDef] = None
-    CustomLabelConfiguration: Optional[ReferenceLineCustomLabelConfigurationTypeDef] = None
-    FontConfiguration: Optional[FontConfigurationTypeDef] = None
+class ReferenceLineLabelConfiguration(BaseValidatorModel):
+    ValueLabelConfiguration: Optional[ReferenceLineValueLabelConfiguration] = None
+    CustomLabelConfiguration: Optional[ReferenceLineCustomLabelConfiguration] = None
+    FontConfiguration: Optional[FontConfiguration] = None
     FontColor: Optional[str] = None
     HorizontalPosition: Optional[ReferenceLineLabelHorizontalPositionType] = None
     VerticalPosition: Optional[ReferenceLineLabelVerticalPositionType] = None
 
 
-class CategoricalDimensionFieldTypeDef(BaseValidatorModel):
+class CategoricalDimensionField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     HierarchyId: Optional[str] = None
-    FormatConfiguration: Optional[StringFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[StringFormatConfiguration] = None
 
 
-class CategoricalMeasureFieldTypeDef(BaseValidatorModel):
+class CategoricalMeasureField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     AggregationFunction: Optional[CategoricalAggregationFunctionType] = None
-    FormatConfiguration: Optional[StringFormatConfigurationTypeDef] = None
+    FormatConfiguration: Optional[StringFormatConfiguration] = None
 
 
-class FormatConfigurationTypeDef(BaseValidatorModel):
-    StringFormatConfiguration: Optional[StringFormatConfigurationTypeDef] = None
-    NumberFormatConfiguration: Optional[NumberFormatConfigurationTypeDef] = None
-    DateTimeFormatConfiguration: Optional[DateTimeFormatConfigurationTypeDef] = None
+class FormatConfiguration(BaseValidatorModel):
+    StringFormatConfiguration: Optional[StringFormatConfiguration] = None
+    NumberFormatConfiguration: Optional[NumberFormatConfiguration] = None
+    DateTimeFormatConfiguration: Optional[DateTimeFormatConfiguration] = None
 
 
-class BodySectionRepeatDimensionConfigurationOutputTypeDef(BaseValidatorModel):
-    DynamicCategoryDimensionConfiguration: Optional[ BodySectionDynamicCategoryDimensionConfigurationOutputTypeDef ] = None
-    DynamicNumericDimensionConfiguration: Optional[ BodySectionDynamicNumericDimensionConfigurationOutputTypeDef ] = None
+class BodySectionRepeatDimensionConfigurationOutput(BaseValidatorModel):
+    DynamicCategoryDimensionConfiguration: Optional[ BodySectionDynamicCategoryDimensionConfigurationOutput ] = None
+    DynamicNumericDimensionConfiguration: Optional[ BodySectionDynamicNumericDimensionConfigurationOutput ] = None
 
 
-class BodySectionRepeatDimensionConfigurationTypeDef(BaseValidatorModel):
-    DynamicCategoryDimensionConfiguration: Optional[ BodySectionDynamicCategoryDimensionConfigurationTypeDef ] = None
-    DynamicNumericDimensionConfiguration: Optional[ BodySectionDynamicNumericDimensionConfigurationTypeDef ] = None
+class BodySectionRepeatDimensionConfiguration(BaseValidatorModel):
+    DynamicCategoryDimensionConfiguration: Optional[ BodySectionDynamicCategoryDimensionConfiguration ] = None
+    DynamicNumericDimensionConfiguration: Optional[ BodySectionDynamicNumericDimensionConfiguration ] = None
 
 
-class BarChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class BarChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[List[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[List[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class BarChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class BarChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[Sequence[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[Sequence[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class BoxPlotSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    PaginationConfiguration: Optional[PaginationConfigurationTypeDef] = None
+class BoxPlotSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    PaginationConfiguration: Optional[PaginationConfiguration] = None
 
 
-class BoxPlotSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    PaginationConfiguration: Optional[PaginationConfigurationTypeDef] = None
+class BoxPlotSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    PaginationConfiguration: Optional[PaginationConfiguration] = None
 
 
-class ComboChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class ComboChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[List[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class ComboChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class ComboChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[Sequence[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class FilledMapSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
+class FilledMapSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
 
 
-class FilledMapSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
+class FilledMapSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
 
 
-class FunnelChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class FunnelChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class FunnelChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class FunnelChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class HeatMapSortConfigurationOutputTypeDef(BaseValidatorModel):
-    HeatMapRowSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    HeatMapColumnSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    HeatMapRowItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    HeatMapColumnItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class HeatMapSortConfigurationOutput(BaseValidatorModel):
+    HeatMapRowSort: Optional[List[FieldSortOptions]] = None
+    HeatMapColumnSort: Optional[List[FieldSortOptions]] = None
+    HeatMapRowItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    HeatMapColumnItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class HeatMapSortConfigurationTypeDef(BaseValidatorModel):
-    HeatMapRowSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    HeatMapColumnSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    HeatMapRowItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    HeatMapColumnItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class HeatMapSortConfiguration(BaseValidatorModel):
+    HeatMapRowSort: Optional[Sequence[FieldSortOptions]] = None
+    HeatMapColumnSort: Optional[Sequence[FieldSortOptions]] = None
+    HeatMapRowItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    HeatMapColumnItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class KPISortConfigurationOutputTypeDef(BaseValidatorModel):
-    TrendGroupSort: Optional[List[FieldSortOptionsTypeDef]] = None
+class KPISortConfigurationOutput(BaseValidatorModel):
+    TrendGroupSort: Optional[List[FieldSortOptions]] = None
 
 
-class KPISortConfigurationTypeDef(BaseValidatorModel):
-    TrendGroupSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
+class KPISortConfiguration(BaseValidatorModel):
+    TrendGroupSort: Optional[Sequence[FieldSortOptions]] = None
 
 
-class LineChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class LineChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    ColorItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[List[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class LineChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class LineChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    ColorItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[Sequence[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class PieChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class PieChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[List[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class PieChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    SmallMultiplesSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class PieChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    SmallMultiplesSort: Optional[Sequence[FieldSortOptions]] = None
+    SmallMultiplesLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class PluginVisualTableQuerySortOutputTypeDef(BaseValidatorModel):
-    RowSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    ItemsLimitConfiguration: Optional[PluginVisualItemsLimitConfigurationTypeDef] = None
+class PluginVisualTableQuerySortOutput(BaseValidatorModel):
+    RowSort: Optional[List[FieldSortOptions]] = None
+    ItemsLimitConfiguration: Optional[PluginVisualItemsLimitConfiguration] = None
 
 
-class PluginVisualTableQuerySortTypeDef(BaseValidatorModel):
-    RowSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    ItemsLimitConfiguration: Optional[PluginVisualItemsLimitConfigurationTypeDef] = None
+class PluginVisualTableQuerySort(BaseValidatorModel):
+    RowSort: Optional[Sequence[FieldSortOptions]] = None
+    ItemsLimitConfiguration: Optional[PluginVisualItemsLimitConfiguration] = None
 
 
-class RadarChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class RadarChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[List[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class RadarChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    ColorSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    ColorItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class RadarChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    ColorSort: Optional[Sequence[FieldSortOptions]] = None
+    ColorItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class SankeyDiagramSortConfigurationOutputTypeDef(BaseValidatorModel):
-    WeightSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    SourceItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    DestinationItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class SankeyDiagramSortConfigurationOutput(BaseValidatorModel):
+    WeightSort: Optional[List[FieldSortOptions]] = None
+    SourceItemsLimit: Optional[ItemsLimitConfiguration] = None
+    DestinationItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class SankeyDiagramSortConfigurationTypeDef(BaseValidatorModel):
-    WeightSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    SourceItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    DestinationItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class SankeyDiagramSortConfiguration(BaseValidatorModel):
+    WeightSort: Optional[Sequence[FieldSortOptions]] = None
+    SourceItemsLimit: Optional[ItemsLimitConfiguration] = None
+    DestinationItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class TableSortConfigurationOutputTypeDef(BaseValidatorModel):
-    RowSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    PaginationConfiguration: Optional[PaginationConfigurationTypeDef] = None
+class TableSortConfigurationOutput(BaseValidatorModel):
+    RowSort: Optional[List[FieldSortOptions]] = None
+    PaginationConfiguration: Optional[PaginationConfiguration] = None
 
 
-class TableSortConfigurationTypeDef(BaseValidatorModel):
-    RowSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    PaginationConfiguration: Optional[PaginationConfigurationTypeDef] = None
+class TableSortConfiguration(BaseValidatorModel):
+    RowSort: Optional[Sequence[FieldSortOptions]] = None
+    PaginationConfiguration: Optional[PaginationConfiguration] = None
 
 
-class TreeMapSortConfigurationOutputTypeDef(BaseValidatorModel):
-    TreeMapSort: Optional[List[FieldSortOptionsTypeDef]] = None
-    TreeMapGroupItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class TreeMapSortConfigurationOutput(BaseValidatorModel):
+    TreeMapSort: Optional[List[FieldSortOptions]] = None
+    TreeMapGroupItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class TreeMapSortConfigurationTypeDef(BaseValidatorModel):
-    TreeMapSort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    TreeMapGroupItemsLimitConfiguration: Optional[ItemsLimitConfigurationTypeDef] = None
+class TreeMapSortConfiguration(BaseValidatorModel):
+    TreeMapSort: Optional[Sequence[FieldSortOptions]] = None
+    TreeMapGroupItemsLimitConfiguration: Optional[ItemsLimitConfiguration] = None
 
 
-class WaterfallChartSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
-    BreakdownItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class WaterfallChartSortConfigurationOutput(BaseValidatorModel):
+    CategorySort: Optional[List[FieldSortOptions]] = None
+    BreakdownItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class WaterfallChartSortConfigurationTypeDef(BaseValidatorModel):
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
-    BreakdownItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
+class WaterfallChartSortConfiguration(BaseValidatorModel):
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
+    BreakdownItemsLimit: Optional[ItemsLimitConfiguration] = None
 
 
-class WordCloudSortConfigurationOutputTypeDef(BaseValidatorModel):
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    CategorySort: Optional[List[FieldSortOptionsTypeDef]] = None
+class WordCloudSortConfigurationOutput(BaseValidatorModel):
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    CategorySort: Optional[List[FieldSortOptions]] = None
 
 
-class WordCloudSortConfigurationTypeDef(BaseValidatorModel):
-    CategoryItemsLimit: Optional[ItemsLimitConfigurationTypeDef] = None
-    CategorySort: Optional[Sequence[FieldSortOptionsTypeDef]] = None
+class WordCloudSortConfiguration(BaseValidatorModel):
+    CategoryItemsLimit: Optional[ItemsLimitConfiguration] = None
+    CategorySort: Optional[Sequence[FieldSortOptions]] = None
 
 
-class PivotFieldSortOptionsOutputTypeDef(BaseValidatorModel):
+class PivotFieldSortOptionsOutput(BaseValidatorModel):
     FieldId: str
-    SortBy: PivotTableSortByOutputTypeDef
+    SortBy: PivotTableSortByOutput
 
 
-class PivotFieldSortOptionsTypeDef(BaseValidatorModel):
+class PivotFieldSortOptions(BaseValidatorModel):
     FieldId: str
-    SortBy: PivotTableSortByTypeDef
+    SortBy: PivotTableSortBy
 
 
-class FieldBasedTooltipOutputTypeDef(BaseValidatorModel):
+class FieldBasedTooltipOutput(BaseValidatorModel):
     AggregationVisibility: Optional[VisibilityType] = None
     TooltipTitleType: Optional[TooltipTitleTypeType] = None
-    TooltipFields: Optional[List[TooltipItemTypeDef]] = None
+    TooltipFields: Optional[List[TooltipItem]] = None
 
 
-class FieldBasedTooltipTypeDef(BaseValidatorModel):
+class FieldBasedTooltip(BaseValidatorModel):
     AggregationVisibility: Optional[VisibilityType] = None
     TooltipTitleType: Optional[TooltipTitleTypeType] = None
-    TooltipFields: Optional[Sequence[TooltipItemTypeDef]] = None
+    TooltipFields: Optional[Sequence[TooltipItem]] = None
 
 
-class TopicDetailsOutputTypeDef(BaseValidatorModel):
+class TopicDetailsOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     UserExperienceVersion: Optional[TopicUserExperienceVersionType] = None
-    DataSets: Optional[List[DatasetMetadataOutputTypeDef]] = None
-    ConfigOptions: Optional[TopicConfigOptionsTypeDef] = None
+    DataSets: Optional[List[DatasetMetadataOutput]] = None
+    ConfigOptions: Optional[TopicConfigOptions] = None
 
 
-class TopicDetailsTypeDef(BaseValidatorModel):
+class TopicDetails(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     UserExperienceVersion: Optional[TopicUserExperienceVersionType] = None
-    DataSets: Optional[Sequence[DatasetMetadataTypeDef]] = None
-    ConfigOptions: Optional[TopicConfigOptionsTypeDef] = None
+    DataSets: Optional[Sequence[DatasetMetadata]] = None
+    ConfigOptions: Optional[TopicConfigOptions] = None
 
 
-class AssetBundleImportJobDataSourceOverrideParametersTypeDef(BaseValidatorModel):
+class AssetBundleImportJobDataSourceOverrideParameters(BaseValidatorModel):
     DataSourceId: str
     Name: Optional[str] = None
-    DataSourceParameters: Optional[DataSourceParametersTypeDef] = None
-    VpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
-    SslProperties: Optional[SslPropertiesTypeDef] = None
-    Credentials: Optional[AssetBundleImportJobDataSourceCredentialsTypeDef] = None
+    DataSourceParameters: Optional[DataSourceParameters] = None
+    VpcConnectionProperties: Optional[VpcConnectionProperties] = None
+    SslProperties: Optional[SslProperties] = None
+    Credentials: Optional[AssetBundleImportJobDataSourceCredentials] = None
 
 
-class SnapshotJobResultTypeDef(BaseValidatorModel):
-    AnonymousUsers: Optional[List[AnonymousUserSnapshotJobResultTypeDef]] = None
+class SnapshotJobResult(BaseValidatorModel):
+    AnonymousUsers: Optional[List[AnonymousUserSnapshotJobResult]] = None
 
 
-class DefaultNewSheetConfigurationTypeDef(BaseValidatorModel):
-    InteractiveLayoutConfiguration: Optional[DefaultInteractiveLayoutConfigurationTypeDef] = None
-    PaginatedLayoutConfiguration: Optional[DefaultPaginatedLayoutConfigurationTypeDef] = None
+class DefaultNewSheetConfiguration(BaseValidatorModel):
+    InteractiveLayoutConfiguration: Optional[DefaultInteractiveLayoutConfiguration] = None
+    PaginatedLayoutConfiguration: Optional[DefaultPaginatedLayoutConfiguration] = None
     SheetContentType: Optional[SheetContentTypeType] = None
 
 
-class BodySectionContentOutputTypeDef(BaseValidatorModel):
-    Layout: Optional[SectionLayoutConfigurationOutputTypeDef] = None
+class BodySectionContentOutput(BaseValidatorModel):
+    Layout: Optional[SectionLayoutConfigurationOutput] = None
 
 
-class HeaderFooterSectionConfigurationOutputTypeDef(BaseValidatorModel):
+class HeaderFooterSectionConfigurationOutput(BaseValidatorModel):
     SectionId: str
-    Layout: SectionLayoutConfigurationOutputTypeDef
-    Style: Optional[SectionStyleTypeDef] = None
+    Layout: SectionLayoutConfigurationOutput
+    Style: Optional[SectionStyle] = None
 
 
-class BodySectionContentTypeDef(BaseValidatorModel):
-    Layout: Optional[SectionLayoutConfigurationTypeDef] = None
+class BodySectionContent(BaseValidatorModel):
+    Layout: Optional[SectionLayoutConfiguration] = None
 
 
-class HeaderFooterSectionConfigurationTypeDef(BaseValidatorModel):
+class HeaderFooterSectionConfiguration(BaseValidatorModel):
     SectionId: str
-    Layout: SectionLayoutConfigurationTypeDef
-    Style: Optional[SectionStyleTypeDef] = None
+    Layout: SectionLayoutConfiguration
+    Style: Optional[SectionStyle] = None
 
 
-class SnapshotConfigurationUnionTypeDef(BaseValidatorModel):
+class SnapshotConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartDashboardSnapshotJobRequestTypeDef(BaseValidatorModel):
+class StartDashboardSnapshotJobRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     SnapshotJobId: str
-    UserConfiguration: SnapshotUserConfigurationTypeDef
-    SnapshotConfiguration: SnapshotConfigurationUnionTypeDef
+    UserConfiguration: SnapshotUserConfiguration
+    SnapshotConfiguration: SnapshotConfigurationUnion
 
 
-class AssetBundleImportJobErrorTypeDef(BaseValidatorModel):
+class AssetBundleImportJobError(BaseValidatorModel):
     pass
 
 
-class DescribeAssetBundleImportJobResponseTypeDef(BaseValidatorModel):
+class DescribeAssetBundleImportJobResponse(BaseValidatorModel):
     JobStatus: AssetBundleImportJobStatusType
-    Errors: List[AssetBundleImportJobErrorTypeDef]
-    RollbackErrors: List[AssetBundleImportJobErrorTypeDef]
+    Errors: List[AssetBundleImportJobError]
+    RollbackErrors: List[AssetBundleImportJobError]
     Arn: str
     CreatedTime: datetime
     AssetBundleImportJobId: str
     AwsAccountId: str
-    AssetBundleImportSource: AssetBundleImportSourceDescriptionTypeDef
-    OverrideParameters: AssetBundleImportJobOverrideParametersOutputTypeDef
+    AssetBundleImportSource: AssetBundleImportSourceDescription
+    OverrideParameters: AssetBundleImportJobOverrideParametersOutput
     FailureAction: AssetBundleImportFailureActionType
     RequestId: str
     Status: int
-    OverridePermissions: AssetBundleImportJobOverridePermissionsOutputTypeDef
-    OverrideTags: AssetBundleImportJobOverrideTagsOutputTypeDef
-    OverrideValidationStrategy: AssetBundleImportJobOverrideValidationStrategyTypeDef
-    Warnings: List[AssetBundleImportJobWarningTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    OverridePermissions: AssetBundleImportJobOverridePermissionsOutput
+    OverrideTags: AssetBundleImportJobOverrideTagsOutput
+    OverrideValidationStrategy: AssetBundleImportJobOverrideValidationStrategy
+    Warnings: List[AssetBundleImportJobWarning]
+    ResponseMetadata: ResponseMetadata
 
 
-class ImageCustomActionOperationTypeDef(BaseValidatorModel):
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationTypeDef] = None
+class ImageCustomActionOperation(BaseValidatorModel):
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperation] = None
 
 
-class LayerCustomActionOperationTypeDef(BaseValidatorModel):
-    FilterOperation: Optional[CustomActionFilterOperationTypeDef] = None
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationTypeDef] = None
+class LayerCustomActionOperation(BaseValidatorModel):
+    FilterOperation: Optional[CustomActionFilterOperation] = None
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperation] = None
 
 
-class VisualCustomActionOperationTypeDef(BaseValidatorModel):
-    FilterOperation: Optional[CustomActionFilterOperationTypeDef] = None
-    NavigationOperation: Optional[CustomActionNavigationOperationTypeDef] = None
-    URLOperation: Optional[CustomActionURLOperationTypeDef] = None
-    SetParametersOperation: Optional[CustomActionSetParametersOperationTypeDef] = None
+class VisualCustomActionOperation(BaseValidatorModel):
+    FilterOperation: Optional[CustomActionFilterOperation] = None
+    NavigationOperation: Optional[CustomActionNavigationOperation] = None
+    URLOperation: Optional[CustomActionURLOperation] = None
+    SetParametersOperation: Optional[CustomActionSetParametersOperation] = None
 
 
-class DescribeDataSetResponseTypeDef(BaseValidatorModel):
-    DataSet: DataSetTypeDef
+class DescribeDataSetResponse(BaseValidatorModel):
+    DataSet: DataSet
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ImageCustomActionOutputTypeDef(BaseValidatorModel):
+class ImageCustomActionOutput(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: ImageCustomActionTriggerType
-    ActionOperations: List[ImageCustomActionOperationOutputTypeDef]
+    ActionOperations: List[ImageCustomActionOperationOutput]
     Status: Optional[WidgetStatusType] = None
 
 
-class LayerCustomActionOutputTypeDef(BaseValidatorModel):
+class LayerCustomActionOutput(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: LayerCustomActionTriggerType
-    ActionOperations: List[LayerCustomActionOperationOutputTypeDef]
+    ActionOperations: List[LayerCustomActionOperationOutput]
     Status: Optional[WidgetStatusType] = None
 
 
-class VisualCustomActionOutputTypeDef(BaseValidatorModel):
+class VisualCustomActionOutput(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: VisualCustomActionTriggerType
-    ActionOperations: List[VisualCustomActionOperationOutputTypeDef]
+    ActionOperations: List[VisualCustomActionOperationOutput]
     Status: Optional[WidgetStatusType] = None
 
 
-class TopicVisualOutputTypeDef(BaseValidatorModel):
+class TopicVisualOutput(BaseValidatorModel):
     VisualId: Optional[str] = None
     Role: Optional[VisualRoleType] = None
-    Ir: Optional[TopicIROutputTypeDef] = None
+    Ir: Optional[TopicIROutput] = None
     SupportingVisuals: Optional[List[Dict[str, Any]]] = None
 
 
-class DefaultFilterControlConfigurationOutputTypeDef(BaseValidatorModel):
+class DefaultFilterControlConfigurationOutput(BaseValidatorModel):
     Title: str
-    ControlOptions: DefaultFilterControlOptionsOutputTypeDef
+    ControlOptions: DefaultFilterControlOptionsOutput
 
 
-class DefaultFilterControlConfigurationTypeDef(BaseValidatorModel):
+class DefaultFilterControlConfiguration(BaseValidatorModel):
     Title: str
-    ControlOptions: DefaultFilterControlOptionsTypeDef
+    ControlOptions: DefaultFilterControlOptions
 
 
-class TableFieldOptionTypeDef(BaseValidatorModel):
+class TableFieldOption(BaseValidatorModel):
     FieldId: str
     Width: Optional[str] = None
     CustomLabel: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
-    URLStyling: Optional[TableFieldURLConfigurationTypeDef] = None
+    URLStyling: Optional[TableFieldURLConfiguration] = None
 
 
-class GeospatialPointLayerOutputTypeDef(BaseValidatorModel):
-    Style: GeospatialPointStyleOutputTypeDef
+class GeospatialPointLayerOutput(BaseValidatorModel):
+    Style: GeospatialPointStyleOutput
 
 
-class GeospatialLineLayerOutputTypeDef(BaseValidatorModel):
-    Style: GeospatialLineStyleOutputTypeDef
+class GeospatialLineLayerOutput(BaseValidatorModel):
+    Style: GeospatialLineStyleOutput
 
 
-class GeospatialPolygonLayerOutputTypeDef(BaseValidatorModel):
-    Style: GeospatialPolygonStyleOutputTypeDef
+class GeospatialPolygonLayerOutput(BaseValidatorModel):
+    Style: GeospatialPolygonStyleOutput
 
 
-class GeospatialPointLayerTypeDef(BaseValidatorModel):
-    Style: GeospatialPointStyleTypeDef
+class GeospatialPointLayer(BaseValidatorModel):
+    Style: GeospatialPointStyle
 
 
-class GeospatialLineLayerTypeDef(BaseValidatorModel):
-    Style: GeospatialLineStyleTypeDef
+class GeospatialLineLayer(BaseValidatorModel):
+    Style: GeospatialLineStyle
 
 
-class GeospatialPolygonLayerTypeDef(BaseValidatorModel):
-    Style: GeospatialPolygonStyleTypeDef
+class GeospatialPolygonLayer(BaseValidatorModel):
+    Style: GeospatialPolygonStyle
 
 
-class GaugeChartConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[ List[GaugeChartConditionalFormattingOptionOutputTypeDef] ] = None
+class GaugeChartConditionalFormattingOutput(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[ List[GaugeChartConditionalFormattingOptionOutput] ] = None
 
 
-class KPIConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[List[KPIConditionalFormattingOptionOutputTypeDef]] = None
+class KPIConditionalFormattingOutput(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[List[KPIConditionalFormattingOptionOutput]] = None
 
 
-class FilledMapConditionalFormattingOptionOutputTypeDef(BaseValidatorModel):
-    Shape: FilledMapShapeConditionalFormattingOutputTypeDef
+class FilledMapConditionalFormattingOptionOutput(BaseValidatorModel):
+    Shape: FilledMapShapeConditionalFormattingOutput
 
 
-class PivotTableConditionalFormattingOptionOutputTypeDef(BaseValidatorModel):
-    Cell: Optional[PivotTableCellConditionalFormattingOutputTypeDef] = None
+class PivotTableConditionalFormattingOptionOutput(BaseValidatorModel):
+    Cell: Optional[PivotTableCellConditionalFormattingOutput] = None
 
 
-class TableConditionalFormattingOptionOutputTypeDef(BaseValidatorModel):
-    Cell: Optional[TableCellConditionalFormattingOutputTypeDef] = None
-    Row: Optional[TableRowConditionalFormattingOutputTypeDef] = None
+class TableConditionalFormattingOptionOutput(BaseValidatorModel):
+    Cell: Optional[TableCellConditionalFormattingOutput] = None
+    Row: Optional[TableRowConditionalFormattingOutput] = None
 
 
-class GaugeChartConditionalFormattingTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[ Sequence[GaugeChartConditionalFormattingOptionTypeDef] ] = None
+class GaugeChartConditionalFormatting(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[ Sequence[GaugeChartConditionalFormattingOption] ] = None
 
 
-class KPIConditionalFormattingTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[Sequence[KPIConditionalFormattingOptionTypeDef]] = None
+class KPIConditionalFormatting(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[Sequence[KPIConditionalFormattingOption]] = None
 
 
-class FilledMapConditionalFormattingOptionTypeDef(BaseValidatorModel):
-    Shape: FilledMapShapeConditionalFormattingTypeDef
+class FilledMapConditionalFormattingOption(BaseValidatorModel):
+    Shape: FilledMapShapeConditionalFormatting
 
 
-class PivotTableConditionalFormattingOptionTypeDef(BaseValidatorModel):
-    Cell: Optional[PivotTableCellConditionalFormattingTypeDef] = None
+class PivotTableConditionalFormattingOption(BaseValidatorModel):
+    Cell: Optional[PivotTableCellConditionalFormatting] = None
 
 
-class TableConditionalFormattingOptionTypeDef(BaseValidatorModel):
-    Cell: Optional[TableCellConditionalFormattingTypeDef] = None
-    Row: Optional[TableRowConditionalFormattingTypeDef] = None
+class TableConditionalFormattingOption(BaseValidatorModel):
+    Cell: Optional[TableCellConditionalFormatting] = None
+    Row: Optional[TableRowConditionalFormatting] = None
 
 
-class CreateBrandRequestTypeDef(BaseValidatorModel):
+class CreateBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
-    BrandDefinition: Optional[BrandDefinitionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    BrandDefinition: Optional[BrandDefinition] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateBrandRequestTypeDef(BaseValidatorModel):
+class UpdateBrandRequest(BaseValidatorModel):
     AwsAccountId: str
     BrandId: str
-    BrandDefinition: Optional[BrandDefinitionTypeDef] = None
+    BrandDefinition: Optional[BrandDefinition] = None
 
 
-class CreateBrandResponseTypeDef(BaseValidatorModel):
+class CreateBrandResponse(BaseValidatorModel):
     RequestId: str
-    BrandDetail: BrandDetailTypeDef
-    BrandDefinition: BrandDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    BrandDetail: BrandDetail
+    BrandDefinition: BrandDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBrandPublishedVersionResponseTypeDef(BaseValidatorModel):
+class DescribeBrandPublishedVersionResponse(BaseValidatorModel):
     RequestId: str
-    BrandDetail: BrandDetailTypeDef
-    BrandDefinition: BrandDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    BrandDetail: BrandDetail
+    BrandDefinition: BrandDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBrandResponseTypeDef(BaseValidatorModel):
+class DescribeBrandResponse(BaseValidatorModel):
     RequestId: str
-    BrandDetail: BrandDetailTypeDef
-    BrandDefinition: BrandDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    BrandDetail: BrandDetail
+    BrandDefinition: BrandDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrandResponseTypeDef(BaseValidatorModel):
+class UpdateBrandResponse(BaseValidatorModel):
     RequestId: str
-    BrandDetail: BrandDetailTypeDef
-    BrandDefinition: BrandDefinitionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    BrandDetail: BrandDetail
+    BrandDefinition: BrandDefinition
+    ResponseMetadata: ResponseMetadata
 
 
-class ThemeTypeDef(BaseValidatorModel):
+class Theme(BaseValidatorModel):
     pass
 
 
-class DescribeThemeResponseTypeDef(BaseValidatorModel):
-    Theme: ThemeTypeDef
+class DescribeThemeResponse(BaseValidatorModel):
+    Theme: Theme
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ReferenceLineStyleConfigurationTypeDef(BaseValidatorModel):
+class ReferenceLineStyleConfiguration(BaseValidatorModel):
     pass
 
 
-class ReferenceLineTypeDef(BaseValidatorModel):
-    DataConfiguration: ReferenceLineDataConfigurationTypeDef
+class ReferenceLine(BaseValidatorModel):
+    DataConfiguration: ReferenceLineDataConfiguration
     Status: Optional[WidgetStatusType] = None
-    StyleConfiguration: Optional[ReferenceLineStyleConfigurationTypeDef] = None
-    LabelConfiguration: Optional[ReferenceLineLabelConfigurationTypeDef] = None
+    StyleConfiguration: Optional[ReferenceLineStyleConfiguration] = None
+    LabelConfiguration: Optional[ReferenceLineLabelConfiguration] = None
 
 
-class DimensionFieldTypeDef(BaseValidatorModel):
-    NumericalDimensionField: Optional[NumericalDimensionFieldTypeDef] = None
-    CategoricalDimensionField: Optional[CategoricalDimensionFieldTypeDef] = None
-    DateDimensionField: Optional[DateDimensionFieldTypeDef] = None
+class DimensionField(BaseValidatorModel):
+    NumericalDimensionField: Optional[NumericalDimensionField] = None
+    CategoricalDimensionField: Optional[CategoricalDimensionField] = None
+    DateDimensionField: Optional[DateDimensionField] = None
 
 
-class MeasureFieldTypeDef(BaseValidatorModel):
-    NumericalMeasureField: Optional[NumericalMeasureFieldTypeDef] = None
-    CategoricalMeasureField: Optional[CategoricalMeasureFieldTypeDef] = None
-    DateMeasureField: Optional[DateMeasureFieldTypeDef] = None
-    CalculatedMeasureField: Optional[CalculatedMeasureFieldTypeDef] = None
+class MeasureField(BaseValidatorModel):
+    NumericalMeasureField: Optional[NumericalMeasureField] = None
+    CategoricalMeasureField: Optional[CategoricalMeasureField] = None
+    DateMeasureField: Optional[DateMeasureField] = None
+    CalculatedMeasureField: Optional[CalculatedMeasureField] = None
 
 
-class ColumnConfigurationOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    FormatConfiguration: Optional[FormatConfigurationTypeDef] = None
+class ColumnConfigurationOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
+    FormatConfiguration: Optional[FormatConfiguration] = None
     Role: Optional[ColumnRoleType] = None
-    ColorsConfiguration: Optional[ColorsConfigurationOutputTypeDef] = None
+    ColorsConfiguration: Optional[ColorsConfigurationOutput] = None
 
 
-class ColumnConfigurationTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    FormatConfiguration: Optional[FormatConfigurationTypeDef] = None
+class ColumnConfiguration(BaseValidatorModel):
+    Column: ColumnIdentifier
+    FormatConfiguration: Optional[FormatConfiguration] = None
     Role: Optional[ColumnRoleType] = None
-    ColorsConfiguration: Optional[ColorsConfigurationTypeDef] = None
+    ColorsConfiguration: Optional[ColorsConfiguration] = None
 
 
-class UnaggregatedFieldTypeDef(BaseValidatorModel):
+class UnaggregatedField(BaseValidatorModel):
     FieldId: str
-    Column: ColumnIdentifierTypeDef
-    FormatConfiguration: Optional[FormatConfigurationTypeDef] = None
+    Column: ColumnIdentifier
+    FormatConfiguration: Optional[FormatConfiguration] = None
 
 
-class BodySectionRepeatConfigurationOutputTypeDef(BaseValidatorModel):
-    DimensionConfigurations: Optional[List[BodySectionRepeatDimensionConfigurationOutputTypeDef]] = None
-    PageBreakConfiguration: Optional[BodySectionRepeatPageBreakConfigurationTypeDef] = None
+class BodySectionRepeatConfigurationOutput(BaseValidatorModel):
+    DimensionConfigurations: Optional[List[BodySectionRepeatDimensionConfigurationOutput]] = None
+    PageBreakConfiguration: Optional[BodySectionRepeatPageBreakConfiguration] = None
     NonRepeatingVisuals: Optional[List[str]] = None
 
 
-class BodySectionRepeatConfigurationTypeDef(BaseValidatorModel):
-    DimensionConfigurations: Optional[Sequence[BodySectionRepeatDimensionConfigurationTypeDef]] = None
-    PageBreakConfiguration: Optional[BodySectionRepeatPageBreakConfigurationTypeDef] = None
+class BodySectionRepeatConfiguration(BaseValidatorModel):
+    DimensionConfigurations: Optional[Sequence[BodySectionRepeatDimensionConfiguration]] = None
+    PageBreakConfiguration: Optional[BodySectionRepeatPageBreakConfiguration] = None
     NonRepeatingVisuals: Optional[Sequence[str]] = None
 
 
-class PluginVisualSortConfigurationOutputTypeDef(BaseValidatorModel):
-    PluginVisualTableQuerySort: Optional[PluginVisualTableQuerySortOutputTypeDef] = None
+class PluginVisualSortConfigurationOutput(BaseValidatorModel):
+    PluginVisualTableQuerySort: Optional[PluginVisualTableQuerySortOutput] = None
 
 
-class PluginVisualSortConfigurationTypeDef(BaseValidatorModel):
-    PluginVisualTableQuerySort: Optional[PluginVisualTableQuerySortTypeDef] = None
+class PluginVisualSortConfiguration(BaseValidatorModel):
+    PluginVisualTableQuerySort: Optional[PluginVisualTableQuerySort] = None
 
 
-class PivotTableSortConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldSortOptions: Optional[List[PivotFieldSortOptionsOutputTypeDef]] = None
+class PivotTableSortConfigurationOutput(BaseValidatorModel):
+    FieldSortOptions: Optional[List[PivotFieldSortOptionsOutput]] = None
 
 
-class PivotTableSortConfigurationTypeDef(BaseValidatorModel):
-    FieldSortOptions: Optional[Sequence[PivotFieldSortOptionsTypeDef]] = None
+class PivotTableSortConfiguration(BaseValidatorModel):
+    FieldSortOptions: Optional[Sequence[PivotFieldSortOptions]] = None
 
 
-class TooltipOptionsOutputTypeDef(BaseValidatorModel):
+class TooltipOptionsOutput(BaseValidatorModel):
     TooltipVisibility: Optional[VisibilityType] = None
     SelectedTooltipType: Optional[SelectedTooltipTypeType] = None
-    FieldBasedTooltip: Optional[FieldBasedTooltipOutputTypeDef] = None
+    FieldBasedTooltip: Optional[FieldBasedTooltipOutput] = None
 
 
-class TooltipOptionsTypeDef(BaseValidatorModel):
+class TooltipOptions(BaseValidatorModel):
     TooltipVisibility: Optional[VisibilityType] = None
     SelectedTooltipType: Optional[SelectedTooltipTypeType] = None
-    FieldBasedTooltip: Optional[FieldBasedTooltipTypeDef] = None
+    FieldBasedTooltip: Optional[FieldBasedTooltip] = None
 
 
-class DescribeTopicResponseTypeDef(BaseValidatorModel):
+class DescribeTopicResponse(BaseValidatorModel):
     Arn: str
     TopicId: str
-    Topic: TopicDetailsOutputTypeDef
+    Topic: TopicDetailsOutput
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssetBundleImportJobOverrideParametersTypeDef(BaseValidatorModel):
-    ResourceIdOverrideConfiguration: Optional[ AssetBundleImportJobResourceIdOverrideConfigurationTypeDef ] = None
-    VPCConnections: Optional[ Sequence[AssetBundleImportJobVPCConnectionOverrideParametersTypeDef] ] = None
-    RefreshSchedules: Optional[ Sequence[AssetBundleImportJobRefreshScheduleOverrideParametersTypeDef] ] = None
-    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverrideParametersTypeDef]] = None
-    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverrideParametersTypeDef]] = None
-    Themes: Optional[Sequence[AssetBundleImportJobThemeOverrideParametersTypeDef]] = None
-    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverrideParametersTypeDef]] = None
-    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverrideParametersTypeDef]] = None
-    Folders: Optional[Sequence[AssetBundleImportJobFolderOverrideParametersTypeDef]] = None
+class AssetBundleImportJobOverrideParameters(BaseValidatorModel):
+    ResourceIdOverrideConfiguration: Optional[ AssetBundleImportJobResourceIdOverrideConfiguration ] = None
+    VPCConnections: Optional[ Sequence[AssetBundleImportJobVPCConnectionOverrideParameters] ] = None
+    RefreshSchedules: Optional[ Sequence[AssetBundleImportJobRefreshScheduleOverrideParameters] ] = None
+    DataSources: Optional[Sequence[AssetBundleImportJobDataSourceOverrideParameters]] = None
+    DataSets: Optional[Sequence[AssetBundleImportJobDataSetOverrideParameters]] = None
+    Themes: Optional[Sequence[AssetBundleImportJobThemeOverrideParameters]] = None
+    Analyses: Optional[Sequence[AssetBundleImportJobAnalysisOverrideParameters]] = None
+    Dashboards: Optional[Sequence[AssetBundleImportJobDashboardOverrideParameters]] = None
+    Folders: Optional[Sequence[AssetBundleImportJobFolderOverrideParameters]] = None
 
 
-class DataSourceParametersUnionTypeDef(BaseValidatorModel):
+class DataSourceParametersUnion(BaseValidatorModel):
     pass
 
 
-class CredentialPairTypeDef(BaseValidatorModel):
+class CredentialPair(BaseValidatorModel):
     Username: str
     Password: str
-    AlternateDataSourceParameters: Optional[Sequence[DataSourceParametersUnionTypeDef]] = None
+    AlternateDataSourceParameters: Optional[Sequence[DataSourceParametersUnion]] = None
 
 
-class DescribeDashboardSnapshotJobResultResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardSnapshotJobResultResponse(BaseValidatorModel):
     Arn: str
     JobStatus: SnapshotJobStatusType
     CreatedTime: datetime
     LastUpdatedTime: datetime
-    Result: SnapshotJobResultTypeDef
-    ErrorInfo: SnapshotJobErrorInfoTypeDef
+    Result: SnapshotJobResult
+    ErrorInfo: SnapshotJobErrorInfo
     RequestId: str
     Status: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AnalysisDefaultsTypeDef(BaseValidatorModel):
-    DefaultNewSheetConfiguration: DefaultNewSheetConfigurationTypeDef
+class AnalysisDefaults(BaseValidatorModel):
+    DefaultNewSheetConfiguration: DefaultNewSheetConfiguration
 
 
-class ImageCustomActionTypeDef(BaseValidatorModel):
+class ImageCustomAction(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: ImageCustomActionTriggerType
-    ActionOperations: Sequence[ImageCustomActionOperationTypeDef]
+    ActionOperations: Sequence[ImageCustomActionOperation]
     Status: Optional[WidgetStatusType] = None
 
 
-class LayerCustomActionTypeDef(BaseValidatorModel):
+class LayerCustomAction(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: LayerCustomActionTriggerType
-    ActionOperations: Sequence[LayerCustomActionOperationTypeDef]
+    ActionOperations: Sequence[LayerCustomActionOperation]
     Status: Optional[WidgetStatusType] = None
 
 
-class VisualCustomActionTypeDef(BaseValidatorModel):
+class VisualCustomAction(BaseValidatorModel):
     CustomActionId: str
     Name: str
     Trigger: VisualCustomActionTriggerType
-    ActionOperations: Sequence[VisualCustomActionOperationTypeDef]
+    ActionOperations: Sequence[VisualCustomActionOperation]
     Status: Optional[WidgetStatusType] = None
 
 
-class TransformOperationUnionTypeDef(BaseValidatorModel):
+class TransformOperationUnion(BaseValidatorModel):
     pass
 
 
-class LogicalTableTypeDef(BaseValidatorModel):
+class LogicalTable(BaseValidatorModel):
     Alias: str
-    Source: LogicalTableSourceTypeDef
-    DataTransforms: Optional[Sequence[TransformOperationUnionTypeDef]] = None
+    Source: LogicalTableSource
+    DataTransforms: Optional[Sequence[TransformOperationUnion]] = None
 
 
-class ContributionAnalysisTimeRangesUnionTypeDef(BaseValidatorModel):
+class ContributionAnalysisTimeRangesUnion(BaseValidatorModel):
     pass
 
 
-class TopicIRContributionAnalysisTypeDef(BaseValidatorModel):
-    Factors: Optional[Sequence[ContributionAnalysisFactorTypeDef]] = None
-    TimeRanges: Optional[ContributionAnalysisTimeRangesUnionTypeDef] = None
+class TopicIRContributionAnalysis(BaseValidatorModel):
+    Factors: Optional[Sequence[ContributionAnalysisFactor]] = None
+    TimeRanges: Optional[ContributionAnalysisTimeRangesUnion] = None
     Direction: Optional[ContributionAnalysisDirectionType] = None
     SortType: Optional[ContributionAnalysisSortTypeType] = None
 
 
-class SheetImageOutputTypeDef(BaseValidatorModel):
+class SheetImageOutput(BaseValidatorModel):
     SheetImageId: str
-    Source: SheetImageSourceTypeDef
-    Scaling: Optional[SheetImageScalingConfigurationTypeDef] = None
-    Tooltip: Optional[SheetImageTooltipConfigurationTypeDef] = None
+    Source: SheetImageSource
+    Scaling: Optional[SheetImageScalingConfiguration] = None
+    Tooltip: Optional[SheetImageTooltipConfiguration] = None
     ImageContentAltText: Optional[str] = None
-    Interactions: Optional[ImageInteractionOptionsTypeDef] = None
-    Actions: Optional[List[ImageCustomActionOutputTypeDef]] = None
+    Interactions: Optional[ImageInteractionOptions] = None
+    Actions: Optional[List[ImageCustomActionOutput]] = None
 
 
-class CustomContentVisualOutputTypeDef(BaseValidatorModel):
+class CustomContentVisualOutput(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[CustomContentConfigurationTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[CustomContentConfiguration] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class EmptyVisualOutputTypeDef(BaseValidatorModel):
+class EmptyVisualOutput(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
 
 
-class TopicReviewedAnswerTypeDef(BaseValidatorModel):
+class TopicReviewedAnswer(BaseValidatorModel):
     AnswerId: str
     DatasetArn: str
     Question: str
     Arn: Optional[str] = None
-    Mir: Optional[TopicIROutputTypeDef] = None
-    PrimaryVisual: Optional[TopicVisualOutputTypeDef] = None
-    Template: Optional[TopicTemplateOutputTypeDef] = None
+    Mir: Optional[TopicIROutput] = None
+    PrimaryVisual: Optional[TopicVisualOutput] = None
+    Template: Optional[TopicTemplateOutput] = None
 
 
-class CategoryFilterOutputTypeDef(BaseValidatorModel):
+class CategoryFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    Configuration: CategoryFilterConfigurationOutputTypeDef
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    Column: ColumnIdentifier
+    Configuration: CategoryFilterConfigurationOutput
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class CategoryInnerFilterOutputTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    Configuration: CategoryFilterConfigurationOutputTypeDef
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+class CategoryInnerFilterOutput(BaseValidatorModel):
+    Column: ColumnIdentifier
+    Configuration: CategoryFilterConfigurationOutput
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class NumericEqualityFilterOutputTypeDef(BaseValidatorModel):
+class NumericEqualityFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     MatchOperator: NumericEqualityMatchOperatorType
     NullOption: FilterNullOptionType
     Value: Optional[float] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
     ParameterName: Optional[str] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class NumericRangeFilterOutputTypeDef(BaseValidatorModel):
+class NumericRangeFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
     IncludeMaximum: Optional[bool] = None
-    RangeMinimum: Optional[NumericRangeFilterValueTypeDef] = None
-    RangeMaximum: Optional[NumericRangeFilterValueTypeDef] = None
+    RangeMinimum: Optional[NumericRangeFilterValue] = None
+    RangeMaximum: Optional[NumericRangeFilterValue] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class RelativeDatesFilterOutputTypeDef(BaseValidatorModel):
+class RelativeDatesFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    AnchorDateConfiguration: AnchorDateConfigurationTypeDef
+    Column: ColumnIdentifier
+    AnchorDateConfiguration: AnchorDateConfiguration
     TimeGranularity: TimeGranularityType
     RelativeDateType: RelativeDateTypeType
     NullOption: FilterNullOptionType
     MinimumGranularity: Optional[TimeGranularityType] = None
     RelativeDateValue: Optional[int] = None
     ParameterName: Optional[str] = None
-    ExcludePeriodConfiguration: Optional[ExcludePeriodConfigurationTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    ExcludePeriodConfiguration: Optional[ExcludePeriodConfiguration] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class TimeEqualityFilterOutputTypeDef(BaseValidatorModel):
+class TimeEqualityFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     Value: Optional[datetime] = None
     ParameterName: Optional[str] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class TimeRangeFilterOutputTypeDef(BaseValidatorModel):
+class TimeRangeFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
     IncludeMaximum: Optional[bool] = None
-    RangeMinimumValue: Optional[TimeRangeFilterValueOutputTypeDef] = None
-    RangeMaximumValue: Optional[TimeRangeFilterValueOutputTypeDef] = None
-    ExcludePeriodConfiguration: Optional[ExcludePeriodConfigurationTypeDef] = None
+    RangeMinimumValue: Optional[TimeRangeFilterValueOutput] = None
+    RangeMaximumValue: Optional[TimeRangeFilterValueOutput] = None
+    ExcludePeriodConfiguration: Optional[ExcludePeriodConfiguration] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class TopBottomFilterOutputTypeDef(BaseValidatorModel):
+class TopBottomFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    AggregationSortConfigurations: List[AggregationSortConfigurationTypeDef]
+    Column: ColumnIdentifier
+    AggregationSortConfigurations: List[AggregationSortConfiguration]
     Limit: Optional[int] = None
     TimeGranularity: Optional[TimeGranularityType] = None
     ParameterName: Optional[str] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutputTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationOutput] = None
 
 
-class CategoryFilterTypeDef(BaseValidatorModel):
+class CategoryFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    Configuration: CategoryFilterConfigurationTypeDef
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    Column: ColumnIdentifier
+    Configuration: CategoryFilterConfiguration
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class CategoryInnerFilterTypeDef(BaseValidatorModel):
-    Column: ColumnIdentifierTypeDef
-    Configuration: CategoryFilterConfigurationTypeDef
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+class CategoryInnerFilter(BaseValidatorModel):
+    Column: ColumnIdentifier
+    Configuration: CategoryFilterConfiguration
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class NumericEqualityFilterTypeDef(BaseValidatorModel):
+class NumericEqualityFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     MatchOperator: NumericEqualityMatchOperatorType
     NullOption: FilterNullOptionType
     Value: Optional[float] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
     ParameterName: Optional[str] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class NumericRangeFilterTypeDef(BaseValidatorModel):
+class NumericRangeFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
     IncludeMaximum: Optional[bool] = None
-    RangeMinimum: Optional[NumericRangeFilterValueTypeDef] = None
-    RangeMaximum: Optional[NumericRangeFilterValueTypeDef] = None
+    RangeMinimum: Optional[NumericRangeFilterValue] = None
+    RangeMaximum: Optional[NumericRangeFilterValue] = None
     SelectAllOptions: Optional[Literal["FILTER_ALL_VALUES"]] = None
-    AggregationFunction: Optional[AggregationFunctionTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    AggregationFunction: Optional[AggregationFunction] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class RelativeDatesFilterTypeDef(BaseValidatorModel):
+class RelativeDatesFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    AnchorDateConfiguration: AnchorDateConfigurationTypeDef
+    Column: ColumnIdentifier
+    AnchorDateConfiguration: AnchorDateConfiguration
     TimeGranularity: TimeGranularityType
     RelativeDateType: RelativeDateTypeType
     NullOption: FilterNullOptionType
     MinimumGranularity: Optional[TimeGranularityType] = None
     RelativeDateValue: Optional[int] = None
     ParameterName: Optional[str] = None
-    ExcludePeriodConfiguration: Optional[ExcludePeriodConfigurationTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    ExcludePeriodConfiguration: Optional[ExcludePeriodConfiguration] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class TimeEqualityFilterTypeDef(BaseValidatorModel):
+class TimeEqualityFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    Value: Optional[TimestampTypeDef] = None
+    Column: ColumnIdentifier
+    Value: Optional[Timestamp] = None
     ParameterName: Optional[str] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    RollingDate: Optional[RollingDateConfigurationTypeDef] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    RollingDate: Optional[RollingDateConfiguration] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class TimeRangeFilterTypeDef(BaseValidatorModel):
+class TimeRangeFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     NullOption: FilterNullOptionType
     IncludeMinimum: Optional[bool] = None
     IncludeMaximum: Optional[bool] = None
-    RangeMinimumValue: Optional[TimeRangeFilterValueTypeDef] = None
-    RangeMaximumValue: Optional[TimeRangeFilterValueTypeDef] = None
-    ExcludePeriodConfiguration: Optional[ExcludePeriodConfigurationTypeDef] = None
+    RangeMinimumValue: Optional[TimeRangeFilterValue] = None
+    RangeMaximumValue: Optional[TimeRangeFilterValue] = None
+    ExcludePeriodConfiguration: Optional[ExcludePeriodConfiguration] = None
     TimeGranularity: Optional[TimeGranularityType] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class TopBottomFilterTypeDef(BaseValidatorModel):
+class TopBottomFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
-    AggregationSortConfigurations: Sequence[AggregationSortConfigurationTypeDef]
+    Column: ColumnIdentifier
+    AggregationSortConfigurations: Sequence[AggregationSortConfiguration]
     Limit: Optional[int] = None
     TimeGranularity: Optional[TimeGranularityType] = None
     ParameterName: Optional[str] = None
-    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfigurationTypeDef] = None
+    DefaultFilterControlConfiguration: Optional[DefaultFilterControlConfiguration] = None
 
 
-class TableFieldOptionsOutputTypeDef(BaseValidatorModel):
-    SelectedFieldOptions: Optional[List[TableFieldOptionTypeDef]] = None
+class TableFieldOptionsOutput(BaseValidatorModel):
+    SelectedFieldOptions: Optional[List[TableFieldOption]] = None
     Order: Optional[List[str]] = None
-    PinnedFieldOptions: Optional[TablePinnedFieldOptionsOutputTypeDef] = None
+    PinnedFieldOptions: Optional[TablePinnedFieldOptionsOutput] = None
 
 
-class TableFieldOptionsTypeDef(BaseValidatorModel):
-    SelectedFieldOptions: Optional[Sequence[TableFieldOptionTypeDef]] = None
+class TableFieldOptions(BaseValidatorModel):
+    SelectedFieldOptions: Optional[Sequence[TableFieldOption]] = None
     Order: Optional[Sequence[str]] = None
-    PinnedFieldOptions: Optional[TablePinnedFieldOptionsTypeDef] = None
+    PinnedFieldOptions: Optional[TablePinnedFieldOptions] = None
 
 
-class GeospatialLayerDefinitionOutputTypeDef(BaseValidatorModel):
-    PointLayer: Optional[GeospatialPointLayerOutputTypeDef] = None
-    LineLayer: Optional[GeospatialLineLayerOutputTypeDef] = None
-    PolygonLayer: Optional[GeospatialPolygonLayerOutputTypeDef] = None
+class GeospatialLayerDefinitionOutput(BaseValidatorModel):
+    PointLayer: Optional[GeospatialPointLayerOutput] = None
+    LineLayer: Optional[GeospatialLineLayerOutput] = None
+    PolygonLayer: Optional[GeospatialPolygonLayerOutput] = None
 
 
-class GeospatialLayerDefinitionTypeDef(BaseValidatorModel):
-    PointLayer: Optional[GeospatialPointLayerTypeDef] = None
-    LineLayer: Optional[GeospatialLineLayerTypeDef] = None
-    PolygonLayer: Optional[GeospatialPolygonLayerTypeDef] = None
+class GeospatialLayerDefinition(BaseValidatorModel):
+    PointLayer: Optional[GeospatialPointLayer] = None
+    LineLayer: Optional[GeospatialLineLayer] = None
+    PolygonLayer: Optional[GeospatialPolygonLayer] = None
 
 
-class FilledMapConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: List[FilledMapConditionalFormattingOptionOutputTypeDef]
+class FilledMapConditionalFormattingOutput(BaseValidatorModel):
+    ConditionalFormattingOptions: List[FilledMapConditionalFormattingOptionOutput]
 
 
-class PivotTableConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[ List[PivotTableConditionalFormattingOptionOutputTypeDef] ] = None
+class PivotTableConditionalFormattingOutput(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[ List[PivotTableConditionalFormattingOptionOutput] ] = None
 
 
-class TableConditionalFormattingOutputTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[List[TableConditionalFormattingOptionOutputTypeDef]] = None
+class TableConditionalFormattingOutput(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[List[TableConditionalFormattingOptionOutput]] = None
 
 
-class FilledMapConditionalFormattingTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Sequence[FilledMapConditionalFormattingOptionTypeDef]
+class FilledMapConditionalFormatting(BaseValidatorModel):
+    ConditionalFormattingOptions: Sequence[FilledMapConditionalFormattingOption]
 
 
-class PivotTableConditionalFormattingTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[ Sequence[PivotTableConditionalFormattingOptionTypeDef] ] = None
+class PivotTableConditionalFormatting(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[ Sequence[PivotTableConditionalFormattingOption] ] = None
 
 
-class TableConditionalFormattingTypeDef(BaseValidatorModel):
-    ConditionalFormattingOptions: Optional[Sequence[TableConditionalFormattingOptionTypeDef]] = None
+class TableConditionalFormatting(BaseValidatorModel):
+    ConditionalFormattingOptions: Optional[Sequence[TableConditionalFormattingOption]] = None
 
 
-class UniqueValuesComputationTypeDef(BaseValidatorModel):
+class UniqueValuesComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Category: Optional[DimensionFieldTypeDef] = None
+    Category: Optional[DimensionField] = None
 
 
-class BarChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    Colors: Optional[List[DimensionFieldTypeDef]] = None
-    SmallMultiples: Optional[List[DimensionFieldTypeDef]] = None
+class BarChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
+    Colors: Optional[List[DimensionField]] = None
+    SmallMultiples: Optional[List[DimensionField]] = None
 
 
-class BarChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Colors: Optional[Sequence[DimensionFieldTypeDef]] = None
-    SmallMultiples: Optional[Sequence[DimensionFieldTypeDef]] = None
+class BarChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
+    Colors: Optional[Sequence[DimensionField]] = None
+    SmallMultiples: Optional[Sequence[DimensionField]] = None
 
 
-class BoxPlotAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    GroupBy: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class BoxPlotAggregatedFieldWellsOutput(BaseValidatorModel):
+    GroupBy: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class BoxPlotAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    GroupBy: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class BoxPlotAggregatedFieldWells(BaseValidatorModel):
+    GroupBy: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class ComboChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    BarValues: Optional[List[MeasureFieldTypeDef]] = None
-    Colors: Optional[List[DimensionFieldTypeDef]] = None
-    LineValues: Optional[List[MeasureFieldTypeDef]] = None
+class ComboChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    BarValues: Optional[List[MeasureField]] = None
+    Colors: Optional[List[DimensionField]] = None
+    LineValues: Optional[List[MeasureField]] = None
 
 
-class ComboChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    BarValues: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Colors: Optional[Sequence[DimensionFieldTypeDef]] = None
-    LineValues: Optional[Sequence[MeasureFieldTypeDef]] = None
+class ComboChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    BarValues: Optional[Sequence[MeasureField]] = None
+    Colors: Optional[Sequence[DimensionField]] = None
+    LineValues: Optional[Sequence[MeasureField]] = None
 
 
-class FilledMapAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Geospatial: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class FilledMapAggregatedFieldWellsOutput(BaseValidatorModel):
+    Geospatial: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class FilledMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Geospatial: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class FilledMapAggregatedFieldWells(BaseValidatorModel):
+    Geospatial: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class ForecastComputationTypeDef(BaseValidatorModel):
+class ForecastComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Time: Optional[DimensionFieldTypeDef] = None
-    Value: Optional[MeasureFieldTypeDef] = None
+    Time: Optional[DimensionField] = None
+    Value: Optional[MeasureField] = None
     PeriodsForward: Optional[int] = None
     PeriodsBackward: Optional[int] = None
     UpperBoundary: Optional[float] = None
@@ -9456,754 +9456,754 @@ class ForecastComputationTypeDef(BaseValidatorModel):
     CustomSeasonalityValue: Optional[int] = None
 
 
-class FunnelChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class FunnelChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class FunnelChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class FunnelChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class GaugeChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    TargetValues: Optional[List[MeasureFieldTypeDef]] = None
+class GaugeChartFieldWellsOutput(BaseValidatorModel):
+    Values: Optional[List[MeasureField]] = None
+    TargetValues: Optional[List[MeasureField]] = None
 
 
-class GaugeChartFieldWellsTypeDef(BaseValidatorModel):
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    TargetValues: Optional[Sequence[MeasureFieldTypeDef]] = None
+class GaugeChartFieldWells(BaseValidatorModel):
+    Values: Optional[Sequence[MeasureField]] = None
+    TargetValues: Optional[Sequence[MeasureField]] = None
 
 
-class GeospatialLayerColorFieldOutputTypeDef(BaseValidatorModel):
-    ColorDimensionsFields: Optional[List[DimensionFieldTypeDef]] = None
-    ColorValuesFields: Optional[List[MeasureFieldTypeDef]] = None
+class GeospatialLayerColorFieldOutput(BaseValidatorModel):
+    ColorDimensionsFields: Optional[List[DimensionField]] = None
+    ColorValuesFields: Optional[List[MeasureField]] = None
 
 
-class GeospatialLayerColorFieldTypeDef(BaseValidatorModel):
-    ColorDimensionsFields: Optional[Sequence[DimensionFieldTypeDef]] = None
-    ColorValuesFields: Optional[Sequence[MeasureFieldTypeDef]] = None
+class GeospatialLayerColorField(BaseValidatorModel):
+    ColorDimensionsFields: Optional[Sequence[DimensionField]] = None
+    ColorValuesFields: Optional[Sequence[MeasureField]] = None
 
 
-class GeospatialMapAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Geospatial: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    Colors: Optional[List[DimensionFieldTypeDef]] = None
+class GeospatialMapAggregatedFieldWellsOutput(BaseValidatorModel):
+    Geospatial: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
+    Colors: Optional[List[DimensionField]] = None
 
 
-class GeospatialMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Geospatial: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Colors: Optional[Sequence[DimensionFieldTypeDef]] = None
+class GeospatialMapAggregatedFieldWells(BaseValidatorModel):
+    Geospatial: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
+    Colors: Optional[Sequence[DimensionField]] = None
 
 
-class GrowthRateComputationTypeDef(BaseValidatorModel):
+class GrowthRateComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Time: Optional[DimensionFieldTypeDef] = None
-    Value: Optional[MeasureFieldTypeDef] = None
+    Time: Optional[DimensionField] = None
+    Value: Optional[MeasureField] = None
     PeriodSize: Optional[int] = None
 
 
-class HeatMapAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Rows: Optional[List[DimensionFieldTypeDef]] = None
-    Columns: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class HeatMapAggregatedFieldWellsOutput(BaseValidatorModel):
+    Rows: Optional[List[DimensionField]] = None
+    Columns: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class HeatMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Rows: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Columns: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class HeatMapAggregatedFieldWells(BaseValidatorModel):
+    Rows: Optional[Sequence[DimensionField]] = None
+    Columns: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class HistogramAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class HistogramAggregatedFieldWellsOutput(BaseValidatorModel):
+    Values: Optional[List[MeasureField]] = None
 
 
-class HistogramAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class HistogramAggregatedFieldWells(BaseValidatorModel):
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class KPIFieldWellsOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    TargetValues: Optional[List[MeasureFieldTypeDef]] = None
-    TrendGroups: Optional[List[DimensionFieldTypeDef]] = None
+class KPIFieldWellsOutput(BaseValidatorModel):
+    Values: Optional[List[MeasureField]] = None
+    TargetValues: Optional[List[MeasureField]] = None
+    TrendGroups: Optional[List[DimensionField]] = None
 
 
-class KPIFieldWellsTypeDef(BaseValidatorModel):
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    TargetValues: Optional[Sequence[MeasureFieldTypeDef]] = None
-    TrendGroups: Optional[Sequence[DimensionFieldTypeDef]] = None
+class KPIFieldWells(BaseValidatorModel):
+    Values: Optional[Sequence[MeasureField]] = None
+    TargetValues: Optional[Sequence[MeasureField]] = None
+    TrendGroups: Optional[Sequence[DimensionField]] = None
 
 
-class LineChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    Colors: Optional[List[DimensionFieldTypeDef]] = None
-    SmallMultiples: Optional[List[DimensionFieldTypeDef]] = None
+class LineChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
+    Colors: Optional[List[DimensionField]] = None
+    SmallMultiples: Optional[List[DimensionField]] = None
 
 
-class LineChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Colors: Optional[Sequence[DimensionFieldTypeDef]] = None
-    SmallMultiples: Optional[Sequence[DimensionFieldTypeDef]] = None
+class LineChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
+    Colors: Optional[Sequence[DimensionField]] = None
+    SmallMultiples: Optional[Sequence[DimensionField]] = None
 
 
-class MetricComparisonComputationTypeDef(BaseValidatorModel):
+class MetricComparisonComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Time: Optional[DimensionFieldTypeDef] = None
-    FromValue: Optional[MeasureFieldTypeDef] = None
-    TargetValue: Optional[MeasureFieldTypeDef] = None
+    Time: Optional[DimensionField] = None
+    FromValue: Optional[MeasureField] = None
+    TargetValue: Optional[MeasureField] = None
 
 
-class PeriodOverPeriodComputationTypeDef(BaseValidatorModel):
+class PeriodOverPeriodComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Time: Optional[DimensionFieldTypeDef] = None
-    Value: Optional[MeasureFieldTypeDef] = None
+    Time: Optional[DimensionField] = None
+    Value: Optional[MeasureField] = None
 
 
-class PeriodToDateComputationTypeDef(BaseValidatorModel):
+class PeriodToDateComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Time: Optional[DimensionFieldTypeDef] = None
-    Value: Optional[MeasureFieldTypeDef] = None
+    Time: Optional[DimensionField] = None
+    Value: Optional[MeasureField] = None
     PeriodTimeGranularity: Optional[TimeGranularityType] = None
 
 
-class PieChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    SmallMultiples: Optional[List[DimensionFieldTypeDef]] = None
+class PieChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
+    SmallMultiples: Optional[List[DimensionField]] = None
 
 
-class PieChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    SmallMultiples: Optional[Sequence[DimensionFieldTypeDef]] = None
+class PieChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
+    SmallMultiples: Optional[Sequence[DimensionField]] = None
 
 
-class PivotTableAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Rows: Optional[List[DimensionFieldTypeDef]] = None
-    Columns: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class PivotTableAggregatedFieldWellsOutput(BaseValidatorModel):
+    Rows: Optional[List[DimensionField]] = None
+    Columns: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class PivotTableAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Rows: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Columns: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class PivotTableAggregatedFieldWells(BaseValidatorModel):
+    Rows: Optional[Sequence[DimensionField]] = None
+    Columns: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class RadarChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Color: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class RadarChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Category: Optional[List[DimensionField]] = None
+    Color: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class RadarChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Color: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class RadarChartAggregatedFieldWells(BaseValidatorModel):
+    Category: Optional[Sequence[DimensionField]] = None
+    Color: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class SankeyDiagramAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Source: Optional[List[DimensionFieldTypeDef]] = None
-    Destination: Optional[List[DimensionFieldTypeDef]] = None
-    Weight: Optional[List[MeasureFieldTypeDef]] = None
+class SankeyDiagramAggregatedFieldWellsOutput(BaseValidatorModel):
+    Source: Optional[List[DimensionField]] = None
+    Destination: Optional[List[DimensionField]] = None
+    Weight: Optional[List[MeasureField]] = None
 
 
-class SankeyDiagramAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Source: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Destination: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Weight: Optional[Sequence[MeasureFieldTypeDef]] = None
+class SankeyDiagramAggregatedFieldWells(BaseValidatorModel):
+    Source: Optional[Sequence[DimensionField]] = None
+    Destination: Optional[Sequence[DimensionField]] = None
+    Weight: Optional[Sequence[MeasureField]] = None
 
 
-class ScatterPlotCategoricallyAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    XAxis: Optional[List[MeasureFieldTypeDef]] = None
-    YAxis: Optional[List[MeasureFieldTypeDef]] = None
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Size: Optional[List[MeasureFieldTypeDef]] = None
-    Label: Optional[List[DimensionFieldTypeDef]] = None
+class ScatterPlotCategoricallyAggregatedFieldWellsOutput(BaseValidatorModel):
+    XAxis: Optional[List[MeasureField]] = None
+    YAxis: Optional[List[MeasureField]] = None
+    Category: Optional[List[DimensionField]] = None
+    Size: Optional[List[MeasureField]] = None
+    Label: Optional[List[DimensionField]] = None
 
 
-class ScatterPlotCategoricallyAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    XAxis: Optional[Sequence[MeasureFieldTypeDef]] = None
-    YAxis: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Size: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Label: Optional[Sequence[DimensionFieldTypeDef]] = None
+class ScatterPlotCategoricallyAggregatedFieldWells(BaseValidatorModel):
+    XAxis: Optional[Sequence[MeasureField]] = None
+    YAxis: Optional[Sequence[MeasureField]] = None
+    Category: Optional[Sequence[DimensionField]] = None
+    Size: Optional[Sequence[MeasureField]] = None
+    Label: Optional[Sequence[DimensionField]] = None
 
 
-class ScatterPlotUnaggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    XAxis: Optional[List[DimensionFieldTypeDef]] = None
-    YAxis: Optional[List[DimensionFieldTypeDef]] = None
-    Size: Optional[List[MeasureFieldTypeDef]] = None
-    Category: Optional[List[DimensionFieldTypeDef]] = None
-    Label: Optional[List[DimensionFieldTypeDef]] = None
+class ScatterPlotUnaggregatedFieldWellsOutput(BaseValidatorModel):
+    XAxis: Optional[List[DimensionField]] = None
+    YAxis: Optional[List[DimensionField]] = None
+    Size: Optional[List[MeasureField]] = None
+    Category: Optional[List[DimensionField]] = None
+    Label: Optional[List[DimensionField]] = None
 
 
-class ScatterPlotUnaggregatedFieldWellsTypeDef(BaseValidatorModel):
-    XAxis: Optional[Sequence[DimensionFieldTypeDef]] = None
-    YAxis: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Size: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Category: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Label: Optional[Sequence[DimensionFieldTypeDef]] = None
+class ScatterPlotUnaggregatedFieldWells(BaseValidatorModel):
+    XAxis: Optional[Sequence[DimensionField]] = None
+    YAxis: Optional[Sequence[DimensionField]] = None
+    Size: Optional[Sequence[MeasureField]] = None
+    Category: Optional[Sequence[DimensionField]] = None
+    Label: Optional[Sequence[DimensionField]] = None
 
 
-class TableAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    GroupBy: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
+class TableAggregatedFieldWellsOutput(BaseValidatorModel):
+    GroupBy: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
 
 
-class TableAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    GroupBy: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
+class TableAggregatedFieldWells(BaseValidatorModel):
+    GroupBy: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
 
 
-class TotalAggregationComputationTypeDef(BaseValidatorModel):
+class TotalAggregationComputation(BaseValidatorModel):
     ComputationId: str
     Name: Optional[str] = None
-    Value: Optional[MeasureFieldTypeDef] = None
+    Value: Optional[MeasureField] = None
 
 
-class TreeMapAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Groups: Optional[List[DimensionFieldTypeDef]] = None
-    Sizes: Optional[List[MeasureFieldTypeDef]] = None
-    Colors: Optional[List[MeasureFieldTypeDef]] = None
+class TreeMapAggregatedFieldWellsOutput(BaseValidatorModel):
+    Groups: Optional[List[DimensionField]] = None
+    Sizes: Optional[List[MeasureField]] = None
+    Colors: Optional[List[MeasureField]] = None
 
 
-class TreeMapAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Groups: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Sizes: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Colors: Optional[Sequence[MeasureFieldTypeDef]] = None
+class TreeMapAggregatedFieldWells(BaseValidatorModel):
+    Groups: Optional[Sequence[DimensionField]] = None
+    Sizes: Optional[Sequence[MeasureField]] = None
+    Colors: Optional[Sequence[MeasureField]] = None
 
 
-class WaterfallChartAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Categories: Optional[List[DimensionFieldTypeDef]] = None
-    Values: Optional[List[MeasureFieldTypeDef]] = None
-    Breakdowns: Optional[List[DimensionFieldTypeDef]] = None
+class WaterfallChartAggregatedFieldWellsOutput(BaseValidatorModel):
+    Categories: Optional[List[DimensionField]] = None
+    Values: Optional[List[MeasureField]] = None
+    Breakdowns: Optional[List[DimensionField]] = None
 
 
-class WaterfallChartAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Categories: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Values: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Breakdowns: Optional[Sequence[DimensionFieldTypeDef]] = None
+class WaterfallChartAggregatedFieldWells(BaseValidatorModel):
+    Categories: Optional[Sequence[DimensionField]] = None
+    Values: Optional[Sequence[MeasureField]] = None
+    Breakdowns: Optional[Sequence[DimensionField]] = None
 
 
-class WordCloudAggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    GroupBy: Optional[List[DimensionFieldTypeDef]] = None
-    Size: Optional[List[MeasureFieldTypeDef]] = None
+class WordCloudAggregatedFieldWellsOutput(BaseValidatorModel):
+    GroupBy: Optional[List[DimensionField]] = None
+    Size: Optional[List[MeasureField]] = None
 
 
-class WordCloudAggregatedFieldWellsTypeDef(BaseValidatorModel):
-    GroupBy: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Size: Optional[Sequence[MeasureFieldTypeDef]] = None
+class WordCloudAggregatedFieldWells(BaseValidatorModel):
+    GroupBy: Optional[Sequence[DimensionField]] = None
+    Size: Optional[Sequence[MeasureField]] = None
 
 
-class PluginVisualFieldWellOutputTypeDef(BaseValidatorModel):
+class PluginVisualFieldWellOutput(BaseValidatorModel):
     AxisName: Optional[PluginVisualAxisNameType] = None
-    Dimensions: Optional[List[DimensionFieldTypeDef]] = None
-    Measures: Optional[List[MeasureFieldTypeDef]] = None
-    Unaggregated: Optional[List[UnaggregatedFieldTypeDef]] = None
+    Dimensions: Optional[List[DimensionField]] = None
+    Measures: Optional[List[MeasureField]] = None
+    Unaggregated: Optional[List[UnaggregatedField]] = None
 
 
-class PluginVisualFieldWellTypeDef(BaseValidatorModel):
+class PluginVisualFieldWell(BaseValidatorModel):
     AxisName: Optional[PluginVisualAxisNameType] = None
-    Dimensions: Optional[Sequence[DimensionFieldTypeDef]] = None
-    Measures: Optional[Sequence[MeasureFieldTypeDef]] = None
-    Unaggregated: Optional[Sequence[UnaggregatedFieldTypeDef]] = None
+    Dimensions: Optional[Sequence[DimensionField]] = None
+    Measures: Optional[Sequence[MeasureField]] = None
+    Unaggregated: Optional[Sequence[UnaggregatedField]] = None
 
 
-class TableUnaggregatedFieldWellsOutputTypeDef(BaseValidatorModel):
-    Values: Optional[List[UnaggregatedFieldTypeDef]] = None
+class TableUnaggregatedFieldWellsOutput(BaseValidatorModel):
+    Values: Optional[List[UnaggregatedField]] = None
 
 
-class TableUnaggregatedFieldWellsTypeDef(BaseValidatorModel):
-    Values: Optional[Sequence[UnaggregatedFieldTypeDef]] = None
+class TableUnaggregatedFieldWells(BaseValidatorModel):
+    Values: Optional[Sequence[UnaggregatedField]] = None
 
 
-class BodySectionConfigurationOutputTypeDef(BaseValidatorModel):
+class BodySectionConfigurationOutput(BaseValidatorModel):
     SectionId: str
-    Content: BodySectionContentOutputTypeDef
-    Style: Optional[SectionStyleTypeDef] = None
-    PageBreakConfiguration: Optional[SectionPageBreakConfigurationTypeDef] = None
-    RepeatConfiguration: Optional[BodySectionRepeatConfigurationOutputTypeDef] = None
+    Content: BodySectionContentOutput
+    Style: Optional[SectionStyle] = None
+    PageBreakConfiguration: Optional[SectionPageBreakConfiguration] = None
+    RepeatConfiguration: Optional[BodySectionRepeatConfigurationOutput] = None
 
 
-class BodySectionConfigurationTypeDef(BaseValidatorModel):
+class BodySectionConfiguration(BaseValidatorModel):
     SectionId: str
-    Content: BodySectionContentTypeDef
-    Style: Optional[SectionStyleTypeDef] = None
-    PageBreakConfiguration: Optional[SectionPageBreakConfigurationTypeDef] = None
-    RepeatConfiguration: Optional[BodySectionRepeatConfigurationTypeDef] = None
+    Content: BodySectionContent
+    Style: Optional[SectionStyle] = None
+    PageBreakConfiguration: Optional[SectionPageBreakConfiguration] = None
+    RepeatConfiguration: Optional[BodySectionRepeatConfiguration] = None
 
 
-class TopicDetailsUnionTypeDef(BaseValidatorModel):
+class TopicDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateTopicRequestTypeDef(BaseValidatorModel):
+class CreateTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
-    Topic: TopicDetailsUnionTypeDef
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Topic: TopicDetailsUnion
+    Tags: Optional[Sequence[Tag]] = None
     FolderArns: Optional[Sequence[str]] = None
 
 
-class UpdateTopicRequestTypeDef(BaseValidatorModel):
+class UpdateTopicRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
-    Topic: TopicDetailsUnionTypeDef
+    Topic: TopicDetailsUnion
 
 
-class DataSourceCredentialsTypeDef(BaseValidatorModel):
-    CredentialPair: Optional[CredentialPairTypeDef] = None
+class DataSourceCredentials(BaseValidatorModel):
+    CredentialPair: Optional[CredentialPair] = None
     CopySourceArn: Optional[str] = None
     SecretArn: Optional[str] = None
 
 
-class SheetImageTypeDef(BaseValidatorModel):
+class SheetImage(BaseValidatorModel):
     SheetImageId: str
-    Source: SheetImageSourceTypeDef
-    Scaling: Optional[SheetImageScalingConfigurationTypeDef] = None
-    Tooltip: Optional[SheetImageTooltipConfigurationTypeDef] = None
+    Source: SheetImageSource
+    Scaling: Optional[SheetImageScalingConfiguration] = None
+    Tooltip: Optional[SheetImageTooltipConfiguration] = None
     ImageContentAltText: Optional[str] = None
-    Interactions: Optional[ImageInteractionOptionsTypeDef] = None
-    Actions: Optional[Sequence[ImageCustomActionTypeDef]] = None
+    Interactions: Optional[ImageInteractionOptions] = None
+    Actions: Optional[Sequence[ImageCustomAction]] = None
 
 
-class CustomContentVisualTypeDef(BaseValidatorModel):
+class CustomContentVisual(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[CustomContentConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[CustomContentConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class EmptyVisualTypeDef(BaseValidatorModel):
+class EmptyVisual(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
 
 
-class SheetTypeDef(BaseValidatorModel):
+class Sheet(BaseValidatorModel):
     SheetId: Optional[str] = None
     Name: Optional[str] = None
-    Images: Optional[List[SheetImageOutputTypeDef]] = None
+    Images: Optional[List[SheetImageOutput]] = None
 
 
-class ListTopicReviewedAnswersResponseTypeDef(BaseValidatorModel):
+class ListTopicReviewedAnswersResponse(BaseValidatorModel):
     TopicId: str
     TopicArn: str
-    Answers: List[TopicReviewedAnswerTypeDef]
+    Answers: List[TopicReviewedAnswer]
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InnerFilterOutputTypeDef(BaseValidatorModel):
-    CategoryInnerFilter: Optional[CategoryInnerFilterOutputTypeDef] = None
+class InnerFilterOutput(BaseValidatorModel):
+    CategoryInnerFilter: Optional[CategoryInnerFilterOutput] = None
 
 
-class InnerFilterTypeDef(BaseValidatorModel):
-    CategoryInnerFilter: Optional[CategoryInnerFilterTypeDef] = None
+class InnerFilter(BaseValidatorModel):
+    CategoryInnerFilter: Optional[CategoryInnerFilter] = None
 
 
-class BarChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    BarChartAggregatedFieldWells: Optional[BarChartAggregatedFieldWellsOutputTypeDef] = None
+class BarChartFieldWellsOutput(BaseValidatorModel):
+    BarChartAggregatedFieldWells: Optional[BarChartAggregatedFieldWellsOutput] = None
 
 
-class BarChartFieldWellsTypeDef(BaseValidatorModel):
-    BarChartAggregatedFieldWells: Optional[BarChartAggregatedFieldWellsTypeDef] = None
+class BarChartFieldWells(BaseValidatorModel):
+    BarChartAggregatedFieldWells: Optional[BarChartAggregatedFieldWells] = None
 
 
-class BoxPlotFieldWellsOutputTypeDef(BaseValidatorModel):
-    BoxPlotAggregatedFieldWells: Optional[BoxPlotAggregatedFieldWellsOutputTypeDef] = None
+class BoxPlotFieldWellsOutput(BaseValidatorModel):
+    BoxPlotAggregatedFieldWells: Optional[BoxPlotAggregatedFieldWellsOutput] = None
 
 
-class BoxPlotFieldWellsTypeDef(BaseValidatorModel):
-    BoxPlotAggregatedFieldWells: Optional[BoxPlotAggregatedFieldWellsTypeDef] = None
+class BoxPlotFieldWells(BaseValidatorModel):
+    BoxPlotAggregatedFieldWells: Optional[BoxPlotAggregatedFieldWells] = None
 
 
-class ComboChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    ComboChartAggregatedFieldWells: Optional[ComboChartAggregatedFieldWellsOutputTypeDef] = None
+class ComboChartFieldWellsOutput(BaseValidatorModel):
+    ComboChartAggregatedFieldWells: Optional[ComboChartAggregatedFieldWellsOutput] = None
 
 
-class ComboChartFieldWellsTypeDef(BaseValidatorModel):
-    ComboChartAggregatedFieldWells: Optional[ComboChartAggregatedFieldWellsTypeDef] = None
+class ComboChartFieldWells(BaseValidatorModel):
+    ComboChartAggregatedFieldWells: Optional[ComboChartAggregatedFieldWells] = None
 
 
-class FilledMapFieldWellsOutputTypeDef(BaseValidatorModel):
-    FilledMapAggregatedFieldWells: Optional[FilledMapAggregatedFieldWellsOutputTypeDef] = None
+class FilledMapFieldWellsOutput(BaseValidatorModel):
+    FilledMapAggregatedFieldWells: Optional[FilledMapAggregatedFieldWellsOutput] = None
 
 
-class FilledMapFieldWellsTypeDef(BaseValidatorModel):
-    FilledMapAggregatedFieldWells: Optional[FilledMapAggregatedFieldWellsTypeDef] = None
+class FilledMapFieldWells(BaseValidatorModel):
+    FilledMapAggregatedFieldWells: Optional[FilledMapAggregatedFieldWells] = None
 
 
-class FunnelChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    FunnelChartAggregatedFieldWells: Optional[FunnelChartAggregatedFieldWellsOutputTypeDef] = None
+class FunnelChartFieldWellsOutput(BaseValidatorModel):
+    FunnelChartAggregatedFieldWells: Optional[FunnelChartAggregatedFieldWellsOutput] = None
 
 
-class FunnelChartFieldWellsTypeDef(BaseValidatorModel):
-    FunnelChartAggregatedFieldWells: Optional[FunnelChartAggregatedFieldWellsTypeDef] = None
+class FunnelChartFieldWells(BaseValidatorModel):
+    FunnelChartAggregatedFieldWells: Optional[FunnelChartAggregatedFieldWells] = None
 
 
-class GaugeChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[GaugeChartFieldWellsOutputTypeDef] = None
-    GaugeChartOptions: Optional[GaugeChartOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    TooltipOptions: Optional[TooltipOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    ColorConfiguration: Optional[GaugeChartColorConfigurationTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GaugeChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[GaugeChartFieldWellsOutput] = None
+    GaugeChartOptions: Optional[GaugeChartOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    TooltipOptions: Optional[TooltipOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    ColorConfiguration: Optional[GaugeChartColorConfiguration] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GaugeChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[GaugeChartFieldWellsTypeDef] = None
-    GaugeChartOptions: Optional[GaugeChartOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    TooltipOptions: Optional[TooltipOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    ColorConfiguration: Optional[GaugeChartColorConfigurationTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GaugeChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[GaugeChartFieldWells] = None
+    GaugeChartOptions: Optional[GaugeChartOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    TooltipOptions: Optional[TooltipOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    ColorConfiguration: Optional[GaugeChartColorConfiguration] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GeospatialLayerJoinDefinitionOutputTypeDef(BaseValidatorModel):
+class GeospatialLayerJoinDefinitionOutput(BaseValidatorModel):
     ShapeKeyField: Optional[str] = None
-    DatasetKeyField: Optional[UnaggregatedFieldTypeDef] = None
-    ColorField: Optional[GeospatialLayerColorFieldOutputTypeDef] = None
+    DatasetKeyField: Optional[UnaggregatedField] = None
+    ColorField: Optional[GeospatialLayerColorFieldOutput] = None
 
 
-class GeospatialLayerJoinDefinitionTypeDef(BaseValidatorModel):
+class GeospatialLayerJoinDefinition(BaseValidatorModel):
     ShapeKeyField: Optional[str] = None
-    DatasetKeyField: Optional[UnaggregatedFieldTypeDef] = None
-    ColorField: Optional[GeospatialLayerColorFieldTypeDef] = None
+    DatasetKeyField: Optional[UnaggregatedField] = None
+    ColorField: Optional[GeospatialLayerColorField] = None
 
 
-class GeospatialMapFieldWellsOutputTypeDef(BaseValidatorModel):
-    GeospatialMapAggregatedFieldWells: Optional[GeospatialMapAggregatedFieldWellsOutputTypeDef] = None
+class GeospatialMapFieldWellsOutput(BaseValidatorModel):
+    GeospatialMapAggregatedFieldWells: Optional[GeospatialMapAggregatedFieldWellsOutput] = None
 
 
-class GeospatialMapFieldWellsTypeDef(BaseValidatorModel):
-    GeospatialMapAggregatedFieldWells: Optional[GeospatialMapAggregatedFieldWellsTypeDef] = None
+class GeospatialMapFieldWells(BaseValidatorModel):
+    GeospatialMapAggregatedFieldWells: Optional[GeospatialMapAggregatedFieldWells] = None
 
 
-class HeatMapFieldWellsOutputTypeDef(BaseValidatorModel):
-    HeatMapAggregatedFieldWells: Optional[HeatMapAggregatedFieldWellsOutputTypeDef] = None
+class HeatMapFieldWellsOutput(BaseValidatorModel):
+    HeatMapAggregatedFieldWells: Optional[HeatMapAggregatedFieldWellsOutput] = None
 
 
-class HeatMapFieldWellsTypeDef(BaseValidatorModel):
-    HeatMapAggregatedFieldWells: Optional[HeatMapAggregatedFieldWellsTypeDef] = None
+class HeatMapFieldWells(BaseValidatorModel):
+    HeatMapAggregatedFieldWells: Optional[HeatMapAggregatedFieldWells] = None
 
 
-class HistogramFieldWellsOutputTypeDef(BaseValidatorModel):
-    HistogramAggregatedFieldWells: Optional[HistogramAggregatedFieldWellsOutputTypeDef] = None
+class HistogramFieldWellsOutput(BaseValidatorModel):
+    HistogramAggregatedFieldWells: Optional[HistogramAggregatedFieldWellsOutput] = None
 
 
-class HistogramFieldWellsTypeDef(BaseValidatorModel):
-    HistogramAggregatedFieldWells: Optional[HistogramAggregatedFieldWellsTypeDef] = None
+class HistogramFieldWells(BaseValidatorModel):
+    HistogramAggregatedFieldWells: Optional[HistogramAggregatedFieldWells] = None
 
 
-class KPIConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[KPIFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[KPISortConfigurationOutputTypeDef] = None
-    KPIOptions: Optional[KPIOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class KPIConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[KPIFieldWellsOutput] = None
+    SortConfiguration: Optional[KPISortConfigurationOutput] = None
+    KPIOptions: Optional[KPIOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class KPIConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[KPIFieldWellsTypeDef] = None
-    SortConfiguration: Optional[KPISortConfigurationTypeDef] = None
-    KPIOptions: Optional[KPIOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class KPIConfiguration(BaseValidatorModel):
+    FieldWells: Optional[KPIFieldWells] = None
+    SortConfiguration: Optional[KPISortConfiguration] = None
+    KPIOptions: Optional[KPIOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class LineChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    LineChartAggregatedFieldWells: Optional[LineChartAggregatedFieldWellsOutputTypeDef] = None
+class LineChartFieldWellsOutput(BaseValidatorModel):
+    LineChartAggregatedFieldWells: Optional[LineChartAggregatedFieldWellsOutput] = None
 
 
-class LineChartFieldWellsTypeDef(BaseValidatorModel):
-    LineChartAggregatedFieldWells: Optional[LineChartAggregatedFieldWellsTypeDef] = None
+class LineChartFieldWells(BaseValidatorModel):
+    LineChartAggregatedFieldWells: Optional[LineChartAggregatedFieldWells] = None
 
 
-class PieChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    PieChartAggregatedFieldWells: Optional[PieChartAggregatedFieldWellsOutputTypeDef] = None
+class PieChartFieldWellsOutput(BaseValidatorModel):
+    PieChartAggregatedFieldWells: Optional[PieChartAggregatedFieldWellsOutput] = None
 
 
-class PieChartFieldWellsTypeDef(BaseValidatorModel):
-    PieChartAggregatedFieldWells: Optional[PieChartAggregatedFieldWellsTypeDef] = None
+class PieChartFieldWells(BaseValidatorModel):
+    PieChartAggregatedFieldWells: Optional[PieChartAggregatedFieldWells] = None
 
 
-class PivotTableFieldWellsOutputTypeDef(BaseValidatorModel):
-    PivotTableAggregatedFieldWells: Optional[PivotTableAggregatedFieldWellsOutputTypeDef] = None
+class PivotTableFieldWellsOutput(BaseValidatorModel):
+    PivotTableAggregatedFieldWells: Optional[PivotTableAggregatedFieldWellsOutput] = None
 
 
-class PivotTableFieldWellsTypeDef(BaseValidatorModel):
-    PivotTableAggregatedFieldWells: Optional[PivotTableAggregatedFieldWellsTypeDef] = None
+class PivotTableFieldWells(BaseValidatorModel):
+    PivotTableAggregatedFieldWells: Optional[PivotTableAggregatedFieldWells] = None
 
 
-class RadarChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    RadarChartAggregatedFieldWells: Optional[RadarChartAggregatedFieldWellsOutputTypeDef] = None
+class RadarChartFieldWellsOutput(BaseValidatorModel):
+    RadarChartAggregatedFieldWells: Optional[RadarChartAggregatedFieldWellsOutput] = None
 
 
-class RadarChartFieldWellsTypeDef(BaseValidatorModel):
-    RadarChartAggregatedFieldWells: Optional[RadarChartAggregatedFieldWellsTypeDef] = None
+class RadarChartFieldWells(BaseValidatorModel):
+    RadarChartAggregatedFieldWells: Optional[RadarChartAggregatedFieldWells] = None
 
 
-class SankeyDiagramFieldWellsOutputTypeDef(BaseValidatorModel):
-    SankeyDiagramAggregatedFieldWells: Optional[SankeyDiagramAggregatedFieldWellsOutputTypeDef] = None
+class SankeyDiagramFieldWellsOutput(BaseValidatorModel):
+    SankeyDiagramAggregatedFieldWells: Optional[SankeyDiagramAggregatedFieldWellsOutput] = None
 
 
-class SankeyDiagramFieldWellsTypeDef(BaseValidatorModel):
-    SankeyDiagramAggregatedFieldWells: Optional[SankeyDiagramAggregatedFieldWellsTypeDef] = None
+class SankeyDiagramFieldWells(BaseValidatorModel):
+    SankeyDiagramAggregatedFieldWells: Optional[SankeyDiagramAggregatedFieldWells] = None
 
 
-class ScatterPlotFieldWellsOutputTypeDef(BaseValidatorModel):
-    ScatterPlotCategoricallyAggregatedFieldWells: Optional[ ScatterPlotCategoricallyAggregatedFieldWellsOutputTypeDef ] = None
-    ScatterPlotUnaggregatedFieldWells: Optional[ScatterPlotUnaggregatedFieldWellsOutputTypeDef] = None
+class ScatterPlotFieldWellsOutput(BaseValidatorModel):
+    ScatterPlotCategoricallyAggregatedFieldWells: Optional[ ScatterPlotCategoricallyAggregatedFieldWellsOutput ] = None
+    ScatterPlotUnaggregatedFieldWells: Optional[ScatterPlotUnaggregatedFieldWellsOutput] = None
 
 
-class ScatterPlotFieldWellsTypeDef(BaseValidatorModel):
-    ScatterPlotCategoricallyAggregatedFieldWells: Optional[ ScatterPlotCategoricallyAggregatedFieldWellsTypeDef ] = None
-    ScatterPlotUnaggregatedFieldWells: Optional[ScatterPlotUnaggregatedFieldWellsTypeDef] = None
+class ScatterPlotFieldWells(BaseValidatorModel):
+    ScatterPlotCategoricallyAggregatedFieldWells: Optional[ ScatterPlotCategoricallyAggregatedFieldWells ] = None
+    ScatterPlotUnaggregatedFieldWells: Optional[ScatterPlotUnaggregatedFieldWells] = None
 
 
-class TopBottomMoversComputationTypeDef(BaseValidatorModel):
+class TopBottomMoversComputation(BaseValidatorModel):
     pass
 
 
-class MaximumMinimumComputationTypeDef(BaseValidatorModel):
+class MaximumMinimumComputation(BaseValidatorModel):
     pass
 
 
-class TopBottomRankedComputationTypeDef(BaseValidatorModel):
+class TopBottomRankedComputation(BaseValidatorModel):
     pass
 
 
-class ComputationTypeDef(BaseValidatorModel):
-    TopBottomRanked: Optional[TopBottomRankedComputationTypeDef] = None
-    TopBottomMovers: Optional[TopBottomMoversComputationTypeDef] = None
-    TotalAggregation: Optional[TotalAggregationComputationTypeDef] = None
-    MaximumMinimum: Optional[MaximumMinimumComputationTypeDef] = None
-    MetricComparison: Optional[MetricComparisonComputationTypeDef] = None
-    PeriodOverPeriod: Optional[PeriodOverPeriodComputationTypeDef] = None
-    PeriodToDate: Optional[PeriodToDateComputationTypeDef] = None
-    GrowthRate: Optional[GrowthRateComputationTypeDef] = None
-    UniqueValues: Optional[UniqueValuesComputationTypeDef] = None
-    Forecast: Optional[ForecastComputationTypeDef] = None
+class Computation(BaseValidatorModel):
+    TopBottomRanked: Optional[TopBottomRankedComputation] = None
+    TopBottomMovers: Optional[TopBottomMoversComputation] = None
+    TotalAggregation: Optional[TotalAggregationComputation] = None
+    MaximumMinimum: Optional[MaximumMinimumComputation] = None
+    MetricComparison: Optional[MetricComparisonComputation] = None
+    PeriodOverPeriod: Optional[PeriodOverPeriodComputation] = None
+    PeriodToDate: Optional[PeriodToDateComputation] = None
+    GrowthRate: Optional[GrowthRateComputation] = None
+    UniqueValues: Optional[UniqueValuesComputation] = None
+    Forecast: Optional[ForecastComputation] = None
 
 
-class TreeMapFieldWellsOutputTypeDef(BaseValidatorModel):
-    TreeMapAggregatedFieldWells: Optional[TreeMapAggregatedFieldWellsOutputTypeDef] = None
+class TreeMapFieldWellsOutput(BaseValidatorModel):
+    TreeMapAggregatedFieldWells: Optional[TreeMapAggregatedFieldWellsOutput] = None
 
 
-class TreeMapFieldWellsTypeDef(BaseValidatorModel):
-    TreeMapAggregatedFieldWells: Optional[TreeMapAggregatedFieldWellsTypeDef] = None
+class TreeMapFieldWells(BaseValidatorModel):
+    TreeMapAggregatedFieldWells: Optional[TreeMapAggregatedFieldWells] = None
 
 
-class WaterfallChartFieldWellsOutputTypeDef(BaseValidatorModel):
-    WaterfallChartAggregatedFieldWells: Optional[WaterfallChartAggregatedFieldWellsOutputTypeDef] = None
+class WaterfallChartFieldWellsOutput(BaseValidatorModel):
+    WaterfallChartAggregatedFieldWells: Optional[WaterfallChartAggregatedFieldWellsOutput] = None
 
 
-class WaterfallChartFieldWellsTypeDef(BaseValidatorModel):
-    WaterfallChartAggregatedFieldWells: Optional[WaterfallChartAggregatedFieldWellsTypeDef] = None
+class WaterfallChartFieldWells(BaseValidatorModel):
+    WaterfallChartAggregatedFieldWells: Optional[WaterfallChartAggregatedFieldWells] = None
 
 
-class WordCloudFieldWellsOutputTypeDef(BaseValidatorModel):
-    WordCloudAggregatedFieldWells: Optional[WordCloudAggregatedFieldWellsOutputTypeDef] = None
+class WordCloudFieldWellsOutput(BaseValidatorModel):
+    WordCloudAggregatedFieldWells: Optional[WordCloudAggregatedFieldWellsOutput] = None
 
 
-class WordCloudFieldWellsTypeDef(BaseValidatorModel):
-    WordCloudAggregatedFieldWells: Optional[WordCloudAggregatedFieldWellsTypeDef] = None
+class WordCloudFieldWells(BaseValidatorModel):
+    WordCloudAggregatedFieldWells: Optional[WordCloudAggregatedFieldWells] = None
 
 
-class PluginVisualConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[List[PluginVisualFieldWellOutputTypeDef]] = None
-    VisualOptions: Optional[PluginVisualOptionsOutputTypeDef] = None
-    SortConfiguration: Optional[PluginVisualSortConfigurationOutputTypeDef] = None
+class PluginVisualConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[List[PluginVisualFieldWellOutput]] = None
+    VisualOptions: Optional[PluginVisualOptionsOutput] = None
+    SortConfiguration: Optional[PluginVisualSortConfigurationOutput] = None
 
 
-class PluginVisualConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[Sequence[PluginVisualFieldWellTypeDef]] = None
-    VisualOptions: Optional[PluginVisualOptionsTypeDef] = None
-    SortConfiguration: Optional[PluginVisualSortConfigurationTypeDef] = None
+class PluginVisualConfiguration(BaseValidatorModel):
+    FieldWells: Optional[Sequence[PluginVisualFieldWell]] = None
+    VisualOptions: Optional[PluginVisualOptions] = None
+    SortConfiguration: Optional[PluginVisualSortConfiguration] = None
 
 
-class TableFieldWellsOutputTypeDef(BaseValidatorModel):
-    TableAggregatedFieldWells: Optional[TableAggregatedFieldWellsOutputTypeDef] = None
-    TableUnaggregatedFieldWells: Optional[TableUnaggregatedFieldWellsOutputTypeDef] = None
+class TableFieldWellsOutput(BaseValidatorModel):
+    TableAggregatedFieldWells: Optional[TableAggregatedFieldWellsOutput] = None
+    TableUnaggregatedFieldWells: Optional[TableUnaggregatedFieldWellsOutput] = None
 
 
-class TableFieldWellsTypeDef(BaseValidatorModel):
-    TableAggregatedFieldWells: Optional[TableAggregatedFieldWellsTypeDef] = None
-    TableUnaggregatedFieldWells: Optional[TableUnaggregatedFieldWellsTypeDef] = None
+class TableFieldWells(BaseValidatorModel):
+    TableAggregatedFieldWells: Optional[TableAggregatedFieldWells] = None
+    TableUnaggregatedFieldWells: Optional[TableUnaggregatedFieldWells] = None
 
 
-class SectionBasedLayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    HeaderSections: List[HeaderFooterSectionConfigurationOutputTypeDef]
-    BodySections: List[BodySectionConfigurationOutputTypeDef]
-    FooterSections: List[HeaderFooterSectionConfigurationOutputTypeDef]
-    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptionsTypeDef
+class SectionBasedLayoutConfigurationOutput(BaseValidatorModel):
+    HeaderSections: List[HeaderFooterSectionConfigurationOutput]
+    BodySections: List[BodySectionConfigurationOutput]
+    FooterSections: List[HeaderFooterSectionConfigurationOutput]
+    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions
 
 
-class SectionBasedLayoutConfigurationTypeDef(BaseValidatorModel):
-    HeaderSections: Sequence[HeaderFooterSectionConfigurationTypeDef]
-    BodySections: Sequence[BodySectionConfigurationTypeDef]
-    FooterSections: Sequence[HeaderFooterSectionConfigurationTypeDef]
-    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptionsTypeDef
+class SectionBasedLayoutConfiguration(BaseValidatorModel):
+    HeaderSections: Sequence[HeaderFooterSectionConfiguration]
+    BodySections: Sequence[BodySectionConfiguration]
+    FooterSections: Sequence[HeaderFooterSectionConfiguration]
+    CanvasSizeOptions: SectionBasedLayoutCanvasSizeOptions
 
 
-class AssetBundleImportJobOverridePermissionsUnionTypeDef(BaseValidatorModel):
+class AssetBundleImportJobOverridePermissionsUnion(BaseValidatorModel):
     pass
 
 
-class AssetBundleImportJobOverrideParametersUnionTypeDef(BaseValidatorModel):
+class AssetBundleImportJobOverrideParametersUnion(BaseValidatorModel):
     pass
 
 
-class AssetBundleImportJobOverrideTagsUnionTypeDef(BaseValidatorModel):
+class AssetBundleImportJobOverrideTagsUnion(BaseValidatorModel):
     pass
 
 
-class StartAssetBundleImportJobRequestTypeDef(BaseValidatorModel):
+class StartAssetBundleImportJobRequest(BaseValidatorModel):
     AwsAccountId: str
     AssetBundleImportJobId: str
-    AssetBundleImportSource: AssetBundleImportSourceTypeDef
-    OverrideParameters: Optional[AssetBundleImportJobOverrideParametersUnionTypeDef] = None
+    AssetBundleImportSource: AssetBundleImportSource
+    OverrideParameters: Optional[AssetBundleImportJobOverrideParametersUnion] = None
     FailureAction: Optional[AssetBundleImportFailureActionType] = None
-    OverridePermissions: Optional[AssetBundleImportJobOverridePermissionsUnionTypeDef] = None
-    OverrideTags: Optional[AssetBundleImportJobOverrideTagsUnionTypeDef] = None
-    OverrideValidationStrategy: Optional[AssetBundleImportJobOverrideValidationStrategyTypeDef] = None
+    OverridePermissions: Optional[AssetBundleImportJobOverridePermissionsUnion] = None
+    OverrideTags: Optional[AssetBundleImportJobOverrideTagsUnion] = None
+    OverrideValidationStrategy: Optional[AssetBundleImportJobOverrideValidationStrategy] = None
 
 
-class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
+class UpdateDataSourceRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSourceId: str
     Name: str
-    DataSourceParameters: Optional[DataSourceParametersUnionTypeDef] = None
-    Credentials: Optional[DataSourceCredentialsTypeDef] = None
-    VpcConnectionProperties: Optional[VpcConnectionPropertiesTypeDef] = None
-    SslProperties: Optional[SslPropertiesTypeDef] = None
+    DataSourceParameters: Optional[DataSourceParametersUnion] = None
+    Credentials: Optional[DataSourceCredentials] = None
+    VpcConnectionProperties: Optional[VpcConnectionProperties] = None
+    SslProperties: Optional[SslProperties] = None
 
 
-class DatasetParameterUnionTypeDef(BaseValidatorModel):
+class DatasetParameterUnion(BaseValidatorModel):
     pass
 
 
-class ColumnLevelPermissionRuleUnionTypeDef(BaseValidatorModel):
+class ColumnLevelPermissionRuleUnion(BaseValidatorModel):
     pass
 
 
-class RowLevelPermissionTagConfigurationUnionTypeDef(BaseValidatorModel):
+class RowLevelPermissionTagConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PerformanceConfigurationUnionTypeDef(BaseValidatorModel):
+class PerformanceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class LogicalTableUnionTypeDef(BaseValidatorModel):
+class LogicalTableUnion(BaseValidatorModel):
     pass
 
 
-class FieldFolderUnionTypeDef(BaseValidatorModel):
+class FieldFolderUnion(BaseValidatorModel):
     pass
 
 
-class ColumnGroupUnionTypeDef(BaseValidatorModel):
+class ColumnGroupUnion(BaseValidatorModel):
     pass
 
 
-class PhysicalTableUnionTypeDef(BaseValidatorModel):
+class PhysicalTableUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataSetRequestTypeDef(BaseValidatorModel):
+class CreateDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     Name: str
-    PhysicalTableMap: Mapping[str, PhysicalTableUnionTypeDef]
+    PhysicalTableMap: Mapping[str, PhysicalTableUnion]
     ImportMode: DataSetImportModeType
-    LogicalTableMap: Optional[Mapping[str, LogicalTableUnionTypeDef]] = None
-    ColumnGroups: Optional[Sequence[ColumnGroupUnionTypeDef]] = None
-    FieldFolders: Optional[Mapping[str, FieldFolderUnionTypeDef]] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSetTypeDef] = None
-    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationUnionTypeDef] = None
-    ColumnLevelPermissionRules: Optional[Sequence[ColumnLevelPermissionRuleUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    DataSetUsageConfiguration: Optional[DataSetUsageConfigurationTypeDef] = None
-    DatasetParameters: Optional[Sequence[DatasetParameterUnionTypeDef]] = None
+    LogicalTableMap: Optional[Mapping[str, LogicalTableUnion]] = None
+    ColumnGroups: Optional[Sequence[ColumnGroupUnion]] = None
+    FieldFolders: Optional[Mapping[str, FieldFolderUnion]] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSet] = None
+    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationUnion] = None
+    ColumnLevelPermissionRules: Optional[Sequence[ColumnLevelPermissionRuleUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
+    DataSetUsageConfiguration: Optional[DataSetUsageConfiguration] = None
+    DatasetParameters: Optional[Sequence[DatasetParameterUnion]] = None
     FolderArns: Optional[Sequence[str]] = None
-    PerformanceConfiguration: Optional[PerformanceConfigurationUnionTypeDef] = None
+    PerformanceConfiguration: Optional[PerformanceConfigurationUnion] = None
 
 
-class UpdateDataSetRequestTypeDef(BaseValidatorModel):
+class UpdateDataSetRequest(BaseValidatorModel):
     AwsAccountId: str
     DataSetId: str
     Name: str
-    PhysicalTableMap: Mapping[str, PhysicalTableUnionTypeDef]
+    PhysicalTableMap: Mapping[str, PhysicalTableUnion]
     ImportMode: DataSetImportModeType
-    LogicalTableMap: Optional[Mapping[str, LogicalTableUnionTypeDef]] = None
-    ColumnGroups: Optional[Sequence[ColumnGroupUnionTypeDef]] = None
-    FieldFolders: Optional[Mapping[str, FieldFolderUnionTypeDef]] = None
-    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSetTypeDef] = None
-    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationUnionTypeDef] = None
-    ColumnLevelPermissionRules: Optional[Sequence[ColumnLevelPermissionRuleUnionTypeDef]] = None
-    DataSetUsageConfiguration: Optional[DataSetUsageConfigurationTypeDef] = None
-    DatasetParameters: Optional[Sequence[DatasetParameterUnionTypeDef]] = None
-    PerformanceConfiguration: Optional[PerformanceConfigurationUnionTypeDef] = None
+    LogicalTableMap: Optional[Mapping[str, LogicalTableUnion]] = None
+    ColumnGroups: Optional[Sequence[ColumnGroupUnion]] = None
+    FieldFolders: Optional[Mapping[str, FieldFolderUnion]] = None
+    RowLevelPermissionDataSet: Optional[RowLevelPermissionDataSet] = None
+    RowLevelPermissionTagConfiguration: Optional[RowLevelPermissionTagConfigurationUnion] = None
+    ColumnLevelPermissionRules: Optional[Sequence[ColumnLevelPermissionRuleUnion]] = None
+    DataSetUsageConfiguration: Optional[DataSetUsageConfiguration] = None
+    DatasetParameters: Optional[Sequence[DatasetParameterUnion]] = None
+    PerformanceConfiguration: Optional[PerformanceConfigurationUnion] = None
 
 
-class TopicIRContributionAnalysisUnionTypeDef(BaseValidatorModel):
+class TopicIRContributionAnalysisUnion(BaseValidatorModel):
     pass
 
 
-class TopicIRMetricUnionTypeDef(BaseValidatorModel):
+class TopicIRMetricUnion(BaseValidatorModel):
     pass
 
 
-class TopicIRTypeDef(BaseValidatorModel):
-    Metrics: Optional[Sequence[TopicIRMetricUnionTypeDef]] = None
-    GroupByList: Optional[Sequence[TopicIRGroupByTypeDef]] = None
-    Filters: Optional[Sequence[Sequence[TopicIRFilterOptionUnionTypeDef]]] = None
-    Sort: Optional[TopicSortClauseTypeDef] = None
-    ContributionAnalysis: Optional[TopicIRContributionAnalysisUnionTypeDef] = None
-    Visual: Optional[VisualOptionsTypeDef] = None
+class TopicIR(BaseValidatorModel):
+    Metrics: Optional[Sequence[TopicIRMetricUnion]] = None
+    GroupByList: Optional[Sequence[TopicIRGroupBy]] = None
+    Filters: Optional[Sequence[Sequence[TopicIRFilterOptionUnion]]] = None
+    Sort: Optional[TopicSortClause] = None
+    ContributionAnalysis: Optional[TopicIRContributionAnalysisUnion] = None
+    Visual: Optional[VisualOptions] = None
 
 
-class AnalysisErrorTypeDef(BaseValidatorModel):
+class AnalysisError(BaseValidatorModel):
     pass
 
 
-class AnalysisTypeDef(BaseValidatorModel):
+class Analysis(BaseValidatorModel):
     AnalysisId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     Status: Optional[ResourceStatusType] = None
-    Errors: Optional[List[AnalysisErrorTypeDef]] = None
+    Errors: Optional[List[AnalysisError]] = None
     DataSetArns: Optional[List[str]] = None
     ThemeArn: Optional[str] = None
     CreatedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
-    Sheets: Optional[List[SheetTypeDef]] = None
+    Sheets: Optional[List[Sheet]] = None
 
 
-class DashboardErrorTypeDef(BaseValidatorModel):
+class DashboardError(BaseValidatorModel):
     pass
 
 
-class DashboardVersionTypeDef(BaseValidatorModel):
+class DashboardVersion(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    Errors: Optional[List[DashboardErrorTypeDef]] = None
+    Errors: Optional[List[DashboardError]] = None
     VersionNumber: Optional[int] = None
     Status: Optional[ResourceStatusType] = None
     Arn: Optional[str] = None
@@ -10211,1446 +10211,1446 @@ class DashboardVersionTypeDef(BaseValidatorModel):
     DataSetArns: Optional[List[str]] = None
     Description: Optional[str] = None
     ThemeArn: Optional[str] = None
-    Sheets: Optional[List[SheetTypeDef]] = None
+    Sheets: Optional[List[Sheet]] = None
 
 
-class TemplateErrorTypeDef(BaseValidatorModel):
+class TemplateError(BaseValidatorModel):
     pass
 
 
-class TemplateVersionTypeDef(BaseValidatorModel):
+class TemplateVersion(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
-    Errors: Optional[List[TemplateErrorTypeDef]] = None
+    Errors: Optional[List[TemplateError]] = None
     VersionNumber: Optional[int] = None
     Status: Optional[ResourceStatusType] = None
-    DataSetConfigurations: Optional[List[DataSetConfigurationOutputTypeDef]] = None
+    DataSetConfigurations: Optional[List[DataSetConfigurationOutput]] = None
     Description: Optional[str] = None
     SourceEntityArn: Optional[str] = None
     ThemeArn: Optional[str] = None
-    Sheets: Optional[List[SheetTypeDef]] = None
+    Sheets: Optional[List[Sheet]] = None
 
 
-class NestedFilterOutputTypeDef(BaseValidatorModel):
+class NestedFilterOutput(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     IncludeInnerSet: bool
-    InnerFilter: InnerFilterOutputTypeDef
+    InnerFilter: InnerFilterOutput
 
 
-class NestedFilterTypeDef(BaseValidatorModel):
+class NestedFilter(BaseValidatorModel):
     FilterId: str
-    Column: ColumnIdentifierTypeDef
+    Column: ColumnIdentifier
     IncludeInnerSet: bool
-    InnerFilter: InnerFilterTypeDef
+    InnerFilter: InnerFilter
 
 
-class BarChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[BarChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[BarChartSortConfigurationOutputTypeDef] = None
+class BarChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[BarChartFieldWellsOutput] = None
+    SortConfiguration: Optional[BarChartSortConfigurationOutput] = None
     Orientation: Optional[BarChartOrientationType] = None
     BarsArrangement: Optional[BarsArrangementType] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    SmallMultiplesOptions: Optional[SmallMultiplesOptionsTypeDef] = None
-    CategoryAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ValueAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    ReferenceLines: Optional[List[ReferenceLineTypeDef]] = None
-    ContributionAnalysisDefaults: Optional[List[ContributionAnalysisDefaultOutputTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    SmallMultiplesOptions: Optional[SmallMultiplesOptions] = None
+    CategoryAxis: Optional[AxisDisplayOptionsOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ValueAxis: Optional[AxisDisplayOptionsOutput] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    ReferenceLines: Optional[List[ReferenceLine]] = None
+    ContributionAnalysisDefaults: Optional[List[ContributionAnalysisDefaultOutput]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class BarChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[BarChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[BarChartSortConfigurationTypeDef] = None
+class BarChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[BarChartFieldWells] = None
+    SortConfiguration: Optional[BarChartSortConfiguration] = None
     Orientation: Optional[BarChartOrientationType] = None
     BarsArrangement: Optional[BarsArrangementType] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    SmallMultiplesOptions: Optional[SmallMultiplesOptionsTypeDef] = None
-    CategoryAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ValueAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    ReferenceLines: Optional[Sequence[ReferenceLineTypeDef]] = None
-    ContributionAnalysisDefaults: Optional[Sequence[ContributionAnalysisDefaultTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    VisualPalette: Optional[VisualPalette] = None
+    SmallMultiplesOptions: Optional[SmallMultiplesOptions] = None
+    CategoryAxis: Optional[AxisDisplayOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ValueAxis: Optional[AxisDisplayOptions] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    ReferenceLines: Optional[Sequence[ReferenceLine]] = None
+    ContributionAnalysisDefaults: Optional[Sequence[ContributionAnalysisDefault]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class BoxPlotChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[BoxPlotFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[BoxPlotSortConfigurationOutputTypeDef] = None
-    BoxPlotOptions: Optional[BoxPlotOptionsTypeDef] = None
-    CategoryAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    ReferenceLines: Optional[List[ReferenceLineTypeDef]] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class BoxPlotChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[BoxPlotFieldWellsOutput] = None
+    SortConfiguration: Optional[BoxPlotSortConfigurationOutput] = None
+    BoxPlotOptions: Optional[BoxPlotOptions] = None
+    CategoryAxis: Optional[AxisDisplayOptionsOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    ReferenceLines: Optional[List[ReferenceLine]] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class BoxPlotChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[BoxPlotFieldWellsTypeDef] = None
-    SortConfiguration: Optional[BoxPlotSortConfigurationTypeDef] = None
-    BoxPlotOptions: Optional[BoxPlotOptionsTypeDef] = None
-    CategoryAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    ReferenceLines: Optional[Sequence[ReferenceLineTypeDef]] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class BoxPlotChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[BoxPlotFieldWells] = None
+    SortConfiguration: Optional[BoxPlotSortConfiguration] = None
+    BoxPlotOptions: Optional[BoxPlotOptions] = None
+    CategoryAxis: Optional[AxisDisplayOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    ReferenceLines: Optional[Sequence[ReferenceLine]] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class ComboChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[ComboChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[ComboChartSortConfigurationOutputTypeDef] = None
+class ComboChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[ComboChartFieldWellsOutput] = None
+    SortConfiguration: Optional[ComboChartSortConfigurationOutput] = None
     BarsArrangement: Optional[BarsArrangementType] = None
-    CategoryAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    SecondaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    SecondaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    SingleAxisOptions: Optional[SingleAxisOptionsTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    BarDataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    LineDataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    ReferenceLines: Optional[List[ReferenceLineTypeDef]] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    CategoryAxis: Optional[AxisDisplayOptionsOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    SecondaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    SecondaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    SingleAxisOptions: Optional[SingleAxisOptions] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    BarDataLabels: Optional[DataLabelOptionsOutput] = None
+    LineDataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    ReferenceLines: Optional[List[ReferenceLine]] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class ComboChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[ComboChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[ComboChartSortConfigurationTypeDef] = None
+class ComboChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[ComboChartFieldWells] = None
+    SortConfiguration: Optional[ComboChartSortConfiguration] = None
     BarsArrangement: Optional[BarsArrangementType] = None
-    CategoryAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    SecondaryYAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    SecondaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    SingleAxisOptions: Optional[SingleAxisOptionsTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    BarDataLabels: Optional[DataLabelOptionsTypeDef] = None
-    LineDataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    ReferenceLines: Optional[Sequence[ReferenceLineTypeDef]] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    CategoryAxis: Optional[AxisDisplayOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    SecondaryYAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    SecondaryYAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    SingleAxisOptions: Optional[SingleAxisOptions] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Legend: Optional[LegendOptions] = None
+    BarDataLabels: Optional[DataLabelOptions] = None
+    LineDataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    ReferenceLines: Optional[Sequence[ReferenceLine]] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class FilledMapConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[FilledMapFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[FilledMapSortConfigurationOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    WindowOptions: Optional[GeospatialWindowOptionsTypeDef] = None
-    MapStyleOptions: Optional[GeospatialMapStyleOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class FilledMapConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[FilledMapFieldWellsOutput] = None
+    SortConfiguration: Optional[FilledMapSortConfigurationOutput] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    WindowOptions: Optional[GeospatialWindowOptions] = None
+    MapStyleOptions: Optional[GeospatialMapStyleOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class FilledMapConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[FilledMapFieldWellsTypeDef] = None
-    SortConfiguration: Optional[FilledMapSortConfigurationTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    WindowOptions: Optional[GeospatialWindowOptionsTypeDef] = None
-    MapStyleOptions: Optional[GeospatialMapStyleOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class FilledMapConfiguration(BaseValidatorModel):
+    FieldWells: Optional[FilledMapFieldWells] = None
+    SortConfiguration: Optional[FilledMapSortConfiguration] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    WindowOptions: Optional[GeospatialWindowOptions] = None
+    MapStyleOptions: Optional[GeospatialMapStyleOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class FunnelChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[FunnelChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[FunnelChartSortConfigurationOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    DataLabelOptions: Optional[FunnelChartDataLabelOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class FunnelChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[FunnelChartFieldWellsOutput] = None
+    SortConfiguration: Optional[FunnelChartSortConfigurationOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    DataLabelOptions: Optional[FunnelChartDataLabelOptions] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class FunnelChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[FunnelChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[FunnelChartSortConfigurationTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    DataLabelOptions: Optional[FunnelChartDataLabelOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class FunnelChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[FunnelChartFieldWells] = None
+    SortConfiguration: Optional[FunnelChartSortConfiguration] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    DataLabelOptions: Optional[FunnelChartDataLabelOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GaugeChartVisualOutputTypeDef(BaseValidatorModel):
+class GaugeChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GaugeChartConfigurationOutputTypeDef] = None
-    ConditionalFormatting: Optional[GaugeChartConditionalFormattingOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GaugeChartConfigurationOutput] = None
+    ConditionalFormatting: Optional[GaugeChartConditionalFormattingOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class GaugeChartVisualTypeDef(BaseValidatorModel):
+class GaugeChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GaugeChartConfigurationTypeDef] = None
-    ConditionalFormatting: Optional[GaugeChartConditionalFormattingTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GaugeChartConfiguration] = None
+    ConditionalFormatting: Optional[GaugeChartConditionalFormatting] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class GeospatialLayerItemOutputTypeDef(BaseValidatorModel):
+class GeospatialLayerItemOutput(BaseValidatorModel):
     LayerId: str
     LayerType: Optional[GeospatialLayerTypeType] = None
-    DataSource: Optional[GeospatialDataSourceItemTypeDef] = None
+    DataSource: Optional[GeospatialDataSourceItem] = None
     Label: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
-    LayerDefinition: Optional[GeospatialLayerDefinitionOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    JoinDefinition: Optional[GeospatialLayerJoinDefinitionOutputTypeDef] = None
-    Actions: Optional[List[LayerCustomActionOutputTypeDef]] = None
+    LayerDefinition: Optional[GeospatialLayerDefinitionOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    JoinDefinition: Optional[GeospatialLayerJoinDefinitionOutput] = None
+    Actions: Optional[List[LayerCustomActionOutput]] = None
 
 
-class GeospatialLayerItemTypeDef(BaseValidatorModel):
+class GeospatialLayerItem(BaseValidatorModel):
     LayerId: str
     LayerType: Optional[GeospatialLayerTypeType] = None
-    DataSource: Optional[GeospatialDataSourceItemTypeDef] = None
+    DataSource: Optional[GeospatialDataSourceItem] = None
     Label: Optional[str] = None
     Visibility: Optional[VisibilityType] = None
-    LayerDefinition: Optional[GeospatialLayerDefinitionTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    JoinDefinition: Optional[GeospatialLayerJoinDefinitionTypeDef] = None
-    Actions: Optional[Sequence[LayerCustomActionTypeDef]] = None
+    LayerDefinition: Optional[GeospatialLayerDefinition] = None
+    Tooltip: Optional[TooltipOptions] = None
+    JoinDefinition: Optional[GeospatialLayerJoinDefinition] = None
+    Actions: Optional[Sequence[LayerCustomAction]] = None
 
 
-class GeospatialMapConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[GeospatialMapFieldWellsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    WindowOptions: Optional[GeospatialWindowOptionsTypeDef] = None
-    MapStyleOptions: Optional[GeospatialMapStyleOptionsTypeDef] = None
-    PointStyleOptions: Optional[GeospatialPointStyleOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GeospatialMapConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[GeospatialMapFieldWellsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    WindowOptions: Optional[GeospatialWindowOptions] = None
+    MapStyleOptions: Optional[GeospatialMapStyleOptions] = None
+    PointStyleOptions: Optional[GeospatialPointStyleOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GeospatialMapConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[GeospatialMapFieldWellsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    WindowOptions: Optional[GeospatialWindowOptionsTypeDef] = None
-    MapStyleOptions: Optional[GeospatialMapStyleOptionsTypeDef] = None
-    PointStyleOptions: Optional[GeospatialPointStyleOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GeospatialMapConfiguration(BaseValidatorModel):
+    FieldWells: Optional[GeospatialMapFieldWells] = None
+    Legend: Optional[LegendOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    WindowOptions: Optional[GeospatialWindowOptions] = None
+    MapStyleOptions: Optional[GeospatialMapStyleOptions] = None
+    PointStyleOptions: Optional[GeospatialPointStyleOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class HeatMapConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[HeatMapFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[HeatMapSortConfigurationOutputTypeDef] = None
-    RowLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColumnLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColorScale: Optional[ColorScaleOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class HeatMapConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[HeatMapFieldWellsOutput] = None
+    SortConfiguration: Optional[HeatMapSortConfigurationOutput] = None
+    RowLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColumnLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColorScale: Optional[ColorScaleOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class HeatMapConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[HeatMapFieldWellsTypeDef] = None
-    SortConfiguration: Optional[HeatMapSortConfigurationTypeDef] = None
-    RowLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColumnLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColorScale: Optional[ColorScaleTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class HeatMapConfiguration(BaseValidatorModel):
+    FieldWells: Optional[HeatMapFieldWells] = None
+    SortConfiguration: Optional[HeatMapSortConfiguration] = None
+    RowLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColumnLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColorScale: Optional[ColorScale] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class HistogramConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[HistogramFieldWellsOutputTypeDef] = None
-    XAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    XAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    YAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    BinOptions: Optional[HistogramBinOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class HistogramConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[HistogramFieldWellsOutput] = None
+    XAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    XAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    YAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    BinOptions: Optional[HistogramBinOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class HistogramConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[HistogramFieldWellsTypeDef] = None
-    XAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    XAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    YAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    BinOptions: Optional[HistogramBinOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class HistogramConfiguration(BaseValidatorModel):
+    FieldWells: Optional[HistogramFieldWells] = None
+    XAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    XAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    YAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    BinOptions: Optional[HistogramBinOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class KPIVisualOutputTypeDef(BaseValidatorModel):
+class KPIVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[KPIConfigurationOutputTypeDef] = None
-    ConditionalFormatting: Optional[KPIConditionalFormattingOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[KPIConfigurationOutput] = None
+    ConditionalFormatting: Optional[KPIConditionalFormattingOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class KPIVisualTypeDef(BaseValidatorModel):
+class KPIVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[KPIConfigurationTypeDef] = None
-    ConditionalFormatting: Optional[KPIConditionalFormattingTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[KPIConfiguration] = None
+    ConditionalFormatting: Optional[KPIConditionalFormatting] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PieChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[PieChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[PieChartSortConfigurationOutputTypeDef] = None
-    DonutOptions: Optional[DonutOptionsTypeDef] = None
-    SmallMultiplesOptions: Optional[SmallMultiplesOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    ContributionAnalysisDefaults: Optional[List[ContributionAnalysisDefaultOutputTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class PieChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[PieChartFieldWellsOutput] = None
+    SortConfiguration: Optional[PieChartSortConfigurationOutput] = None
+    DonutOptions: Optional[DonutOptions] = None
+    SmallMultiplesOptions: Optional[SmallMultiplesOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    ContributionAnalysisDefaults: Optional[List[ContributionAnalysisDefaultOutput]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class PieChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[PieChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[PieChartSortConfigurationTypeDef] = None
-    DonutOptions: Optional[DonutOptionsTypeDef] = None
-    SmallMultiplesOptions: Optional[SmallMultiplesOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ValueLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    ContributionAnalysisDefaults: Optional[Sequence[ContributionAnalysisDefaultTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class PieChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[PieChartFieldWells] = None
+    SortConfiguration: Optional[PieChartSortConfiguration] = None
+    DonutOptions: Optional[DonutOptions] = None
+    SmallMultiplesOptions: Optional[SmallMultiplesOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ValueLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    ContributionAnalysisDefaults: Optional[Sequence[ContributionAnalysisDefault]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class PivotTableConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[PivotTableFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[PivotTableSortConfigurationOutputTypeDef] = None
-    TableOptions: Optional[PivotTableOptionsOutputTypeDef] = None
-    TotalOptions: Optional[PivotTableTotalOptionsOutputTypeDef] = None
-    FieldOptions: Optional[PivotTableFieldOptionsOutputTypeDef] = None
-    PaginatedReportOptions: Optional[PivotTablePaginatedReportOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class PivotTableConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[PivotTableFieldWellsOutput] = None
+    SortConfiguration: Optional[PivotTableSortConfigurationOutput] = None
+    TableOptions: Optional[PivotTableOptionsOutput] = None
+    TotalOptions: Optional[PivotTableTotalOptionsOutput] = None
+    FieldOptions: Optional[PivotTableFieldOptionsOutput] = None
+    PaginatedReportOptions: Optional[PivotTablePaginatedReportOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class PivotTableConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[PivotTableFieldWellsTypeDef] = None
-    SortConfiguration: Optional[PivotTableSortConfigurationTypeDef] = None
-    TableOptions: Optional[PivotTableOptionsTypeDef] = None
-    TotalOptions: Optional[PivotTableTotalOptionsTypeDef] = None
-    FieldOptions: Optional[PivotTableFieldOptionsTypeDef] = None
-    PaginatedReportOptions: Optional[PivotTablePaginatedReportOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class PivotTableConfiguration(BaseValidatorModel):
+    FieldWells: Optional[PivotTableFieldWells] = None
+    SortConfiguration: Optional[PivotTableSortConfiguration] = None
+    TableOptions: Optional[PivotTableOptions] = None
+    TotalOptions: Optional[PivotTableTotalOptions] = None
+    FieldOptions: Optional[PivotTableFieldOptions] = None
+    PaginatedReportOptions: Optional[PivotTablePaginatedReportOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class RadarChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[RadarChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[RadarChartSortConfigurationOutputTypeDef] = None
+class RadarChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[RadarChartFieldWellsOutput] = None
+    SortConfiguration: Optional[RadarChartSortConfigurationOutput] = None
     Shape: Optional[RadarChartShapeType] = None
-    BaseSeriesSettings: Optional[RadarChartSeriesSettingsTypeDef] = None
+    BaseSeriesSettings: Optional[RadarChartSeriesSettings] = None
     StartAngle: Optional[float] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
     AlternateBandColorsVisibility: Optional[VisibilityType] = None
     AlternateBandEvenColor: Optional[str] = None
     AlternateBandOddColor: Optional[str] = None
-    CategoryAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColorAxis: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
+    CategoryAxis: Optional[AxisDisplayOptionsOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColorAxis: Optional[AxisDisplayOptionsOutput] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
     AxesRangeScale: Optional[RadarChartAxesRangeScaleType] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class RadarChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[RadarChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[RadarChartSortConfigurationTypeDef] = None
+class RadarChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[RadarChartFieldWells] = None
+    SortConfiguration: Optional[RadarChartSortConfiguration] = None
     Shape: Optional[RadarChartShapeType] = None
-    BaseSeriesSettings: Optional[RadarChartSeriesSettingsTypeDef] = None
+    BaseSeriesSettings: Optional[RadarChartSeriesSettings] = None
     StartAngle: Optional[float] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
+    VisualPalette: Optional[VisualPalette] = None
     AlternateBandColorsVisibility: Optional[VisibilityType] = None
     AlternateBandEvenColor: Optional[str] = None
     AlternateBandOddColor: Optional[str] = None
-    CategoryAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColorAxis: Optional[AxisDisplayOptionsTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
+    CategoryAxis: Optional[AxisDisplayOptions] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColorAxis: Optional[AxisDisplayOptions] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptions] = None
+    Legend: Optional[LegendOptions] = None
     AxesRangeScale: Optional[RadarChartAxesRangeScaleType] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class SankeyDiagramChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[SankeyDiagramFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[SankeyDiagramSortConfigurationOutputTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class SankeyDiagramChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[SankeyDiagramFieldWellsOutput] = None
+    SortConfiguration: Optional[SankeyDiagramSortConfigurationOutput] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class SankeyDiagramChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[SankeyDiagramFieldWellsTypeDef] = None
-    SortConfiguration: Optional[SankeyDiagramSortConfigurationTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class SankeyDiagramChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[SankeyDiagramFieldWells] = None
+    SortConfiguration: Optional[SankeyDiagramSortConfiguration] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class ScatterPlotConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[ScatterPlotFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[ScatterPlotSortConfigurationTypeDef] = None
-    XAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    XAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    YAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    YAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class ScatterPlotConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[ScatterPlotFieldWellsOutput] = None
+    SortConfiguration: Optional[ScatterPlotSortConfiguration] = None
+    XAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    XAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    YAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    YAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class ScatterPlotConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[ScatterPlotFieldWellsTypeDef] = None
-    SortConfiguration: Optional[ScatterPlotSortConfigurationTypeDef] = None
-    XAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    XAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    YAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    YAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class ScatterPlotConfiguration(BaseValidatorModel):
+    FieldWells: Optional[ScatterPlotFieldWells] = None
+    SortConfiguration: Optional[ScatterPlotSortConfiguration] = None
+    XAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    XAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    YAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    YAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class InsightConfigurationOutputTypeDef(BaseValidatorModel):
-    Computations: Optional[List[ComputationTypeDef]] = None
-    CustomNarrative: Optional[CustomNarrativeOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class InsightConfigurationOutput(BaseValidatorModel):
+    Computations: Optional[List[Computation]] = None
+    CustomNarrative: Optional[CustomNarrativeOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class InsightConfigurationTypeDef(BaseValidatorModel):
-    Computations: Optional[Sequence[ComputationTypeDef]] = None
-    CustomNarrative: Optional[CustomNarrativeOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class InsightConfiguration(BaseValidatorModel):
+    Computations: Optional[Sequence[Computation]] = None
+    CustomNarrative: Optional[CustomNarrativeOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class TreeMapConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[TreeMapFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[TreeMapSortConfigurationOutputTypeDef] = None
-    GroupLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    SizeLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    ColorScale: Optional[ColorScaleOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    Tooltip: Optional[TooltipOptionsOutputTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class TreeMapConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[TreeMapFieldWellsOutput] = None
+    SortConfiguration: Optional[TreeMapSortConfigurationOutput] = None
+    GroupLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    SizeLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    ColorScale: Optional[ColorScaleOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    Tooltip: Optional[TooltipOptionsOutput] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class TreeMapConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[TreeMapFieldWellsTypeDef] = None
-    SortConfiguration: Optional[TreeMapSortConfigurationTypeDef] = None
-    GroupLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    SizeLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColorLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    ColorScale: Optional[ColorScaleTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    Tooltip: Optional[TooltipOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class TreeMapConfiguration(BaseValidatorModel):
+    FieldWells: Optional[TreeMapFieldWells] = None
+    SortConfiguration: Optional[TreeMapSortConfiguration] = None
+    GroupLabelOptions: Optional[ChartAxisLabelOptions] = None
+    SizeLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColorLabelOptions: Optional[ChartAxisLabelOptions] = None
+    ColorScale: Optional[ColorScale] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    Tooltip: Optional[TooltipOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class WaterfallChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[WaterfallChartFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[WaterfallChartSortConfigurationOutputTypeDef] = None
-    WaterfallChartOptions: Optional[WaterfallChartOptionsTypeDef] = None
-    CategoryAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    CategoryAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutputTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsOutputTypeDef] = None
-    VisualPalette: Optional[VisualPaletteOutputTypeDef] = None
-    ColorConfiguration: Optional[WaterfallChartColorConfigurationTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class WaterfallChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[WaterfallChartFieldWellsOutput] = None
+    SortConfiguration: Optional[WaterfallChartSortConfigurationOutput] = None
+    WaterfallChartOptions: Optional[WaterfallChartOptions] = None
+    CategoryAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    CategoryAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsOutput] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptionsOutput] = None
+    VisualPalette: Optional[VisualPaletteOutput] = None
+    ColorConfiguration: Optional[WaterfallChartColorConfiguration] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class WaterfallChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[WaterfallChartFieldWellsTypeDef] = None
-    SortConfiguration: Optional[WaterfallChartSortConfigurationTypeDef] = None
-    WaterfallChartOptions: Optional[WaterfallChartOptionsTypeDef] = None
-    CategoryAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    CategoryAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptionsTypeDef] = None
-    Legend: Optional[LegendOptionsTypeDef] = None
-    DataLabels: Optional[DataLabelOptionsTypeDef] = None
-    VisualPalette: Optional[VisualPaletteTypeDef] = None
-    ColorConfiguration: Optional[WaterfallChartColorConfigurationTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class WaterfallChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[WaterfallChartFieldWells] = None
+    SortConfiguration: Optional[WaterfallChartSortConfiguration] = None
+    WaterfallChartOptions: Optional[WaterfallChartOptions] = None
+    CategoryAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    CategoryAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    PrimaryYAxisLabelOptions: Optional[ChartAxisLabelOptions] = None
+    PrimaryYAxisDisplayOptions: Optional[AxisDisplayOptions] = None
+    Legend: Optional[LegendOptions] = None
+    DataLabels: Optional[DataLabelOptions] = None
+    VisualPalette: Optional[VisualPalette] = None
+    ColorConfiguration: Optional[WaterfallChartColorConfiguration] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class WordCloudChartConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[WordCloudFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[WordCloudSortConfigurationOutputTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutputTypeDef] = None
-    WordCloudOptions: Optional[WordCloudOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class WordCloudChartConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[WordCloudFieldWellsOutput] = None
+    SortConfiguration: Optional[WordCloudSortConfigurationOutput] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptionsOutput] = None
+    WordCloudOptions: Optional[WordCloudOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class WordCloudChartConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[WordCloudFieldWellsTypeDef] = None
-    SortConfiguration: Optional[WordCloudSortConfigurationTypeDef] = None
-    CategoryLabelOptions: Optional[ChartAxisLabelOptionsTypeDef] = None
-    WordCloudOptions: Optional[WordCloudOptionsTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class WordCloudChartConfiguration(BaseValidatorModel):
+    FieldWells: Optional[WordCloudFieldWells] = None
+    SortConfiguration: Optional[WordCloudSortConfiguration] = None
+    CategoryLabelOptions: Optional[ChartAxisLabelOptions] = None
+    WordCloudOptions: Optional[WordCloudOptions] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class PluginVisualOutputTypeDef(BaseValidatorModel):
+class PluginVisualOutput(BaseValidatorModel):
     VisualId: str
     PluginArn: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PluginVisualConfigurationOutputTypeDef] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PluginVisualConfigurationOutput] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PluginVisualTypeDef(BaseValidatorModel):
+class PluginVisual(BaseValidatorModel):
     VisualId: str
     PluginArn: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PluginVisualConfigurationTypeDef] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PluginVisualConfiguration] = None
     VisualContentAltText: Optional[str] = None
 
 
-class TableConfigurationOutputTypeDef(BaseValidatorModel):
-    FieldWells: Optional[TableFieldWellsOutputTypeDef] = None
-    SortConfiguration: Optional[TableSortConfigurationOutputTypeDef] = None
-    TableOptions: Optional[TableOptionsOutputTypeDef] = None
-    TotalOptions: Optional[TotalOptionsOutputTypeDef] = None
-    FieldOptions: Optional[TableFieldOptionsOutputTypeDef] = None
-    PaginatedReportOptions: Optional[TablePaginatedReportOptionsTypeDef] = None
-    TableInlineVisualizations: Optional[List[TableInlineVisualizationTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class TableConfigurationOutput(BaseValidatorModel):
+    FieldWells: Optional[TableFieldWellsOutput] = None
+    SortConfiguration: Optional[TableSortConfigurationOutput] = None
+    TableOptions: Optional[TableOptionsOutput] = None
+    TotalOptions: Optional[TotalOptionsOutput] = None
+    FieldOptions: Optional[TableFieldOptionsOutput] = None
+    PaginatedReportOptions: Optional[TablePaginatedReportOptions] = None
+    TableInlineVisualizations: Optional[List[TableInlineVisualization]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class TableConfigurationTypeDef(BaseValidatorModel):
-    FieldWells: Optional[TableFieldWellsTypeDef] = None
-    SortConfiguration: Optional[TableSortConfigurationTypeDef] = None
-    TableOptions: Optional[TableOptionsTypeDef] = None
-    TotalOptions: Optional[TotalOptionsTypeDef] = None
-    FieldOptions: Optional[TableFieldOptionsTypeDef] = None
-    PaginatedReportOptions: Optional[TablePaginatedReportOptionsTypeDef] = None
-    TableInlineVisualizations: Optional[Sequence[TableInlineVisualizationTypeDef]] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class TableConfiguration(BaseValidatorModel):
+    FieldWells: Optional[TableFieldWells] = None
+    SortConfiguration: Optional[TableSortConfiguration] = None
+    TableOptions: Optional[TableOptions] = None
+    TotalOptions: Optional[TotalOptions] = None
+    FieldOptions: Optional[TableFieldOptions] = None
+    PaginatedReportOptions: Optional[TablePaginatedReportOptions] = None
+    TableInlineVisualizations: Optional[Sequence[TableInlineVisualization]] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class LayoutConfigurationOutputTypeDef(BaseValidatorModel):
-    GridLayout: Optional[GridLayoutConfigurationOutputTypeDef] = None
-    FreeFormLayout: Optional[FreeFormLayoutConfigurationOutputTypeDef] = None
-    SectionBasedLayout: Optional[SectionBasedLayoutConfigurationOutputTypeDef] = None
+class LayoutConfigurationOutput(BaseValidatorModel):
+    GridLayout: Optional[GridLayoutConfigurationOutput] = None
+    FreeFormLayout: Optional[FreeFormLayoutConfigurationOutput] = None
+    SectionBasedLayout: Optional[SectionBasedLayoutConfigurationOutput] = None
 
 
-class LayoutConfigurationTypeDef(BaseValidatorModel):
-    GridLayout: Optional[GridLayoutConfigurationTypeDef] = None
-    FreeFormLayout: Optional[FreeFormLayoutConfigurationTypeDef] = None
-    SectionBasedLayout: Optional[SectionBasedLayoutConfigurationTypeDef] = None
+class LayoutConfiguration(BaseValidatorModel):
+    GridLayout: Optional[GridLayoutConfiguration] = None
+    FreeFormLayout: Optional[FreeFormLayoutConfiguration] = None
+    SectionBasedLayout: Optional[SectionBasedLayoutConfiguration] = None
 
 
-class DescribeAnalysisResponseTypeDef(BaseValidatorModel):
-    Analysis: AnalysisTypeDef
+class DescribeAnalysisResponse(BaseValidatorModel):
+    Analysis: Analysis
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DashboardTypeDef(BaseValidatorModel):
+class Dashboard(BaseValidatorModel):
     DashboardId: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    Version: Optional[DashboardVersionTypeDef] = None
+    Version: Optional[DashboardVersion] = None
     CreatedTime: Optional[datetime] = None
     LastPublishedTime: Optional[datetime] = None
     LastUpdatedTime: Optional[datetime] = None
     LinkEntities: Optional[List[str]] = None
 
 
-class TemplateTypeDef(BaseValidatorModel):
+class Template(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
-    Version: Optional[TemplateVersionTypeDef] = None
+    Version: Optional[TemplateVersion] = None
     TemplateId: Optional[str] = None
     LastUpdatedTime: Optional[datetime] = None
     CreatedTime: Optional[datetime] = None
 
 
-class FilterOutputTypeDef(BaseValidatorModel):
-    CategoryFilter: Optional[CategoryFilterOutputTypeDef] = None
-    NumericRangeFilter: Optional[NumericRangeFilterOutputTypeDef] = None
-    NumericEqualityFilter: Optional[NumericEqualityFilterOutputTypeDef] = None
-    TimeEqualityFilter: Optional[TimeEqualityFilterOutputTypeDef] = None
-    TimeRangeFilter: Optional[TimeRangeFilterOutputTypeDef] = None
-    RelativeDatesFilter: Optional[RelativeDatesFilterOutputTypeDef] = None
-    TopBottomFilter: Optional[TopBottomFilterOutputTypeDef] = None
-    NestedFilter: Optional[NestedFilterOutputTypeDef] = None
+class FilterOutput(BaseValidatorModel):
+    CategoryFilter: Optional[CategoryFilterOutput] = None
+    NumericRangeFilter: Optional[NumericRangeFilterOutput] = None
+    NumericEqualityFilter: Optional[NumericEqualityFilterOutput] = None
+    TimeEqualityFilter: Optional[TimeEqualityFilterOutput] = None
+    TimeRangeFilter: Optional[TimeRangeFilterOutput] = None
+    RelativeDatesFilter: Optional[RelativeDatesFilterOutput] = None
+    TopBottomFilter: Optional[TopBottomFilterOutput] = None
+    NestedFilter: Optional[NestedFilterOutput] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
-    CategoryFilter: Optional[CategoryFilterTypeDef] = None
-    NumericRangeFilter: Optional[NumericRangeFilterTypeDef] = None
-    NumericEqualityFilter: Optional[NumericEqualityFilterTypeDef] = None
-    TimeEqualityFilter: Optional[TimeEqualityFilterTypeDef] = None
-    TimeRangeFilter: Optional[TimeRangeFilterTypeDef] = None
-    RelativeDatesFilter: Optional[RelativeDatesFilterTypeDef] = None
-    TopBottomFilter: Optional[TopBottomFilterTypeDef] = None
-    NestedFilter: Optional[NestedFilterTypeDef] = None
+class Filter(BaseValidatorModel):
+    CategoryFilter: Optional[CategoryFilter] = None
+    NumericRangeFilter: Optional[NumericRangeFilter] = None
+    NumericEqualityFilter: Optional[NumericEqualityFilter] = None
+    TimeEqualityFilter: Optional[TimeEqualityFilter] = None
+    TimeRangeFilter: Optional[TimeRangeFilter] = None
+    RelativeDatesFilter: Optional[RelativeDatesFilter] = None
+    TopBottomFilter: Optional[TopBottomFilter] = None
+    NestedFilter: Optional[NestedFilter] = None
 
 
-class BarChartVisualOutputTypeDef(BaseValidatorModel):
+class BarChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[BarChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[BarChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class BarChartVisualTypeDef(BaseValidatorModel):
+class BarChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[BarChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[BarChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class BoxPlotVisualOutputTypeDef(BaseValidatorModel):
+class BoxPlotVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[BoxPlotChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[BoxPlotChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class BoxPlotVisualTypeDef(BaseValidatorModel):
+class BoxPlotVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[BoxPlotChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[BoxPlotChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class ComboChartVisualOutputTypeDef(BaseValidatorModel):
+class ComboChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[ComboChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[ComboChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class ComboChartVisualTypeDef(BaseValidatorModel):
+class ComboChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[ComboChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[ComboChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class FilledMapVisualOutputTypeDef(BaseValidatorModel):
+class FilledMapVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[FilledMapConfigurationOutputTypeDef] = None
-    ConditionalFormatting: Optional[FilledMapConditionalFormattingOutputTypeDef] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[FilledMapConfigurationOutput] = None
+    ConditionalFormatting: Optional[FilledMapConditionalFormattingOutput] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class FilledMapVisualTypeDef(BaseValidatorModel):
+class FilledMapVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[FilledMapConfigurationTypeDef] = None
-    ConditionalFormatting: Optional[FilledMapConditionalFormattingTypeDef] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[FilledMapConfiguration] = None
+    ConditionalFormatting: Optional[FilledMapConditionalFormatting] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class FunnelChartVisualOutputTypeDef(BaseValidatorModel):
+class FunnelChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[FunnelChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[FunnelChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class FunnelChartVisualTypeDef(BaseValidatorModel):
+class FunnelChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[FunnelChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[FunnelChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class GeospatialLayerMapConfigurationOutputTypeDef(BaseValidatorModel):
-    Legend: Optional[LegendOptionsTypeDef] = None
-    MapLayers: Optional[List[GeospatialLayerItemOutputTypeDef]] = None
-    MapState: Optional[GeospatialMapStateTypeDef] = None
-    MapStyle: Optional[GeospatialMapStyleTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GeospatialLayerMapConfigurationOutput(BaseValidatorModel):
+    Legend: Optional[LegendOptions] = None
+    MapLayers: Optional[List[GeospatialLayerItemOutput]] = None
+    MapState: Optional[GeospatialMapState] = None
+    MapStyle: Optional[GeospatialMapStyle] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GeospatialLayerMapConfigurationTypeDef(BaseValidatorModel):
-    Legend: Optional[LegendOptionsTypeDef] = None
-    MapLayers: Optional[Sequence[GeospatialLayerItemTypeDef]] = None
-    MapState: Optional[GeospatialMapStateTypeDef] = None
-    MapStyle: Optional[GeospatialMapStyleTypeDef] = None
-    Interactions: Optional[VisualInteractionOptionsTypeDef] = None
+class GeospatialLayerMapConfiguration(BaseValidatorModel):
+    Legend: Optional[LegendOptions] = None
+    MapLayers: Optional[Sequence[GeospatialLayerItem]] = None
+    MapState: Optional[GeospatialMapState] = None
+    MapStyle: Optional[GeospatialMapStyle] = None
+    Interactions: Optional[VisualInteractionOptions] = None
 
 
-class GeospatialMapVisualOutputTypeDef(BaseValidatorModel):
+class GeospatialMapVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GeospatialMapConfigurationOutputTypeDef] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GeospatialMapConfigurationOutput] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class GeospatialMapVisualTypeDef(BaseValidatorModel):
+class GeospatialMapVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GeospatialMapConfigurationTypeDef] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GeospatialMapConfiguration] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class HeatMapVisualOutputTypeDef(BaseValidatorModel):
+class HeatMapVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[HeatMapConfigurationOutputTypeDef] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[HeatMapConfigurationOutput] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class HeatMapVisualTypeDef(BaseValidatorModel):
+class HeatMapVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[HeatMapConfigurationTypeDef] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[HeatMapConfiguration] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class HistogramVisualOutputTypeDef(BaseValidatorModel):
+class HistogramVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[HistogramConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[HistogramConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class HistogramVisualTypeDef(BaseValidatorModel):
+class HistogramVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[HistogramConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[HistogramConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class LineChartConfigurationOutputTypeDef(BaseValidatorModel):
+class LineChartConfigurationOutput(BaseValidatorModel):
     pass
 
 
-class LineChartVisualOutputTypeDef(BaseValidatorModel):
+class LineChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[LineChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[LineChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class LineChartConfigurationTypeDef(BaseValidatorModel):
+class LineChartConfiguration(BaseValidatorModel):
     pass
 
 
-class LineChartVisualTypeDef(BaseValidatorModel):
+class LineChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[LineChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[LineChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PieChartVisualOutputTypeDef(BaseValidatorModel):
+class PieChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PieChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PieChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PieChartVisualTypeDef(BaseValidatorModel):
+class PieChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PieChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PieChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PivotTableVisualOutputTypeDef(BaseValidatorModel):
+class PivotTableVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PivotTableConfigurationOutputTypeDef] = None
-    ConditionalFormatting: Optional[PivotTableConditionalFormattingOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PivotTableConfigurationOutput] = None
+    ConditionalFormatting: Optional[PivotTableConditionalFormattingOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class PivotTableVisualTypeDef(BaseValidatorModel):
+class PivotTableVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[PivotTableConfigurationTypeDef] = None
-    ConditionalFormatting: Optional[PivotTableConditionalFormattingTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[PivotTableConfiguration] = None
+    ConditionalFormatting: Optional[PivotTableConditionalFormatting] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class RadarChartVisualOutputTypeDef(BaseValidatorModel):
+class RadarChartVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[RadarChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[RadarChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class RadarChartVisualTypeDef(BaseValidatorModel):
+class RadarChartVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[RadarChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[RadarChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class SankeyDiagramVisualOutputTypeDef(BaseValidatorModel):
+class SankeyDiagramVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[SankeyDiagramChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[SankeyDiagramChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class SankeyDiagramVisualTypeDef(BaseValidatorModel):
+class SankeyDiagramVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[SankeyDiagramChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[SankeyDiagramChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class ScatterPlotVisualOutputTypeDef(BaseValidatorModel):
+class ScatterPlotVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[ScatterPlotConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[ScatterPlotConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class ScatterPlotVisualTypeDef(BaseValidatorModel):
+class ScatterPlotVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[ScatterPlotConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[ScatterPlotConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class InsightVisualOutputTypeDef(BaseValidatorModel):
+class InsightVisualOutput(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    InsightConfiguration: Optional[InsightConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    InsightConfiguration: Optional[InsightConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class InsightVisualTypeDef(BaseValidatorModel):
+class InsightVisual(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    InsightConfiguration: Optional[InsightConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    InsightConfiguration: Optional[InsightConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class TreeMapVisualOutputTypeDef(BaseValidatorModel):
+class TreeMapVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[TreeMapConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[TreeMapConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class TreeMapVisualTypeDef(BaseValidatorModel):
+class TreeMapVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[TreeMapConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[TreeMapConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class WaterfallVisualOutputTypeDef(BaseValidatorModel):
+class WaterfallVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[WaterfallChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[WaterfallChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class WaterfallVisualTypeDef(BaseValidatorModel):
+class WaterfallVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[WaterfallChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[WaterfallChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class WordCloudVisualOutputTypeDef(BaseValidatorModel):
+class WordCloudVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[WordCloudChartConfigurationOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
-    ColumnHierarchies: Optional[List[ColumnHierarchyOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[WordCloudChartConfigurationOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
+    ColumnHierarchies: Optional[List[ColumnHierarchyOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class WordCloudVisualTypeDef(BaseValidatorModel):
+class WordCloudVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[WordCloudChartConfigurationTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
-    ColumnHierarchies: Optional[Sequence[ColumnHierarchyTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[WordCloudChartConfiguration] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
+    ColumnHierarchies: Optional[Sequence[ColumnHierarchy]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class TableVisualOutputTypeDef(BaseValidatorModel):
+class TableVisualOutput(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[TableConfigurationOutputTypeDef] = None
-    ConditionalFormatting: Optional[TableConditionalFormattingOutputTypeDef] = None
-    Actions: Optional[List[VisualCustomActionOutputTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[TableConfigurationOutput] = None
+    ConditionalFormatting: Optional[TableConditionalFormattingOutput] = None
+    Actions: Optional[List[VisualCustomActionOutput]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class TableVisualTypeDef(BaseValidatorModel):
+class TableVisual(BaseValidatorModel):
     VisualId: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[TableConfigurationTypeDef] = None
-    ConditionalFormatting: Optional[TableConditionalFormattingTypeDef] = None
-    Actions: Optional[Sequence[VisualCustomActionTypeDef]] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[TableConfiguration] = None
+    ConditionalFormatting: Optional[TableConditionalFormatting] = None
+    Actions: Optional[Sequence[VisualCustomAction]] = None
     VisualContentAltText: Optional[str] = None
 
 
-class LayoutOutputTypeDef(BaseValidatorModel):
-    Configuration: LayoutConfigurationOutputTypeDef
+class LayoutOutput(BaseValidatorModel):
+    Configuration: LayoutConfigurationOutput
 
 
-class LayoutTypeDef(BaseValidatorModel):
-    Configuration: LayoutConfigurationTypeDef
+class Layout(BaseValidatorModel):
+    Configuration: LayoutConfiguration
 
 
-class TopicIRUnionTypeDef(BaseValidatorModel):
+class TopicIRUnion(BaseValidatorModel):
     pass
 
 
-class TopicVisualTypeDef(BaseValidatorModel):
+class TopicVisual(BaseValidatorModel):
     VisualId: Optional[str] = None
     Role: Optional[VisualRoleType] = None
-    Ir: Optional[TopicIRUnionTypeDef] = None
+    Ir: Optional[TopicIRUnion] = None
     SupportingVisuals: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class DescribeDashboardResponseTypeDef(BaseValidatorModel):
-    Dashboard: DashboardTypeDef
+class DescribeDashboardResponse(BaseValidatorModel):
+    Dashboard: Dashboard
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTemplateResponseTypeDef(BaseValidatorModel):
-    Template: TemplateTypeDef
+class DescribeTemplateResponse(BaseValidatorModel):
+    Template: Template
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FilterGroupOutputTypeDef(BaseValidatorModel):
+class FilterGroupOutput(BaseValidatorModel):
     FilterGroupId: str
-    Filters: List[FilterOutputTypeDef]
-    ScopeConfiguration: FilterScopeConfigurationOutputTypeDef
+    Filters: List[FilterOutput]
+    ScopeConfiguration: FilterScopeConfigurationOutput
     CrossDataset: CrossDatasetTypesType
     Status: Optional[WidgetStatusType] = None
 
 
-class FilterGroupTypeDef(BaseValidatorModel):
+class FilterGroup(BaseValidatorModel):
     FilterGroupId: str
-    Filters: Sequence[FilterTypeDef]
-    ScopeConfiguration: FilterScopeConfigurationTypeDef
+    Filters: Sequence[Filter]
+    ScopeConfiguration: FilterScopeConfiguration
     CrossDataset: CrossDatasetTypesType
     Status: Optional[WidgetStatusType] = None
 
 
-class LayerMapVisualOutputTypeDef(BaseValidatorModel):
+class LayerMapVisualOutput(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GeospatialLayerMapConfigurationOutputTypeDef] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GeospatialLayerMapConfigurationOutput] = None
     VisualContentAltText: Optional[str] = None
 
 
-class LayerMapVisualTypeDef(BaseValidatorModel):
+class LayerMapVisual(BaseValidatorModel):
     VisualId: str
     DataSetIdentifier: str
-    Title: Optional[VisualTitleLabelOptionsTypeDef] = None
-    Subtitle: Optional[VisualSubtitleLabelOptionsTypeDef] = None
-    ChartConfiguration: Optional[GeospatialLayerMapConfigurationTypeDef] = None
+    Title: Optional[VisualTitleLabelOptions] = None
+    Subtitle: Optional[VisualSubtitleLabelOptions] = None
+    ChartConfiguration: Optional[GeospatialLayerMapConfiguration] = None
     VisualContentAltText: Optional[str] = None
 
 
-class VisualOutputTypeDef(BaseValidatorModel):
-    TableVisual: Optional[TableVisualOutputTypeDef] = None
-    PivotTableVisual: Optional[PivotTableVisualOutputTypeDef] = None
-    BarChartVisual: Optional[BarChartVisualOutputTypeDef] = None
-    KPIVisual: Optional[KPIVisualOutputTypeDef] = None
-    PieChartVisual: Optional[PieChartVisualOutputTypeDef] = None
-    GaugeChartVisual: Optional[GaugeChartVisualOutputTypeDef] = None
-    LineChartVisual: Optional[LineChartVisualOutputTypeDef] = None
-    HeatMapVisual: Optional[HeatMapVisualOutputTypeDef] = None
-    TreeMapVisual: Optional[TreeMapVisualOutputTypeDef] = None
-    GeospatialMapVisual: Optional[GeospatialMapVisualOutputTypeDef] = None
-    FilledMapVisual: Optional[FilledMapVisualOutputTypeDef] = None
-    LayerMapVisual: Optional[LayerMapVisualOutputTypeDef] = None
-    FunnelChartVisual: Optional[FunnelChartVisualOutputTypeDef] = None
-    ScatterPlotVisual: Optional[ScatterPlotVisualOutputTypeDef] = None
-    ComboChartVisual: Optional[ComboChartVisualOutputTypeDef] = None
-    BoxPlotVisual: Optional[BoxPlotVisualOutputTypeDef] = None
-    WaterfallVisual: Optional[WaterfallVisualOutputTypeDef] = None
-    HistogramVisual: Optional[HistogramVisualOutputTypeDef] = None
-    WordCloudVisual: Optional[WordCloudVisualOutputTypeDef] = None
-    InsightVisual: Optional[InsightVisualOutputTypeDef] = None
-    SankeyDiagramVisual: Optional[SankeyDiagramVisualOutputTypeDef] = None
-    CustomContentVisual: Optional[CustomContentVisualOutputTypeDef] = None
-    EmptyVisual: Optional[EmptyVisualOutputTypeDef] = None
-    RadarChartVisual: Optional[RadarChartVisualOutputTypeDef] = None
-    PluginVisual: Optional[PluginVisualOutputTypeDef] = None
+class VisualOutput(BaseValidatorModel):
+    TableVisual: Optional[TableVisualOutput] = None
+    PivotTableVisual: Optional[PivotTableVisualOutput] = None
+    BarChartVisual: Optional[BarChartVisualOutput] = None
+    KPIVisual: Optional[KPIVisualOutput] = None
+    PieChartVisual: Optional[PieChartVisualOutput] = None
+    GaugeChartVisual: Optional[GaugeChartVisualOutput] = None
+    LineChartVisual: Optional[LineChartVisualOutput] = None
+    HeatMapVisual: Optional[HeatMapVisualOutput] = None
+    TreeMapVisual: Optional[TreeMapVisualOutput] = None
+    GeospatialMapVisual: Optional[GeospatialMapVisualOutput] = None
+    FilledMapVisual: Optional[FilledMapVisualOutput] = None
+    LayerMapVisual: Optional[LayerMapVisualOutput] = None
+    FunnelChartVisual: Optional[FunnelChartVisualOutput] = None
+    ScatterPlotVisual: Optional[ScatterPlotVisualOutput] = None
+    ComboChartVisual: Optional[ComboChartVisualOutput] = None
+    BoxPlotVisual: Optional[BoxPlotVisualOutput] = None
+    WaterfallVisual: Optional[WaterfallVisualOutput] = None
+    HistogramVisual: Optional[HistogramVisualOutput] = None
+    WordCloudVisual: Optional[WordCloudVisualOutput] = None
+    InsightVisual: Optional[InsightVisualOutput] = None
+    SankeyDiagramVisual: Optional[SankeyDiagramVisualOutput] = None
+    CustomContentVisual: Optional[CustomContentVisualOutput] = None
+    EmptyVisual: Optional[EmptyVisualOutput] = None
+    RadarChartVisual: Optional[RadarChartVisualOutput] = None
+    PluginVisual: Optional[PluginVisualOutput] = None
 
 
-class VisualTypeDef(BaseValidatorModel):
-    TableVisual: Optional[TableVisualTypeDef] = None
-    PivotTableVisual: Optional[PivotTableVisualTypeDef] = None
-    BarChartVisual: Optional[BarChartVisualTypeDef] = None
-    KPIVisual: Optional[KPIVisualTypeDef] = None
-    PieChartVisual: Optional[PieChartVisualTypeDef] = None
-    GaugeChartVisual: Optional[GaugeChartVisualTypeDef] = None
-    LineChartVisual: Optional[LineChartVisualTypeDef] = None
-    HeatMapVisual: Optional[HeatMapVisualTypeDef] = None
-    TreeMapVisual: Optional[TreeMapVisualTypeDef] = None
-    GeospatialMapVisual: Optional[GeospatialMapVisualTypeDef] = None
-    FilledMapVisual: Optional[FilledMapVisualTypeDef] = None
-    LayerMapVisual: Optional[LayerMapVisualTypeDef] = None
-    FunnelChartVisual: Optional[FunnelChartVisualTypeDef] = None
-    ScatterPlotVisual: Optional[ScatterPlotVisualTypeDef] = None
-    ComboChartVisual: Optional[ComboChartVisualTypeDef] = None
-    BoxPlotVisual: Optional[BoxPlotVisualTypeDef] = None
-    WaterfallVisual: Optional[WaterfallVisualTypeDef] = None
-    HistogramVisual: Optional[HistogramVisualTypeDef] = None
-    WordCloudVisual: Optional[WordCloudVisualTypeDef] = None
-    InsightVisual: Optional[InsightVisualTypeDef] = None
-    SankeyDiagramVisual: Optional[SankeyDiagramVisualTypeDef] = None
-    CustomContentVisual: Optional[CustomContentVisualTypeDef] = None
-    EmptyVisual: Optional[EmptyVisualTypeDef] = None
-    RadarChartVisual: Optional[RadarChartVisualTypeDef] = None
-    PluginVisual: Optional[PluginVisualTypeDef] = None
+class Visual(BaseValidatorModel):
+    TableVisual: Optional[TableVisual] = None
+    PivotTableVisual: Optional[PivotTableVisual] = None
+    BarChartVisual: Optional[BarChartVisual] = None
+    KPIVisual: Optional[KPIVisual] = None
+    PieChartVisual: Optional[PieChartVisual] = None
+    GaugeChartVisual: Optional[GaugeChartVisual] = None
+    LineChartVisual: Optional[LineChartVisual] = None
+    HeatMapVisual: Optional[HeatMapVisual] = None
+    TreeMapVisual: Optional[TreeMapVisual] = None
+    GeospatialMapVisual: Optional[GeospatialMapVisual] = None
+    FilledMapVisual: Optional[FilledMapVisual] = None
+    LayerMapVisual: Optional[LayerMapVisual] = None
+    FunnelChartVisual: Optional[FunnelChartVisual] = None
+    ScatterPlotVisual: Optional[ScatterPlotVisual] = None
+    ComboChartVisual: Optional[ComboChartVisual] = None
+    BoxPlotVisual: Optional[BoxPlotVisual] = None
+    WaterfallVisual: Optional[WaterfallVisual] = None
+    HistogramVisual: Optional[HistogramVisual] = None
+    WordCloudVisual: Optional[WordCloudVisual] = None
+    InsightVisual: Optional[InsightVisual] = None
+    SankeyDiagramVisual: Optional[SankeyDiagramVisual] = None
+    CustomContentVisual: Optional[CustomContentVisual] = None
+    EmptyVisual: Optional[EmptyVisual] = None
+    RadarChartVisual: Optional[RadarChartVisual] = None
+    PluginVisual: Optional[PluginVisual] = None
 
 
-class TopicVisualUnionTypeDef(BaseValidatorModel):
+class TopicVisualUnion(BaseValidatorModel):
     pass
 
 
-class TopicTemplateUnionTypeDef(BaseValidatorModel):
+class TopicTemplateUnion(BaseValidatorModel):
     pass
 
 
-class CreateTopicReviewedAnswerTypeDef(BaseValidatorModel):
+class CreateTopicReviewedAnswer(BaseValidatorModel):
     AnswerId: str
     DatasetArn: str
     Question: str
-    Mir: Optional[TopicIRUnionTypeDef] = None
-    PrimaryVisual: Optional[TopicVisualUnionTypeDef] = None
-    Template: Optional[TopicTemplateUnionTypeDef] = None
+    Mir: Optional[TopicIRUnion] = None
+    PrimaryVisual: Optional[TopicVisualUnion] = None
+    Template: Optional[TopicTemplateUnion] = None
 
 
-class ParameterControlOutputTypeDef(BaseValidatorModel):
+class ParameterControlOutput(BaseValidatorModel):
     pass
 
 
-class FilterControlOutputTypeDef(BaseValidatorModel):
+class FilterControlOutput(BaseValidatorModel):
     pass
 
 
-class SheetDefinitionOutputTypeDef(BaseValidatorModel):
+class SheetDefinitionOutput(BaseValidatorModel):
     SheetId: str
     Title: Optional[str] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
-    ParameterControls: Optional[List[ParameterControlOutputTypeDef]] = None
-    FilterControls: Optional[List[FilterControlOutputTypeDef]] = None
-    Visuals: Optional[List[VisualOutputTypeDef]] = None
-    TextBoxes: Optional[List[SheetTextBoxTypeDef]] = None
-    Images: Optional[List[SheetImageOutputTypeDef]] = None
-    Layouts: Optional[List[LayoutOutputTypeDef]] = None
-    SheetControlLayouts: Optional[List[SheetControlLayoutOutputTypeDef]] = None
+    ParameterControls: Optional[List[ParameterControlOutput]] = None
+    FilterControls: Optional[List[FilterControlOutput]] = None
+    Visuals: Optional[List[VisualOutput]] = None
+    TextBoxes: Optional[List[SheetTextBox]] = None
+    Images: Optional[List[SheetImageOutput]] = None
+    Layouts: Optional[List[LayoutOutput]] = None
+    SheetControlLayouts: Optional[List[SheetControlLayoutOutput]] = None
     ContentType: Optional[SheetContentTypeType] = None
 
 
-class FilterControlTypeDef(BaseValidatorModel):
+class FilterControl(BaseValidatorModel):
     pass
 
 
-class ParameterControlTypeDef(BaseValidatorModel):
+class ParameterControl(BaseValidatorModel):
     pass
 
 
-class SheetDefinitionTypeDef(BaseValidatorModel):
+class SheetDefinition(BaseValidatorModel):
     SheetId: str
     Title: Optional[str] = None
     Description: Optional[str] = None
     Name: Optional[str] = None
-    ParameterControls: Optional[Sequence[ParameterControlTypeDef]] = None
-    FilterControls: Optional[Sequence[FilterControlTypeDef]] = None
-    Visuals: Optional[Sequence[VisualTypeDef]] = None
-    TextBoxes: Optional[Sequence[SheetTextBoxTypeDef]] = None
-    Images: Optional[Sequence[SheetImageTypeDef]] = None
-    Layouts: Optional[Sequence[LayoutTypeDef]] = None
-    SheetControlLayouts: Optional[Sequence[SheetControlLayoutTypeDef]] = None
+    ParameterControls: Optional[Sequence[ParameterControl]] = None
+    FilterControls: Optional[Sequence[FilterControl]] = None
+    Visuals: Optional[Sequence[Visual]] = None
+    TextBoxes: Optional[Sequence[SheetTextBox]] = None
+    Images: Optional[Sequence[SheetImage]] = None
+    Layouts: Optional[Sequence[Layout]] = None
+    SheetControlLayouts: Optional[Sequence[SheetControlLayout]] = None
     ContentType: Optional[SheetContentTypeType] = None
 
 
-class BatchCreateTopicReviewedAnswerRequestTypeDef(BaseValidatorModel):
+class BatchCreateTopicReviewedAnswerRequest(BaseValidatorModel):
     AwsAccountId: str
     TopicId: str
-    Answers: Sequence[CreateTopicReviewedAnswerTypeDef]
+    Answers: Sequence[CreateTopicReviewedAnswer]
 
 
-class AnalysisDefinitionOutputTypeDef(BaseValidatorModel):
-    DataSetIdentifierDeclarations: List[DataSetIdentifierDeclarationTypeDef]
-    Sheets: Optional[List[SheetDefinitionOutputTypeDef]] = None
-    CalculatedFields: Optional[List[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[List[ParameterDeclarationOutputTypeDef]] = None
-    FilterGroups: Optional[List[FilterGroupOutputTypeDef]] = None
-    ColumnConfigurations: Optional[List[ColumnConfigurationOutputTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    QueryExecutionOptions: Optional[QueryExecutionOptionsTypeDef] = None
-    StaticFiles: Optional[List[StaticFileTypeDef]] = None
+class AnalysisDefinitionOutput(BaseValidatorModel):
+    DataSetIdentifierDeclarations: List[DataSetIdentifierDeclaration]
+    Sheets: Optional[List[SheetDefinitionOutput]] = None
+    CalculatedFields: Optional[List[CalculatedField]] = None
+    ParameterDeclarations: Optional[List[ParameterDeclarationOutput]] = None
+    FilterGroups: Optional[List[FilterGroupOutput]] = None
+    ColumnConfigurations: Optional[List[ColumnConfigurationOutput]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    QueryExecutionOptions: Optional[QueryExecutionOptions] = None
+    StaticFiles: Optional[List[StaticFile]] = None
 
 
-class DashboardVersionDefinitionOutputTypeDef(BaseValidatorModel):
-    DataSetIdentifierDeclarations: List[DataSetIdentifierDeclarationTypeDef]
-    Sheets: Optional[List[SheetDefinitionOutputTypeDef]] = None
-    CalculatedFields: Optional[List[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[List[ParameterDeclarationOutputTypeDef]] = None
-    FilterGroups: Optional[List[FilterGroupOutputTypeDef]] = None
-    ColumnConfigurations: Optional[List[ColumnConfigurationOutputTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    StaticFiles: Optional[List[StaticFileTypeDef]] = None
+class DashboardVersionDefinitionOutput(BaseValidatorModel):
+    DataSetIdentifierDeclarations: List[DataSetIdentifierDeclaration]
+    Sheets: Optional[List[SheetDefinitionOutput]] = None
+    CalculatedFields: Optional[List[CalculatedField]] = None
+    ParameterDeclarations: Optional[List[ParameterDeclarationOutput]] = None
+    FilterGroups: Optional[List[FilterGroupOutput]] = None
+    ColumnConfigurations: Optional[List[ColumnConfigurationOutput]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    StaticFiles: Optional[List[StaticFile]] = None
 
 
-class TemplateVersionDefinitionOutputTypeDef(BaseValidatorModel):
-    DataSetConfigurations: List[DataSetConfigurationOutputTypeDef]
-    Sheets: Optional[List[SheetDefinitionOutputTypeDef]] = None
-    CalculatedFields: Optional[List[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[List[ParameterDeclarationOutputTypeDef]] = None
-    FilterGroups: Optional[List[FilterGroupOutputTypeDef]] = None
-    ColumnConfigurations: Optional[List[ColumnConfigurationOutputTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    QueryExecutionOptions: Optional[QueryExecutionOptionsTypeDef] = None
-    StaticFiles: Optional[List[StaticFileTypeDef]] = None
+class TemplateVersionDefinitionOutput(BaseValidatorModel):
+    DataSetConfigurations: List[DataSetConfigurationOutput]
+    Sheets: Optional[List[SheetDefinitionOutput]] = None
+    CalculatedFields: Optional[List[CalculatedField]] = None
+    ParameterDeclarations: Optional[List[ParameterDeclarationOutput]] = None
+    FilterGroups: Optional[List[FilterGroupOutput]] = None
+    ColumnConfigurations: Optional[List[ColumnConfigurationOutput]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    QueryExecutionOptions: Optional[QueryExecutionOptions] = None
+    StaticFiles: Optional[List[StaticFile]] = None
 
 
-class AnalysisDefinitionTypeDef(BaseValidatorModel):
-    DataSetIdentifierDeclarations: Sequence[DataSetIdentifierDeclarationTypeDef]
-    Sheets: Optional[Sequence[SheetDefinitionTypeDef]] = None
-    CalculatedFields: Optional[Sequence[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[Sequence[ParameterDeclarationTypeDef]] = None
-    FilterGroups: Optional[Sequence[FilterGroupTypeDef]] = None
-    ColumnConfigurations: Optional[Sequence[ColumnConfigurationTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    QueryExecutionOptions: Optional[QueryExecutionOptionsTypeDef] = None
-    StaticFiles: Optional[Sequence[StaticFileTypeDef]] = None
+class AnalysisDefinition(BaseValidatorModel):
+    DataSetIdentifierDeclarations: Sequence[DataSetIdentifierDeclaration]
+    Sheets: Optional[Sequence[SheetDefinition]] = None
+    CalculatedFields: Optional[Sequence[CalculatedField]] = None
+    ParameterDeclarations: Optional[Sequence[ParameterDeclaration]] = None
+    FilterGroups: Optional[Sequence[FilterGroup]] = None
+    ColumnConfigurations: Optional[Sequence[ColumnConfiguration]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    QueryExecutionOptions: Optional[QueryExecutionOptions] = None
+    StaticFiles: Optional[Sequence[StaticFile]] = None
 
 
-class DashboardVersionDefinitionTypeDef(BaseValidatorModel):
-    DataSetIdentifierDeclarations: Sequence[DataSetIdentifierDeclarationTypeDef]
-    Sheets: Optional[Sequence[SheetDefinitionTypeDef]] = None
-    CalculatedFields: Optional[Sequence[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[Sequence[ParameterDeclarationTypeDef]] = None
-    FilterGroups: Optional[Sequence[FilterGroupTypeDef]] = None
-    ColumnConfigurations: Optional[Sequence[ColumnConfigurationTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    StaticFiles: Optional[Sequence[StaticFileTypeDef]] = None
+class DashboardVersionDefinition(BaseValidatorModel):
+    DataSetIdentifierDeclarations: Sequence[DataSetIdentifierDeclaration]
+    Sheets: Optional[Sequence[SheetDefinition]] = None
+    CalculatedFields: Optional[Sequence[CalculatedField]] = None
+    ParameterDeclarations: Optional[Sequence[ParameterDeclaration]] = None
+    FilterGroups: Optional[Sequence[FilterGroup]] = None
+    ColumnConfigurations: Optional[Sequence[ColumnConfiguration]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    StaticFiles: Optional[Sequence[StaticFile]] = None
 
 
-class TemplateVersionDefinitionTypeDef(BaseValidatorModel):
-    DataSetConfigurations: Sequence[DataSetConfigurationTypeDef]
-    Sheets: Optional[Sequence[SheetDefinitionTypeDef]] = None
-    CalculatedFields: Optional[Sequence[CalculatedFieldTypeDef]] = None
-    ParameterDeclarations: Optional[Sequence[ParameterDeclarationTypeDef]] = None
-    FilterGroups: Optional[Sequence[FilterGroupTypeDef]] = None
-    ColumnConfigurations: Optional[Sequence[ColumnConfigurationTypeDef]] = None
-    AnalysisDefaults: Optional[AnalysisDefaultsTypeDef] = None
-    Options: Optional[AssetOptionsTypeDef] = None
-    QueryExecutionOptions: Optional[QueryExecutionOptionsTypeDef] = None
-    StaticFiles: Optional[Sequence[StaticFileTypeDef]] = None
+class TemplateVersionDefinition(BaseValidatorModel):
+    DataSetConfigurations: Sequence[DataSetConfiguration]
+    Sheets: Optional[Sequence[SheetDefinition]] = None
+    CalculatedFields: Optional[Sequence[CalculatedField]] = None
+    ParameterDeclarations: Optional[Sequence[ParameterDeclaration]] = None
+    FilterGroups: Optional[Sequence[FilterGroup]] = None
+    ColumnConfigurations: Optional[Sequence[ColumnConfiguration]] = None
+    AnalysisDefaults: Optional[AnalysisDefaults] = None
+    Options: Optional[AssetOptions] = None
+    QueryExecutionOptions: Optional[QueryExecutionOptions] = None
+    StaticFiles: Optional[Sequence[StaticFile]] = None
 
 
-class DescribeAnalysisDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeAnalysisDefinitionResponse(BaseValidatorModel):
     AnalysisId: str
     Name: str
-    Errors: List[AnalysisErrorTypeDef]
+    Errors: List[AnalysisError]
     ResourceStatus: ResourceStatusType
     ThemeArn: str
-    Definition: AnalysisDefinitionOutputTypeDef
+    Definition: AnalysisDefinitionOutput
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDashboardDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeDashboardDefinitionResponse(BaseValidatorModel):
     DashboardId: str
-    Errors: List[DashboardErrorTypeDef]
+    Errors: List[DashboardError]
     Name: str
     ResourceStatus: ResourceStatusType
     ThemeArn: str
-    Definition: DashboardVersionDefinitionOutputTypeDef
+    Definition: DashboardVersionDefinitionOutput
     Status: int
     RequestId: str
-    DashboardPublishOptions: DashboardPublishOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    DashboardPublishOptions: DashboardPublishOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTemplateDefinitionResponseTypeDef(BaseValidatorModel):
+class DescribeTemplateDefinitionResponse(BaseValidatorModel):
     Name: str
     TemplateId: str
-    Errors: List[TemplateErrorTypeDef]
+    Errors: List[TemplateError]
     ResourceStatus: ResourceStatusType
     ThemeArn: str
-    Definition: TemplateVersionDefinitionOutputTypeDef
+    Definition: TemplateVersionDefinitionOutput
     Status: int
     RequestId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ParametersUnionTypeDef(BaseValidatorModel):
+class ParametersUnion(BaseValidatorModel):
     pass
 
 
-class AnalysisDefinitionUnionTypeDef(BaseValidatorModel):
+class AnalysisDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateAnalysisRequestTypeDef(BaseValidatorModel):
+class CreateAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
     Name: str
-    Parameters: Optional[ParametersUnionTypeDef] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    SourceEntity: Optional[AnalysisSourceEntityTypeDef] = None
+    Parameters: Optional[ParametersUnion] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    SourceEntity: Optional[AnalysisSourceEntity] = None
     ThemeArn: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    Definition: Optional[AnalysisDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    Definition: Optional[AnalysisDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
     FolderArns: Optional[Sequence[str]] = None
 
 
-class UpdateAnalysisRequestTypeDef(BaseValidatorModel):
+class UpdateAnalysisRequest(BaseValidatorModel):
     AwsAccountId: str
     AnalysisId: str
     Name: str
-    Parameters: Optional[ParametersUnionTypeDef] = None
-    SourceEntity: Optional[AnalysisSourceEntityTypeDef] = None
+    Parameters: Optional[ParametersUnion] = None
+    SourceEntity: Optional[AnalysisSourceEntity] = None
     ThemeArn: Optional[str] = None
-    Definition: Optional[AnalysisDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Definition: Optional[AnalysisDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
 
 
-class DashboardVersionDefinitionUnionTypeDef(BaseValidatorModel):
+class DashboardVersionDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class LinkSharingConfigurationUnionTypeDef(BaseValidatorModel):
+class LinkSharingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDashboardRequestTypeDef(BaseValidatorModel):
+class CreateDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     Name: str
-    Parameters: Optional[ParametersUnionTypeDef] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    SourceEntity: Optional[DashboardSourceEntityTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Parameters: Optional[ParametersUnion] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    SourceEntity: Optional[DashboardSourceEntity] = None
+    Tags: Optional[Sequence[Tag]] = None
     VersionDescription: Optional[str] = None
-    DashboardPublishOptions: Optional[DashboardPublishOptionsTypeDef] = None
+    DashboardPublishOptions: Optional[DashboardPublishOptions] = None
     ThemeArn: Optional[str] = None
-    Definition: Optional[DashboardVersionDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Definition: Optional[DashboardVersionDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
     FolderArns: Optional[Sequence[str]] = None
-    LinkSharingConfiguration: Optional[LinkSharingConfigurationUnionTypeDef] = None
+    LinkSharingConfiguration: Optional[LinkSharingConfigurationUnion] = None
     LinkEntities: Optional[Sequence[str]] = None
 
 
-class UpdateDashboardRequestTypeDef(BaseValidatorModel):
+class UpdateDashboardRequest(BaseValidatorModel):
     AwsAccountId: str
     DashboardId: str
     Name: str
-    SourceEntity: Optional[DashboardSourceEntityTypeDef] = None
-    Parameters: Optional[ParametersUnionTypeDef] = None
+    SourceEntity: Optional[DashboardSourceEntity] = None
+    Parameters: Optional[ParametersUnion] = None
     VersionDescription: Optional[str] = None
-    DashboardPublishOptions: Optional[DashboardPublishOptionsTypeDef] = None
+    DashboardPublishOptions: Optional[DashboardPublishOptions] = None
     ThemeArn: Optional[str] = None
-    Definition: Optional[DashboardVersionDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Definition: Optional[DashboardVersionDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
 
 
-class TemplateVersionDefinitionUnionTypeDef(BaseValidatorModel):
+class TemplateVersionDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateTemplateRequestTypeDef(BaseValidatorModel):
+class CreateTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
     Name: Optional[str] = None
-    Permissions: Optional[Sequence[ResourcePermissionUnionTypeDef]] = None
-    SourceEntity: Optional[TemplateSourceEntityTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Permissions: Optional[Sequence[ResourcePermissionUnion]] = None
+    SourceEntity: Optional[TemplateSourceEntity] = None
+    Tags: Optional[Sequence[Tag]] = None
     VersionDescription: Optional[str] = None
-    Definition: Optional[TemplateVersionDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Definition: Optional[TemplateVersionDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
 
 
-class UpdateTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateTemplateRequest(BaseValidatorModel):
     AwsAccountId: str
     TemplateId: str
-    SourceEntity: Optional[TemplateSourceEntityTypeDef] = None
+    SourceEntity: Optional[TemplateSourceEntity] = None
     VersionDescription: Optional[str] = None
     Name: Optional[str] = None
-    Definition: Optional[TemplateVersionDefinitionUnionTypeDef] = None
-    ValidationStrategy: Optional[ValidationStrategyTypeDef] = None
+    Definition: Optional[TemplateVersionDefinitionUnion] = None
+    ValidationStrategy: Optional[ValidationStrategy] = None
 
 

@@ -12,32 +12,32 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iot_managed_integrations_constants import *
 
-class AbortConfigCriteriaTypeDef(BaseValidatorModel):
+class AbortConfigCriteria(BaseValidatorModel):
     Action: Optional[Literal["CANCEL"]] = None
     FailureType: Optional[AbortCriteriaFailureTypeType] = None
     MinNumberOfExecutedThings: Optional[int] = None
     ThresholdPercentage: Optional[float] = None
 
 
-class CapabilityActionTypeDef(BaseValidatorModel):
+class CapabilityAction(BaseValidatorModel):
     name: str
     ref: Optional[str] = None
     actionTraceId: Optional[str] = None
     parameters: Optional[Mapping[str, Any]] = None
 
 
-class ConfigurationErrorTypeDef(BaseValidatorModel):
+class ConfigurationError(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class CreateCredentialLockerRequestTypeDef(BaseValidatorModel):
+class CreateCredentialLockerRequest(BaseValidatorModel):
     Name: Optional[str] = None
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -45,7 +45,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateDestinationRequestTypeDef(BaseValidatorModel):
+class CreateDestinationRequest(BaseValidatorModel):
     DeliveryDestinationArn: str
     DeliveryDestinationType: Literal["KINESIS"]
     Name: str
@@ -55,21 +55,21 @@ class CreateDestinationRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateEventLogConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateEventLogConfigurationRequest(BaseValidatorModel):
     ResourceType: str
     EventLogLevel: LogLevelType
     ResourceId: Optional[str] = None
     ClientToken: Optional[str] = None
 
 
-class CreateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
     ClientToken: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CreateProvisioningProfileRequestTypeDef(BaseValidatorModel):
+class CreateProvisioningProfileRequest(BaseValidatorModel):
     ProvisioningType: ProvisioningTypeType
     CaCertificate: Optional[str] = None
     Name: Optional[str] = None
@@ -77,47 +77,47 @@ class CreateProvisioningProfileRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class CredentialLockerSummaryTypeDef(BaseValidatorModel):
+class CredentialLockerSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     Name: Optional[str] = None
     CreatedAt: Optional[datetime] = None
 
 
-class DeleteCredentialLockerRequestTypeDef(BaseValidatorModel):
+class DeleteCredentialLockerRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DeleteDestinationRequestTypeDef(BaseValidatorModel):
+class DeleteDestinationRequest(BaseValidatorModel):
     Name: str
 
 
-class DeleteEventLogConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
-class DeleteManagedThingRequestTypeDef(BaseValidatorModel):
+class DeleteManagedThingRequest(BaseValidatorModel):
     Identifier: str
     Force: Optional[bool] = None
 
 
-class DeleteNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
 
 
-class DeleteOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteOtaTaskConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DeleteOtaTaskRequestTypeDef(BaseValidatorModel):
+class DeleteOtaTaskRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DeleteProvisioningProfileRequestTypeDef(BaseValidatorModel):
+class DeleteProvisioningProfileRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DestinationSummaryTypeDef(BaseValidatorModel):
+class DestinationSummary(BaseValidatorModel):
     Description: Optional[str] = None
     DeliveryDestinationArn: Optional[str] = None
     DeliveryDestinationType: Optional[Literal["KINESIS"]] = None
@@ -125,67 +125,67 @@ class DestinationSummaryTypeDef(BaseValidatorModel):
     RoleArn: Optional[str] = None
 
 
-class EventLogConfigurationSummaryTypeDef(BaseValidatorModel):
+class EventLogConfigurationSummary(BaseValidatorModel):
     Id: Optional[str] = None
     ResourceType: Optional[str] = None
     ResourceId: Optional[str] = None
     EventLogLevel: Optional[LogLevelType] = None
 
 
-class RolloutRateIncreaseCriteriaTypeDef(BaseValidatorModel):
+class RolloutRateIncreaseCriteria(BaseValidatorModel):
     numberOfNotifiedThings: Optional[int] = None
     numberOfSucceededThings: Optional[int] = None
 
 
-class GetCredentialLockerRequestTypeDef(BaseValidatorModel):
+class GetCredentialLockerRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetDestinationRequestTypeDef(BaseValidatorModel):
+class GetDestinationRequest(BaseValidatorModel):
     Name: str
 
 
-class GetDeviceDiscoveryRequestTypeDef(BaseValidatorModel):
+class GetDeviceDiscoveryRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetEventLogConfigurationRequestTypeDef(BaseValidatorModel):
+class GetEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
 
 
-class GetManagedThingCapabilitiesRequestTypeDef(BaseValidatorModel):
+class GetManagedThingCapabilitiesRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetManagedThingConnectivityDataRequestTypeDef(BaseValidatorModel):
+class GetManagedThingConnectivityDataRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetManagedThingMetaDataRequestTypeDef(BaseValidatorModel):
+class GetManagedThingMetaDataRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetManagedThingRequestTypeDef(BaseValidatorModel):
+class GetManagedThingRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetManagedThingStateRequestTypeDef(BaseValidatorModel):
+class GetManagedThingStateRequest(BaseValidatorModel):
     ManagedThingId: str
 
 
-class GetNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class GetNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
 
 
-class GetOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
+class GetOtaTaskConfigurationRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetOtaTaskRequestTypeDef(BaseValidatorModel):
+class GetOtaTaskRequest(BaseValidatorModel):
     Identifier: str
 
 
-class TaskProcessingDetailsTypeDef(BaseValidatorModel):
+class TaskProcessingDetails(BaseValidatorModel):
     NumberOfCanceledThings: Optional[int] = None
     NumberOfFailedThings: Optional[int] = None
     NumberOfInProgressThings: Optional[int] = None
@@ -197,15 +197,15 @@ class TaskProcessingDetailsTypeDef(BaseValidatorModel):
     processingTargets: Optional[List[str]] = None
 
 
-class GetProvisioningProfileRequestTypeDef(BaseValidatorModel):
+class GetProvisioningProfileRequest(BaseValidatorModel):
     Identifier: str
 
 
-class GetRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
+class GetRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
 
 
-class RuntimeLogConfigurationsTypeDef(BaseValidatorModel):
+class RuntimeLogConfigurations(BaseValidatorModel):
     LogLevel: Optional[LogLevelType] = None
     LogFlushLevel: Optional[LogLevelType] = None
     LocalStoreLocation: Optional[str] = None
@@ -216,28 +216,28 @@ class RuntimeLogConfigurationsTypeDef(BaseValidatorModel):
     DeleteLocalStoreAfterUpload: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListCredentialLockersRequestTypeDef(BaseValidatorModel):
+class ListCredentialLockersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDestinationsRequestTypeDef(BaseValidatorModel):
+class ListDestinationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListEventLogConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListEventLogConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListManagedThingSchemasRequestTypeDef(BaseValidatorModel):
+class ListManagedThingSchemasRequest(BaseValidatorModel):
     Identifier: str
     EndpointIdFilter: Optional[str] = None
     CapabilityIdFilter: Optional[str] = None
@@ -245,13 +245,13 @@ class ListManagedThingSchemasRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ManagedThingSchemaListItemTypeDef(BaseValidatorModel):
+class ManagedThingSchemaListItem(BaseValidatorModel):
     EndpointId: Optional[str] = None
     CapabilityId: Optional[str] = None
     Schema: Optional[Dict[str, Any]] = None
 
 
-class ListManagedThingsRequestTypeDef(BaseValidatorModel):
+class ListManagedThingsRequest(BaseValidatorModel):
     OwnerFilter: Optional[str] = None
     CredentialLockerFilter: Optional[str] = None
     RoleFilter: Optional[RoleType] = None
@@ -263,7 +263,7 @@ class ListManagedThingsRequestTypeDef(BaseValidatorModel):
     MaxResults: Optional[int] = None
 
 
-class ManagedThingSummaryTypeDef(BaseValidatorModel):
+class ManagedThingSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Arn: Optional[str] = None
     AdvertisedProductId: Optional[str] = None
@@ -284,39 +284,39 @@ class ManagedThingSummaryTypeDef(BaseValidatorModel):
     ActivatedAt: Optional[datetime] = None
 
 
-class ListNotificationConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListNotificationConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NotificationConfigurationSummaryTypeDef(BaseValidatorModel):
+class NotificationConfigurationSummary(BaseValidatorModel):
     EventType: Optional[EventTypeType] = None
     DestinationName: Optional[str] = None
 
 
-class ListOtaTaskConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListOtaTaskConfigurationsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OtaTaskConfigurationSummaryTypeDef(BaseValidatorModel):
+class OtaTaskConfigurationSummary(BaseValidatorModel):
     TaskConfigurationId: Optional[str] = None
     Name: Optional[str] = None
     CreatedAt: Optional[datetime] = None
 
 
-class ListOtaTaskExecutionsRequestTypeDef(BaseValidatorModel):
+class ListOtaTaskExecutionsRequest(BaseValidatorModel):
     Identifier: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListOtaTasksRequestTypeDef(BaseValidatorModel):
+class ListOtaTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OtaTaskSummaryTypeDef(BaseValidatorModel):
+class OtaTaskSummary(BaseValidatorModel):
     TaskId: Optional[str] = None
     TaskArn: Optional[str] = None
     CreatedAt: Optional[datetime] = None
@@ -325,24 +325,24 @@ class OtaTaskSummaryTypeDef(BaseValidatorModel):
     Status: Optional[OtaStatusType] = None
 
 
-class ListProvisioningProfilesRequestTypeDef(BaseValidatorModel):
+class ListProvisioningProfilesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ProvisioningProfileSummaryTypeDef(BaseValidatorModel):
+class ProvisioningProfileSummary(BaseValidatorModel):
     Name: Optional[str] = None
     Id: Optional[str] = None
     Arn: Optional[str] = None
     ProvisioningType: Optional[ProvisioningTypeType] = None
 
 
-class RetryConfigCriteriaTypeDef(BaseValidatorModel):
+class RetryConfigCriteria(BaseValidatorModel):
     FailureType: Optional[RetryCriteriaFailureTypeType] = None
     MinNumberOfRetries: Optional[int] = None
 
 
-class OtaTaskExecutionSummaryTypeDef(BaseValidatorModel):
+class OtaTaskExecutionSummary(BaseValidatorModel):
     ExecutionNumber: Optional[int] = None
     LastUpdatedAt: Optional[datetime] = None
     QueuedAt: Optional[datetime] = None
@@ -351,29 +351,29 @@ class OtaTaskExecutionSummaryTypeDef(BaseValidatorModel):
     Status: Optional[OtaTaskExecutionStatusType] = None
 
 
-class ScheduleMaintenanceWindowTypeDef(BaseValidatorModel):
+class ScheduleMaintenanceWindow(BaseValidatorModel):
     DurationInMinutes: Optional[int] = None
     StartTime: Optional[str] = None
 
 
-class OtaTaskTimeoutConfigTypeDef(BaseValidatorModel):
+class OtaTaskTimeoutConfig(BaseValidatorModel):
     InProgressTimeoutInMinutes: Optional[int] = None
 
 
-class PutDefaultEncryptionConfigurationRequestTypeDef(BaseValidatorModel):
+class PutDefaultEncryptionConfigurationRequest(BaseValidatorModel):
     encryptionType: EncryptionTypeType
     kmsKeyArn: Optional[str] = None
 
 
-class PutHubConfigurationRequestTypeDef(BaseValidatorModel):
+class PutHubConfigurationRequest(BaseValidatorModel):
     HubTokenTimerExpirySettingInSeconds: int
 
 
-class ResetRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
+class ResetRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
 
 
-class StartDeviceDiscoveryRequestTypeDef(BaseValidatorModel):
+class StartDeviceDiscoveryRequest(BaseValidatorModel):
     DiscoveryType: DiscoveryTypeType
     ControllerIdentifier: Optional[str] = None
     ConnectorAssociationIdentifier: Optional[str] = None
@@ -383,7 +383,7 @@ class StartDeviceDiscoveryRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateDestinationRequestTypeDef(BaseValidatorModel):
+class UpdateDestinationRequest(BaseValidatorModel):
     Name: str
     DeliveryDestinationArn: Optional[str] = None
     DeliveryDestinationType: Optional[Literal["KINESIS"]] = None
@@ -391,105 +391,105 @@ class UpdateDestinationRequestTypeDef(BaseValidatorModel):
     Description: Optional[str] = None
 
 
-class UpdateEventLogConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateEventLogConfigurationRequest(BaseValidatorModel):
     Id: str
     EventLogLevel: LogLevelType
 
 
-class UpdateNotificationConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateNotificationConfigurationRequest(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
 
 
-class UpdateOtaTaskRequestTypeDef(BaseValidatorModel):
+class UpdateOtaTaskRequest(BaseValidatorModel):
     Identifier: str
     Description: Optional[str] = None
     TaskConfigurationId: Optional[str] = None
 
 
-class OtaTaskAbortConfigOutputTypeDef(BaseValidatorModel):
-    AbortConfigCriteriaList: Optional[List[AbortConfigCriteriaTypeDef]] = None
+class OtaTaskAbortConfigOutput(BaseValidatorModel):
+    AbortConfigCriteriaList: Optional[List[AbortConfigCriteria]] = None
 
 
-class OtaTaskAbortConfigTypeDef(BaseValidatorModel):
-    AbortConfigCriteriaList: Optional[Sequence[AbortConfigCriteriaTypeDef]] = None
+class OtaTaskAbortConfig(BaseValidatorModel):
+    AbortConfigCriteriaList: Optional[Sequence[AbortConfigCriteria]] = None
 
 
-class ConfigurationStatusTypeDef(BaseValidatorModel):
+class ConfigurationStatus(BaseValidatorModel):
     state: ConfigurationStateType
-    error: Optional[ConfigurationErrorTypeDef] = None
+    error: Optional[ConfigurationError] = None
 
 
-class CreateCredentialLockerResponseTypeDef(BaseValidatorModel):
+class CreateCredentialLockerResponse(BaseValidatorModel):
     Id: str
     Arn: str
     CreatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDestinationResponseTypeDef(BaseValidatorModel):
+class CreateDestinationResponse(BaseValidatorModel):
     Name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventLogConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateEventLogConfigurationResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateManagedThingResponseTypeDef(BaseValidatorModel):
+class CreateManagedThingResponse(BaseValidatorModel):
     Id: str
     Arn: str
     CreatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateNotificationConfigurationResponse(BaseValidatorModel):
     EventType: EventTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOtaTaskConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateOtaTaskConfigurationResponse(BaseValidatorModel):
     TaskConfigurationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateOtaTaskResponseTypeDef(BaseValidatorModel):
+class CreateOtaTaskResponse(BaseValidatorModel):
     TaskId: str
     TaskArn: str
     Description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProvisioningProfileResponseTypeDef(BaseValidatorModel):
+class CreateProvisioningProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ProvisioningType: ProvisioningTypeType
     Id: str
     ClaimCertificate: str
     ClaimCertificatePrivateKey: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCredentialLockerResponseTypeDef(BaseValidatorModel):
+class GetCredentialLockerResponse(BaseValidatorModel):
     Id: str
     Arn: str
     Name: str
     CreatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetCustomEndpointResponseTypeDef(BaseValidatorModel):
+class GetCustomEndpointResponse(BaseValidatorModel):
     EndpointAddress: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDestinationResponseTypeDef(BaseValidatorModel):
+class GetDestinationResponse(BaseValidatorModel):
     Description: str
     DeliveryDestinationArn: str
     DeliveryDestinationType: Literal["KINESIS"]
@@ -498,10 +498,10 @@ class GetDestinationResponseTypeDef(BaseValidatorModel):
     CreatedAt: datetime
     UpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
+class GetDeviceDiscoveryResponse(BaseValidatorModel):
     Id: str
     Arn: str
     DiscoveryType: DiscoveryTypeType
@@ -511,38 +511,38 @@ class GetDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
     ConnectorAssociationId: str
     FinishedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEventLogConfigurationResponseTypeDef(BaseValidatorModel):
+class GetEventLogConfigurationResponse(BaseValidatorModel):
     Id: str
     ResourceType: str
     ResourceId: str
     EventLogLevel: LogLevelType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetHubConfigurationResponseTypeDef(BaseValidatorModel):
+class GetHubConfigurationResponse(BaseValidatorModel):
     HubTokenTimerExpirySettingInSeconds: int
     UpdatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetManagedThingConnectivityDataResponseTypeDef(BaseValidatorModel):
+class GetManagedThingConnectivityDataResponse(BaseValidatorModel):
     ManagedThingId: str
     Connected: bool
     Timestamp: datetime
     DisconnectReason: DisconnectReasonValueType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetManagedThingMetaDataResponseTypeDef(BaseValidatorModel):
+class GetManagedThingMetaDataResponse(BaseValidatorModel):
     ManagedThingId: str
     MetaData: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetManagedThingResponseTypeDef(BaseValidatorModel):
+class GetManagedThingResponse(BaseValidatorModel):
     Id: str
     Arn: str
     Owner: str
@@ -568,104 +568,104 @@ class GetManagedThingResponseTypeDef(BaseValidatorModel):
     HubNetworkMode: HubNetworkModeType
     MetaData: Dict[str, str]
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNotificationConfigurationResponseTypeDef(BaseValidatorModel):
+class GetNotificationConfigurationResponse(BaseValidatorModel):
     EventType: EventTypeType
     DestinationName: str
     CreatedAt: datetime
     UpdatedAt: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProvisioningProfileResponseTypeDef(BaseValidatorModel):
+class GetProvisioningProfileResponse(BaseValidatorModel):
     Arn: str
     Name: str
     ProvisioningType: ProvisioningTypeType
     Id: str
     ClaimCertificate: str
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutHubConfigurationResponseTypeDef(BaseValidatorModel):
+class PutHubConfigurationResponse(BaseValidatorModel):
     HubTokenTimerExpirySettingInSeconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterCustomEndpointResponseTypeDef(BaseValidatorModel):
+class RegisterCustomEndpointResponse(BaseValidatorModel):
     EndpointAddress: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendManagedThingCommandResponseTypeDef(BaseValidatorModel):
+class SendManagedThingCommandResponse(BaseValidatorModel):
     TraceId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDeviceDiscoveryResponseTypeDef(BaseValidatorModel):
+class StartDeviceDiscoveryResponse(BaseValidatorModel):
     Id: str
     StartedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCredentialLockersResponseTypeDef(BaseValidatorModel):
-    Items: List[CredentialLockerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCredentialLockersResponse(BaseValidatorModel):
+    Items: List[CredentialLockerSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDestinationsResponseTypeDef(BaseValidatorModel):
-    DestinationList: List[DestinationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDestinationsResponse(BaseValidatorModel):
+    DestinationList: List[DestinationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEventLogConfigurationsResponseTypeDef(BaseValidatorModel):
-    EventLogConfigurationList: List[EventLogConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventLogConfigurationsResponse(BaseValidatorModel):
+    EventLogConfigurationList: List[EventLogConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExponentialRolloutRateTypeDef(BaseValidatorModel):
+class ExponentialRolloutRate(BaseValidatorModel):
     BaseRatePerMinute: Optional[int] = None
     IncrementFactor: Optional[float] = None
-    RateIncreaseCriteria: Optional[RolloutRateIncreaseCriteriaTypeDef] = None
+    RateIncreaseCriteria: Optional[RolloutRateIncreaseCriteria] = None
 
 
-class GetRuntimeLogConfigurationResponseTypeDef(BaseValidatorModel):
+class GetRuntimeLogConfigurationResponse(BaseValidatorModel):
     ManagedThingId: str
-    RuntimeLogConfigurations: RuntimeLogConfigurationsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    RuntimeLogConfigurations: RuntimeLogConfigurations
+    ResponseMetadata: ResponseMetadata
 
 
-class PutRuntimeLogConfigurationRequestTypeDef(BaseValidatorModel):
+class PutRuntimeLogConfigurationRequest(BaseValidatorModel):
     ManagedThingId: str
-    RuntimeLogConfigurations: RuntimeLogConfigurationsTypeDef
+    RuntimeLogConfigurations: RuntimeLogConfigurations
 
 
-class ListCredentialLockersRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListCredentialLockersRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDestinationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDestinationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventLogConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEventLogConfigurationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedThingSchemasRequestPaginateTypeDef(BaseValidatorModel):
+class ListManagedThingSchemasRequestPaginate(BaseValidatorModel):
     Identifier: str
     EndpointIdFilter: Optional[str] = None
     CapabilityIdFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedThingsRequestPaginateTypeDef(BaseValidatorModel):
+class ListManagedThingsRequestPaginate(BaseValidatorModel):
     OwnerFilter: Optional[str] = None
     CredentialLockerFilter: Optional[str] = None
     RoleFilter: Optional[RoleType] = None
@@ -673,201 +673,201 @@ class ListManagedThingsRequestPaginateTypeDef(BaseValidatorModel):
     ConnectorPolicyIdFilter: Optional[str] = None
     SerialNumberFilter: Optional[str] = None
     ProvisioningStatusFilter: Optional[ProvisioningStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotificationConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListNotificationConfigurationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOtaTaskConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOtaTaskConfigurationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOtaTaskExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListOtaTaskExecutionsRequestPaginate(BaseValidatorModel):
     Identifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOtaTasksRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOtaTasksRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProvisioningProfilesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListProvisioningProfilesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedThingSchemasResponseTypeDef(BaseValidatorModel):
-    Items: List[ManagedThingSchemaListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedThingSchemasResponse(BaseValidatorModel):
+    Items: List[ManagedThingSchemaListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListManagedThingsResponseTypeDef(BaseValidatorModel):
-    Items: List[ManagedThingSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedThingsResponse(BaseValidatorModel):
+    Items: List[ManagedThingSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNotificationConfigurationsResponseTypeDef(BaseValidatorModel):
-    NotificationConfigurationList: List[NotificationConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationConfigurationsResponse(BaseValidatorModel):
+    NotificationConfigurationList: List[NotificationConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOtaTaskConfigurationsResponseTypeDef(BaseValidatorModel):
-    Items: List[OtaTaskConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOtaTaskConfigurationsResponse(BaseValidatorModel):
+    Items: List[OtaTaskConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListOtaTasksResponseTypeDef(BaseValidatorModel):
-    Tasks: List[OtaTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOtaTasksResponse(BaseValidatorModel):
+    Tasks: List[OtaTaskSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProvisioningProfilesResponseTypeDef(BaseValidatorModel):
-    Items: List[ProvisioningProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProvisioningProfilesResponse(BaseValidatorModel):
+    Items: List[ProvisioningProfileSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SchemaVersionListItemTypeDef(BaseValidatorModel):
+class SchemaVersionListItem(BaseValidatorModel):
     pass
 
 
-class ListSchemaVersionsResponseTypeDef(BaseValidatorModel):
-    Items: List[SchemaVersionListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSchemaVersionsResponse(BaseValidatorModel):
+    Items: List[SchemaVersionListItem]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class OtaTaskExecutionRetryConfigOutputTypeDef(BaseValidatorModel):
-    RetryConfigCriteria: Optional[List[RetryConfigCriteriaTypeDef]] = None
+class OtaTaskExecutionRetryConfigOutput(BaseValidatorModel):
+    RetryConfigCriteria: Optional[List[RetryConfigCriteria]] = None
 
 
-class OtaTaskExecutionRetryConfigTypeDef(BaseValidatorModel):
-    RetryConfigCriteria: Optional[Sequence[RetryConfigCriteriaTypeDef]] = None
+class OtaTaskExecutionRetryConfig(BaseValidatorModel):
+    RetryConfigCriteria: Optional[Sequence[RetryConfigCriteria]] = None
 
 
-class OtaTaskExecutionSummariesTypeDef(BaseValidatorModel):
-    TaskExecutionSummary: Optional[OtaTaskExecutionSummaryTypeDef] = None
+class OtaTaskExecutionSummaries(BaseValidatorModel):
+    TaskExecutionSummary: Optional[OtaTaskExecutionSummary] = None
     ManagedThingId: Optional[str] = None
 
 
-class OtaTaskSchedulingConfigOutputTypeDef(BaseValidatorModel):
+class OtaTaskSchedulingConfigOutput(BaseValidatorModel):
     EndBehavior: Optional[SchedulingConfigEndBehaviorType] = None
     EndTime: Optional[str] = None
-    MaintenanceWindows: Optional[List[ScheduleMaintenanceWindowTypeDef]] = None
+    MaintenanceWindows: Optional[List[ScheduleMaintenanceWindow]] = None
     StartTime: Optional[str] = None
 
 
-class OtaTaskSchedulingConfigTypeDef(BaseValidatorModel):
+class OtaTaskSchedulingConfig(BaseValidatorModel):
     EndBehavior: Optional[SchedulingConfigEndBehaviorType] = None
     EndTime: Optional[str] = None
-    MaintenanceWindows: Optional[Sequence[ScheduleMaintenanceWindowTypeDef]] = None
+    MaintenanceWindows: Optional[Sequence[ScheduleMaintenanceWindow]] = None
     StartTime: Optional[str] = None
 
 
-class StateCapabilityTypeDef(BaseValidatorModel):
+class StateCapability(BaseValidatorModel):
     pass
 
 
-class StateEndpointTypeDef(BaseValidatorModel):
+class StateEndpoint(BaseValidatorModel):
     endpointId: str
-    capabilities: List[StateCapabilityTypeDef]
+    capabilities: List[StateCapability]
 
 
-class CommandCapabilityTypeDef(BaseValidatorModel):
+class CommandCapability(BaseValidatorModel):
     pass
 
 
-class CommandEndpointTypeDef(BaseValidatorModel):
+class CommandEndpoint(BaseValidatorModel):
     endpointId: str
-    capabilities: Sequence[CommandCapabilityTypeDef]
+    capabilities: Sequence[CommandCapability]
 
 
-class CapabilityReportEndpointOutputTypeDef(BaseValidatorModel):
+class CapabilityReportEndpointOutput(BaseValidatorModel):
     pass
 
 
-class CapabilityReportOutputTypeDef(BaseValidatorModel):
+class CapabilityReportOutput(BaseValidatorModel):
     version: str
-    endpoints: List[CapabilityReportEndpointOutputTypeDef]
+    endpoints: List[CapabilityReportEndpointOutput]
     nodeId: Optional[str] = None
 
 
-class CapabilityReportEndpointTypeDef(BaseValidatorModel):
+class CapabilityReportEndpoint(BaseValidatorModel):
     pass
 
 
-class CapabilityReportTypeDef(BaseValidatorModel):
+class CapabilityReport(BaseValidatorModel):
     version: str
-    endpoints: Sequence[CapabilityReportEndpointTypeDef]
+    endpoints: Sequence[CapabilityReportEndpoint]
     nodeId: Optional[str] = None
 
 
-class GetDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
-    configurationStatus: ConfigurationStatusTypeDef
+class GetDefaultEncryptionConfigurationResponse(BaseValidatorModel):
+    configurationStatus: ConfigurationStatus
     encryptionType: EncryptionTypeType
     kmsKeyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutDefaultEncryptionConfigurationResponseTypeDef(BaseValidatorModel):
-    configurationStatus: ConfigurationStatusTypeDef
+class PutDefaultEncryptionConfigurationResponse(BaseValidatorModel):
+    configurationStatus: ConfigurationStatus
     encryptionType: EncryptionTypeType
     kmsKeyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OtaTaskExecutionRolloutConfigTypeDef(BaseValidatorModel):
-    ExponentialRolloutRate: Optional[ExponentialRolloutRateTypeDef] = None
+class OtaTaskExecutionRolloutConfig(BaseValidatorModel):
+    ExponentialRolloutRate: Optional[ExponentialRolloutRate] = None
     MaximumPerMinute: Optional[int] = None
 
 
-class ListOtaTaskExecutionsResponseTypeDef(BaseValidatorModel):
-    ExecutionSummaries: List[OtaTaskExecutionSummariesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOtaTaskExecutionsResponse(BaseValidatorModel):
+    ExecutionSummaries: List[OtaTaskExecutionSummaries]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetManagedThingStateResponseTypeDef(BaseValidatorModel):
-    Endpoints: List[StateEndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetManagedThingStateResponse(BaseValidatorModel):
+    Endpoints: List[StateEndpoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class SendManagedThingCommandRequestTypeDef(BaseValidatorModel):
+class SendManagedThingCommandRequest(BaseValidatorModel):
     ManagedThingId: str
-    Endpoints: Sequence[CommandEndpointTypeDef]
+    Endpoints: Sequence[CommandEndpoint]
     ConnectorAssociationId: Optional[str] = None
 
 
-class GetManagedThingCapabilitiesResponseTypeDef(BaseValidatorModel):
+class GetManagedThingCapabilitiesResponse(BaseValidatorModel):
     ManagedThingId: str
     Capabilities: str
-    CapabilityReport: CapabilityReportOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    CapabilityReport: CapabilityReportOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PushConfigOutputTypeDef(BaseValidatorModel):
-    AbortConfig: Optional[OtaTaskAbortConfigOutputTypeDef] = None
-    RolloutConfig: Optional[OtaTaskExecutionRolloutConfigTypeDef] = None
-    TimeoutConfig: Optional[OtaTaskTimeoutConfigTypeDef] = None
+class PushConfigOutput(BaseValidatorModel):
+    AbortConfig: Optional[OtaTaskAbortConfigOutput] = None
+    RolloutConfig: Optional[OtaTaskExecutionRolloutConfig] = None
+    TimeoutConfig: Optional[OtaTaskTimeoutConfig] = None
 
 
-class PushConfigTypeDef(BaseValidatorModel):
-    AbortConfig: Optional[OtaTaskAbortConfigTypeDef] = None
-    RolloutConfig: Optional[OtaTaskExecutionRolloutConfigTypeDef] = None
-    TimeoutConfig: Optional[OtaTaskTimeoutConfigTypeDef] = None
+class PushConfig(BaseValidatorModel):
+    AbortConfig: Optional[OtaTaskAbortConfig] = None
+    RolloutConfig: Optional[OtaTaskExecutionRolloutConfig] = None
+    TimeoutConfig: Optional[OtaTaskTimeoutConfig] = None
 
 
-class CapabilityReportUnionTypeDef(BaseValidatorModel):
+class CapabilityReportUnion(BaseValidatorModel):
     pass
 
 
-class CreateManagedThingRequestTypeDef(BaseValidatorModel):
+class CreateManagedThingRequest(BaseValidatorModel):
     Role: RoleType
     AuthenticationMaterial: str
     AuthenticationMaterialType: AuthMaterialTypeType
@@ -877,7 +877,7 @@ class CreateManagedThingRequestTypeDef(BaseValidatorModel):
     Brand: Optional[str] = None
     Model: Optional[str] = None
     Name: Optional[str] = None
-    CapabilityReport: Optional[CapabilityReportUnionTypeDef] = None
+    CapabilityReport: Optional[CapabilityReportUnion] = None
     Capabilities: Optional[str] = None
     ClientToken: Optional[str] = None
     Classification: Optional[str] = None
@@ -885,7 +885,7 @@ class CreateManagedThingRequestTypeDef(BaseValidatorModel):
     MetaData: Optional[Mapping[str, str]] = None
 
 
-class UpdateManagedThingRequestTypeDef(BaseValidatorModel):
+class UpdateManagedThingRequest(BaseValidatorModel):
     Identifier: str
     Owner: Optional[str] = None
     CredentialLockerId: Optional[str] = None
@@ -893,30 +893,30 @@ class UpdateManagedThingRequestTypeDef(BaseValidatorModel):
     Brand: Optional[str] = None
     Model: Optional[str] = None
     Name: Optional[str] = None
-    CapabilityReport: Optional[CapabilityReportUnionTypeDef] = None
+    CapabilityReport: Optional[CapabilityReportUnion] = None
     Capabilities: Optional[str] = None
     Classification: Optional[str] = None
     HubNetworkMode: Optional[HubNetworkModeType] = None
     MetaData: Optional[Mapping[str, str]] = None
 
 
-class GetOtaTaskConfigurationResponseTypeDef(BaseValidatorModel):
+class GetOtaTaskConfigurationResponse(BaseValidatorModel):
     TaskConfigurationId: str
     Name: str
-    PushConfig: PushConfigOutputTypeDef
+    PushConfig: PushConfigOutput
     Description: str
     CreatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PushConfigUnionTypeDef(BaseValidatorModel):
+class PushConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateOtaTaskConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateOtaTaskConfigurationRequest(BaseValidatorModel):
     Description: Optional[str] = None
     Name: Optional[str] = None
-    PushConfig: Optional[PushConfigUnionTypeDef] = None
+    PushConfig: Optional[PushConfigUnion] = None
     ClientToken: Optional[str] = None
 
 

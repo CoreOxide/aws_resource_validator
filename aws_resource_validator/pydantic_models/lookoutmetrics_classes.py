@@ -12,32 +12,32 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lookoutmetrics_constants import *
 
-class LambdaConfigurationTypeDef(BaseValidatorModel):
+class LambdaConfiguration(BaseValidatorModel):
     RoleArn: str
     LambdaArn: str
 
 
-class SNSConfigurationTypeDef(BaseValidatorModel):
+class SNSConfiguration(BaseValidatorModel):
     RoleArn: str
     SnsTopicArn: str
     SnsFormat: Optional[SnsFormatType] = None
 
 
-class ActivateAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class ActivateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
-class DimensionFilterOutputTypeDef(BaseValidatorModel):
+class DimensionFilterOutput(BaseValidatorModel):
     DimensionName: Optional[str] = None
     DimensionValueList: Optional[List[str]] = None
 
 
-class DimensionFilterTypeDef(BaseValidatorModel):
+class DimensionFilter(BaseValidatorModel):
     DimensionName: Optional[str] = None
     DimensionValueList: Optional[Sequence[str]] = None
 
 
-class AlertSummaryTypeDef(BaseValidatorModel):
+class AlertSummary(BaseValidatorModel):
     AlertArn: Optional[str] = None
     AnomalyDetectorArn: Optional[str] = None
     AlertName: Optional[str] = None
@@ -49,15 +49,15 @@ class AlertSummaryTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class AnomalyDetectorConfigSummaryTypeDef(BaseValidatorModel):
+class AnomalyDetectorConfigSummary(BaseValidatorModel):
     AnomalyDetectorFrequency: Optional[FrequencyType] = None
 
 
-class AnomalyDetectorConfigTypeDef(BaseValidatorModel):
+class AnomalyDetectorConfig(BaseValidatorModel):
     AnomalyDetectorFrequency: Optional[FrequencyType] = None
 
 
-class AnomalyDetectorSummaryTypeDef(BaseValidatorModel):
+class AnomalyDetectorSummary(BaseValidatorModel):
     AnomalyDetectorArn: Optional[str] = None
     AnomalyDetectorName: Optional[str] = None
     AnomalyDetectorDescription: Optional[str] = None
@@ -67,12 +67,12 @@ class AnomalyDetectorSummaryTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ItemizedMetricStatsTypeDef(BaseValidatorModel):
+class ItemizedMetricStats(BaseValidatorModel):
     MetricName: Optional[str] = None
     OccurrenceCount: Optional[int] = None
 
 
-class AnomalyGroupSummaryTypeDef(BaseValidatorModel):
+class AnomalyGroupSummary(BaseValidatorModel):
     StartTime: Optional[str] = None
     EndTime: Optional[str] = None
     AnomalyGroupId: Optional[str] = None
@@ -80,27 +80,27 @@ class AnomalyGroupSummaryTypeDef(BaseValidatorModel):
     PrimaryMetricName: Optional[str] = None
 
 
-class AnomalyGroupTimeSeriesFeedbackTypeDef(BaseValidatorModel):
+class AnomalyGroupTimeSeriesFeedback(BaseValidatorModel):
     AnomalyGroupId: str
     TimeSeriesId: str
     IsAnomaly: bool
 
 
-class AnomalyGroupTimeSeriesTypeDef(BaseValidatorModel):
+class AnomalyGroupTimeSeries(BaseValidatorModel):
     AnomalyGroupId: str
     TimeSeriesId: Optional[str] = None
 
 
-class AppFlowConfigTypeDef(BaseValidatorModel):
+class AppFlowConfig(BaseValidatorModel):
     RoleArn: Optional[str] = None
     FlowName: Optional[str] = None
 
 
-class BackTestConfigurationTypeDef(BaseValidatorModel):
+class BackTestConfiguration(BaseValidatorModel):
     RunBackTestMode: bool
 
 
-class AttributeValueTypeDef(BaseValidatorModel):
+class AttributeValue(BaseValidatorModel):
     S: Optional[str] = None
     N: Optional[str] = None
     B: Optional[str] = None
@@ -109,16 +109,16 @@ class AttributeValueTypeDef(BaseValidatorModel):
     BS: Optional[List[str]] = None
 
 
-class AutoDetectionS3SourceConfigTypeDef(BaseValidatorModel):
+class AutoDetectionS3SourceConfig(BaseValidatorModel):
     TemplatedPathList: Optional[Sequence[str]] = None
     HistoricalDataPathList: Optional[Sequence[str]] = None
 
 
-class BackTestAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class BackTestAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -126,18 +126,18 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class MetricTypeDef(BaseValidatorModel):
+class Metric(BaseValidatorModel):
     MetricName: str
     AggregationFunction: AggregationFunctionType
     Namespace: Optional[str] = None
 
 
-class TimestampColumnTypeDef(BaseValidatorModel):
+class TimestampColumn(BaseValidatorModel):
     ColumnName: Optional[str] = None
     ColumnFormat: Optional[str] = None
 
 
-class CsvFormatDescriptorOutputTypeDef(BaseValidatorModel):
+class CsvFormatDescriptorOutput(BaseValidatorModel):
     FileCompression: Optional[CSVFileCompressionType] = None
     Charset: Optional[str] = None
     ContainsHeader: Optional[bool] = None
@@ -146,7 +146,7 @@ class CsvFormatDescriptorOutputTypeDef(BaseValidatorModel):
     QuoteSymbol: Optional[str] = None
 
 
-class CsvFormatDescriptorTypeDef(BaseValidatorModel):
+class CsvFormatDescriptor(BaseValidatorModel):
     FileCompression: Optional[CSVFileCompressionType] = None
     Charset: Optional[str] = None
     ContainsHeader: Optional[bool] = None
@@ -155,104 +155,104 @@ class CsvFormatDescriptorTypeDef(BaseValidatorModel):
     QuoteSymbol: Optional[str] = None
 
 
-class DataQualityMetricTypeDef(BaseValidatorModel):
+class DataQualityMetric(BaseValidatorModel):
     MetricType: Optional[DataQualityMetricTypeType] = None
     MetricDescription: Optional[str] = None
     RelatedColumnName: Optional[str] = None
     MetricValue: Optional[float] = None
 
 
-class DeactivateAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class DeactivateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
-class DeleteAlertRequestTypeDef(BaseValidatorModel):
+class DeleteAlertRequest(BaseValidatorModel):
     AlertArn: str
 
 
-class DeleteAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class DeleteAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
-class DescribeAlertRequestTypeDef(BaseValidatorModel):
+class DescribeAlertRequest(BaseValidatorModel):
     AlertArn: str
 
 
-class DescribeAnomalyDetectionExecutionsRequestTypeDef(BaseValidatorModel):
+class DescribeAnomalyDetectionExecutionsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     Timestamp: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ExecutionStatusTypeDef(BaseValidatorModel):
+class ExecutionStatus(BaseValidatorModel):
     Timestamp: Optional[str] = None
     Status: Optional[AnomalyDetectionTaskStatusType] = None
     FailureReason: Optional[str] = None
 
 
-class DescribeAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class DescribeAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
 
 
-class DescribeMetricSetRequestTypeDef(BaseValidatorModel):
+class DescribeMetricSetRequest(BaseValidatorModel):
     MetricSetArn: str
 
 
-class DimensionValueContributionTypeDef(BaseValidatorModel):
+class DimensionValueContribution(BaseValidatorModel):
     DimensionValue: Optional[str] = None
     ContributionScore: Optional[float] = None
 
 
-class DimensionNameValueTypeDef(BaseValidatorModel):
+class DimensionNameValue(BaseValidatorModel):
     DimensionName: str
     DimensionValue: str
 
 
-class JsonFormatDescriptorTypeDef(BaseValidatorModel):
+class JsonFormatDescriptor(BaseValidatorModel):
     FileCompression: Optional[JsonFileCompressionType] = None
     Charset: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     DimensionValue: Optional[str] = None
     FilterOperation: Optional[Literal["EQUALS"]] = None
 
 
-class GetAnomalyGroupRequestTypeDef(BaseValidatorModel):
+class GetAnomalyGroupRequest(BaseValidatorModel):
     AnomalyGroupId: str
     AnomalyDetectorArn: str
 
 
-class GetDataQualityMetricsRequestTypeDef(BaseValidatorModel):
+class GetDataQualityMetricsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     MetricSetArn: Optional[str] = None
 
 
-class TimeSeriesFeedbackTypeDef(BaseValidatorModel):
+class TimeSeriesFeedback(BaseValidatorModel):
     TimeSeriesId: Optional[str] = None
     IsAnomaly: Optional[bool] = None
 
 
-class InterMetricImpactDetailsTypeDef(BaseValidatorModel):
+class InterMetricImpactDetails(BaseValidatorModel):
     MetricName: Optional[str] = None
     AnomalyGroupId: Optional[str] = None
     RelationshipType: Optional[RelationshipTypeType] = None
     ContributionPercentage: Optional[float] = None
 
 
-class ListAlertsRequestTypeDef(BaseValidatorModel):
+class ListAlertsRequest(BaseValidatorModel):
     AnomalyDetectorArn: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAnomalyDetectorsRequestTypeDef(BaseValidatorModel):
+class ListAnomalyDetectorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListAnomalyGroupRelatedMetricsRequestTypeDef(BaseValidatorModel):
+class ListAnomalyGroupRelatedMetricsRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyGroupId: str
     RelationshipTypeFilter: Optional[RelationshipTypeType] = None
@@ -260,14 +260,14 @@ class ListAnomalyGroupRelatedMetricsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListAnomalyGroupSummariesRequestTypeDef(BaseValidatorModel):
+class ListAnomalyGroupSummariesRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     SensitivityThreshold: int
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListAnomalyGroupTimeSeriesRequestTypeDef(BaseValidatorModel):
+class ListAnomalyGroupTimeSeriesRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyGroupId: str
     MetricName: str
@@ -275,13 +275,13 @@ class ListAnomalyGroupTimeSeriesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListMetricSetsRequestTypeDef(BaseValidatorModel):
+class ListMetricSetsRequest(BaseValidatorModel):
     AnomalyDetectorArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MetricSetSummaryTypeDef(BaseValidatorModel):
+class MetricSetSummary(BaseValidatorModel):
     MetricSetArn: Optional[str] = None
     AnomalyDetectorArn: Optional[str] = None
     MetricSetDescription: Optional[str] = None
@@ -291,226 +291,226 @@ class MetricSetSummaryTypeDef(BaseValidatorModel):
     Tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class VpcConfigurationOutputTypeDef(BaseValidatorModel):
+class VpcConfigurationOutput(BaseValidatorModel):
     SubnetIdList: List[str]
     SecurityGroupIdList: List[str]
 
 
-class VpcConfigurationTypeDef(BaseValidatorModel):
+class VpcConfiguration(BaseValidatorModel):
     SubnetIdList: Sequence[str]
     SecurityGroupIdList: Sequence[str]
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class ActionTypeDef(BaseValidatorModel):
-    SNSConfiguration: Optional[SNSConfigurationTypeDef] = None
-    LambdaConfiguration: Optional[LambdaConfigurationTypeDef] = None
+class Action(BaseValidatorModel):
+    SNSConfiguration: Optional[SNSConfiguration] = None
+    LambdaConfiguration: Optional[LambdaConfiguration] = None
 
 
-class AlertFiltersOutputTypeDef(BaseValidatorModel):
+class AlertFiltersOutput(BaseValidatorModel):
     MetricList: Optional[List[str]] = None
-    DimensionFilterList: Optional[List[DimensionFilterOutputTypeDef]] = None
+    DimensionFilterList: Optional[List[DimensionFilterOutput]] = None
 
 
-class AlertFiltersTypeDef(BaseValidatorModel):
+class AlertFilters(BaseValidatorModel):
     MetricList: Optional[Sequence[str]] = None
-    DimensionFilterList: Optional[Sequence[DimensionFilterTypeDef]] = None
+    DimensionFilterList: Optional[Sequence[DimensionFilter]] = None
 
 
-class CreateAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class CreateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorName: str
-    AnomalyDetectorConfig: AnomalyDetectorConfigTypeDef
+    AnomalyDetectorConfig: AnomalyDetectorConfig
     AnomalyDetectorDescription: Optional[str] = None
     KmsKeyArn: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateAnomalyDetectorRequestTypeDef(BaseValidatorModel):
+class UpdateAnomalyDetectorRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     KmsKeyArn: Optional[str] = None
     AnomalyDetectorDescription: Optional[str] = None
-    AnomalyDetectorConfig: Optional[AnomalyDetectorConfigTypeDef] = None
+    AnomalyDetectorConfig: Optional[AnomalyDetectorConfig] = None
 
 
-class AnomalyGroupStatisticsTypeDef(BaseValidatorModel):
+class AnomalyGroupStatistics(BaseValidatorModel):
     EvaluationStartDate: Optional[str] = None
     TotalCount: Optional[int] = None
-    ItemizedMetricStatsList: Optional[List[ItemizedMetricStatsTypeDef]] = None
+    ItemizedMetricStatsList: Optional[List[ItemizedMetricStats]] = None
 
 
-class PutFeedbackRequestTypeDef(BaseValidatorModel):
+class PutFeedbackRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
-    AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedbackTypeDef
+    AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesFeedback
 
 
-class GetFeedbackRequestTypeDef(BaseValidatorModel):
+class GetFeedbackRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
-    AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeriesTypeDef
+    AnomalyGroupTimeSeriesFeedback: AnomalyGroupTimeSeries
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class AthenaSourceConfigTypeDef(BaseValidatorModel):
+class AthenaSourceConfig(BaseValidatorModel):
     RoleArn: Optional[str] = None
     DatabaseName: Optional[str] = None
     DataCatalog: Optional[str] = None
     TableName: Optional[str] = None
     WorkGroupName: Optional[str] = None
     S3ResultsPath: Optional[str] = None
-    BackTestConfiguration: Optional[BackTestConfigurationTypeDef] = None
+    BackTestConfiguration: Optional[BackTestConfiguration] = None
 
 
-class CloudWatchConfigTypeDef(BaseValidatorModel):
+class CloudWatchConfig(BaseValidatorModel):
     RoleArn: Optional[str] = None
-    BackTestConfiguration: Optional[BackTestConfigurationTypeDef] = None
+    BackTestConfiguration: Optional[BackTestConfiguration] = None
 
 
-class DetectedFieldTypeDef(BaseValidatorModel):
-    Value: Optional[AttributeValueTypeDef] = None
+class DetectedField(BaseValidatorModel):
+    Value: Optional[AttributeValue] = None
     Confidence: Optional[ConfidenceType] = None
     Message: Optional[str] = None
 
 
-class AutoDetectionMetricSourceTypeDef(BaseValidatorModel):
-    S3SourceConfig: Optional[AutoDetectionS3SourceConfigTypeDef] = None
+class AutoDetectionMetricSource(BaseValidatorModel):
+    S3SourceConfig: Optional[AutoDetectionS3SourceConfig] = None
 
 
-class CreateAlertResponseTypeDef(BaseValidatorModel):
+class CreateAlertResponse(BaseValidatorModel):
     AlertArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAnomalyDetectorResponseTypeDef(BaseValidatorModel):
+class CreateAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMetricSetResponseTypeDef(BaseValidatorModel):
+class CreateMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAnomalyDetectorResponseTypeDef(BaseValidatorModel):
+class DescribeAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
     AnomalyDetectorName: str
     AnomalyDetectorDescription: str
-    AnomalyDetectorConfig: AnomalyDetectorConfigSummaryTypeDef
+    AnomalyDetectorConfig: AnomalyDetectorConfigSummary
     CreationTime: datetime
     LastModificationTime: datetime
     Status: AnomalyDetectorStatusType
     FailureReason: str
     KmsKeyArn: str
     FailureType: AnomalyDetectorFailureTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSampleDataResponseTypeDef(BaseValidatorModel):
+class GetSampleDataResponse(BaseValidatorModel):
     HeaderValues: List[str]
     SampleRows: List[List[str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAlertsResponseTypeDef(BaseValidatorModel):
-    AlertSummaryList: List[AlertSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAlertsResponse(BaseValidatorModel):
+    AlertSummaryList: List[AlertSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAnomalyDetectorsResponseTypeDef(BaseValidatorModel):
-    AnomalyDetectorSummaryList: List[AnomalyDetectorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnomalyDetectorsResponse(BaseValidatorModel):
+    AnomalyDetectorSummaryList: List[AnomalyDetectorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAlertResponseTypeDef(BaseValidatorModel):
+class UpdateAlertResponse(BaseValidatorModel):
     AlertArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAnomalyDetectorResponseTypeDef(BaseValidatorModel):
+class UpdateAnomalyDetectorResponse(BaseValidatorModel):
     AnomalyDetectorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMetricSetResponseTypeDef(BaseValidatorModel):
+class UpdateMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricSetDataQualityMetricTypeDef(BaseValidatorModel):
+class MetricSetDataQualityMetric(BaseValidatorModel):
     MetricSetArn: Optional[str] = None
-    DataQualityMetricList: Optional[List[DataQualityMetricTypeDef]] = None
+    DataQualityMetricList: Optional[List[DataQualityMetric]] = None
 
 
-class DescribeAnomalyDetectionExecutionsResponseTypeDef(BaseValidatorModel):
-    ExecutionList: List[ExecutionStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAnomalyDetectionExecutionsResponse(BaseValidatorModel):
+    ExecutionList: List[ExecutionStatus]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DimensionContributionTypeDef(BaseValidatorModel):
+class DimensionContribution(BaseValidatorModel):
     DimensionName: Optional[str] = None
-    DimensionValueContributionList: Optional[List[DimensionValueContributionTypeDef]] = None
+    DimensionValueContributionList: Optional[List[DimensionValueContribution]] = None
 
 
-class TimeSeriesTypeDef(BaseValidatorModel):
+class TimeSeries(BaseValidatorModel):
     TimeSeriesId: str
-    DimensionList: List[DimensionNameValueTypeDef]
+    DimensionList: List[DimensionNameValue]
     MetricValueList: List[float]
 
 
-class FileFormatDescriptorOutputTypeDef(BaseValidatorModel):
-    CsvFormatDescriptor: Optional[CsvFormatDescriptorOutputTypeDef] = None
-    JsonFormatDescriptor: Optional[JsonFormatDescriptorTypeDef] = None
+class FileFormatDescriptorOutput(BaseValidatorModel):
+    CsvFormatDescriptor: Optional[CsvFormatDescriptorOutput] = None
+    JsonFormatDescriptor: Optional[JsonFormatDescriptor] = None
 
 
-class MetricSetDimensionFilterOutputTypeDef(BaseValidatorModel):
+class MetricSetDimensionFilterOutput(BaseValidatorModel):
     Name: Optional[str] = None
-    FilterList: Optional[List[FilterTypeDef]] = None
+    FilterList: Optional[List[Filter]] = None
 
 
-class MetricSetDimensionFilterTypeDef(BaseValidatorModel):
+class MetricSetDimensionFilter(BaseValidatorModel):
     Name: Optional[str] = None
-    FilterList: Optional[Sequence[FilterTypeDef]] = None
+    FilterList: Optional[Sequence[Filter]] = None
 
 
-class GetFeedbackResponseTypeDef(BaseValidatorModel):
-    AnomalyGroupTimeSeriesFeedback: List[TimeSeriesFeedbackTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetFeedbackResponse(BaseValidatorModel):
+    AnomalyGroupTimeSeriesFeedback: List[TimeSeriesFeedback]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAnomalyGroupRelatedMetricsResponseTypeDef(BaseValidatorModel):
-    InterMetricImpactList: List[InterMetricImpactDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnomalyGroupRelatedMetricsResponse(BaseValidatorModel):
+    InterMetricImpactList: List[InterMetricImpactDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMetricSetsResponseTypeDef(BaseValidatorModel):
-    MetricSetSummaryList: List[MetricSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMetricSetsResponse(BaseValidatorModel):
+    MetricSetSummaryList: List[MetricSetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RDSSourceConfigOutputTypeDef(BaseValidatorModel):
+class RDSSourceConfigOutput(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DatabaseHost: Optional[str] = None
     DatabasePort: Optional[int] = None
@@ -518,10 +518,10 @@ class RDSSourceConfigOutputTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     RoleArn: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[VpcConfigurationOutput] = None
 
 
-class RedshiftSourceConfigOutputTypeDef(BaseValidatorModel):
+class RedshiftSourceConfigOutput(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     DatabaseHost: Optional[str] = None
     DatabasePort: Optional[int] = None
@@ -529,10 +529,10 @@ class RedshiftSourceConfigOutputTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     RoleArn: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationOutputTypeDef] = None
+    VpcConfiguration: Optional[VpcConfigurationOutput] = None
 
 
-class RDSSourceConfigTypeDef(BaseValidatorModel):
+class RDSSourceConfig(BaseValidatorModel):
     DBInstanceIdentifier: Optional[str] = None
     DatabaseHost: Optional[str] = None
     DatabasePort: Optional[int] = None
@@ -540,10 +540,10 @@ class RDSSourceConfigTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     RoleArn: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[VpcConfiguration] = None
 
 
-class RedshiftSourceConfigTypeDef(BaseValidatorModel):
+class RedshiftSourceConfig(BaseValidatorModel):
     ClusterIdentifier: Optional[str] = None
     DatabaseHost: Optional[str] = None
     DatabasePort: Optional[int] = None
@@ -551,11 +551,11 @@ class RedshiftSourceConfigTypeDef(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
     RoleArn: Optional[str] = None
-    VpcConfiguration: Optional[VpcConfigurationTypeDef] = None
+    VpcConfiguration: Optional[VpcConfiguration] = None
 
 
-class AlertTypeDef(BaseValidatorModel):
-    Action: Optional[ActionTypeDef] = None
+class Alert(BaseValidatorModel):
+    Action: Optional[Action] = None
     AlertDescription: Optional[str] = None
     AlertArn: Optional[str] = None
     AnomalyDetectorArn: Optional[str] = None
@@ -565,162 +565,162 @@ class AlertTypeDef(BaseValidatorModel):
     AlertStatus: Optional[AlertStatusType] = None
     LastModificationTime: Optional[datetime] = None
     CreationTime: Optional[datetime] = None
-    AlertFilters: Optional[AlertFiltersOutputTypeDef] = None
+    AlertFilters: Optional[AlertFiltersOutput] = None
 
 
-class ListAnomalyGroupSummariesResponseTypeDef(BaseValidatorModel):
-    AnomalyGroupSummaryList: List[AnomalyGroupSummaryTypeDef]
-    AnomalyGroupStatistics: AnomalyGroupStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnomalyGroupSummariesResponse(BaseValidatorModel):
+    AnomalyGroupSummaryList: List[AnomalyGroupSummary]
+    AnomalyGroupStatistics: AnomalyGroupStatistics
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DetectedCsvFormatDescriptorTypeDef(BaseValidatorModel):
-    FileCompression: Optional[DetectedFieldTypeDef] = None
-    Charset: Optional[DetectedFieldTypeDef] = None
-    ContainsHeader: Optional[DetectedFieldTypeDef] = None
-    Delimiter: Optional[DetectedFieldTypeDef] = None
-    HeaderList: Optional[DetectedFieldTypeDef] = None
-    QuoteSymbol: Optional[DetectedFieldTypeDef] = None
+class DetectedCsvFormatDescriptor(BaseValidatorModel):
+    FileCompression: Optional[DetectedField] = None
+    Charset: Optional[DetectedField] = None
+    ContainsHeader: Optional[DetectedField] = None
+    Delimiter: Optional[DetectedField] = None
+    HeaderList: Optional[DetectedField] = None
+    QuoteSymbol: Optional[DetectedField] = None
 
 
-class DetectedJsonFormatDescriptorTypeDef(BaseValidatorModel):
-    FileCompression: Optional[DetectedFieldTypeDef] = None
-    Charset: Optional[DetectedFieldTypeDef] = None
+class DetectedJsonFormatDescriptor(BaseValidatorModel):
+    FileCompression: Optional[DetectedField] = None
+    Charset: Optional[DetectedField] = None
 
 
-class DetectMetricSetConfigRequestTypeDef(BaseValidatorModel):
+class DetectMetricSetConfigRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
-    AutoDetectionMetricSource: AutoDetectionMetricSourceTypeDef
+    AutoDetectionMetricSource: AutoDetectionMetricSource
 
 
-class CsvFormatDescriptorUnionTypeDef(BaseValidatorModel):
+class CsvFormatDescriptorUnion(BaseValidatorModel):
     pass
 
 
-class FileFormatDescriptorTypeDef(BaseValidatorModel):
-    CsvFormatDescriptor: Optional[CsvFormatDescriptorUnionTypeDef] = None
-    JsonFormatDescriptor: Optional[JsonFormatDescriptorTypeDef] = None
+class FileFormatDescriptor(BaseValidatorModel):
+    CsvFormatDescriptor: Optional[CsvFormatDescriptorUnion] = None
+    JsonFormatDescriptor: Optional[JsonFormatDescriptor] = None
 
 
-class AnomalyDetectorDataQualityMetricTypeDef(BaseValidatorModel):
+class AnomalyDetectorDataQualityMetric(BaseValidatorModel):
     StartTimestamp: Optional[datetime] = None
-    MetricSetDataQualityMetricList: Optional[List[MetricSetDataQualityMetricTypeDef]] = None
+    MetricSetDataQualityMetricList: Optional[List[MetricSetDataQualityMetric]] = None
 
 
-class ContributionMatrixTypeDef(BaseValidatorModel):
-    DimensionContributionList: Optional[List[DimensionContributionTypeDef]] = None
+class ContributionMatrix(BaseValidatorModel):
+    DimensionContributionList: Optional[List[DimensionContribution]] = None
 
 
-class ListAnomalyGroupTimeSeriesResponseTypeDef(BaseValidatorModel):
+class ListAnomalyGroupTimeSeriesResponse(BaseValidatorModel):
     AnomalyGroupId: str
     MetricName: str
     TimestampList: List[str]
-    TimeSeriesList: List[TimeSeriesTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    TimeSeriesList: List[TimeSeries]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class S3SourceConfigOutputTypeDef(BaseValidatorModel):
+class S3SourceConfigOutput(BaseValidatorModel):
     RoleArn: Optional[str] = None
     TemplatedPathList: Optional[List[str]] = None
     HistoricalDataPathList: Optional[List[str]] = None
-    FileFormatDescriptor: Optional[FileFormatDescriptorOutputTypeDef] = None
+    FileFormatDescriptor: Optional[FileFormatDescriptorOutput] = None
 
 
-class DescribeAlertResponseTypeDef(BaseValidatorModel):
-    Alert: AlertTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAlertResponse(BaseValidatorModel):
+    Alert: Alert
+    ResponseMetadata: ResponseMetadata
 
 
-class AlertFiltersUnionTypeDef(BaseValidatorModel):
+class AlertFiltersUnion(BaseValidatorModel):
     pass
 
 
-class CreateAlertRequestTypeDef(BaseValidatorModel):
+class CreateAlertRequest(BaseValidatorModel):
     AlertName: str
     AnomalyDetectorArn: str
-    Action: ActionTypeDef
+    Action: Action
     AlertSensitivityThreshold: Optional[int] = None
     AlertDescription: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
-    AlertFilters: Optional[AlertFiltersUnionTypeDef] = None
+    AlertFilters: Optional[AlertFiltersUnion] = None
 
 
-class UpdateAlertRequestTypeDef(BaseValidatorModel):
+class UpdateAlertRequest(BaseValidatorModel):
     AlertArn: str
     AlertDescription: Optional[str] = None
     AlertSensitivityThreshold: Optional[int] = None
-    Action: Optional[ActionTypeDef] = None
-    AlertFilters: Optional[AlertFiltersUnionTypeDef] = None
+    Action: Optional[Action] = None
+    AlertFilters: Optional[AlertFiltersUnion] = None
 
 
-class DetectedFileFormatDescriptorTypeDef(BaseValidatorModel):
-    CsvFormatDescriptor: Optional[DetectedCsvFormatDescriptorTypeDef] = None
-    JsonFormatDescriptor: Optional[DetectedJsonFormatDescriptorTypeDef] = None
+class DetectedFileFormatDescriptor(BaseValidatorModel):
+    CsvFormatDescriptor: Optional[DetectedCsvFormatDescriptor] = None
+    JsonFormatDescriptor: Optional[DetectedJsonFormatDescriptor] = None
 
 
-class S3SourceConfigTypeDef(BaseValidatorModel):
+class S3SourceConfig(BaseValidatorModel):
     RoleArn: Optional[str] = None
     TemplatedPathList: Optional[Sequence[str]] = None
     HistoricalDataPathList: Optional[Sequence[str]] = None
-    FileFormatDescriptor: Optional[FileFormatDescriptorTypeDef] = None
+    FileFormatDescriptor: Optional[FileFormatDescriptor] = None
 
 
-class GetDataQualityMetricsResponseTypeDef(BaseValidatorModel):
-    AnomalyDetectorDataQualityMetricList: List[AnomalyDetectorDataQualityMetricTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetDataQualityMetricsResponse(BaseValidatorModel):
+    AnomalyDetectorDataQualityMetricList: List[AnomalyDetectorDataQualityMetric]
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricLevelImpactTypeDef(BaseValidatorModel):
+class MetricLevelImpact(BaseValidatorModel):
     MetricName: Optional[str] = None
     NumTimeSeries: Optional[int] = None
-    ContributionMatrix: Optional[ContributionMatrixTypeDef] = None
+    ContributionMatrix: Optional[ContributionMatrix] = None
 
 
-class MetricSourceOutputTypeDef(BaseValidatorModel):
-    S3SourceConfig: Optional[S3SourceConfigOutputTypeDef] = None
-    AppFlowConfig: Optional[AppFlowConfigTypeDef] = None
-    CloudWatchConfig: Optional[CloudWatchConfigTypeDef] = None
-    RDSSourceConfig: Optional[RDSSourceConfigOutputTypeDef] = None
-    RedshiftSourceConfig: Optional[RedshiftSourceConfigOutputTypeDef] = None
-    AthenaSourceConfig: Optional[AthenaSourceConfigTypeDef] = None
+class MetricSourceOutput(BaseValidatorModel):
+    S3SourceConfig: Optional[S3SourceConfigOutput] = None
+    AppFlowConfig: Optional[AppFlowConfig] = None
+    CloudWatchConfig: Optional[CloudWatchConfig] = None
+    RDSSourceConfig: Optional[RDSSourceConfigOutput] = None
+    RedshiftSourceConfig: Optional[RedshiftSourceConfigOutput] = None
+    AthenaSourceConfig: Optional[AthenaSourceConfig] = None
 
 
-class DetectedS3SourceConfigTypeDef(BaseValidatorModel):
-    FileFormatDescriptor: Optional[DetectedFileFormatDescriptorTypeDef] = None
+class DetectedS3SourceConfig(BaseValidatorModel):
+    FileFormatDescriptor: Optional[DetectedFileFormatDescriptor] = None
 
 
-class FileFormatDescriptorUnionTypeDef(BaseValidatorModel):
+class FileFormatDescriptorUnion(BaseValidatorModel):
     pass
 
 
-class SampleDataS3SourceConfigTypeDef(BaseValidatorModel):
+class SampleDataS3SourceConfig(BaseValidatorModel):
     RoleArn: str
-    FileFormatDescriptor: FileFormatDescriptorUnionTypeDef
+    FileFormatDescriptor: FileFormatDescriptorUnion
     TemplatedPathList: Optional[Sequence[str]] = None
     HistoricalDataPathList: Optional[Sequence[str]] = None
 
 
-class MetricSourceTypeDef(BaseValidatorModel):
-    S3SourceConfig: Optional[S3SourceConfigTypeDef] = None
-    AppFlowConfig: Optional[AppFlowConfigTypeDef] = None
-    CloudWatchConfig: Optional[CloudWatchConfigTypeDef] = None
-    RDSSourceConfig: Optional[RDSSourceConfigTypeDef] = None
-    RedshiftSourceConfig: Optional[RedshiftSourceConfigTypeDef] = None
-    AthenaSourceConfig: Optional[AthenaSourceConfigTypeDef] = None
+class MetricSource(BaseValidatorModel):
+    S3SourceConfig: Optional[S3SourceConfig] = None
+    AppFlowConfig: Optional[AppFlowConfig] = None
+    CloudWatchConfig: Optional[CloudWatchConfig] = None
+    RDSSourceConfig: Optional[RDSSourceConfig] = None
+    RedshiftSourceConfig: Optional[RedshiftSourceConfig] = None
+    AthenaSourceConfig: Optional[AthenaSourceConfig] = None
 
 
-class AnomalyGroupTypeDef(BaseValidatorModel):
+class AnomalyGroup(BaseValidatorModel):
     StartTime: Optional[str] = None
     EndTime: Optional[str] = None
     AnomalyGroupId: Optional[str] = None
     AnomalyGroupScore: Optional[float] = None
     PrimaryMetricName: Optional[str] = None
-    MetricLevelImpactList: Optional[List[MetricLevelImpactTypeDef]] = None
+    MetricLevelImpactList: Optional[List[MetricLevelImpact]] = None
 
 
-class DescribeMetricSetResponseTypeDef(BaseValidatorModel):
+class DescribeMetricSetResponse(BaseValidatorModel):
     MetricSetArn: str
     AnomalyDetectorArn: str
     MetricSetName: str
@@ -728,72 +728,72 @@ class DescribeMetricSetResponseTypeDef(BaseValidatorModel):
     CreationTime: datetime
     LastModificationTime: datetime
     Offset: int
-    MetricList: List[MetricTypeDef]
-    TimestampColumn: TimestampColumnTypeDef
+    MetricList: List[Metric]
+    TimestampColumn: TimestampColumn
     DimensionList: List[str]
     MetricSetFrequency: FrequencyType
     Timezone: str
-    MetricSource: MetricSourceOutputTypeDef
-    DimensionFilterList: List[MetricSetDimensionFilterOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    MetricSource: MetricSourceOutput
+    DimensionFilterList: List[MetricSetDimensionFilterOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectedMetricSourceTypeDef(BaseValidatorModel):
-    S3SourceConfig: Optional[DetectedS3SourceConfigTypeDef] = None
+class DetectedMetricSource(BaseValidatorModel):
+    S3SourceConfig: Optional[DetectedS3SourceConfig] = None
 
 
-class GetSampleDataRequestTypeDef(BaseValidatorModel):
-    S3SourceConfig: Optional[SampleDataS3SourceConfigTypeDef] = None
+class GetSampleDataRequest(BaseValidatorModel):
+    S3SourceConfig: Optional[SampleDataS3SourceConfig] = None
 
 
-class GetAnomalyGroupResponseTypeDef(BaseValidatorModel):
-    AnomalyGroup: AnomalyGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAnomalyGroupResponse(BaseValidatorModel):
+    AnomalyGroup: AnomalyGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DetectedMetricSetConfigTypeDef(BaseValidatorModel):
-    Offset: Optional[DetectedFieldTypeDef] = None
-    MetricSetFrequency: Optional[DetectedFieldTypeDef] = None
-    MetricSource: Optional[DetectedMetricSourceTypeDef] = None
+class DetectedMetricSetConfig(BaseValidatorModel):
+    Offset: Optional[DetectedField] = None
+    MetricSetFrequency: Optional[DetectedField] = None
+    MetricSource: Optional[DetectedMetricSource] = None
 
 
-class MetricSourceUnionTypeDef(BaseValidatorModel):
+class MetricSourceUnion(BaseValidatorModel):
     pass
 
 
-class MetricSetDimensionFilterUnionTypeDef(BaseValidatorModel):
+class MetricSetDimensionFilterUnion(BaseValidatorModel):
     pass
 
 
-class CreateMetricSetRequestTypeDef(BaseValidatorModel):
+class CreateMetricSetRequest(BaseValidatorModel):
     AnomalyDetectorArn: str
     MetricSetName: str
-    MetricList: Sequence[MetricTypeDef]
-    MetricSource: MetricSourceUnionTypeDef
+    MetricList: Sequence[Metric]
+    MetricSource: MetricSourceUnion
     MetricSetDescription: Optional[str] = None
     Offset: Optional[int] = None
-    TimestampColumn: Optional[TimestampColumnTypeDef] = None
+    TimestampColumn: Optional[TimestampColumn] = None
     DimensionList: Optional[Sequence[str]] = None
     MetricSetFrequency: Optional[FrequencyType] = None
     Timezone: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
-    DimensionFilterList: Optional[Sequence[MetricSetDimensionFilterUnionTypeDef]] = None
+    DimensionFilterList: Optional[Sequence[MetricSetDimensionFilterUnion]] = None
 
 
-class UpdateMetricSetRequestTypeDef(BaseValidatorModel):
+class UpdateMetricSetRequest(BaseValidatorModel):
     MetricSetArn: str
     MetricSetDescription: Optional[str] = None
-    MetricList: Optional[Sequence[MetricTypeDef]] = None
+    MetricList: Optional[Sequence[Metric]] = None
     Offset: Optional[int] = None
-    TimestampColumn: Optional[TimestampColumnTypeDef] = None
+    TimestampColumn: Optional[TimestampColumn] = None
     DimensionList: Optional[Sequence[str]] = None
     MetricSetFrequency: Optional[FrequencyType] = None
-    MetricSource: Optional[MetricSourceUnionTypeDef] = None
-    DimensionFilterList: Optional[Sequence[MetricSetDimensionFilterUnionTypeDef]] = None
+    MetricSource: Optional[MetricSourceUnion] = None
+    DimensionFilterList: Optional[Sequence[MetricSetDimensionFilterUnion]] = None
 
 
-class DetectMetricSetConfigResponseTypeDef(BaseValidatorModel):
-    DetectedMetricSetConfig: DetectedMetricSetConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectMetricSetConfigResponse(BaseValidatorModel):
+    DetectedMetricSetConfig: DetectedMetricSetConfig
+    ResponseMetadata: ResponseMetadata
 
 

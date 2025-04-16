@@ -12,15 +12,15 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.timestream_query_constants import *
 
-class SnsConfigurationTypeDef(BaseValidatorModel):
+class SnsConfiguration(BaseValidatorModel):
     TopicArn: str
 
 
-class CancelQueryRequestTypeDef(BaseValidatorModel):
+class CancelQueryRequest(BaseValidatorModel):
     QueryId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,66 +28,66 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TypePaginatorTypeDef(BaseValidatorModel):
+class TypePaginator(BaseValidatorModel):
     ScalarType: Optional[ScalarTypeType] = None
     ArrayColumnInfo: Optional[Dict[str, Any]] = None
     TimeSeriesMeasureValueColumnInfo: Optional[Dict[str, Any]] = None
     RowColumnInfo: Optional[List[Dict[str, Any]]] = None
 
 
-class ScheduleConfigurationTypeDef(BaseValidatorModel):
+class ScheduleConfiguration(BaseValidatorModel):
     ScheduleExpression: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class TimeSeriesDataPointPaginatorTypeDef(BaseValidatorModel):
+class TimeSeriesDataPointPaginator(BaseValidatorModel):
     Time: str
     Value: Dict[str, Any]
 
 
-class TimeSeriesDataPointTypeDef(BaseValidatorModel):
+class TimeSeriesDataPoint(BaseValidatorModel):
     Time: str
     Value: Dict[str, Any]
 
 
-class DeleteScheduledQueryRequestTypeDef(BaseValidatorModel):
+class DeleteScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     Address: str
     CachePeriodInMinutes: int
 
 
-class DescribeScheduledQueryRequestTypeDef(BaseValidatorModel):
+class DescribeScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
 
 
-class DimensionMappingTypeDef(BaseValidatorModel):
+class DimensionMapping(BaseValidatorModel):
     Name: str
     DimensionValueType: Literal["VARCHAR"]
 
 
-class S3ConfigurationTypeDef(BaseValidatorModel):
+class S3Configuration(BaseValidatorModel):
     BucketName: str
     ObjectKeyPrefix: Optional[str] = None
     EncryptionOption: Optional[S3EncryptionOptionType] = None
 
 
-class S3ReportLocationTypeDef(BaseValidatorModel):
+class S3ReportLocation(BaseValidatorModel):
     BucketName: Optional[str] = None
     ObjectKey: Optional[str] = None
 
 
-class ScheduledQueryInsightsTypeDef(BaseValidatorModel):
+class ScheduledQueryInsights(BaseValidatorModel):
     Mode: ScheduledQueryInsightsModeType
 
 
-class ExecutionStatsTypeDef(BaseValidatorModel):
+class ExecutionStats(BaseValidatorModel):
     ExecutionTimeInMillis: Optional[int] = None
     DataWrites: Optional[int] = None
     BytesMetered: Optional[int] = None
@@ -96,265 +96,265 @@ class ExecutionStatsTypeDef(BaseValidatorModel):
     QueryResultRows: Optional[int] = None
 
 
-class LastUpdateTypeDef(BaseValidatorModel):
+class LastUpdate(BaseValidatorModel):
     TargetQueryTCU: Optional[int] = None
     Status: Optional[LastUpdateStatusType] = None
     StatusMessage: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListScheduledQueriesRequestTypeDef(BaseValidatorModel):
+class ListScheduledQueriesRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MultiMeasureAttributeMappingTypeDef(BaseValidatorModel):
+class MultiMeasureAttributeMapping(BaseValidatorModel):
     SourceColumn: str
     MeasureValueType: ScalarMeasureValueTypeType
     TargetMultiMeasureAttributeName: Optional[str] = None
 
 
-class PrepareQueryRequestTypeDef(BaseValidatorModel):
+class PrepareQueryRequest(BaseValidatorModel):
     QueryString: str
     ValidateOnly: Optional[bool] = None
 
 
-class QueryInsightsTypeDef(BaseValidatorModel):
+class QueryInsights(BaseValidatorModel):
     Mode: QueryInsightsModeType
 
 
-class QueryStatusTypeDef(BaseValidatorModel):
+class QueryStatus(BaseValidatorModel):
     ProgressPercentage: Optional[float] = None
     CumulativeBytesScanned: Optional[int] = None
     CumulativeBytesMetered: Optional[int] = None
 
 
-class QuerySpatialCoverageMaxTypeDef(BaseValidatorModel):
+class QuerySpatialCoverageMax(BaseValidatorModel):
     Value: Optional[float] = None
     TableArn: Optional[str] = None
     PartitionKey: Optional[List[str]] = None
 
 
-class QueryTemporalRangeMaxTypeDef(BaseValidatorModel):
+class QueryTemporalRangeMax(BaseValidatorModel):
     Value: Optional[int] = None
     TableArn: Optional[str] = None
 
 
-class TimestreamDestinationTypeDef(BaseValidatorModel):
+class TimestreamDestination(BaseValidatorModel):
     DatabaseName: Optional[str] = None
     TableName: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateScheduledQueryRequestTypeDef(BaseValidatorModel):
+class UpdateScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
     State: ScheduledQueryStateType
 
 
-class AccountSettingsNotificationConfigurationTypeDef(BaseValidatorModel):
+class AccountSettingsNotificationConfiguration(BaseValidatorModel):
     RoleArn: str
-    SnsConfiguration: Optional[SnsConfigurationTypeDef] = None
+    SnsConfiguration: Optional[SnsConfiguration] = None
 
 
-class NotificationConfigurationTypeDef(BaseValidatorModel):
-    SnsConfiguration: SnsConfigurationTypeDef
+class NotificationConfiguration(BaseValidatorModel):
+    SnsConfiguration: SnsConfiguration
 
 
-class CancelQueryResponseTypeDef(BaseValidatorModel):
+class CancelQueryResponse(BaseValidatorModel):
     CancellationMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateScheduledQueryResponseTypeDef(BaseValidatorModel):
+class CreateScheduledQueryResponse(BaseValidatorModel):
     Arn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ColumnInfoTypeDef(BaseValidatorModel):
+class ColumnInfo(BaseValidatorModel):
     pass
 
 
-class TypeTypeDef(BaseValidatorModel):
+class Type(BaseValidatorModel):
     ScalarType: Optional[ScalarTypeType] = None
     ArrayColumnInfo: Optional[Dict[str, Any]] = None
     TimeSeriesMeasureValueColumnInfo: Optional[Dict[str, Any]] = None
-    RowColumnInfo: Optional[List[ColumnInfoTypeDef]] = None
+    RowColumnInfo: Optional[List[ColumnInfo]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class DatumPaginatorTypeDef(BaseValidatorModel):
+class DatumPaginator(BaseValidatorModel):
     ScalarValue: Optional[str] = None
-    TimeSeriesValue: Optional[List[TimeSeriesDataPointPaginatorTypeDef]] = None
+    TimeSeriesValue: Optional[List[TimeSeriesDataPointPaginator]] = None
     ArrayValue: Optional[List[Dict[str, Any]]] = None
     RowValue: Optional[Dict[str, Any]] = None
     NullValue: Optional[bool] = None
 
 
-class DatumTypeDef(BaseValidatorModel):
+class Datum(BaseValidatorModel):
     ScalarValue: Optional[str] = None
-    TimeSeriesValue: Optional[List[TimeSeriesDataPointTypeDef]] = None
+    TimeSeriesValue: Optional[List[TimeSeriesDataPoint]] = None
     ArrayValue: Optional[List[Dict[str, Any]]] = None
     RowValue: Optional[Dict[str, Any]] = None
     NullValue: Optional[bool] = None
 
 
-class DescribeEndpointsResponseTypeDef(BaseValidatorModel):
-    Endpoints: List[EndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEndpointsResponse(BaseValidatorModel):
+    Endpoints: List[Endpoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class ErrorReportConfigurationTypeDef(BaseValidatorModel):
-    S3Configuration: S3ConfigurationTypeDef
+class ErrorReportConfiguration(BaseValidatorModel):
+    S3Configuration: S3Configuration
 
 
-class ErrorReportLocationTypeDef(BaseValidatorModel):
-    S3ReportLocation: Optional[S3ReportLocationTypeDef] = None
+class ErrorReportLocation(BaseValidatorModel):
+    S3ReportLocation: Optional[S3ReportLocation] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ExecuteScheduledQueryRequestTypeDef(BaseValidatorModel):
+class ExecuteScheduledQueryRequest(BaseValidatorModel):
     ScheduledQueryArn: str
-    InvocationTime: TimestampTypeDef
+    InvocationTime: Timestamp
     ClientToken: Optional[str] = None
-    QueryInsights: Optional[ScheduledQueryInsightsTypeDef] = None
+    QueryInsights: Optional[ScheduledQueryInsights] = None
 
 
-class ListScheduledQueriesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListScheduledQueriesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequestPaginate(BaseValidatorModel):
     ResourceARN: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MixedMeasureMappingOutputTypeDef(BaseValidatorModel):
+class MixedMeasureMappingOutput(BaseValidatorModel):
     MeasureValueType: MeasureValueTypeType
     MeasureName: Optional[str] = None
     SourceColumn: Optional[str] = None
     TargetMeasureName: Optional[str] = None
-    MultiMeasureAttributeMappings: Optional[List[MultiMeasureAttributeMappingTypeDef]] = None
+    MultiMeasureAttributeMappings: Optional[List[MultiMeasureAttributeMapping]] = None
 
 
-class MixedMeasureMappingTypeDef(BaseValidatorModel):
+class MixedMeasureMapping(BaseValidatorModel):
     MeasureValueType: MeasureValueTypeType
     MeasureName: Optional[str] = None
     SourceColumn: Optional[str] = None
     TargetMeasureName: Optional[str] = None
-    MultiMeasureAttributeMappings: Optional[Sequence[MultiMeasureAttributeMappingTypeDef]] = None
+    MultiMeasureAttributeMappings: Optional[Sequence[MultiMeasureAttributeMapping]] = None
 
 
-class MultiMeasureMappingsOutputTypeDef(BaseValidatorModel):
-    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMappingTypeDef]
+class MultiMeasureMappingsOutput(BaseValidatorModel):
+    MultiMeasureAttributeMappings: List[MultiMeasureAttributeMapping]
     TargetMultiMeasureName: Optional[str] = None
 
 
-class MultiMeasureMappingsTypeDef(BaseValidatorModel):
-    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMappingTypeDef]
+class MultiMeasureMappings(BaseValidatorModel):
+    MultiMeasureAttributeMappings: Sequence[MultiMeasureAttributeMapping]
     TargetMultiMeasureName: Optional[str] = None
 
 
-class QueryRequestPaginateTypeDef(BaseValidatorModel):
+class QueryRequestPaginate(BaseValidatorModel):
     QueryString: str
     ClientToken: Optional[str] = None
-    QueryInsights: Optional[QueryInsightsTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    QueryInsights: Optional[QueryInsights] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class QueryRequestTypeDef(BaseValidatorModel):
+class QueryRequest(BaseValidatorModel):
     QueryString: str
     ClientToken: Optional[str] = None
     NextToken: Optional[str] = None
     MaxRows: Optional[int] = None
-    QueryInsights: Optional[QueryInsightsTypeDef] = None
+    QueryInsights: Optional[QueryInsights] = None
 
 
-class QuerySpatialCoverageTypeDef(BaseValidatorModel):
-    Max: Optional[QuerySpatialCoverageMaxTypeDef] = None
+class QuerySpatialCoverage(BaseValidatorModel):
+    Max: Optional[QuerySpatialCoverageMax] = None
 
 
-class QueryTemporalRangeTypeDef(BaseValidatorModel):
-    Max: Optional[QueryTemporalRangeMaxTypeDef] = None
+class QueryTemporalRange(BaseValidatorModel):
+    Max: Optional[QueryTemporalRangeMax] = None
 
 
-class TargetDestinationTypeDef(BaseValidatorModel):
-    TimestreamDestination: Optional[TimestreamDestinationTypeDef] = None
+class TargetDestination(BaseValidatorModel):
+    TimestreamDestination: Optional[TimestreamDestination] = None
 
 
-class ProvisionedCapacityRequestTypeDef(BaseValidatorModel):
+class ProvisionedCapacityRequest(BaseValidatorModel):
     TargetQueryTCU: int
-    NotificationConfiguration: Optional[AccountSettingsNotificationConfigurationTypeDef] = None
+    NotificationConfiguration: Optional[AccountSettingsNotificationConfiguration] = None
 
 
-class ProvisionedCapacityResponseTypeDef(BaseValidatorModel):
+class ProvisionedCapacityResponse(BaseValidatorModel):
     ActiveQueryTCU: Optional[int] = None
-    NotificationConfiguration: Optional[AccountSettingsNotificationConfigurationTypeDef] = None
-    LastUpdate: Optional[LastUpdateTypeDef] = None
+    NotificationConfiguration: Optional[AccountSettingsNotificationConfiguration] = None
+    LastUpdate: Optional[LastUpdate] = None
 
 
-class RowPaginatorTypeDef(BaseValidatorModel):
-    Data: List[DatumPaginatorTypeDef]
+class RowPaginator(BaseValidatorModel):
+    Data: List[DatumPaginator]
 
 
-class RowTypeDef(BaseValidatorModel):
-    Data: List[DatumTypeDef]
+class Row(BaseValidatorModel):
+    Data: List[Datum]
 
 
-class TimestreamConfigurationOutputTypeDef(BaseValidatorModel):
+class TimestreamConfigurationOutput(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     TimeColumn: str
-    DimensionMappings: List[DimensionMappingTypeDef]
-    MultiMeasureMappings: Optional[MultiMeasureMappingsOutputTypeDef] = None
-    MixedMeasureMappings: Optional[List[MixedMeasureMappingOutputTypeDef]] = None
+    DimensionMappings: List[DimensionMapping]
+    MultiMeasureMappings: Optional[MultiMeasureMappingsOutput] = None
+    MixedMeasureMappings: Optional[List[MixedMeasureMappingOutput]] = None
     MeasureNameColumn: Optional[str] = None
 
 
-class TimestreamConfigurationTypeDef(BaseValidatorModel):
+class TimestreamConfiguration(BaseValidatorModel):
     DatabaseName: str
     TableName: str
     TimeColumn: str
-    DimensionMappings: Sequence[DimensionMappingTypeDef]
-    MultiMeasureMappings: Optional[MultiMeasureMappingsTypeDef] = None
-    MixedMeasureMappings: Optional[Sequence[MixedMeasureMappingTypeDef]] = None
+    DimensionMappings: Sequence[DimensionMapping]
+    MultiMeasureMappings: Optional[MultiMeasureMappings] = None
+    MixedMeasureMappings: Optional[Sequence[MixedMeasureMapping]] = None
     MeasureNameColumn: Optional[str] = None
 
 
-class QueryInsightsResponseTypeDef(BaseValidatorModel):
-    QuerySpatialCoverage: Optional[QuerySpatialCoverageTypeDef] = None
-    QueryTemporalRange: Optional[QueryTemporalRangeTypeDef] = None
+class QueryInsightsResponse(BaseValidatorModel):
+    QuerySpatialCoverage: Optional[QuerySpatialCoverage] = None
+    QueryTemporalRange: Optional[QueryTemporalRange] = None
     QueryTableCount: Optional[int] = None
     OutputRows: Optional[int] = None
     OutputBytes: Optional[int] = None
@@ -363,156 +363,156 @@ class QueryInsightsResponseTypeDef(BaseValidatorModel):
     UnloadWrittenBytes: Optional[int] = None
 
 
-class ScheduledQueryInsightsResponseTypeDef(BaseValidatorModel):
-    QuerySpatialCoverage: Optional[QuerySpatialCoverageTypeDef] = None
-    QueryTemporalRange: Optional[QueryTemporalRangeTypeDef] = None
+class ScheduledQueryInsightsResponse(BaseValidatorModel):
+    QuerySpatialCoverage: Optional[QuerySpatialCoverage] = None
+    QueryTemporalRange: Optional[QueryTemporalRange] = None
     QueryTableCount: Optional[int] = None
     OutputRows: Optional[int] = None
     OutputBytes: Optional[int] = None
 
 
-class ScheduledQueryTypeDef(BaseValidatorModel):
+class ScheduledQuery(BaseValidatorModel):
     Arn: str
     Name: str
     State: ScheduledQueryStateType
     CreationTime: Optional[datetime] = None
     PreviousInvocationTime: Optional[datetime] = None
     NextInvocationTime: Optional[datetime] = None
-    ErrorReportConfiguration: Optional[ErrorReportConfigurationTypeDef] = None
-    TargetDestination: Optional[TargetDestinationTypeDef] = None
+    ErrorReportConfiguration: Optional[ErrorReportConfiguration] = None
+    TargetDestination: Optional[TargetDestination] = None
     LastRunStatus: Optional[ScheduledQueryRunStatusType] = None
 
 
-class QueryComputeRequestTypeDef(BaseValidatorModel):
+class QueryComputeRequest(BaseValidatorModel):
     ComputeMode: Optional[ComputeModeType] = None
-    ProvisionedCapacity: Optional[ProvisionedCapacityRequestTypeDef] = None
+    ProvisionedCapacity: Optional[ProvisionedCapacityRequest] = None
 
 
-class QueryComputeResponseTypeDef(BaseValidatorModel):
+class QueryComputeResponse(BaseValidatorModel):
     ComputeMode: Optional[ComputeModeType] = None
-    ProvisionedCapacity: Optional[ProvisionedCapacityResponseTypeDef] = None
+    ProvisionedCapacity: Optional[ProvisionedCapacityResponse] = None
 
 
-class SelectColumnTypeDef(BaseValidatorModel):
+class SelectColumn(BaseValidatorModel):
     pass
 
 
-class ParameterMappingTypeDef(BaseValidatorModel):
+class ParameterMapping(BaseValidatorModel):
     pass
 
 
-class PrepareQueryResponseTypeDef(BaseValidatorModel):
+class PrepareQueryResponse(BaseValidatorModel):
     QueryString: str
-    Columns: List[SelectColumnTypeDef]
-    Parameters: List[ParameterMappingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Columns: List[SelectColumn]
+    Parameters: List[ParameterMapping]
+    ResponseMetadata: ResponseMetadata
 
 
-class TargetConfigurationOutputTypeDef(BaseValidatorModel):
-    TimestreamConfiguration: TimestreamConfigurationOutputTypeDef
+class TargetConfigurationOutput(BaseValidatorModel):
+    TimestreamConfiguration: TimestreamConfigurationOutput
 
 
-class TargetConfigurationTypeDef(BaseValidatorModel):
-    TimestreamConfiguration: TimestreamConfigurationTypeDef
+class TargetConfiguration(BaseValidatorModel):
+    TimestreamConfiguration: TimestreamConfiguration
 
 
-class ColumnInfoPaginatorTypeDef(BaseValidatorModel):
+class ColumnInfoPaginator(BaseValidatorModel):
     pass
 
 
-class QueryResponsePaginatorTypeDef(BaseValidatorModel):
+class QueryResponsePaginator(BaseValidatorModel):
     QueryId: str
-    Rows: List[RowPaginatorTypeDef]
-    ColumnInfo: List[ColumnInfoPaginatorTypeDef]
-    QueryStatus: QueryStatusTypeDef
-    QueryInsightsResponse: QueryInsightsResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Rows: List[RowPaginator]
+    ColumnInfo: List[ColumnInfoPaginator]
+    QueryStatus: QueryStatus
+    QueryInsightsResponse: QueryInsightsResponse
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class QueryResponseTypeDef(BaseValidatorModel):
+class QueryResponse(BaseValidatorModel):
     QueryId: str
-    Rows: List[RowTypeDef]
-    ColumnInfo: List[ColumnInfoTypeDef]
-    QueryStatus: QueryStatusTypeDef
-    QueryInsightsResponse: QueryInsightsResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Rows: List[Row]
+    ColumnInfo: List[ColumnInfo]
+    QueryStatus: QueryStatus
+    QueryInsightsResponse: QueryInsightsResponse
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ScheduledQueryRunSummaryTypeDef(BaseValidatorModel):
+class ScheduledQueryRunSummary(BaseValidatorModel):
     InvocationTime: Optional[datetime] = None
     TriggerTime: Optional[datetime] = None
     RunStatus: Optional[ScheduledQueryRunStatusType] = None
-    ExecutionStats: Optional[ExecutionStatsTypeDef] = None
-    QueryInsightsResponse: Optional[ScheduledQueryInsightsResponseTypeDef] = None
-    ErrorReportLocation: Optional[ErrorReportLocationTypeDef] = None
+    ExecutionStats: Optional[ExecutionStats] = None
+    QueryInsightsResponse: Optional[ScheduledQueryInsightsResponse] = None
+    ErrorReportLocation: Optional[ErrorReportLocation] = None
     FailureReason: Optional[str] = None
 
 
-class ListScheduledQueriesResponseTypeDef(BaseValidatorModel):
-    ScheduledQueries: List[ScheduledQueryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListScheduledQueriesResponse(BaseValidatorModel):
+    ScheduledQueries: List[ScheduledQuery]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateAccountSettingsRequestTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsRequest(BaseValidatorModel):
     MaxQueryTCU: Optional[int] = None
     QueryPricingModel: Optional[QueryPricingModelType] = None
-    QueryCompute: Optional[QueryComputeRequestTypeDef] = None
+    QueryCompute: Optional[QueryComputeRequest] = None
 
 
-class DescribeAccountSettingsResponseTypeDef(BaseValidatorModel):
+class DescribeAccountSettingsResponse(BaseValidatorModel):
     MaxQueryTCU: int
     QueryPricingModel: QueryPricingModelType
-    QueryCompute: QueryComputeResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    QueryCompute: QueryComputeResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAccountSettingsResponseTypeDef(BaseValidatorModel):
+class UpdateAccountSettingsResponse(BaseValidatorModel):
     MaxQueryTCU: int
     QueryPricingModel: QueryPricingModelType
-    QueryCompute: QueryComputeResponseTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    QueryCompute: QueryComputeResponse
+    ResponseMetadata: ResponseMetadata
 
 
-class ScheduledQueryDescriptionTypeDef(BaseValidatorModel):
+class ScheduledQueryDescription(BaseValidatorModel):
     Arn: str
     Name: str
     QueryString: str
     State: ScheduledQueryStateType
-    ScheduleConfiguration: ScheduleConfigurationTypeDef
-    NotificationConfiguration: NotificationConfigurationTypeDef
+    ScheduleConfiguration: ScheduleConfiguration
+    NotificationConfiguration: NotificationConfiguration
     CreationTime: Optional[datetime] = None
     PreviousInvocationTime: Optional[datetime] = None
     NextInvocationTime: Optional[datetime] = None
-    TargetConfiguration: Optional[TargetConfigurationOutputTypeDef] = None
+    TargetConfiguration: Optional[TargetConfigurationOutput] = None
     ScheduledQueryExecutionRoleArn: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    ErrorReportConfiguration: Optional[ErrorReportConfigurationTypeDef] = None
-    LastRunSummary: Optional[ScheduledQueryRunSummaryTypeDef] = None
-    RecentlyFailedRuns: Optional[List[ScheduledQueryRunSummaryTypeDef]] = None
+    ErrorReportConfiguration: Optional[ErrorReportConfiguration] = None
+    LastRunSummary: Optional[ScheduledQueryRunSummary] = None
+    RecentlyFailedRuns: Optional[List[ScheduledQueryRunSummary]] = None
 
 
-class TargetConfigurationUnionTypeDef(BaseValidatorModel):
+class TargetConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateScheduledQueryRequestTypeDef(BaseValidatorModel):
+class CreateScheduledQueryRequest(BaseValidatorModel):
     Name: str
     QueryString: str
-    ScheduleConfiguration: ScheduleConfigurationTypeDef
-    NotificationConfiguration: NotificationConfigurationTypeDef
+    ScheduleConfiguration: ScheduleConfiguration
+    NotificationConfiguration: NotificationConfiguration
     ScheduledQueryExecutionRoleArn: str
-    ErrorReportConfiguration: ErrorReportConfigurationTypeDef
-    TargetConfiguration: Optional[TargetConfigurationUnionTypeDef] = None
+    ErrorReportConfiguration: ErrorReportConfiguration
+    TargetConfiguration: Optional[TargetConfigurationUnion] = None
     ClientToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     KmsKeyId: Optional[str] = None
 
 
-class DescribeScheduledQueryResponseTypeDef(BaseValidatorModel):
-    ScheduledQuery: ScheduledQueryDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeScheduledQueryResponse(BaseValidatorModel):
+    ScheduledQuery: ScheduledQueryDescription
+    ResponseMetadata: ResponseMetadata
 
 

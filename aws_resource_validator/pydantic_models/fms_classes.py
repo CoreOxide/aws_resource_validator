@@ -12,70 +12,70 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.fms_constants import *
 
-class AccountScopeOutputTypeDef(BaseValidatorModel):
+class AccountScopeOutput(BaseValidatorModel):
     Accounts: Optional[List[str]] = None
     AllAccountsEnabled: Optional[bool] = None
     ExcludeSpecifiedAccounts: Optional[bool] = None
 
 
-class AccountScopeTypeDef(BaseValidatorModel):
+class AccountScope(BaseValidatorModel):
     Accounts: Optional[Sequence[str]] = None
     AllAccountsEnabled: Optional[bool] = None
     ExcludeSpecifiedAccounts: Optional[bool] = None
 
 
-class ActionTargetTypeDef(BaseValidatorModel):
+class ActionTarget(BaseValidatorModel):
     ResourceId: Optional[str] = None
     Description: Optional[str] = None
 
 
-class AdminAccountSummaryTypeDef(BaseValidatorModel):
+class AdminAccountSummary(BaseValidatorModel):
     AdminAccount: Optional[str] = None
     DefaultAdmin: Optional[bool] = None
     Status: Optional[OrganizationStatusType] = None
 
 
-class OrganizationalUnitScopeOutputTypeDef(BaseValidatorModel):
+class OrganizationalUnitScopeOutput(BaseValidatorModel):
     OrganizationalUnits: Optional[List[str]] = None
     AllOrganizationalUnitsEnabled: Optional[bool] = None
     ExcludeSpecifiedOrganizationalUnits: Optional[bool] = None
 
 
-class PolicyTypeScopeOutputTypeDef(BaseValidatorModel):
+class PolicyTypeScopeOutput(BaseValidatorModel):
     PolicyTypes: Optional[List[SecurityServiceTypeType]] = None
     AllPolicyTypesEnabled: Optional[bool] = None
 
 
-class RegionScopeOutputTypeDef(BaseValidatorModel):
+class RegionScopeOutput(BaseValidatorModel):
     Regions: Optional[List[str]] = None
     AllRegionsEnabled: Optional[bool] = None
 
 
-class OrganizationalUnitScopeTypeDef(BaseValidatorModel):
+class OrganizationalUnitScope(BaseValidatorModel):
     OrganizationalUnits: Optional[Sequence[str]] = None
     AllOrganizationalUnitsEnabled: Optional[bool] = None
     ExcludeSpecifiedOrganizationalUnits: Optional[bool] = None
 
 
-class PolicyTypeScopeTypeDef(BaseValidatorModel):
+class PolicyTypeScope(BaseValidatorModel):
     PolicyTypes: Optional[Sequence[SecurityServiceTypeType]] = None
     AllPolicyTypesEnabled: Optional[bool] = None
 
 
-class RegionScopeTypeDef(BaseValidatorModel):
+class RegionScope(BaseValidatorModel):
     Regions: Optional[Sequence[str]] = None
     AllRegionsEnabled: Optional[bool] = None
 
 
-class AssociateAdminAccountRequestTypeDef(BaseValidatorModel):
+class AssociateAdminAccountRequest(BaseValidatorModel):
     AdminAccount: str
 
 
-class AssociateThirdPartyFirewallRequestTypeDef(BaseValidatorModel):
+class AssociateThirdPartyFirewallRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -83,71 +83,71 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AwsEc2NetworkInterfaceViolationTypeDef(BaseValidatorModel):
+class AwsEc2NetworkInterfaceViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     ViolatingSecurityGroups: Optional[List[str]] = None
 
 
-class PartialMatchTypeDef(BaseValidatorModel):
+class PartialMatch(BaseValidatorModel):
     Reference: Optional[str] = None
     TargetViolationReasons: Optional[List[str]] = None
 
 
-class BatchAssociateResourceRequestTypeDef(BaseValidatorModel):
+class BatchAssociateResourceRequest(BaseValidatorModel):
     ResourceSetIdentifier: str
     Items: Sequence[str]
 
 
-class FailedItemTypeDef(BaseValidatorModel):
+class FailedItem(BaseValidatorModel):
     URI: Optional[str] = None
     Reason: Optional[FailedItemReasonType] = None
 
 
-class BatchDisassociateResourceRequestTypeDef(BaseValidatorModel):
+class BatchDisassociateResourceRequest(BaseValidatorModel):
     ResourceSetIdentifier: str
     Items: Sequence[str]
 
 
-class ComplianceViolatorTypeDef(BaseValidatorModel):
+class ComplianceViolator(BaseValidatorModel):
     ResourceId: Optional[str] = None
     ViolationReason: Optional[ViolationReasonType] = None
     ResourceType: Optional[str] = None
     Metadata: Optional[Dict[str, str]] = None
 
 
-class DeleteAppsListRequestTypeDef(BaseValidatorModel):
+class DeleteAppsListRequest(BaseValidatorModel):
     ListId: str
 
 
-class DeletePolicyRequestTypeDef(BaseValidatorModel):
+class DeletePolicyRequest(BaseValidatorModel):
     PolicyId: str
     DeleteAllPolicyResources: Optional[bool] = None
 
 
-class DeleteProtocolsListRequestTypeDef(BaseValidatorModel):
+class DeleteProtocolsListRequest(BaseValidatorModel):
     ListId: str
 
 
-class DeleteResourceSetRequestTypeDef(BaseValidatorModel):
+class DeleteResourceSetRequest(BaseValidatorModel):
     Identifier: str
 
 
-class DisassociateThirdPartyFirewallRequestTypeDef(BaseValidatorModel):
+class DisassociateThirdPartyFirewallRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
 
-class DnsDuplicateRuleGroupViolationTypeDef(BaseValidatorModel):
+class DnsDuplicateRuleGroupViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     ViolationTargetDescription: Optional[str] = None
 
 
-class DnsRuleGroupLimitExceededViolationTypeDef(BaseValidatorModel):
+class DnsRuleGroupLimitExceededViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     ViolationTargetDescription: Optional[str] = None
     NumberOfRuleGroupsAlreadyAssociated: Optional[int] = None
 
 
-class DnsRuleGroupPriorityConflictViolationTypeDef(BaseValidatorModel):
+class DnsRuleGroupPriorityConflictViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     ViolationTargetDescription: Optional[str] = None
     ConflictingPriority: Optional[int] = None
@@ -155,13 +155,13 @@ class DnsRuleGroupPriorityConflictViolationTypeDef(BaseValidatorModel):
     UnavailablePriorities: Optional[List[int]] = None
 
 
-class EvaluationResultTypeDef(BaseValidatorModel):
+class EvaluationResult(BaseValidatorModel):
     ComplianceStatus: Optional[PolicyComplianceStatusTypeType] = None
     ViolatorCount: Optional[int] = None
     EvaluationLimitExceeded: Optional[bool] = None
 
 
-class ExpectedRouteTypeDef(BaseValidatorModel):
+class ExpectedRoute(BaseValidatorModel):
     IpV4Cidr: Optional[str] = None
     PrefixListId: Optional[str] = None
     IpV6Cidr: Optional[str] = None
@@ -170,12 +170,12 @@ class ExpectedRouteTypeDef(BaseValidatorModel):
     RouteTableId: Optional[str] = None
 
 
-class FMSPolicyUpdateFirewallCreationConfigActionTypeDef(BaseValidatorModel):
+class FMSPolicyUpdateFirewallCreationConfigAction(BaseValidatorModel):
     Description: Optional[str] = None
     FirewallCreationConfig: Optional[str] = None
 
 
-class FirewallSubnetIsOutOfScopeViolationTypeDef(BaseValidatorModel):
+class FirewallSubnetIsOutOfScopeViolation(BaseValidatorModel):
     FirewallSubnetId: Optional[str] = None
     VpcId: Optional[str] = None
     SubnetAvailabilityZone: Optional[str] = None
@@ -183,37 +183,37 @@ class FirewallSubnetIsOutOfScopeViolationTypeDef(BaseValidatorModel):
     VpcEndpointId: Optional[str] = None
 
 
-class FirewallSubnetMissingVPCEndpointViolationTypeDef(BaseValidatorModel):
+class FirewallSubnetMissingVPCEndpointViolation(BaseValidatorModel):
     FirewallSubnetId: Optional[str] = None
     VpcId: Optional[str] = None
     SubnetAvailabilityZone: Optional[str] = None
     SubnetAvailabilityZoneId: Optional[str] = None
 
 
-class GetAdminScopeRequestTypeDef(BaseValidatorModel):
+class GetAdminScopeRequest(BaseValidatorModel):
     AdminAccount: str
 
 
-class GetAppsListRequestTypeDef(BaseValidatorModel):
+class GetAppsListRequest(BaseValidatorModel):
     ListId: str
     DefaultList: Optional[bool] = None
 
 
-class GetComplianceDetailRequestTypeDef(BaseValidatorModel):
+class GetComplianceDetailRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccount: str
 
 
-class GetPolicyRequestTypeDef(BaseValidatorModel):
+class GetPolicyRequest(BaseValidatorModel):
     PolicyId: str
 
 
-class GetProtocolsListRequestTypeDef(BaseValidatorModel):
+class GetProtocolsListRequest(BaseValidatorModel):
     ListId: str
     DefaultList: Optional[bool] = None
 
 
-class ProtocolsListDataOutputTypeDef(BaseValidatorModel):
+class ProtocolsListDataOutput(BaseValidatorModel):
     ListName: str
     ProtocolsList: List[str]
     ListId: Optional[str] = None
@@ -223,11 +223,11 @@ class ProtocolsListDataOutputTypeDef(BaseValidatorModel):
     PreviousProtocolsList: Optional[Dict[str, List[str]]] = None
 
 
-class GetResourceSetRequestTypeDef(BaseValidatorModel):
+class GetResourceSetRequest(BaseValidatorModel):
     Identifier: str
 
 
-class ResourceSetOutputTypeDef(BaseValidatorModel):
+class ResourceSetOutput(BaseValidatorModel):
     Name: str
     ResourceTypeList: List[str]
     Id: Optional[str] = None
@@ -237,63 +237,63 @@ class ResourceSetOutputTypeDef(BaseValidatorModel):
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
-class GetThirdPartyFirewallAssociationStatusRequestTypeDef(BaseValidatorModel):
+class GetThirdPartyFirewallAssociationStatusRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
 
 
-class GetViolationDetailsRequestTypeDef(BaseValidatorModel):
+class GetViolationDetailsRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccount: str
     ResourceId: str
     ResourceType: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAdminAccountsForOrganizationRequestTypeDef(BaseValidatorModel):
+class ListAdminAccountsForOrganizationRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAdminsManagingAccountRequestTypeDef(BaseValidatorModel):
+class ListAdminsManagingAccountRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListAppsListsRequestTypeDef(BaseValidatorModel):
+class ListAppsListsRequest(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
     NextToken: Optional[str] = None
 
 
-class ListComplianceStatusRequestTypeDef(BaseValidatorModel):
+class ListComplianceStatusRequest(BaseValidatorModel):
     PolicyId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDiscoveredResourcesRequestTypeDef(BaseValidatorModel):
+class ListDiscoveredResourcesRequest(BaseValidatorModel):
     MemberAccountIds: Sequence[str]
     ResourceType: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMemberAccountsRequestTypeDef(BaseValidatorModel):
+class ListMemberAccountsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPoliciesRequestTypeDef(BaseValidatorModel):
+class ListPoliciesRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PolicySummaryTypeDef(BaseValidatorModel):
+class PolicySummary(BaseValidatorModel):
     PolicyArn: Optional[str] = None
     PolicyId: Optional[str] = None
     PolicyName: Optional[str] = None
@@ -304,36 +304,36 @@ class PolicySummaryTypeDef(BaseValidatorModel):
     PolicyStatus: Optional[CustomerPolicyStatusType] = None
 
 
-class ListProtocolsListsRequestTypeDef(BaseValidatorModel):
+class ListProtocolsListsRequest(BaseValidatorModel):
     MaxResults: int
     DefaultLists: Optional[bool] = None
     NextToken: Optional[str] = None
 
 
-class ProtocolsListDataSummaryTypeDef(BaseValidatorModel):
+class ProtocolsListDataSummary(BaseValidatorModel):
     ListArn: Optional[str] = None
     ListId: Optional[str] = None
     ListName: Optional[str] = None
     ProtocolsList: Optional[List[str]] = None
 
 
-class ListResourceSetResourcesRequestTypeDef(BaseValidatorModel):
+class ListResourceSetResourcesRequest(BaseValidatorModel):
     Identifier: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ResourceTypeDef(BaseValidatorModel):
+class Resource(BaseValidatorModel):
     URI: str
     AccountId: Optional[str] = None
 
 
-class ListResourceSetsRequestTypeDef(BaseValidatorModel):
+class ListResourceSetsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ResourceSetSummaryTypeDef(BaseValidatorModel):
+class ResourceSetSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -341,39 +341,39 @@ class ResourceSetSummaryTypeDef(BaseValidatorModel):
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ListThirdPartyFirewallFirewallPoliciesRequestTypeDef(BaseValidatorModel):
+class ListThirdPartyFirewallFirewallPoliciesRequest(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
     MaxResults: int
     NextToken: Optional[str] = None
 
 
-class ThirdPartyFirewallFirewallPolicyTypeDef(BaseValidatorModel):
+class ThirdPartyFirewallFirewallPolicy(BaseValidatorModel):
     FirewallPolicyId: Optional[str] = None
     FirewallPolicyName: Optional[str] = None
 
 
-class NetworkAclPortRangeTypeDef(BaseValidatorModel):
+class NetworkAclPortRange(BaseValidatorModel):
     From: Optional[int] = None
     To: Optional[int] = None
 
 
-class RouteTypeDef(BaseValidatorModel):
+class Route(BaseValidatorModel):
     DestinationType: Optional[DestinationTypeType] = None
     TargetType: Optional[TargetTypeType] = None
     Destination: Optional[str] = None
     Target: Optional[str] = None
 
 
-class NetworkFirewallMissingExpectedRTViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallMissingExpectedRTViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
@@ -381,54 +381,54 @@ class NetworkFirewallMissingExpectedRTViolationTypeDef(BaseValidatorModel):
     ExpectedRouteTable: Optional[str] = None
 
 
-class NetworkFirewallMissingFirewallViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallMissingFirewallViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     TargetViolationReason: Optional[str] = None
 
 
-class NetworkFirewallMissingSubnetViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallMissingSubnetViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     TargetViolationReason: Optional[str] = None
 
 
-class StatefulEngineOptionsTypeDef(BaseValidatorModel):
+class StatefulEngineOptions(BaseValidatorModel):
     RuleOrder: Optional[RuleOrderType] = None
     StreamExceptionPolicy: Optional[StreamExceptionPolicyType] = None
 
 
-class StatelessRuleGroupTypeDef(BaseValidatorModel):
+class StatelessRuleGroup(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     ResourceId: Optional[str] = None
     Priority: Optional[int] = None
 
 
-class NetworkFirewallPolicyTypeDef(BaseValidatorModel):
+class NetworkFirewallPolicy(BaseValidatorModel):
     FirewallDeploymentModel: Optional[FirewallDeploymentModelType] = None
 
 
-class NetworkFirewallStatefulRuleGroupOverrideTypeDef(BaseValidatorModel):
+class NetworkFirewallStatefulRuleGroupOverride(BaseValidatorModel):
     Action: Optional[Literal["DROP_TO_ALERT"]] = None
 
 
-class ThirdPartyFirewallPolicyTypeDef(BaseValidatorModel):
+class ThirdPartyFirewallPolicy(BaseValidatorModel):
     FirewallDeploymentModel: Optional[FirewallDeploymentModelType] = None
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class PutNotificationChannelRequestTypeDef(BaseValidatorModel):
+class PutNotificationChannelRequest(BaseValidatorModel):
     SnsTopicArn: str
     SnsRoleName: str
 
 
-class ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef(BaseValidatorModel):
+class ThirdPartyFirewallMissingExpectedRouteTableViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
@@ -436,690 +436,690 @@ class ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef(BaseValidatorM
     ExpectedRouteTable: Optional[str] = None
 
 
-class ThirdPartyFirewallMissingFirewallViolationTypeDef(BaseValidatorModel):
+class ThirdPartyFirewallMissingFirewallViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     TargetViolationReason: Optional[str] = None
 
 
-class ThirdPartyFirewallMissingSubnetViolationTypeDef(BaseValidatorModel):
+class ThirdPartyFirewallMissingSubnetViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     VPC: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     TargetViolationReason: Optional[str] = None
 
 
-class WebACLHasIncompatibleConfigurationViolationTypeDef(BaseValidatorModel):
+class WebACLHasIncompatibleConfigurationViolation(BaseValidatorModel):
     WebACLArn: Optional[str] = None
     Description: Optional[str] = None
 
 
-class WebACLHasOutOfScopeResourcesViolationTypeDef(BaseValidatorModel):
+class WebACLHasOutOfScopeResourcesViolation(BaseValidatorModel):
     WebACLArn: Optional[str] = None
     OutOfScopeResourceList: Optional[List[str]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class CreateNetworkAclActionTypeDef(BaseValidatorModel):
+class CreateNetworkAclAction(BaseValidatorModel):
     Description: Optional[str] = None
-    Vpc: Optional[ActionTargetTypeDef] = None
+    Vpc: Optional[ActionTarget] = None
     FMSCanRemediate: Optional[bool] = None
 
 
-class EC2AssociateRouteTableActionTypeDef(BaseValidatorModel):
-    RouteTableId: ActionTargetTypeDef
+class EC2AssociateRouteTableAction(BaseValidatorModel):
+    RouteTableId: ActionTarget
     Description: Optional[str] = None
-    SubnetId: Optional[ActionTargetTypeDef] = None
-    GatewayId: Optional[ActionTargetTypeDef] = None
+    SubnetId: Optional[ActionTarget] = None
+    GatewayId: Optional[ActionTarget] = None
 
 
-class EC2CopyRouteTableActionTypeDef(BaseValidatorModel):
-    VpcId: ActionTargetTypeDef
-    RouteTableId: ActionTargetTypeDef
-    Description: Optional[str] = None
-
-
-class EC2CreateRouteActionTypeDef(BaseValidatorModel):
-    RouteTableId: ActionTargetTypeDef
-    Description: Optional[str] = None
-    DestinationCidrBlock: Optional[str] = None
-    DestinationPrefixListId: Optional[str] = None
-    DestinationIpv6CidrBlock: Optional[str] = None
-    VpcEndpointId: Optional[ActionTargetTypeDef] = None
-    GatewayId: Optional[ActionTargetTypeDef] = None
-
-
-class EC2CreateRouteTableActionTypeDef(BaseValidatorModel):
-    VpcId: ActionTargetTypeDef
+class EC2CopyRouteTableAction(BaseValidatorModel):
+    VpcId: ActionTarget
+    RouteTableId: ActionTarget
     Description: Optional[str] = None
 
 
-class EC2DeleteRouteActionTypeDef(BaseValidatorModel):
-    RouteTableId: ActionTargetTypeDef
+class EC2CreateRouteAction(BaseValidatorModel):
+    RouteTableId: ActionTarget
     Description: Optional[str] = None
     DestinationCidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
+    VpcEndpointId: Optional[ActionTarget] = None
+    GatewayId: Optional[ActionTarget] = None
 
 
-class EC2ReplaceRouteActionTypeDef(BaseValidatorModel):
-    RouteTableId: ActionTargetTypeDef
+class EC2CreateRouteTableAction(BaseValidatorModel):
+    VpcId: ActionTarget
+    Description: Optional[str] = None
+
+
+class EC2DeleteRouteAction(BaseValidatorModel):
+    RouteTableId: ActionTarget
     Description: Optional[str] = None
     DestinationCidrBlock: Optional[str] = None
     DestinationPrefixListId: Optional[str] = None
     DestinationIpv6CidrBlock: Optional[str] = None
-    GatewayId: Optional[ActionTargetTypeDef] = None
 
 
-class EC2ReplaceRouteTableAssociationActionTypeDef(BaseValidatorModel):
-    AssociationId: ActionTargetTypeDef
-    RouteTableId: ActionTargetTypeDef
+class EC2ReplaceRouteAction(BaseValidatorModel):
+    RouteTableId: ActionTarget
+    Description: Optional[str] = None
+    DestinationCidrBlock: Optional[str] = None
+    DestinationPrefixListId: Optional[str] = None
+    DestinationIpv6CidrBlock: Optional[str] = None
+    GatewayId: Optional[ActionTarget] = None
+
+
+class EC2ReplaceRouteTableAssociationAction(BaseValidatorModel):
+    AssociationId: ActionTarget
+    RouteTableId: ActionTarget
     Description: Optional[str] = None
 
 
-class ReplaceNetworkAclAssociationActionTypeDef(BaseValidatorModel):
+class ReplaceNetworkAclAssociationAction(BaseValidatorModel):
     Description: Optional[str] = None
-    AssociationId: Optional[ActionTargetTypeDef] = None
-    NetworkAclId: Optional[ActionTargetTypeDef] = None
+    AssociationId: Optional[ActionTarget] = None
+    NetworkAclId: Optional[ActionTarget] = None
     FMSCanRemediate: Optional[bool] = None
 
 
-class AdminScopeOutputTypeDef(BaseValidatorModel):
-    AccountScope: Optional[AccountScopeOutputTypeDef] = None
-    OrganizationalUnitScope: Optional[OrganizationalUnitScopeOutputTypeDef] = None
-    RegionScope: Optional[RegionScopeOutputTypeDef] = None
-    PolicyTypeScope: Optional[PolicyTypeScopeOutputTypeDef] = None
+class AdminScopeOutput(BaseValidatorModel):
+    AccountScope: Optional[AccountScopeOutput] = None
+    OrganizationalUnitScope: Optional[OrganizationalUnitScopeOutput] = None
+    RegionScope: Optional[RegionScopeOutput] = None
+    PolicyTypeScope: Optional[PolicyTypeScopeOutput] = None
 
 
-class AdminScopeTypeDef(BaseValidatorModel):
-    AccountScope: Optional[AccountScopeTypeDef] = None
-    OrganizationalUnitScope: Optional[OrganizationalUnitScopeTypeDef] = None
-    RegionScope: Optional[RegionScopeTypeDef] = None
-    PolicyTypeScope: Optional[PolicyTypeScopeTypeDef] = None
+class AdminScope(BaseValidatorModel):
+    AccountScope: Optional[AccountScope] = None
+    OrganizationalUnitScope: Optional[OrganizationalUnitScope] = None
+    RegionScope: Optional[RegionScope] = None
+    PolicyTypeScope: Optional[PolicyTypeScope] = None
 
 
-class AppTypeDef(BaseValidatorModel):
+class App(BaseValidatorModel):
     pass
 
 
-class AppsListDataOutputTypeDef(BaseValidatorModel):
+class AppsListDataOutput(BaseValidatorModel):
     ListName: str
-    AppsList: List[AppTypeDef]
+    AppsList: List[App]
     ListId: Optional[str] = None
     ListUpdateToken: Optional[str] = None
     CreateTime: Optional[datetime] = None
     LastUpdateTime: Optional[datetime] = None
-    PreviousAppsList: Optional[Dict[str, List[AppTypeDef]]] = None
+    PreviousAppsList: Optional[Dict[str, List[App]]] = None
 
 
-class AppsListDataSummaryTypeDef(BaseValidatorModel):
+class AppsListDataSummary(BaseValidatorModel):
     ListArn: Optional[str] = None
     ListId: Optional[str] = None
     ListName: Optional[str] = None
-    AppsList: Optional[List[AppTypeDef]] = None
+    AppsList: Optional[List[App]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class AppsListDataTypeDef(BaseValidatorModel):
+class AppsListData(BaseValidatorModel):
     ListName: str
-    AppsList: Sequence[AppTypeDef]
+    AppsList: Sequence[App]
     ListId: Optional[str] = None
     ListUpdateToken: Optional[str] = None
-    CreateTime: Optional[TimestampTypeDef] = None
-    LastUpdateTime: Optional[TimestampTypeDef] = None
-    PreviousAppsList: Optional[Mapping[str, Sequence[AppTypeDef]]] = None
+    CreateTime: Optional[Timestamp] = None
+    LastUpdateTime: Optional[Timestamp] = None
+    PreviousAppsList: Optional[Mapping[str, Sequence[App]]] = None
 
 
-class GetProtectionStatusRequestTypeDef(BaseValidatorModel):
+class GetProtectionStatusRequest(BaseValidatorModel):
     PolicyId: str
     MemberAccountId: Optional[str] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ProtocolsListDataTypeDef(BaseValidatorModel):
+class ProtocolsListData(BaseValidatorModel):
     ListName: str
     ProtocolsList: Sequence[str]
     ListId: Optional[str] = None
     ListUpdateToken: Optional[str] = None
-    CreateTime: Optional[TimestampTypeDef] = None
-    LastUpdateTime: Optional[TimestampTypeDef] = None
+    CreateTime: Optional[Timestamp] = None
+    LastUpdateTime: Optional[Timestamp] = None
     PreviousProtocolsList: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class ResourceSetTypeDef(BaseValidatorModel):
+class ResourceSet(BaseValidatorModel):
     Name: str
     ResourceTypeList: Sequence[str]
     Id: Optional[str] = None
     Description: Optional[str] = None
     UpdateToken: Optional[str] = None
-    LastUpdateTime: Optional[TimestampTypeDef] = None
+    LastUpdateTime: Optional[Timestamp] = None
     ResourceSetStatus: Optional[ResourceSetStatusType] = None
 
 
-class AssociateThirdPartyFirewallResponseTypeDef(BaseValidatorModel):
+class AssociateThirdPartyFirewallResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateThirdPartyFirewallResponseTypeDef(BaseValidatorModel):
+class DisassociateThirdPartyFirewallResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAdminAccountResponseTypeDef(BaseValidatorModel):
+class GetAdminAccountResponse(BaseValidatorModel):
     AdminAccount: str
     RoleStatus: AccountRoleStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetNotificationChannelResponseTypeDef(BaseValidatorModel):
+class GetNotificationChannelResponse(BaseValidatorModel):
     SnsTopicArn: str
     SnsRoleName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProtectionStatusResponseTypeDef(BaseValidatorModel):
+class GetProtectionStatusResponse(BaseValidatorModel):
     AdminAccountId: str
     ServiceType: SecurityServiceTypeType
     Data: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetThirdPartyFirewallAssociationStatusResponseTypeDef(BaseValidatorModel):
+class GetThirdPartyFirewallAssociationStatusResponse(BaseValidatorModel):
     ThirdPartyFirewallStatus: ThirdPartyFirewallAssociationStatusType
     MarketplaceOnboardingStatus: MarketplaceSubscriptionOnboardingStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAdminAccountsForOrganizationResponseTypeDef(BaseValidatorModel):
-    AdminAccounts: List[AdminAccountSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAdminAccountsForOrganizationResponse(BaseValidatorModel):
+    AdminAccounts: List[AdminAccountSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAdminsManagingAccountResponseTypeDef(BaseValidatorModel):
+class ListAdminsManagingAccountResponse(BaseValidatorModel):
     AdminAccounts: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListMemberAccountsResponseTypeDef(BaseValidatorModel):
+class ListMemberAccountsResponse(BaseValidatorModel):
     MemberAccounts: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AwsEc2InstanceViolationTypeDef(BaseValidatorModel):
+class AwsEc2InstanceViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
-    AwsEc2NetworkInterfaceViolations: Optional[List[AwsEc2NetworkInterfaceViolationTypeDef]] = None
+    AwsEc2NetworkInterfaceViolations: Optional[List[AwsEc2NetworkInterfaceViolation]] = None
 
 
-class BatchAssociateResourceResponseTypeDef(BaseValidatorModel):
+class BatchAssociateResourceResponse(BaseValidatorModel):
     ResourceSetIdentifier: str
-    FailedItems: List[FailedItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FailedItems: List[FailedItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateResourceResponseTypeDef(BaseValidatorModel):
+class BatchDisassociateResourceResponse(BaseValidatorModel):
     ResourceSetIdentifier: str
-    FailedItems: List[FailedItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FailedItems: List[FailedItem]
+    ResponseMetadata: ResponseMetadata
 
 
-class PolicyComplianceDetailTypeDef(BaseValidatorModel):
+class PolicyComplianceDetail(BaseValidatorModel):
     PolicyOwner: Optional[str] = None
     PolicyId: Optional[str] = None
     MemberAccount: Optional[str] = None
-    Violators: Optional[List[ComplianceViolatorTypeDef]] = None
+    Violators: Optional[List[ComplianceViolator]] = None
     EvaluationLimitExceeded: Optional[bool] = None
     ExpiredAt: Optional[datetime] = None
     IssueInfoMap: Optional[Dict[DependentServiceNameType, str]] = None
 
 
-class DiscoveredResourceTypeDef(BaseValidatorModel):
+class DiscoveredResource(BaseValidatorModel):
     pass
 
 
-class ListDiscoveredResourcesResponseTypeDef(BaseValidatorModel):
-    Items: List[DiscoveredResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDiscoveredResourcesResponse(BaseValidatorModel):
+    Items: List[DiscoveredResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PolicyComplianceStatusTypeDef(BaseValidatorModel):
+class PolicyComplianceStatus(BaseValidatorModel):
     PolicyOwner: Optional[str] = None
     PolicyId: Optional[str] = None
     PolicyName: Optional[str] = None
     MemberAccount: Optional[str] = None
-    EvaluationResults: Optional[List[EvaluationResultTypeDef]] = None
+    EvaluationResults: Optional[List[EvaluationResult]] = None
     LastUpdated: Optional[datetime] = None
     IssueInfoMap: Optional[Dict[DependentServiceNameType, str]] = None
 
 
-class NetworkFirewallMissingExpectedRoutesViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallMissingExpectedRoutesViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
-    ExpectedRoutes: Optional[List[ExpectedRouteTypeDef]] = None
+    ExpectedRoutes: Optional[List[ExpectedRoute]] = None
     VpcId: Optional[str] = None
 
 
-class GetProtocolsListResponseTypeDef(BaseValidatorModel):
-    ProtocolsList: ProtocolsListDataOutputTypeDef
+class GetProtocolsListResponse(BaseValidatorModel):
+    ProtocolsList: ProtocolsListDataOutput
     ProtocolsListArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutProtocolsListResponseTypeDef(BaseValidatorModel):
-    ProtocolsList: ProtocolsListDataOutputTypeDef
+class PutProtocolsListResponse(BaseValidatorModel):
+    ProtocolsList: ProtocolsListDataOutput
     ProtocolsListArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourceSetResponseTypeDef(BaseValidatorModel):
-    ResourceSet: ResourceSetOutputTypeDef
+class GetResourceSetResponse(BaseValidatorModel):
+    ResourceSet: ResourceSetOutput
     ResourceSetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourceSetResponseTypeDef(BaseValidatorModel):
-    ResourceSet: ResourceSetOutputTypeDef
+class PutResourceSetResponse(BaseValidatorModel):
+    ResourceSet: ResourceSetOutput
     ResourceSetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAdminAccountsForOrganizationRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAdminAccountsForOrganizationRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAdminsManagingAccountRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAdminsManagingAccountRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAppsListsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAppsListsRequestPaginate(BaseValidatorModel):
     DefaultLists: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListComplianceStatusRequestPaginateTypeDef(BaseValidatorModel):
+class ListComplianceStatusRequestPaginate(BaseValidatorModel):
     PolicyId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMemberAccountsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMemberAccountsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPoliciesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPoliciesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProtocolsListsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProtocolsListsRequestPaginate(BaseValidatorModel):
     DefaultLists: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListThirdPartyFirewallFirewallPoliciesRequestPaginateTypeDef(BaseValidatorModel):
+class ListThirdPartyFirewallFirewallPoliciesRequestPaginate(BaseValidatorModel):
     ThirdPartyFirewall: ThirdPartyFirewallType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPoliciesResponseTypeDef(BaseValidatorModel):
-    PolicyList: List[PolicySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPoliciesResponse(BaseValidatorModel):
+    PolicyList: List[PolicySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProtocolsListsResponseTypeDef(BaseValidatorModel):
-    ProtocolsLists: List[ProtocolsListDataSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProtocolsListsResponse(BaseValidatorModel):
+    ProtocolsLists: List[ProtocolsListDataSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceSetResourcesResponseTypeDef(BaseValidatorModel):
-    Items: List[ResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceSetResourcesResponse(BaseValidatorModel):
+    Items: List[Resource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListResourceSetsResponseTypeDef(BaseValidatorModel):
-    ResourceSets: List[ResourceSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListResourceSetsResponse(BaseValidatorModel):
+    ResourceSets: List[ResourceSetSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    TagList: Sequence[TagTypeDef]
+    TagList: Sequence[Tag]
 
 
-class ListThirdPartyFirewallFirewallPoliciesResponseTypeDef(BaseValidatorModel):
-    ThirdPartyFirewallFirewallPolicies: List[ThirdPartyFirewallFirewallPolicyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListThirdPartyFirewallFirewallPoliciesResponse(BaseValidatorModel):
+    ThirdPartyFirewallFirewallPolicies: List[ThirdPartyFirewallFirewallPolicy]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NetworkFirewallBlackHoleRouteDetectedViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallBlackHoleRouteDetectedViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     RouteTableId: Optional[str] = None
     VpcId: Optional[str] = None
-    ViolatingRoutes: Optional[List[RouteTypeDef]] = None
+    ViolatingRoutes: Optional[List[Route]] = None
 
 
-class NetworkFirewallInternetTrafficNotInspectedViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallInternetTrafficNotInspectedViolation(BaseValidatorModel):
     SubnetId: Optional[str] = None
     SubnetAvailabilityZone: Optional[str] = None
     RouteTableId: Optional[str] = None
-    ViolatingRoutes: Optional[List[RouteTypeDef]] = None
+    ViolatingRoutes: Optional[List[Route]] = None
     IsRouteTableUsedInDifferentAZ: Optional[bool] = None
     CurrentFirewallSubnetRouteTable: Optional[str] = None
     ExpectedFirewallEndpoint: Optional[str] = None
     FirewallSubnetId: Optional[str] = None
-    ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRouteTypeDef]] = None
-    ActualFirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
+    ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRoute]] = None
+    ActualFirewallSubnetRoutes: Optional[List[Route]] = None
     InternetGatewayId: Optional[str] = None
     CurrentInternetGatewayRouteTable: Optional[str] = None
-    ExpectedInternetGatewayRoutes: Optional[List[ExpectedRouteTypeDef]] = None
-    ActualInternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
+    ExpectedInternetGatewayRoutes: Optional[List[ExpectedRoute]] = None
+    ActualInternetGatewayRoutes: Optional[List[Route]] = None
     VpcId: Optional[str] = None
 
 
-class NetworkFirewallInvalidRouteConfigurationViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallInvalidRouteConfigurationViolation(BaseValidatorModel):
     AffectedSubnets: Optional[List[str]] = None
     RouteTableId: Optional[str] = None
     IsRouteTableUsedInDifferentAZ: Optional[bool] = None
-    ViolatingRoute: Optional[RouteTypeDef] = None
+    ViolatingRoute: Optional[Route] = None
     CurrentFirewallSubnetRouteTable: Optional[str] = None
     ExpectedFirewallEndpoint: Optional[str] = None
     ActualFirewallEndpoint: Optional[str] = None
     ExpectedFirewallSubnetId: Optional[str] = None
     ActualFirewallSubnetId: Optional[str] = None
-    ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRouteTypeDef]] = None
-    ActualFirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
+    ExpectedFirewallSubnetRoutes: Optional[List[ExpectedRoute]] = None
+    ActualFirewallSubnetRoutes: Optional[List[Route]] = None
     InternetGatewayId: Optional[str] = None
     CurrentInternetGatewayRouteTable: Optional[str] = None
-    ExpectedInternetGatewayRoutes: Optional[List[ExpectedRouteTypeDef]] = None
-    ActualInternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
+    ExpectedInternetGatewayRoutes: Optional[List[ExpectedRoute]] = None
+    ActualInternetGatewayRoutes: Optional[List[Route]] = None
     VpcId: Optional[str] = None
 
 
-class NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallUnexpectedFirewallRoutesViolation(BaseValidatorModel):
     FirewallSubnetId: Optional[str] = None
-    ViolatingRoutes: Optional[List[RouteTypeDef]] = None
+    ViolatingRoutes: Optional[List[Route]] = None
     RouteTableId: Optional[str] = None
     FirewallEndpoint: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallUnexpectedGatewayRoutesViolation(BaseValidatorModel):
     GatewayId: Optional[str] = None
-    ViolatingRoutes: Optional[List[RouteTypeDef]] = None
+    ViolatingRoutes: Optional[List[Route]] = None
     RouteTableId: Optional[str] = None
     VpcId: Optional[str] = None
 
 
-class RouteHasOutOfScopeEndpointViolationTypeDef(BaseValidatorModel):
+class RouteHasOutOfScopeEndpointViolation(BaseValidatorModel):
     SubnetId: Optional[str] = None
     VpcId: Optional[str] = None
     RouteTableId: Optional[str] = None
-    ViolatingRoutes: Optional[List[RouteTypeDef]] = None
+    ViolatingRoutes: Optional[List[Route]] = None
     SubnetAvailabilityZone: Optional[str] = None
     SubnetAvailabilityZoneId: Optional[str] = None
     CurrentFirewallSubnetRouteTable: Optional[str] = None
     FirewallSubnetId: Optional[str] = None
-    FirewallSubnetRoutes: Optional[List[RouteTypeDef]] = None
+    FirewallSubnetRoutes: Optional[List[Route]] = None
     InternetGatewayId: Optional[str] = None
     CurrentInternetGatewayRouteTable: Optional[str] = None
-    InternetGatewayRoutes: Optional[List[RouteTypeDef]] = None
+    InternetGatewayRoutes: Optional[List[Route]] = None
 
 
-class StatefulRuleGroupTypeDef(BaseValidatorModel):
+class StatefulRuleGroup(BaseValidatorModel):
     RuleGroupName: Optional[str] = None
     ResourceId: Optional[str] = None
     Priority: Optional[int] = None
-    Override: Optional[NetworkFirewallStatefulRuleGroupOverrideTypeDef] = None
+    Override: Optional[NetworkFirewallStatefulRuleGroupOverride] = None
 
 
-class SecurityGroupRuleDescriptionTypeDef(BaseValidatorModel):
+class SecurityGroupRuleDescription(BaseValidatorModel):
     pass
 
 
-class SecurityGroupRemediationActionTypeDef(BaseValidatorModel):
+class SecurityGroupRemediationAction(BaseValidatorModel):
     RemediationActionType: Optional[RemediationActionTypeType] = None
     Description: Optional[str] = None
-    RemediationResult: Optional[SecurityGroupRuleDescriptionTypeDef] = None
+    RemediationResult: Optional[SecurityGroupRuleDescription] = None
     IsDefaultAction: Optional[bool] = None
 
 
-class GetAdminScopeResponseTypeDef(BaseValidatorModel):
-    AdminScope: AdminScopeOutputTypeDef
+class GetAdminScopeResponse(BaseValidatorModel):
+    AdminScope: AdminScopeOutput
     Status: OrganizationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAppsListResponseTypeDef(BaseValidatorModel):
-    AppsList: AppsListDataOutputTypeDef
+class GetAppsListResponse(BaseValidatorModel):
+    AppsList: AppsListDataOutput
     AppsListArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutAppsListResponseTypeDef(BaseValidatorModel):
-    AppsList: AppsListDataOutputTypeDef
+class PutAppsListResponse(BaseValidatorModel):
+    AppsList: AppsListDataOutput
     AppsListArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAppsListsResponseTypeDef(BaseValidatorModel):
-    AppsLists: List[AppsListDataSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAppsListsResponse(BaseValidatorModel):
+    AppsLists: List[AppsListDataSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetComplianceDetailResponseTypeDef(BaseValidatorModel):
-    PolicyComplianceDetail: PolicyComplianceDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetComplianceDetailResponse(BaseValidatorModel):
+    PolicyComplianceDetail: PolicyComplianceDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ListComplianceStatusResponseTypeDef(BaseValidatorModel):
-    PolicyComplianceStatusList: List[PolicyComplianceStatusTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListComplianceStatusResponse(BaseValidatorModel):
+    PolicyComplianceStatusList: List[PolicyComplianceStatus]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NetworkAclEntryTypeDef(BaseValidatorModel):
+class NetworkAclEntry(BaseValidatorModel):
     pass
 
 
-class EntryDescriptionTypeDef(BaseValidatorModel):
-    EntryDetail: Optional[NetworkAclEntryTypeDef] = None
+class EntryDescription(BaseValidatorModel):
+    EntryDetail: Optional[NetworkAclEntry] = None
     EntryRuleNumber: Optional[int] = None
     EntryType: Optional[EntryTypeType] = None
 
 
-class NetworkAclEntrySetOutputTypeDef(BaseValidatorModel):
+class NetworkAclEntrySetOutput(BaseValidatorModel):
     ForceRemediateForFirstEntries: bool
     ForceRemediateForLastEntries: bool
-    FirstEntries: Optional[List[NetworkAclEntryTypeDef]] = None
-    LastEntries: Optional[List[NetworkAclEntryTypeDef]] = None
+    FirstEntries: Optional[List[NetworkAclEntry]] = None
+    LastEntries: Optional[List[NetworkAclEntry]] = None
 
 
-class NetworkAclEntrySetTypeDef(BaseValidatorModel):
+class NetworkAclEntrySet(BaseValidatorModel):
     ForceRemediateForFirstEntries: bool
     ForceRemediateForLastEntries: bool
-    FirstEntries: Optional[Sequence[NetworkAclEntryTypeDef]] = None
-    LastEntries: Optional[Sequence[NetworkAclEntryTypeDef]] = None
+    FirstEntries: Optional[Sequence[NetworkAclEntry]] = None
+    LastEntries: Optional[Sequence[NetworkAclEntry]] = None
 
 
-class NetworkFirewallPolicyDescriptionTypeDef(BaseValidatorModel):
-    StatelessRuleGroups: Optional[List[StatelessRuleGroupTypeDef]] = None
+class NetworkFirewallPolicyDescription(BaseValidatorModel):
+    StatelessRuleGroups: Optional[List[StatelessRuleGroup]] = None
     StatelessDefaultActions: Optional[List[str]] = None
     StatelessFragmentDefaultActions: Optional[List[str]] = None
     StatelessCustomActions: Optional[List[str]] = None
-    StatefulRuleGroups: Optional[List[StatefulRuleGroupTypeDef]] = None
+    StatefulRuleGroups: Optional[List[StatefulRuleGroup]] = None
     StatefulDefaultActions: Optional[List[str]] = None
-    StatefulEngineOptions: Optional[StatefulEngineOptionsTypeDef] = None
+    StatefulEngineOptions: Optional[StatefulEngineOptions] = None
 
 
-class AwsVPCSecurityGroupViolationTypeDef(BaseValidatorModel):
+class AwsVPCSecurityGroupViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
     ViolationTargetDescription: Optional[str] = None
-    PartialMatches: Optional[List[PartialMatchTypeDef]] = None
-    PossibleSecurityGroupRemediationActions: Optional[ List[SecurityGroupRemediationActionTypeDef] ] = None
+    PartialMatches: Optional[List[PartialMatch]] = None
+    PossibleSecurityGroupRemediationActions: Optional[ List[SecurityGroupRemediationAction] ] = None
 
 
-class AdminScopeUnionTypeDef(BaseValidatorModel):
+class AdminScopeUnion(BaseValidatorModel):
     pass
 
 
-class PutAdminAccountRequestTypeDef(BaseValidatorModel):
+class PutAdminAccountRequest(BaseValidatorModel):
     AdminAccount: str
-    AdminScope: Optional[AdminScopeUnionTypeDef] = None
+    AdminScope: Optional[AdminScopeUnion] = None
 
 
-class AppsListDataUnionTypeDef(BaseValidatorModel):
+class AppsListDataUnion(BaseValidatorModel):
     pass
 
 
-class PutAppsListRequestTypeDef(BaseValidatorModel):
-    AppsList: AppsListDataUnionTypeDef
-    TagList: Optional[Sequence[TagTypeDef]] = None
+class PutAppsListRequest(BaseValidatorModel):
+    AppsList: AppsListDataUnion
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class ProtocolsListDataUnionTypeDef(BaseValidatorModel):
+class ProtocolsListDataUnion(BaseValidatorModel):
     pass
 
 
-class PutProtocolsListRequestTypeDef(BaseValidatorModel):
-    ProtocolsList: ProtocolsListDataUnionTypeDef
-    TagList: Optional[Sequence[TagTypeDef]] = None
+class PutProtocolsListRequest(BaseValidatorModel):
+    ProtocolsList: ProtocolsListDataUnion
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class ResourceSetUnionTypeDef(BaseValidatorModel):
+class ResourceSetUnion(BaseValidatorModel):
     pass
 
 
-class PutResourceSetRequestTypeDef(BaseValidatorModel):
-    ResourceSet: ResourceSetUnionTypeDef
-    TagList: Optional[Sequence[TagTypeDef]] = None
+class PutResourceSetRequest(BaseValidatorModel):
+    ResourceSet: ResourceSetUnion
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class CreateNetworkAclEntriesActionTypeDef(BaseValidatorModel):
+class CreateNetworkAclEntriesAction(BaseValidatorModel):
     Description: Optional[str] = None
-    NetworkAclId: Optional[ActionTargetTypeDef] = None
-    NetworkAclEntriesToBeCreated: Optional[List[EntryDescriptionTypeDef]] = None
+    NetworkAclId: Optional[ActionTarget] = None
+    NetworkAclEntriesToBeCreated: Optional[List[EntryDescription]] = None
     FMSCanRemediate: Optional[bool] = None
 
 
-class DeleteNetworkAclEntriesActionTypeDef(BaseValidatorModel):
+class DeleteNetworkAclEntriesAction(BaseValidatorModel):
     Description: Optional[str] = None
-    NetworkAclId: Optional[ActionTargetTypeDef] = None
-    NetworkAclEntriesToBeDeleted: Optional[List[EntryDescriptionTypeDef]] = None
+    NetworkAclId: Optional[ActionTarget] = None
+    NetworkAclEntriesToBeDeleted: Optional[List[EntryDescription]] = None
     FMSCanRemediate: Optional[bool] = None
 
 
-class EntryViolationTypeDef(BaseValidatorModel):
-    ExpectedEntry: Optional[EntryDescriptionTypeDef] = None
+class EntryViolation(BaseValidatorModel):
+    ExpectedEntry: Optional[EntryDescription] = None
     ExpectedEvaluationOrder: Optional[str] = None
     ActualEvaluationOrder: Optional[str] = None
-    EntryAtExpectedEvaluationOrder: Optional[EntryDescriptionTypeDef] = None
-    EntriesWithConflicts: Optional[List[EntryDescriptionTypeDef]] = None
+    EntryAtExpectedEvaluationOrder: Optional[EntryDescription] = None
+    EntriesWithConflicts: Optional[List[EntryDescription]] = None
     EntryViolationReasons: Optional[List[EntryViolationReasonType]] = None
 
 
-class NetworkAclCommonPolicyOutputTypeDef(BaseValidatorModel):
-    NetworkAclEntrySet: NetworkAclEntrySetOutputTypeDef
+class NetworkAclCommonPolicyOutput(BaseValidatorModel):
+    NetworkAclEntrySet: NetworkAclEntrySetOutput
 
 
-class NetworkAclCommonPolicyTypeDef(BaseValidatorModel):
-    NetworkAclEntrySet: NetworkAclEntrySetTypeDef
+class NetworkAclCommonPolicy(BaseValidatorModel):
+    NetworkAclEntrySet: NetworkAclEntrySet
 
 
-class NetworkFirewallPolicyModifiedViolationTypeDef(BaseValidatorModel):
+class NetworkFirewallPolicyModifiedViolation(BaseValidatorModel):
     ViolationTarget: Optional[str] = None
-    CurrentPolicyDescription: Optional[NetworkFirewallPolicyDescriptionTypeDef] = None
-    ExpectedPolicyDescription: Optional[NetworkFirewallPolicyDescriptionTypeDef] = None
+    CurrentPolicyDescription: Optional[NetworkFirewallPolicyDescription] = None
+    ExpectedPolicyDescription: Optional[NetworkFirewallPolicyDescription] = None
 
 
-class RemediationActionTypeDef(BaseValidatorModel):
+class RemediationAction(BaseValidatorModel):
     Description: Optional[str] = None
-    EC2CreateRouteAction: Optional[EC2CreateRouteActionTypeDef] = None
-    EC2ReplaceRouteAction: Optional[EC2ReplaceRouteActionTypeDef] = None
-    EC2DeleteRouteAction: Optional[EC2DeleteRouteActionTypeDef] = None
-    EC2CopyRouteTableAction: Optional[EC2CopyRouteTableActionTypeDef] = None
-    EC2ReplaceRouteTableAssociationAction: Optional[EC2ReplaceRouteTableAssociationActionTypeDef] = None
-    EC2AssociateRouteTableAction: Optional[EC2AssociateRouteTableActionTypeDef] = None
-    EC2CreateRouteTableAction: Optional[EC2CreateRouteTableActionTypeDef] = None
-    FMSPolicyUpdateFirewallCreationConfigAction: Optional[ FMSPolicyUpdateFirewallCreationConfigActionTypeDef ] = None
-    CreateNetworkAclAction: Optional[CreateNetworkAclActionTypeDef] = None
-    ReplaceNetworkAclAssociationAction: Optional[ReplaceNetworkAclAssociationActionTypeDef] = None
-    CreateNetworkAclEntriesAction: Optional[CreateNetworkAclEntriesActionTypeDef] = None
-    DeleteNetworkAclEntriesAction: Optional[DeleteNetworkAclEntriesActionTypeDef] = None
+    EC2CreateRouteAction: Optional[EC2CreateRouteAction] = None
+    EC2ReplaceRouteAction: Optional[EC2ReplaceRouteAction] = None
+    EC2DeleteRouteAction: Optional[EC2DeleteRouteAction] = None
+    EC2CopyRouteTableAction: Optional[EC2CopyRouteTableAction] = None
+    EC2ReplaceRouteTableAssociationAction: Optional[EC2ReplaceRouteTableAssociationAction] = None
+    EC2AssociateRouteTableAction: Optional[EC2AssociateRouteTableAction] = None
+    EC2CreateRouteTableAction: Optional[EC2CreateRouteTableAction] = None
+    FMSPolicyUpdateFirewallCreationConfigAction: Optional[ FMSPolicyUpdateFirewallCreationConfigAction ] = None
+    CreateNetworkAclAction: Optional[CreateNetworkAclAction] = None
+    ReplaceNetworkAclAssociationAction: Optional[ReplaceNetworkAclAssociationAction] = None
+    CreateNetworkAclEntriesAction: Optional[CreateNetworkAclEntriesAction] = None
+    DeleteNetworkAclEntriesAction: Optional[DeleteNetworkAclEntriesAction] = None
 
 
-class InvalidNetworkAclEntriesViolationTypeDef(BaseValidatorModel):
+class InvalidNetworkAclEntriesViolation(BaseValidatorModel):
     Vpc: Optional[str] = None
     Subnet: Optional[str] = None
     SubnetAvailabilityZone: Optional[str] = None
     CurrentAssociatedNetworkAcl: Optional[str] = None
-    EntryViolations: Optional[List[EntryViolationTypeDef]] = None
+    EntryViolations: Optional[List[EntryViolation]] = None
 
 
-class PolicyOptionOutputTypeDef(BaseValidatorModel):
-    NetworkFirewallPolicy: Optional[NetworkFirewallPolicyTypeDef] = None
-    ThirdPartyFirewallPolicy: Optional[ThirdPartyFirewallPolicyTypeDef] = None
-    NetworkAclCommonPolicy: Optional[NetworkAclCommonPolicyOutputTypeDef] = None
+class PolicyOptionOutput(BaseValidatorModel):
+    NetworkFirewallPolicy: Optional[NetworkFirewallPolicy] = None
+    ThirdPartyFirewallPolicy: Optional[ThirdPartyFirewallPolicy] = None
+    NetworkAclCommonPolicy: Optional[NetworkAclCommonPolicyOutput] = None
 
 
-class PolicyOptionTypeDef(BaseValidatorModel):
-    NetworkFirewallPolicy: Optional[NetworkFirewallPolicyTypeDef] = None
-    ThirdPartyFirewallPolicy: Optional[ThirdPartyFirewallPolicyTypeDef] = None
-    NetworkAclCommonPolicy: Optional[NetworkAclCommonPolicyTypeDef] = None
+class PolicyOption(BaseValidatorModel):
+    NetworkFirewallPolicy: Optional[NetworkFirewallPolicy] = None
+    ThirdPartyFirewallPolicy: Optional[ThirdPartyFirewallPolicy] = None
+    NetworkAclCommonPolicy: Optional[NetworkAclCommonPolicy] = None
 
 
-class RemediationActionWithOrderTypeDef(BaseValidatorModel):
-    RemediationAction: Optional[RemediationActionTypeDef] = None
+class RemediationActionWithOrder(BaseValidatorModel):
+    RemediationAction: Optional[RemediationAction] = None
     Order: Optional[int] = None
 
 
-class PossibleRemediationActionTypeDef(BaseValidatorModel):
-    OrderedRemediationActions: List[RemediationActionWithOrderTypeDef]
+class PossibleRemediationAction(BaseValidatorModel):
+    OrderedRemediationActions: List[RemediationActionWithOrder]
     Description: Optional[str] = None
     IsDefaultAction: Optional[bool] = None
 
 
-class SecurityServicePolicyDataOutputTypeDef(BaseValidatorModel):
+class SecurityServicePolicyDataOutput(BaseValidatorModel):
     pass
 
 
-class PolicyOutputTypeDef(BaseValidatorModel):
+class PolicyOutput(BaseValidatorModel):
     PolicyName: str
-    SecurityServicePolicyData: SecurityServicePolicyDataOutputTypeDef
+    SecurityServicePolicyData: SecurityServicePolicyDataOutput
     ResourceType: str
     ExcludeResourceTags: bool
     RemediationEnabled: bool
     PolicyId: Optional[str] = None
     PolicyUpdateToken: Optional[str] = None
     ResourceTypeList: Optional[List[str]] = None
-    ResourceTags: Optional[List[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[List[ResourceTag]] = None
     DeleteUnusedFMManagedResources: Optional[bool] = None
     IncludeMap: Optional[Dict[CustomerPolicyScopeIdTypeType, List[str]]] = None
     ExcludeMap: Optional[Dict[CustomerPolicyScopeIdTypeType, List[str]]] = None
@@ -1129,20 +1129,20 @@ class PolicyOutputTypeDef(BaseValidatorModel):
     ResourceTagLogicalOperator: Optional[ResourceTagLogicalOperatorType] = None
 
 
-class SecurityServicePolicyDataTypeDef(BaseValidatorModel):
+class SecurityServicePolicyData(BaseValidatorModel):
     pass
 
 
-class PolicyTypeDef(BaseValidatorModel):
+class Policy(BaseValidatorModel):
     PolicyName: str
-    SecurityServicePolicyData: SecurityServicePolicyDataTypeDef
+    SecurityServicePolicyData: SecurityServicePolicyData
     ResourceType: str
     ExcludeResourceTags: bool
     RemediationEnabled: bool
     PolicyId: Optional[str] = None
     PolicyUpdateToken: Optional[str] = None
     ResourceTypeList: Optional[Sequence[str]] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
     DeleteUnusedFMManagedResources: Optional[bool] = None
     IncludeMap: Optional[Mapping[CustomerPolicyScopeIdTypeType, Sequence[str]]] = None
     ExcludeMap: Optional[Mapping[CustomerPolicyScopeIdTypeType, Sequence[str]]] = None
@@ -1152,73 +1152,73 @@ class PolicyTypeDef(BaseValidatorModel):
     ResourceTagLogicalOperator: Optional[ResourceTagLogicalOperatorType] = None
 
 
-class PossibleRemediationActionsTypeDef(BaseValidatorModel):
+class PossibleRemediationActions(BaseValidatorModel):
     Description: Optional[str] = None
-    Actions: Optional[List[PossibleRemediationActionTypeDef]] = None
+    Actions: Optional[List[PossibleRemediationAction]] = None
 
 
-class GetPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: PolicyOutputTypeDef
+class GetPolicyResponse(BaseValidatorModel):
+    Policy: PolicyOutput
     PolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutPolicyResponseTypeDef(BaseValidatorModel):
-    Policy: PolicyOutputTypeDef
+class PutPolicyResponse(BaseValidatorModel):
+    Policy: PolicyOutput
     PolicyArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResourceViolationTypeDef(BaseValidatorModel):
-    AwsVPCSecurityGroupViolation: Optional[AwsVPCSecurityGroupViolationTypeDef] = None
-    AwsEc2NetworkInterfaceViolation: Optional[AwsEc2NetworkInterfaceViolationTypeDef] = None
-    AwsEc2InstanceViolation: Optional[AwsEc2InstanceViolationTypeDef] = None
-    NetworkFirewallMissingFirewallViolation: Optional[ NetworkFirewallMissingFirewallViolationTypeDef ] = None
-    NetworkFirewallMissingSubnetViolation: Optional[NetworkFirewallMissingSubnetViolationTypeDef] = None
-    NetworkFirewallMissingExpectedRTViolation: Optional[ NetworkFirewallMissingExpectedRTViolationTypeDef ] = None
-    NetworkFirewallPolicyModifiedViolation: Optional[ NetworkFirewallPolicyModifiedViolationTypeDef ] = None
-    NetworkFirewallInternetTrafficNotInspectedViolation: Optional[ NetworkFirewallInternetTrafficNotInspectedViolationTypeDef ] = None
-    NetworkFirewallInvalidRouteConfigurationViolation: Optional[ NetworkFirewallInvalidRouteConfigurationViolationTypeDef ] = None
-    NetworkFirewallBlackHoleRouteDetectedViolation: Optional[ NetworkFirewallBlackHoleRouteDetectedViolationTypeDef ] = None
-    NetworkFirewallUnexpectedFirewallRoutesViolation: Optional[ NetworkFirewallUnexpectedFirewallRoutesViolationTypeDef ] = None
-    NetworkFirewallUnexpectedGatewayRoutesViolation: Optional[ NetworkFirewallUnexpectedGatewayRoutesViolationTypeDef ] = None
-    NetworkFirewallMissingExpectedRoutesViolation: Optional[ NetworkFirewallMissingExpectedRoutesViolationTypeDef ] = None
-    DnsRuleGroupPriorityConflictViolation: Optional[DnsRuleGroupPriorityConflictViolationTypeDef] = None
-    DnsDuplicateRuleGroupViolation: Optional[DnsDuplicateRuleGroupViolationTypeDef] = None
-    DnsRuleGroupLimitExceededViolation: Optional[DnsRuleGroupLimitExceededViolationTypeDef] = None
-    FirewallSubnetIsOutOfScopeViolation: Optional[FirewallSubnetIsOutOfScopeViolationTypeDef] = None
-    RouteHasOutOfScopeEndpointViolation: Optional[RouteHasOutOfScopeEndpointViolationTypeDef] = None
-    ThirdPartyFirewallMissingFirewallViolation: Optional[ ThirdPartyFirewallMissingFirewallViolationTypeDef ] = None
-    ThirdPartyFirewallMissingSubnetViolation: Optional[ ThirdPartyFirewallMissingSubnetViolationTypeDef ] = None
-    ThirdPartyFirewallMissingExpectedRouteTableViolation: Optional[ ThirdPartyFirewallMissingExpectedRouteTableViolationTypeDef ] = None
-    FirewallSubnetMissingVPCEndpointViolation: Optional[ FirewallSubnetMissingVPCEndpointViolationTypeDef ] = None
-    InvalidNetworkAclEntriesViolation: Optional[InvalidNetworkAclEntriesViolationTypeDef] = None
-    PossibleRemediationActions: Optional[PossibleRemediationActionsTypeDef] = None
-    WebACLHasIncompatibleConfigurationViolation: Optional[ WebACLHasIncompatibleConfigurationViolationTypeDef ] = None
-    WebACLHasOutOfScopeResourcesViolation: Optional[WebACLHasOutOfScopeResourcesViolationTypeDef] = None
+class ResourceViolation(BaseValidatorModel):
+    AwsVPCSecurityGroupViolation: Optional[AwsVPCSecurityGroupViolation] = None
+    AwsEc2NetworkInterfaceViolation: Optional[AwsEc2NetworkInterfaceViolation] = None
+    AwsEc2InstanceViolation: Optional[AwsEc2InstanceViolation] = None
+    NetworkFirewallMissingFirewallViolation: Optional[ NetworkFirewallMissingFirewallViolation ] = None
+    NetworkFirewallMissingSubnetViolation: Optional[NetworkFirewallMissingSubnetViolation] = None
+    NetworkFirewallMissingExpectedRTViolation: Optional[ NetworkFirewallMissingExpectedRTViolation ] = None
+    NetworkFirewallPolicyModifiedViolation: Optional[ NetworkFirewallPolicyModifiedViolation ] = None
+    NetworkFirewallInternetTrafficNotInspectedViolation: Optional[ NetworkFirewallInternetTrafficNotInspectedViolation ] = None
+    NetworkFirewallInvalidRouteConfigurationViolation: Optional[ NetworkFirewallInvalidRouteConfigurationViolation ] = None
+    NetworkFirewallBlackHoleRouteDetectedViolation: Optional[ NetworkFirewallBlackHoleRouteDetectedViolation ] = None
+    NetworkFirewallUnexpectedFirewallRoutesViolation: Optional[ NetworkFirewallUnexpectedFirewallRoutesViolation ] = None
+    NetworkFirewallUnexpectedGatewayRoutesViolation: Optional[ NetworkFirewallUnexpectedGatewayRoutesViolation ] = None
+    NetworkFirewallMissingExpectedRoutesViolation: Optional[ NetworkFirewallMissingExpectedRoutesViolation ] = None
+    DnsRuleGroupPriorityConflictViolation: Optional[DnsRuleGroupPriorityConflictViolation] = None
+    DnsDuplicateRuleGroupViolation: Optional[DnsDuplicateRuleGroupViolation] = None
+    DnsRuleGroupLimitExceededViolation: Optional[DnsRuleGroupLimitExceededViolation] = None
+    FirewallSubnetIsOutOfScopeViolation: Optional[FirewallSubnetIsOutOfScopeViolation] = None
+    RouteHasOutOfScopeEndpointViolation: Optional[RouteHasOutOfScopeEndpointViolation] = None
+    ThirdPartyFirewallMissingFirewallViolation: Optional[ ThirdPartyFirewallMissingFirewallViolation ] = None
+    ThirdPartyFirewallMissingSubnetViolation: Optional[ ThirdPartyFirewallMissingSubnetViolation ] = None
+    ThirdPartyFirewallMissingExpectedRouteTableViolation: Optional[ ThirdPartyFirewallMissingExpectedRouteTableViolation ] = None
+    FirewallSubnetMissingVPCEndpointViolation: Optional[ FirewallSubnetMissingVPCEndpointViolation ] = None
+    InvalidNetworkAclEntriesViolation: Optional[InvalidNetworkAclEntriesViolation] = None
+    PossibleRemediationActions: Optional[PossibleRemediationActions] = None
+    WebACLHasIncompatibleConfigurationViolation: Optional[ WebACLHasIncompatibleConfigurationViolation ] = None
+    WebACLHasOutOfScopeResourcesViolation: Optional[WebACLHasOutOfScopeResourcesViolation] = None
 
 
-class PolicyUnionTypeDef(BaseValidatorModel):
+class PolicyUnion(BaseValidatorModel):
     pass
 
 
-class PutPolicyRequestTypeDef(BaseValidatorModel):
-    Policy: PolicyUnionTypeDef
-    TagList: Optional[Sequence[TagTypeDef]] = None
+class PutPolicyRequest(BaseValidatorModel):
+    Policy: PolicyUnion
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class ViolationDetailTypeDef(BaseValidatorModel):
+class ViolationDetail(BaseValidatorModel):
     PolicyId: str
     MemberAccount: str
     ResourceId: str
     ResourceType: str
-    ResourceViolations: List[ResourceViolationTypeDef]
-    ResourceTags: Optional[List[TagTypeDef]] = None
+    ResourceViolations: List[ResourceViolation]
+    ResourceTags: Optional[List[Tag]] = None
     ResourceDescription: Optional[str] = None
 
 
-class GetViolationDetailsResponseTypeDef(BaseValidatorModel):
-    ViolationDetail: ViolationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetViolationDetailsResponse(BaseValidatorModel):
+    ViolationDetail: ViolationDetail
+    ResponseMetadata: ResponseMetadata
 
 

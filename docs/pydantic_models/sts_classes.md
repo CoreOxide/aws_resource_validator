@@ -1,6 +1,6 @@
 # Sts Classes
 
-# AssumeRoleRequestTypeDef
+# AssumeRoleRequest
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -11,7 +11,7 @@
 - **Required**: Yes
 
 ### PolicyArns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorType]]
 
 ### Policy
 - **Type**: typing.Optional[str]
@@ -20,7 +20,7 @@
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.Tag]]
 
 ### TransitiveTagKeys
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -38,17 +38,17 @@
 - **Type**: typing.Optional[str]
 
 ### ProvidedContexts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.ProvidedContextTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.ProvidedContext]]
 
 
-# AssumeRoleResponseTypeDef
+# AssumeRoleResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### AssumedRoleUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUser'>
 - **Required**: Yes
 
 ### PackedPolicySize
@@ -60,11 +60,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssumeRoleWithSAMLRequestTypeDef
+# AssumeRoleWithSAMLRequest
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -79,7 +79,7 @@
 - **Required**: Yes
 
 ### PolicyArns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorType]]
 
 ### Policy
 - **Type**: typing.Optional[str]
@@ -88,14 +88,14 @@
 - **Type**: typing.Optional[int]
 
 
-# AssumeRoleWithSAMLResponseTypeDef
+# AssumeRoleWithSAMLResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### AssumedRoleUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUser'>
 - **Required**: Yes
 
 ### PackedPolicySize
@@ -127,11 +127,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssumeRoleWithWebIdentityRequestTypeDef
+# AssumeRoleWithWebIdentityRequest
 
 ### RoleArn
 - **Type**: <class 'str'>
@@ -149,7 +149,7 @@
 - **Type**: typing.Optional[str]
 
 ### PolicyArns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorType]]
 
 ### Policy
 - **Type**: typing.Optional[str]
@@ -158,10 +158,10 @@
 - **Type**: typing.Optional[int]
 
 
-# AssumeRoleWithWebIdentityResponseTypeDef
+# AssumeRoleWithWebIdentityResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### SubjectFromWebIdentityToken
@@ -169,7 +169,7 @@
 - **Required**: Yes
 
 ### AssumedRoleUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.AssumedRoleUser'>
 - **Required**: Yes
 
 ### PackedPolicySize
@@ -189,28 +189,28 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssumeRootRequestTypeDef
+# AssumeRootRequest
 
 ### TargetPrincipal
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TaskPolicyArn
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorType'>
 - **Required**: Yes
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
 
 
-# AssumeRootResponseTypeDef
+# AssumeRootResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### SourceIdentity
@@ -218,11 +218,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssumedRoleUserTypeDef
+# AssumedRoleUser
 
 ### AssumedRoleId
 - **Type**: <class 'str'>
@@ -239,7 +239,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CredentialsTypeDef
+# Credentials
 
 ### AccessKeyId
 - **Type**: <class 'str'>
@@ -258,25 +258,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DecodeAuthorizationMessageRequestTypeDef
+# DecodeAuthorizationMessageRequest
 
 ### EncodedMessage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DecodeAuthorizationMessageResponseTypeDef
+# DecodeAuthorizationMessageResponse
 
 ### DecodedMessage
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FederatedUserTypeDef
+# FederatedUser
 
 ### FederatedUserId
 - **Type**: <class 'str'>
@@ -287,25 +287,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessKeyInfoRequestTypeDef
+# GetAccessKeyInfoRequest
 
 ### AccessKeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAccessKeyInfoResponseTypeDef
+# GetAccessKeyInfoResponse
 
 ### Account
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCallerIdentityResponseTypeDef
+# GetCallerIdentityResponse
 
 ### UserId
 - **Type**: <class 'str'>
@@ -320,11 +320,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFederationTokenRequestTypeDef
+# GetFederationTokenRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -334,23 +334,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PolicyArns
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorTypeTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.PolicyDescriptorType]]
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.sts_classes.Tag]]
 
 
-# GetFederationTokenResponseTypeDef
+# GetFederationTokenResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### FederatedUser
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.FederatedUserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.FederatedUser'>
 - **Required**: Yes
 
 ### PackedPolicySize
@@ -358,11 +358,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSessionTokenRequestTypeDef
+# GetSessionTokenRequest
 
 ### DurationSeconds
 - **Type**: typing.Optional[int]
@@ -374,24 +374,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSessionTokenResponseTypeDef
+# GetSessionTokenResponse
 
 ### Credentials
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.CredentialsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.Credentials'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.sts_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PolicyDescriptorTypeTypeDef
+# PolicyDescriptorType
 
 ### arn
 - **Type**: typing.Optional[str]
 
 
-# ProvidedContextTypeDef
+# ProvidedContext
 
 ### ProviderArn
 - **Type**: typing.Optional[str]
@@ -400,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -422,7 +422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>

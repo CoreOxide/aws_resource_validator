@@ -12,14 +12,14 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.m2_constants import *
 
-class AlternateKeyTypeDef(BaseValidatorModel):
+class AlternateKey(BaseValidatorModel):
     length: int
     offset: int
     allowDuplicates: Optional[bool] = None
     name: Optional[str] = None
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     applicationArn: str
     applicationId: str
     applicationVersion: int
@@ -35,43 +35,43 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     versionStatus: Optional[ApplicationVersionLifecycleType] = None
 
 
-class ApplicationVersionSummaryTypeDef(BaseValidatorModel):
+class ApplicationVersionSummary(BaseValidatorModel):
     applicationVersion: int
     creationTime: datetime
     status: ApplicationVersionLifecycleType
     statusReason: Optional[str] = None
 
 
-class FileBatchJobDefinitionTypeDef(BaseValidatorModel):
+class FileBatchJobDefinition(BaseValidatorModel):
     fileName: str
     folderPath: Optional[str] = None
 
 
-class ScriptBatchJobDefinitionTypeDef(BaseValidatorModel):
+class ScriptBatchJobDefinition(BaseValidatorModel):
     scriptName: str
 
 
-class FileBatchJobIdentifierTypeDef(BaseValidatorModel):
+class FileBatchJobIdentifier(BaseValidatorModel):
     fileName: str
     folderPath: Optional[str] = None
 
 
-class ScriptBatchJobIdentifierTypeDef(BaseValidatorModel):
+class ScriptBatchJobIdentifier(BaseValidatorModel):
     scriptName: str
 
 
-class CancelBatchJobExecutionRequestTypeDef(BaseValidatorModel):
+class CancelBatchJobExecutionRequest(BaseValidatorModel):
     applicationId: str
     executionId: str
     authSecretsManagerArn: Optional[str] = None
 
 
-class DefinitionTypeDef(BaseValidatorModel):
+class Definition(BaseValidatorModel):
     content: Optional[str] = None
     s3Location: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -79,22 +79,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateDeploymentRequestTypeDef(BaseValidatorModel):
+class CreateDeploymentRequest(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
     environmentId: str
     clientToken: Optional[str] = None
 
 
-class HighAvailabilityConfigTypeDef(BaseValidatorModel):
+class HighAvailabilityConfig(BaseValidatorModel):
     desiredCapacity: int
 
 
-class ExternalLocationTypeDef(BaseValidatorModel):
+class ExternalLocation(BaseValidatorModel):
     s3Location: Optional[str] = None
 
 
-class DataSetImportSummaryTypeDef(BaseValidatorModel):
+class DataSetImportSummary(BaseValidatorModel):
     failed: int
     inProgress: int
     pending: int
@@ -102,36 +102,36 @@ class DataSetImportSummaryTypeDef(BaseValidatorModel):
     total: int
 
 
-class GdgDetailAttributesTypeDef(BaseValidatorModel):
+class GdgDetailAttributes(BaseValidatorModel):
     limit: Optional[int] = None
     rollDisposition: Optional[str] = None
 
 
-class GdgAttributesTypeDef(BaseValidatorModel):
+class GdgAttributes(BaseValidatorModel):
     limit: Optional[int] = None
     rollDisposition: Optional[str] = None
 
 
-class DeleteApplicationFromEnvironmentRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationFromEnvironmentRequest(BaseValidatorModel):
     applicationId: str
     environmentId: str
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
+class DeleteEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class DeployedVersionSummaryTypeDef(BaseValidatorModel):
+class DeployedVersionSummary(BaseValidatorModel):
     applicationVersion: int
     status: DeploymentLifecycleType
     statusReason: Optional[str] = None
 
 
-class DeploymentSummaryTypeDef(BaseValidatorModel):
+class DeploymentSummary(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
     creationTime: datetime
@@ -141,17 +141,17 @@ class DeploymentSummaryTypeDef(BaseValidatorModel):
     statusReason: Optional[str] = None
 
 
-class EfsStorageConfigurationTypeDef(BaseValidatorModel):
+class EfsStorageConfiguration(BaseValidatorModel):
     fileSystemId: str
     mountPoint: str
 
 
-class EngineVersionsSummaryTypeDef(BaseValidatorModel):
+class EngineVersionsSummary(BaseValidatorModel):
     engineType: str
     engineVersion: str
 
 
-class EnvironmentSummaryTypeDef(BaseValidatorModel):
+class EnvironmentSummary(BaseValidatorModel):
     creationTime: datetime
     engineType: EngineTypeType
     engineVersion: str
@@ -163,62 +163,62 @@ class EnvironmentSummaryTypeDef(BaseValidatorModel):
     networkType: Optional[NetworkTypeType] = None
 
 
-class FsxStorageConfigurationTypeDef(BaseValidatorModel):
+class FsxStorageConfiguration(BaseValidatorModel):
     fileSystemId: str
     mountPoint: str
 
 
-class GetApplicationRequestTypeDef(BaseValidatorModel):
+class GetApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class LogGroupSummaryTypeDef(BaseValidatorModel):
+class LogGroupSummary(BaseValidatorModel):
     logGroupName: str
     logType: str
 
 
-class GetApplicationVersionRequestTypeDef(BaseValidatorModel):
+class GetApplicationVersionRequest(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
 
 
-class GetBatchJobExecutionRequestTypeDef(BaseValidatorModel):
+class GetBatchJobExecutionRequest(BaseValidatorModel):
     applicationId: str
     executionId: str
 
 
-class JobStepRestartMarkerTypeDef(BaseValidatorModel):
+class JobStepRestartMarker(BaseValidatorModel):
     fromStep: str
     fromProcStep: Optional[str] = None
     toProcStep: Optional[str] = None
     toStep: Optional[str] = None
 
 
-class GetDataSetDetailsRequestTypeDef(BaseValidatorModel):
+class GetDataSetDetailsRequest(BaseValidatorModel):
     applicationId: str
     dataSetName: str
 
 
-class GetDataSetImportTaskRequestTypeDef(BaseValidatorModel):
+class GetDataSetImportTaskRequest(BaseValidatorModel):
     applicationId: str
     taskId: str
 
 
-class GetDeploymentRequestTypeDef(BaseValidatorModel):
+class GetDeploymentRequest(BaseValidatorModel):
     applicationId: str
     deploymentId: str
 
 
-class GetEnvironmentRequestTypeDef(BaseValidatorModel):
+class GetEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class JobIdentifierTypeDef(BaseValidatorModel):
+class JobIdentifier(BaseValidatorModel):
     fileName: Optional[str] = None
     scriptName: Optional[str] = None
 
 
-class JobStepTypeDef(BaseValidatorModel):
+class JobStep(BaseValidatorModel):
     procStepName: Optional[str] = None
     procStepNumber: Optional[int] = None
     stepCondCode: Optional[str] = None
@@ -227,45 +227,45 @@ class JobStepTypeDef(BaseValidatorModel):
     stepRestartable: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     environmentId: Optional[str] = None
     maxResults: Optional[int] = None
     names: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
 
 
-class ListBatchJobDefinitionsRequestTypeDef(BaseValidatorModel):
+class ListBatchJobDefinitionsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     prefix: Optional[str] = None
 
 
-class ListBatchJobRestartPointsRequestTypeDef(BaseValidatorModel):
+class ListBatchJobRestartPointsRequest(BaseValidatorModel):
     applicationId: str
     executionId: str
     authSecretsManagerArn: Optional[str] = None
 
 
-class ListDataSetImportHistoryRequestTypeDef(BaseValidatorModel):
+class ListDataSetImportHistoryRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDataSetsRequestTypeDef(BaseValidatorModel):
+class ListDataSetsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nameFilter: Optional[str] = None
@@ -273,60 +273,60 @@ class ListDataSetsRequestTypeDef(BaseValidatorModel):
     prefix: Optional[str] = None
 
 
-class ListDeploymentsRequestTypeDef(BaseValidatorModel):
+class ListDeploymentsRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListEngineVersionsRequestTypeDef(BaseValidatorModel):
+class ListEngineVersionsRequest(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListEnvironmentsRequest(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     maxResults: Optional[int] = None
     names: Optional[Sequence[str]] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class MaintenanceScheduleTypeDef(BaseValidatorModel):
+class MaintenanceSchedule(BaseValidatorModel):
     endTime: Optional[datetime] = None
     startTime: Optional[datetime] = None
 
 
-class PrimaryKeyTypeDef(BaseValidatorModel):
+class PrimaryKey(BaseValidatorModel):
     length: int
     offset: int
     name: Optional[str] = None
 
 
-class StartApplicationRequestTypeDef(BaseValidatorModel):
+class StartApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class StopApplicationRequestTypeDef(BaseValidatorModel):
+class StopApplicationRequest(BaseValidatorModel):
     applicationId: str
     forceStop: Optional[bool] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     applyDuringMaintenanceWindow: Optional[bool] = None
     desiredCapacity: Optional[int] = None
@@ -336,13 +336,13 @@ class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
     preferredMaintenanceWindow: Optional[str] = None
 
 
-class BatchJobDefinitionTypeDef(BaseValidatorModel):
-    fileBatchJobDefinition: Optional[FileBatchJobDefinitionTypeDef] = None
-    scriptBatchJobDefinition: Optional[ScriptBatchJobDefinitionTypeDef] = None
+class BatchJobDefinition(BaseValidatorModel):
+    fileBatchJobDefinition: Optional[FileBatchJobDefinition] = None
+    scriptBatchJobDefinition: Optional[ScriptBatchJobDefinition] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
-    definition: DefinitionTypeDef
+class CreateApplicationRequest(BaseValidatorModel):
+    definition: Definition
     engineType: EngineTypeType
     name: str
     clientToken: Optional[str] = None
@@ -352,36 +352,36 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     applicationId: str
     currentApplicationVersion: int
-    definition: Optional[DefinitionTypeDef] = None
+    definition: Optional[Definition] = None
     description: Optional[str] = None
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
+class CreateApplicationResponse(BaseValidatorModel):
     applicationArn: str
     applicationId: str
     applicationVersion: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataSetImportTaskResponseTypeDef(BaseValidatorModel):
+class CreateDataSetImportTaskResponse(BaseValidatorModel):
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDeploymentResponseTypeDef(BaseValidatorModel):
+class CreateDeploymentResponse(BaseValidatorModel):
     deploymentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEnvironmentResponseTypeDef(BaseValidatorModel):
+class CreateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetApplicationVersionResponseTypeDef(BaseValidatorModel):
+class GetApplicationVersionResponse(BaseValidatorModel):
     applicationVersion: int
     creationTime: datetime
     definitionContent: str
@@ -389,10 +389,10 @@ class GetApplicationVersionResponseTypeDef(BaseValidatorModel):
     name: str
     status: ApplicationVersionLifecycleType
     statusReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDeploymentResponseTypeDef(BaseValidatorModel):
+class GetDeploymentResponse(BaseValidatorModel):
     applicationId: str
     applicationVersion: int
     creationTime: datetime
@@ -400,255 +400,255 @@ class GetDeploymentResponseTypeDef(BaseValidatorModel):
     environmentId: str
     status: DeploymentLifecycleType
     statusReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSignedBluinsightsUrlResponseTypeDef(BaseValidatorModel):
+class GetSignedBluinsightsUrlResponse(BaseValidatorModel):
     signedBiUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationVersionsResponseTypeDef(BaseValidatorModel):
-    applicationVersions: List[ApplicationVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationVersionsResponse(BaseValidatorModel):
+    applicationVersions: List[ApplicationVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    applications: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    applications: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartBatchJobResponseTypeDef(BaseValidatorModel):
+class StartBatchJobResponse(BaseValidatorModel):
     executionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationResponseTypeDef(BaseValidatorModel):
+class UpdateApplicationResponse(BaseValidatorModel):
     applicationVersion: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEnvironmentResponseTypeDef(BaseValidatorModel):
+class UpdateEnvironmentResponse(BaseValidatorModel):
     environmentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSetImportTaskTypeDef(BaseValidatorModel):
+class DataSetImportTask(BaseValidatorModel):
     status: DataSetTaskLifecycleType
-    summary: DataSetImportSummaryTypeDef
+    summary: DataSetImportSummary
     taskId: str
     statusReason: Optional[str] = None
 
 
-class GetDataSetImportTaskResponseTypeDef(BaseValidatorModel):
+class GetDataSetImportTaskResponse(BaseValidatorModel):
     status: DataSetTaskLifecycleType
-    summary: DataSetImportSummaryTypeDef
+    summary: DataSetImportSummary
     taskId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DataSetSummaryTypeDef(BaseValidatorModel):
+class DataSetSummary(BaseValidatorModel):
     pass
 
 
-class ListDataSetsResponseTypeDef(BaseValidatorModel):
-    dataSets: List[DataSetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSetsResponse(BaseValidatorModel):
+    dataSets: List[DataSetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDeploymentsResponseTypeDef(BaseValidatorModel):
-    deployments: List[DeploymentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDeploymentsResponse(BaseValidatorModel):
+    deployments: List[DeploymentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEngineVersionsResponseTypeDef(BaseValidatorModel):
-    engineVersions: List[EngineVersionsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEngineVersionsResponse(BaseValidatorModel):
+    engineVersions: List[EngineVersionsSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentsResponseTypeDef(BaseValidatorModel):
-    environments: List[EnvironmentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentsResponse(BaseValidatorModel):
+    environments: List[EnvironmentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StorageConfigurationTypeDef(BaseValidatorModel):
-    efs: Optional[EfsStorageConfigurationTypeDef] = None
-    fsx: Optional[FsxStorageConfigurationTypeDef] = None
+class StorageConfiguration(BaseValidatorModel):
+    efs: Optional[EfsStorageConfiguration] = None
+    fsx: Optional[FsxStorageConfiguration] = None
 
 
-class GetApplicationResponseTypeDef(BaseValidatorModel):
+class GetApplicationResponse(BaseValidatorModel):
     applicationArn: str
     applicationId: str
     creationTime: datetime
-    deployedVersion: DeployedVersionSummaryTypeDef
+    deployedVersion: DeployedVersionSummary
     description: str
     engineType: EngineTypeType
     environmentId: str
     kmsKeyId: str
     lastStartTime: datetime
-    latestVersion: ApplicationVersionSummaryTypeDef
+    latestVersion: ApplicationVersionSummary
     listenerArns: List[str]
     listenerPorts: List[int]
     loadBalancerDnsName: str
-    logGroups: List[LogGroupSummaryTypeDef]
+    logGroups: List[LogGroupSummary]
     name: str
     roleArn: str
     status: ApplicationLifecycleType
     statusReason: str
     tags: Dict[str, str]
     targetGroupArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RestartBatchJobIdentifierTypeDef(BaseValidatorModel):
+class RestartBatchJobIdentifier(BaseValidatorModel):
     executionId: str
-    jobStepRestartMarker: JobStepRestartMarkerTypeDef
+    jobStepRestartMarker: JobStepRestartMarker
 
 
-class S3BatchJobIdentifierTypeDef(BaseValidatorModel):
+class S3BatchJobIdentifier(BaseValidatorModel):
     bucket: str
-    identifier: JobIdentifierTypeDef
+    identifier: JobIdentifier
     keyPrefix: Optional[str] = None
 
 
-class ListBatchJobRestartPointsResponseTypeDef(BaseValidatorModel):
-    batchJobSteps: List[JobStepTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBatchJobRestartPointsResponse(BaseValidatorModel):
+    batchJobSteps: List[JobStep]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationsRequestPaginate(BaseValidatorModel):
     environmentId: Optional[str] = None
     names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBatchJobDefinitionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBatchJobDefinitionsRequestPaginate(BaseValidatorModel):
     applicationId: str
     prefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSetImportHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSetImportHistoryRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSetsRequestPaginate(BaseValidatorModel):
     applicationId: str
     nameFilter: Optional[str] = None
     prefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDeploymentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDeploymentsRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEngineVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEngineVersionsRequestPaginate(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentsRequestPaginate(BaseValidatorModel):
     engineType: Optional[EngineTypeType] = None
     names: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListBatchJobExecutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBatchJobExecutionsRequestPaginate(BaseValidatorModel):
     applicationId: str
     executionIds: Optional[Sequence[str]] = None
     jobName: Optional[str] = None
-    startedAfter: Optional[TimestampTypeDef] = None
-    startedBefore: Optional[TimestampTypeDef] = None
+    startedAfter: Optional[Timestamp] = None
+    startedBefore: Optional[Timestamp] = None
     status: Optional[BatchJobExecutionStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBatchJobExecutionsRequestTypeDef(BaseValidatorModel):
+class ListBatchJobExecutionsRequest(BaseValidatorModel):
     applicationId: str
     executionIds: Optional[Sequence[str]] = None
     jobName: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    startedAfter: Optional[TimestampTypeDef] = None
-    startedBefore: Optional[TimestampTypeDef] = None
+    startedAfter: Optional[Timestamp] = None
+    startedBefore: Optional[Timestamp] = None
     status: Optional[BatchJobExecutionStatusType] = None
 
 
-class PendingMaintenanceTypeDef(BaseValidatorModel):
+class PendingMaintenance(BaseValidatorModel):
     engineVersion: Optional[str] = None
-    schedule: Optional[MaintenanceScheduleTypeDef] = None
+    schedule: Optional[MaintenanceSchedule] = None
 
 
-class VsamDetailAttributesTypeDef(BaseValidatorModel):
-    alternateKeys: Optional[List[AlternateKeyTypeDef]] = None
+class VsamDetailAttributes(BaseValidatorModel):
+    alternateKeys: Optional[List[AlternateKey]] = None
     cacheAtStartup: Optional[bool] = None
     compressed: Optional[bool] = None
     encoding: Optional[str] = None
-    primaryKey: Optional[PrimaryKeyTypeDef] = None
+    primaryKey: Optional[PrimaryKey] = None
     recordFormat: Optional[str] = None
 
 
-class ListBatchJobDefinitionsResponseTypeDef(BaseValidatorModel):
-    batchJobDefinitions: List[BatchJobDefinitionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBatchJobDefinitionsResponse(BaseValidatorModel):
+    batchJobDefinitions: List[BatchJobDefinition]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDataSetImportHistoryResponseTypeDef(BaseValidatorModel):
-    dataSetImportTasks: List[DataSetImportTaskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSetImportHistoryResponse(BaseValidatorModel):
+    dataSetImportTasks: List[DataSetImportTask]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateEnvironmentRequestTypeDef(BaseValidatorModel):
+class CreateEnvironmentRequest(BaseValidatorModel):
     engineType: EngineTypeType
     instanceType: str
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     engineVersion: Optional[str] = None
-    highAvailabilityConfig: Optional[HighAvailabilityConfigTypeDef] = None
+    highAvailabilityConfig: Optional[HighAvailabilityConfig] = None
     kmsKeyId: Optional[str] = None
     networkType: Optional[NetworkTypeType] = None
     preferredMaintenanceWindow: Optional[str] = None
     publiclyAccessible: Optional[bool] = None
     securityGroupIds: Optional[Sequence[str]] = None
-    storageConfigurations: Optional[Sequence[StorageConfigurationTypeDef]] = None
+    storageConfigurations: Optional[Sequence[StorageConfiguration]] = None
     subnetIds: Optional[Sequence[str]] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class BatchJobIdentifierTypeDef(BaseValidatorModel):
-    fileBatchJobIdentifier: Optional[FileBatchJobIdentifierTypeDef] = None
-    restartBatchJobIdentifier: Optional[RestartBatchJobIdentifierTypeDef] = None
-    s3BatchJobIdentifier: Optional[S3BatchJobIdentifierTypeDef] = None
-    scriptBatchJobIdentifier: Optional[ScriptBatchJobIdentifierTypeDef] = None
+class BatchJobIdentifier(BaseValidatorModel):
+    fileBatchJobIdentifier: Optional[FileBatchJobIdentifier] = None
+    restartBatchJobIdentifier: Optional[RestartBatchJobIdentifier] = None
+    s3BatchJobIdentifier: Optional[S3BatchJobIdentifier] = None
+    scriptBatchJobIdentifier: Optional[ScriptBatchJobIdentifier] = None
 
 
-class GetEnvironmentResponseTypeDef(BaseValidatorModel):
+class GetEnvironmentResponse(BaseValidatorModel):
     actualCapacity: int
     creationTime: datetime
     description: str
@@ -656,65 +656,65 @@ class GetEnvironmentResponseTypeDef(BaseValidatorModel):
     engineVersion: str
     environmentArn: str
     environmentId: str
-    highAvailabilityConfig: HighAvailabilityConfigTypeDef
+    highAvailabilityConfig: HighAvailabilityConfig
     instanceType: str
     kmsKeyId: str
     loadBalancerArn: str
     name: str
     networkType: NetworkTypeType
-    pendingMaintenance: PendingMaintenanceTypeDef
+    pendingMaintenance: PendingMaintenance
     preferredMaintenanceWindow: str
     publiclyAccessible: bool
     securityGroupIds: List[str]
     status: EnvironmentLifecycleType
     statusReason: str
-    storageConfigurations: List[StorageConfigurationTypeDef]
+    storageConfigurations: List[StorageConfiguration]
     subnetIds: List[str]
     tags: Dict[str, str]
     vpcId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PoAttributesTypeDef(BaseValidatorModel):
+class PoAttributes(BaseValidatorModel):
     pass
 
 
-class VsamAttributesTypeDef(BaseValidatorModel):
+class VsamAttributes(BaseValidatorModel):
     pass
 
 
-class PsAttributesTypeDef(BaseValidatorModel):
+class PsAttributes(BaseValidatorModel):
     pass
 
 
-class DatasetOrgAttributesTypeDef(BaseValidatorModel):
-    gdg: Optional[GdgAttributesTypeDef] = None
-    po: Optional[PoAttributesTypeDef] = None
-    ps: Optional[PsAttributesTypeDef] = None
-    vsam: Optional[VsamAttributesTypeDef] = None
+class DatasetOrgAttributes(BaseValidatorModel):
+    gdg: Optional[GdgAttributes] = None
+    po: Optional[PoAttributes] = None
+    ps: Optional[PsAttributes] = None
+    vsam: Optional[VsamAttributes] = None
 
 
-class PsDetailAttributesTypeDef(BaseValidatorModel):
+class PsDetailAttributes(BaseValidatorModel):
     pass
 
 
-class PoDetailAttributesTypeDef(BaseValidatorModel):
+class PoDetailAttributes(BaseValidatorModel):
     pass
 
 
-class DatasetDetailOrgAttributesTypeDef(BaseValidatorModel):
-    gdg: Optional[GdgDetailAttributesTypeDef] = None
-    po: Optional[PoDetailAttributesTypeDef] = None
-    ps: Optional[PsDetailAttributesTypeDef] = None
-    vsam: Optional[VsamDetailAttributesTypeDef] = None
+class DatasetDetailOrgAttributes(BaseValidatorModel):
+    gdg: Optional[GdgDetailAttributes] = None
+    po: Optional[PoDetailAttributes] = None
+    ps: Optional[PsDetailAttributes] = None
+    vsam: Optional[VsamDetailAttributes] = None
 
 
-class BatchJobExecutionSummaryTypeDef(BaseValidatorModel):
+class BatchJobExecutionSummary(BaseValidatorModel):
     applicationId: str
     executionId: str
     startTime: datetime
     status: BatchJobExecutionStatusType
-    batchJobIdentifier: Optional[BatchJobIdentifierTypeDef] = None
+    batchJobIdentifier: Optional[BatchJobIdentifier] = None
     endTime: Optional[datetime] = None
     jobId: Optional[str] = None
     jobName: Optional[str] = None
@@ -722,74 +722,74 @@ class BatchJobExecutionSummaryTypeDef(BaseValidatorModel):
     returnCode: Optional[str] = None
 
 
-class GetBatchJobExecutionResponseTypeDef(BaseValidatorModel):
+class GetBatchJobExecutionResponse(BaseValidatorModel):
     applicationId: str
-    batchJobIdentifier: BatchJobIdentifierTypeDef
+    batchJobIdentifier: BatchJobIdentifier
     endTime: datetime
     executionId: str
     jobId: str
     jobName: str
-    jobStepRestartMarker: JobStepRestartMarkerTypeDef
+    jobStepRestartMarker: JobStepRestartMarker
     jobType: BatchJobTypeType
     jobUser: str
     returnCode: str
     startTime: datetime
     status: BatchJobExecutionStatusType
     statusReason: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartBatchJobRequestTypeDef(BaseValidatorModel):
+class StartBatchJobRequest(BaseValidatorModel):
     applicationId: str
-    batchJobIdentifier: BatchJobIdentifierTypeDef
+    batchJobIdentifier: BatchJobIdentifier
     authSecretsManagerArn: Optional[str] = None
     jobParams: Optional[Mapping[str, str]] = None
 
 
-class RecordLengthTypeDef(BaseValidatorModel):
+class RecordLength(BaseValidatorModel):
     pass
 
 
-class DataSetTypeDef(BaseValidatorModel):
+class DataSet(BaseValidatorModel):
     datasetName: str
-    datasetOrg: DatasetOrgAttributesTypeDef
-    recordLength: RecordLengthTypeDef
+    datasetOrg: DatasetOrgAttributes
+    recordLength: RecordLength
     relativePath: Optional[str] = None
     storageType: Optional[str] = None
 
 
-class GetDataSetDetailsResponseTypeDef(BaseValidatorModel):
+class GetDataSetDetailsResponse(BaseValidatorModel):
     blocksize: int
     creationTime: datetime
     dataSetName: str
-    dataSetOrg: DatasetDetailOrgAttributesTypeDef
+    dataSetOrg: DatasetDetailOrgAttributes
     fileSize: int
     lastReferencedTime: datetime
     lastUpdatedTime: datetime
     location: str
     recordLength: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBatchJobExecutionsResponseTypeDef(BaseValidatorModel):
-    batchJobExecutions: List[BatchJobExecutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBatchJobExecutionsResponse(BaseValidatorModel):
+    batchJobExecutions: List[BatchJobExecutionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataSetImportItemTypeDef(BaseValidatorModel):
-    dataSet: DataSetTypeDef
-    externalLocation: ExternalLocationTypeDef
+class DataSetImportItem(BaseValidatorModel):
+    dataSet: DataSet
+    externalLocation: ExternalLocation
 
 
-class DataSetImportConfigTypeDef(BaseValidatorModel):
-    dataSets: Optional[Sequence[DataSetImportItemTypeDef]] = None
+class DataSetImportConfig(BaseValidatorModel):
+    dataSets: Optional[Sequence[DataSetImportItem]] = None
     s3Location: Optional[str] = None
 
 
-class CreateDataSetImportTaskRequestTypeDef(BaseValidatorModel):
+class CreateDataSetImportTaskRequest(BaseValidatorModel):
     applicationId: str
-    importConfig: DataSetImportConfigTypeDef
+    importConfig: DataSetImportConfig
     clientToken: Optional[str] = None
 
 

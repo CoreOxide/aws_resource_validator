@@ -12,52 +12,52 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lexv2_runtime_constants import *
 
-class AccessDeniedExceptionTypeDef(BaseValidatorModel):
+class AccessDeniedException(BaseValidatorModel):
     message: str
 
 
-class ActiveContextTimeToLiveTypeDef(BaseValidatorModel):
+class ActiveContextTimeToLive(BaseValidatorModel):
     timeToLiveInSeconds: int
     turnsToLive: int
 
 
-class AudioResponseEventTypeDef(BaseValidatorModel):
+class AudioResponseEvent(BaseValidatorModel):
     audioChunk: Optional[bytes] = None
     contentType: Optional[str] = None
     eventId: Optional[str] = None
 
 
-class BadGatewayExceptionTypeDef(BaseValidatorModel):
+class BadGatewayException(BaseValidatorModel):
     message: str
 
 
-class ButtonTypeDef(BaseValidatorModel):
+class Button(BaseValidatorModel):
     text: str
     value: str
 
 
-class ConfidenceScoreTypeDef(BaseValidatorModel):
+class ConfidenceScore(BaseValidatorModel):
     score: Optional[float] = None
 
 
-class ConflictExceptionTypeDef(BaseValidatorModel):
+class ConflictException(BaseValidatorModel):
     message: str
 
 
-class DTMFInputEventTypeDef(BaseValidatorModel):
+class DTMFInputEvent(BaseValidatorModel):
     inputCharacter: str
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class DeleteSessionRequestTypeDef(BaseValidatorModel):
+class DeleteSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -65,126 +65,126 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DependencyFailedExceptionTypeDef(BaseValidatorModel):
+class DependencyFailedException(BaseValidatorModel):
     message: str
 
 
-class ElicitSubSlotOutputTypeDef(BaseValidatorModel):
+class ElicitSubSlotOutput(BaseValidatorModel):
     name: str
     subSlotToElicit: Optional[Dict[str, Any]] = None
 
 
-class DisconnectionEventTypeDef(BaseValidatorModel):
+class DisconnectionEvent(BaseValidatorModel):
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class ElicitSubSlotTypeDef(BaseValidatorModel):
+class ElicitSubSlot(BaseValidatorModel):
     name: str
     subSlotToElicit: Optional[Mapping[str, Any]] = None
 
 
-class GetSessionRequestTypeDef(BaseValidatorModel):
+class GetSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
 
 
-class HeartbeatEventTypeDef(BaseValidatorModel):
+class HeartbeatEvent(BaseValidatorModel):
     eventId: Optional[str] = None
 
 
-class RecognizedBotMemberTypeDef(BaseValidatorModel):
+class RecognizedBotMember(BaseValidatorModel):
     botId: str
     botName: Optional[str] = None
 
 
-class InternalServerExceptionTypeDef(BaseValidatorModel):
+class InternalServerException(BaseValidatorModel):
     message: str
 
 
-class PlaybackCompletionEventTypeDef(BaseValidatorModel):
+class PlaybackCompletionEvent(BaseValidatorModel):
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class PlaybackInterruptionEventTypeDef(BaseValidatorModel):
+class PlaybackInterruptionEvent(BaseValidatorModel):
     eventReason: Optional[PlaybackInterruptionReasonType] = None
     causedByEventId: Optional[str] = None
     eventId: Optional[str] = None
 
 
-class ResourceNotFoundExceptionTypeDef(BaseValidatorModel):
+class ResourceNotFoundException(BaseValidatorModel):
     message: str
 
 
-class RuntimeHintValueTypeDef(BaseValidatorModel):
+class RuntimeHintValue(BaseValidatorModel):
     phrase: str
 
 
-class SentimentScoreTypeDef(BaseValidatorModel):
+class SentimentScore(BaseValidatorModel):
     positive: Optional[float] = None
     negative: Optional[float] = None
     neutral: Optional[float] = None
     mixed: Optional[float] = None
 
 
-class ValueOutputTypeDef(BaseValidatorModel):
+class ValueOutput(BaseValidatorModel):
     interpretedValue: str
     originalValue: Optional[str] = None
     resolvedValues: Optional[List[str]] = None
 
 
-class TextInputEventTypeDef(BaseValidatorModel):
+class TextInputEvent(BaseValidatorModel):
     text: str
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class ThrottlingExceptionTypeDef(BaseValidatorModel):
+class ThrottlingException(BaseValidatorModel):
     message: str
 
 
-class TranscriptEventTypeDef(BaseValidatorModel):
+class TranscriptEvent(BaseValidatorModel):
     transcript: Optional[str] = None
     eventId: Optional[str] = None
 
 
-class ValidationExceptionTypeDef(BaseValidatorModel):
+class ValidationException(BaseValidatorModel):
     message: str
 
 
-class ValueTypeDef(BaseValidatorModel):
+class Value(BaseValidatorModel):
     interpretedValue: str
     originalValue: Optional[str] = None
     resolvedValues: Optional[Sequence[str]] = None
 
 
-class ActiveContextOutputTypeDef(BaseValidatorModel):
+class ActiveContextOutput(BaseValidatorModel):
     name: str
-    timeToLive: ActiveContextTimeToLiveTypeDef
+    timeToLive: ActiveContextTimeToLive
     contextAttributes: Dict[str, str]
 
 
-class ActiveContextTypeDef(BaseValidatorModel):
+class ActiveContext(BaseValidatorModel):
     name: str
-    timeToLive: ActiveContextTimeToLiveTypeDef
+    timeToLive: ActiveContextTimeToLive
     contextAttributes: Mapping[str, str]
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class AudioInputEventTypeDef(BaseValidatorModel):
+class AudioInputEvent(BaseValidatorModel):
     contentType: str
-    audioChunk: Optional[BlobTypeDef] = None
+    audioChunk: Optional[Blob] = None
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class RecognizeUtteranceRequestTypeDef(BaseValidatorModel):
+class RecognizeUtteranceRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
@@ -193,42 +193,42 @@ class RecognizeUtteranceRequestTypeDef(BaseValidatorModel):
     sessionState: Optional[str] = None
     requestAttributes: Optional[str] = None
     responseContentType: Optional[str] = None
-    inputStream: Optional[BlobTypeDef] = None
+    inputStream: Optional[Blob] = None
 
 
-class ImageResponseCardOutputTypeDef(BaseValidatorModel):
+class ImageResponseCardOutput(BaseValidatorModel):
     title: str
     subtitle: Optional[str] = None
     imageUrl: Optional[str] = None
-    buttons: Optional[List[ButtonTypeDef]] = None
+    buttons: Optional[List[Button]] = None
 
 
-class ImageResponseCardTypeDef(BaseValidatorModel):
+class ImageResponseCard(BaseValidatorModel):
     title: str
     subtitle: Optional[str] = None
     imageUrl: Optional[str] = None
-    buttons: Optional[Sequence[ButtonTypeDef]] = None
+    buttons: Optional[Sequence[Button]] = None
 
 
-class DeleteSessionResponseTypeDef(BaseValidatorModel):
+class DeleteSessionResponse(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSessionResponseTypeDef(BaseValidatorModel):
+class PutSessionResponse(BaseValidatorModel):
     contentType: str
     messages: str
     sessionState: str
     requestAttributes: str
     sessionId: str
     audioStream: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RecognizeUtteranceResponseTypeDef(BaseValidatorModel):
+class RecognizeUtteranceResponse(BaseValidatorModel):
     inputMode: str
     contentType: str
     messages: str
@@ -239,242 +239,242 @@ class RecognizeUtteranceResponseTypeDef(BaseValidatorModel):
     inputTranscript: str
     audioStream: StreamingBody
     recognizedBotMember: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RuntimeHintDetailsOutputTypeDef(BaseValidatorModel):
-    runtimeHintValues: Optional[List[RuntimeHintValueTypeDef]] = None
+class RuntimeHintDetailsOutput(BaseValidatorModel):
+    runtimeHintValues: Optional[List[RuntimeHintValue]] = None
     subSlotHints: Optional[Dict[str, Dict[str, Any]]] = None
 
 
-class RuntimeHintDetailsTypeDef(BaseValidatorModel):
-    runtimeHintValues: Optional[Sequence[RuntimeHintValueTypeDef]] = None
+class RuntimeHintDetails(BaseValidatorModel):
+    runtimeHintValues: Optional[Sequence[RuntimeHintValue]] = None
     subSlotHints: Optional[Mapping[str, Mapping[str, Any]]] = None
 
 
-class SentimentResponseTypeDef(BaseValidatorModel):
+class SentimentResponse(BaseValidatorModel):
     sentiment: Optional[SentimentTypeType] = None
-    sentimentScore: Optional[SentimentScoreTypeDef] = None
+    sentimentScore: Optional[SentimentScore] = None
 
 
-class SlotOutputTypeDef(BaseValidatorModel):
-    value: Optional[ValueOutputTypeDef] = None
+class SlotOutput(BaseValidatorModel):
+    value: Optional[ValueOutput] = None
     shape: Optional[ShapeType] = None
     values: Optional[List[Dict[str, Any]]] = None
     subSlots: Optional[Dict[str, Dict[str, Any]]] = None
 
 
-class MessageOutputTypeDef(BaseValidatorModel):
+class MessageOutput(BaseValidatorModel):
     contentType: MessageContentTypeType
     content: Optional[str] = None
-    imageResponseCard: Optional[ImageResponseCardOutputTypeDef] = None
+    imageResponseCard: Optional[ImageResponseCardOutput] = None
 
 
-class RuntimeHintsOutputTypeDef(BaseValidatorModel):
-    slotHints: Optional[Dict[str, Dict[str, RuntimeHintDetailsOutputTypeDef]]] = None
+class RuntimeHintsOutput(BaseValidatorModel):
+    slotHints: Optional[Dict[str, Dict[str, RuntimeHintDetailsOutput]]] = None
 
 
-class IntentOutputTypeDef(BaseValidatorModel):
+class IntentOutput(BaseValidatorModel):
     name: str
-    slots: Optional[Dict[str, SlotOutputTypeDef]] = None
+    slots: Optional[Dict[str, SlotOutput]] = None
     state: Optional[IntentStateType] = None
     confirmationState: Optional[ConfirmationStateType] = None
 
 
-class ValueUnionTypeDef(BaseValidatorModel):
+class ValueUnion(BaseValidatorModel):
     pass
 
 
-class SlotTypeDef(BaseValidatorModel):
-    value: Optional[ValueUnionTypeDef] = None
+class Slot(BaseValidatorModel):
+    value: Optional[ValueUnion] = None
     shape: Optional[ShapeType] = None
     values: Optional[Sequence[Mapping[str, Any]]] = None
     subSlots: Optional[Mapping[str, Mapping[str, Any]]] = None
 
 
-class TextResponseEventTypeDef(BaseValidatorModel):
-    messages: Optional[List[MessageOutputTypeDef]] = None
+class TextResponseEvent(BaseValidatorModel):
+    messages: Optional[List[MessageOutput]] = None
     eventId: Optional[str] = None
 
 
-class ImageResponseCardUnionTypeDef(BaseValidatorModel):
+class ImageResponseCardUnion(BaseValidatorModel):
     pass
 
 
-class MessageTypeDef(BaseValidatorModel):
+class Message(BaseValidatorModel):
     contentType: MessageContentTypeType
     content: Optional[str] = None
-    imageResponseCard: Optional[ImageResponseCardUnionTypeDef] = None
+    imageResponseCard: Optional[ImageResponseCardUnion] = None
 
 
-class RuntimeHintDetailsUnionTypeDef(BaseValidatorModel):
+class RuntimeHintDetailsUnion(BaseValidatorModel):
     pass
 
 
-class RuntimeHintsTypeDef(BaseValidatorModel):
-    slotHints: Optional[Mapping[str, Mapping[str, RuntimeHintDetailsUnionTypeDef]]] = None
+class RuntimeHints(BaseValidatorModel):
+    slotHints: Optional[Mapping[str, Mapping[str, RuntimeHintDetailsUnion]]] = None
 
 
-class InterpretationTypeDef(BaseValidatorModel):
-    nluConfidence: Optional[ConfidenceScoreTypeDef] = None
-    sentimentResponse: Optional[SentimentResponseTypeDef] = None
-    intent: Optional[IntentOutputTypeDef] = None
+class Interpretation(BaseValidatorModel):
+    nluConfidence: Optional[ConfidenceScore] = None
+    sentimentResponse: Optional[SentimentResponse] = None
+    intent: Optional[IntentOutput] = None
     interpretationSource: Optional[InterpretationSourceType] = None
 
 
-class DialogActionOutputTypeDef(BaseValidatorModel):
+class DialogActionOutput(BaseValidatorModel):
     pass
 
 
-class SessionStateOutputTypeDef(BaseValidatorModel):
-    dialogAction: Optional[DialogActionOutputTypeDef] = None
-    intent: Optional[IntentOutputTypeDef] = None
-    activeContexts: Optional[List[ActiveContextOutputTypeDef]] = None
+class SessionStateOutput(BaseValidatorModel):
+    dialogAction: Optional[DialogActionOutput] = None
+    intent: Optional[IntentOutput] = None
+    activeContexts: Optional[List[ActiveContextOutput]] = None
     sessionAttributes: Optional[Dict[str, str]] = None
     originatingRequestId: Optional[str] = None
-    runtimeHints: Optional[RuntimeHintsOutputTypeDef] = None
+    runtimeHints: Optional[RuntimeHintsOutput] = None
 
 
-class GetSessionResponseTypeDef(BaseValidatorModel):
+class GetSessionResponse(BaseValidatorModel):
     sessionId: str
-    messages: List[MessageOutputTypeDef]
-    interpretations: List[InterpretationTypeDef]
-    sessionState: SessionStateOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    messages: List[MessageOutput]
+    interpretations: List[Interpretation]
+    sessionState: SessionStateOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class IntentResultEventTypeDef(BaseValidatorModel):
+class IntentResultEvent(BaseValidatorModel):
     inputMode: Optional[InputModeType] = None
-    interpretations: Optional[List[InterpretationTypeDef]] = None
-    sessionState: Optional[SessionStateOutputTypeDef] = None
+    interpretations: Optional[List[Interpretation]] = None
+    sessionState: Optional[SessionStateOutput] = None
     requestAttributes: Optional[Dict[str, str]] = None
     sessionId: Optional[str] = None
     eventId: Optional[str] = None
-    recognizedBotMember: Optional[RecognizedBotMemberTypeDef] = None
+    recognizedBotMember: Optional[RecognizedBotMember] = None
 
 
-class RecognizeTextResponseTypeDef(BaseValidatorModel):
-    messages: List[MessageOutputTypeDef]
-    sessionState: SessionStateOutputTypeDef
-    interpretations: List[InterpretationTypeDef]
+class RecognizeTextResponse(BaseValidatorModel):
+    messages: List[MessageOutput]
+    sessionState: SessionStateOutput
+    interpretations: List[Interpretation]
     requestAttributes: Dict[str, str]
     sessionId: str
-    recognizedBotMember: RecognizedBotMemberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    recognizedBotMember: RecognizedBotMember
+    ResponseMetadata: ResponseMetadata
 
 
-class SlotUnionTypeDef(BaseValidatorModel):
+class SlotUnion(BaseValidatorModel):
     pass
 
 
-class IntentTypeDef(BaseValidatorModel):
+class Intent(BaseValidatorModel):
     name: str
-    slots: Optional[Mapping[str, SlotUnionTypeDef]] = None
+    slots: Optional[Mapping[str, SlotUnion]] = None
     state: Optional[IntentStateType] = None
     confirmationState: Optional[ConfirmationStateType] = None
 
 
-class StartConversationResponseEventStreamTypeDef(BaseValidatorModel):
-    PlaybackInterruptionEvent: Optional[PlaybackInterruptionEventTypeDef] = None
-    TranscriptEvent: Optional[TranscriptEventTypeDef] = None
-    IntentResultEvent: Optional[IntentResultEventTypeDef] = None
-    TextResponseEvent: Optional[TextResponseEventTypeDef] = None
-    AudioResponseEvent: Optional[AudioResponseEventTypeDef] = None
-    HeartbeatEvent: Optional[HeartbeatEventTypeDef] = None
-    AccessDeniedException: Optional[AccessDeniedExceptionTypeDef] = None
-    ResourceNotFoundException: Optional[ResourceNotFoundExceptionTypeDef] = None
-    ValidationException: Optional[ValidationExceptionTypeDef] = None
-    ThrottlingException: Optional[ThrottlingExceptionTypeDef] = None
-    InternalServerException: Optional[InternalServerExceptionTypeDef] = None
-    ConflictException: Optional[ConflictExceptionTypeDef] = None
-    DependencyFailedException: Optional[DependencyFailedExceptionTypeDef] = None
-    BadGatewayException: Optional[BadGatewayExceptionTypeDef] = None
+class StartConversationResponseEventStream(BaseValidatorModel):
+    PlaybackInterruptionEvent: Optional[PlaybackInterruptionEvent] = None
+    TranscriptEvent: Optional[TranscriptEvent] = None
+    IntentResultEvent: Optional[IntentResultEvent] = None
+    TextResponseEvent: Optional[TextResponseEvent] = None
+    AudioResponseEvent: Optional[AudioResponseEvent] = None
+    HeartbeatEvent: Optional[HeartbeatEvent] = None
+    AccessDeniedException: Optional[AccessDeniedException] = None
+    ResourceNotFoundException: Optional[ResourceNotFoundException] = None
+    ValidationException: Optional[ValidationException] = None
+    ThrottlingException: Optional[ThrottlingException] = None
+    InternalServerException: Optional[InternalServerException] = None
+    ConflictException: Optional[ConflictException] = None
+    DependencyFailedException: Optional[DependencyFailedException] = None
+    BadGatewayException: Optional[BadGatewayException] = None
 
 
-class StartConversationResponseTypeDef(BaseValidatorModel):
-    responseEventStream: EventStream[StartConversationResponseEventStreamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartConversationResponse(BaseValidatorModel):
+    responseEventStream: EventStream[StartConversationResponseEventStream]
+    ResponseMetadata: ResponseMetadata
 
 
-class IntentUnionTypeDef(BaseValidatorModel):
+class IntentUnion(BaseValidatorModel):
     pass
 
 
-class ActiveContextUnionTypeDef(BaseValidatorModel):
+class ActiveContextUnion(BaseValidatorModel):
     pass
 
 
-class RuntimeHintsUnionTypeDef(BaseValidatorModel):
+class RuntimeHintsUnion(BaseValidatorModel):
     pass
 
 
-class DialogActionUnionTypeDef(BaseValidatorModel):
+class DialogActionUnion(BaseValidatorModel):
     pass
 
 
-class SessionStateTypeDef(BaseValidatorModel):
-    dialogAction: Optional[DialogActionUnionTypeDef] = None
-    intent: Optional[IntentUnionTypeDef] = None
-    activeContexts: Optional[Sequence[ActiveContextUnionTypeDef]] = None
+class SessionState(BaseValidatorModel):
+    dialogAction: Optional[DialogActionUnion] = None
+    intent: Optional[IntentUnion] = None
+    activeContexts: Optional[Sequence[ActiveContextUnion]] = None
     sessionAttributes: Optional[Mapping[str, str]] = None
     originatingRequestId: Optional[str] = None
-    runtimeHints: Optional[RuntimeHintsUnionTypeDef] = None
+    runtimeHints: Optional[RuntimeHintsUnion] = None
 
 
-class MessageUnionTypeDef(BaseValidatorModel):
+class MessageUnion(BaseValidatorModel):
     pass
 
 
-class SessionStateUnionTypeDef(BaseValidatorModel):
+class SessionStateUnion(BaseValidatorModel):
     pass
 
 
-class ConfigurationEventTypeDef(BaseValidatorModel):
+class ConfigurationEvent(BaseValidatorModel):
     responseContentType: str
     requestAttributes: Optional[Mapping[str, str]] = None
-    sessionState: Optional[SessionStateUnionTypeDef] = None
-    welcomeMessages: Optional[Sequence[MessageUnionTypeDef]] = None
+    sessionState: Optional[SessionStateUnion] = None
+    welcomeMessages: Optional[Sequence[MessageUnion]] = None
     disablePlayback: Optional[bool] = None
     eventId: Optional[str] = None
     clientTimestampMillis: Optional[int] = None
 
 
-class PutSessionRequestTypeDef(BaseValidatorModel):
+class PutSessionRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
-    sessionState: SessionStateUnionTypeDef
-    messages: Optional[Sequence[MessageUnionTypeDef]] = None
+    sessionState: SessionStateUnion
+    messages: Optional[Sequence[MessageUnion]] = None
     requestAttributes: Optional[Mapping[str, str]] = None
     responseContentType: Optional[str] = None
 
 
-class RecognizeTextRequestTypeDef(BaseValidatorModel):
+class RecognizeTextRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
     text: str
-    sessionState: Optional[SessionStateUnionTypeDef] = None
+    sessionState: Optional[SessionStateUnion] = None
     requestAttributes: Optional[Mapping[str, str]] = None
 
 
-class StartConversationRequestEventStreamTypeDef(BaseValidatorModel):
-    ConfigurationEvent: Optional[ConfigurationEventTypeDef] = None
-    AudioInputEvent: Optional[AudioInputEventTypeDef] = None
-    DTMFInputEvent: Optional[DTMFInputEventTypeDef] = None
-    TextInputEvent: Optional[TextInputEventTypeDef] = None
-    PlaybackCompletionEvent: Optional[PlaybackCompletionEventTypeDef] = None
-    DisconnectionEvent: Optional[DisconnectionEventTypeDef] = None
+class StartConversationRequestEventStream(BaseValidatorModel):
+    ConfigurationEvent: Optional[ConfigurationEvent] = None
+    AudioInputEvent: Optional[AudioInputEvent] = None
+    DTMFInputEvent: Optional[DTMFInputEvent] = None
+    TextInputEvent: Optional[TextInputEvent] = None
+    PlaybackCompletionEvent: Optional[PlaybackCompletionEvent] = None
+    DisconnectionEvent: Optional[DisconnectionEvent] = None
 
 
-class StartConversationRequestTypeDef(BaseValidatorModel):
+class StartConversationRequest(BaseValidatorModel):
     botId: str
     botAliasId: str
     localeId: str
     sessionId: str
-    requestEventStream: EventStream[StartConversationRequestEventStreamTypeDef]
+    requestEventStream: EventStream[StartConversationRequestEventStream]
     conversationMode: Optional[ConversationModeType] = None
 
 

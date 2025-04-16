@@ -1,6 +1,6 @@
 # Wellarchitected Classes
 
-# AccountJiraConfigurationInputTypeDef
+# AccountJiraConfigurationInput
 
 ### IssueManagementStatus
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -15,7 +15,7 @@
 - **Type**: typing.Optional[typing.Literal['NOT_CONFIGURED']]
 
 
-# AccountJiraConfigurationOutputTypeDef
+# AccountJiraConfigurationOutput
 
 ### IntegrationStatus
 - **Type**: typing.Optional[typing.Literal['CONFIGURED', 'NOT_CONFIGURED']]
@@ -36,19 +36,13 @@
 - **Type**: typing.Optional[str]
 
 
-# AdditionalResourcesTypeDef
+# AdditionalResources
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AnswerSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AnswerTypeDef
+# Answer
 
 ### QuestionId
 - **Type**: typing.Optional[str]
@@ -72,13 +66,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Choices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.Choice]]
 
 ### SelectedChoices
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ChoiceAnswers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceAnswerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceAnswer]]
 
 ### IsApplicable
 - **Type**: typing.Optional[bool]
@@ -93,10 +87,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AssociateLensesInputTypeDef
+# AnswerSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AssociateLensesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -107,7 +107,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateProfilesInputTypeDef
+# AssociateProfilesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BestPracticeTypeDef
+# BestPractice
 
 ### ChoiceId
 - **Type**: typing.Optional[str]
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CheckDetailTypeDef
+# CheckDetail
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -175,7 +175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CheckSummaryTypeDef
+# CheckSummary
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -211,19 +211,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ERROR', 'FETCH_FAILED', 'NOT_AVAILABLE', 'OKAY', 'WARNING'], int]]
 
 
-# ChoiceAnswerSummaryTypeDef
+# Choice
 
 ### ChoiceId
 - **Type**: typing.Optional[str]
 
-### Status
-- **Type**: typing.Optional[typing.Literal['NOT_APPLICABLE', 'SELECTED', 'UNSELECTED']]
+### Title
+- **Type**: typing.Optional[str]
 
-### Reason
-- **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
+### Description
+- **Type**: typing.Optional[str]
+
+### HelpfulResource
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceContent]
+
+### ImprovementPlan
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceContent]
+
+### AdditionalResources
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
-# ChoiceAnswerTypeDef
+# ChoiceAnswer
 
 ### ChoiceId
 - **Type**: typing.Optional[str]
@@ -238,7 +247,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChoiceContentTypeDef
+# ChoiceAnswerSummary
+
+### ChoiceId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['NOT_APPLICABLE', 'SELECTED', 'UNSELECTED']]
+
+### Reason
+- **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
+
+
+# ChoiceContent
 
 ### DisplayText
 - **Type**: typing.Optional[str]
@@ -247,7 +268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChoiceImprovementPlanTypeDef
+# ChoiceImprovementPlan
 
 ### ChoiceId
 - **Type**: typing.Optional[str]
@@ -259,28 +280,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChoiceTypeDef
-
-### ChoiceId
-- **Type**: typing.Optional[str]
-
-### Title
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### HelpfulResource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceContentTypeDef]
-
-### ImprovementPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceContentTypeDef]
-
-### AdditionalResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.AdditionalResourcesTypeDef]]
-
-
-# ChoiceUpdateTypeDef
+# ChoiceUpdate
 
 ### Status
 - **Type**: typing.Literal['NOT_APPLICABLE', 'SELECTED', 'UNSELECTED']
@@ -293,7 +293,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConsolidatedReportMetricTypeDef
+# ConsolidatedReportMetric
 
 ### MetricType
 - **Type**: typing.Optional[typing.Literal['WORKLOAD']]
@@ -314,13 +314,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Lenses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensMetric]]
 
 ### LensesAppliedCount
 - **Type**: typing.Optional[int]
 
 
-# CreateLensShareInputTypeDef
+# CreateLensShareInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -335,18 +335,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateLensShareOutputTypeDef
+# CreateLensShareOutput
 
 ### ShareId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLensVersionInputTypeDef
+# CreateLensVersionInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -364,7 +364,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateLensVersionOutputTypeDef
+# CreateLensVersionOutput
 
 ### LensArn
 - **Type**: <class 'str'>
@@ -375,11 +375,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMilestoneInputTypeDef
+# CreateMilestoneInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -394,7 +394,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateMilestoneOutputTypeDef
+# CreateMilestoneOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -405,11 +405,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProfileInputTypeDef
+# CreateProfileInput
 
 ### ProfileName
 - **Type**: <class 'str'>
@@ -420,7 +420,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ProfileQuestions
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestionUpdateTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestionUpdate]
 - **Required**: Yes
 
 ### ClientRequestToken
@@ -431,7 +431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProfileOutputTypeDef
+# CreateProfileOutput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -442,11 +442,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateProfileShareInputTypeDef
+# CreateProfileShareInput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -461,7 +461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateProfileShareOutputTypeDef
+# CreateProfileShareOutput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -472,11 +472,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateReviewTemplateInputTypeDef
+# CreateReviewTemplateInput
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -501,18 +501,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateReviewTemplateOutputTypeDef
+# CreateReviewTemplateOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTemplateShareInputTypeDef
+# CreateTemplateShareInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -527,7 +527,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateTemplateShareOutputTypeDef
+# CreateTemplateShareOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -538,11 +538,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkloadInputTypeDef
+# CreateWorkloadInput
 
 ### WorkloadName
 - **Type**: <class 'str'>
@@ -595,7 +595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### DiscoveryConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigUnion]
 
 ### Applications
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -607,10 +607,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationInput]
 
 
-# CreateWorkloadOutputTypeDef
+# CreateWorkloadOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -621,11 +621,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateWorkloadShareInputTypeDef
+# CreateWorkloadShareInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -644,7 +644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateWorkloadShareOutputTypeDef
+# CreateWorkloadShareOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -655,11 +655,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLensInputTypeDef
+# DeleteLensInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -674,7 +674,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLensShareInputTypeDef
+# DeleteLensShareInput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -689,7 +689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProfileInputTypeDef
+# DeleteProfileInput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -700,7 +700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteProfileShareInputTypeDef
+# DeleteProfileShareInput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -715,7 +715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReviewTemplateInputTypeDef
+# DeleteReviewTemplateInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -726,7 +726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteTemplateShareInputTypeDef
+# DeleteTemplateShareInput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -741,7 +741,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkloadInputTypeDef
+# DeleteWorkloadInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -752,7 +752,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteWorkloadShareInputTypeDef
+# DeleteWorkloadShareInput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -767,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateLensesInputTypeDef
+# DisassociateLensesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -778,7 +778,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateProfilesInputTypeDef
+# DisassociateProfilesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -789,14 +789,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportLensInputTypeDef
+# ExportLensInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -806,18 +806,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExportLensOutputTypeDef
+# ExportLensOutput
 
 ### LensJSON
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAnswerInputTypeDef
+# GetAnswerInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetAnswerOutputTypeDef
+# GetAnswerOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -854,15 +854,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Answer
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.AnswerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Answer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConsolidatedReportInputTypeDef
+# GetConsolidatedReportInput
 
 ### Format
 - **Type**: typing.Literal['JSON', 'PDF']
@@ -878,10 +878,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetConsolidatedReportOutputTypeDef
+# GetConsolidatedReportOutput
 
 ### Metrics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ConsolidatedReportMetricTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ConsolidatedReportMetric]
 - **Required**: Yes
 
 ### Base64String
@@ -889,14 +889,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetGlobalSettingsOutputTypeDef
+# GetGlobalSettingsOutput
 
 ### OrganizationSharingStatus
 - **Type**: typing.Literal['DISABLED', 'ENABLED']
@@ -907,15 +907,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JiraConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.AccountJiraConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.AccountJiraConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLensInputTypeDef
+# GetLensInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -925,18 +925,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLensOutputTypeDef
+# GetLensOutput
 
 ### Lens
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Lens'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLensReviewInputTypeDef
+# GetLensReviewInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -950,7 +950,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetLensReviewOutputTypeDef
+# GetLensReviewOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -961,15 +961,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LensReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLensReviewReportInputTypeDef
+# GetLensReviewReportInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -983,7 +983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetLensReviewReportOutputTypeDef
+# GetLensReviewReportOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -994,15 +994,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LensReviewReport
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewReportTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewReport'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLensVersionDifferenceInputTypeDef
+# GetLensVersionDifferenceInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -1015,7 +1015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLensVersionDifferenceOutputTypeDef
+# GetLensVersionDifferenceOutput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -1038,15 +1038,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VersionDifferences
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.VersionDifferencesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.VersionDifferences'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMilestoneInputTypeDef
+# GetMilestoneInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1057,22 +1057,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMilestoneOutputTypeDef
+# GetMilestoneOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Milestone
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.MilestoneTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Milestone'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileInputTypeDef
+# GetProfileInput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -1082,29 +1082,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetProfileOutputTypeDef
+# GetProfileOutput
 
 ### Profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Profile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileTemplateOutputTypeDef
+# GetProfileTemplateOutput
 
 ### ProfileTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReviewTemplateAnswerInputTypeDef
+# GetReviewTemplateAnswerInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -1119,7 +1119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReviewTemplateAnswerOutputTypeDef
+# GetReviewTemplateAnswerOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -1130,22 +1130,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Answer
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReviewTemplateInputTypeDef
+# GetReviewTemplateInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetReviewTemplateLensReviewInputTypeDef
+# GetReviewTemplateLensReviewInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -1156,51 +1156,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetReviewTemplateLensReviewOutputTypeDef
+# GetReviewTemplateLensReviewOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LensReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateLensReviewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateLensReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReviewTemplateOutputTypeDef
+# GetReviewTemplateOutput
 
 ### ReviewTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetWorkloadInputTypeDef
+# GetWorkloadInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetWorkloadOutputTypeDef
+# GetWorkloadOutput
 
 ### Workload
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Workload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportLensInputTypeDef
+# ImportLensInput
 
 ### JSONString
 - **Type**: <class 'str'>
@@ -1217,7 +1217,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ImportLensOutputTypeDef
+# ImportLensOutput
 
 ### LensArn
 - **Type**: <class 'str'>
@@ -1228,11 +1228,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImprovementSummaryTypeDef
+# ImprovementSummary
 
 ### QuestionId
 - **Type**: typing.Optional[str]
@@ -1250,13 +1250,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImprovementPlans
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceImprovementPlanTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceImprovementPlan]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# JiraConfigurationTypeDef
+# JiraConfiguration
 
 ### JiraIssueUrl
 - **Type**: typing.Optional[str]
@@ -1265,52 +1265,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# JiraSelectedQuestionConfigurationOutputTypeDef
+# JiraSelectedQuestionConfiguration
 
 ### SelectedPillars
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.SelectedPillarOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.SelectedPillar]]
 
 
-# JiraSelectedQuestionConfigurationTypeDef
+# JiraSelectedQuestionConfigurationOutput
 
 ### SelectedPillars
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.SelectedPillarTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.SelectedPillarOutput]]
 
 
-# JiraSelectedQuestionConfigurationUnionTypeDef
+# JiraSelectedQuestionConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LensMetricTypeDef
-
-### LensArn
-- **Type**: typing.Optional[str]
-
-### Pillars
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarMetricTypeDef]]
-
-### RiskCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
-
-
-# LensReviewReportTypeDef
-
-### LensAlias
-- **Type**: typing.Optional[str]
-
-### LensArn
-- **Type**: typing.Optional[str]
-
-### Base64String
-- **Type**: typing.Optional[str]
-
-
-# LensReviewSummaryTypeDef
-
-### LensAlias
-- **Type**: typing.Optional[str]
+# Lens
 
 ### LensArn
 - **Type**: typing.Optional[str]
@@ -1318,26 +1291,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### LensVersion
 - **Type**: typing.Optional[str]
 
-### LensName
+### Name
 - **Type**: typing.Optional[str]
 
-### LensStatus
-- **Type**: typing.Optional[typing.Literal['CURRENT', 'DELETED', 'DEPRECATED', 'NOT_CURRENT', 'UNSHARED']]
+### Description
+- **Type**: typing.Optional[str]
 
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
+### Owner
+- **Type**: typing.Optional[str]
+
+### ShareInvitationId
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# LensMetric
+
+### LensArn
+- **Type**: typing.Optional[str]
+
+### Pillars
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarMetric]]
 
 ### RiskCounts
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
-### Profiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfileTypeDef]]
 
-### PrioritizedRiskCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
-
-
-# LensReviewTypeDef
+# LensReview
 
 ### LensAlias
 - **Type**: typing.Optional[str]
@@ -1355,10 +1337,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT', 'DELETED', 'DEPRECATED', 'NOT_CURRENT', 'UNSHARED']]
 
 ### PillarReviewSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarReviewSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarReviewSummary]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraSelectedQuestionConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraSelectedQuestionConfigurationOutput]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -1373,13 +1355,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Profiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfileTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfile]]
 
 ### PrioritizedRiskCounts
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
 
-# LensShareSummaryTypeDef
+# LensReviewReport
+
+### LensAlias
+- **Type**: typing.Optional[str]
+
+### LensArn
+- **Type**: typing.Optional[str]
+
+### Base64String
+- **Type**: typing.Optional[str]
+
+
+# LensReviewSummary
+
+### LensAlias
+- **Type**: typing.Optional[str]
+
+### LensArn
+- **Type**: typing.Optional[str]
+
+### LensVersion
+- **Type**: typing.Optional[str]
+
+### LensName
+- **Type**: typing.Optional[str]
+
+### LensStatus
+- **Type**: typing.Optional[typing.Literal['CURRENT', 'DELETED', 'DEPRECATED', 'NOT_CURRENT', 'UNSHARED']]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### RiskCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
+
+### Profiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfile]]
+
+### PrioritizedRiskCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
+
+
+# LensShareSummary
 
 ### ShareId
 - **Type**: typing.Optional[str]
@@ -1394,7 +1418,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LensSummaryTypeDef
+# LensSummary
 
 ### LensArn
 - **Type**: typing.Optional[str]
@@ -1427,31 +1451,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT', 'DELETED', 'DEPRECATED', 'NOT_CURRENT', 'UNSHARED']]
 
 
-# LensTypeDef
-
-### LensArn
-- **Type**: typing.Optional[str]
-
-### LensVersion
-- **Type**: typing.Optional[str]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### ShareInvitationId
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# LensUpgradeSummaryTypeDef
+# LensUpgradeSummary
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
@@ -1478,7 +1478,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAnswersInputTypeDef
+# ListAnswersInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1504,7 +1504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'PRIORITIZED']]
 
 
-# ListAnswersOutputTypeDef
+# ListAnswersOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1523,18 +1523,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AnswerSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.AnswerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.AnswerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCheckDetailsInputTypeDef
+# ListCheckDetailsInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1563,21 +1563,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCheckDetailsOutputTypeDef
+# ListCheckDetailsOutput
 
 ### CheckDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.CheckDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.CheckDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCheckSummariesInputTypeDef
+# ListCheckSummariesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1606,21 +1606,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCheckSummariesOutputTypeDef
+# ListCheckSummariesOutput
 
 ### CheckSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.CheckSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.CheckSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLensReviewImprovementsInputTypeDef
+# ListLensReviewImprovementsInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1646,7 +1646,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NONE', 'PRIORITIZED']]
 
 
-# ListLensReviewImprovementsOutputTypeDef
+# ListLensReviewImprovementsOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1665,18 +1665,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ImprovementSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ImprovementSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ImprovementSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLensReviewsInputTypeDef
+# ListLensReviewsInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1692,7 +1692,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListLensReviewsOutputTypeDef
+# ListLensReviewsOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1703,18 +1703,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### LensReviewSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLensSharesInputTypeDef
+# ListLensSharesInput
 
 ### LensAlias
 - **Type**: <class 'str'>
@@ -1733,21 +1733,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
 
 
-# ListLensSharesOutputTypeDef
+# ListLensSharesOutput
 
 ### LensShareSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensShareSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensShareSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLensesInputTypeDef
+# ListLensesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1765,21 +1765,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLensesOutputTypeDef
+# ListLensesOutput
 
 ### LensSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.LensSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListMilestonesInputTypeDef
+# ListMilestonesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -1792,25 +1792,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMilestonesOutputTypeDef
+# ListMilestonesOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MilestoneSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.MilestoneSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.MilestoneSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNotificationsInputTypeDef
+# ListNotificationsInput
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
@@ -1825,21 +1825,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNotificationsOutputTypeDef
+# ListNotificationsOutput
 
 ### NotificationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.NotificationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.NotificationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfileNotificationsInputTypeDef
+# ListProfileNotificationsInput
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
@@ -1851,21 +1851,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListProfileNotificationsOutputTypeDef
+# ListProfileNotificationsOutput
 
 ### NotificationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileNotificationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileNotificationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfileSharesInputTypeDef
+# ListProfileSharesInput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -1884,21 +1884,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
 
 
-# ListProfileSharesOutputTypeDef
+# ListProfileSharesOutput
 
 ### ProfileShareSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileShareSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileShareSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfilesInputTypeDef
+# ListProfilesInput
 
 ### ProfileNamePrefix
 - **Type**: typing.Optional[str]
@@ -1913,21 +1913,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListProfilesOutputTypeDef
+# ListProfilesOutput
 
 ### ProfileSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReviewTemplateAnswersInputTypeDef
+# ListReviewTemplateAnswersInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -1947,7 +1947,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListReviewTemplateAnswersOutputTypeDef
+# ListReviewTemplateAnswersOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -1958,18 +1958,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AnswerSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReviewTemplatesInputTypeDef
+# ListReviewTemplatesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -1978,21 +1978,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListReviewTemplatesOutputTypeDef
+# ListReviewTemplatesOutput
 
 ### ReviewTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListShareInvitationsInputTypeDef
+# ListShareInvitationsInput
 
 ### WorkloadNamePrefix
 - **Type**: typing.Optional[str]
@@ -2016,39 +2016,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListShareInvitationsOutputTypeDef
+# ListShareInvitationsOutput
 
 ### ShareInvitationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ShareInvitationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ShareInvitationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### WorkloadArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTemplateSharesInputTypeDef
+# ListTemplateSharesInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -2067,25 +2067,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
 
 
-# ListTemplateSharesOutputTypeDef
+# ListTemplateSharesOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TemplateShareSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.TemplateShareSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.TemplateShareSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkloadSharesInputTypeDef
+# ListWorkloadSharesInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -2104,25 +2104,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
 
 
-# ListWorkloadSharesOutputTypeDef
+# ListWorkloadSharesOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WorkloadShareSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadShareSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadShareSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListWorkloadsInputTypeDef
+# ListWorkloadsInput
 
 ### WorkloadNamePrefix
 - **Type**: typing.Optional[str]
@@ -2134,36 +2134,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListWorkloadsOutputTypeDef
+# ListWorkloadsOutput
 
 ### WorkloadSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# MilestoneSummaryTypeDef
-
-### MilestoneNumber
-- **Type**: typing.Optional[int]
-
-### MilestoneName
-- **Type**: typing.Optional[str]
-
-### RecordedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### WorkloadSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadSummaryTypeDef]
-
-
-# MilestoneTypeDef
+# Milestone
 
 ### MilestoneNumber
 - **Type**: typing.Optional[int]
@@ -2175,16 +2160,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Workload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# NotificationSummaryTypeDef
+# MilestoneSummary
+
+### MilestoneNumber
+- **Type**: typing.Optional[int]
+
+### MilestoneName
+- **Type**: typing.Optional[str]
+
+### RecordedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### WorkloadSummary
+- **Type**: <class 'NoneType'>
+
+
+# NotificationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PillarDifferenceTypeDef
+# PillarDifference
 
 ### PillarId
 - **Type**: typing.Optional[str]
@@ -2196,10 +2196,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'NEW', 'UPDATED']]
 
 ### QuestionDifferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.QuestionDifferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.QuestionDifference]]
 
 
-# PillarMetricTypeDef
+# PillarMetric
 
 ### PillarId
 - **Type**: typing.Optional[str]
@@ -2208,10 +2208,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
 ### Questions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.QuestionMetricTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.QuestionMetric]]
 
 
-# PillarReviewSummaryTypeDef
+# PillarReviewSummary
 
 ### PillarId
 - **Type**: typing.Optional[str]
@@ -2229,145 +2229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
 
-# ProfileChoiceTypeDef
-
-### ChoiceId
-- **Type**: typing.Optional[str]
-
-### ChoiceTitle
-- **Type**: typing.Optional[str]
-
-### ChoiceDescription
-- **Type**: typing.Optional[str]
-
-
-# ProfileNotificationSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ProfileQuestionTypeDef
-
-### QuestionId
-- **Type**: typing.Optional[str]
-
-### QuestionTitle
-- **Type**: typing.Optional[str]
-
-### QuestionDescription
-- **Type**: typing.Optional[str]
-
-### QuestionChoices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileChoiceTypeDef]]
-
-### SelectedChoiceIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### MinSelectedChoices
-- **Type**: typing.Optional[int]
-
-### MaxSelectedChoices
-- **Type**: typing.Optional[int]
-
-
-# ProfileQuestionUpdateTypeDef
-
-### QuestionId
-- **Type**: typing.Optional[str]
-
-### SelectedChoiceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ProfileShareSummaryTypeDef
-
-### ShareId
-- **Type**: typing.Optional[str]
-
-### SharedWith
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-
-# ProfileSummaryTypeDef
-
-### ProfileArn
-- **Type**: typing.Optional[str]
-
-### ProfileVersion
-- **Type**: typing.Optional[str]
-
-### ProfileName
-- **Type**: typing.Optional[str]
-
-### ProfileDescription
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ProfileTemplateChoiceTypeDef
-
-### ChoiceId
-- **Type**: typing.Optional[str]
-
-### ChoiceTitle
-- **Type**: typing.Optional[str]
-
-### ChoiceDescription
-- **Type**: typing.Optional[str]
-
-
-# ProfileTemplateQuestionTypeDef
-
-### QuestionId
-- **Type**: typing.Optional[str]
-
-### QuestionTitle
-- **Type**: typing.Optional[str]
-
-### QuestionDescription
-- **Type**: typing.Optional[str]
-
-### QuestionChoices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplateChoiceTypeDef]]
-
-### MinSelectedChoices
-- **Type**: typing.Optional[int]
-
-### MaxSelectedChoices
-- **Type**: typing.Optional[int]
-
-
-# ProfileTemplateTypeDef
-
-### TemplateName
-- **Type**: typing.Optional[str]
-
-### TemplateQuestions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplateQuestionTypeDef]]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ProfileTypeDef
+# Profile
 
 ### ProfileArn
 - **Type**: typing.Optional[str]
@@ -2382,7 +2244,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProfileQuestions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestion]]
 
 ### Owner
 - **Type**: typing.Optional[str]
@@ -2400,7 +2262,145 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# QuestionDifferenceTypeDef
+# ProfileChoice
+
+### ChoiceId
+- **Type**: typing.Optional[str]
+
+### ChoiceTitle
+- **Type**: typing.Optional[str]
+
+### ChoiceDescription
+- **Type**: typing.Optional[str]
+
+
+# ProfileNotificationSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ProfileQuestion
+
+### QuestionId
+- **Type**: typing.Optional[str]
+
+### QuestionTitle
+- **Type**: typing.Optional[str]
+
+### QuestionDescription
+- **Type**: typing.Optional[str]
+
+### QuestionChoices
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileChoice]]
+
+### SelectedChoiceIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### MinSelectedChoices
+- **Type**: typing.Optional[int]
+
+### MaxSelectedChoices
+- **Type**: typing.Optional[int]
+
+
+# ProfileQuestionUpdate
+
+### QuestionId
+- **Type**: typing.Optional[str]
+
+### SelectedChoiceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# ProfileShareSummary
+
+### ShareId
+- **Type**: typing.Optional[str]
+
+### SharedWith
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+
+# ProfileSummary
+
+### ProfileArn
+- **Type**: typing.Optional[str]
+
+### ProfileVersion
+- **Type**: typing.Optional[str]
+
+### ProfileName
+- **Type**: typing.Optional[str]
+
+### ProfileDescription
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ProfileTemplate
+
+### TemplateName
+- **Type**: typing.Optional[str]
+
+### TemplateQuestions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplateQuestion]]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ProfileTemplateChoice
+
+### ChoiceId
+- **Type**: typing.Optional[str]
+
+### ChoiceTitle
+- **Type**: typing.Optional[str]
+
+### ChoiceDescription
+- **Type**: typing.Optional[str]
+
+
+# ProfileTemplateQuestion
+
+### QuestionId
+- **Type**: typing.Optional[str]
+
+### QuestionTitle
+- **Type**: typing.Optional[str]
+
+### QuestionDescription
+- **Type**: typing.Optional[str]
+
+### QuestionChoices
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTemplateChoice]]
+
+### MinSelectedChoices
+- **Type**: typing.Optional[int]
+
+### MaxSelectedChoices
+- **Type**: typing.Optional[int]
+
+
+# QuestionDifference
 
 ### QuestionId
 - **Type**: typing.Optional[str]
@@ -2412,7 +2412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DELETED', 'NEW', 'UPDATED']]
 
 
-# QuestionMetricTypeDef
+# QuestionMetric
 
 ### QuestionId
 - **Type**: typing.Optional[str]
@@ -2421,10 +2421,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED']]
 
 ### BestPractices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.BestPracticeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.BestPractice]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -2446,13 +2446,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReviewTemplateAnswerSummaryTypeDef
+# ReviewTemplate
 
-Oops! This Pydantic model is currently empty. Stay tuned!
+### Description
+- **Type**: typing.Optional[str]
 
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+### Lenses
+- **Type**: typing.Optional[typing.List[str]]
 
-# ReviewTemplateAnswerTypeDef
+### Notes
+- **Type**: typing.Optional[str]
+
+### QuestionCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWERED', 'UNANSWERED'], int]]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### TemplateArn
+- **Type**: typing.Optional[str]
+
+### TemplateName
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### UpdateStatus
+- **Type**: typing.Optional[typing.Literal['CURRENT', 'LENS_NOT_CURRENT']]
+
+### ShareInvitationId
+- **Type**: typing.Optional[str]
+
+
+# ReviewTemplateAnswer
 
 ### QuestionId
 - **Type**: typing.Optional[str]
@@ -2476,13 +2506,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Choices
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.Choice]]
 
 ### SelectedChoices
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ChoiceAnswers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceAnswerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceAnswer]]
 
 ### IsApplicable
 - **Type**: typing.Optional[bool]
@@ -2497,7 +2527,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
 
 
-# ReviewTemplateLensReviewTypeDef
+# ReviewTemplateAnswerSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ReviewTemplateLensReview
 
 ### LensAlias
 - **Type**: typing.Optional[str]
@@ -2515,7 +2551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT', 'DELETED', 'DEPRECATED', 'NOT_CURRENT', 'UNSHARED']]
 
 ### PillarReviewSummaries
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplatePillarReviewSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplatePillarReviewSummary]]
 
 ### UpdatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -2530,7 +2566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReviewTemplatePillarReviewSummaryTypeDef
+# ReviewTemplatePillarReviewSummary
 
 ### PillarId
 - **Type**: typing.Optional[str]
@@ -2545,7 +2581,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWERED', 'UNANSWERED'], int]]
 
 
-# ReviewTemplateSummaryTypeDef
+# ReviewTemplateSummary
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -2569,52 +2605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CURRENT', 'LENS_NOT_CURRENT']]
 
 
-# ReviewTemplateTypeDef
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Lenses
-- **Type**: typing.Optional[typing.List[str]]
-
-### Notes
-- **Type**: typing.Optional[str]
-
-### QuestionCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['ANSWERED', 'UNANSWERED'], int]]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### TemplateArn
-- **Type**: typing.Optional[str]
-
-### TemplateName
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### UpdateStatus
-- **Type**: typing.Optional[typing.Literal['CURRENT', 'LENS_NOT_CURRENT']]
-
-### ShareInvitationId
-- **Type**: typing.Optional[str]
-
-
-# SelectedPillarOutputTypeDef
-
-### PillarId
-- **Type**: typing.Optional[str]
-
-### SelectedQuestionIds
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# SelectedPillarTypeDef
+# SelectedPillar
 
 ### PillarId
 - **Type**: typing.Optional[str]
@@ -2623,7 +2614,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ShareInvitationSummaryTypeDef
+# SelectedPillarOutput
+
+### PillarId
+- **Type**: typing.Optional[str]
+
+### SelectedQuestionIds
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ShareInvitation
+
+### ShareInvitationId
+- **Type**: typing.Optional[str]
+
+### ShareResourceType
+- **Type**: typing.Optional[typing.Literal['LENS', 'PROFILE', 'TEMPLATE', 'WORKLOAD']]
+
+### WorkloadId
+- **Type**: typing.Optional[str]
+
+### LensAlias
+- **Type**: typing.Optional[str]
+
+### LensArn
+- **Type**: typing.Optional[str]
+
+### ProfileArn
+- **Type**: typing.Optional[str]
+
+### TemplateArn
+- **Type**: typing.Optional[str]
+
+
+# ShareInvitationSummary
 
 ### ShareInvitationId
 - **Type**: typing.Optional[str]
@@ -2665,31 +2689,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ShareInvitationTypeDef
-
-### ShareInvitationId
-- **Type**: typing.Optional[str]
-
-### ShareResourceType
-- **Type**: typing.Optional[typing.Literal['LENS', 'PROFILE', 'TEMPLATE', 'WORKLOAD']]
-
-### WorkloadId
-- **Type**: typing.Optional[str]
-
-### LensAlias
-- **Type**: typing.Optional[str]
-
-### LensArn
-- **Type**: typing.Optional[str]
-
-### ProfileArn
-- **Type**: typing.Optional[str]
-
-### TemplateArn
-- **Type**: typing.Optional[str]
-
-
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### WorkloadArn
 - **Type**: <class 'str'>
@@ -2700,7 +2700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TemplateShareSummaryTypeDef
+# TemplateShareSummary
 
 ### ShareId
 - **Type**: typing.Optional[str]
@@ -2715,7 +2715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### WorkloadArn
 - **Type**: <class 'str'>
@@ -2726,7 +2726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAnswerInputTypeDef
+# UpdateAnswerInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -2744,7 +2744,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ChoiceUpdates
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceUpdateTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceUpdate]]
 
 ### Notes
 - **Type**: typing.Optional[str]
@@ -2756,7 +2756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
 
 
-# UpdateAnswerOutputTypeDef
+# UpdateAnswerOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -2771,15 +2771,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Answer
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.AnswerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Answer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGlobalSettingsInputTypeDef
+# UpdateGlobalSettingsInput
 
 ### OrganizationSharingStatus
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -2788,10 +2788,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.AccountJiraConfigurationInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.AccountJiraConfigurationInput]
 
 
-# UpdateIntegrationInputTypeDef
+# UpdateIntegrationInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -2806,7 +2806,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLensReviewInputTypeDef
+# UpdateLensReviewInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -2823,25 +2823,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraSelectedQuestionConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.JiraSelectedQuestionConfigurationUnion]
 
 
-# UpdateLensReviewOutputTypeDef
+# UpdateLensReviewOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LensReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReviewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.LensReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProfileInputTypeDef
+# UpdateProfileInput
 
 ### ProfileArn
 - **Type**: <class 'str'>
@@ -2851,21 +2851,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ProfileQuestions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestionUpdateTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileQuestionUpdate]]
 
 
-# UpdateProfileOutputTypeDef
+# UpdateProfileOutput
 
 ### Profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Profile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateReviewTemplateAnswerInputTypeDef
+# UpdateReviewTemplateAnswerInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -2883,7 +2883,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ChoiceUpdates
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceUpdateTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.wellarchitected_classes.ChoiceUpdate]]
 
 ### Notes
 - **Type**: typing.Optional[str]
@@ -2895,7 +2895,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ARCHITECTURE_CONSTRAINTS', 'BUSINESS_PRIORITIES', 'NONE', 'OTHER', 'OUT_OF_SCOPE']]
 
 
-# UpdateReviewTemplateAnswerOutputTypeDef
+# UpdateReviewTemplateAnswerOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -2906,15 +2906,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Answer
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateAnswer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateReviewTemplateInputTypeDef
+# UpdateReviewTemplateInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -2936,7 +2936,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateReviewTemplateLensReviewInputTypeDef
+# UpdateReviewTemplateLensReviewInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -2953,33 +2953,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UpdateReviewTemplateLensReviewOutputTypeDef
+# UpdateReviewTemplateLensReviewOutput
 
 ### TemplateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### LensReview
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateLensReviewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateLensReview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateReviewTemplateOutputTypeDef
+# UpdateReviewTemplateOutput
 
 ### ReviewTemplate
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ReviewTemplate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateShareInvitationInputTypeDef
+# UpdateShareInvitationInput
 
 ### ShareInvitationId
 - **Type**: <class 'str'>
@@ -2990,18 +2990,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateShareInvitationOutputTypeDef
+# UpdateShareInvitationOutput
 
 ### ShareInvitation
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ShareInvitationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ShareInvitation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateWorkloadInputTypeDef
+# UpdateWorkloadInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -3050,27 +3050,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETE', 'IN_PROGRESS', 'NOT_APPLICABLE', 'NOT_STARTED', 'RISK_ACKNOWLEDGED']]
 
 ### DiscoveryConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigUnion]
 
 ### Applications
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationInput]
 
 
-# UpdateWorkloadOutputTypeDef
+# UpdateWorkloadOutput
 
 ### Workload
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.Workload'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateWorkloadShareInputTypeDef
+# UpdateWorkloadShareInput
 
 ### ShareId
 - **Type**: <class 'str'>
@@ -3085,22 +3085,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateWorkloadShareOutputTypeDef
+# UpdateWorkloadShareOutput
 
 ### WorkloadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WorkloadShare
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadShareTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadShare'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.wellarchitected_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpgradeLensReviewInputTypeDef
+# UpgradeLensReviewInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -3118,7 +3118,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpgradeProfileVersionInputTypeDef
+# UpgradeProfileVersionInput
 
 ### WorkloadId
 - **Type**: <class 'str'>
@@ -3135,7 +3135,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpgradeReviewTemplateLensReviewInputTypeDef
+# UpgradeReviewTemplateLensReviewInput
 
 ### TemplateArn
 - **Type**: <class 'str'>
@@ -3149,148 +3149,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VersionDifferencesTypeDef
+# VersionDifferences
 
 ### PillarDifferences
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarDifferenceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.PillarDifference]]
 
 
-# WorkloadDiscoveryConfigOutputTypeDef
-
-### TrustedAdvisorIntegrationStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### WorkloadResourceDefinition
-- **Type**: typing.Optional[typing.List[typing.Literal['APP_REGISTRY', 'WORKLOAD_METADATA']]]
-
-
-# WorkloadDiscoveryConfigTypeDef
-
-### TrustedAdvisorIntegrationStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### WorkloadResourceDefinition
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['APP_REGISTRY', 'WORKLOAD_METADATA']]]
-
-
-# WorkloadDiscoveryConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# WorkloadJiraConfigurationInputTypeDef
-
-### IssueManagementStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'INHERIT']]
-
-### IssueManagementType
-- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
-
-### JiraProjectKey
-- **Type**: typing.Optional[str]
-
-
-# WorkloadJiraConfigurationOutputTypeDef
-
-### IssueManagementStatus
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'INHERIT']]
-
-### IssueManagementType
-- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
-
-### JiraProjectKey
-- **Type**: typing.Optional[str]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-
-# WorkloadProfileTypeDef
-
-### ProfileArn
-- **Type**: typing.Optional[str]
-
-### ProfileVersion
-- **Type**: typing.Optional[str]
-
-
-# WorkloadShareSummaryTypeDef
-
-### ShareId
-- **Type**: typing.Optional[str]
-
-### SharedWith
-- **Type**: typing.Optional[str]
-
-### PermissionType
-- **Type**: typing.Optional[typing.Literal['CONTRIBUTOR', 'READONLY']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-
-# WorkloadShareTypeDef
-
-### ShareId
-- **Type**: typing.Optional[str]
-
-### SharedBy
-- **Type**: typing.Optional[str]
-
-### SharedWith
-- **Type**: typing.Optional[str]
-
-### PermissionType
-- **Type**: typing.Optional[typing.Literal['CONTRIBUTOR', 'READONLY']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
-
-### WorkloadName
-- **Type**: typing.Optional[str]
-
-### WorkloadId
-- **Type**: typing.Optional[str]
-
-
-# WorkloadSummaryTypeDef
-
-### WorkloadId
-- **Type**: typing.Optional[str]
-
-### WorkloadArn
-- **Type**: typing.Optional[str]
-
-### WorkloadName
-- **Type**: typing.Optional[str]
-
-### Owner
-- **Type**: typing.Optional[str]
-
-### UpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Lenses
-- **Type**: typing.Optional[typing.List[str]]
-
-### RiskCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
-
-### ImprovementStatus
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'IN_PROGRESS', 'NOT_APPLICABLE', 'NOT_STARTED', 'RISK_ACKNOWLEDGED']]
-
-### Profiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfileTypeDef]]
-
-### PrioritizedRiskCounts
-- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
-
-
-# WorkloadTypeDef
+# Workload
 
 ### WorkloadId
 - **Type**: typing.Optional[str]
@@ -3362,18 +3227,153 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### DiscoveryConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadDiscoveryConfigOutput]
 
 ### Applications
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Profiles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfileTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfile]]
 
 ### PrioritizedRiskCounts
 - **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
 ### JiraConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadJiraConfigurationOutput]
+
+
+# WorkloadDiscoveryConfig
+
+### TrustedAdvisorIntegrationStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### WorkloadResourceDefinition
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['APP_REGISTRY', 'WORKLOAD_METADATA']]]
+
+
+# WorkloadDiscoveryConfigOutput
+
+### TrustedAdvisorIntegrationStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### WorkloadResourceDefinition
+- **Type**: typing.Optional[typing.List[typing.Literal['APP_REGISTRY', 'WORKLOAD_METADATA']]]
+
+
+# WorkloadDiscoveryConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# WorkloadJiraConfigurationInput
+
+### IssueManagementStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'INHERIT']]
+
+### IssueManagementType
+- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
+
+### JiraProjectKey
+- **Type**: typing.Optional[str]
+
+
+# WorkloadJiraConfigurationOutput
+
+### IssueManagementStatus
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED', 'INHERIT']]
+
+### IssueManagementType
+- **Type**: typing.Optional[typing.Literal['AUTO', 'MANUAL']]
+
+### JiraProjectKey
+- **Type**: typing.Optional[str]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+
+# WorkloadProfile
+
+### ProfileArn
+- **Type**: typing.Optional[str]
+
+### ProfileVersion
+- **Type**: typing.Optional[str]
+
+
+# WorkloadShare
+
+### ShareId
+- **Type**: typing.Optional[str]
+
+### SharedBy
+- **Type**: typing.Optional[str]
+
+### SharedWith
+- **Type**: typing.Optional[str]
+
+### PermissionType
+- **Type**: typing.Optional[typing.Literal['CONTRIBUTOR', 'READONLY']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
+
+### WorkloadName
+- **Type**: typing.Optional[str]
+
+### WorkloadId
+- **Type**: typing.Optional[str]
+
+
+# WorkloadShareSummary
+
+### ShareId
+- **Type**: typing.Optional[str]
+
+### SharedWith
+- **Type**: typing.Optional[str]
+
+### PermissionType
+- **Type**: typing.Optional[typing.Literal['CONTRIBUTOR', 'READONLY']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACCEPTED', 'ASSOCIATED', 'ASSOCIATING', 'EXPIRED', 'FAILED', 'PENDING', 'REJECTED', 'REVOKED']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+
+# WorkloadSummary
+
+### WorkloadId
+- **Type**: typing.Optional[str]
+
+### WorkloadArn
+- **Type**: typing.Optional[str]
+
+### WorkloadName
+- **Type**: typing.Optional[str]
+
+### Owner
+- **Type**: typing.Optional[str]
+
+### UpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### Lenses
+- **Type**: typing.Optional[typing.List[str]]
+
+### RiskCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
+
+### ImprovementStatus
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'IN_PROGRESS', 'NOT_APPLICABLE', 'NOT_STARTED', 'RISK_ACKNOWLEDGED']]
+
+### Profiles
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.wellarchitected_classes.WorkloadProfile]]
+
+### PrioritizedRiskCounts
+- **Type**: typing.Optional[typing.Dict[typing.Literal['HIGH', 'MEDIUM', 'NONE', 'NOT_APPLICABLE', 'UNANSWERED'], int]]
 
 

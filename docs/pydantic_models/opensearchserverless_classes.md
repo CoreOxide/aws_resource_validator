@@ -1,27 +1,27 @@
 # Opensearchserverless Classes
 
-# AccessPolicyDetailTypeDef
+# AccessPolicyDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AccessPolicyStatsTypeDef
+# AccessPolicyStats
 
 ### DataPolicyCount
 - **Type**: typing.Optional[int]
 
 
-# AccessPolicySummaryTypeDef
+# AccessPolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AccountSettingsDetailTypeDef
+# AccountSettingsDetail
 
 ### capacityLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CapacityLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CapacityLimits]
 
 
 # BaseValidatorModel
@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchGetCollectionRequestTypeDef
+# BatchGetCollectionRequest
 
 ### ids
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -39,88 +39,88 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# BatchGetCollectionResponseTypeDef
+# BatchGetCollectionResponse
 
 ### collectionDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionDetail]
 - **Required**: Yes
 
 ### collectionErrorDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionErrorDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetEffectiveLifecyclePolicyRequestTypeDef
+# BatchGetEffectiveLifecyclePolicyRequest
 
 ### resourceIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyResourceIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyResourceIdentifier]
 - **Required**: Yes
 
 
-# BatchGetEffectiveLifecyclePolicyResponseTypeDef
+# BatchGetEffectiveLifecyclePolicyResponse
 
 ### effectiveLifecyclePolicyDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.EffectiveLifecyclePolicyDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.EffectiveLifecyclePolicyDetail]
 - **Required**: Yes
 
 ### effectiveLifecyclePolicyErrorDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.EffectiveLifecyclePolicyErrorDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.EffectiveLifecyclePolicyErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetLifecyclePolicyRequestTypeDef
+# BatchGetLifecyclePolicyRequest
 
 ### identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyIdentifier]
 - **Required**: Yes
 
 
-# BatchGetLifecyclePolicyResponseTypeDef
+# BatchGetLifecyclePolicyResponse
 
 ### lifecyclePolicyDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetail]
 - **Required**: Yes
 
 ### lifecyclePolicyErrorDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyErrorDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchGetVpcEndpointRequestTypeDef
+# BatchGetVpcEndpointRequest
 
 ### ids
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# BatchGetVpcEndpointResponseTypeDef
+# BatchGetVpcEndpointResponse
 
 ### vpcEndpointDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointDetail]
 - **Required**: Yes
 
 ### vpcEndpointErrorDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointErrorDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointErrorDetail]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CapacityLimitsTypeDef
+# CapacityLimits
 
 ### maxIndexingCapacityInOCU
 - **Type**: typing.Optional[int]
@@ -129,19 +129,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CollectionDetailTypeDef
+# CollectionDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CollectionErrorDetailTypeDef
+# CollectionErrorDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CollectionFiltersTypeDef
+# CollectionFilters
 
 ### name
 - **Type**: typing.Optional[str]
@@ -150,41 +150,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED']]
 
 
-# CollectionSummaryTypeDef
+# CollectionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAccessPolicyResponseTypeDef
+# CreateAccessPolicyResponse
 
 ### accessPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCollectionDetailTypeDef
+# CreateCollectionDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateCollectionResponseTypeDef
+# CreateCollectionResponse
 
 ### createCollectionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.CreateCollectionDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.CreateCollectionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIamIdentityCenterConfigOptionsTypeDef
+# CreateIamIdentityCenterConfigOptions
 
 ### instanceArn
 - **Type**: <class 'str'>
@@ -197,46 +197,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
 
 
-# CreateLifecyclePolicyResponseTypeDef
+# CreateLifecyclePolicyResponse
 
 ### lifecyclePolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSecurityConfigResponseTypeDef
+# CreateSecurityConfigResponse
 
 ### securityConfigDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSecurityPolicyResponseTypeDef
+# CreateSecurityPolicyResponse
 
 ### securityPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcEndpointDetailTypeDef
+# CreateVpcEndpointDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateVpcEndpointRequestTypeDef
+# CreateVpcEndpointRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -257,101 +257,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateVpcEndpointResponseTypeDef
+# CreateVpcEndpointResponse
 
 ### createVpcEndpointDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.CreateVpcEndpointDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.CreateVpcEndpointDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCollectionDetailTypeDef
+# DeleteCollectionDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteCollectionResponseTypeDef
+# DeleteCollectionResponse
 
 ### deleteCollectionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.DeleteCollectionDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.DeleteCollectionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteVpcEndpointDetailTypeDef
+# DeleteVpcEndpointDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteVpcEndpointResponseTypeDef
+# DeleteVpcEndpointResponse
 
 ### deleteVpcEndpointDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.DeleteVpcEndpointDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.DeleteVpcEndpointDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EffectiveLifecyclePolicyDetailTypeDef
+# EffectiveLifecyclePolicyDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EffectiveLifecyclePolicyErrorDetailTypeDef
+# EffectiveLifecyclePolicyErrorDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetAccessPolicyResponseTypeDef
+# GetAccessPolicyResponse
 
 ### accessPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAccountSettingsResponseTypeDef
+# GetAccountSettingsResponse
 
 ### accountSettingsDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccountSettingsDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccountSettingsDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPoliciesStatsResponseTypeDef
+# GetPoliciesStatsResponse
 
 ### AccessPolicyStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyStats'>
 - **Required**: Yes
 
 ### SecurityPolicyStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyStats'>
 - **Required**: Yes
 
 ### SecurityConfigStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigStats'>
 - **Required**: Yes
 
 ### LifecyclePolicyStats
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyStatsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyStats'>
 - **Required**: Yes
 
 ### TotalPolicyCount
@@ -359,33 +359,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSecurityConfigResponseTypeDef
+# GetSecurityConfigResponse
 
 ### securityConfigDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSecurityPolicyResponseTypeDef
+# GetSecurityPolicyResponse
 
 ### securityPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IamIdentityCenterConfigOptionsTypeDef
+# IamIdentityCenterConfigOptions
 
 ### instanceArn
 - **Type**: typing.Optional[str]
@@ -406,60 +406,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
 
 
-# LifecyclePolicyDetailTypeDef
+# LifecyclePolicyDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LifecyclePolicyErrorDetailTypeDef
+# LifecyclePolicyErrorDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LifecyclePolicyIdentifierTypeDef
+# LifecyclePolicyIdentifier
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LifecyclePolicyResourceIdentifierTypeDef
+# LifecyclePolicyResourceIdentifier
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LifecyclePolicyStatsTypeDef
+# LifecyclePolicyStats
 
 ### RetentionPolicyCount
 - **Type**: typing.Optional[int]
 
 
-# LifecyclePolicySummaryTypeDef
+# LifecyclePolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAccessPoliciesResponseTypeDef
+# ListAccessPoliciesResponse
 
 ### accessPolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCollectionsRequestTypeDef
+# ListCollectionsRequest
 
 ### collectionFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionFilters]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -468,84 +468,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCollectionsResponseTypeDef
+# ListCollectionsResponse
 
 ### collectionSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.CollectionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLifecyclePoliciesResponseTypeDef
+# ListLifecyclePoliciesResponse
 
 ### lifecyclePolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityConfigsResponseTypeDef
+# ListSecurityConfigsResponse
 
 ### securityConfigSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSecurityPoliciesResponseTypeDef
+# ListSecurityPoliciesResponse
 
 ### securityPolicySummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVpcEndpointsRequestTypeDef
+# ListVpcEndpointsRequest
 
 ### vpcEndpointFilters
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointFiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointFilters]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -554,21 +554,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListVpcEndpointsResponseTypeDef
+# ListVpcEndpointsResponse
 
 ### vpcEndpointSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearchserverless_classes.VpcEndpointSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -590,7 +590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SamlConfigOptionsTypeDef
+# SamlConfigOptions
 
 ### metadata
 - **Type**: <class 'str'>
@@ -609,31 +609,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SecurityConfigDetailTypeDef
+# SecurityConfigDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SecurityConfigStatsTypeDef
+# SecurityConfigStats
 
 ### SamlConfigCount
 - **Type**: typing.Optional[int]
 
 
-# SecurityConfigSummaryTypeDef
+# SecurityConfigSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SecurityPolicyDetailTypeDef
+# SecurityPolicyDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SecurityPolicyStatsTypeDef
+# SecurityPolicyStats
 
 ### EncryptionPolicyCount
 - **Type**: typing.Optional[int]
@@ -642,24 +642,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SecurityPolicySummaryTypeDef
+# SecurityPolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -670,7 +659,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearchserverless_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -681,52 +681,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessPolicyResponseTypeDef
+# UpdateAccessPolicyResponse
 
 ### accessPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccessPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAccountSettingsRequestTypeDef
+# UpdateAccountSettingsRequest
 
 ### capacityLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CapacityLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearchserverless_classes.CapacityLimits]
 
 
-# UpdateAccountSettingsResponseTypeDef
+# UpdateAccountSettingsResponse
 
 ### accountSettingsDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccountSettingsDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.AccountSettingsDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCollectionDetailTypeDef
+# UpdateCollectionDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateCollectionResponseTypeDef
+# UpdateCollectionResponse
 
 ### updateCollectionDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.UpdateCollectionDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.UpdateCollectionDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateIamIdentityCenterConfigOptionsTypeDef
+# UpdateIamIdentityCenterConfigOptions
 
 ### userAttribute
 - **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
@@ -735,75 +735,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
 
 
-# UpdateLifecyclePolicyResponseTypeDef
+# UpdateLifecyclePolicyResponse
 
 ### lifecyclePolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.LifecyclePolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSecurityConfigResponseTypeDef
+# UpdateSecurityConfigResponse
 
 ### securityConfigDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityConfigDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSecurityPolicyResponseTypeDef
+# UpdateSecurityPolicyResponse
 
 ### securityPolicyDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.SecurityPolicyDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVpcEndpointDetailTypeDef
+# UpdateVpcEndpointDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateVpcEndpointResponseTypeDef
+# UpdateVpcEndpointResponse
 
 ### UpdateVpcEndpointDetail
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.UpdateVpcEndpointDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.UpdateVpcEndpointDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearchserverless_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VpcEndpointDetailTypeDef
+# VpcEndpointDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VpcEndpointErrorDetailTypeDef
+# VpcEndpointErrorDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VpcEndpointFiltersTypeDef
+# VpcEndpointFilters
 
 ### status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
 
 
-# VpcEndpointSummaryTypeDef
+# VpcEndpointSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 

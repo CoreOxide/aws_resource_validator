@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qconnect_constants import *
 
-class AIAgentConfigurationDataTypeDef(BaseValidatorModel):
+class AIAgentConfigurationData(BaseValidatorModel):
     aiAgentId: str
 
 
-class GuardrailRegexConfigTypeDef(BaseValidatorModel):
+class GuardrailRegexConfig(BaseValidatorModel):
     action: GuardrailSensitiveInformationActionType
     name: str
     pattern: str
     description: Optional[str] = None
 
 
-class AIGuardrailSummaryTypeDef(BaseValidatorModel):
+class AIGuardrailSummary(BaseValidatorModel):
     aiGuardrailArn: str
     aiGuardrailId: str
     assistantArn: str
@@ -36,21 +36,21 @@ class AIGuardrailSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class GuardrailWordConfigTypeDef(BaseValidatorModel):
+class GuardrailWordConfig(BaseValidatorModel):
     text: str
 
 
-class TextFullAIPromptEditTemplateConfigurationTypeDef(BaseValidatorModel):
+class TextFullAIPromptEditTemplateConfiguration(BaseValidatorModel):
     text: str
 
 
-class ActivateMessageTemplateRequestTypeDef(BaseValidatorModel):
+class ActivateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
     versionNumber: int
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -58,72 +58,72 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AgentAttributesTypeDef(BaseValidatorModel):
+class AgentAttributes(BaseValidatorModel):
     firstName: Optional[str] = None
     lastName: Optional[str] = None
 
 
-class AmazonConnectGuideAssociationDataTypeDef(BaseValidatorModel):
+class AmazonConnectGuideAssociationData(BaseValidatorModel):
     flowId: Optional[str] = None
 
 
-class AppIntegrationsConfigurationOutputTypeDef(BaseValidatorModel):
+class AppIntegrationsConfigurationOutput(BaseValidatorModel):
     appIntegrationArn: str
     objectFields: Optional[List[str]] = None
 
 
-class AppIntegrationsConfigurationTypeDef(BaseValidatorModel):
+class AppIntegrationsConfiguration(BaseValidatorModel):
     appIntegrationArn: str
     objectFields: Optional[Sequence[str]] = None
 
 
-class AssistantAssociationInputDataTypeDef(BaseValidatorModel):
+class AssistantAssociationInputData(BaseValidatorModel):
     knowledgeBaseId: Optional[str] = None
 
 
-class KnowledgeBaseAssociationDataTypeDef(BaseValidatorModel):
+class KnowledgeBaseAssociationData(BaseValidatorModel):
     knowledgeBaseArn: Optional[str] = None
     knowledgeBaseId: Optional[str] = None
 
 
-class AssistantIntegrationConfigurationTypeDef(BaseValidatorModel):
+class AssistantIntegrationConfiguration(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
 
-class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
+class ServerSideEncryptionConfiguration(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
-class ParsingPromptTypeDef(BaseValidatorModel):
+class ParsingPrompt(BaseValidatorModel):
     parsingPromptText: str
 
 
-class FixedSizeChunkingConfigurationTypeDef(BaseValidatorModel):
+class FixedSizeChunkingConfiguration(BaseValidatorModel):
     maxTokens: int
     overlapPercentage: int
 
 
-class SemanticChunkingConfigurationTypeDef(BaseValidatorModel):
+class SemanticChunkingConfiguration(BaseValidatorModel):
     breakpointPercentileThreshold: int
     bufferSize: int
     maxTokens: int
 
 
-class CitationSpanTypeDef(BaseValidatorModel):
+class CitationSpan(BaseValidatorModel):
     beginOffsetInclusive: Optional[int] = None
     endOffsetExclusive: Optional[int] = None
 
 
-class ConnectConfigurationTypeDef(BaseValidatorModel):
+class ConnectConfiguration(BaseValidatorModel):
     instanceId: Optional[str] = None
 
 
-class RankingDataTypeDef(BaseValidatorModel):
+class RankingData(BaseValidatorModel):
     relevanceLevel: Optional[RelevanceLevelType] = None
     relevanceScore: Optional[float] = None
 
 
-class ContentDataTypeDef(BaseValidatorModel):
+class ContentData(BaseValidatorModel):
     contentArn: str
     contentId: str
     contentType: str
@@ -140,11 +140,11 @@ class ContentDataTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class GenerativeContentFeedbackDataTypeDef(BaseValidatorModel):
+class GenerativeContentFeedbackData(BaseValidatorModel):
     relevance: RelevanceType
 
 
-class ContentReferenceTypeDef(BaseValidatorModel):
+class ContentReference(BaseValidatorModel):
     contentArn: Optional[str] = None
     contentId: Optional[str] = None
     knowledgeBaseArn: Optional[str] = None
@@ -153,7 +153,7 @@ class ContentReferenceTypeDef(BaseValidatorModel):
     sourceURL: Optional[str] = None
 
 
-class ContentSummaryTypeDef(BaseValidatorModel):
+class ContentSummary(BaseValidatorModel):
     contentArn: str
     contentId: str
     contentType: str
@@ -167,18 +167,18 @@ class ContentSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class SelfServiceConversationHistoryTypeDef(BaseValidatorModel):
+class SelfServiceConversationHistory(BaseValidatorModel):
     turnNumber: int
     botResponse: Optional[str] = None
     inputTranscript: Optional[str] = None
 
 
-class ConversationStateTypeDef(BaseValidatorModel):
+class ConversationState(BaseValidatorModel):
     status: ConversationStatusType
     reason: Optional[ConversationStatusReasonType] = None
 
 
-class CreateContentRequestTypeDef(BaseValidatorModel):
+class CreateContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
     name: str
     uploadId: str
@@ -189,11 +189,11 @@ class CreateContentRequestTypeDef(BaseValidatorModel):
     title: Optional[str] = None
 
 
-class RenderingConfigurationTypeDef(BaseValidatorModel):
+class RenderingConfiguration(BaseValidatorModel):
     templateUri: Optional[str] = None
 
 
-class CreateMessageTemplateAttachmentRequestTypeDef(BaseValidatorModel):
+class CreateMessageTemplateAttachmentRequest(BaseValidatorModel):
     body: str
     contentDisposition: Literal["ATTACHMENT"]
     knowledgeBaseId: str
@@ -202,7 +202,7 @@ class CreateMessageTemplateAttachmentRequestTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class MessageTemplateAttachmentTypeDef(BaseValidatorModel):
+class MessageTemplateAttachment(BaseValidatorModel):
     attachmentId: str
     contentDisposition: Literal["ATTACHMENT"]
     name: str
@@ -211,17 +211,17 @@ class MessageTemplateAttachmentTypeDef(BaseValidatorModel):
     urlExpiry: datetime
 
 
-class CreateMessageTemplateVersionRequestTypeDef(BaseValidatorModel):
+class CreateMessageTemplateVersionRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
     messageTemplateContentSha256: Optional[str] = None
 
 
-class QuickResponseDataProviderTypeDef(BaseValidatorModel):
+class QuickResponseDataProvider(BaseValidatorModel):
     content: Optional[str] = None
 
 
-class CustomerProfileAttributesOutputTypeDef(BaseValidatorModel):
+class CustomerProfileAttributesOutput(BaseValidatorModel):
     accountNumber: Optional[str] = None
     additionalInformation: Optional[str] = None
     address1: Optional[str] = None
@@ -282,7 +282,7 @@ class CustomerProfileAttributesOutputTypeDef(BaseValidatorModel):
     state: Optional[str] = None
 
 
-class CustomerProfileAttributesTypeDef(BaseValidatorModel):
+class CustomerProfileAttributes(BaseValidatorModel):
     accountNumber: Optional[str] = None
     additionalInformation: Optional[str] = None
     address1: Optional[str] = None
@@ -343,216 +343,216 @@ class CustomerProfileAttributesTypeDef(BaseValidatorModel):
     state: Optional[str] = None
 
 
-class IntentDetectedDataDetailsTypeDef(BaseValidatorModel):
+class IntentDetectedDataDetails(BaseValidatorModel):
     intent: str
     intentId: str
 
 
-class GenerativeReferenceTypeDef(BaseValidatorModel):
+class GenerativeReference(BaseValidatorModel):
     generationId: Optional[str] = None
     modelId: Optional[str] = None
 
 
-class DeactivateMessageTemplateRequestTypeDef(BaseValidatorModel):
+class DeactivateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
     versionNumber: int
 
 
-class DeleteAIAgentRequestTypeDef(BaseValidatorModel):
+class DeleteAIAgentRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
 
 
-class DeleteAIAgentVersionRequestTypeDef(BaseValidatorModel):
+class DeleteAIAgentVersionRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
     versionNumber: int
 
 
-class DeleteAIGuardrailRequestTypeDef(BaseValidatorModel):
+class DeleteAIGuardrailRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
 
 
-class DeleteAIGuardrailVersionRequestTypeDef(BaseValidatorModel):
+class DeleteAIGuardrailVersionRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
     versionNumber: int
 
 
-class DeleteAIPromptRequestTypeDef(BaseValidatorModel):
+class DeleteAIPromptRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
 
 
-class DeleteAIPromptVersionRequestTypeDef(BaseValidatorModel):
+class DeleteAIPromptVersionRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
     versionNumber: int
 
 
-class DeleteAssistantAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteAssistantAssociationRequest(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
 
-class DeleteAssistantRequestTypeDef(BaseValidatorModel):
+class DeleteAssistantRequest(BaseValidatorModel):
     assistantId: str
 
 
-class DeleteContentAssociationRequestTypeDef(BaseValidatorModel):
+class DeleteContentAssociationRequest(BaseValidatorModel):
     contentAssociationId: str
     contentId: str
     knowledgeBaseId: str
 
 
-class DeleteContentRequestTypeDef(BaseValidatorModel):
+class DeleteContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
-class DeleteImportJobRequestTypeDef(BaseValidatorModel):
+class DeleteImportJobRequest(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
 
-class DeleteKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class DeleteKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
-class DeleteMessageTemplateAttachmentRequestTypeDef(BaseValidatorModel):
+class DeleteMessageTemplateAttachmentRequest(BaseValidatorModel):
     attachmentId: str
     knowledgeBaseId: str
     messageTemplateId: str
 
 
-class DeleteMessageTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
 
 
-class DeleteQuickResponseRequestTypeDef(BaseValidatorModel):
+class DeleteQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
 
-class HighlightTypeDef(BaseValidatorModel):
+class Highlight(BaseValidatorModel):
     beginOffsetInclusive: Optional[int] = None
     endOffsetExclusive: Optional[int] = None
 
 
-class EmailHeaderTypeDef(BaseValidatorModel):
+class EmailHeader(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class MessageTemplateBodyContentProviderTypeDef(BaseValidatorModel):
+class MessageTemplateBodyContentProvider(BaseValidatorModel):
     content: Optional[str] = None
 
 
-class GroupingConfigurationOutputTypeDef(BaseValidatorModel):
+class GroupingConfigurationOutput(BaseValidatorModel):
     criteria: Optional[str] = None
     values: Optional[List[str]] = None
 
 
-class GetAIAgentRequestTypeDef(BaseValidatorModel):
+class GetAIAgentRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
 
 
-class GetAIGuardrailRequestTypeDef(BaseValidatorModel):
+class GetAIGuardrailRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
 
 
-class GetAIPromptRequestTypeDef(BaseValidatorModel):
+class GetAIPromptRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
 
 
-class GetAssistantAssociationRequestTypeDef(BaseValidatorModel):
+class GetAssistantAssociationRequest(BaseValidatorModel):
     assistantAssociationId: str
     assistantId: str
 
 
-class GetAssistantRequestTypeDef(BaseValidatorModel):
+class GetAssistantRequest(BaseValidatorModel):
     assistantId: str
 
 
-class GetContentAssociationRequestTypeDef(BaseValidatorModel):
+class GetContentAssociationRequest(BaseValidatorModel):
     contentAssociationId: str
     contentId: str
     knowledgeBaseId: str
 
 
-class GetContentRequestTypeDef(BaseValidatorModel):
+class GetContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
-class GetContentSummaryRequestTypeDef(BaseValidatorModel):
+class GetContentSummaryRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
 
 
-class GetImportJobRequestTypeDef(BaseValidatorModel):
+class GetImportJobRequest(BaseValidatorModel):
     importJobId: str
     knowledgeBaseId: str
 
 
-class GetKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class GetKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
-class GetMessageTemplateRequestTypeDef(BaseValidatorModel):
+class GetMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
 
 
-class GetNextMessageRequestTypeDef(BaseValidatorModel):
+class GetNextMessageRequest(BaseValidatorModel):
     assistantId: str
     nextMessageToken: str
     sessionId: str
 
 
-class GetQuickResponseRequestTypeDef(BaseValidatorModel):
+class GetQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
 
 
-class GetRecommendationsRequestTypeDef(BaseValidatorModel):
+class GetRecommendationsRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
     maxResults: Optional[int] = None
     waitTimeSeconds: Optional[int] = None
 
 
-class GetSessionRequestTypeDef(BaseValidatorModel):
+class GetSessionRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
 
 
-class GroupingConfigurationTypeDef(BaseValidatorModel):
+class GroupingConfiguration(BaseValidatorModel):
     criteria: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
 
-class HierarchicalChunkingLevelConfigurationTypeDef(BaseValidatorModel):
+class HierarchicalChunkingLevelConfiguration(BaseValidatorModel):
     maxTokens: int
 
 
-class IntentInputDataTypeDef(BaseValidatorModel):
+class IntentInputData(BaseValidatorModel):
     intentId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAIAgentVersionsRequestTypeDef(BaseValidatorModel):
+class ListAIAgentVersionsRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
     maxResults: Optional[int] = None
@@ -560,27 +560,27 @@ class ListAIAgentVersionsRequestTypeDef(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
-class ListAIAgentsRequestTypeDef(BaseValidatorModel):
+class ListAIAgentsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     origin: Optional[OriginType] = None
 
 
-class ListAIGuardrailVersionsRequestTypeDef(BaseValidatorModel):
+class ListAIGuardrailVersionsRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAIGuardrailsRequestTypeDef(BaseValidatorModel):
+class ListAIGuardrailsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAIPromptVersionsRequestTypeDef(BaseValidatorModel):
+class ListAIPromptVersionsRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
     maxResults: Optional[int] = None
@@ -588,56 +588,56 @@ class ListAIPromptVersionsRequestTypeDef(BaseValidatorModel):
     origin: Optional[OriginType] = None
 
 
-class ListAIPromptsRequestTypeDef(BaseValidatorModel):
+class ListAIPromptsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     origin: Optional[OriginType] = None
 
 
-class ListAssistantAssociationsRequestTypeDef(BaseValidatorModel):
+class ListAssistantAssociationsRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListAssistantsRequestTypeDef(BaseValidatorModel):
+class ListAssistantsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListContentAssociationsRequestTypeDef(BaseValidatorModel):
+class ListContentAssociationsRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListContentsRequestTypeDef(BaseValidatorModel):
+class ListContentsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListImportJobsRequestTypeDef(BaseValidatorModel):
+class ListImportJobsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListKnowledgeBasesRequestTypeDef(BaseValidatorModel):
+class ListKnowledgeBasesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListMessageTemplateVersionsRequestTypeDef(BaseValidatorModel):
+class ListMessageTemplateVersionsRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MessageTemplateVersionSummaryTypeDef(BaseValidatorModel):
+class MessageTemplateVersionSummary(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
     isActive: bool
     knowledgeBaseArn: str
@@ -648,13 +648,13 @@ class MessageTemplateVersionSummaryTypeDef(BaseValidatorModel):
     versionNumber: int
 
 
-class ListMessageTemplatesRequestTypeDef(BaseValidatorModel):
+class ListMessageTemplatesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MessageTemplateSummaryTypeDef(BaseValidatorModel):
+class MessageTemplateSummary(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     knowledgeBaseArn: str
@@ -669,20 +669,20 @@ class MessageTemplateSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListMessagesRequestTypeDef(BaseValidatorModel):
+class ListMessagesRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListQuickResponsesRequestTypeDef(BaseValidatorModel):
+class ListQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class QuickResponseSummaryTypeDef(BaseValidatorModel):
+class QuickResponseSummary(BaseValidatorModel):
     contentType: str
     createdTime: datetime
     knowledgeBaseArn: str
@@ -699,107 +699,107 @@ class QuickResponseSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class TextMessageTypeDef(BaseValidatorModel):
+class TextMessage(BaseValidatorModel):
     value: Optional[str] = None
 
 
-class MessageTemplateOrderFieldTypeDef(BaseValidatorModel):
+class MessageTemplateOrderField(BaseValidatorModel):
     name: str
     order: Optional[OrderType] = None
 
 
-class NotifyRecommendationsReceivedErrorTypeDef(BaseValidatorModel):
+class NotifyRecommendationsReceivedError(BaseValidatorModel):
     message: Optional[str] = None
     recommendationId: Optional[str] = None
 
 
-class NotifyRecommendationsReceivedRequestTypeDef(BaseValidatorModel):
+class NotifyRecommendationsReceivedRequest(BaseValidatorModel):
     assistantId: str
     recommendationIds: Sequence[str]
     sessionId: str
 
 
-class TagConditionTypeDef(BaseValidatorModel):
+class TagCondition(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
 
-class QueryConditionItemTypeDef(BaseValidatorModel):
+class QueryConditionItem(BaseValidatorModel):
     comparator: Literal["EQUALS"]
     field: Literal["RESULT_TYPE"]
     value: str
 
 
-class QueryTextInputDataTypeDef(BaseValidatorModel):
+class QueryTextInputData(BaseValidatorModel):
     text: str
 
 
-class QueryRecommendationTriggerDataTypeDef(BaseValidatorModel):
+class QueryRecommendationTriggerData(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class QuickResponseContentProviderTypeDef(BaseValidatorModel):
+class QuickResponseContentProvider(BaseValidatorModel):
     content: Optional[str] = None
 
 
-class QuickResponseOrderFieldTypeDef(BaseValidatorModel):
+class QuickResponseOrderField(BaseValidatorModel):
     name: str
     order: Optional[OrderType] = None
 
 
-class RemoveAssistantAIAgentRequestTypeDef(BaseValidatorModel):
+class RemoveAssistantAIAgentRequest(BaseValidatorModel):
     aiAgentType: AIAgentTypeType
     assistantId: str
 
 
-class RemoveKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
+class RemoveKnowledgeBaseTemplateUriRequest(BaseValidatorModel):
     knowledgeBaseId: str
 
 
-class RuntimeSessionDataValueTypeDef(BaseValidatorModel):
+class RuntimeSessionDataValue(BaseValidatorModel):
     stringValue: Optional[str] = None
 
 
-class SessionSummaryTypeDef(BaseValidatorModel):
+class SessionSummary(BaseValidatorModel):
     assistantArn: str
     assistantId: str
     sessionArn: str
     sessionId: str
 
 
-class SeedUrlTypeDef(BaseValidatorModel):
+class SeedUrl(BaseValidatorModel):
     url: Optional[str] = None
 
 
-class SessionIntegrationConfigurationTypeDef(BaseValidatorModel):
+class SessionIntegrationConfiguration(BaseValidatorModel):
     topicIntegrationArn: Optional[str] = None
 
 
-class StartContentUploadRequestTypeDef(BaseValidatorModel):
+class StartContentUploadRequest(BaseValidatorModel):
     contentType: str
     knowledgeBaseId: str
     presignedUrlTimeToLive: Optional[int] = None
 
 
-class SystemEndpointAttributesTypeDef(BaseValidatorModel):
+class SystemEndpointAttributes(BaseValidatorModel):
     address: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateContentRequestTypeDef(BaseValidatorModel):
+class UpdateContentRequest(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
     metadata: Optional[Mapping[str, str]] = None
@@ -810,279 +810,279 @@ class UpdateContentRequestTypeDef(BaseValidatorModel):
     uploadId: Optional[str] = None
 
 
-class UpdateKnowledgeBaseTemplateUriRequestTypeDef(BaseValidatorModel):
+class UpdateKnowledgeBaseTemplateUriRequest(BaseValidatorModel):
     knowledgeBaseId: str
     templateUri: str
 
 
-class WebCrawlerLimitsTypeDef(BaseValidatorModel):
+class WebCrawlerLimits(BaseValidatorModel):
     rateLimit: Optional[int] = None
 
 
-class UpdateAssistantAIAgentRequestTypeDef(BaseValidatorModel):
+class UpdateAssistantAIAgentRequest(BaseValidatorModel):
     aiAgentType: AIAgentTypeType
     assistantId: str
-    configuration: AIAgentConfigurationDataTypeDef
+    configuration: AIAgentConfigurationData
 
 
-class GuardrailContentFilterConfigTypeDef(BaseValidatorModel):
+class GuardrailContentFilterConfig(BaseValidatorModel):
     pass
 
 
-class AIGuardrailContentPolicyConfigOutputTypeDef(BaseValidatorModel):
-    filtersConfig: List[GuardrailContentFilterConfigTypeDef]
+class AIGuardrailContentPolicyConfigOutput(BaseValidatorModel):
+    filtersConfig: List[GuardrailContentFilterConfig]
 
 
-class AIGuardrailContentPolicyConfigTypeDef(BaseValidatorModel):
-    filtersConfig: Sequence[GuardrailContentFilterConfigTypeDef]
+class AIGuardrailContentPolicyConfig(BaseValidatorModel):
+    filtersConfig: Sequence[GuardrailContentFilterConfig]
 
 
-class GuardrailContextualGroundingFilterConfigTypeDef(BaseValidatorModel):
+class GuardrailContextualGroundingFilterConfig(BaseValidatorModel):
     pass
 
 
-class AIGuardrailContextualGroundingPolicyConfigOutputTypeDef(BaseValidatorModel):
-    filtersConfig: List[GuardrailContextualGroundingFilterConfigTypeDef]
+class AIGuardrailContextualGroundingPolicyConfigOutput(BaseValidatorModel):
+    filtersConfig: List[GuardrailContextualGroundingFilterConfig]
 
 
-class AIGuardrailContextualGroundingPolicyConfigTypeDef(BaseValidatorModel):
-    filtersConfig: Sequence[GuardrailContextualGroundingFilterConfigTypeDef]
+class AIGuardrailContextualGroundingPolicyConfig(BaseValidatorModel):
+    filtersConfig: Sequence[GuardrailContextualGroundingFilterConfig]
 
 
-class GuardrailPiiEntityConfigTypeDef(BaseValidatorModel):
+class GuardrailPiiEntityConfig(BaseValidatorModel):
     pass
 
 
-class AIGuardrailSensitiveInformationPolicyConfigOutputTypeDef(BaseValidatorModel):
-    piiEntitiesConfig: Optional[List[GuardrailPiiEntityConfigTypeDef]] = None
-    regexesConfig: Optional[List[GuardrailRegexConfigTypeDef]] = None
+class AIGuardrailSensitiveInformationPolicyConfigOutput(BaseValidatorModel):
+    piiEntitiesConfig: Optional[List[GuardrailPiiEntityConfig]] = None
+    regexesConfig: Optional[List[GuardrailRegexConfig]] = None
 
 
-class AIGuardrailSensitiveInformationPolicyConfigTypeDef(BaseValidatorModel):
-    piiEntitiesConfig: Optional[Sequence[GuardrailPiiEntityConfigTypeDef]] = None
-    regexesConfig: Optional[Sequence[GuardrailRegexConfigTypeDef]] = None
+class AIGuardrailSensitiveInformationPolicyConfig(BaseValidatorModel):
+    piiEntitiesConfig: Optional[Sequence[GuardrailPiiEntityConfig]] = None
+    regexesConfig: Optional[Sequence[GuardrailRegexConfig]] = None
 
 
-class AIGuardrailVersionSummaryTypeDef(BaseValidatorModel):
-    aiGuardrailSummary: Optional[AIGuardrailSummaryTypeDef] = None
+class AIGuardrailVersionSummary(BaseValidatorModel):
+    aiGuardrailSummary: Optional[AIGuardrailSummary] = None
     versionNumber: Optional[int] = None
 
 
-class GuardrailTopicConfigOutputTypeDef(BaseValidatorModel):
+class GuardrailTopicConfigOutput(BaseValidatorModel):
     pass
 
 
-class AIGuardrailTopicPolicyConfigOutputTypeDef(BaseValidatorModel):
-    topicsConfig: List[GuardrailTopicConfigOutputTypeDef]
+class AIGuardrailTopicPolicyConfigOutput(BaseValidatorModel):
+    topicsConfig: List[GuardrailTopicConfigOutput]
 
 
-class GuardrailTopicConfigTypeDef(BaseValidatorModel):
+class GuardrailTopicConfig(BaseValidatorModel):
     pass
 
 
-class AIGuardrailTopicPolicyConfigTypeDef(BaseValidatorModel):
-    topicsConfig: Sequence[GuardrailTopicConfigTypeDef]
+class AIGuardrailTopicPolicyConfig(BaseValidatorModel):
+    topicsConfig: Sequence[GuardrailTopicConfig]
 
 
-class GuardrailManagedWordsConfigTypeDef(BaseValidatorModel):
+class GuardrailManagedWordsConfig(BaseValidatorModel):
     pass
 
 
-class AIGuardrailWordPolicyConfigOutputTypeDef(BaseValidatorModel):
-    managedWordListsConfig: Optional[List[GuardrailManagedWordsConfigTypeDef]] = None
-    wordsConfig: Optional[List[GuardrailWordConfigTypeDef]] = None
+class AIGuardrailWordPolicyConfigOutput(BaseValidatorModel):
+    managedWordListsConfig: Optional[List[GuardrailManagedWordsConfig]] = None
+    wordsConfig: Optional[List[GuardrailWordConfig]] = None
 
 
-class AIGuardrailWordPolicyConfigTypeDef(BaseValidatorModel):
-    managedWordListsConfig: Optional[Sequence[GuardrailManagedWordsConfigTypeDef]] = None
-    wordsConfig: Optional[Sequence[GuardrailWordConfigTypeDef]] = None
+class AIGuardrailWordPolicyConfig(BaseValidatorModel):
+    managedWordListsConfig: Optional[Sequence[GuardrailManagedWordsConfig]] = None
+    wordsConfig: Optional[Sequence[GuardrailWordConfig]] = None
 
 
-class AIPromptSummaryTypeDef(BaseValidatorModel):
+class AIPromptSummary(BaseValidatorModel):
     pass
 
 
-class AIPromptVersionSummaryTypeDef(BaseValidatorModel):
-    aiPromptSummary: Optional[AIPromptSummaryTypeDef] = None
+class AIPromptVersionSummary(BaseValidatorModel):
+    aiPromptSummary: Optional[AIPromptSummary] = None
     versionNumber: Optional[int] = None
 
 
-class AIPromptTemplateConfigurationTypeDef(BaseValidatorModel):
-    textFullAIPromptEditTemplateConfiguration: Optional[ TextFullAIPromptEditTemplateConfigurationTypeDef ] = None
+class AIPromptTemplateConfiguration(BaseValidatorModel):
+    textFullAIPromptEditTemplateConfiguration: Optional[ TextFullAIPromptEditTemplateConfiguration ] = None
 
 
-class ActivateMessageTemplateResponseTypeDef(BaseValidatorModel):
+class ActivateMessageTemplateResponse(BaseValidatorModel):
     messageTemplateArn: str
     messageTemplateId: str
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeactivateMessageTemplateResponseTypeDef(BaseValidatorModel):
+class DeactivateMessageTemplateResponse(BaseValidatorModel):
     messageTemplateArn: str
     messageTemplateId: str
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAIGuardrailsResponseTypeDef(BaseValidatorModel):
-    aiGuardrailSummaries: List[AIGuardrailSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIGuardrailsResponse(BaseValidatorModel):
+    aiGuardrailSummaries: List[AIGuardrailSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListAIPromptsResponseTypeDef(BaseValidatorModel):
-    aiPromptSummaries: List[AIPromptSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIPromptsResponse(BaseValidatorModel):
+    aiPromptSummaries: List[AIPromptSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendMessageResponseTypeDef(BaseValidatorModel):
+class SendMessageResponse(BaseValidatorModel):
     nextMessageToken: str
     requestMessageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartContentUploadResponseTypeDef(BaseValidatorModel):
+class StartContentUploadResponse(BaseValidatorModel):
     headersToInclude: Dict[str, str]
     uploadId: str
     url: str
     urlExpiry: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ContentAssociationContentsTypeDef(BaseValidatorModel):
-    amazonConnectGuideAssociation: Optional[AmazonConnectGuideAssociationDataTypeDef] = None
+class ContentAssociationContents(BaseValidatorModel):
+    amazonConnectGuideAssociation: Optional[AmazonConnectGuideAssociationData] = None
 
 
-class CreateAssistantAssociationRequestTypeDef(BaseValidatorModel):
+class CreateAssistantAssociationRequest(BaseValidatorModel):
     assistantId: str
-    association: AssistantAssociationInputDataTypeDef
+    association: AssistantAssociationInputData
     associationType: Literal["KNOWLEDGE_BASE"]
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class AssistantAssociationOutputDataTypeDef(BaseValidatorModel):
-    knowledgeBaseAssociation: Optional[KnowledgeBaseAssociationDataTypeDef] = None
+class AssistantAssociationOutputData(BaseValidatorModel):
+    knowledgeBaseAssociation: Optional[KnowledgeBaseAssociationData] = None
 
 
-class BedrockFoundationModelConfigurationForParsingTypeDef(BaseValidatorModel):
+class BedrockFoundationModelConfigurationForParsing(BaseValidatorModel):
     modelArn: str
-    parsingPrompt: Optional[ParsingPromptTypeDef] = None
+    parsingPrompt: Optional[ParsingPrompt] = None
 
 
-class ConfigurationTypeDef(BaseValidatorModel):
-    connectConfiguration: Optional[ConnectConfigurationTypeDef] = None
+class Configuration(BaseValidatorModel):
+    connectConfiguration: Optional[ConnectConfiguration] = None
 
 
-class GenerativeDataDetailsPaginatorTypeDef(BaseValidatorModel):
+class GenerativeDataDetailsPaginator(BaseValidatorModel):
     completion: str
-    rankingData: RankingDataTypeDef
+    rankingData: RankingData
     references: List[Dict[str, Any]]
 
 
-class GenerativeDataDetailsTypeDef(BaseValidatorModel):
+class GenerativeDataDetails(BaseValidatorModel):
     completion: str
-    rankingData: RankingDataTypeDef
+    rankingData: RankingData
     references: List[Dict[str, Any]]
 
 
-class CreateContentResponseTypeDef(BaseValidatorModel):
-    content: ContentDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateContentResponse(BaseValidatorModel):
+    content: ContentData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContentResponseTypeDef(BaseValidatorModel):
-    content: ContentDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetContentResponse(BaseValidatorModel):
+    content: ContentData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateContentResponseTypeDef(BaseValidatorModel):
-    content: ContentDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateContentResponse(BaseValidatorModel):
+    content: ContentData
+    ResponseMetadata: ResponseMetadata
 
 
-class ContentFeedbackDataTypeDef(BaseValidatorModel):
-    generativeContentFeedbackData: Optional[GenerativeContentFeedbackDataTypeDef] = None
+class ContentFeedbackData(BaseValidatorModel):
+    generativeContentFeedbackData: Optional[GenerativeContentFeedbackData] = None
 
 
-class GetContentSummaryResponseTypeDef(BaseValidatorModel):
-    contentSummary: ContentSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetContentSummaryResponse(BaseValidatorModel):
+    contentSummary: ContentSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListContentsResponseTypeDef(BaseValidatorModel):
-    contentSummaries: List[ContentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContentsResponse(BaseValidatorModel):
+    contentSummaries: List[ContentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchContentResponseTypeDef(BaseValidatorModel):
-    contentSummaries: List[ContentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchContentResponse(BaseValidatorModel):
+    contentSummaries: List[ContentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConversationContextTypeDef(BaseValidatorModel):
-    selfServiceConversationHistory: Sequence[SelfServiceConversationHistoryTypeDef]
+class ConversationContext(BaseValidatorModel):
+    selfServiceConversationHistory: Sequence[SelfServiceConversationHistory]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CreateAIAgentVersionRequestTypeDef(BaseValidatorModel):
+class CreateAIAgentVersionRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
     clientToken: Optional[str] = None
-    modifiedTime: Optional[TimestampTypeDef] = None
+    modifiedTime: Optional[Timestamp] = None
 
 
-class CreateAIGuardrailVersionRequestTypeDef(BaseValidatorModel):
+class CreateAIGuardrailVersionRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
     clientToken: Optional[str] = None
-    modifiedTime: Optional[TimestampTypeDef] = None
+    modifiedTime: Optional[Timestamp] = None
 
 
-class CreateAIPromptVersionRequestTypeDef(BaseValidatorModel):
+class CreateAIPromptVersionRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
     clientToken: Optional[str] = None
-    modifiedTime: Optional[TimestampTypeDef] = None
+    modifiedTime: Optional[Timestamp] = None
 
 
-class CreateMessageTemplateAttachmentResponseTypeDef(BaseValidatorModel):
-    attachment: MessageTemplateAttachmentTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMessageTemplateAttachmentResponse(BaseValidatorModel):
+    attachment: MessageTemplateAttachment
+    ResponseMetadata: ResponseMetadata
 
 
-class DataReferenceTypeDef(BaseValidatorModel):
-    contentReference: Optional[ContentReferenceTypeDef] = None
-    generativeReference: Optional[GenerativeReferenceTypeDef] = None
+class DataReference(BaseValidatorModel):
+    contentReference: Optional[ContentReference] = None
+    generativeReference: Optional[GenerativeReference] = None
 
 
-class DocumentTextTypeDef(BaseValidatorModel):
-    highlights: Optional[List[HighlightTypeDef]] = None
+class DocumentText(BaseValidatorModel):
+    highlights: Optional[List[Highlight]] = None
     text: Optional[str] = None
 
 
-class EmailMessageTemplateContentBodyTypeDef(BaseValidatorModel):
-    html: Optional[MessageTemplateBodyContentProviderTypeDef] = None
-    plainText: Optional[MessageTemplateBodyContentProviderTypeDef] = None
+class EmailMessageTemplateContentBody(BaseValidatorModel):
+    html: Optional[MessageTemplateBodyContentProvider] = None
+    plainText: Optional[MessageTemplateBodyContentProvider] = None
 
 
-class SMSMessageTemplateContentBodyTypeDef(BaseValidatorModel):
-    plainText: Optional[MessageTemplateBodyContentProviderTypeDef] = None
+class SMSMessageTemplateContentBody(BaseValidatorModel):
+    plainText: Optional[MessageTemplateBodyContentProvider] = None
 
 
-class MessageTemplateSearchResultDataTypeDef(BaseValidatorModel):
+class MessageTemplateSearchResultData(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
     createdTime: datetime
     knowledgeBaseArn: str
@@ -1093,235 +1093,235 @@ class MessageTemplateSearchResultDataTypeDef(BaseValidatorModel):
     messageTemplateId: str
     name: str
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationOutput] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     versionNumber: Optional[int] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     pass
 
 
-class SearchExpressionTypeDef(BaseValidatorModel):
-    filters: Sequence[FilterTypeDef]
+class SearchExpression(BaseValidatorModel):
+    filters: Sequence[Filter]
 
 
-class HierarchicalChunkingConfigurationOutputTypeDef(BaseValidatorModel):
-    levelConfigurations: List[HierarchicalChunkingLevelConfigurationTypeDef]
+class HierarchicalChunkingConfigurationOutput(BaseValidatorModel):
+    levelConfigurations: List[HierarchicalChunkingLevelConfiguration]
     overlapTokens: int
 
 
-class HierarchicalChunkingConfigurationTypeDef(BaseValidatorModel):
-    levelConfigurations: Sequence[HierarchicalChunkingLevelConfigurationTypeDef]
+class HierarchicalChunkingConfiguration(BaseValidatorModel):
+    levelConfigurations: Sequence[HierarchicalChunkingLevelConfiguration]
     overlapTokens: int
 
 
-class ListAIAgentVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIAgentVersionsRequestPaginate(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
     origin: Optional[OriginType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAIAgentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIAgentsRequestPaginate(BaseValidatorModel):
     assistantId: str
     origin: Optional[OriginType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAIGuardrailVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIGuardrailVersionsRequestPaginate(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAIGuardrailsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIGuardrailsRequestPaginate(BaseValidatorModel):
     assistantId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAIPromptVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIPromptVersionsRequestPaginate(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
     origin: Optional[OriginType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAIPromptsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAIPromptsRequestPaginate(BaseValidatorModel):
     assistantId: str
     origin: Optional[OriginType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssistantAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAssistantAssociationsRequestPaginate(BaseValidatorModel):
     assistantId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssistantsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAssistantsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContentAssociationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListContentAssociationsRequestPaginate(BaseValidatorModel):
     contentId: str
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListContentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListContentsRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListImportJobsRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKnowledgeBasesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListKnowledgeBasesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMessageTemplateVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMessageTemplateVersionsRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMessageTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMessageTemplatesRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMessagesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMessagesRequestPaginate(BaseValidatorModel):
     assistantId: str
     sessionId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListQuickResponsesRequestPaginateTypeDef(BaseValidatorModel):
+class ListQuickResponsesRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMessageTemplateVersionsResponseTypeDef(BaseValidatorModel):
-    messageTemplateVersionSummaries: List[MessageTemplateVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMessageTemplateVersionsResponse(BaseValidatorModel):
+    messageTemplateVersionSummaries: List[MessageTemplateVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMessageTemplatesResponseTypeDef(BaseValidatorModel):
-    messageTemplateSummaries: List[MessageTemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMessageTemplatesResponse(BaseValidatorModel):
+    messageTemplateSummaries: List[MessageTemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListQuickResponsesResponseTypeDef(BaseValidatorModel):
-    quickResponseSummaries: List[QuickResponseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQuickResponsesResponse(BaseValidatorModel):
+    quickResponseSummaries: List[QuickResponseSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MessageDataTypeDef(BaseValidatorModel):
-    text: Optional[TextMessageTypeDef] = None
+class MessageData(BaseValidatorModel):
+    text: Optional[TextMessage] = None
 
 
-class MessageTemplateFilterFieldTypeDef(BaseValidatorModel):
+class MessageTemplateFilterField(BaseValidatorModel):
     pass
 
 
-class MessageTemplateQueryFieldTypeDef(BaseValidatorModel):
+class MessageTemplateQueryField(BaseValidatorModel):
     pass
 
 
-class MessageTemplateSearchExpressionTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[MessageTemplateFilterFieldTypeDef]] = None
-    orderOnField: Optional[MessageTemplateOrderFieldTypeDef] = None
-    queries: Optional[Sequence[MessageTemplateQueryFieldTypeDef]] = None
+class MessageTemplateSearchExpression(BaseValidatorModel):
+    filters: Optional[Sequence[MessageTemplateFilterField]] = None
+    orderOnField: Optional[MessageTemplateOrderField] = None
+    queries: Optional[Sequence[MessageTemplateQueryField]] = None
 
 
-class NotifyRecommendationsReceivedResponseTypeDef(BaseValidatorModel):
-    errors: List[NotifyRecommendationsReceivedErrorTypeDef]
+class NotifyRecommendationsReceivedResponse(BaseValidatorModel):
+    errors: List[NotifyRecommendationsReceivedError]
     recommendationIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class OrConditionOutputTypeDef(BaseValidatorModel):
-    andConditions: Optional[List[TagConditionTypeDef]] = None
-    tagCondition: Optional[TagConditionTypeDef] = None
+class OrConditionOutput(BaseValidatorModel):
+    andConditions: Optional[List[TagCondition]] = None
+    tagCondition: Optional[TagCondition] = None
 
 
-class OrConditionTypeDef(BaseValidatorModel):
-    andConditions: Optional[Sequence[TagConditionTypeDef]] = None
-    tagCondition: Optional[TagConditionTypeDef] = None
+class OrCondition(BaseValidatorModel):
+    andConditions: Optional[Sequence[TagCondition]] = None
+    tagCondition: Optional[TagCondition] = None
 
 
-class QueryConditionTypeDef(BaseValidatorModel):
-    single: Optional[QueryConditionItemTypeDef] = None
+class QueryCondition(BaseValidatorModel):
+    single: Optional[QueryConditionItem] = None
 
 
-class QueryInputDataTypeDef(BaseValidatorModel):
-    intentInputData: Optional[IntentInputDataTypeDef] = None
-    queryTextInputData: Optional[QueryTextInputDataTypeDef] = None
+class QueryInputData(BaseValidatorModel):
+    intentInputData: Optional[IntentInputData] = None
+    queryTextInputData: Optional[QueryTextInputData] = None
 
 
-class RecommendationTriggerDataTypeDef(BaseValidatorModel):
-    query: Optional[QueryRecommendationTriggerDataTypeDef] = None
+class RecommendationTriggerData(BaseValidatorModel):
+    query: Optional[QueryRecommendationTriggerData] = None
 
 
-class QuickResponseContentsTypeDef(BaseValidatorModel):
-    markdown: Optional[QuickResponseContentProviderTypeDef] = None
-    plainText: Optional[QuickResponseContentProviderTypeDef] = None
+class QuickResponseContents(BaseValidatorModel):
+    markdown: Optional[QuickResponseContentProvider] = None
+    plainText: Optional[QuickResponseContentProvider] = None
 
 
-class QuickResponseQueryFieldTypeDef(BaseValidatorModel):
+class QuickResponseQueryField(BaseValidatorModel):
     pass
 
 
-class QuickResponseFilterFieldTypeDef(BaseValidatorModel):
+class QuickResponseFilterField(BaseValidatorModel):
     pass
 
 
-class QuickResponseSearchExpressionTypeDef(BaseValidatorModel):
-    filters: Optional[Sequence[QuickResponseFilterFieldTypeDef]] = None
-    orderOnField: Optional[QuickResponseOrderFieldTypeDef] = None
-    queries: Optional[Sequence[QuickResponseQueryFieldTypeDef]] = None
+class QuickResponseSearchExpression(BaseValidatorModel):
+    filters: Optional[Sequence[QuickResponseFilterField]] = None
+    orderOnField: Optional[QuickResponseOrderField] = None
+    queries: Optional[Sequence[QuickResponseQueryField]] = None
 
 
-class RuntimeSessionDataTypeDef(BaseValidatorModel):
+class RuntimeSessionData(BaseValidatorModel):
     key: str
-    value: RuntimeSessionDataValueTypeDef
+    value: RuntimeSessionDataValue
 
 
-class SearchSessionsResponseTypeDef(BaseValidatorModel):
-    sessionSummaries: List[SessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchSessionsResponse(BaseValidatorModel):
+    sessionSummaries: List[SessionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UrlConfigurationOutputTypeDef(BaseValidatorModel):
-    seedUrls: Optional[List[SeedUrlTypeDef]] = None
+class UrlConfigurationOutput(BaseValidatorModel):
+    seedUrls: Optional[List[SeedUrl]] = None
 
 
-class UrlConfigurationTypeDef(BaseValidatorModel):
-    seedUrls: Optional[Sequence[SeedUrlTypeDef]] = None
+class UrlConfiguration(BaseValidatorModel):
+    seedUrls: Optional[Sequence[SeedUrl]] = None
 
 
-class SystemAttributesTypeDef(BaseValidatorModel):
-    customerEndpoint: Optional[SystemEndpointAttributesTypeDef] = None
+class SystemAttributes(BaseValidatorModel):
+    customerEndpoint: Optional[SystemEndpointAttributes] = None
     name: Optional[str] = None
-    systemEndpoint: Optional[SystemEndpointAttributesTypeDef] = None
+    systemEndpoint: Optional[SystemEndpointAttributes] = None
 
 
-class ListAIGuardrailVersionsResponseTypeDef(BaseValidatorModel):
-    aiGuardrailVersionSummaries: List[AIGuardrailVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIGuardrailVersionsResponse(BaseValidatorModel):
+    aiGuardrailVersionSummaries: List[AIGuardrailVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AIGuardrailDataTypeDef(BaseValidatorModel):
+class AIGuardrailData(BaseValidatorModel):
     aiGuardrailArn: str
     aiGuardrailId: str
     assistantArn: str
@@ -1330,34 +1330,34 @@ class AIGuardrailDataTypeDef(BaseValidatorModel):
     blockedOutputsMessaging: str
     name: str
     visibilityStatus: VisibilityStatusType
-    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigOutputTypeDef] = None
-    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigOutputTypeDef ] = None
+    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigOutput] = None
+    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigOutput ] = None
     description: Optional[str] = None
     modifiedTime: Optional[datetime] = None
-    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigOutputTypeDef ] = None
+    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigOutput ] = None
     status: Optional[StatusType] = None
     tags: Optional[Dict[str, str]] = None
-    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigOutputTypeDef] = None
-    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigOutputTypeDef] = None
+    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigOutput] = None
+    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigOutput] = None
 
 
-class ListAIPromptVersionsResponseTypeDef(BaseValidatorModel):
-    aiPromptVersionSummaries: List[AIPromptVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIPromptVersionsResponse(BaseValidatorModel):
+    aiPromptVersionSummaries: List[AIPromptVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateAIPromptRequestTypeDef(BaseValidatorModel):
+class UpdateAIPromptRequest(BaseValidatorModel):
     aiPromptId: str
     assistantId: str
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    templateConfiguration: Optional[AIPromptTemplateConfigurationTypeDef] = None
+    templateConfiguration: Optional[AIPromptTemplateConfiguration] = None
 
 
-class ContentAssociationDataTypeDef(BaseValidatorModel):
-    associationData: ContentAssociationContentsTypeDef
+class ContentAssociationData(BaseValidatorModel):
+    associationData: ContentAssociationContents
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentArn: str
     contentAssociationArn: str
@@ -1368,8 +1368,8 @@ class ContentAssociationDataTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class ContentAssociationSummaryTypeDef(BaseValidatorModel):
-    associationData: ContentAssociationContentsTypeDef
+class ContentAssociationSummary(BaseValidatorModel):
+    associationData: ContentAssociationContents
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentArn: str
     contentAssociationArn: str
@@ -1380,8 +1380,8 @@ class ContentAssociationSummaryTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class CreateContentAssociationRequestTypeDef(BaseValidatorModel):
-    association: ContentAssociationContentsTypeDef
+class CreateContentAssociationRequest(BaseValidatorModel):
+    association: ContentAssociationContents
     associationType: Literal["AMAZON_CONNECT_GUIDE"]
     contentId: str
     knowledgeBaseId: str
@@ -1389,175 +1389,175 @@ class CreateContentAssociationRequestTypeDef(BaseValidatorModel):
     tags: Optional[Mapping[str, str]] = None
 
 
-class AssistantAssociationDataTypeDef(BaseValidatorModel):
+class AssistantAssociationData(BaseValidatorModel):
     assistantArn: str
     assistantAssociationArn: str
     assistantAssociationId: str
     assistantId: str
-    associationData: AssistantAssociationOutputDataTypeDef
+    associationData: AssistantAssociationOutputData
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
 
 
-class AssistantAssociationSummaryTypeDef(BaseValidatorModel):
+class AssistantAssociationSummary(BaseValidatorModel):
     assistantArn: str
     assistantAssociationArn: str
     assistantAssociationId: str
     assistantId: str
-    associationData: AssistantAssociationOutputDataTypeDef
+    associationData: AssistantAssociationOutputData
     associationType: Literal["KNOWLEDGE_BASE"]
     tags: Optional[Dict[str, str]] = None
 
 
-class AssistantDataTypeDef(BaseValidatorModel):
+class AssistantData(BaseValidatorModel):
     pass
 
 
-class CreateAssistantResponseTypeDef(BaseValidatorModel):
-    assistant: AssistantDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssistantResponse(BaseValidatorModel):
+    assistant: AssistantData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAssistantResponseTypeDef(BaseValidatorModel):
-    assistant: AssistantDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssistantResponse(BaseValidatorModel):
+    assistant: AssistantData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAssistantAIAgentResponseTypeDef(BaseValidatorModel):
-    assistant: AssistantDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAssistantAIAgentResponse(BaseValidatorModel):
+    assistant: AssistantData
+    ResponseMetadata: ResponseMetadata
 
 
-class AssistantSummaryTypeDef(BaseValidatorModel):
+class AssistantSummary(BaseValidatorModel):
     pass
 
 
-class ListAssistantsResponseTypeDef(BaseValidatorModel):
-    assistantSummaries: List[AssistantSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssistantsResponse(BaseValidatorModel):
+    assistantSummaries: List[AssistantSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ParsingConfigurationTypeDef(BaseValidatorModel):
+class ParsingConfiguration(BaseValidatorModel):
     parsingStrategy: Literal["BEDROCK_FOUNDATION_MODEL"]
-    bedrockFoundationModelConfiguration: Optional[ BedrockFoundationModelConfigurationForParsingTypeDef ] = None
+    bedrockFoundationModelConfiguration: Optional[ BedrockFoundationModelConfigurationForParsing ] = None
 
 
-class ExternalSourceConfigurationTypeDef(BaseValidatorModel):
-    configuration: ConfigurationTypeDef
+class ExternalSourceConfiguration(BaseValidatorModel):
+    configuration: Configuration
     source: Literal["AMAZON_CONNECT"]
 
 
-class PutFeedbackRequestTypeDef(BaseValidatorModel):
+class PutFeedbackRequest(BaseValidatorModel):
     assistantId: str
-    contentFeedback: ContentFeedbackDataTypeDef
+    contentFeedback: ContentFeedbackData
     targetId: str
     targetType: TargetTypeType
 
 
-class PutFeedbackResponseTypeDef(BaseValidatorModel):
+class PutFeedbackResponse(BaseValidatorModel):
     assistantArn: str
     assistantId: str
-    contentFeedback: ContentFeedbackDataTypeDef
+    contentFeedback: ContentFeedbackData
     targetId: str
     targetType: TargetTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentTypeDef(BaseValidatorModel):
-    contentReference: ContentReferenceTypeDef
-    excerpt: Optional[DocumentTextTypeDef] = None
-    title: Optional[DocumentTextTypeDef] = None
+class Document(BaseValidatorModel):
+    contentReference: ContentReference
+    excerpt: Optional[DocumentText] = None
+    title: Optional[DocumentText] = None
 
 
-class TextDataTypeDef(BaseValidatorModel):
-    excerpt: Optional[DocumentTextTypeDef] = None
-    title: Optional[DocumentTextTypeDef] = None
+class TextData(BaseValidatorModel):
+    excerpt: Optional[DocumentText] = None
+    title: Optional[DocumentText] = None
 
 
-class EmailMessageTemplateContentOutputTypeDef(BaseValidatorModel):
-    body: Optional[EmailMessageTemplateContentBodyTypeDef] = None
-    headers: Optional[List[EmailHeaderTypeDef]] = None
+class EmailMessageTemplateContentOutput(BaseValidatorModel):
+    body: Optional[EmailMessageTemplateContentBody] = None
+    headers: Optional[List[EmailHeader]] = None
     subject: Optional[str] = None
 
 
-class EmailMessageTemplateContentTypeDef(BaseValidatorModel):
-    body: Optional[EmailMessageTemplateContentBodyTypeDef] = None
-    headers: Optional[Sequence[EmailHeaderTypeDef]] = None
+class EmailMessageTemplateContent(BaseValidatorModel):
+    body: Optional[EmailMessageTemplateContentBody] = None
+    headers: Optional[Sequence[EmailHeader]] = None
     subject: Optional[str] = None
 
 
-class SMSMessageTemplateContentTypeDef(BaseValidatorModel):
-    body: Optional[SMSMessageTemplateContentBodyTypeDef] = None
+class SMSMessageTemplateContent(BaseValidatorModel):
+    body: Optional[SMSMessageTemplateContentBody] = None
 
 
-class SearchMessageTemplatesResponseTypeDef(BaseValidatorModel):
-    results: List[MessageTemplateSearchResultDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchMessageTemplatesResponse(BaseValidatorModel):
+    results: List[MessageTemplateSearchResultData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchContentRequestPaginateTypeDef(BaseValidatorModel):
+class SearchContentRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: SearchExpressionTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    searchExpression: SearchExpression
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchContentRequestTypeDef(BaseValidatorModel):
+class SearchContentRequest(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: SearchExpressionTypeDef
+    searchExpression: SearchExpression
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class SearchSessionsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchSessionsRequestPaginate(BaseValidatorModel):
     assistantId: str
-    searchExpression: SearchExpressionTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    searchExpression: SearchExpression
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchSessionsRequestTypeDef(BaseValidatorModel):
+class SearchSessionsRequest(BaseValidatorModel):
     assistantId: str
-    searchExpression: SearchExpressionTypeDef
+    searchExpression: SearchExpression
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class GroupingConfigurationUnionTypeDef(BaseValidatorModel):
+class GroupingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateQuickResponseRequestTypeDef(BaseValidatorModel):
-    content: QuickResponseDataProviderTypeDef
+class CreateQuickResponseRequest(BaseValidatorModel):
+    content: QuickResponseDataProvider
     knowledgeBaseId: str
     name: str
     channels: Optional[Sequence[str]] = None
     clientToken: Optional[str] = None
     contentType: Optional[str] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationUnion] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
     shortcutKey: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateMessageTemplateMetadataRequestTypeDef(BaseValidatorModel):
+class UpdateMessageTemplateMetadataRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationUnion] = None
     name: Optional[str] = None
 
 
-class UpdateQuickResponseRequestTypeDef(BaseValidatorModel):
+class UpdateQuickResponseRequest(BaseValidatorModel):
     knowledgeBaseId: str
     quickResponseId: str
     channels: Optional[Sequence[str]] = None
-    content: Optional[QuickResponseDataProviderTypeDef] = None
+    content: Optional[QuickResponseDataProvider] = None
     contentType: Optional[str] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationUnion] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
     name: Optional[str] = None
@@ -1567,78 +1567,78 @@ class UpdateQuickResponseRequestTypeDef(BaseValidatorModel):
     shortcutKey: Optional[str] = None
 
 
-class ChunkingConfigurationOutputTypeDef(BaseValidatorModel):
+class ChunkingConfigurationOutput(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
-    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
-    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationOutputTypeDef] = None
-    semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
+    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfiguration] = None
+    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationOutput] = None
+    semanticChunkingConfiguration: Optional[SemanticChunkingConfiguration] = None
 
 
-class ChunkingConfigurationTypeDef(BaseValidatorModel):
+class ChunkingConfiguration(BaseValidatorModel):
     chunkingStrategy: ChunkingStrategyType
-    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfigurationTypeDef] = None
-    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfigurationTypeDef] = None
-    semanticChunkingConfiguration: Optional[SemanticChunkingConfigurationTypeDef] = None
+    fixedSizeChunkingConfiguration: Optional[FixedSizeChunkingConfiguration] = None
+    hierarchicalChunkingConfiguration: Optional[HierarchicalChunkingConfiguration] = None
+    semanticChunkingConfiguration: Optional[SemanticChunkingConfiguration] = None
 
 
-class MessageInputTypeDef(BaseValidatorModel):
-    value: MessageDataTypeDef
+class MessageInput(BaseValidatorModel):
+    value: MessageData
 
 
-class MessageOutputTypeDef(BaseValidatorModel):
+class MessageOutput(BaseValidatorModel):
     messageId: str
     participant: ParticipantType
     timestamp: datetime
-    value: MessageDataTypeDef
+    value: MessageData
 
 
-class SearchMessageTemplatesRequestPaginateTypeDef(BaseValidatorModel):
+class SearchMessageTemplatesRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: MessageTemplateSearchExpressionTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    searchExpression: MessageTemplateSearchExpression
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchMessageTemplatesRequestTypeDef(BaseValidatorModel):
+class SearchMessageTemplatesRequest(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: MessageTemplateSearchExpressionTypeDef
+    searchExpression: MessageTemplateSearchExpression
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class TagFilterOutputTypeDef(BaseValidatorModel):
-    andConditions: Optional[List[TagConditionTypeDef]] = None
-    orConditions: Optional[List[OrConditionOutputTypeDef]] = None
-    tagCondition: Optional[TagConditionTypeDef] = None
+class TagFilterOutput(BaseValidatorModel):
+    andConditions: Optional[List[TagCondition]] = None
+    orConditions: Optional[List[OrConditionOutput]] = None
+    tagCondition: Optional[TagCondition] = None
 
 
-class TagFilterTypeDef(BaseValidatorModel):
-    andConditions: Optional[Sequence[TagConditionTypeDef]] = None
-    orConditions: Optional[Sequence[OrConditionTypeDef]] = None
-    tagCondition: Optional[TagConditionTypeDef] = None
+class TagFilter(BaseValidatorModel):
+    andConditions: Optional[Sequence[TagCondition]] = None
+    orConditions: Optional[Sequence[OrCondition]] = None
+    tagCondition: Optional[TagCondition] = None
 
 
-class QueryAssistantRequestPaginateTypeDef(BaseValidatorModel):
+class QueryAssistantRequestPaginate(BaseValidatorModel):
     assistantId: str
     overrideKnowledgeBaseSearchType: Optional[KnowledgeBaseSearchTypeType] = None
-    queryCondition: Optional[Sequence[QueryConditionTypeDef]] = None
-    queryInputData: Optional[QueryInputDataTypeDef] = None
+    queryCondition: Optional[Sequence[QueryCondition]] = None
+    queryInputData: Optional[QueryInputData] = None
     queryText: Optional[str] = None
     sessionId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class QueryAssistantRequestTypeDef(BaseValidatorModel):
+class QueryAssistantRequest(BaseValidatorModel):
     assistantId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     overrideKnowledgeBaseSearchType: Optional[KnowledgeBaseSearchTypeType] = None
-    queryCondition: Optional[Sequence[QueryConditionTypeDef]] = None
-    queryInputData: Optional[QueryInputDataTypeDef] = None
+    queryCondition: Optional[Sequence[QueryCondition]] = None
+    queryInputData: Optional[QueryInputData] = None
     queryText: Optional[str] = None
     sessionId: Optional[str] = None
 
 
-class QuickResponseDataTypeDef(BaseValidatorModel):
+class QuickResponseData(BaseValidatorModel):
     contentType: str
     createdTime: datetime
     knowledgeBaseArn: str
@@ -1649,9 +1649,9 @@ class QuickResponseDataTypeDef(BaseValidatorModel):
     quickResponseId: str
     status: QuickResponseStatusType
     channels: Optional[List[str]] = None
-    contents: Optional[QuickResponseContentsTypeDef] = None
+    contents: Optional[QuickResponseContents] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationOutput] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
     lastModifiedBy: Optional[str] = None
@@ -1659,9 +1659,9 @@ class QuickResponseDataTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
+class QuickResponseSearchResultData(BaseValidatorModel):
     contentType: str
-    contents: QuickResponseContentsTypeDef
+    contents: QuickResponseContents
     createdTime: datetime
     isActive: bool
     knowledgeBaseArn: str
@@ -1675,205 +1675,205 @@ class QuickResponseSearchResultDataTypeDef(BaseValidatorModel):
     attributesNotInterpolated: Optional[List[str]] = None
     channels: Optional[List[str]] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationOutput] = None
     language: Optional[str] = None
     lastModifiedBy: Optional[str] = None
     shortcutKey: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class SearchQuickResponsesRequestPaginateTypeDef(BaseValidatorModel):
+class SearchQuickResponsesRequestPaginate(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: QuickResponseSearchExpressionTypeDef
+    searchExpression: QuickResponseSearchExpression
     attributes: Optional[Mapping[str, str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchQuickResponsesRequestTypeDef(BaseValidatorModel):
+class SearchQuickResponsesRequest(BaseValidatorModel):
     knowledgeBaseId: str
-    searchExpression: QuickResponseSearchExpressionTypeDef
+    searchExpression: QuickResponseSearchExpression
     attributes: Optional[Mapping[str, str]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class UpdateSessionDataRequestTypeDef(BaseValidatorModel):
+class UpdateSessionDataRequest(BaseValidatorModel):
     assistantId: str
-    data: Sequence[RuntimeSessionDataTypeDef]
+    data: Sequence[RuntimeSessionData]
     sessionId: str
     namespace: Optional[Literal["Custom"]] = None
 
 
-class UpdateSessionDataResponseTypeDef(BaseValidatorModel):
-    data: List[RuntimeSessionDataTypeDef]
+class UpdateSessionDataResponse(BaseValidatorModel):
+    data: List[RuntimeSessionData]
     namespace: Literal["Custom"]
     sessionArn: str
     sessionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class WebCrawlerConfigurationOutputTypeDef(BaseValidatorModel):
-    urlConfiguration: UrlConfigurationOutputTypeDef
-    crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
+class WebCrawlerConfigurationOutput(BaseValidatorModel):
+    urlConfiguration: UrlConfigurationOutput
+    crawlerLimits: Optional[WebCrawlerLimits] = None
     exclusionFilters: Optional[List[str]] = None
     inclusionFilters: Optional[List[str]] = None
     scope: Optional[WebScopeTypeType] = None
 
 
-class WebCrawlerConfigurationTypeDef(BaseValidatorModel):
-    urlConfiguration: UrlConfigurationTypeDef
-    crawlerLimits: Optional[WebCrawlerLimitsTypeDef] = None
+class WebCrawlerConfiguration(BaseValidatorModel):
+    urlConfiguration: UrlConfiguration
+    crawlerLimits: Optional[WebCrawlerLimits] = None
     exclusionFilters: Optional[Sequence[str]] = None
     inclusionFilters: Optional[Sequence[str]] = None
     scope: Optional[WebScopeTypeType] = None
 
 
-class MessageTemplateAttributesOutputTypeDef(BaseValidatorModel):
-    agentAttributes: Optional[AgentAttributesTypeDef] = None
+class MessageTemplateAttributesOutput(BaseValidatorModel):
+    agentAttributes: Optional[AgentAttributes] = None
     customAttributes: Optional[Dict[str, str]] = None
-    customerProfileAttributes: Optional[CustomerProfileAttributesOutputTypeDef] = None
-    systemAttributes: Optional[SystemAttributesTypeDef] = None
+    customerProfileAttributes: Optional[CustomerProfileAttributesOutput] = None
+    systemAttributes: Optional[SystemAttributes] = None
 
 
-class MessageTemplateAttributesTypeDef(BaseValidatorModel):
-    agentAttributes: Optional[AgentAttributesTypeDef] = None
+class MessageTemplateAttributes(BaseValidatorModel):
+    agentAttributes: Optional[AgentAttributes] = None
     customAttributes: Optional[Mapping[str, str]] = None
-    customerProfileAttributes: Optional[CustomerProfileAttributesTypeDef] = None
-    systemAttributes: Optional[SystemAttributesTypeDef] = None
+    customerProfileAttributes: Optional[CustomerProfileAttributes] = None
+    systemAttributes: Optional[SystemAttributes] = None
 
 
-class CreateAIGuardrailResponseTypeDef(BaseValidatorModel):
-    aiGuardrail: AIGuardrailDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAIGuardrailResponse(BaseValidatorModel):
+    aiGuardrail: AIGuardrailData
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAIGuardrailVersionResponseTypeDef(BaseValidatorModel):
-    aiGuardrail: AIGuardrailDataTypeDef
+class CreateAIGuardrailVersionResponse(BaseValidatorModel):
+    aiGuardrail: AIGuardrailData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAIGuardrailResponseTypeDef(BaseValidatorModel):
-    aiGuardrail: AIGuardrailDataTypeDef
+class GetAIGuardrailResponse(BaseValidatorModel):
+    aiGuardrail: AIGuardrailData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAIGuardrailResponseTypeDef(BaseValidatorModel):
-    aiGuardrail: AIGuardrailDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAIGuardrailResponse(BaseValidatorModel):
+    aiGuardrail: AIGuardrailData
+    ResponseMetadata: ResponseMetadata
 
 
-class AIGuardrailWordPolicyConfigUnionTypeDef(BaseValidatorModel):
+class AIGuardrailWordPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class AIGuardrailSensitiveInformationPolicyConfigUnionTypeDef(BaseValidatorModel):
+class AIGuardrailSensitiveInformationPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class AIGuardrailTopicPolicyConfigUnionTypeDef(BaseValidatorModel):
+class AIGuardrailTopicPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class AIGuardrailContextualGroundingPolicyConfigUnionTypeDef(BaseValidatorModel):
+class AIGuardrailContextualGroundingPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class AIGuardrailContentPolicyConfigUnionTypeDef(BaseValidatorModel):
+class AIGuardrailContentPolicyConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateAIGuardrailRequestTypeDef(BaseValidatorModel):
+class CreateAIGuardrailRequest(BaseValidatorModel):
     assistantId: str
     blockedInputMessaging: str
     blockedOutputsMessaging: str
     name: str
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
-    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigUnionTypeDef] = None
-    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigUnionTypeDef ] = None
+    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigUnion] = None
+    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigUnion ] = None
     description: Optional[str] = None
-    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigUnionTypeDef ] = None
+    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigUnion ] = None
     tags: Optional[Mapping[str, str]] = None
-    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigUnionTypeDef] = None
-    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnionTypeDef] = None
+    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigUnion] = None
+    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnion] = None
 
 
-class UpdateAIGuardrailRequestTypeDef(BaseValidatorModel):
+class UpdateAIGuardrailRequest(BaseValidatorModel):
     aiGuardrailId: str
     assistantId: str
     blockedInputMessaging: str
     blockedOutputsMessaging: str
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
-    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigUnionTypeDef] = None
-    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigUnionTypeDef ] = None
+    contentPolicyConfig: Optional[AIGuardrailContentPolicyConfigUnion] = None
+    contextualGroundingPolicyConfig: Optional[ AIGuardrailContextualGroundingPolicyConfigUnion ] = None
     description: Optional[str] = None
-    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigUnionTypeDef ] = None
-    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigUnionTypeDef] = None
-    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnionTypeDef] = None
+    sensitiveInformationPolicyConfig: Optional[ AIGuardrailSensitiveInformationPolicyConfigUnion ] = None
+    topicPolicyConfig: Optional[AIGuardrailTopicPolicyConfigUnion] = None
+    wordPolicyConfig: Optional[AIGuardrailWordPolicyConfigUnion] = None
 
 
-class AIPromptDataTypeDef(BaseValidatorModel):
+class AIPromptData(BaseValidatorModel):
     pass
 
 
-class CreateAIPromptResponseTypeDef(BaseValidatorModel):
-    aiPrompt: AIPromptDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAIPromptResponse(BaseValidatorModel):
+    aiPrompt: AIPromptData
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAIPromptVersionResponseTypeDef(BaseValidatorModel):
-    aiPrompt: AIPromptDataTypeDef
+class CreateAIPromptVersionResponse(BaseValidatorModel):
+    aiPrompt: AIPromptData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAIPromptResponseTypeDef(BaseValidatorModel):
-    aiPrompt: AIPromptDataTypeDef
+class GetAIPromptResponse(BaseValidatorModel):
+    aiPrompt: AIPromptData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAIPromptResponseTypeDef(BaseValidatorModel):
-    aiPrompt: AIPromptDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAIPromptResponse(BaseValidatorModel):
+    aiPrompt: AIPromptData
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateContentAssociationResponseTypeDef(BaseValidatorModel):
-    contentAssociation: ContentAssociationDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateContentAssociationResponse(BaseValidatorModel):
+    contentAssociation: ContentAssociationData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetContentAssociationResponseTypeDef(BaseValidatorModel):
-    contentAssociation: ContentAssociationDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetContentAssociationResponse(BaseValidatorModel):
+    contentAssociation: ContentAssociationData
+    ResponseMetadata: ResponseMetadata
 
 
-class ListContentAssociationsResponseTypeDef(BaseValidatorModel):
-    contentAssociationSummaries: List[ContentAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContentAssociationsResponse(BaseValidatorModel):
+    contentAssociationSummaries: List[ContentAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateAssistantAssociationResponseTypeDef(BaseValidatorModel):
-    assistantAssociation: AssistantAssociationDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAssistantAssociationResponse(BaseValidatorModel):
+    assistantAssociation: AssistantAssociationData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAssistantAssociationResponseTypeDef(BaseValidatorModel):
-    assistantAssociation: AssistantAssociationDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAssistantAssociationResponse(BaseValidatorModel):
+    assistantAssociation: AssistantAssociationData
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAssistantAssociationsResponseTypeDef(BaseValidatorModel):
-    assistantAssociationSummaries: List[AssistantAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssistantAssociationsResponse(BaseValidatorModel):
+    assistantAssociationSummaries: List[AssistantAssociationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImportJobDataTypeDef(BaseValidatorModel):
+class ImportJobData(BaseValidatorModel):
     createdTime: datetime
     importJobId: str
     importJobType: Literal["QUICK_RESPONSES"]
@@ -1884,12 +1884,12 @@ class ImportJobDataTypeDef(BaseValidatorModel):
     uploadId: str
     url: str
     urlExpiry: datetime
-    externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
+    externalSourceConfiguration: Optional[ExternalSourceConfiguration] = None
     failedRecordReport: Optional[str] = None
     metadata: Optional[Dict[str, str]] = None
 
 
-class ImportJobSummaryTypeDef(BaseValidatorModel):
+class ImportJobSummary(BaseValidatorModel):
     createdTime: datetime
     importJobId: str
     importJobType: Literal["QUICK_RESPONSES"]
@@ -1898,139 +1898,139 @@ class ImportJobSummaryTypeDef(BaseValidatorModel):
     lastModifiedTime: datetime
     status: ImportJobStatusType
     uploadId: str
-    externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
+    externalSourceConfiguration: Optional[ExternalSourceConfiguration] = None
     metadata: Optional[Dict[str, str]] = None
 
 
-class StartImportJobRequestTypeDef(BaseValidatorModel):
+class StartImportJobRequest(BaseValidatorModel):
     importJobType: Literal["QUICK_RESPONSES"]
     knowledgeBaseId: str
     uploadId: str
     clientToken: Optional[str] = None
-    externalSourceConfiguration: Optional[ExternalSourceConfigurationTypeDef] = None
+    externalSourceConfiguration: Optional[ExternalSourceConfiguration] = None
     metadata: Optional[Mapping[str, str]] = None
 
 
-class ContentDataDetailsTypeDef(BaseValidatorModel):
-    rankingData: RankingDataTypeDef
-    textData: TextDataTypeDef
+class ContentDataDetails(BaseValidatorModel):
+    rankingData: RankingData
+    textData: TextData
 
 
-class MessageTemplateContentProviderOutputTypeDef(BaseValidatorModel):
-    email: Optional[EmailMessageTemplateContentOutputTypeDef] = None
-    sms: Optional[SMSMessageTemplateContentTypeDef] = None
+class MessageTemplateContentProviderOutput(BaseValidatorModel):
+    email: Optional[EmailMessageTemplateContentOutput] = None
+    sms: Optional[SMSMessageTemplateContent] = None
 
 
-class MessageTemplateContentProviderTypeDef(BaseValidatorModel):
-    email: Optional[EmailMessageTemplateContentTypeDef] = None
-    sms: Optional[SMSMessageTemplateContentTypeDef] = None
+class MessageTemplateContentProvider(BaseValidatorModel):
+    email: Optional[EmailMessageTemplateContent] = None
+    sms: Optional[SMSMessageTemplateContent] = None
 
 
-class VectorIngestionConfigurationOutputTypeDef(BaseValidatorModel):
-    chunkingConfiguration: Optional[ChunkingConfigurationOutputTypeDef] = None
-    parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
+class VectorIngestionConfigurationOutput(BaseValidatorModel):
+    chunkingConfiguration: Optional[ChunkingConfigurationOutput] = None
+    parsingConfiguration: Optional[ParsingConfiguration] = None
 
 
-class VectorIngestionConfigurationTypeDef(BaseValidatorModel):
-    chunkingConfiguration: Optional[ChunkingConfigurationTypeDef] = None
-    parsingConfiguration: Optional[ParsingConfigurationTypeDef] = None
+class VectorIngestionConfiguration(BaseValidatorModel):
+    chunkingConfiguration: Optional[ChunkingConfiguration] = None
+    parsingConfiguration: Optional[ParsingConfiguration] = None
 
 
-class ListMessagesResponseTypeDef(BaseValidatorModel):
-    messages: List[MessageOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMessagesResponse(BaseValidatorModel):
+    messages: List[MessageOutput]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class KnowledgeBaseAssociationConfigurationDataOutputTypeDef(BaseValidatorModel):
-    contentTagFilter: Optional[TagFilterOutputTypeDef] = None
+class KnowledgeBaseAssociationConfigurationDataOutput(BaseValidatorModel):
+    contentTagFilter: Optional[TagFilterOutput] = None
     maxResults: Optional[int] = None
     overrideKnowledgeBaseSearchType: Optional[KnowledgeBaseSearchTypeType] = None
 
 
-class SessionDataTypeDef(BaseValidatorModel):
+class SessionData(BaseValidatorModel):
     name: str
     sessionArn: str
     sessionId: str
-    aiAgentConfiguration: Optional[Dict[AIAgentTypeType, AIAgentConfigurationDataTypeDef]] = None
+    aiAgentConfiguration: Optional[Dict[AIAgentTypeType, AIAgentConfigurationData]] = None
     description: Optional[str] = None
-    integrationConfiguration: Optional[SessionIntegrationConfigurationTypeDef] = None
-    tagFilter: Optional[TagFilterOutputTypeDef] = None
+    integrationConfiguration: Optional[SessionIntegrationConfiguration] = None
+    tagFilter: Optional[TagFilterOutput] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class KnowledgeBaseAssociationConfigurationDataTypeDef(BaseValidatorModel):
-    contentTagFilter: Optional[TagFilterTypeDef] = None
+class KnowledgeBaseAssociationConfigurationData(BaseValidatorModel):
+    contentTagFilter: Optional[TagFilter] = None
     maxResults: Optional[int] = None
     overrideKnowledgeBaseSearchType: Optional[KnowledgeBaseSearchTypeType] = None
 
 
-class CreateQuickResponseResponseTypeDef(BaseValidatorModel):
-    quickResponse: QuickResponseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateQuickResponseResponse(BaseValidatorModel):
+    quickResponse: QuickResponseData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQuickResponseResponseTypeDef(BaseValidatorModel):
-    quickResponse: QuickResponseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetQuickResponseResponse(BaseValidatorModel):
+    quickResponse: QuickResponseData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateQuickResponseResponseTypeDef(BaseValidatorModel):
-    quickResponse: QuickResponseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateQuickResponseResponse(BaseValidatorModel):
+    quickResponse: QuickResponseData
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchQuickResponsesResponseTypeDef(BaseValidatorModel):
-    results: List[QuickResponseSearchResultDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchQuickResponsesResponse(BaseValidatorModel):
+    results: List[QuickResponseSearchResultData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ManagedSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    webCrawlerConfiguration: Optional[WebCrawlerConfigurationOutputTypeDef] = None
+class ManagedSourceConfigurationOutput(BaseValidatorModel):
+    webCrawlerConfiguration: Optional[WebCrawlerConfigurationOutput] = None
 
 
-class ManagedSourceConfigurationTypeDef(BaseValidatorModel):
-    webCrawlerConfiguration: Optional[WebCrawlerConfigurationTypeDef] = None
+class ManagedSourceConfiguration(BaseValidatorModel):
+    webCrawlerConfiguration: Optional[WebCrawlerConfiguration] = None
 
 
-class GetImportJobResponseTypeDef(BaseValidatorModel):
-    importJob: ImportJobDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetImportJobResponse(BaseValidatorModel):
+    importJob: ImportJobData
+    ResponseMetadata: ResponseMetadata
 
 
-class StartImportJobResponseTypeDef(BaseValidatorModel):
-    importJob: ImportJobDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartImportJobResponse(BaseValidatorModel):
+    importJob: ImportJobData
+    ResponseMetadata: ResponseMetadata
 
 
-class ListImportJobsResponseTypeDef(BaseValidatorModel):
-    importJobSummaries: List[ImportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportJobsResponse(BaseValidatorModel):
+    importJobSummaries: List[ImportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SourceContentDataDetailsTypeDef(BaseValidatorModel):
+class SourceContentDataDetails(BaseValidatorModel):
     pass
 
 
-class DataDetailsPaginatorTypeDef(BaseValidatorModel):
-    contentData: Optional[ContentDataDetailsTypeDef] = None
-    generativeData: Optional[GenerativeDataDetailsPaginatorTypeDef] = None
-    intentDetectedData: Optional[IntentDetectedDataDetailsTypeDef] = None
-    sourceContentData: Optional[SourceContentDataDetailsTypeDef] = None
+class DataDetailsPaginator(BaseValidatorModel):
+    contentData: Optional[ContentDataDetails] = None
+    generativeData: Optional[GenerativeDataDetailsPaginator] = None
+    intentDetectedData: Optional[IntentDetectedDataDetails] = None
+    sourceContentData: Optional[SourceContentDataDetails] = None
 
 
-class DataDetailsTypeDef(BaseValidatorModel):
-    contentData: Optional[ContentDataDetailsTypeDef] = None
-    generativeData: Optional[GenerativeDataDetailsTypeDef] = None
-    intentDetectedData: Optional[IntentDetectedDataDetailsTypeDef] = None
-    sourceContentData: Optional[SourceContentDataDetailsTypeDef] = None
+class DataDetails(BaseValidatorModel):
+    contentData: Optional[ContentDataDetails] = None
+    generativeData: Optional[GenerativeDataDetails] = None
+    intentDetectedData: Optional[IntentDetectedDataDetails] = None
+    sourceContentData: Optional[SourceContentDataDetails] = None
 
 
-class ExtendedMessageTemplateDataTypeDef(BaseValidatorModel):
+class ExtendedMessageTemplateData(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
-    content: MessageTemplateContentProviderOutputTypeDef
+    content: MessageTemplateContentProviderOutput
     createdTime: datetime
     knowledgeBaseArn: str
     knowledgeBaseId: str
@@ -2040,20 +2040,20 @@ class ExtendedMessageTemplateDataTypeDef(BaseValidatorModel):
     messageTemplateContentSha256: str
     messageTemplateId: str
     name: str
-    attachments: Optional[List[MessageTemplateAttachmentTypeDef]] = None
+    attachments: Optional[List[MessageTemplateAttachment]] = None
     attributeTypes: Optional[List[MessageTemplateAttributeTypeType]] = None
-    defaultAttributes: Optional[MessageTemplateAttributesOutputTypeDef] = None
+    defaultAttributes: Optional[MessageTemplateAttributesOutput] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationOutput] = None
     isActive: Optional[bool] = None
     language: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
     versionNumber: Optional[int] = None
 
 
-class MessageTemplateDataTypeDef(BaseValidatorModel):
+class MessageTemplateData(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
-    content: MessageTemplateContentProviderOutputTypeDef
+    content: MessageTemplateContentProviderOutput
     createdTime: datetime
     knowledgeBaseArn: str
     knowledgeBaseId: str
@@ -2064,158 +2064,158 @@ class MessageTemplateDataTypeDef(BaseValidatorModel):
     messageTemplateId: str
     name: str
     attributeTypes: Optional[List[MessageTemplateAttributeTypeType]] = None
-    defaultAttributes: Optional[MessageTemplateAttributesOutputTypeDef] = None
+    defaultAttributes: Optional[MessageTemplateAttributesOutput] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationOutputTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationOutput] = None
     language: Optional[str] = None
     tags: Optional[Dict[str, str]] = None
 
 
-class RenderMessageTemplateResponseTypeDef(BaseValidatorModel):
-    attachments: List[MessageTemplateAttachmentTypeDef]
+class RenderMessageTemplateResponse(BaseValidatorModel):
+    attachments: List[MessageTemplateAttachment]
     attributesNotInterpolated: List[str]
-    content: MessageTemplateContentProviderOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    content: MessageTemplateContentProviderOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociationConfigurationDataOutputTypeDef(BaseValidatorModel):
-    knowledgeBaseAssociationConfigurationData: Optional[ KnowledgeBaseAssociationConfigurationDataOutputTypeDef ] = None
+class AssociationConfigurationDataOutput(BaseValidatorModel):
+    knowledgeBaseAssociationConfigurationData: Optional[ KnowledgeBaseAssociationConfigurationDataOutput ] = None
 
 
-class CreateSessionResponseTypeDef(BaseValidatorModel):
-    session: SessionDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSessionResponse(BaseValidatorModel):
+    session: SessionData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSessionResponseTypeDef(BaseValidatorModel):
-    session: SessionDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSessionResponse(BaseValidatorModel):
+    session: SessionData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSessionResponseTypeDef(BaseValidatorModel):
-    session: SessionDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSessionResponse(BaseValidatorModel):
+    session: SessionData
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociationConfigurationDataTypeDef(BaseValidatorModel):
-    knowledgeBaseAssociationConfigurationData: Optional[ KnowledgeBaseAssociationConfigurationDataTypeDef ] = None
+class AssociationConfigurationData(BaseValidatorModel):
+    knowledgeBaseAssociationConfigurationData: Optional[ KnowledgeBaseAssociationConfigurationData ] = None
 
 
-class TagFilterUnionTypeDef(BaseValidatorModel):
+class TagFilterUnion(BaseValidatorModel):
     pass
 
 
-class CreateSessionRequestTypeDef(BaseValidatorModel):
+class CreateSessionRequest(BaseValidatorModel):
     assistantId: str
     name: str
-    aiAgentConfiguration: Optional[Mapping[AIAgentTypeType, AIAgentConfigurationDataTypeDef]] = None
+    aiAgentConfiguration: Optional[Mapping[AIAgentTypeType, AIAgentConfigurationData]] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    tagFilter: Optional[TagFilterUnionTypeDef] = None
+    tagFilter: Optional[TagFilterUnion] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateSessionRequestTypeDef(BaseValidatorModel):
+class UpdateSessionRequest(BaseValidatorModel):
     assistantId: str
     sessionId: str
-    aiAgentConfiguration: Optional[Mapping[AIAgentTypeType, AIAgentConfigurationDataTypeDef]] = None
+    aiAgentConfiguration: Optional[Mapping[AIAgentTypeType, AIAgentConfigurationData]] = None
     description: Optional[str] = None
-    tagFilter: Optional[TagFilterUnionTypeDef] = None
+    tagFilter: Optional[TagFilterUnion] = None
 
 
-class SourceConfigurationOutputTypeDef(BaseValidatorModel):
-    appIntegrations: Optional[AppIntegrationsConfigurationOutputTypeDef] = None
-    managedSourceConfiguration: Optional[ManagedSourceConfigurationOutputTypeDef] = None
+class SourceConfigurationOutput(BaseValidatorModel):
+    appIntegrations: Optional[AppIntegrationsConfigurationOutput] = None
+    managedSourceConfiguration: Optional[ManagedSourceConfigurationOutput] = None
 
 
-class SourceConfigurationTypeDef(BaseValidatorModel):
-    appIntegrations: Optional[AppIntegrationsConfigurationTypeDef] = None
-    managedSourceConfiguration: Optional[ManagedSourceConfigurationTypeDef] = None
+class SourceConfiguration(BaseValidatorModel):
+    appIntegrations: Optional[AppIntegrationsConfiguration] = None
+    managedSourceConfiguration: Optional[ManagedSourceConfiguration] = None
 
 
-class MessageTemplateAttributesUnionTypeDef(BaseValidatorModel):
+class MessageTemplateAttributesUnion(BaseValidatorModel):
     pass
 
 
-class RenderMessageTemplateRequestTypeDef(BaseValidatorModel):
-    attributes: MessageTemplateAttributesUnionTypeDef
+class RenderMessageTemplateRequest(BaseValidatorModel):
+    attributes: MessageTemplateAttributesUnion
     knowledgeBaseId: str
     messageTemplateId: str
 
 
-class DataSummaryPaginatorTypeDef(BaseValidatorModel):
-    details: DataDetailsPaginatorTypeDef
-    reference: DataReferenceTypeDef
+class DataSummaryPaginator(BaseValidatorModel):
+    details: DataDetailsPaginator
+    reference: DataReference
 
 
-class DataSummaryTypeDef(BaseValidatorModel):
-    details: DataDetailsTypeDef
-    reference: DataReferenceTypeDef
+class DataSummary(BaseValidatorModel):
+    details: DataDetails
+    reference: DataReference
 
 
-class CreateMessageTemplateVersionResponseTypeDef(BaseValidatorModel):
-    messageTemplate: ExtendedMessageTemplateDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMessageTemplateVersionResponse(BaseValidatorModel):
+    messageTemplate: ExtendedMessageTemplateData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMessageTemplateResponseTypeDef(BaseValidatorModel):
-    messageTemplate: ExtendedMessageTemplateDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMessageTemplateResponse(BaseValidatorModel):
+    messageTemplate: ExtendedMessageTemplateData
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMessageTemplateResponseTypeDef(BaseValidatorModel):
-    messageTemplate: MessageTemplateDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMessageTemplateResponse(BaseValidatorModel):
+    messageTemplate: MessageTemplateData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMessageTemplateMetadataResponseTypeDef(BaseValidatorModel):
-    messageTemplate: MessageTemplateDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMessageTemplateMetadataResponse(BaseValidatorModel):
+    messageTemplate: MessageTemplateData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMessageTemplateResponseTypeDef(BaseValidatorModel):
-    messageTemplate: MessageTemplateDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMessageTemplateResponse(BaseValidatorModel):
+    messageTemplate: MessageTemplateData
+    ResponseMetadata: ResponseMetadata
 
 
-class MessageTemplateContentProviderUnionTypeDef(BaseValidatorModel):
+class MessageTemplateContentProviderUnion(BaseValidatorModel):
     pass
 
 
-class CreateMessageTemplateRequestTypeDef(BaseValidatorModel):
+class CreateMessageTemplateRequest(BaseValidatorModel):
     channelSubtype: ChannelSubtypeType
-    content: MessageTemplateContentProviderUnionTypeDef
+    content: MessageTemplateContentProviderUnion
     knowledgeBaseId: str
     name: str
     clientToken: Optional[str] = None
-    defaultAttributes: Optional[MessageTemplateAttributesUnionTypeDef] = None
+    defaultAttributes: Optional[MessageTemplateAttributesUnion] = None
     description: Optional[str] = None
-    groupingConfiguration: Optional[GroupingConfigurationUnionTypeDef] = None
+    groupingConfiguration: Optional[GroupingConfigurationUnion] = None
     language: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateMessageTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateMessageTemplateRequest(BaseValidatorModel):
     knowledgeBaseId: str
     messageTemplateId: str
-    content: Optional[MessageTemplateContentProviderUnionTypeDef] = None
-    defaultAttributes: Optional[MessageTemplateAttributesUnionTypeDef] = None
+    content: Optional[MessageTemplateContentProviderUnion] = None
+    defaultAttributes: Optional[MessageTemplateAttributesUnion] = None
     language: Optional[str] = None
 
 
-class AssociationConfigurationOutputTypeDef(BaseValidatorModel):
-    associationConfigurationData: Optional[AssociationConfigurationDataOutputTypeDef] = None
+class AssociationConfigurationOutput(BaseValidatorModel):
+    associationConfigurationData: Optional[AssociationConfigurationDataOutput] = None
     associationId: Optional[str] = None
     associationType: Optional[Literal["KNOWLEDGE_BASE"]] = None
 
 
-class AssociationConfigurationTypeDef(BaseValidatorModel):
-    associationConfigurationData: Optional[AssociationConfigurationDataTypeDef] = None
+class AssociationConfiguration(BaseValidatorModel):
+    associationConfigurationData: Optional[AssociationConfigurationData] = None
     associationId: Optional[str] = None
     associationType: Optional[Literal["KNOWLEDGE_BASE"]] = None
 
 
-class KnowledgeBaseDataTypeDef(BaseValidatorModel):
+class KnowledgeBaseData(BaseValidatorModel):
     knowledgeBaseArn: str
     knowledgeBaseId: str
     knowledgeBaseType: KnowledgeBaseTypeType
@@ -2225,217 +2225,217 @@ class KnowledgeBaseDataTypeDef(BaseValidatorModel):
     ingestionFailureReasons: Optional[List[str]] = None
     ingestionStatus: Optional[SyncStatusType] = None
     lastContentModificationTime: Optional[datetime] = None
-    renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
+    renderingConfiguration: Optional[RenderingConfiguration] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    sourceConfiguration: Optional[SourceConfigurationOutput] = None
     tags: Optional[Dict[str, str]] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutputTypeDef] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutput] = None
 
 
-class KnowledgeBaseSummaryTypeDef(BaseValidatorModel):
+class KnowledgeBaseSummary(BaseValidatorModel):
     knowledgeBaseArn: str
     knowledgeBaseId: str
     knowledgeBaseType: KnowledgeBaseTypeType
     name: str
     status: KnowledgeBaseStatusType
     description: Optional[str] = None
-    renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    sourceConfiguration: Optional[SourceConfigurationOutputTypeDef] = None
+    renderingConfiguration: Optional[RenderingConfiguration] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    sourceConfiguration: Optional[SourceConfigurationOutput] = None
     tags: Optional[Dict[str, str]] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutputTypeDef] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationOutput] = None
 
 
-class AnswerRecommendationAIAgentConfigurationOutputTypeDef(BaseValidatorModel):
+class AnswerRecommendationAIAgentConfigurationOutput(BaseValidatorModel):
     answerGenerationAIGuardrailId: Optional[str] = None
     answerGenerationAIPromptId: Optional[str] = None
-    associationConfigurations: Optional[List[AssociationConfigurationOutputTypeDef]] = None
+    associationConfigurations: Optional[List[AssociationConfigurationOutput]] = None
     intentLabelingGenerationAIPromptId: Optional[str] = None
     locale: Optional[str] = None
     queryReformulationAIPromptId: Optional[str] = None
 
 
-class ManualSearchAIAgentConfigurationOutputTypeDef(BaseValidatorModel):
+class ManualSearchAIAgentConfigurationOutput(BaseValidatorModel):
     answerGenerationAIGuardrailId: Optional[str] = None
     answerGenerationAIPromptId: Optional[str] = None
-    associationConfigurations: Optional[List[AssociationConfigurationOutputTypeDef]] = None
+    associationConfigurations: Optional[List[AssociationConfigurationOutput]] = None
     locale: Optional[str] = None
 
 
-class SelfServiceAIAgentConfigurationOutputTypeDef(BaseValidatorModel):
-    associationConfigurations: Optional[List[AssociationConfigurationOutputTypeDef]] = None
+class SelfServiceAIAgentConfigurationOutput(BaseValidatorModel):
+    associationConfigurations: Optional[List[AssociationConfigurationOutput]] = None
     selfServiceAIGuardrailId: Optional[str] = None
     selfServiceAnswerGenerationAIPromptId: Optional[str] = None
     selfServicePreProcessingAIPromptId: Optional[str] = None
 
 
-class AnswerRecommendationAIAgentConfigurationTypeDef(BaseValidatorModel):
+class AnswerRecommendationAIAgentConfiguration(BaseValidatorModel):
     answerGenerationAIGuardrailId: Optional[str] = None
     answerGenerationAIPromptId: Optional[str] = None
-    associationConfigurations: Optional[Sequence[AssociationConfigurationTypeDef]] = None
+    associationConfigurations: Optional[Sequence[AssociationConfiguration]] = None
     intentLabelingGenerationAIPromptId: Optional[str] = None
     locale: Optional[str] = None
     queryReformulationAIPromptId: Optional[str] = None
 
 
-class ManualSearchAIAgentConfigurationTypeDef(BaseValidatorModel):
+class ManualSearchAIAgentConfiguration(BaseValidatorModel):
     answerGenerationAIGuardrailId: Optional[str] = None
     answerGenerationAIPromptId: Optional[str] = None
-    associationConfigurations: Optional[Sequence[AssociationConfigurationTypeDef]] = None
+    associationConfigurations: Optional[Sequence[AssociationConfiguration]] = None
     locale: Optional[str] = None
 
 
-class SelfServiceAIAgentConfigurationTypeDef(BaseValidatorModel):
-    associationConfigurations: Optional[Sequence[AssociationConfigurationTypeDef]] = None
+class SelfServiceAIAgentConfiguration(BaseValidatorModel):
+    associationConfigurations: Optional[Sequence[AssociationConfiguration]] = None
     selfServiceAIGuardrailId: Optional[str] = None
     selfServiceAnswerGenerationAIPromptId: Optional[str] = None
     selfServicePreProcessingAIPromptId: Optional[str] = None
 
 
-class CreateKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateKnowledgeBaseResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBaseData
+    ResponseMetadata: ResponseMetadata
 
 
-class GetKnowledgeBaseResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetKnowledgeBaseResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBaseData
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKnowledgeBaseTemplateUriResponseTypeDef(BaseValidatorModel):
-    knowledgeBase: KnowledgeBaseDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateKnowledgeBaseTemplateUriResponse(BaseValidatorModel):
+    knowledgeBase: KnowledgeBaseData
+    ResponseMetadata: ResponseMetadata
 
 
-class ListKnowledgeBasesResponseTypeDef(BaseValidatorModel):
-    knowledgeBaseSummaries: List[KnowledgeBaseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKnowledgeBasesResponse(BaseValidatorModel):
+    knowledgeBaseSummaries: List[KnowledgeBaseSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SourceConfigurationUnionTypeDef(BaseValidatorModel):
+class SourceConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class VectorIngestionConfigurationUnionTypeDef(BaseValidatorModel):
+class VectorIngestionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateKnowledgeBaseRequestTypeDef(BaseValidatorModel):
+class CreateKnowledgeBaseRequest(BaseValidatorModel):
     knowledgeBaseType: KnowledgeBaseTypeType
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    renderingConfiguration: Optional[RenderingConfigurationTypeDef] = None
-    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
-    sourceConfiguration: Optional[SourceConfigurationUnionTypeDef] = None
+    renderingConfiguration: Optional[RenderingConfiguration] = None
+    serverSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
+    sourceConfiguration: Optional[SourceConfigurationUnion] = None
     tags: Optional[Mapping[str, str]] = None
-    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnionTypeDef] = None
+    vectorIngestionConfiguration: Optional[VectorIngestionConfigurationUnion] = None
 
 
-class ResultDataPaginatorTypeDef(BaseValidatorModel):
+class ResultDataPaginator(BaseValidatorModel):
     pass
 
 
-class QueryAssistantResponsePaginatorTypeDef(BaseValidatorModel):
-    results: List[ResultDataPaginatorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class QueryAssistantResponsePaginator(BaseValidatorModel):
+    results: List[ResultDataPaginator]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommendationTriggerTypeDef(BaseValidatorModel):
+class RecommendationTrigger(BaseValidatorModel):
     pass
 
 
-class RecommendationDataTypeDef(BaseValidatorModel):
+class RecommendationData(BaseValidatorModel):
     pass
 
 
-class GetRecommendationsResponseTypeDef(BaseValidatorModel):
-    recommendations: List[RecommendationDataTypeDef]
-    triggers: List[RecommendationTriggerTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRecommendationsResponse(BaseValidatorModel):
+    recommendations: List[RecommendationData]
+    triggers: List[RecommendationTrigger]
+    ResponseMetadata: ResponseMetadata
 
 
-class ResultDataTypeDef(BaseValidatorModel):
+class ResultData(BaseValidatorModel):
     pass
 
 
-class QueryAssistantResponseTypeDef(BaseValidatorModel):
-    results: List[ResultDataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class QueryAssistantResponse(BaseValidatorModel):
+    results: List[ResultData]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AIAgentConfigurationOutputTypeDef(BaseValidatorModel):
-    answerRecommendationAIAgentConfiguration: Optional[ AnswerRecommendationAIAgentConfigurationOutputTypeDef ] = None
-    manualSearchAIAgentConfiguration: Optional[ManualSearchAIAgentConfigurationOutputTypeDef] = None
-    selfServiceAIAgentConfiguration: Optional[SelfServiceAIAgentConfigurationOutputTypeDef] = None
+class AIAgentConfigurationOutput(BaseValidatorModel):
+    answerRecommendationAIAgentConfiguration: Optional[ AnswerRecommendationAIAgentConfigurationOutput ] = None
+    manualSearchAIAgentConfiguration: Optional[ManualSearchAIAgentConfigurationOutput] = None
+    selfServiceAIAgentConfiguration: Optional[SelfServiceAIAgentConfigurationOutput] = None
 
 
-class AIAgentConfigurationTypeDef(BaseValidatorModel):
-    answerRecommendationAIAgentConfiguration: Optional[ AnswerRecommendationAIAgentConfigurationTypeDef ] = None
-    manualSearchAIAgentConfiguration: Optional[ManualSearchAIAgentConfigurationTypeDef] = None
-    selfServiceAIAgentConfiguration: Optional[SelfServiceAIAgentConfigurationTypeDef] = None
+class AIAgentConfiguration(BaseValidatorModel):
+    answerRecommendationAIAgentConfiguration: Optional[ AnswerRecommendationAIAgentConfiguration ] = None
+    manualSearchAIAgentConfiguration: Optional[ManualSearchAIAgentConfiguration] = None
+    selfServiceAIAgentConfiguration: Optional[SelfServiceAIAgentConfiguration] = None
 
 
-class AIAgentDataTypeDef(BaseValidatorModel):
+class AIAgentData(BaseValidatorModel):
     pass
 
 
-class CreateAIAgentResponseTypeDef(BaseValidatorModel):
-    aiAgent: AIAgentDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateAIAgentResponse(BaseValidatorModel):
+    aiAgent: AIAgentData
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateAIAgentVersionResponseTypeDef(BaseValidatorModel):
-    aiAgent: AIAgentDataTypeDef
+class CreateAIAgentVersionResponse(BaseValidatorModel):
+    aiAgent: AIAgentData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAIAgentResponseTypeDef(BaseValidatorModel):
-    aiAgent: AIAgentDataTypeDef
+class GetAIAgentResponse(BaseValidatorModel):
+    aiAgent: AIAgentData
     versionNumber: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAIAgentResponseTypeDef(BaseValidatorModel):
-    aiAgent: AIAgentDataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateAIAgentResponse(BaseValidatorModel):
+    aiAgent: AIAgentData
+    ResponseMetadata: ResponseMetadata
 
 
-class AIAgentSummaryTypeDef(BaseValidatorModel):
+class AIAgentSummary(BaseValidatorModel):
     pass
 
 
-class AIAgentVersionSummaryTypeDef(BaseValidatorModel):
-    aiAgentSummary: Optional[AIAgentSummaryTypeDef] = None
+class AIAgentVersionSummary(BaseValidatorModel):
+    aiAgentSummary: Optional[AIAgentSummary] = None
     versionNumber: Optional[int] = None
 
 
-class ListAIAgentsResponseTypeDef(BaseValidatorModel):
-    aiAgentSummaries: List[AIAgentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIAgentsResponse(BaseValidatorModel):
+    aiAgentSummaries: List[AIAgentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AIAgentConfigurationUnionTypeDef(BaseValidatorModel):
+class AIAgentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateAIAgentRequestTypeDef(BaseValidatorModel):
+class UpdateAIAgentRequest(BaseValidatorModel):
     aiAgentId: str
     assistantId: str
     visibilityStatus: VisibilityStatusType
     clientToken: Optional[str] = None
-    configuration: Optional[AIAgentConfigurationUnionTypeDef] = None
+    configuration: Optional[AIAgentConfigurationUnion] = None
     description: Optional[str] = None
 
 
-class ListAIAgentVersionsResponseTypeDef(BaseValidatorModel):
-    aiAgentVersionSummaries: List[AIAgentVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAIAgentVersionsResponse(BaseValidatorModel):
+    aiAgentVersionSummaries: List[AIAgentVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

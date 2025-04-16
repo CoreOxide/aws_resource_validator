@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.arc_zonal_shift_constants import *
 
-class AutoshiftInResourceTypeDef(BaseValidatorModel):
+class AutoshiftInResource(BaseValidatorModel):
     appliedStatus: AutoshiftAppliedStatusType
     awayFrom: str
     startTime: datetime
 
 
-class AutoshiftSummaryTypeDef(BaseValidatorModel):
+class AutoshiftSummary(BaseValidatorModel):
     awayFrom: str
     endTime: datetime
     startTime: datetime
     status: AutoshiftExecutionStatusType
 
 
-class CancelZonalShiftRequestTypeDef(BaseValidatorModel):
+class CancelZonalShiftRequest(BaseValidatorModel):
     zonalShiftId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,15 +37,15 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeletePracticeRunConfigurationRequestTypeDef(BaseValidatorModel):
+class DeletePracticeRunConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
 
 
-class GetManagedResourceRequestTypeDef(BaseValidatorModel):
+class GetManagedResourceRequest(BaseValidatorModel):
     resourceIdentifier: str
 
 
-class ZonalShiftInResourceTypeDef(BaseValidatorModel):
+class ZonalShiftInResource(BaseValidatorModel):
     appliedStatus: AppliedStatusType
     awayFrom: str
     comment: str
@@ -56,31 +56,31 @@ class ZonalShiftInResourceTypeDef(BaseValidatorModel):
     practiceRunOutcome: Optional[PracticeRunOutcomeType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAutoshiftsRequestTypeDef(BaseValidatorModel):
+class ListAutoshiftsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[AutoshiftExecutionStatusType] = None
 
 
-class ListManagedResourcesRequestTypeDef(BaseValidatorModel):
+class ListManagedResourcesRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListZonalShiftsRequestTypeDef(BaseValidatorModel):
+class ListZonalShiftsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     resourceIdentifier: Optional[str] = None
     status: Optional[ZonalShiftStatusType] = None
 
 
-class ZonalShiftSummaryTypeDef(BaseValidatorModel):
+class ZonalShiftSummary(BaseValidatorModel):
     awayFrom: str
     comment: str
     expiryTime: datetime
@@ -91,85 +91,85 @@ class ZonalShiftSummaryTypeDef(BaseValidatorModel):
     practiceRunOutcome: Optional[PracticeRunOutcomeType] = None
 
 
-class StartZonalShiftRequestTypeDef(BaseValidatorModel):
+class StartZonalShiftRequest(BaseValidatorModel):
     awayFrom: str
     comment: str
     expiresIn: str
     resourceIdentifier: str
 
 
-class UpdateAutoshiftObserverNotificationStatusRequestTypeDef(BaseValidatorModel):
+class UpdateAutoshiftObserverNotificationStatusRequest(BaseValidatorModel):
     status: AutoshiftObserverNotificationStatusType
 
 
-class UpdateZonalAutoshiftConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateZonalAutoshiftConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
 
 
-class UpdateZonalShiftRequestTypeDef(BaseValidatorModel):
+class UpdateZonalShiftRequest(BaseValidatorModel):
     zonalShiftId: str
     comment: Optional[str] = None
     expiresIn: Optional[str] = None
 
 
-class ControlConditionTypeDef(BaseValidatorModel):
+class ControlCondition(BaseValidatorModel):
     pass
 
 
-class CreatePracticeRunConfigurationRequestTypeDef(BaseValidatorModel):
-    outcomeAlarms: Sequence[ControlConditionTypeDef]
+class CreatePracticeRunConfigurationRequest(BaseValidatorModel):
+    outcomeAlarms: Sequence[ControlCondition]
     resourceIdentifier: str
     blockedDates: Optional[Sequence[str]] = None
     blockedWindows: Optional[Sequence[str]] = None
-    blockingAlarms: Optional[Sequence[ControlConditionTypeDef]] = None
+    blockingAlarms: Optional[Sequence[ControlCondition]] = None
 
 
-class PracticeRunConfigurationTypeDef(BaseValidatorModel):
-    outcomeAlarms: List[ControlConditionTypeDef]
+class PracticeRunConfiguration(BaseValidatorModel):
+    outcomeAlarms: List[ControlCondition]
     blockedDates: Optional[List[str]] = None
     blockedWindows: Optional[List[str]] = None
-    blockingAlarms: Optional[List[ControlConditionTypeDef]] = None
+    blockingAlarms: Optional[List[ControlCondition]] = None
 
 
-class UpdatePracticeRunConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdatePracticeRunConfigurationRequest(BaseValidatorModel):
     resourceIdentifier: str
     blockedDates: Optional[Sequence[str]] = None
     blockedWindows: Optional[Sequence[str]] = None
-    blockingAlarms: Optional[Sequence[ControlConditionTypeDef]] = None
-    outcomeAlarms: Optional[Sequence[ControlConditionTypeDef]] = None
+    blockingAlarms: Optional[Sequence[ControlCondition]] = None
+    outcomeAlarms: Optional[Sequence[ControlCondition]] = None
 
 
-class DeletePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
+class DeletePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAutoshiftObserverNotificationStatusResponseTypeDef(BaseValidatorModel):
+class GetAutoshiftObserverNotificationStatusResponse(BaseValidatorModel):
     status: AutoshiftObserverNotificationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAutoshiftsResponseTypeDef(BaseValidatorModel):
-    items: List[AutoshiftSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAutoshiftsResponse(BaseValidatorModel):
+    items: List[AutoshiftSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateAutoshiftObserverNotificationStatusResponseTypeDef(BaseValidatorModel):
+class UpdateAutoshiftObserverNotificationStatusResponse(BaseValidatorModel):
     status: AutoshiftObserverNotificationStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateZonalAutoshiftConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateZonalAutoshiftConfigurationResponse(BaseValidatorModel):
     resourceIdentifier: str
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ZonalShiftTypeDef(BaseValidatorModel):
+class ZonalShift(BaseValidatorModel):
     awayFrom: str
     comment: str
     expiryTime: datetime
@@ -177,71 +177,71 @@ class ZonalShiftTypeDef(BaseValidatorModel):
     startTime: datetime
     status: ZonalShiftStatusType
     zonalShiftId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ManagedResourceSummaryTypeDef(BaseValidatorModel):
+class ManagedResourceSummary(BaseValidatorModel):
     availabilityZones: List[str]
     appliedWeights: Optional[Dict[str, float]] = None
     arn: Optional[str] = None
-    autoshifts: Optional[List[AutoshiftInResourceTypeDef]] = None
+    autoshifts: Optional[List[AutoshiftInResource]] = None
     name: Optional[str] = None
     practiceRunStatus: Optional[ZonalAutoshiftStatusType] = None
     zonalAutoshiftStatus: Optional[ZonalAutoshiftStatusType] = None
-    zonalShifts: Optional[List[ZonalShiftInResourceTypeDef]] = None
+    zonalShifts: Optional[List[ZonalShiftInResource]] = None
 
 
-class ListAutoshiftsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAutoshiftsRequestPaginate(BaseValidatorModel):
     status: Optional[AutoshiftExecutionStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListManagedResourcesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListManagedResourcesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListZonalShiftsRequestPaginateTypeDef(BaseValidatorModel):
+class ListZonalShiftsRequestPaginate(BaseValidatorModel):
     resourceIdentifier: Optional[str] = None
     status: Optional[ZonalShiftStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListZonalShiftsResponseTypeDef(BaseValidatorModel):
-    items: List[ZonalShiftSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListZonalShiftsResponse(BaseValidatorModel):
+    items: List[ZonalShiftSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreatePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
+class CreatePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
-    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    practiceRunConfiguration: PracticeRunConfiguration
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetManagedResourceResponseTypeDef(BaseValidatorModel):
+class GetManagedResourceResponse(BaseValidatorModel):
     appliedWeights: Dict[str, float]
     arn: str
-    autoshifts: List[AutoshiftInResourceTypeDef]
+    autoshifts: List[AutoshiftInResource]
     name: str
-    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    practiceRunConfiguration: PracticeRunConfiguration
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    zonalShifts: List[ZonalShiftInResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    zonalShifts: List[ZonalShiftInResource]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePracticeRunConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdatePracticeRunConfigurationResponse(BaseValidatorModel):
     arn: str
     name: str
-    practiceRunConfiguration: PracticeRunConfigurationTypeDef
+    practiceRunConfiguration: PracticeRunConfiguration
     zonalAutoshiftStatus: ZonalAutoshiftStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListManagedResourcesResponseTypeDef(BaseValidatorModel):
-    items: List[ManagedResourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListManagedResourcesResponse(BaseValidatorModel):
+    items: List[ManagedResourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

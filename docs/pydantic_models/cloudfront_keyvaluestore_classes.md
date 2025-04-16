@@ -6,14 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteKeyRequestListItemTypeDef
-
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DeleteKeyRequestTypeDef
+# DeleteKeyRequest
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -28,7 +21,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeyResponseTypeDef
+# DeleteKeyRequestListItem
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DeleteKeyResponse
 
 ### ItemCount
 - **Type**: <class 'int'>
@@ -43,18 +43,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeKeyValueStoreRequestTypeDef
+# DescribeKeyValueStoreRequest
 
 ### KvsARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeKeyValueStoreResponseTypeDef
+# DescribeKeyValueStoreResponse
 
 ### ItemCount
 - **Type**: <class 'int'>
@@ -89,11 +89,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetKeyRequestTypeDef
+# GetKeyRequest
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -104,7 +104,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetKeyResponseTypeDef
+# GetKeyResponse
 
 ### Key
 - **Type**: <class 'str'>
@@ -123,21 +123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListKeysRequestPaginateTypeDef
-
-### KvsARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PaginatorConfigTypeDef]
-
-
-# ListKeysRequestTypeDef
+# ListKeysRequest
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -150,7 +140,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListKeysResponseListItemTypeDef
+# ListKeysRequestPaginate
+
+### KvsARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PaginatorConfig]
+
+
+# ListKeysResponse
+
+### Items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ListKeysResponseListItem]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListKeysResponseListItem
 
 ### Key
 - **Type**: <class 'str'>
@@ -161,21 +175,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListKeysResponseTypeDef
-
-### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ListKeysResponseListItemTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -187,18 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutKeyRequestListItemTypeDef
-
-### Key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Value
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# PutKeyRequestTypeDef
+# PutKeyRequest
 
 ### Key
 - **Type**: <class 'str'>
@@ -217,7 +206,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutKeyResponseTypeDef
+# PutKeyRequestListItem
+
+### Key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Value
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutKeyResponse
 
 ### ItemCount
 - **Type**: <class 'int'>
@@ -232,11 +232,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -258,7 +258,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateKeysRequestTypeDef
+# UpdateKeysRequest
 
 ### KvsARN
 - **Type**: <class 'str'>
@@ -269,13 +269,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Puts
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PutKeyRequestListItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.PutKeyRequestListItem]]
 
 ### Deletes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.DeleteKeyRequestListItemTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.DeleteKeyRequestListItem]]
 
 
-# UpdateKeysResponseTypeDef
+# UpdateKeysResponse
 
 ### ItemCount
 - **Type**: <class 'int'>
@@ -290,7 +290,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_keyvaluestore_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

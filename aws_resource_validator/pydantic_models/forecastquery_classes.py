@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.forecastquery_constants import *
 
-class DataPointTypeDef(BaseValidatorModel):
+class DataPoint(BaseValidatorModel):
     Timestamp: Optional[str] = None
     Value: Optional[float] = None
 
 
-class QueryForecastRequestTypeDef(BaseValidatorModel):
+class QueryForecastRequest(BaseValidatorModel):
     ForecastArn: str
     Filters: Mapping[str, str]
     StartDate: Optional[str] = None
@@ -25,7 +25,7 @@ class QueryForecastRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -33,7 +33,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class QueryWhatIfForecastRequestTypeDef(BaseValidatorModel):
+class QueryWhatIfForecastRequest(BaseValidatorModel):
     WhatIfForecastArn: str
     Filters: Mapping[str, str]
     StartDate: Optional[str] = None
@@ -41,17 +41,17 @@ class QueryWhatIfForecastRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ForecastTypeDef(BaseValidatorModel):
-    Predictions: Optional[Dict[str, List[DataPointTypeDef]]] = None
+class Forecast(BaseValidatorModel):
+    Predictions: Optional[Dict[str, List[DataPoint]]] = None
 
 
-class QueryForecastResponseTypeDef(BaseValidatorModel):
-    Forecast: ForecastTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class QueryForecastResponse(BaseValidatorModel):
+    Forecast: Forecast
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryWhatIfForecastResponseTypeDef(BaseValidatorModel):
-    Forecast: ForecastTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class QueryWhatIfForecastResponse(BaseValidatorModel):
+    Forecast: Forecast
+    ResponseMetadata: ResponseMetadata
 
 

@@ -1,33 +1,12 @@
 # Iam Classes
 
-# AccessDetailTypeDef
+# AccessDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AccessKeyLastUsedTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AccessKeyMetadataTypeDef
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### AccessKeyId
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# AccessKeyTypeDef
+# AccessKey
 
 ### UserName
 - **Type**: <class 'str'>
@@ -49,7 +28,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# AddClientIDToOpenIDConnectProviderRequestTypeDef
+# AccessKeyLastUsed
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AccessKeyMetadata
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### AccessKeyId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+### CreateDate
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# AddClientIDToOpenIDConnectProviderRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
@@ -60,14 +60,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AddRoleToInstanceProfileRequestInstanceProfileAddRoleTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AddRoleToInstanceProfileRequestTypeDef
+# AddRoleToInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -78,71 +71,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AddUserToGroupRequestGroupAddUserTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AddUserToGroupRequestTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AddUserToGroupRequestUserAddGroupTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AttachGroupPolicyRequestGroupAttachPolicyTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AttachGroupPolicyRequestPolicyAttachGroupTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AttachGroupPolicyRequestTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# AttachRolePolicyRequestPolicyAttachRoleTypeDef
+# AddRoleToInstanceProfileRequestInstanceProfileAddRole
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttachRolePolicyRequestRoleAttachPolicyTypeDef
+# AddUserToGroupRequest
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AddUserToGroupRequestGroupAddUser
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AddUserToGroupRequestUserAddGroup
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AttachGroupPolicyRequest
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttachRolePolicyRequestTypeDef
+# AttachGroupPolicyRequestGroupAttachPolicy
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AttachGroupPolicyRequestPolicyAttachGroup
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AttachRolePolicyRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -153,14 +139,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AttachUserPolicyRequestPolicyAttachUserTypeDef
+# AttachRolePolicyRequestPolicyAttachRole
 
-### UserName
+### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttachUserPolicyRequestTypeDef
+# AttachRolePolicyRequestRoleAttachPolicy
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AttachUserPolicyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -171,14 +164,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AttachUserPolicyRequestUserAttachPolicyTypeDef
+# AttachUserPolicyRequestPolicyAttachUser
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# AttachUserPolicyRequestUserAttachPolicy
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AttachedPermissionsBoundaryTypeDef
+# AttachedPermissionsBoundary
 
 ### PermissionsBoundaryType
 - **Type**: typing.Optional[typing.Literal['PermissionsBoundaryPolicy']]
@@ -187,7 +187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AttachedPolicyTypeDef
+# AttachedPolicy
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -202,7 +202,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ChangePasswordRequestServiceResourceChangePasswordTypeDef
+# ChangePasswordRequest
 
 ### OldPassword
 - **Type**: <class 'str'>
@@ -213,7 +213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ChangePasswordRequestTypeDef
+# ChangePasswordRequestServiceResourceChangePassword
 
 ### OldPassword
 - **Type**: <class 'str'>
@@ -224,7 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContextEntryTypeDef
+# ContextEntry
 
 ### ContextKeyName
 - **Type**: typing.Optional[str]
@@ -236,44 +236,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['binary', 'binaryList', 'boolean', 'booleanList', 'date', 'dateList', 'ip', 'ipList', 'numeric', 'numericList', 'string', 'stringList']]
 
 
-# CreateAccessKeyRequestTypeDef
+# CreateAccessKeyRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 
-# CreateAccessKeyResponseTypeDef
+# CreateAccessKeyResponse
 
 ### AccessKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.AccessKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.AccessKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAccountAliasRequestServiceResourceCreateAccountAliasTypeDef
+# CreateAccountAliasRequest
 
 ### AccountAlias
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateAccountAliasRequestTypeDef
+# CreateAccountAliasRequestServiceResourceCreateAccountAlias
 
 ### AccountAlias
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateGroupRequestGroupCreateTypeDef
-
-### Path
-- **Type**: typing.Optional[str]
-
-
-# CreateGroupRequestServiceResourceCreateGroupTypeDef
+# CreateGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -283,7 +277,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGroupRequestTypeDef
+# CreateGroupRequestGroupCreate
+
+### Path
+- **Type**: typing.Optional[str]
+
+
+# CreateGroupRequestServiceResourceCreateGroup
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -293,18 +293,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateGroupResponseTypeDef
+# CreateGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Group'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInstanceProfileRequestServiceResourceCreateInstanceProfileTypeDef
+# CreateInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -314,10 +314,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateInstanceProfileRequestTypeDef
+# CreateInstanceProfileRequestServiceResourceCreateInstanceProfile
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -327,30 +327,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateInstanceProfileResponseTypeDef
+# CreateInstanceProfileResponse
 
 ### InstanceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.InstanceProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.InstanceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLoginProfileRequestLoginProfileCreateTypeDef
-
-### Password
-- **Type**: typing.Optional[str]
-
-### PasswordResetRequired
-- **Type**: typing.Optional[bool]
-
-
-# CreateLoginProfileRequestTypeDef
+# CreateLoginProfileRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -362,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateLoginProfileRequestUserCreateLoginProfileTypeDef
+# CreateLoginProfileRequestLoginProfileCreate
 
 ### Password
 - **Type**: typing.Optional[str]
@@ -371,18 +362,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreateLoginProfileResponseTypeDef
+# CreateLoginProfileRequestUserCreateLoginProfile
+
+### Password
+- **Type**: typing.Optional[str]
+
+### PasswordResetRequired
+- **Type**: typing.Optional[bool]
+
+
+# CreateLoginProfileResponse
 
 ### LoginProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.LoginProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.LoginProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOpenIDConnectProviderRequestTypeDef
+# CreateOpenIDConnectProviderRequest
 
 ### Url
 - **Type**: <class 'str'>
@@ -395,25 +395,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateOpenIDConnectProviderResponseTypeDef
+# CreateOpenIDConnectProviderResponse
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePolicyRequestServiceResourceCreatePolicyTypeDef
+# CreatePolicyRequest
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -430,10 +430,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreatePolicyRequestTypeDef
+# CreatePolicyRequestServiceResourceCreatePolicy
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -450,31 +450,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreatePolicyResponseTypeDef
+# CreatePolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Policy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePolicyVersionRequestPolicyCreateVersionTypeDef
-
-### PolicyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SetAsDefault
-- **Type**: typing.Optional[bool]
-
-
-# CreatePolicyVersionRequestTypeDef
+# CreatePolicyVersionRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -488,18 +478,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CreatePolicyVersionResponseTypeDef
+# CreatePolicyVersionRequestPolicyCreateVersion
+
+### PolicyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SetAsDefault
+- **Type**: typing.Optional[bool]
+
+
+# CreatePolicyVersionResponse
 
 ### PolicyVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRoleRequestServiceResourceCreateRoleTypeDef
+# CreateRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -522,10 +522,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateRoleRequestTypeDef
+# CreateRoleRequestServiceResourceCreateRole
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -548,21 +548,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateRoleResponseTypeDef
+# CreateRoleResponse
 
 ### Role
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Role'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSAMLProviderRequestServiceResourceCreateSamlProviderTypeDef
+# CreateSAMLProviderRequest
 
 ### SAMLMetadataDocument
 - **Type**: <class 'str'>
@@ -573,7 +573,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 ### AssertionEncryptionMode
 - **Type**: typing.Optional[typing.Literal['Allowed', 'Required']]
@@ -582,7 +582,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSAMLProviderRequestTypeDef
+# CreateSAMLProviderRequestServiceResourceCreateSamlProvider
 
 ### SAMLMetadataDocument
 - **Type**: <class 'str'>
@@ -593,7 +593,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 ### AssertionEncryptionMode
 - **Type**: typing.Optional[typing.Literal['Allowed', 'Required']]
@@ -602,22 +602,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateSAMLProviderResponseTypeDef
+# CreateSAMLProviderResponse
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceLinkedRoleRequestTypeDef
+# CreateServiceLinkedRoleRequest
 
 ### AWSServiceName
 - **Type**: <class 'str'>
@@ -630,29 +630,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateServiceLinkedRoleResponseTypeDef
+# CreateServiceLinkedRoleResponse
 
 ### Role
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Role'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateServiceSpecificCredentialResponseTypeDef
+# CreateServiceSpecificCredentialResponse
 
 ### ServiceSpecificCredential
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredentialTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredential'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateUserRequestServiceResourceCreateUserTypeDef
+# CreateUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -665,10 +665,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateUserRequestTypeDef
+# CreateUserRequestServiceResourceCreateUser
 
 ### UserName
 - **Type**: <class 'str'>
@@ -681,10 +681,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateUserRequestUserCreateTypeDef
+# CreateUserRequestUserCreate
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -693,21 +693,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateUserResponseTypeDef
+# CreateUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.UserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDeviceTypeDef
+# CreateVirtualMFADeviceRequest
 
 ### VirtualMFADeviceName
 - **Type**: <class 'str'>
@@ -717,10 +717,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateVirtualMFADeviceRequestTypeDef
+# CreateVirtualMFADeviceRequestServiceResourceCreateVirtualMfaDevice
 
 ### VirtualMFADeviceName
 - **Type**: <class 'str'>
@@ -730,21 +730,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# CreateVirtualMFADeviceResponseTypeDef
+# CreateVirtualMFADeviceResponse
 
 ### VirtualMFADevice
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.VirtualMFADeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.VirtualMFADevice'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeactivateMFADeviceRequestTypeDef
+# DeactivateMFADeviceRequest
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -754,7 +754,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAccessKeyRequestTypeDef
+# DeleteAccessKeyRequest
 
 ### AccessKeyId
 - **Type**: <class 'str'>
@@ -764,14 +764,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAccountAliasRequestTypeDef
+# DeleteAccountAliasRequest
 
 ### AccountAlias
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGroupPolicyRequestTypeDef
+# DeleteGroupPolicyRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -782,41 +782,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteGroupRequestTypeDef
+# DeleteGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInstanceProfileRequestTypeDef
+# DeleteInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLoginProfileRequestTypeDef
+# DeleteLoginProfileRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 
-# DeleteOpenIDConnectProviderRequestTypeDef
+# DeleteOpenIDConnectProviderRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePolicyRequestTypeDef
+# DeletePolicyRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePolicyVersionRequestTypeDef
+# DeletePolicyVersionRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -827,14 +827,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRolePermissionsBoundaryRequestTypeDef
+# DeleteRolePermissionsBoundaryRequest
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRolePolicyRequestTypeDef
+# DeleteRolePolicyRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -845,21 +845,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteRoleRequestTypeDef
+# DeleteRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSAMLProviderRequestTypeDef
+# DeleteSAMLProviderRequest
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSSHPublicKeyRequestTypeDef
+# DeleteSSHPublicKeyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -870,32 +870,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteServerCertificateRequestTypeDef
+# DeleteServerCertificateRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceLinkedRoleRequestTypeDef
+# DeleteServiceLinkedRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteServiceLinkedRoleResponseTypeDef
+# DeleteServiceLinkedRoleResponse
 
 ### DeletionTaskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteServiceSpecificCredentialRequestTypeDef
+# DeleteServiceSpecificCredentialRequest
 
 ### ServiceSpecificCredentialId
 - **Type**: <class 'str'>
@@ -905,7 +905,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteSigningCertificateRequestTypeDef
+# DeleteSigningCertificateRequest
 
 ### CertificateId
 - **Type**: <class 'str'>
@@ -915,14 +915,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteUserPermissionsBoundaryRequestTypeDef
+# DeleteUserPermissionsBoundaryRequest
 
 ### UserName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteUserPolicyRequestTypeDef
+# DeleteUserPolicyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -933,44 +933,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserRequestTypeDef
+# DeleteUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVirtualMFADeviceRequestTypeDef
+# DeleteVirtualMFADeviceRequest
 
 ### SerialNumber
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletionTaskFailureReasonTypeTypeDef
+# DeletionTaskFailureReasonType
 
 ### Reason
 - **Type**: typing.Optional[str]
 
 ### RoleUsageList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleUsageTypeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleUsageType]]
 
 
-# DetachGroupPolicyRequestGroupDetachPolicyTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DetachGroupPolicyRequestPolicyDetachGroupTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DetachGroupPolicyRequestTypeDef
+# DetachGroupPolicyRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -981,39 +967,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachRolePolicyRequestPolicyDetachRoleTypeDef
+# DetachGroupPolicyRequestGroupDetachPolicy
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DetachGroupPolicyRequestPolicyDetachGroup
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DetachRolePolicyRequest
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DetachRolePolicyRequestPolicyDetachRole
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DetachRolePolicyRequestRoleDetachPolicyTypeDef
+# DetachRolePolicyRequestRoleDetachPolicy
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DetachRolePolicyRequestTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DetachUserPolicyRequestPolicyDetachUserTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DetachUserPolicyRequestTypeDef
+# DetachUserPolicyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1024,14 +1017,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DetachUserPolicyRequestUserDetachPolicyTypeDef
+# DetachUserPolicyRequestPolicyDetachUser
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# DetachUserPolicyRequestUserDetachPolicy
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableOrganizationsRootCredentialsManagementResponseTypeDef
+# DisableOrganizationsRootCredentialsManagementResponse
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1042,11 +1042,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisableOrganizationsRootSessionsResponseTypeDef
+# DisableOrganizationsRootSessionsResponse
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1057,29 +1057,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableMFADeviceRequestMfaDeviceAssociateTypeDef
-
-### AuthenticationCode1
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AuthenticationCode2
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# EnableMFADeviceRequestTypeDef
+# EnableMFADeviceRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1098,7 +1087,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableMFADeviceRequestUserEnableMfaTypeDef
+# EnableMFADeviceRequestMfaDeviceAssociate
+
+### AuthenticationCode1
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AuthenticationCode2
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# EnableMFADeviceRequestUserEnableMfa
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -1113,7 +1113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnableOrganizationsRootCredentialsManagementResponseTypeDef
+# EnableOrganizationsRootCredentialsManagementResponse
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1124,11 +1124,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableOrganizationsRootSessionsResponseTypeDef
+# EnableOrganizationsRootSessionsResponse
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -1139,27 +1139,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EntityDetailsTypeDef
+# EntityDetails
 
 ### EntityInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.EntityInfoTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.EntityInfo'>
 - **Required**: Yes
 
 ### LastAuthenticated
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# EntityInfoTypeDef
+# EntityInfo
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ErrorDetailsTypeDef
+# ErrorDetails
 
 ### Message
 - **Type**: <class 'str'>
@@ -1170,7 +1170,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EvaluationResultTypeDef
+# EvaluationResult
 
 ### EvalActionName
 - **Type**: <class 'str'>
@@ -1184,25 +1184,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MatchedStatements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.StatementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Statement]]
 
 ### MissingContextValues
 - **Type**: typing.Optional[typing.List[str]]
 
 ### OrganizationsDecisionDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.OrganizationsDecisionDetailTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PermissionsBoundaryDecisionDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PermissionsBoundaryDecisionDetailTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EvalDecisionDetails
 - **Type**: typing.Optional[typing.Dict[str, typing.Literal['allowed', 'explicitDeny', 'implicitDeny']]]
 
 ### ResourceSpecificResults
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.ResourceSpecificResultTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.ResourceSpecificResult]]
 
 
-# GenerateCredentialReportResponseTypeDef
+# GenerateCredentialReportResponse
 
 ### State
 - **Type**: typing.Literal['COMPLETE', 'INPROGRESS', 'STARTED']
@@ -1213,11 +1213,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GenerateOrganizationsAccessReportRequestTypeDef
+# GenerateOrganizationsAccessReportRequest
 
 ### EntityPath
 - **Type**: <class 'str'>
@@ -1227,18 +1227,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GenerateOrganizationsAccessReportResponseTypeDef
+# GenerateOrganizationsAccessReportResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GenerateServiceLastAccessedDetailsRequestTypeDef
+# GenerateServiceLastAccessedDetailsRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -1248,49 +1248,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTION_LEVEL', 'SERVICE_LEVEL']]
 
 
-# GenerateServiceLastAccessedDetailsResponseTypeDef
+# GenerateServiceLastAccessedDetailsResponse
 
 ### JobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAccessKeyLastUsedRequestTypeDef
+# GetAccessKeyLastUsedRequest
 
 ### AccessKeyId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAccessKeyLastUsedResponseTypeDef
+# GetAccessKeyLastUsedResponse
 
 ### UserName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### AccessKeyLastUsed
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.AccessKeyLastUsedTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.AccessKeyLastUsed'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAccountAuthorizationDetailsRequestPaginateTypeDef
-
-### Filter
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSManagedPolicy', 'Group', 'LocalManagedPolicy', 'Role', 'User']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# GetAccountAuthorizationDetailsRequestTypeDef
+# GetAccountAuthorizationDetailsRequest
 
 ### Filter
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSManagedPolicy', 'Group', 'LocalManagedPolicy', 'Role', 'User']]]
@@ -1302,22 +1293,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAccountAuthorizationDetailsResponseTypeDef
+# GetAccountAuthorizationDetailsRequestPaginate
+
+### Filter
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['AWSManagedPolicy', 'Group', 'LocalManagedPolicy', 'Role', 'User']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# GetAccountAuthorizationDetailsResponse
 
 ### UserDetailList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.UserDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.UserDetail]
 - **Required**: Yes
 
 ### GroupDetailList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.GroupDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.GroupDetail]
 - **Required**: Yes
 
 ### RoleDetailList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleDetail]
 - **Required**: Yes
 
 ### Policies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ManagedPolicyDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ManagedPolicyDetail]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1329,51 +1329,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAccountPasswordPolicyResponseTypeDef
+# GetAccountPasswordPolicyResponse
 
 ### PasswordPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PasswordPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PasswordPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAccountSummaryResponseTypeDef
+# GetAccountSummaryResponse
 
 ### SummaryMap
 - **Type**: typing.Dict[typing.Literal['AccessKeysPerUserQuota', 'AccountAccessKeysPresent', 'AccountMFAEnabled', 'AccountPasswordPresent', 'AccountSigningCertificatesPresent', 'AttachedPoliciesPerGroupQuota', 'AttachedPoliciesPerRoleQuota', 'AttachedPoliciesPerUserQuota', 'GlobalEndpointTokenVersion', 'GroupPolicySizeQuota', 'Groups', 'GroupsPerUserQuota', 'GroupsQuota', 'MFADevices', 'MFADevicesInUse', 'Policies', 'PoliciesQuota', 'PolicySizeQuota', 'PolicyVersionsInUse', 'PolicyVersionsInUseQuota', 'ServerCertificates', 'ServerCertificatesQuota', 'SigningCertificatesPerUserQuota', 'UserPolicySizeQuota', 'Users', 'UsersQuota', 'VersionsPerPolicyQuota'], int]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContextKeysForCustomPolicyRequestTypeDef
+# GetContextKeysForCustomPolicyRequest
 
 ### PolicyInputList
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# GetContextKeysForPolicyResponseTypeDef
+# GetContextKeysForPolicyResponse
 
 ### ContextKeyNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContextKeysForPrincipalPolicyRequestTypeDef
+# GetContextKeysForPrincipalPolicyRequest
 
 ### PolicySourceArn
 - **Type**: <class 'str'>
@@ -1383,7 +1383,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetCredentialReportResponseTypeDef
+# GetCredentialReportResponse
 
 ### Content
 - **Type**: <class 'bytes'>
@@ -1398,11 +1398,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupPolicyRequestTypeDef
+# GetGroupPolicyRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1413,7 +1413,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetGroupPolicyResponseTypeDef
+# GetGroupPolicyResponse
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1424,25 +1424,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyDocument
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocument'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGroupRequestPaginateTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# GetGroupRequestTypeDef
+# GetGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -1455,14 +1445,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetGroupResponseTypeDef
+# GetGroupRequestPaginate
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# GetGroupResponse
 
 ### Group
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.GroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Group'>
 - **Required**: Yes
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.UserTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.User]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1474,56 +1474,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInstanceProfileRequestTypeDef
+# GetInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetInstanceProfileRequestWaitTypeDef
+# GetInstanceProfileRequestWait
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetInstanceProfileResponseTypeDef
+# GetInstanceProfileResponse
 
 ### InstanceProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.InstanceProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.InstanceProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLoginProfileRequestTypeDef
+# GetLoginProfileRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 
-# GetLoginProfileResponseTypeDef
+# GetLoginProfileResponse
 
 ### LoginProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.LoginProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.LoginProfile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMFADeviceRequestTypeDef
+# GetMFADeviceRequest
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -1533,7 +1533,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetMFADeviceResponseTypeDef
+# GetMFADeviceResponse
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1552,18 +1552,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOpenIDConnectProviderRequestTypeDef
+# GetOpenIDConnectProviderRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOpenIDConnectProviderResponseTypeDef
+# GetOpenIDConnectProviderResponse
 
 ### Url
 - **Type**: <class 'str'>
@@ -1582,15 +1582,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOrganizationsAccessReportRequestTypeDef
+# GetOrganizationsAccessReportRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1606,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LAST_AUTHENTICATED_TIME_ASCENDING', 'LAST_AUTHENTICATED_TIME_DESCENDING', 'SERVICE_NAMESPACE_ASCENDING', 'SERVICE_NAMESPACE_DESCENDING']]
 
 
-# GetOrganizationsAccessReportResponseTypeDef
+# GetOrganizationsAccessReportResponse
 
 ### JobStatus
 - **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS']
@@ -1629,7 +1629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AccessDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AccessDetail]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1641,43 +1641,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ErrorDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPolicyRequestTypeDef
+# GetPolicyRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPolicyRequestWaitTypeDef
+# GetPolicyRequestWait
 
 ### PolicyArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetPolicyResponseTypeDef
+# GetPolicyResponse
 
 ### Policy
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Policy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPolicyVersionRequestTypeDef
+# GetPolicyVersionRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -1688,18 +1688,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetPolicyVersionResponseTypeDef
+# GetPolicyVersionResponse
 
 ### PolicyVersion
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyVersionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyVersion'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRolePolicyRequestTypeDef
+# GetRolePolicyRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -1710,7 +1710,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRolePolicyResponseTypeDef
+# GetRolePolicyResponse
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -1721,50 +1721,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyDocument
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocument'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRoleRequestTypeDef
+# GetRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRoleRequestWaitTypeDef
+# GetRoleRequestWait
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetRoleResponseTypeDef
+# GetRoleResponse
 
 ### Role
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Role'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSAMLProviderRequestTypeDef
+# GetSAMLProviderRequest
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSAMLProviderResponseTypeDef
+# GetSAMLProviderResponse
 
 ### SAMLProviderUUID
 - **Type**: <class 'str'>
@@ -1783,7 +1783,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### AssertionEncryptionMode
@@ -1791,15 +1791,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PrivateKeyList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SAMLPrivateKeyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SAMLPrivateKey]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSSHPublicKeyRequestTypeDef
+# GetSSHPublicKeyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1814,36 +1814,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSSHPublicKeyResponseTypeDef
+# GetSSHPublicKeyResponse
 
 ### SSHPublicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SSHPublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SSHPublicKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServerCertificateRequestTypeDef
+# GetServerCertificateRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServerCertificateResponseTypeDef
+# GetServerCertificateResponse
 
 ### ServerCertificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceLastAccessedDetailsRequestTypeDef
+# GetServiceLastAccessedDetailsRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1856,7 +1856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetServiceLastAccessedDetailsResponseTypeDef
+# GetServiceLastAccessedDetailsResponse
 
 ### JobStatus
 - **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS']
@@ -1871,7 +1871,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ServicesLastAccessed
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServiceLastAccessedTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServiceLastAccessed]
 - **Required**: Yes
 
 ### JobCompletionDate
@@ -1887,15 +1887,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceLastAccessedDetailsWithEntitiesRequestTypeDef
+# GetServiceLastAccessedDetailsWithEntitiesRequest
 
 ### JobId
 - **Type**: <class 'str'>
@@ -1912,7 +1912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetServiceLastAccessedDetailsWithEntitiesResponseTypeDef
+# GetServiceLastAccessedDetailsWithEntitiesResponse
 
 ### JobStatus
 - **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS']
@@ -1927,7 +1927,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EntityDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.EntityDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.EntityDetails]
 - **Required**: Yes
 
 ### IsTruncated
@@ -1939,37 +1939,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Error
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ErrorDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetServiceLinkedRoleDeletionStatusRequestTypeDef
+# GetServiceLinkedRoleDeletionStatusRequest
 
 ### DeletionTaskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetServiceLinkedRoleDeletionStatusResponseTypeDef
+# GetServiceLinkedRoleDeletionStatusResponse
 
 ### Status
 - **Type**: typing.Literal['FAILED', 'IN_PROGRESS', 'NOT_STARTED', 'SUCCEEDED']
 - **Required**: Yes
 
 ### Reason
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.DeletionTaskFailureReasonTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.DeletionTaskFailureReasonType'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetUserPolicyRequestTypeDef
+# GetUserPolicyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1980,7 +1980,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserPolicyResponseTypeDef
+# GetUserPolicyResponse
 
 ### UserName
 - **Type**: <class 'str'>
@@ -1991,41 +1991,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PolicyDocument
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.PolicyDocument'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetUserRequestTypeDef
+# GetUserRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 
-# GetUserRequestWaitTypeDef
+# GetUserRequestWait
 
 ### UserName
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetUserResponseTypeDef
+# GetUserResponse
 
 ### User
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.UserTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.User'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GroupDetailTypeDef
+# Group
+
+### Path
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### GroupId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreateDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# GroupDetail
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -2043,36 +2066,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### GroupPolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetailTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetail]]
 
 ### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]]
 
 
-# GroupTypeDef
-
-### Path
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### GroupId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreateDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-
-# InstanceProfileTypeDef
+# InstanceProfile
 
 ### Path
 - **Type**: <class 'str'>
@@ -2095,23 +2095,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Roles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Role]
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# ListAccessKeysRequestPaginateTypeDef
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListAccessKeysRequestTypeDef
+# ListAccessKeysRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -2123,10 +2114,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccessKeysResponseTypeDef
+# ListAccessKeysRequestPaginate
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListAccessKeysResponse
 
 ### AccessKeyMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AccessKeyMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AccessKeyMetadata]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2138,17 +2138,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAccountAliasesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListAccountAliasesRequestTypeDef
+# ListAccountAliasesRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -2157,7 +2151,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccountAliasesResponseTypeDef
+# ListAccountAliasesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListAccountAliasesResponse
 
 ### AccountAliases
 - **Type**: typing.List[str]
@@ -2172,24 +2172,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAttachedGroupPoliciesRequestPaginateTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachedGroupPoliciesRequestTypeDef
+# ListAttachedGroupPoliciesRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -2205,10 +2192,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAttachedGroupPoliciesResponseTypeDef
+# ListAttachedGroupPoliciesRequestPaginate
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListAttachedGroupPoliciesResponse
 
 ### AttachedPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2220,24 +2220,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAttachedRolePoliciesRequestPaginateTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachedRolePoliciesRequestTypeDef
+# ListAttachedRolePoliciesRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -2253,10 +2240,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAttachedRolePoliciesResponseTypeDef
+# ListAttachedRolePoliciesRequestPaginate
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListAttachedRolePoliciesResponse
 
 ### AttachedPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2268,24 +2268,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListAttachedUserPoliciesRequestPaginateTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachedUserPoliciesRequestTypeDef
+# ListAttachedUserPoliciesRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -2301,10 +2288,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAttachedUserPoliciesResponseTypeDef
+# ListAttachedUserPoliciesRequestPaginate
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListAttachedUserPoliciesResponse
 
 ### AttachedPolicies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2316,30 +2316,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListEntitiesForPolicyRequestPaginateTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EntityFilter
-- **Type**: typing.Optional[typing.Literal['AWSManagedPolicy', 'Group', 'LocalManagedPolicy', 'Role', 'User']]
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PolicyUsageFilter
-- **Type**: typing.Optional[typing.Literal['PermissionsBoundary', 'PermissionsPolicy']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListEntitiesForPolicyRequestTypeDef
+# ListEntitiesForPolicyRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -2361,18 +2342,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEntitiesForPolicyResponseTypeDef
+# ListEntitiesForPolicyRequestPaginate
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EntityFilter
+- **Type**: typing.Optional[typing.Literal['AWSManagedPolicy', 'Group', 'LocalManagedPolicy', 'Role', 'User']]
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PolicyUsageFilter
+- **Type**: typing.Optional[typing.Literal['PermissionsBoundary', 'PermissionsPolicy']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListEntitiesForPolicyResponse
 
 ### PolicyGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyGroup]
 - **Required**: Yes
 
 ### PolicyUsers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyUserTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyUser]
 - **Required**: Yes
 
 ### PolicyRoles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyRoleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyRole]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2384,21 +2384,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListGroupPoliciesRequestPaginateTypeDef
-
-### GroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupPoliciesRequestTypeDef
+# ListGroupPoliciesRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -2411,7 +2401,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGroupPoliciesResponseTypeDef
+# ListGroupPoliciesRequestPaginate
+
+### GroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListGroupPoliciesResponse
 
 ### PolicyNames
 - **Type**: typing.List[str]
@@ -2426,21 +2426,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListGroupsForUserRequestPaginateTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupsForUserRequestTypeDef
+# ListGroupsForUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -2453,10 +2443,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGroupsForUserResponseTypeDef
+# ListGroupsForUserRequestPaginate
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListGroupsForUserResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.GroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Group]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2468,20 +2468,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListGroupsRequestPaginateTypeDef
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListGroupsRequestTypeDef
+# ListGroupsRequest
 
 ### PathPrefix
 - **Type**: typing.Optional[str]
@@ -2493,10 +2484,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListGroupsResponseTypeDef
+# ListGroupsRequestPaginate
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListGroupsResponse
 
 ### Groups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.GroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Group]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2508,21 +2508,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListInstanceProfileTagsRequestPaginateTypeDef
-
-### InstanceProfileName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListInstanceProfileTagsRequestTypeDef
+# ListInstanceProfileTagsRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -2535,10 +2525,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListInstanceProfileTagsResponseTypeDef
+# ListInstanceProfileTagsRequestPaginate
+
+### InstanceProfileName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListInstanceProfileTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2550,37 +2550,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListInstanceProfilesForRoleRequestPaginateTypeDef
+# ListInstanceProfilesForRoleRequest
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### MaxItems
+- **Type**: typing.Optional[int]
+
+
+# ListInstanceProfilesForRoleRequestPaginate
 
 ### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
 
 
-# ListInstanceProfilesForRoleRequestTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### MaxItems
-- **Type**: typing.Optional[int]
-
-
-# ListInstanceProfilesForRoleResponseTypeDef
+# ListInstanceProfilesForRoleResponse
 
 ### InstanceProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfile]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2592,20 +2592,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListInstanceProfilesRequestPaginateTypeDef
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListInstanceProfilesRequestTypeDef
+# ListInstanceProfilesRequest
 
 ### PathPrefix
 - **Type**: typing.Optional[str]
@@ -2617,10 +2608,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListInstanceProfilesResponseTypeDef
+# ListInstanceProfilesRequestPaginate
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListInstanceProfilesResponse
 
 ### InstanceProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfile]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2632,21 +2632,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMFADeviceTagsRequestPaginateTypeDef
-
-### SerialNumber
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListMFADeviceTagsRequestTypeDef
+# ListMFADeviceTagsRequest
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -2659,10 +2649,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMFADeviceTagsResponseTypeDef
+# ListMFADeviceTagsRequestPaginate
+
+### SerialNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListMFADeviceTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2674,20 +2674,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMFADevicesRequestPaginateTypeDef
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListMFADevicesRequestTypeDef
+# ListMFADevicesRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -2699,10 +2690,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListMFADevicesResponseTypeDef
+# ListMFADevicesRequestPaginate
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListMFADevicesResponse
 
 ### MFADevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.MFADeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.MFADevice]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2714,21 +2714,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOpenIDConnectProviderTagsRequestPaginateTypeDef
-
-### OpenIDConnectProviderArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListOpenIDConnectProviderTagsRequestTypeDef
+# ListOpenIDConnectProviderTagsRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
@@ -2741,10 +2731,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListOpenIDConnectProviderTagsResponseTypeDef
+# ListOpenIDConnectProviderTagsRequestPaginate
+
+### OpenIDConnectProviderArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListOpenIDConnectProviderTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2756,22 +2756,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOpenIDConnectProvidersResponseTypeDef
+# ListOpenIDConnectProvidersResponse
 
 ### OpenIDConnectProviderList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.OpenIDConnectProviderListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.OpenIDConnectProviderListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOrganizationsFeaturesResponseTypeDef
+# ListOrganizationsFeaturesResponse
 
 ### OrganizationId
 - **Type**: <class 'str'>
@@ -2782,20 +2782,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPoliciesGrantingServiceAccessEntryTypeDef
+# ListPoliciesGrantingServiceAccessEntry
 
 ### ServiceNamespace
 - **Type**: typing.Optional[str]
 
 ### Policies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyGrantingServiceAccessTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyGrantingServiceAccess]]
 
 
-# ListPoliciesGrantingServiceAccessRequestTypeDef
+# ListPoliciesGrantingServiceAccessRequest
 
 ### Arn
 - **Type**: <class 'str'>
@@ -2809,10 +2809,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPoliciesGrantingServiceAccessResponseTypeDef
+# ListPoliciesGrantingServiceAccessResponse
 
 ### PoliciesGrantingServiceAccess
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ListPoliciesGrantingServiceAccessEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ListPoliciesGrantingServiceAccessEntry]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2824,29 +2824,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPoliciesRequestPaginateTypeDef
-
-### Scope
-- **Type**: typing.Optional[typing.Literal['AWS', 'All', 'Local']]
-
-### OnlyAttached
-- **Type**: typing.Optional[bool]
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PolicyUsageFilter
-- **Type**: typing.Optional[typing.Literal['PermissionsBoundary', 'PermissionsPolicy']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListPoliciesRequestTypeDef
+# ListPoliciesRequest
 
 ### Scope
 - **Type**: typing.Optional[typing.Literal['AWS', 'All', 'Local']]
@@ -2867,10 +2849,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPoliciesResponseTypeDef
+# ListPoliciesRequestPaginate
+
+### Scope
+- **Type**: typing.Optional[typing.Literal['AWS', 'All', 'Local']]
+
+### OnlyAttached
+- **Type**: typing.Optional[bool]
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PolicyUsageFilter
+- **Type**: typing.Optional[typing.Literal['PermissionsBoundary', 'PermissionsPolicy']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListPoliciesResponse
 
 ### Policies
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Policy]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2882,21 +2882,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPolicyTagsRequestPaginateTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListPolicyTagsRequestTypeDef
+# ListPolicyTagsRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -2909,10 +2899,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPolicyTagsResponseTypeDef
+# ListPolicyTagsRequestPaginate
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListPolicyTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2924,21 +2924,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPolicyVersionsRequestPaginateTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListPolicyVersionsRequestTypeDef
+# ListPolicyVersionsRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -2951,10 +2941,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListPolicyVersionsResponseTypeDef
+# ListPolicyVersionsRequestPaginate
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListPolicyVersionsResponse
 
 ### Versions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyVersion]
 - **Required**: Yes
 
 ### IsTruncated
@@ -2966,21 +2966,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRolePoliciesRequestPaginateTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListRolePoliciesRequestTypeDef
+# ListRolePoliciesRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -2993,7 +2983,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRolePoliciesResponseTypeDef
+# ListRolePoliciesRequestPaginate
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListRolePoliciesResponse
 
 ### PolicyNames
 - **Type**: typing.List[str]
@@ -3008,21 +3008,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRoleTagsRequestPaginateTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListRoleTagsRequestTypeDef
+# ListRoleTagsRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -3035,10 +3025,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRoleTagsResponseTypeDef
+# ListRoleTagsRequestPaginate
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListRoleTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3050,20 +3050,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRolesRequestPaginateTypeDef
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListRolesRequestTypeDef
+# ListRolesRequest
 
 ### PathPrefix
 - **Type**: typing.Optional[str]
@@ -3075,10 +3066,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRolesResponseTypeDef
+# ListRolesRequestPaginate
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListRolesResponse
 
 ### Roles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Role]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3090,21 +3090,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListSAMLProviderTagsRequestPaginateTypeDef
-
-### SAMLProviderArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListSAMLProviderTagsRequestTypeDef
+# ListSAMLProviderTagsRequest
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
@@ -3117,10 +3107,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSAMLProviderTagsResponseTypeDef
+# ListSAMLProviderTagsRequestPaginate
+
+### SAMLProviderArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListSAMLProviderTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3132,31 +3132,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListSAMLProvidersResponseTypeDef
+# ListSAMLProvidersResponse
 
 ### SAMLProviderList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SAMLProviderListEntryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SAMLProviderListEntry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListSSHPublicKeysRequestPaginateTypeDef
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListSSHPublicKeysRequestTypeDef
+# ListSSHPublicKeysRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -3168,10 +3159,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSSHPublicKeysResponseTypeDef
+# ListSSHPublicKeysRequestPaginate
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListSSHPublicKeysResponse
 
 ### SSHPublicKeys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SSHPublicKeyMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SSHPublicKeyMetadata]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3183,21 +3183,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListServerCertificateTagsRequestPaginateTypeDef
-
-### ServerCertificateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListServerCertificateTagsRequestTypeDef
+# ListServerCertificateTagsRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
@@ -3210,10 +3200,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListServerCertificateTagsResponseTypeDef
+# ListServerCertificateTagsRequestPaginate
+
+### ServerCertificateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListServerCertificateTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3225,20 +3225,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListServerCertificatesRequestPaginateTypeDef
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListServerCertificatesRequestTypeDef
+# ListServerCertificatesRequest
 
 ### PathPrefix
 - **Type**: typing.Optional[str]
@@ -3250,10 +3241,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListServerCertificatesResponseTypeDef
+# ListServerCertificatesRequestPaginate
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListServerCertificatesResponse
 
 ### ServerCertificateMetadataList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadata]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3265,31 +3265,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListServiceSpecificCredentialsResponseTypeDef
+# ListServiceSpecificCredentialsResponse
 
 ### ServiceSpecificCredentials
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredentialMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredentialMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListSigningCertificatesRequestPaginateTypeDef
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListSigningCertificatesRequestTypeDef
+# ListSigningCertificatesRequest
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -3301,10 +3292,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListSigningCertificatesResponseTypeDef
+# ListSigningCertificatesRequestPaginate
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListSigningCertificatesResponse
 
 ### Certificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SigningCertificateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.SigningCertificate]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3316,21 +3316,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListUserPoliciesRequestPaginateTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListUserPoliciesRequestTypeDef
+# ListUserPoliciesRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3343,7 +3333,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListUserPoliciesResponseTypeDef
+# ListUserPoliciesRequestPaginate
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListUserPoliciesResponse
 
 ### PolicyNames
 - **Type**: typing.List[str]
@@ -3358,21 +3358,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListUserTagsRequestPaginateTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListUserTagsRequestTypeDef
+# ListUserTagsRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3385,10 +3375,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListUserTagsResponseTypeDef
+# ListUserTagsRequestPaginate
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListUserTagsResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3400,20 +3400,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListUsersRequestPaginateTypeDef
-
-### PathPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListUsersRequestTypeDef
+# ListUsersRequest
 
 ### PathPrefix
 - **Type**: typing.Optional[str]
@@ -3425,10 +3416,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListUsersResponseTypeDef
+# ListUsersRequestPaginate
+
+### PathPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListUsersResponse
 
 ### Users
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.UserTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.User]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3440,20 +3440,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVirtualMFADevicesRequestPaginateTypeDef
-
-### AssignmentStatus
-- **Type**: typing.Optional[typing.Literal['Any', 'Assigned', 'Unassigned']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# ListVirtualMFADevicesRequestTypeDef
+# ListVirtualMFADevicesRequest
 
 ### AssignmentStatus
 - **Type**: typing.Optional[typing.Literal['Any', 'Assigned', 'Unassigned']]
@@ -3465,10 +3456,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListVirtualMFADevicesResponseTypeDef
+# ListVirtualMFADevicesRequestPaginate
+
+### AssignmentStatus
+- **Type**: typing.Optional[typing.Literal['Any', 'Assigned', 'Unassigned']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# ListVirtualMFADevicesResponse
 
 ### VirtualMFADevices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.VirtualMFADeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.VirtualMFADevice]
 - **Required**: Yes
 
 ### IsTruncated
@@ -3480,11 +3480,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoginProfileTypeDef
+# LoginProfile
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3498,7 +3498,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# MFADeviceTypeDef
+# MFADevice
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3513,7 +3513,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ManagedPolicyDetailTypeDef
+# ManagedPolicyDetail
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -3549,22 +3549,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### PolicyVersionList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyVersionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyVersion]]
 
 
-# OpenIDConnectProviderListEntryTypeDef
+# OpenIDConnectProviderListEntry
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 
-# OrganizationsDecisionDetailTypeDef
+# OrganizationsDecisionDetail
 
 ### AllowedByOrganizations
 - **Type**: typing.Optional[bool]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -3576,7 +3576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PasswordPolicyTypeDef
+# PasswordPolicy
 
 ### MinimumPasswordLength
 - **Type**: typing.Optional[int]
@@ -3609,96 +3609,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PermissionsBoundaryDecisionDetailTypeDef
+# PermissionsBoundaryDecisionDetail
 
 ### AllowedByPermissionsBoundary
 - **Type**: typing.Optional[bool]
 
 
-# PolicyDetailTypeDef
-
-### PolicyName
-- **Type**: typing.Optional[str]
-
-### PolicyDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef]
-
-
-# PolicyDocumentDictTypeDef
-
-### Version
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Statement
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentStatementTypeDef]
-- **Required**: Yes
-
-
-# PolicyDocumentStatementTypeDef
-
-### Effect
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Resource
-- **Type**: typing.Union[str, typing.List[str]]
-- **Required**: Yes
-
-### Sid
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Action
-- **Type**: typing.Union[str, typing.List[str]]
-- **Required**: Yes
-
-
-# PolicyDocumentTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PolicyGrantingServiceAccessTypeDef
-
-### PolicyName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyType
-- **Type**: typing.Literal['INLINE', 'MANAGED']
-- **Required**: Yes
-
-### PolicyArn
-- **Type**: typing.Optional[str]
-
-### EntityType
-- **Type**: typing.Optional[typing.Literal['GROUP', 'ROLE', 'USER']]
-
-### EntityName
-- **Type**: typing.Optional[str]
-
-
-# PolicyGroupTypeDef
-
-### GroupName
-- **Type**: typing.Optional[str]
-
-### GroupId
-- **Type**: typing.Optional[str]
-
-
-# PolicyRoleTypeDef
-
-### RoleName
-- **Type**: typing.Optional[str]
-
-### RoleId
-- **Type**: typing.Optional[str]
-
-
-# PolicyTypeDef
+# Policy
 
 ### PolicyName
 - **Type**: typing.Optional[str]
@@ -3734,10 +3651,93 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# PolicyUserTypeDef
+# PolicyDetail
+
+### PolicyName
+- **Type**: typing.Optional[str]
+
+### PolicyDocument
+- **Type**: <class 'NoneType'>
+
+
+# PolicyDocument
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PolicyDocumentDict
+
+### Version
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Statement
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentStatement]
+- **Required**: Yes
+
+
+# PolicyDocumentStatement
+
+### Effect
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Resource
+- **Type**: typing.Union[str, typing.List[str]]
+- **Required**: Yes
+
+### Sid
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Action
+- **Type**: typing.Union[str, typing.List[str]]
+- **Required**: Yes
+
+
+# PolicyGrantingServiceAccess
+
+### PolicyName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyType
+- **Type**: typing.Literal['INLINE', 'MANAGED']
+- **Required**: Yes
+
+### PolicyArn
+- **Type**: typing.Optional[str]
+
+### EntityType
+- **Type**: typing.Optional[typing.Literal['GROUP', 'ROLE', 'USER']]
+
+### EntityName
+- **Type**: typing.Optional[str]
+
+
+# PolicyGroup
+
+### GroupName
+- **Type**: typing.Optional[str]
+
+### GroupId
+- **Type**: typing.Optional[str]
+
+
+# PolicyRole
+
+### RoleName
+- **Type**: typing.Optional[str]
+
+### RoleId
+- **Type**: typing.Optional[str]
+
+
+# PolicyUser
 
 ### UserName
 - **Type**: typing.Optional[str]
@@ -3746,10 +3746,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PolicyVersionTypeDef
+# PolicyVersion
 
 ### Document
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocument]
 
 ### VersionId
 - **Type**: typing.Optional[str]
@@ -3761,7 +3761,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PositionTypeDef
+# Position
 
 ### Line
 - **Type**: typing.Optional[int]
@@ -3770,25 +3770,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PutGroupPolicyRequestGroupCreatePolicyTypeDef
-
-### PolicyName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# PutGroupPolicyRequestGroupPolicyPutTypeDef
-
-### PolicyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# PutGroupPolicyRequestTypeDef
+# PutGroupPolicyRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -3803,7 +3785,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRolePermissionsBoundaryRequestTypeDef
+# PutGroupPolicyRequestGroupCreatePolicy
+
+### PolicyName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutGroupPolicyRequestGroupPolicyPut
+
+### PolicyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutRolePermissionsBoundaryRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -3814,14 +3814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRolePolicyRequestRolePolicyPutTypeDef
-
-### PolicyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# PutRolePolicyRequestTypeDef
+# PutRolePolicyRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -3836,7 +3829,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutUserPermissionsBoundaryRequestTypeDef
+# PutRolePolicyRequestRolePolicyPut
+
+### PolicyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# PutUserPermissionsBoundaryRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3847,7 +3847,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutUserPolicyRequestTypeDef
+# PutUserPolicyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -3862,7 +3862,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutUserPolicyRequestUserCreatePolicyTypeDef
+# PutUserPolicyRequestUserCreatePolicy
 
 ### PolicyName
 - **Type**: <class 'str'>
@@ -3873,14 +3873,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutUserPolicyRequestUserPolicyPutTypeDef
+# PutUserPolicyRequestUserPolicyPut
 
 ### PolicyDocument
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RemoveClientIDFromOpenIDConnectProviderRequestTypeDef
+# RemoveClientIDFromOpenIDConnectProviderRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
@@ -3891,14 +3891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRoleTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# RemoveRoleFromInstanceProfileRequestTypeDef
+# RemoveRoleFromInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -3909,14 +3902,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveUserFromGroupRequestGroupRemoveUserTypeDef
+# RemoveRoleFromInstanceProfileRequestInstanceProfileRemoveRole
 
-### UserName
+### RoleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RemoveUserFromGroupRequestTypeDef
+# RemoveUserFromGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -3927,14 +3920,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveUserFromGroupRequestUserRemoveGroupTypeDef
+# RemoveUserFromGroupRequestGroupRemoveUser
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# RemoveUserFromGroupRequestUserRemoveGroup
 
 ### GroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResetServiceSpecificCredentialRequestTypeDef
+# ResetServiceSpecificCredentialRequest
 
 ### ServiceSpecificCredentialId
 - **Type**: <class 'str'>
@@ -3944,18 +3944,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResetServiceSpecificCredentialResponseTypeDef
+# ResetServiceSpecificCredentialResponse
 
 ### ServiceSpecificCredential
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredentialTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServiceSpecificCredential'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourceSpecificResultTypeDef
+# ResourceSpecificResult
 
 ### EvalResourceName
 - **Type**: <class 'str'>
@@ -3966,7 +3966,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### MatchedStatements
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.StatementTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Statement]]
 
 ### MissingContextValues
 - **Type**: typing.Optional[typing.List[str]]
@@ -3975,10 +3975,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, typing.Literal['allowed', 'explicitDeny', 'implicitDeny']]]
 
 ### PermissionsBoundaryDecisionDetail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PermissionsBoundaryDecisionDetailTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -4000,18 +4000,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResyncMFADeviceRequestMfaDeviceResyncTypeDef
-
-### AuthenticationCode1
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AuthenticationCode2
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# ResyncMFADeviceRequestTypeDef
+# ResyncMFADeviceRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4030,55 +4019,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RoleDetailTypeDef
+# ResyncMFADeviceRequestMfaDeviceResync
 
-### Path
-- **Type**: typing.Optional[str]
+### AuthenticationCode1
+- **Type**: <class 'str'>
+- **Required**: Yes
 
-### RoleName
-- **Type**: typing.Optional[str]
-
-### RoleId
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### AssumeRolePolicyDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef]
-
-### InstanceProfileList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfileTypeDef]]
-
-### RolePolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetailTypeDef]]
-
-### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]]
-
-### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundaryTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
-
-### RoleLastUsed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.RoleLastUsedTypeDef]
+### AuthenticationCode2
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
-# RoleLastUsedTypeDef
-
-### LastUsedDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### Region
-- **Type**: typing.Optional[str]
-
-
-# RoleTypeDef
+# Role
 
 ### Path
 - **Type**: <class 'str'>
@@ -4101,7 +4053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AssumeRolePolicyDocument
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocument]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -4110,16 +4062,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundary]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 ### RoleLastUsed
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.RoleLastUsedTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RoleUsageTypeTypeDef
+# RoleDetail
+
+### Path
+- **Type**: typing.Optional[str]
+
+### RoleName
+- **Type**: typing.Optional[str]
+
+### RoleId
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### CreateDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### AssumeRolePolicyDocument
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PolicyDocument]
+
+### InstanceProfileList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.InstanceProfile]]
+
+### RolePolicyList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetail]]
+
+### AttachedManagedPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]]
+
+### PermissionsBoundary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundary]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
+
+### RoleLastUsed
+- **Type**: <class 'NoneType'>
+
+
+# RoleLastUsed
+
+### LastUsedDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### Region
+- **Type**: typing.Optional[str]
+
+
+# RoleUsageType
 
 ### Region
 - **Type**: typing.Optional[str]
@@ -4128,7 +4128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# SAMLPrivateKeyTypeDef
+# SAMLPrivateKey
 
 ### KeyId
 - **Type**: typing.Optional[str]
@@ -4137,7 +4137,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SAMLProviderListEntryTypeDef
+# SAMLProviderListEntry
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -4149,26 +4149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SSHPublicKeyMetadataTypeDef
-
-### UserName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SSHPublicKeyId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: typing.Literal['Active', 'Inactive']
-- **Required**: Yes
-
-### UploadDate
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-
-# SSHPublicKeyTypeDef
+# SSHPublicKey
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4194,7 +4175,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ServerCertificateMetadataTypeDef
+# SSHPublicKeyMetadata
+
+### UserName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SSHPublicKeyId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: typing.Literal['Active', 'Inactive']
+- **Required**: Yes
+
+### UploadDate
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# ServerCertificate
+
+### ServerCertificateMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadata'>
+- **Required**: Yes
+
+### CertificateBody
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CertificateChain
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
+
+
+# ServerCertificateMetadata
 
 ### Path
 - **Type**: <class 'str'>
@@ -4219,42 +4236,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ServerCertificateTypeDef
-
-### ServerCertificateMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadataTypeDef'>
-- **Required**: Yes
-
-### CertificateBody
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CertificateChain
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
-
-
-# ServiceLastAccessedTypeDef
+# ServiceLastAccessed
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceSpecificCredentialMetadataTypeDef
+# ServiceSpecificCredential
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ServiceSpecificCredentialTypeDef
+# ServiceSpecificCredentialMetadata
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SetDefaultPolicyVersionRequestTypeDef
+# SetDefaultPolicyVersionRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -4265,14 +4265,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetSecurityTokenServicePreferencesRequestTypeDef
+# SetSecurityTokenServicePreferencesRequest
 
 ### GlobalEndpointTokenVersion
 - **Type**: typing.Literal['v1Token', 'v2Token']
 - **Required**: Yes
 
 
-# SigningCertificateTypeDef
+# SigningCertificate
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4294,7 +4294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# SimulateCustomPolicyRequestPaginateTypeDef
+# SimulateCustomPolicyRequest
 
 ### PolicyInputList
 - **Type**: typing.Sequence[str]
@@ -4320,42 +4320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContextEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntryTypeDef]]
-
-### ResourceHandlingOption
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# SimulateCustomPolicyRequestTypeDef
-
-### PolicyInputList
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### ActionNames
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### PermissionsBoundaryPolicyInputList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourceArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourcePolicy
-- **Type**: typing.Optional[str]
-
-### ResourceOwner
-- **Type**: typing.Optional[str]
-
-### CallerArn
-- **Type**: typing.Optional[str]
-
-### ContextEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntry]]
 
 ### ResourceHandlingOption
 - **Type**: typing.Optional[str]
@@ -4367,10 +4332,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SimulatePolicyResponseTypeDef
+# SimulateCustomPolicyRequestPaginate
+
+### PolicyInputList
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### ActionNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### PermissionsBoundaryPolicyInputList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourceArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourcePolicy
+- **Type**: typing.Optional[str]
+
+### ResourceOwner
+- **Type**: typing.Optional[str]
+
+### CallerArn
+- **Type**: typing.Optional[str]
+
+### ContextEntries
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntry]]
+
+### ResourceHandlingOption
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# SimulatePolicyResponse
 
 ### EvaluationResults
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.EvaluationResultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.EvaluationResult]
 - **Required**: Yes
 
 ### IsTruncated
@@ -4382,11 +4382,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SimulatePrincipalPolicyRequestPaginateTypeDef
+# SimulatePrincipalPolicyRequest
 
 ### PolicySourceArn
 - **Type**: <class 'str'>
@@ -4415,45 +4415,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ContextEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntryTypeDef]]
-
-### ResourceHandlingOption
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfigTypeDef]
-
-
-# SimulatePrincipalPolicyRequestTypeDef
-
-### PolicySourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ActionNames
-- **Type**: typing.Sequence[str]
-- **Required**: Yes
-
-### PolicyInputList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PermissionsBoundaryPolicyInputList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourceArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### ResourcePolicy
-- **Type**: typing.Optional[str]
-
-### ResourceOwner
-- **Type**: typing.Optional[str]
-
-### CallerArn
-- **Type**: typing.Optional[str]
-
-### ContextEntries
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntry]]
 
 ### ResourceHandlingOption
 - **Type**: typing.Optional[str]
@@ -4465,7 +4427,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StatementTypeDef
+# SimulatePrincipalPolicyRequestPaginate
+
+### PolicySourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ActionNames
+- **Type**: typing.Sequence[str]
+- **Required**: Yes
+
+### PolicyInputList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PermissionsBoundaryPolicyInputList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourceArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ResourcePolicy
+- **Type**: typing.Optional[str]
+
+### ResourceOwner
+- **Type**: typing.Optional[str]
+
+### CallerArn
+- **Type**: typing.Optional[str]
+
+### ContextEntries
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.ContextEntry]]
+
+### ResourceHandlingOption
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PaginatorConfig]
+
+
+# Statement
 
 ### SourcePolicyId
 - **Type**: typing.Optional[str]
@@ -4474,90 +4474,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['aws-managed', 'group', 'none', 'resource', 'role', 'user', 'user-managed']]
 
 ### StartPosition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PositionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.Position]
 
 ### EndPosition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.PositionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.Position]
 
 
-# TagInstanceProfileRequestTypeDef
-
-### InstanceProfileName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagMFADeviceRequestTypeDef
-
-### SerialNumber
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagOpenIDConnectProviderRequestTypeDef
-
-### OpenIDConnectProviderArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagPolicyRequestTypeDef
-
-### PolicyArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagRoleRequestTypeDef
-
-### RoleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagSAMLProviderRequestTypeDef
-
-### SAMLProviderArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagServerCertificateRequestTypeDef
-
-### ServerCertificateName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -4568,18 +4491,95 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagUserRequestTypeDef
+# TagInstanceProfileRequest
+
+### InstanceProfileName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagMFADeviceRequest
+
+### SerialNumber
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagOpenIDConnectProviderRequest
+
+### OpenIDConnectProviderArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagPolicyRequest
+
+### PolicyArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagRoleRequest
+
+### RoleName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagSAMLProviderRequest
+
+### SAMLProviderArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagServerCertificateRequest
+
+### ServerCertificateName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
+- **Required**: Yes
+
+
+# TagUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 
-# TrackedActionLastAccessedTypeDef
+# TrackedActionLastAccessed
 
 ### ActionName
 - **Type**: typing.Optional[str]
@@ -4594,7 +4594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagInstanceProfileRequestTypeDef
+# UntagInstanceProfileRequest
 
 ### InstanceProfileName
 - **Type**: <class 'str'>
@@ -4605,7 +4605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagMFADeviceRequestTypeDef
+# UntagMFADeviceRequest
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -4616,7 +4616,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagOpenIDConnectProviderRequestTypeDef
+# UntagOpenIDConnectProviderRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
@@ -4627,7 +4627,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagPolicyRequestTypeDef
+# UntagPolicyRequest
 
 ### PolicyArn
 - **Type**: <class 'str'>
@@ -4638,7 +4638,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagRoleRequestTypeDef
+# UntagRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -4649,7 +4649,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagSAMLProviderRequestTypeDef
+# UntagSAMLProviderRequest
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
@@ -4660,7 +4660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagServerCertificateRequestTypeDef
+# UntagServerCertificateRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
@@ -4671,7 +4671,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagUserRequestTypeDef
+# UntagUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4682,31 +4682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAccessKeyRequestAccessKeyActivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateAccessKeyRequestAccessKeyDeactivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateAccessKeyRequestAccessKeyPairActivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateAccessKeyRequestAccessKeyPairDeactivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateAccessKeyRequestTypeDef
+# UpdateAccessKeyRequest
 
 ### AccessKeyId
 - **Type**: <class 'str'>
@@ -4720,7 +4696,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdateTypeDef
+# UpdateAccessKeyRequestAccessKeyActivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateAccessKeyRequestAccessKeyDeactivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateAccessKeyRequestAccessKeyPairActivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateAccessKeyRequestAccessKeyPairDeactivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateAccountPasswordPolicyRequest
 
 ### MinimumPasswordLength
 - **Type**: typing.Optional[int]
@@ -4750,7 +4750,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateAccountPasswordPolicyRequestTypeDef
+# UpdateAccountPasswordPolicyRequestAccountPasswordPolicyUpdate
 
 ### MinimumPasswordLength
 - **Type**: typing.Optional[int]
@@ -4780,14 +4780,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdateTypeDef
-
-### PolicyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# UpdateAssumeRolePolicyRequestTypeDef
+# UpdateAssumeRolePolicyRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -4798,16 +4791,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateGroupRequestGroupUpdateTypeDef
+# UpdateAssumeRolePolicyRequestAssumeRolePolicyUpdate
 
-### NewPath
-- **Type**: typing.Optional[str]
-
-### NewGroupName
-- **Type**: typing.Optional[str]
+### PolicyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
 
 
-# UpdateGroupRequestTypeDef
+# UpdateGroupRequest
 
 ### GroupName
 - **Type**: <class 'str'>
@@ -4820,16 +4811,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateLoginProfileRequestLoginProfileUpdateTypeDef
+# UpdateGroupRequestGroupUpdate
 
-### Password
+### NewPath
 - **Type**: typing.Optional[str]
 
-### PasswordResetRequired
-- **Type**: typing.Optional[bool]
+### NewGroupName
+- **Type**: typing.Optional[str]
 
 
-# UpdateLoginProfileRequestTypeDef
+# UpdateLoginProfileRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4842,7 +4833,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateOpenIDConnectProviderThumbprintRequestTypeDef
+# UpdateLoginProfileRequestLoginProfileUpdate
+
+### Password
+- **Type**: typing.Optional[str]
+
+### PasswordResetRequired
+- **Type**: typing.Optional[bool]
+
+
+# UpdateOpenIDConnectProviderThumbprintRequest
 
 ### OpenIDConnectProviderArn
 - **Type**: <class 'str'>
@@ -4853,7 +4853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoleDescriptionRequestTypeDef
+# UpdateRoleDescriptionRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -4864,18 +4864,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRoleDescriptionResponseTypeDef
+# UpdateRoleDescriptionResponse
 
 ### Role
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.RoleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.Role'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRoleRequestTypeDef
+# UpdateRoleRequest
 
 ### RoleName
 - **Type**: <class 'str'>
@@ -4888,22 +4888,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateSAMLProviderRequestSamlProviderUpdateTypeDef
-
-### SAMLMetadataDocument
-- **Type**: typing.Optional[str]
-
-### AssertionEncryptionMode
-- **Type**: typing.Optional[typing.Literal['Allowed', 'Required']]
-
-### AddPrivateKey
-- **Type**: typing.Optional[str]
-
-### RemovePrivateKey
-- **Type**: typing.Optional[str]
-
-
-# UpdateSAMLProviderRequestTypeDef
+# UpdateSAMLProviderRequest
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
@@ -4922,18 +4907,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSAMLProviderResponseTypeDef
+# UpdateSAMLProviderRequestSamlProviderUpdate
+
+### SAMLMetadataDocument
+- **Type**: typing.Optional[str]
+
+### AssertionEncryptionMode
+- **Type**: typing.Optional[typing.Literal['Allowed', 'Required']]
+
+### AddPrivateKey
+- **Type**: typing.Optional[str]
+
+### RemovePrivateKey
+- **Type**: typing.Optional[str]
+
+
+# UpdateSAMLProviderResponse
 
 ### SAMLProviderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSSHPublicKeyRequestTypeDef
+# UpdateSSHPublicKeyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -4948,16 +4948,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateServerCertificateRequestServerCertificateUpdateTypeDef
-
-### NewPath
-- **Type**: typing.Optional[str]
-
-### NewServerCertificateName
-- **Type**: typing.Optional[str]
-
-
-# UpdateServerCertificateRequestTypeDef
+# UpdateServerCertificateRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
@@ -4970,7 +4961,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateServiceSpecificCredentialRequestTypeDef
+# UpdateServerCertificateRequestServerCertificateUpdate
+
+### NewPath
+- **Type**: typing.Optional[str]
+
+### NewServerCertificateName
+- **Type**: typing.Optional[str]
+
+
+# UpdateServiceSpecificCredentialRequest
 
 ### ServiceSpecificCredentialId
 - **Type**: <class 'str'>
@@ -4984,19 +4984,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSigningCertificateRequestSigningCertificateActivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateSigningCertificateRequestSigningCertificateDeactivateTypeDef
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
-
-
-# UpdateSigningCertificateRequestTypeDef
+# UpdateSigningCertificateRequest
 
 ### CertificateId
 - **Type**: <class 'str'>
@@ -5010,7 +4998,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateUserRequestTypeDef
+# UpdateSigningCertificateRequestSigningCertificateActivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateSigningCertificateRequestSigningCertificateDeactivate
+
+### Status
+- **Type**: typing.Optional[typing.Literal['Active', 'Inactive']]
+
+
+# UpdateUserRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -5023,7 +5023,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateUserRequestUserUpdateTypeDef
+# UpdateUserRequestUserUpdate
 
 ### NewPath
 - **Type**: typing.Optional[str]
@@ -5032,7 +5032,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UploadSSHPublicKeyRequestTypeDef
+# UploadSSHPublicKeyRequest
 
 ### UserName
 - **Type**: <class 'str'>
@@ -5043,18 +5043,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UploadSSHPublicKeyResponseTypeDef
+# UploadSSHPublicKeyResponse
 
 ### SSHPublicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SSHPublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SSHPublicKey'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UploadServerCertificateRequestServiceResourceCreateServerCertificateTypeDef
+# UploadServerCertificateRequest
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
@@ -5075,10 +5075,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# UploadServerCertificateRequestTypeDef
+# UploadServerCertificateRequestServiceResourceCreateServerCertificate
 
 ### ServerCertificateName
 - **Type**: <class 'str'>
@@ -5099,25 +5099,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# UploadServerCertificateResponseTypeDef
+# UploadServerCertificateResponse
 
 ### ServerCertificateMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ServerCertificateMetadata'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UploadSigningCertificateRequestServiceResourceCreateSigningCertificateTypeDef
+# UploadSigningCertificateRequest
 
 ### CertificateBody
 - **Type**: <class 'str'>
@@ -5127,7 +5127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UploadSigningCertificateRequestTypeDef
+# UploadSigningCertificateRequestServiceResourceCreateSigningCertificate
 
 ### CertificateBody
 - **Type**: <class 'str'>
@@ -5137,51 +5137,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UploadSigningCertificateResponseTypeDef
+# UploadSigningCertificateResponse
 
 ### Certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SigningCertificateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.SigningCertificate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iam_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UserDetailTypeDef
-
-### Path
-- **Type**: typing.Optional[str]
-
-### UserName
-- **Type**: typing.Optional[str]
-
-### UserId
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### CreateDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### UserPolicyList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetailTypeDef]]
-
-### GroupList
-- **Type**: typing.Optional[typing.List[str]]
-
-### AttachedManagedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicyTypeDef]]
-
-### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundaryTypeDef]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
-
-
-# UserTypeDef
+# User
 
 ### Path
 - **Type**: <class 'str'>
@@ -5207,13 +5174,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### PermissionsBoundary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundary]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# VirtualMFADeviceTypeDef
+# UserDetail
+
+### Path
+- **Type**: typing.Optional[str]
+
+### UserName
+- **Type**: typing.Optional[str]
+
+### UserId
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### CreateDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### UserPolicyList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.PolicyDetail]]
+
+### GroupList
+- **Type**: typing.Optional[typing.List[str]]
+
+### AttachedManagedPolicies
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.AttachedPolicy]]
+
+### PermissionsBoundary
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.AttachedPermissionsBoundary]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
+
+
+# VirtualMFADevice
 
 ### SerialNumber
 - **Type**: <class 'str'>
@@ -5226,16 +5226,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bytes]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iam_classes.UserTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EnableDate
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iam_classes.Tag]]
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

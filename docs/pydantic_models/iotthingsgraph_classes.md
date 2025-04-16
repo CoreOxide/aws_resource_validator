@@ -1,6 +1,6 @@
 # Iotthingsgraph Classes
 
-# AssociateEntityToThingRequestTypeDef
+# AssociateEntityToThingRequest
 
 ### thingName
 - **Type**: <class 'str'>
@@ -20,31 +20,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateFlowTemplateRequestTypeDef
+# CreateFlowTemplateRequest
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument'>
 - **Required**: Yes
 
 ### compatibleNamespaceVersion
 - **Type**: typing.Optional[int]
 
 
-# CreateFlowTemplateResponseTypeDef
+# CreateFlowTemplateResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSystemInstanceRequestTypeDef
+# CreateSystemInstanceRequest
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument'>
 - **Required**: Yes
 
 ### target
@@ -52,7 +52,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Tag]]
 
 ### greengrassGroupName
 - **Type**: typing.Optional[str]
@@ -61,45 +61,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### metricsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.MetricsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.MetricsConfiguration]
 
 ### flowActionsRoleArn
 - **Type**: typing.Optional[str]
 
 
-# CreateSystemInstanceResponseTypeDef
+# CreateSystemInstanceResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSystemTemplateRequestTypeDef
+# CreateSystemTemplateRequest
 
 ### definition
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument'>
 - **Required**: Yes
 
 ### compatibleNamespaceVersion
 - **Type**: typing.Optional[int]
 
 
-# CreateSystemTemplateResponseTypeDef
+# CreateSystemTemplateResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DefinitionDocumentTypeDef
+# DefinitionDocument
 
 ### language
 - **Type**: typing.Literal['GRAPHQL']
@@ -110,7 +110,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteNamespaceResponseTypeDef
+# DeleteNamespaceResponse
 
 ### namespaceArn
 - **Type**: <class 'str'>
@@ -121,20 +121,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DependencyRevisionTypeDef
+# DependencyRevision
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeploySystemInstanceResponseTypeDef
+# DeploySystemInstanceResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummary'>
 - **Required**: Yes
 
 ### greengrassDeploymentId
@@ -142,17 +142,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeNamespaceRequestTypeDef
+# DescribeNamespaceRequest
 
 ### namespaceName
 - **Type**: typing.Optional[str]
 
 
-# DescribeNamespaceResponseTypeDef
+# DescribeNamespaceResponse
 
 ### namespaceArn
 - **Type**: <class 'str'>
@@ -175,11 +175,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DissociateEntityFromThingRequestTypeDef
+# DissociateEntityFromThingRequest
 
 ### thingName
 - **Type**: <class 'str'>
@@ -190,13 +190,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EntityDescriptionTypeDef
+# EntityDescription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EntityFilterTypeDef
+# EntityFilter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['NAME', 'NAMESPACE', 'REFERENCED_ENTITY_ID', 'SEMANTIC_TYPE_PATH']]
@@ -205,7 +205,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# FlowExecutionMessageTypeDef
+# FlowExecutionMessage
 
 ### messageId
 - **Type**: typing.Optional[str]
@@ -220,7 +220,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FlowExecutionSummaryTypeDef
+# FlowExecutionSummary
 
 ### flowExecutionId
 - **Type**: typing.Optional[str]
@@ -241,19 +241,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# FlowTemplateDescriptionTypeDef
+# FlowTemplateDescription
 
 ### summary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummary]
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument]
 
 ### validatedNamespaceVersion
 - **Type**: typing.Optional[int]
 
 
-# FlowTemplateFilterTypeDef
+# FlowTemplateFilter
 
 ### name
 - **Type**: typing.Literal['DEVICE_MODEL_ID']
@@ -264,13 +264,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# FlowTemplateSummaryTypeDef
+# FlowTemplateSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetEntitiesRequestTypeDef
+# GetEntitiesRequest
 
 ### ids
 - **Type**: typing.Sequence[str]
@@ -280,43 +280,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetEntitiesResponseTypeDef
+# GetEntitiesResponse
 
 ### descriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFlowTemplateResponseTypeDef
+# GetFlowTemplateResponse
 
 ### description
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFlowTemplateRevisionsResponseTypeDef
+# GetFlowTemplateRevisionsResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNamespaceDeletionStatusResponseTypeDef
+# GetNamespaceDeletionStatusResponse
 
 ### namespaceArn
 - **Type**: <class 'str'>
@@ -339,54 +339,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSystemInstanceResponseTypeDef
+# GetSystemInstanceResponse
 
 ### description
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSystemTemplateResponseTypeDef
+# GetSystemTemplateResponse
 
 ### description
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateDescriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateDescription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSystemTemplateRevisionsResponseTypeDef
+# GetSystemTemplateRevisionsResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetUploadStatusRequestTypeDef
+# GetUploadStatusRequest
 
 ### uploadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetUploadStatusResponseTypeDef
+# GetUploadStatusResponse
 
 ### uploadId
 - **Type**: <class 'str'>
@@ -417,21 +417,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFlowExecutionMessagesRequestPaginateTypeDef
-
-### flowExecutionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# ListFlowExecutionMessagesRequestTypeDef
+# ListFlowExecutionMessagesRequest
 
 ### flowExecutionId
 - **Type**: <class 'str'>
@@ -444,31 +434,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListFlowExecutionMessagesResponseTypeDef
+# ListFlowExecutionMessagesRequestPaginate
+
+### flowExecutionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# ListFlowExecutionMessagesResponse
 
 ### messages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowExecutionMessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowExecutionMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestPaginateTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -481,21 +471,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceRequestPaginate
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# ListTagsForResourceResponse
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# MetricsConfigurationTypeDef
+# MetricsConfiguration
 
 ### cloudMetricEnabled
 - **Type**: typing.Optional[bool]
@@ -504,7 +504,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -516,7 +516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -538,30 +538,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchEntitiesRequestPaginateTypeDef
+# SearchEntitiesRequest
 
 ### entityTypes
 - **Type**: typing.Sequence[typing.Literal['ACTION', 'CAPABILITY', 'DEVICE', 'DEVICE_MODEL', 'ENUM', 'EVENT', 'MAPPING', 'PROPERTY', 'SERVICE', 'STATE']]
 - **Required**: Yes
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityFilterTypeDef]]
-
-### namespaceVersion
-- **Type**: typing.Optional[int]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# SearchEntitiesRequestTypeDef
-
-### entityTypes
-- **Type**: typing.Sequence[typing.Literal['ACTION', 'CAPABILITY', 'DEVICE', 'DEVICE_MODEL', 'ENUM', 'EVENT', 'MAPPING', 'PROPERTY', 'SERVICE', 'STATE']]
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -573,21 +557,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchEntitiesResponseTypeDef
+# SearchEntitiesRequestPaginate
+
+### entityTypes
+- **Type**: typing.Sequence[typing.Literal['ACTION', 'CAPABILITY', 'DEVICE', 'DEVICE_MODEL', 'ENUM', 'EVENT', 'MAPPING', 'PROPERTY', 'SERVICE', 'STATE']]
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityFilter]]
+
+### namespaceVersion
+- **Type**: typing.Optional[int]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchEntitiesResponse
 
 ### descriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.EntityDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchFlowExecutionsRequestPaginateTypeDef
+# SearchFlowExecutionsRequest
 
 ### systemInstanceId
 - **Type**: <class 'str'>
@@ -597,16 +597,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Timestamp]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Timestamp]
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
+### nextToken
+- **Type**: typing.Optional[str]
+
+### maxResults
+- **Type**: typing.Optional[int]
 
 
-# SearchFlowExecutionsRequestTypeDef
+# SearchFlowExecutionsRequestPaginate
 
 ### systemInstanceId
 - **Type**: <class 'str'>
@@ -616,10 +619,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### startTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Timestamp]
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchFlowExecutionsResponse
+
+### summaries
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowExecutionSummary]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### nextToken
+- **Type**: typing.Optional[str]
+
+
+# SearchFlowTemplatesRequest
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -628,33 +654,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchFlowExecutionsResponseTypeDef
+# SearchFlowTemplatesRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchFlowTemplatesResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowExecutionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchFlowTemplatesRequestPaginateTypeDef
+# SearchSystemInstancesRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# SearchFlowTemplatesRequestTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -663,33 +689,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchFlowTemplatesResponseTypeDef
+# SearchSystemInstancesRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchSystemInstancesResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchSystemInstancesRequestPaginateTypeDef
+# SearchSystemTemplatesRequest
 
 ### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# SearchSystemInstancesRequestTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateFilter]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -698,69 +724,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchSystemInstancesResponseTypeDef
+# SearchSystemTemplatesRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchSystemTemplatesResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SearchSystemTemplatesRequestPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# SearchSystemTemplatesRequestTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateFilterTypeDef]]
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-### maxResults
-- **Type**: typing.Optional[int]
-
-
-# SearchSystemTemplatesResponseTypeDef
-
-### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummaryTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### nextToken
-- **Type**: typing.Optional[str]
-
-
-# SearchThingsRequestPaginateTypeDef
-
-### entityId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### namespaceVersion
-- **Type**: typing.Optional[int]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfigTypeDef]
-
-
-# SearchThingsRequestTypeDef
+# SearchThingsRequest
 
 ### entityId
 - **Type**: <class 'str'>
@@ -776,45 +763,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SearchThingsResponseTypeDef
+# SearchThingsRequestPaginate
+
+### entityId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### namespaceVersion
+- **Type**: typing.Optional[int]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.PaginatorConfig]
+
+
+# SearchThingsResponse
 
 ### things
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.ThingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Thing]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# SystemInstanceDescriptionTypeDef
+# SystemInstanceDescription
 
 ### summary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummary]
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument]
 
 ### s3BucketName
 - **Type**: typing.Optional[str]
 
 ### metricsConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.MetricsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.MetricsConfiguration]
 
 ### validatedNamespaceVersion
 - **Type**: typing.Optional[int]
 
 ### validatedDependencyRevisions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DependencyRevisionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DependencyRevision]]
 
 ### flowActionsRoleArn
 - **Type**: typing.Optional[str]
 
 
-# SystemInstanceFilterTypeDef
+# SystemInstanceFilter
 
 ### name
 - **Type**: typing.Optional[typing.Literal['GREENGRASS_GROUP_NAME', 'STATUS', 'SYSTEM_TEMPLATE_ID']]
@@ -823,25 +823,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# SystemInstanceSummaryTypeDef
+# SystemInstanceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SystemTemplateDescriptionTypeDef
+# SystemTemplateDescription
 
 ### summary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummary]
 
 ### definition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument]
 
 ### validatedNamespaceVersion
 - **Type**: typing.Optional[int]
 
 
-# SystemTemplateFilterTypeDef
+# SystemTemplateFilter
 
 ### name
 - **Type**: typing.Literal['FLOW_TEMPLATE_ID']
@@ -852,24 +852,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SystemTemplateSummaryTypeDef
+# SystemTemplateSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: <class 'str'>
@@ -880,7 +869,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ThingTypeDef
+# TagResourceRequest
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.iotthingsgraph_classes.Tag]
+- **Required**: Yes
+
+
+# Thing
 
 ### thingArn
 - **Type**: typing.Optional[str]
@@ -889,24 +889,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UndeploySystemInstanceResponseTypeDef
+# UndeploySystemInstanceResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemInstanceSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -917,32 +917,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateFlowTemplateResponseTypeDef
+# UpdateFlowTemplateResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.FlowTemplateSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSystemTemplateResponseTypeDef
+# UpdateSystemTemplateResponse
 
 ### summary
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.SystemTemplateSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UploadEntityDefinitionsRequestTypeDef
+# UploadEntityDefinitionsRequest
 
 ### document
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocumentTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotthingsgraph_classes.DefinitionDocument]
 
 ### syncWithPublicNamespace
 - **Type**: typing.Optional[bool]
@@ -951,14 +951,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UploadEntityDefinitionsResponseTypeDef
+# UploadEntityDefinitionsResponse
 
 ### uploadId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotthingsgraph_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

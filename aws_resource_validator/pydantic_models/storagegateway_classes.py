@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.storagegateway_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,32 +25,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AddCacheInputTypeDef(BaseValidatorModel):
+class AddCacheInput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: Sequence[str]
 
 
-class AddUploadBufferInputTypeDef(BaseValidatorModel):
+class AddUploadBufferInput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: Sequence[str]
 
 
-class AddWorkingStorageInputTypeDef(BaseValidatorModel):
+class AddWorkingStorageInput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: Sequence[str]
 
 
-class AssignTapePoolInputTypeDef(BaseValidatorModel):
+class AssignTapePoolInput(BaseValidatorModel):
     TapeARN: str
     PoolId: str
     BypassGovernanceRetention: Optional[bool] = None
 
 
-class CacheAttributesTypeDef(BaseValidatorModel):
+class CacheAttributes(BaseValidatorModel):
     CacheStaleTimeoutInSeconds: Optional[int] = None
 
 
-class AttachVolumeInputTypeDef(BaseValidatorModel):
+class AttachVolumeInput(BaseValidatorModel):
     GatewayARN: str
     VolumeARN: str
     NetworkInterfaceId: str
@@ -58,7 +58,7 @@ class AttachVolumeInputTypeDef(BaseValidatorModel):
     DiskId: Optional[str] = None
 
 
-class AutomaticTapeCreationRuleTypeDef(BaseValidatorModel):
+class AutomaticTapeCreationRule(BaseValidatorModel):
     TapeBarcodePrefix: str
     PoolId: str
     TapeSizeInBytes: int
@@ -66,7 +66,7 @@ class AutomaticTapeCreationRuleTypeDef(BaseValidatorModel):
     Worm: Optional[bool] = None
 
 
-class BandwidthRateLimitIntervalOutputTypeDef(BaseValidatorModel):
+class BandwidthRateLimitIntervalOutput(BaseValidatorModel):
     StartHourOfDay: int
     StartMinuteOfHour: int
     EndHourOfDay: int
@@ -76,7 +76,7 @@ class BandwidthRateLimitIntervalOutputTypeDef(BaseValidatorModel):
     AverageDownloadRateLimitInBitsPerSec: Optional[int] = None
 
 
-class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
+class BandwidthRateLimitInterval(BaseValidatorModel):
     StartHourOfDay: int
     StartMinuteOfHour: int
     EndHourOfDay: int
@@ -86,17 +86,17 @@ class BandwidthRateLimitIntervalTypeDef(BaseValidatorModel):
     AverageDownloadRateLimitInBitsPerSec: Optional[int] = None
 
 
-class CacheReportFilterOutputTypeDef(BaseValidatorModel):
+class CacheReportFilterOutput(BaseValidatorModel):
     Name: CacheReportFilterNameType
     Values: List[str]
 
 
-class CacheReportFilterTypeDef(BaseValidatorModel):
+class CacheReportFilter(BaseValidatorModel):
     Name: CacheReportFilterNameType
     Values: Sequence[str]
 
 
-class VolumeiSCSIAttributesTypeDef(BaseValidatorModel):
+class VolumeiSCSIAttributes(BaseValidatorModel):
     TargetARN: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     NetworkInterfacePort: Optional[int] = None
@@ -104,171 +104,171 @@ class VolumeiSCSIAttributesTypeDef(BaseValidatorModel):
     ChapEnabled: Optional[bool] = None
 
 
-class CancelArchivalInputTypeDef(BaseValidatorModel):
+class CancelArchivalInput(BaseValidatorModel):
     GatewayARN: str
     TapeARN: str
 
 
-class CancelCacheReportInputTypeDef(BaseValidatorModel):
+class CancelCacheReportInput(BaseValidatorModel):
     CacheReportARN: str
 
 
-class CancelRetrievalInputTypeDef(BaseValidatorModel):
+class CancelRetrievalInput(BaseValidatorModel):
     GatewayARN: str
     TapeARN: str
 
 
-class ChapInfoTypeDef(BaseValidatorModel):
+class ChapInfo(BaseValidatorModel):
     TargetARN: Optional[str] = None
     SecretToAuthenticateInitiator: Optional[str] = None
     InitiatorName: Optional[str] = None
     SecretToAuthenticateTarget: Optional[str] = None
 
 
-class NFSFileShareDefaultsTypeDef(BaseValidatorModel):
+class NFSFileShareDefaults(BaseValidatorModel):
     FileMode: Optional[str] = None
     DirectoryMode: Optional[str] = None
     GroupId: Optional[int] = None
     OwnerId: Optional[int] = None
 
 
-class DeleteAutomaticTapeCreationPolicyInputTypeDef(BaseValidatorModel):
+class DeleteAutomaticTapeCreationPolicyInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DeleteBandwidthRateLimitInputTypeDef(BaseValidatorModel):
+class DeleteBandwidthRateLimitInput(BaseValidatorModel):
     GatewayARN: str
     BandwidthType: str
 
 
-class DeleteCacheReportInputTypeDef(BaseValidatorModel):
+class DeleteCacheReportInput(BaseValidatorModel):
     CacheReportARN: str
 
 
-class DeleteChapCredentialsInputTypeDef(BaseValidatorModel):
+class DeleteChapCredentialsInput(BaseValidatorModel):
     TargetARN: str
     InitiatorName: str
 
 
-class DeleteFileShareInputTypeDef(BaseValidatorModel):
+class DeleteFileShareInput(BaseValidatorModel):
     FileShareARN: str
     ForceDelete: Optional[bool] = None
 
 
-class DeleteGatewayInputTypeDef(BaseValidatorModel):
+class DeleteGatewayInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DeleteSnapshotScheduleInputTypeDef(BaseValidatorModel):
+class DeleteSnapshotScheduleInput(BaseValidatorModel):
     VolumeARN: str
 
 
-class DeleteTapeArchiveInputTypeDef(BaseValidatorModel):
+class DeleteTapeArchiveInput(BaseValidatorModel):
     TapeARN: str
     BypassGovernanceRetention: Optional[bool] = None
 
 
-class DeleteTapeInputTypeDef(BaseValidatorModel):
+class DeleteTapeInput(BaseValidatorModel):
     GatewayARN: str
     TapeARN: str
     BypassGovernanceRetention: Optional[bool] = None
 
 
-class DeleteTapePoolInputTypeDef(BaseValidatorModel):
+class DeleteTapePoolInput(BaseValidatorModel):
     PoolARN: str
 
 
-class DeleteVolumeInputTypeDef(BaseValidatorModel):
+class DeleteVolumeInput(BaseValidatorModel):
     VolumeARN: str
 
 
-class DescribeAvailabilityMonitorTestInputTypeDef(BaseValidatorModel):
+class DescribeAvailabilityMonitorTestInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DescribeBandwidthRateLimitInputTypeDef(BaseValidatorModel):
+class DescribeBandwidthRateLimitInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DescribeBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
+class DescribeBandwidthRateLimitScheduleInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DescribeCacheInputTypeDef(BaseValidatorModel):
+class DescribeCacheInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DescribeCacheReportInputTypeDef(BaseValidatorModel):
+class DescribeCacheReportInput(BaseValidatorModel):
     CacheReportARN: str
 
 
-class DescribeCachediSCSIVolumesInputTypeDef(BaseValidatorModel):
+class DescribeCachediSCSIVolumesInput(BaseValidatorModel):
     VolumeARNs: Sequence[str]
 
 
-class DescribeChapCredentialsInputTypeDef(BaseValidatorModel):
+class DescribeChapCredentialsInput(BaseValidatorModel):
     TargetARN: str
 
 
-class DescribeFileSystemAssociationsInputTypeDef(BaseValidatorModel):
+class DescribeFileSystemAssociationsInput(BaseValidatorModel):
     FileSystemAssociationARNList: Sequence[str]
 
 
-class DescribeGatewayInformationInputTypeDef(BaseValidatorModel):
+class DescribeGatewayInformationInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     Ipv4Address: Optional[str] = None
     MacAddress: Optional[str] = None
     Ipv6Address: Optional[str] = None
 
 
-class DescribeMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
+class DescribeMaintenanceStartTimeInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class SoftwareUpdatePreferencesTypeDef(BaseValidatorModel):
+class SoftwareUpdatePreferences(BaseValidatorModel):
     AutomaticUpdatePolicy: Optional[AutomaticUpdatePolicyType] = None
 
 
-class DescribeNFSFileSharesInputTypeDef(BaseValidatorModel):
+class DescribeNFSFileSharesInput(BaseValidatorModel):
     FileShareARNList: Sequence[str]
 
 
-class DescribeSMBFileSharesInputTypeDef(BaseValidatorModel):
+class DescribeSMBFileSharesInput(BaseValidatorModel):
     FileShareARNList: Sequence[str]
 
 
-class DescribeSMBSettingsInputTypeDef(BaseValidatorModel):
+class DescribeSMBSettingsInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class SMBLocalGroupsOutputTypeDef(BaseValidatorModel):
+class SMBLocalGroupsOutput(BaseValidatorModel):
     GatewayAdmins: Optional[List[str]] = None
 
 
-class DescribeSnapshotScheduleInputTypeDef(BaseValidatorModel):
+class DescribeSnapshotScheduleInput(BaseValidatorModel):
     VolumeARN: str
 
 
-class DescribeStorediSCSIVolumesInputTypeDef(BaseValidatorModel):
+class DescribeStorediSCSIVolumesInput(BaseValidatorModel):
     VolumeARNs: Sequence[str]
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeTapeArchivesInputTypeDef(BaseValidatorModel):
+class DescribeTapeArchivesInput(BaseValidatorModel):
     TapeARNs: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class TapeArchiveTypeDef(BaseValidatorModel):
+class TapeArchive(BaseValidatorModel):
     TapeARN: Optional[str] = None
     TapeBarcode: Optional[str] = None
     TapeCreatedDate: Optional[datetime] = None
@@ -284,27 +284,27 @@ class TapeArchiveTypeDef(BaseValidatorModel):
     PoolEntryDate: Optional[datetime] = None
 
 
-class DescribeTapeRecoveryPointsInputTypeDef(BaseValidatorModel):
+class DescribeTapeRecoveryPointsInput(BaseValidatorModel):
     GatewayARN: str
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class TapeRecoveryPointInfoTypeDef(BaseValidatorModel):
+class TapeRecoveryPointInfo(BaseValidatorModel):
     TapeARN: Optional[str] = None
     TapeRecoveryPointTime: Optional[datetime] = None
     TapeSizeInBytes: Optional[int] = None
     TapeStatus: Optional[str] = None
 
 
-class DescribeTapesInputTypeDef(BaseValidatorModel):
+class DescribeTapesInput(BaseValidatorModel):
     GatewayARN: str
     TapeARNs: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class TapeTypeDef(BaseValidatorModel):
+class Tape(BaseValidatorModel):
     TapeARN: Optional[str] = None
     TapeBarcode: Optional[str] = None
     TapeCreatedDate: Optional[datetime] = None
@@ -320,43 +320,43 @@ class TapeTypeDef(BaseValidatorModel):
     PoolEntryDate: Optional[datetime] = None
 
 
-class DescribeUploadBufferInputTypeDef(BaseValidatorModel):
+class DescribeUploadBufferInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DescribeVTLDevicesInputTypeDef(BaseValidatorModel):
+class DescribeVTLDevicesInput(BaseValidatorModel):
     GatewayARN: str
     VTLDeviceARNs: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class DescribeWorkingStorageInputTypeDef(BaseValidatorModel):
+class DescribeWorkingStorageInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DetachVolumeInputTypeDef(BaseValidatorModel):
+class DetachVolumeInput(BaseValidatorModel):
     VolumeARN: str
     ForceDetach: Optional[bool] = None
 
 
-class DeviceiSCSIAttributesTypeDef(BaseValidatorModel):
+class DeviceiSCSIAttributes(BaseValidatorModel):
     TargetARN: Optional[str] = None
     NetworkInterfaceId: Optional[str] = None
     NetworkInterfacePort: Optional[int] = None
     ChapEnabled: Optional[bool] = None
 
 
-class DisableGatewayInputTypeDef(BaseValidatorModel):
+class DisableGatewayInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class DisassociateFileSystemInputTypeDef(BaseValidatorModel):
+class DisassociateFileSystemInput(BaseValidatorModel):
     FileSystemAssociationARN: str
     ForceDelete: Optional[bool] = None
 
 
-class DiskTypeDef(BaseValidatorModel):
+class Disk(BaseValidatorModel):
     DiskId: Optional[str] = None
     DiskPath: Optional[str] = None
     DiskNode: Optional[str] = None
@@ -367,20 +367,20 @@ class DiskTypeDef(BaseValidatorModel):
     DiskAttributeList: Optional[List[str]] = None
 
 
-class EndpointNetworkConfigurationOutputTypeDef(BaseValidatorModel):
+class EndpointNetworkConfigurationOutput(BaseValidatorModel):
     IpAddresses: Optional[List[str]] = None
 
 
-class EndpointNetworkConfigurationTypeDef(BaseValidatorModel):
+class EndpointNetworkConfiguration(BaseValidatorModel):
     IpAddresses: Optional[Sequence[str]] = None
 
 
-class EvictFilesFailingUploadInputTypeDef(BaseValidatorModel):
+class EvictFilesFailingUploadInput(BaseValidatorModel):
     FileShareARN: str
     ForceRemove: Optional[bool] = None
 
 
-class FileShareInfoTypeDef(BaseValidatorModel):
+class FileShareInfo(BaseValidatorModel):
     FileShareType: Optional[FileShareTypeType] = None
     FileShareARN: Optional[str] = None
     FileShareId: Optional[str] = None
@@ -388,18 +388,18 @@ class FileShareInfoTypeDef(BaseValidatorModel):
     GatewayARN: Optional[str] = None
 
 
-class FileSystemAssociationStatusDetailTypeDef(BaseValidatorModel):
+class FileSystemAssociationStatusDetail(BaseValidatorModel):
     ErrorCode: Optional[str] = None
 
 
-class FileSystemAssociationSummaryTypeDef(BaseValidatorModel):
+class FileSystemAssociationSummary(BaseValidatorModel):
     FileSystemAssociationId: Optional[str] = None
     FileSystemAssociationARN: Optional[str] = None
     FileSystemAssociationStatus: Optional[str] = None
     GatewayARN: Optional[str] = None
 
 
-class GatewayInfoTypeDef(BaseValidatorModel):
+class GatewayInfo(BaseValidatorModel):
     GatewayId: Optional[str] = None
     GatewayARN: Optional[str] = None
     GatewayType: Optional[str] = None
@@ -413,7 +413,7 @@ class GatewayInfoTypeDef(BaseValidatorModel):
     SoftwareVersion: Optional[str] = None
 
 
-class JoinDomainInputTypeDef(BaseValidatorModel):
+class JoinDomainInput(BaseValidatorModel):
     GatewayARN: str
     DomainName: str
     UserName: str
@@ -423,48 +423,48 @@ class JoinDomainInputTypeDef(BaseValidatorModel):
     TimeoutInSeconds: Optional[int] = None
 
 
-class ListAutomaticTapeCreationPoliciesInputTypeDef(BaseValidatorModel):
+class ListAutomaticTapeCreationPoliciesInput(BaseValidatorModel):
     GatewayARN: Optional[str] = None
 
 
-class ListCacheReportsInputTypeDef(BaseValidatorModel):
+class ListCacheReportsInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
-class ListFileSharesInputTypeDef(BaseValidatorModel):
-    GatewayARN: Optional[str] = None
-    Limit: Optional[int] = None
-    Marker: Optional[str] = None
-
-
-class ListFileSystemAssociationsInputTypeDef(BaseValidatorModel):
+class ListFileSharesInput(BaseValidatorModel):
     GatewayARN: Optional[str] = None
     Limit: Optional[int] = None
     Marker: Optional[str] = None
 
 
-class ListGatewaysInputTypeDef(BaseValidatorModel):
+class ListFileSystemAssociationsInput(BaseValidatorModel):
+    GatewayARN: Optional[str] = None
+    Limit: Optional[int] = None
+    Marker: Optional[str] = None
+
+
+class ListGatewaysInput(BaseValidatorModel):
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class ListLocalDisksInputTypeDef(BaseValidatorModel):
+class ListLocalDisksInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     ResourceARN: str
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class ListTapePoolsInputTypeDef(BaseValidatorModel):
+class ListTapePoolsInput(BaseValidatorModel):
     PoolARNs: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class PoolInfoTypeDef(BaseValidatorModel):
+class PoolInfo(BaseValidatorModel):
     PoolARN: Optional[str] = None
     PoolName: Optional[str] = None
     StorageClass: Optional[TapeStorageClassType] = None
@@ -473,13 +473,13 @@ class PoolInfoTypeDef(BaseValidatorModel):
     PoolStatus: Optional[PoolStatusType] = None
 
 
-class ListTapesInputTypeDef(BaseValidatorModel):
+class ListTapesInput(BaseValidatorModel):
     TapeARNs: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class TapeInfoTypeDef(BaseValidatorModel):
+class TapeInfo(BaseValidatorModel):
     TapeARN: Optional[str] = None
     TapeBarcode: Optional[str] = None
     TapeSizeInBytes: Optional[int] = None
@@ -490,28 +490,28 @@ class TapeInfoTypeDef(BaseValidatorModel):
     PoolEntryDate: Optional[datetime] = None
 
 
-class ListVolumeInitiatorsInputTypeDef(BaseValidatorModel):
+class ListVolumeInitiatorsInput(BaseValidatorModel):
     VolumeARN: str
 
 
-class ListVolumeRecoveryPointsInputTypeDef(BaseValidatorModel):
+class ListVolumeRecoveryPointsInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class VolumeRecoveryPointInfoTypeDef(BaseValidatorModel):
+class VolumeRecoveryPointInfo(BaseValidatorModel):
     VolumeARN: Optional[str] = None
     VolumeSizeInBytes: Optional[int] = None
     VolumeUsageInBytes: Optional[int] = None
     VolumeRecoveryPointTime: Optional[str] = None
 
 
-class ListVolumesInputTypeDef(BaseValidatorModel):
+class ListVolumesInput(BaseValidatorModel):
     GatewayARN: Optional[str] = None
     Marker: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class VolumeInfoTypeDef(BaseValidatorModel):
+class VolumeInfo(BaseValidatorModel):
     VolumeARN: Optional[str] = None
     VolumeId: Optional[str] = None
     GatewayARN: Optional[str] = None
@@ -521,75 +521,75 @@ class VolumeInfoTypeDef(BaseValidatorModel):
     VolumeAttachmentStatus: Optional[str] = None
 
 
-class NotifyWhenUploadedInputTypeDef(BaseValidatorModel):
+class NotifyWhenUploadedInput(BaseValidatorModel):
     FileShareARN: str
 
 
-class RefreshCacheInputTypeDef(BaseValidatorModel):
+class RefreshCacheInput(BaseValidatorModel):
     FileShareARN: str
     FolderList: Optional[Sequence[str]] = None
     Recursive: Optional[bool] = None
 
 
-class RemoveTagsFromResourceInputTypeDef(BaseValidatorModel):
+class RemoveTagsFromResourceInput(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class ResetCacheInputTypeDef(BaseValidatorModel):
+class ResetCacheInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class RetrieveTapeArchiveInputTypeDef(BaseValidatorModel):
+class RetrieveTapeArchiveInput(BaseValidatorModel):
     TapeARN: str
     GatewayARN: str
 
 
-class RetrieveTapeRecoveryPointInputTypeDef(BaseValidatorModel):
+class RetrieveTapeRecoveryPointInput(BaseValidatorModel):
     TapeARN: str
     GatewayARN: str
 
 
-class SMBLocalGroupsTypeDef(BaseValidatorModel):
+class SMBLocalGroups(BaseValidatorModel):
     GatewayAdmins: Optional[Sequence[str]] = None
 
 
-class SetLocalConsolePasswordInputTypeDef(BaseValidatorModel):
+class SetLocalConsolePasswordInput(BaseValidatorModel):
     GatewayARN: str
     LocalConsolePassword: str
 
 
-class SetSMBGuestPasswordInputTypeDef(BaseValidatorModel):
+class SetSMBGuestPasswordInput(BaseValidatorModel):
     GatewayARN: str
     Password: str
 
 
-class ShutdownGatewayInputTypeDef(BaseValidatorModel):
+class ShutdownGatewayInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class StartAvailabilityMonitorTestInputTypeDef(BaseValidatorModel):
+class StartAvailabilityMonitorTestInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class StartGatewayInputTypeDef(BaseValidatorModel):
+class StartGatewayInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class UpdateBandwidthRateLimitInputTypeDef(BaseValidatorModel):
+class UpdateBandwidthRateLimitInput(BaseValidatorModel):
     GatewayARN: str
     AverageUploadRateLimitInBitsPerSec: Optional[int] = None
     AverageDownloadRateLimitInBitsPerSec: Optional[int] = None
 
 
-class UpdateChapCredentialsInputTypeDef(BaseValidatorModel):
+class UpdateChapCredentialsInput(BaseValidatorModel):
     TargetARN: str
     SecretToAuthenticateInitiator: str
     InitiatorName: str
     SecretToAuthenticateTarget: Optional[str] = None
 
 
-class UpdateGatewayInformationInputTypeDef(BaseValidatorModel):
+class UpdateGatewayInformationInput(BaseValidatorModel):
     GatewayARN: str
     GatewayName: Optional[str] = None
     GatewayTimezone: Optional[str] = None
@@ -597,26 +597,26 @@ class UpdateGatewayInformationInputTypeDef(BaseValidatorModel):
     GatewayCapacity: Optional[GatewayCapacityType] = None
 
 
-class UpdateGatewaySoftwareNowInputTypeDef(BaseValidatorModel):
+class UpdateGatewaySoftwareNowInput(BaseValidatorModel):
     GatewayARN: str
 
 
-class UpdateSMBFileShareVisibilityInputTypeDef(BaseValidatorModel):
+class UpdateSMBFileShareVisibilityInput(BaseValidatorModel):
     GatewayARN: str
     FileSharesVisible: bool
 
 
-class UpdateSMBSecurityStrategyInputTypeDef(BaseValidatorModel):
+class UpdateSMBSecurityStrategyInput(BaseValidatorModel):
     GatewayARN: str
     SMBSecurityStrategy: SMBSecurityStrategyType
 
 
-class UpdateVTLDeviceTypeInputTypeDef(BaseValidatorModel):
+class UpdateVTLDeviceTypeInput(BaseValidatorModel):
     VTLDeviceARN: str
     DeviceType: str
 
 
-class ActivateGatewayInputTypeDef(BaseValidatorModel):
+class ActivateGatewayInput(BaseValidatorModel):
     ActivationKey: str
     GatewayName: str
     GatewayTimezone: str
@@ -624,15 +624,15 @@ class ActivateGatewayInputTypeDef(BaseValidatorModel):
     GatewayType: Optional[str] = None
     TapeDriveType: Optional[str] = None
     MediumChangerType: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class AddTagsToResourceInputTypeDef(BaseValidatorModel):
+class AddTagsToResourceInput(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateCachediSCSIVolumeInputTypeDef(BaseValidatorModel):
+class CreateCachediSCSIVolumeInput(BaseValidatorModel):
     GatewayARN: str
     VolumeSizeInBytes: int
     TargetName: str
@@ -642,22 +642,22 @@ class CreateCachediSCSIVolumeInputTypeDef(BaseValidatorModel):
     SourceVolumeARN: Optional[str] = None
     KMSEncrypted: Optional[bool] = None
     KMSKey: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSnapshotFromVolumeRecoveryPointInputTypeDef(BaseValidatorModel):
+class CreateSnapshotFromVolumeRecoveryPointInput(BaseValidatorModel):
     VolumeARN: str
     SnapshotDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSnapshotInputTypeDef(BaseValidatorModel):
+class CreateSnapshotInput(BaseValidatorModel):
     VolumeARN: str
     SnapshotDescription: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateStorediSCSIVolumeInputTypeDef(BaseValidatorModel):
+class CreateStorediSCSIVolumeInput(BaseValidatorModel):
     GatewayARN: str
     DiskId: str
     PreserveExistingData: bool
@@ -666,18 +666,18 @@ class CreateStorediSCSIVolumeInputTypeDef(BaseValidatorModel):
     SnapshotId: Optional[str] = None
     KMSEncrypted: Optional[bool] = None
     KMSKey: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTapePoolInputTypeDef(BaseValidatorModel):
+class CreateTapePoolInput(BaseValidatorModel):
     PoolName: str
     StorageClass: TapeStorageClassType
     RetentionLockType: Optional[RetentionLockTypeType] = None
     RetentionLockTimeInDays: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTapeWithBarcodeInputTypeDef(BaseValidatorModel):
+class CreateTapeWithBarcodeInput(BaseValidatorModel):
     GatewayARN: str
     TapeSizeInBytes: int
     TapeBarcode: str
@@ -685,10 +685,10 @@ class CreateTapeWithBarcodeInputTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateTapesInputTypeDef(BaseValidatorModel):
+class CreateTapesInput(BaseValidatorModel):
     GatewayARN: str
     TapeSizeInBytes: int
     ClientToken: str
@@ -698,195 +698,195 @@ class CreateTapesInputTypeDef(BaseValidatorModel):
     KMSKey: Optional[str] = None
     PoolId: Optional[str] = None
     Worm: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateSnapshotScheduleInputTypeDef(BaseValidatorModel):
+class UpdateSnapshotScheduleInput(BaseValidatorModel):
     VolumeARN: str
     StartAt: int
     RecurrenceInHours: int
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ActivateGatewayOutputTypeDef(BaseValidatorModel):
+class ActivateGatewayOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddCacheOutputTypeDef(BaseValidatorModel):
+class AddCacheOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddTagsToResourceOutputTypeDef(BaseValidatorModel):
+class AddTagsToResourceOutput(BaseValidatorModel):
     ResourceARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddUploadBufferOutputTypeDef(BaseValidatorModel):
+class AddUploadBufferOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddWorkingStorageOutputTypeDef(BaseValidatorModel):
+class AddWorkingStorageOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssignTapePoolOutputTypeDef(BaseValidatorModel):
+class AssignTapePoolOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateFileSystemOutputTypeDef(BaseValidatorModel):
+class AssociateFileSystemOutput(BaseValidatorModel):
     FileSystemAssociationARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AttachVolumeOutputTypeDef(BaseValidatorModel):
+class AttachVolumeOutput(BaseValidatorModel):
     VolumeARN: str
     TargetARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelArchivalOutputTypeDef(BaseValidatorModel):
+class CancelArchivalOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelCacheReportOutputTypeDef(BaseValidatorModel):
+class CancelCacheReportOutput(BaseValidatorModel):
     CacheReportARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CancelRetrievalOutputTypeDef(BaseValidatorModel):
+class CancelRetrievalOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCachediSCSIVolumeOutputTypeDef(BaseValidatorModel):
+class CreateCachediSCSIVolumeOutput(BaseValidatorModel):
     VolumeARN: str
     TargetARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateNFSFileShareOutputTypeDef(BaseValidatorModel):
+class CreateNFSFileShareOutput(BaseValidatorModel):
     FileShareARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSMBFileShareOutputTypeDef(BaseValidatorModel):
+class CreateSMBFileShareOutput(BaseValidatorModel):
     FileShareARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSnapshotFromVolumeRecoveryPointOutputTypeDef(BaseValidatorModel):
+class CreateSnapshotFromVolumeRecoveryPointOutput(BaseValidatorModel):
     SnapshotId: str
     VolumeARN: str
     VolumeRecoveryPointTime: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSnapshotOutputTypeDef(BaseValidatorModel):
+class CreateSnapshotOutput(BaseValidatorModel):
     VolumeARN: str
     SnapshotId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStorediSCSIVolumeOutputTypeDef(BaseValidatorModel):
+class CreateStorediSCSIVolumeOutput(BaseValidatorModel):
     VolumeARN: str
     VolumeSizeInBytes: int
     TargetARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTapePoolOutputTypeDef(BaseValidatorModel):
+class CreateTapePoolOutput(BaseValidatorModel):
     PoolARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTapeWithBarcodeOutputTypeDef(BaseValidatorModel):
+class CreateTapeWithBarcodeOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTapesOutputTypeDef(BaseValidatorModel):
+class CreateTapesOutput(BaseValidatorModel):
     TapeARNs: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteAutomaticTapeCreationPolicyOutputTypeDef(BaseValidatorModel):
+class DeleteAutomaticTapeCreationPolicyOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBandwidthRateLimitOutputTypeDef(BaseValidatorModel):
+class DeleteBandwidthRateLimitOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCacheReportOutputTypeDef(BaseValidatorModel):
+class DeleteCacheReportOutput(BaseValidatorModel):
     CacheReportARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteChapCredentialsOutputTypeDef(BaseValidatorModel):
+class DeleteChapCredentialsOutput(BaseValidatorModel):
     TargetARN: str
     InitiatorName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteFileShareOutputTypeDef(BaseValidatorModel):
+class DeleteFileShareOutput(BaseValidatorModel):
     FileShareARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteGatewayOutputTypeDef(BaseValidatorModel):
+class DeleteGatewayOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSnapshotScheduleOutputTypeDef(BaseValidatorModel):
+class DeleteSnapshotScheduleOutput(BaseValidatorModel):
     VolumeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTapeArchiveOutputTypeDef(BaseValidatorModel):
+class DeleteTapeArchiveOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTapeOutputTypeDef(BaseValidatorModel):
+class DeleteTapeOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTapePoolOutputTypeDef(BaseValidatorModel):
+class DeleteTapePoolOutput(BaseValidatorModel):
     PoolARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVolumeOutputTypeDef(BaseValidatorModel):
+class DeleteVolumeOutput(BaseValidatorModel):
     VolumeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAvailabilityMonitorTestOutputTypeDef(BaseValidatorModel):
+class DescribeAvailabilityMonitorTestOutput(BaseValidatorModel):
     GatewayARN: str
     Status: AvailabilityMonitorTestStatusType
     StartTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBandwidthRateLimitOutputTypeDef(BaseValidatorModel):
+class DescribeBandwidthRateLimitOutput(BaseValidatorModel):
     GatewayARN: str
     AverageUploadRateLimitInBitsPerSec: int
     AverageDownloadRateLimitInBitsPerSec: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeCacheOutputTypeDef(BaseValidatorModel):
+class DescribeCacheOutput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: List[str]
     CacheAllocatedInBytes: int
@@ -894,237 +894,237 @@ class DescribeCacheOutputTypeDef(BaseValidatorModel):
     CacheDirtyPercentage: float
     CacheHitPercentage: float
     CacheMissPercentage: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSnapshotScheduleOutputTypeDef(BaseValidatorModel):
+class DescribeSnapshotScheduleOutput(BaseValidatorModel):
     VolumeARN: str
     StartAt: int
     RecurrenceInHours: int
     Description: str
     Timezone: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeUploadBufferOutputTypeDef(BaseValidatorModel):
+class DescribeUploadBufferOutput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: List[str]
     UploadBufferUsedInBytes: int
     UploadBufferAllocatedInBytes: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeWorkingStorageOutputTypeDef(BaseValidatorModel):
+class DescribeWorkingStorageOutput(BaseValidatorModel):
     GatewayARN: str
     DiskIds: List[str]
     WorkingStorageUsedInBytes: int
     WorkingStorageAllocatedInBytes: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DetachVolumeOutputTypeDef(BaseValidatorModel):
+class DetachVolumeOutput(BaseValidatorModel):
     VolumeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisableGatewayOutputTypeDef(BaseValidatorModel):
+class DisableGatewayOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociateFileSystemOutputTypeDef(BaseValidatorModel):
+class DisassociateFileSystemOutput(BaseValidatorModel):
     FileSystemAssociationARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EvictFilesFailingUploadOutputTypeDef(BaseValidatorModel):
+class EvictFilesFailingUploadOutput(BaseValidatorModel):
     NotificationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class JoinDomainOutputTypeDef(BaseValidatorModel):
+class JoinDomainOutput(BaseValidatorModel):
     GatewayARN: str
     ActiveDirectoryStatus: ActiveDirectoryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     ResourceARN: str
     Marker: str
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVolumeInitiatorsOutputTypeDef(BaseValidatorModel):
+class ListVolumeInitiatorsOutput(BaseValidatorModel):
     Initiators: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NotifyWhenUploadedOutputTypeDef(BaseValidatorModel):
+class NotifyWhenUploadedOutput(BaseValidatorModel):
     FileShareARN: str
     NotificationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RefreshCacheOutputTypeDef(BaseValidatorModel):
+class RefreshCacheOutput(BaseValidatorModel):
     FileShareARN: str
     NotificationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RemoveTagsFromResourceOutputTypeDef(BaseValidatorModel):
+class RemoveTagsFromResourceOutput(BaseValidatorModel):
     ResourceARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ResetCacheOutputTypeDef(BaseValidatorModel):
+class ResetCacheOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetrieveTapeArchiveOutputTypeDef(BaseValidatorModel):
+class RetrieveTapeArchiveOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RetrieveTapeRecoveryPointOutputTypeDef(BaseValidatorModel):
+class RetrieveTapeRecoveryPointOutput(BaseValidatorModel):
     TapeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetLocalConsolePasswordOutputTypeDef(BaseValidatorModel):
+class SetLocalConsolePasswordOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SetSMBGuestPasswordOutputTypeDef(BaseValidatorModel):
+class SetSMBGuestPasswordOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ShutdownGatewayOutputTypeDef(BaseValidatorModel):
+class ShutdownGatewayOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartAvailabilityMonitorTestOutputTypeDef(BaseValidatorModel):
+class StartAvailabilityMonitorTestOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartCacheReportOutputTypeDef(BaseValidatorModel):
+class StartCacheReportOutput(BaseValidatorModel):
     CacheReportARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartGatewayOutputTypeDef(BaseValidatorModel):
+class StartGatewayOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateAutomaticTapeCreationPolicyOutputTypeDef(BaseValidatorModel):
+class UpdateAutomaticTapeCreationPolicyOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBandwidthRateLimitOutputTypeDef(BaseValidatorModel):
+class UpdateBandwidthRateLimitOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
+class UpdateBandwidthRateLimitScheduleOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChapCredentialsOutputTypeDef(BaseValidatorModel):
+class UpdateChapCredentialsOutput(BaseValidatorModel):
     TargetARN: str
     InitiatorName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFileSystemAssociationOutputTypeDef(BaseValidatorModel):
+class UpdateFileSystemAssociationOutput(BaseValidatorModel):
     FileSystemAssociationARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGatewayInformationOutputTypeDef(BaseValidatorModel):
+class UpdateGatewayInformationOutput(BaseValidatorModel):
     GatewayARN: str
     GatewayName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGatewaySoftwareNowOutputTypeDef(BaseValidatorModel):
+class UpdateGatewaySoftwareNowOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMaintenanceStartTimeOutputTypeDef(BaseValidatorModel):
+class UpdateMaintenanceStartTimeOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateNFSFileShareOutputTypeDef(BaseValidatorModel):
+class UpdateNFSFileShareOutput(BaseValidatorModel):
     FileShareARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSMBFileShareOutputTypeDef(BaseValidatorModel):
+class UpdateSMBFileShareOutput(BaseValidatorModel):
     FileShareARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSMBFileShareVisibilityOutputTypeDef(BaseValidatorModel):
+class UpdateSMBFileShareVisibilityOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSMBLocalGroupsOutputTypeDef(BaseValidatorModel):
+class UpdateSMBLocalGroupsOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSMBSecurityStrategyOutputTypeDef(BaseValidatorModel):
+class UpdateSMBSecurityStrategyOutput(BaseValidatorModel):
     GatewayARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSnapshotScheduleOutputTypeDef(BaseValidatorModel):
+class UpdateSnapshotScheduleOutput(BaseValidatorModel):
     VolumeARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVTLDeviceTypeOutputTypeDef(BaseValidatorModel):
+class UpdateVTLDeviceTypeOutput(BaseValidatorModel):
     VTLDeviceARN: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateFileSystemAssociationInputTypeDef(BaseValidatorModel):
+class UpdateFileSystemAssociationInput(BaseValidatorModel):
     FileSystemAssociationARN: str
     UserName: Optional[str] = None
     Password: Optional[str] = None
     AuditDestinationARN: Optional[str] = None
-    CacheAttributes: Optional[CacheAttributesTypeDef] = None
+    CacheAttributes: Optional[CacheAttributes] = None
 
 
-class AutomaticTapeCreationPolicyInfoTypeDef(BaseValidatorModel):
-    AutomaticTapeCreationRules: Optional[List[AutomaticTapeCreationRuleTypeDef]] = None
+class AutomaticTapeCreationPolicyInfo(BaseValidatorModel):
+    AutomaticTapeCreationRules: Optional[List[AutomaticTapeCreationRule]] = None
     GatewayARN: Optional[str] = None
 
 
-class UpdateAutomaticTapeCreationPolicyInputTypeDef(BaseValidatorModel):
-    AutomaticTapeCreationRules: Sequence[AutomaticTapeCreationRuleTypeDef]
+class UpdateAutomaticTapeCreationPolicyInput(BaseValidatorModel):
+    AutomaticTapeCreationRules: Sequence[AutomaticTapeCreationRule]
     GatewayARN: str
 
 
-class DescribeBandwidthRateLimitScheduleOutputTypeDef(BaseValidatorModel):
+class DescribeBandwidthRateLimitScheduleOutput(BaseValidatorModel):
     GatewayARN: str
-    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    BandwidthRateLimitIntervals: List[BandwidthRateLimitIntervalOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class CacheReportInfoTypeDef(BaseValidatorModel):
+class CacheReportInfo(BaseValidatorModel):
     CacheReportARN: Optional[str] = None
     CacheReportStatus: Optional[CacheReportStatusType] = None
     ReportCompletionPercent: Optional[int] = None
@@ -1133,13 +1133,13 @@ class CacheReportInfoTypeDef(BaseValidatorModel):
     FileShareARN: Optional[str] = None
     LocationARN: Optional[str] = None
     StartTime: Optional[datetime] = None
-    InclusionFilters: Optional[List[CacheReportFilterOutputTypeDef]] = None
-    ExclusionFilters: Optional[List[CacheReportFilterOutputTypeDef]] = None
+    InclusionFilters: Optional[List[CacheReportFilterOutput]] = None
+    ExclusionFilters: Optional[List[CacheReportFilterOutput]] = None
     ReportName: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class CachediSCSIVolumeTypeDef(BaseValidatorModel):
+class CachediSCSIVolume(BaseValidatorModel):
     VolumeARN: Optional[str] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
@@ -1148,14 +1148,14 @@ class CachediSCSIVolumeTypeDef(BaseValidatorModel):
     VolumeSizeInBytes: Optional[int] = None
     VolumeProgress: Optional[float] = None
     SourceSnapshotId: Optional[str] = None
-    VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributesTypeDef] = None
+    VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributes] = None
     CreatedDate: Optional[datetime] = None
     VolumeUsedInBytes: Optional[int] = None
     KMSKey: Optional[str] = None
     TargetName: Optional[str] = None
 
 
-class StorediSCSIVolumeTypeDef(BaseValidatorModel):
+class StorediSCSIVolume(BaseValidatorModel):
     VolumeARN: Optional[str] = None
     VolumeId: Optional[str] = None
     VolumeType: Optional[str] = None
@@ -1166,31 +1166,31 @@ class StorediSCSIVolumeTypeDef(BaseValidatorModel):
     VolumeDiskId: Optional[str] = None
     SourceSnapshotId: Optional[str] = None
     PreservedExistingData: Optional[bool] = None
-    VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributesTypeDef] = None
+    VolumeiSCSIAttributes: Optional[VolumeiSCSIAttributes] = None
     CreatedDate: Optional[datetime] = None
     VolumeUsedInBytes: Optional[int] = None
     KMSKey: Optional[str] = None
     TargetName: Optional[str] = None
 
 
-class DescribeChapCredentialsOutputTypeDef(BaseValidatorModel):
-    ChapCredentials: List[ChapInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChapCredentialsOutput(BaseValidatorModel):
+    ChapCredentials: List[ChapInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGatewayInformationOutputTypeDef(BaseValidatorModel):
+class DescribeGatewayInformationOutput(BaseValidatorModel):
     GatewayARN: str
     GatewayId: str
     GatewayName: str
     GatewayTimezone: str
     GatewayState: str
-    GatewayNetworkInterfaces: List[NetworkInterfaceTypeDef]
+    GatewayNetworkInterfaces: List[NetworkInterface]
     GatewayType: str
     NextUpdateAvailabilityDate: str
     LastSoftwareUpdate: str
     Ec2InstanceId: str
     Ec2InstanceRegion: str
-    Tags: List[TagTypeDef]
+    Tags: List[Tag]
     VPCEndpoint: str
     CloudWatchLogGroupARN: str
     HostEnvironment: HostEnvironmentType
@@ -1201,289 +1201,289 @@ class DescribeGatewayInformationOutputTypeDef(BaseValidatorModel):
     SupportedGatewayCapacities: List[GatewayCapacityType]
     HostEnvironmentId: str
     SoftwareVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMaintenanceStartTimeOutputTypeDef(BaseValidatorModel):
+class DescribeMaintenanceStartTimeOutput(BaseValidatorModel):
     GatewayARN: str
     HourOfDay: int
     MinuteOfHour: int
     DayOfWeek: int
     DayOfMonth: int
     Timezone: str
-    SoftwareUpdatePreferences: SoftwareUpdatePreferencesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SoftwareUpdatePreferences: SoftwareUpdatePreferences
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMaintenanceStartTimeInputTypeDef(BaseValidatorModel):
+class UpdateMaintenanceStartTimeInput(BaseValidatorModel):
     GatewayARN: str
     HourOfDay: Optional[int] = None
     MinuteOfHour: Optional[int] = None
     DayOfWeek: Optional[int] = None
     DayOfMonth: Optional[int] = None
-    SoftwareUpdatePreferences: Optional[SoftwareUpdatePreferencesTypeDef] = None
+    SoftwareUpdatePreferences: Optional[SoftwareUpdatePreferences] = None
 
 
-class DescribeSMBSettingsOutputTypeDef(BaseValidatorModel):
+class DescribeSMBSettingsOutput(BaseValidatorModel):
     GatewayARN: str
     DomainName: str
     ActiveDirectoryStatus: ActiveDirectoryStatusType
     SMBGuestPasswordSet: bool
     SMBSecurityStrategy: SMBSecurityStrategyType
     FileSharesVisible: bool
-    SMBLocalGroups: SMBLocalGroupsOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    SMBLocalGroups: SMBLocalGroupsOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTapeArchivesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeTapeArchivesInputPaginate(BaseValidatorModel):
     TapeARNs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTapeRecoveryPointsInputPaginateTypeDef(BaseValidatorModel):
+class DescribeTapeRecoveryPointsInputPaginate(BaseValidatorModel):
     GatewayARN: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTapesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeTapesInputPaginate(BaseValidatorModel):
     GatewayARN: str
     TapeARNs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeVTLDevicesInputPaginateTypeDef(BaseValidatorModel):
+class DescribeVTLDevicesInputPaginate(BaseValidatorModel):
     GatewayARN: str
     VTLDeviceARNs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFileSharesInputPaginateTypeDef(BaseValidatorModel):
+class ListFileSharesInputPaginate(BaseValidatorModel):
     GatewayARN: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFileSystemAssociationsInputPaginateTypeDef(BaseValidatorModel):
+class ListFileSystemAssociationsInputPaginate(BaseValidatorModel):
     GatewayARN: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGatewaysInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGatewaysInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceInputPaginateTypeDef(BaseValidatorModel):
+class ListTagsForResourceInputPaginate(BaseValidatorModel):
     ResourceARN: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTapePoolsInputPaginateTypeDef(BaseValidatorModel):
+class ListTapePoolsInputPaginate(BaseValidatorModel):
     PoolARNs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTapesInputPaginateTypeDef(BaseValidatorModel):
+class ListTapesInputPaginate(BaseValidatorModel):
     TapeARNs: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListVolumesInputPaginateTypeDef(BaseValidatorModel):
+class ListVolumesInputPaginate(BaseValidatorModel):
     GatewayARN: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeTapeArchivesOutputTypeDef(BaseValidatorModel):
-    TapeArchives: List[TapeArchiveTypeDef]
+class DescribeTapeArchivesOutput(BaseValidatorModel):
+    TapeArchives: List[TapeArchive]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTapeRecoveryPointsOutputTypeDef(BaseValidatorModel):
+class DescribeTapeRecoveryPointsOutput(BaseValidatorModel):
     GatewayARN: str
-    TapeRecoveryPointInfos: List[TapeRecoveryPointInfoTypeDef]
+    TapeRecoveryPointInfos: List[TapeRecoveryPointInfo]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTapesOutputTypeDef(BaseValidatorModel):
-    Tapes: List[TapeTypeDef]
+class DescribeTapesOutput(BaseValidatorModel):
+    Tapes: List[Tape]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VTLDeviceTypeDef(BaseValidatorModel):
+class VTLDevice(BaseValidatorModel):
     VTLDeviceARN: Optional[str] = None
     VTLDeviceType: Optional[str] = None
     VTLDeviceVendor: Optional[str] = None
     VTLDeviceProductIdentifier: Optional[str] = None
-    DeviceiSCSIAttributes: Optional[DeviceiSCSIAttributesTypeDef] = None
+    DeviceiSCSIAttributes: Optional[DeviceiSCSIAttributes] = None
 
 
-class ListLocalDisksOutputTypeDef(BaseValidatorModel):
+class ListLocalDisksOutput(BaseValidatorModel):
     GatewayARN: str
-    Disks: List[DiskTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Disks: List[Disk]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListFileSharesOutputTypeDef(BaseValidatorModel):
+class ListFileSharesOutput(BaseValidatorModel):
     Marker: str
     NextMarker: str
-    FileShareInfoList: List[FileShareInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FileShareInfoList: List[FileShareInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class FileSystemAssociationInfoTypeDef(BaseValidatorModel):
+class FileSystemAssociationInfo(BaseValidatorModel):
     FileSystemAssociationARN: Optional[str] = None
     LocationARN: Optional[str] = None
     FileSystemAssociationStatus: Optional[str] = None
     AuditDestinationARN: Optional[str] = None
     GatewayARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    EndpointNetworkConfiguration: Optional[EndpointNetworkConfigurationOutputTypeDef] = None
-    FileSystemAssociationStatusDetails: Optional[List[FileSystemAssociationStatusDetailTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
+    CacheAttributes: Optional[CacheAttributes] = None
+    EndpointNetworkConfiguration: Optional[EndpointNetworkConfigurationOutput] = None
+    FileSystemAssociationStatusDetails: Optional[List[FileSystemAssociationStatusDetail]] = None
 
 
-class ListFileSystemAssociationsOutputTypeDef(BaseValidatorModel):
+class ListFileSystemAssociationsOutput(BaseValidatorModel):
     Marker: str
     NextMarker: str
-    FileSystemAssociationSummaryList: List[FileSystemAssociationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    FileSystemAssociationSummaryList: List[FileSystemAssociationSummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGatewaysOutputTypeDef(BaseValidatorModel):
-    Gateways: List[GatewayInfoTypeDef]
+class ListGatewaysOutput(BaseValidatorModel):
+    Gateways: List[GatewayInfo]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTapePoolsOutputTypeDef(BaseValidatorModel):
-    PoolInfos: List[PoolInfoTypeDef]
+class ListTapePoolsOutput(BaseValidatorModel):
+    PoolInfos: List[PoolInfo]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTapesOutputTypeDef(BaseValidatorModel):
-    TapeInfos: List[TapeInfoTypeDef]
+class ListTapesOutput(BaseValidatorModel):
+    TapeInfos: List[TapeInfo]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVolumeRecoveryPointsOutputTypeDef(BaseValidatorModel):
+class ListVolumeRecoveryPointsOutput(BaseValidatorModel):
     GatewayARN: str
-    VolumeRecoveryPointInfos: List[VolumeRecoveryPointInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    VolumeRecoveryPointInfos: List[VolumeRecoveryPointInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVolumesOutputTypeDef(BaseValidatorModel):
+class ListVolumesOutput(BaseValidatorModel):
     GatewayARN: str
     Marker: str
-    VolumeInfos: List[VolumeInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    VolumeInfos: List[VolumeInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class SMBFileShareInfoTypeDef(BaseValidatorModel):
+class SMBFileShareInfo(BaseValidatorModel):
     pass
 
 
-class DescribeSMBFileSharesOutputTypeDef(BaseValidatorModel):
-    SMBFileShareInfoList: List[SMBFileShareInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSMBFileSharesOutput(BaseValidatorModel):
+    SMBFileShareInfoList: List[SMBFileShareInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAutomaticTapeCreationPoliciesOutputTypeDef(BaseValidatorModel):
-    AutomaticTapeCreationPolicyInfos: List[AutomaticTapeCreationPolicyInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAutomaticTapeCreationPoliciesOutput(BaseValidatorModel):
+    AutomaticTapeCreationPolicyInfos: List[AutomaticTapeCreationPolicyInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class BandwidthRateLimitIntervalUnionTypeDef(BaseValidatorModel):
+class BandwidthRateLimitIntervalUnion(BaseValidatorModel):
     pass
 
 
-class UpdateBandwidthRateLimitScheduleInputTypeDef(BaseValidatorModel):
+class UpdateBandwidthRateLimitScheduleInput(BaseValidatorModel):
     GatewayARN: str
-    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalUnionTypeDef]
+    BandwidthRateLimitIntervals: Sequence[BandwidthRateLimitIntervalUnion]
 
 
-class DescribeCacheReportOutputTypeDef(BaseValidatorModel):
-    CacheReportInfo: CacheReportInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCacheReportOutput(BaseValidatorModel):
+    CacheReportInfo: CacheReportInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCacheReportsOutputTypeDef(BaseValidatorModel):
-    CacheReportList: List[CacheReportInfoTypeDef]
+class ListCacheReportsOutput(BaseValidatorModel):
+    CacheReportList: List[CacheReportInfo]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CacheReportFilterUnionTypeDef(BaseValidatorModel):
+class CacheReportFilterUnion(BaseValidatorModel):
     pass
 
 
-class StartCacheReportInputTypeDef(BaseValidatorModel):
+class StartCacheReportInput(BaseValidatorModel):
     FileShareARN: str
     Role: str
     LocationARN: str
     BucketRegion: str
     ClientToken: str
     VPCEndpointDNSName: Optional[str] = None
-    InclusionFilters: Optional[Sequence[CacheReportFilterUnionTypeDef]] = None
-    ExclusionFilters: Optional[Sequence[CacheReportFilterUnionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    InclusionFilters: Optional[Sequence[CacheReportFilterUnion]] = None
+    ExclusionFilters: Optional[Sequence[CacheReportFilterUnion]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class DescribeCachediSCSIVolumesOutputTypeDef(BaseValidatorModel):
-    CachediSCSIVolumes: List[CachediSCSIVolumeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCachediSCSIVolumesOutput(BaseValidatorModel):
+    CachediSCSIVolumes: List[CachediSCSIVolume]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStorediSCSIVolumesOutputTypeDef(BaseValidatorModel):
-    StorediSCSIVolumes: List[StorediSCSIVolumeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStorediSCSIVolumesOutput(BaseValidatorModel):
+    StorediSCSIVolumes: List[StorediSCSIVolume]
+    ResponseMetadata: ResponseMetadata
 
 
-class NFSFileShareInfoTypeDef(BaseValidatorModel):
+class NFSFileShareInfo(BaseValidatorModel):
     pass
 
 
-class DescribeNFSFileSharesOutputTypeDef(BaseValidatorModel):
-    NFSFileShareInfoList: List[NFSFileShareInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeNFSFileSharesOutput(BaseValidatorModel):
+    NFSFileShareInfoList: List[NFSFileShareInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVTLDevicesOutputTypeDef(BaseValidatorModel):
+class DescribeVTLDevicesOutput(BaseValidatorModel):
     GatewayARN: str
-    VTLDevices: List[VTLDeviceTypeDef]
+    VTLDevices: List[VTLDevice]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EndpointNetworkConfigurationUnionTypeDef(BaseValidatorModel):
+class EndpointNetworkConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class AssociateFileSystemInputTypeDef(BaseValidatorModel):
+class AssociateFileSystemInput(BaseValidatorModel):
     UserName: str
     Password: str
     ClientToken: str
     GatewayARN: str
     LocationARN: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     AuditDestinationARN: Optional[str] = None
-    CacheAttributes: Optional[CacheAttributesTypeDef] = None
-    EndpointNetworkConfiguration: Optional[EndpointNetworkConfigurationUnionTypeDef] = None
+    CacheAttributes: Optional[CacheAttributes] = None
+    EndpointNetworkConfiguration: Optional[EndpointNetworkConfigurationUnion] = None
 
 
-class DescribeFileSystemAssociationsOutputTypeDef(BaseValidatorModel):
-    FileSystemAssociationInfoList: List[FileSystemAssociationInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFileSystemAssociationsOutput(BaseValidatorModel):
+    FileSystemAssociationInfoList: List[FileSystemAssociationInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class SMBLocalGroupsUnionTypeDef(BaseValidatorModel):
+class SMBLocalGroupsUnion(BaseValidatorModel):
     pass
 
 
-class UpdateSMBLocalGroupsInputTypeDef(BaseValidatorModel):
+class UpdateSMBLocalGroupsInput(BaseValidatorModel):
     GatewayARN: str
-    SMBLocalGroups: SMBLocalGroupsUnionTypeDef
+    SMBLocalGroups: SMBLocalGroupsUnion
 
 

@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.invoicing_constants import *
 
-class BatchGetInvoiceProfileRequestTypeDef(BaseValidatorModel):
+class BatchGetInvoiceProfileRequest(BaseValidatorModel):
     AccountIds: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,26 +24,26 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DeleteInvoiceUnitRequestTypeDef(BaseValidatorModel):
+class DeleteInvoiceUnitRequest(BaseValidatorModel):
     InvoiceUnitArn: str
 
 
-class FiltersTypeDef(BaseValidatorModel):
+class Filters(BaseValidatorModel):
     Names: Optional[Sequence[str]] = None
     InvoiceReceivers: Optional[Sequence[str]] = None
     Accounts: Optional[Sequence[str]] = None
 
 
-class InvoiceUnitRuleOutputTypeDef(BaseValidatorModel):
+class InvoiceUnitRuleOutput(BaseValidatorModel):
     LinkedAccounts: Optional[List[str]] = None
 
 
-class ReceiverAddressTypeDef(BaseValidatorModel):
+class ReceiverAddress(BaseValidatorModel):
     AddressLine1: Optional[str] = None
     AddressLine2: Optional[str] = None
     AddressLine3: Optional[str] = None
@@ -55,130 +55,130 @@ class ReceiverAddressTypeDef(BaseValidatorModel):
     PostalCode: Optional[str] = None
 
 
-class InvoiceUnitRuleTypeDef(BaseValidatorModel):
+class InvoiceUnitRule(BaseValidatorModel):
     LinkedAccounts: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     ResourceTagKeys: Sequence[str]
 
 
-class CreateInvoiceUnitResponseTypeDef(BaseValidatorModel):
+class CreateInvoiceUnitResponse(BaseValidatorModel):
     InvoiceUnitArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteInvoiceUnitResponseTypeDef(BaseValidatorModel):
+class DeleteInvoiceUnitResponse(BaseValidatorModel):
     InvoiceUnitArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateInvoiceUnitResponseTypeDef(BaseValidatorModel):
+class UpdateInvoiceUnitResponse(BaseValidatorModel):
     InvoiceUnitArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    ResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    ResourceTags: Sequence[ResourceTagTypeDef]
+    ResourceTags: Sequence[ResourceTag]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class GetInvoiceUnitRequestTypeDef(BaseValidatorModel):
+class GetInvoiceUnitRequest(BaseValidatorModel):
     InvoiceUnitArn: str
-    AsOf: Optional[TimestampTypeDef] = None
+    AsOf: Optional[Timestamp] = None
 
 
-class ListInvoiceUnitsRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[FiltersTypeDef] = None
+class ListInvoiceUnitsRequest(BaseValidatorModel):
+    Filters: Optional[Filters] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
-    AsOf: Optional[TimestampTypeDef] = None
+    AsOf: Optional[Timestamp] = None
 
 
-class GetInvoiceUnitResponseTypeDef(BaseValidatorModel):
+class GetInvoiceUnitResponse(BaseValidatorModel):
     InvoiceUnitArn: str
     InvoiceReceiver: str
     Name: str
     Description: str
     TaxInheritanceDisabled: bool
-    Rule: InvoiceUnitRuleOutputTypeDef
+    Rule: InvoiceUnitRuleOutput
     LastModified: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InvoiceUnitTypeDef(BaseValidatorModel):
+class InvoiceUnit(BaseValidatorModel):
     InvoiceUnitArn: Optional[str] = None
     InvoiceReceiver: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     TaxInheritanceDisabled: Optional[bool] = None
-    Rule: Optional[InvoiceUnitRuleOutputTypeDef] = None
+    Rule: Optional[InvoiceUnitRuleOutput] = None
     LastModified: Optional[datetime] = None
 
 
-class InvoiceProfileTypeDef(BaseValidatorModel):
+class InvoiceProfile(BaseValidatorModel):
     AccountId: Optional[str] = None
     ReceiverName: Optional[str] = None
-    ReceiverAddress: Optional[ReceiverAddressTypeDef] = None
+    ReceiverAddress: Optional[ReceiverAddress] = None
     ReceiverEmail: Optional[str] = None
     Issuer: Optional[str] = None
     TaxRegistrationNumber: Optional[str] = None
 
 
-class ListInvoiceUnitsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[FiltersTypeDef] = None
-    AsOf: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInvoiceUnitsRequestPaginate(BaseValidatorModel):
+    Filters: Optional[Filters] = None
+    AsOf: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInvoiceUnitsResponseTypeDef(BaseValidatorModel):
-    InvoiceUnits: List[InvoiceUnitTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInvoiceUnitsResponse(BaseValidatorModel):
+    InvoiceUnits: List[InvoiceUnit]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchGetInvoiceProfileResponseTypeDef(BaseValidatorModel):
-    Profiles: List[InvoiceProfileTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetInvoiceProfileResponse(BaseValidatorModel):
+    Profiles: List[InvoiceProfile]
+    ResponseMetadata: ResponseMetadata
 
 
-class InvoiceUnitRuleUnionTypeDef(BaseValidatorModel):
+class InvoiceUnitRuleUnion(BaseValidatorModel):
     pass
 
 
-class CreateInvoiceUnitRequestTypeDef(BaseValidatorModel):
+class CreateInvoiceUnitRequest(BaseValidatorModel):
     Name: str
     InvoiceReceiver: str
-    Rule: InvoiceUnitRuleUnionTypeDef
+    Rule: InvoiceUnitRuleUnion
     Description: Optional[str] = None
     TaxInheritanceDisabled: Optional[bool] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class UpdateInvoiceUnitRequestTypeDef(BaseValidatorModel):
+class UpdateInvoiceUnitRequest(BaseValidatorModel):
     InvoiceUnitArn: str
     Description: Optional[str] = None
     TaxInheritanceDisabled: Optional[bool] = None
-    Rule: Optional[InvoiceUnitRuleUnionTypeDef] = None
+    Rule: Optional[InvoiceUnitRuleUnion] = None
 
 

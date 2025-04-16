@@ -1,6 +1,6 @@
 # Account Classes
 
-# AcceptPrimaryEmailUpdateRequestTypeDef
+# AcceptPrimaryEmailUpdateRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -15,18 +15,18 @@
 - **Required**: Yes
 
 
-# AcceptPrimaryEmailUpdateResponseTypeDef
+# AcceptPrimaryEmailUpdateResponse
 
 ### Status
 - **Type**: typing.Literal['ACCEPTED', 'PENDING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AlternateContactTypeDef
+# AlternateContact
 
 ### AlternateContactType
 - **Type**: typing.Optional[typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']]
@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContactInformationTypeDef
+# ContactInformation
 
 ### AddressLine1
 - **Type**: <class 'str'>
@@ -95,7 +95,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAlternateContactRequestTypeDef
+# DeleteAlternateContactRequest
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -105,7 +105,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DisableRegionRequestTypeDef
+# DisableRegionRequest
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -115,14 +115,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableRegionRequestTypeDef
+# EnableRegionRequest
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -132,7 +132,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAlternateContactRequestTypeDef
+# GetAlternateContactRequest
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -142,53 +142,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAlternateContactResponseTypeDef
+# GetAlternateContactResponse
 
 ### AlternateContact
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.AlternateContactTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.AlternateContact'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContactInformationRequestTypeDef
+# GetContactInformationRequest
 
 ### AccountId
 - **Type**: typing.Optional[str]
 
 
-# GetContactInformationResponseTypeDef
+# GetContactInformationResponse
 
 ### ContactInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPrimaryEmailRequestTypeDef
+# GetPrimaryEmailRequest
 
 ### AccountId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPrimaryEmailResponseTypeDef
+# GetPrimaryEmailResponse
 
 ### PrimaryEmail
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRegionOptStatusRequestTypeDef
+# GetRegionOptStatusRequest
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -198,7 +198,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRegionOptStatusResponseTypeDef
+# GetRegionOptStatusResponse
 
 ### RegionName
 - **Type**: <class 'str'>
@@ -209,23 +209,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRegionsRequestPaginateTypeDef
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### RegionOptStatusContains
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.account_classes.PaginatorConfigTypeDef]
-
-
-# ListRegionsRequestTypeDef
+# ListRegionsRequest
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -240,21 +228,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
 
 
-# ListRegionsResponseTypeDef
+# ListRegionsRequestPaginate
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### RegionOptStatusContains
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.account_classes.PaginatorConfig]
+
+
+# ListRegionsResponse
 
 ### Regions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.account_classes.RegionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.account_classes.Region]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -266,7 +266,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAlternateContactRequestTypeDef
+# PutAlternateContactRequest
 
 ### AlternateContactType
 - **Type**: typing.Literal['BILLING', 'OPERATIONS', 'SECURITY']
@@ -292,17 +292,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutContactInformationRequestTypeDef
+# PutContactInformationRequest
 
 ### ContactInformation
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ContactInformation'>
 - **Required**: Yes
 
 ### AccountId
 - **Type**: typing.Optional[str]
 
 
-# RegionTypeDef
+# Region
 
 ### RegionName
 - **Type**: typing.Optional[str]
@@ -311,7 +311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLING', 'ENABLED', 'ENABLED_BY_DEFAULT', 'ENABLING']]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -333,7 +333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartPrimaryEmailUpdateRequestTypeDef
+# StartPrimaryEmailUpdateRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -344,14 +344,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StartPrimaryEmailUpdateResponseTypeDef
+# StartPrimaryEmailUpdateResponse
 
 ### Status
 - **Type**: typing.Literal['ACCEPTED', 'PENDING']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.account_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

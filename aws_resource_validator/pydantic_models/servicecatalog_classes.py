@@ -12,37 +12,37 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.servicecatalog_constants import *
 
-class AcceptPortfolioShareInputTypeDef(BaseValidatorModel):
+class AcceptPortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
 
-class AccessLevelFilterTypeDef(BaseValidatorModel):
+class AccessLevelFilter(BaseValidatorModel):
     Key: Optional[AccessLevelFilterKeyType] = None
     Value: Optional[str] = None
 
 
-class AssociateBudgetWithResourceInputTypeDef(BaseValidatorModel):
+class AssociateBudgetWithResourceInput(BaseValidatorModel):
     BudgetName: str
     ResourceId: str
 
 
-class AssociatePrincipalWithPortfolioInputTypeDef(BaseValidatorModel):
+class AssociatePrincipalWithPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     PrincipalARN: str
     PrincipalType: PrincipalTypeType
     AcceptLanguage: Optional[str] = None
 
 
-class AssociateProductWithPortfolioInputTypeDef(BaseValidatorModel):
+class AssociateProductWithPortfolioInput(BaseValidatorModel):
     ProductId: str
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     SourcePortfolioId: Optional[str] = None
 
 
-class AssociateServiceActionWithProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class AssociateServiceActionWithProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     ServiceActionId: str
@@ -50,18 +50,18 @@ class AssociateServiceActionWithProvisioningArtifactInputTypeDef(BaseValidatorMo
     IdempotencyToken: Optional[str] = None
 
 
-class AssociateTagOptionWithResourceInputTypeDef(BaseValidatorModel):
+class AssociateTagOptionWithResourceInput(BaseValidatorModel):
     ResourceId: str
     TagOptionId: str
 
 
-class ServiceActionAssociationTypeDef(BaseValidatorModel):
+class ServiceActionAssociation(BaseValidatorModel):
     ServiceActionId: str
     ProductId: str
     ProvisioningArtifactId: str
 
 
-class FailedServiceActionAssociationTypeDef(BaseValidatorModel):
+class FailedServiceActionAssociation(BaseValidatorModel):
     ServiceActionId: Optional[str] = None
     ProductId: Optional[str] = None
     ProvisioningArtifactId: Optional[str] = None
@@ -69,7 +69,7 @@ class FailedServiceActionAssociationTypeDef(BaseValidatorModel):
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -77,22 +77,22 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BudgetDetailTypeDef(BaseValidatorModel):
+class BudgetDetail(BaseValidatorModel):
     BudgetName: Optional[str] = None
 
 
-class CloudWatchDashboardTypeDef(BaseValidatorModel):
+class CloudWatchDashboard(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class CodeStarParametersTypeDef(BaseValidatorModel):
+class CodeStarParameters(BaseValidatorModel):
     ConnectionArn: str
     Repository: str
     Branch: str
     ArtifactPath: str
 
 
-class CopyProductInputTypeDef(BaseValidatorModel):
+class CopyProductInput(BaseValidatorModel):
     SourceProductArn: str
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
@@ -102,12 +102,12 @@ class CopyProductInputTypeDef(BaseValidatorModel):
     CopyOptions: Optional[Sequence[Literal["CopyTags"]]] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class PortfolioDetailTypeDef(BaseValidatorModel):
+class PortfolioDetail(BaseValidatorModel):
     Id: Optional[str] = None
     ARN: Optional[str] = None
     DisplayName: Optional[str] = None
@@ -116,13 +116,13 @@ class PortfolioDetailTypeDef(BaseValidatorModel):
     ProviderName: Optional[str] = None
 
 
-class UpdateProvisioningParameterTypeDef(BaseValidatorModel):
+class UpdateProvisioningParameter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     UsePreviousValue: Optional[bool] = None
 
 
-class CreateServiceActionInputTypeDef(BaseValidatorModel):
+class CreateServiceActionInput(BaseValidatorModel):
     Name: str
     DefinitionType: Literal["SSM_AUTOMATION"]
     Definition: Mapping[ServiceActionDefinitionKeyType, str]
@@ -131,12 +131,12 @@ class CreateServiceActionInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
-class CreateTagOptionInputTypeDef(BaseValidatorModel):
+class CreateTagOptionInput(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class TagOptionDetailTypeDef(BaseValidatorModel):
+class TagOptionDetail(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     Active: Optional[bool] = None
@@ -144,70 +144,70 @@ class TagOptionDetailTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
 
 
-class DeleteConstraintInputTypeDef(BaseValidatorModel):
+class DeleteConstraintInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DeletePortfolioInputTypeDef(BaseValidatorModel):
+class DeletePortfolioInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DeleteProductInputTypeDef(BaseValidatorModel):
+class DeleteProductInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DeleteProvisionedProductPlanInputTypeDef(BaseValidatorModel):
+class DeleteProvisionedProductPlanInput(BaseValidatorModel):
     PlanId: str
     AcceptLanguage: Optional[str] = None
     IgnoreErrors: Optional[bool] = None
 
 
-class DeleteProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class DeleteProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     AcceptLanguage: Optional[str] = None
 
 
-class DeleteServiceActionInputTypeDef(BaseValidatorModel):
+class DeleteServiceActionInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
     IdempotencyToken: Optional[str] = None
 
 
-class DeleteTagOptionInputTypeDef(BaseValidatorModel):
+class DeleteTagOptionInput(BaseValidatorModel):
     Id: str
 
 
-class DescribeConstraintInputTypeDef(BaseValidatorModel):
+class DescribeConstraintInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribeCopyProductStatusInputTypeDef(BaseValidatorModel):
+class DescribeCopyProductStatusInput(BaseValidatorModel):
     CopyProductToken: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribePortfolioInputTypeDef(BaseValidatorModel):
+class DescribePortfolioInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribePortfolioShareStatusInputTypeDef(BaseValidatorModel):
+class DescribePortfolioShareStatusInput(BaseValidatorModel):
     PortfolioShareToken: str
 
 
-class DescribeProductAsAdminInputTypeDef(BaseValidatorModel):
+class DescribeProductAsAdminInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
     SourcePortfolioId: Optional[str] = None
 
 
-class ProvisioningArtifactSummaryTypeDef(BaseValidatorModel):
+class ProvisioningArtifactSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -215,18 +215,18 @@ class ProvisioningArtifactSummaryTypeDef(BaseValidatorModel):
     ProvisioningArtifactMetadata: Optional[Dict[str, str]] = None
 
 
-class DescribeProductInputTypeDef(BaseValidatorModel):
+class DescribeProductInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
 
 
-class LaunchPathTypeDef(BaseValidatorModel):
+class LaunchPath(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
 
 
-class ProvisioningArtifactTypeDef(BaseValidatorModel):
+class ProvisioningArtifact(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -234,25 +234,25 @@ class ProvisioningArtifactTypeDef(BaseValidatorModel):
     Guidance: Optional[ProvisioningArtifactGuidanceType] = None
 
 
-class DescribeProductViewInputTypeDef(BaseValidatorModel):
+class DescribeProductViewInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribeProvisionedProductInputTypeDef(BaseValidatorModel):
+class DescribeProvisionedProductInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Id: Optional[str] = None
     Name: Optional[str] = None
 
 
-class DescribeProvisionedProductPlanInputTypeDef(BaseValidatorModel):
+class DescribeProvisionedProductPlanInput(BaseValidatorModel):
     PlanId: str
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class DescribeProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class DescribeProvisioningArtifactInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisioningArtifactId: Optional[str] = None
     ProductId: Optional[str] = None
@@ -262,7 +262,7 @@ class DescribeProvisioningArtifactInputTypeDef(BaseValidatorModel):
     IncludeProvisioningArtifactParameters: Optional[bool] = None
 
 
-class DescribeProvisioningParametersInputTypeDef(BaseValidatorModel):
+class DescribeProvisioningParametersInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProductId: Optional[str] = None
     ProductName: Optional[str] = None
@@ -272,68 +272,68 @@ class DescribeProvisioningParametersInputTypeDef(BaseValidatorModel):
     PathName: Optional[str] = None
 
 
-class ProvisioningArtifactOutputTypeDef(BaseValidatorModel):
+class ProvisioningArtifactOutput(BaseValidatorModel):
     Key: Optional[str] = None
     Description: Optional[str] = None
 
 
-class ProvisioningArtifactPreferencesTypeDef(BaseValidatorModel):
+class ProvisioningArtifactPreferences(BaseValidatorModel):
     StackSetAccounts: Optional[List[str]] = None
     StackSetRegions: Optional[List[str]] = None
 
 
-class TagOptionSummaryTypeDef(BaseValidatorModel):
+class TagOptionSummary(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[List[str]] = None
 
 
-class DescribeRecordInputTypeDef(BaseValidatorModel):
+class DescribeRecordInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class RecordOutputTypeDef(BaseValidatorModel):
+class RecordOutput(BaseValidatorModel):
     OutputKey: Optional[str] = None
     OutputValue: Optional[str] = None
     Description: Optional[str] = None
 
 
-class DescribeServiceActionExecutionParametersInputTypeDef(BaseValidatorModel):
+class DescribeServiceActionExecutionParametersInput(BaseValidatorModel):
     ProvisionedProductId: str
     ServiceActionId: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribeServiceActionInputTypeDef(BaseValidatorModel):
+class DescribeServiceActionInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
 
 
-class DescribeTagOptionInputTypeDef(BaseValidatorModel):
+class DescribeTagOptionInput(BaseValidatorModel):
     Id: str
 
 
-class DisassociateBudgetFromResourceInputTypeDef(BaseValidatorModel):
+class DisassociateBudgetFromResourceInput(BaseValidatorModel):
     BudgetName: str
     ResourceId: str
 
 
-class DisassociatePrincipalFromPortfolioInputTypeDef(BaseValidatorModel):
+class DisassociatePrincipalFromPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     PrincipalARN: str
     AcceptLanguage: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
-class DisassociateProductFromPortfolioInputTypeDef(BaseValidatorModel):
+class DisassociateProductFromPortfolioInput(BaseValidatorModel):
     ProductId: str
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
 
 
-class DisassociateServiceActionFromProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class DisassociateServiceActionFromProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     ServiceActionId: str
@@ -341,23 +341,23 @@ class DisassociateServiceActionFromProvisioningArtifactInputTypeDef(BaseValidato
     IdempotencyToken: Optional[str] = None
 
 
-class DisassociateTagOptionFromResourceInputTypeDef(BaseValidatorModel):
+class DisassociateTagOptionFromResourceInput(BaseValidatorModel):
     ResourceId: str
     TagOptionId: str
 
 
-class UniqueTagResourceIdentifierTypeDef(BaseValidatorModel):
+class UniqueTagResourceIdentifier(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ExecuteProvisionedProductPlanInputTypeDef(BaseValidatorModel):
+class ExecuteProvisionedProductPlanInput(BaseValidatorModel):
     PlanId: str
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
 
 
-class ExecuteProvisionedProductServiceActionInputTypeDef(BaseValidatorModel):
+class ExecuteProvisionedProductServiceActionInput(BaseValidatorModel):
     ProvisionedProductId: str
     ServiceActionId: str
     ExecuteToken: str
@@ -365,7 +365,7 @@ class ExecuteProvisionedProductServiceActionInputTypeDef(BaseValidatorModel):
     Parameters: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class GetProvisionedProductOutputsInputTypeDef(BaseValidatorModel):
+class GetProvisionedProductOutputsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisionedProductId: Optional[str] = None
     ProvisionedProductName: Optional[str] = None
@@ -374,7 +374,7 @@ class GetProvisionedProductOutputsInputTypeDef(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
-class ImportAsProvisionedProductInputTypeDef(BaseValidatorModel):
+class ImportAsProvisionedProductInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     ProvisionedProductName: str
@@ -383,7 +383,7 @@ class ImportAsProvisionedProductInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
-class LastSyncTypeDef(BaseValidatorModel):
+class LastSync(BaseValidatorModel):
     LastSyncTime: Optional[datetime] = None
     LastSyncStatus: Optional[LastSyncStatusType] = None
     LastSyncStatusMessage: Optional[str] = None
@@ -391,27 +391,27 @@ class LastSyncTypeDef(BaseValidatorModel):
     LastSuccessfulSyncProvisioningArtifactId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAcceptedPortfolioSharesInputTypeDef(BaseValidatorModel):
+class ListAcceptedPortfolioSharesInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
 
-class ListBudgetsForResourceInputTypeDef(BaseValidatorModel):
+class ListBudgetsForResourceInput(BaseValidatorModel):
     ResourceId: str
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ListConstraintsForPortfolioInputTypeDef(BaseValidatorModel):
+class ListConstraintsForPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     ProductId: Optional[str] = None
@@ -419,14 +419,14 @@ class ListConstraintsForPortfolioInputTypeDef(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
-class ListLaunchPathsInputTypeDef(BaseValidatorModel):
+class ListLaunchPathsInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ListOrganizationPortfolioAccessInputTypeDef(BaseValidatorModel):
+class ListOrganizationPortfolioAccessInput(BaseValidatorModel):
     PortfolioId: str
     OrganizationNodeType: OrganizationNodeTypeType
     AcceptLanguage: Optional[str] = None
@@ -434,7 +434,7 @@ class ListOrganizationPortfolioAccessInputTypeDef(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
-class ListPortfolioAccessInputTypeDef(BaseValidatorModel):
+class ListPortfolioAccessInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     OrganizationParentId: Optional[str] = None
@@ -442,32 +442,32 @@ class ListPortfolioAccessInputTypeDef(BaseValidatorModel):
     PageSize: Optional[int] = None
 
 
-class ListPortfoliosForProductInputTypeDef(BaseValidatorModel):
+class ListPortfoliosForProductInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListPortfoliosInputTypeDef(BaseValidatorModel):
+class ListPortfoliosInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class ListPrincipalsForPortfolioInputTypeDef(BaseValidatorModel):
+class ListPrincipalsForPortfolioInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class PrincipalTypeDef(BaseValidatorModel):
+class Principal(BaseValidatorModel):
     PrincipalARN: Optional[str] = None
     PrincipalType: Optional[PrincipalTypeType] = None
 
 
-class ProvisionedProductPlanSummaryTypeDef(BaseValidatorModel):
+class ProvisionedProductPlanSummary(BaseValidatorModel):
     PlanName: Optional[str] = None
     PlanId: Optional[str] = None
     ProvisionProductId: Optional[str] = None
@@ -476,31 +476,31 @@ class ProvisionedProductPlanSummaryTypeDef(BaseValidatorModel):
     ProvisioningArtifactId: Optional[str] = None
 
 
-class ListProvisioningArtifactsForServiceActionInputTypeDef(BaseValidatorModel):
+class ListProvisioningArtifactsForServiceActionInput(BaseValidatorModel):
     ServiceActionId: str
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
     AcceptLanguage: Optional[str] = None
 
 
-class ListProvisioningArtifactsInputTypeDef(BaseValidatorModel):
+class ListProvisioningArtifactsInput(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
 
 
-class ListRecordHistorySearchFilterTypeDef(BaseValidatorModel):
+class ListRecordHistorySearchFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ListResourcesForTagOptionInputTypeDef(BaseValidatorModel):
+class ListResourcesForTagOptionInput(BaseValidatorModel):
     TagOptionId: str
     ResourceType: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ResourceDetailTypeDef(BaseValidatorModel):
+class ResourceDetail(BaseValidatorModel):
     Id: Optional[str] = None
     ARN: Optional[str] = None
     Name: Optional[str] = None
@@ -508,7 +508,7 @@ class ResourceDetailTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
-class ListServiceActionsForProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class ListServiceActionsForProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     PageSize: Optional[int] = None
@@ -516,39 +516,39 @@ class ListServiceActionsForProvisioningArtifactInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
-class ServiceActionSummaryTypeDef(BaseValidatorModel):
+class ServiceActionSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
     DefinitionType: Optional[Literal["SSM_AUTOMATION"]] = None
 
 
-class ListServiceActionsInputTypeDef(BaseValidatorModel):
+class ListServiceActionsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ListStackInstancesForProvisionedProductInputTypeDef(BaseValidatorModel):
+class ListStackInstancesForProvisionedProductInput(BaseValidatorModel):
     ProvisionedProductId: str
     AcceptLanguage: Optional[str] = None
     PageToken: Optional[str] = None
     PageSize: Optional[int] = None
 
 
-class StackInstanceTypeDef(BaseValidatorModel):
+class StackInstance(BaseValidatorModel):
     Account: Optional[str] = None
     Region: Optional[str] = None
     StackInstanceStatus: Optional[StackInstanceStatusType] = None
 
 
-class ListTagOptionsFiltersTypeDef(BaseValidatorModel):
+class ListTagOptionsFilters(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
     Active: Optional[bool] = None
 
 
-class NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
+class NotifyTerminateProvisionedProductEngineWorkflowResultInput(BaseValidatorModel):
     WorkflowToken: str
     RecordId: str
     Status: EngineWorkflowStatusType
@@ -556,7 +556,7 @@ class NotifyTerminateProvisionedProductEngineWorkflowResultInputTypeDef(BaseVali
     FailureReason: Optional[str] = None
 
 
-class ParameterConstraintsTypeDef(BaseValidatorModel):
+class ParameterConstraints(BaseValidatorModel):
     AllowedValues: Optional[List[str]] = None
     AllowedPattern: Optional[str] = None
     ConstraintDescription: Optional[str] = None
@@ -566,17 +566,17 @@ class ParameterConstraintsTypeDef(BaseValidatorModel):
     MinValue: Optional[str] = None
 
 
-class ProductViewAggregationValueTypeDef(BaseValidatorModel):
+class ProductViewAggregationValue(BaseValidatorModel):
     Value: Optional[str] = None
     ApproximateCount: Optional[int] = None
 
 
-class ProvisioningParameterTypeDef(BaseValidatorModel):
+class ProvisioningParameter(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ProvisioningPreferencesTypeDef(BaseValidatorModel):
+class ProvisioningPreferences(BaseValidatorModel):
     StackSetAccounts: Optional[Sequence[str]] = None
     StackSetRegions: Optional[Sequence[str]] = None
     StackSetFailureToleranceCount: Optional[int] = None
@@ -585,29 +585,29 @@ class ProvisioningPreferencesTypeDef(BaseValidatorModel):
     StackSetMaxConcurrencyPercentage: Optional[int] = None
 
 
-class RecordErrorTypeDef(BaseValidatorModel):
+class RecordError(BaseValidatorModel):
     Code: Optional[str] = None
     Description: Optional[str] = None
 
 
-class RecordTagTypeDef(BaseValidatorModel):
+class RecordTag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class RejectPortfolioShareInputTypeDef(BaseValidatorModel):
+class RejectPortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
 
 
-class ResourceTargetDefinitionTypeDef(BaseValidatorModel):
+class ResourceTargetDefinition(BaseValidatorModel):
     Attribute: Optional[ResourceAttributeType] = None
     Name: Optional[str] = None
     RequiresRecreation: Optional[RequiresRecreationType] = None
 
 
-class SearchProductsAsAdminInputTypeDef(BaseValidatorModel):
+class SearchProductsAsAdminInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PortfolioId: Optional[str] = None
     Filters: Optional[Mapping[ProductViewFilterByType, Sequence[str]]] = None
@@ -618,7 +618,7 @@ class SearchProductsAsAdminInputTypeDef(BaseValidatorModel):
     ProductSource: Optional[Literal["ACCOUNT"]] = None
 
 
-class SearchProductsInputTypeDef(BaseValidatorModel):
+class SearchProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     Filters: Optional[Mapping[ProductViewFilterByType, Sequence[str]]] = None
     PageSize: Optional[int] = None
@@ -627,13 +627,13 @@ class SearchProductsInputTypeDef(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
-class ShareErrorTypeDef(BaseValidatorModel):
+class ShareError(BaseValidatorModel):
     Accounts: Optional[List[str]] = None
     Message: Optional[str] = None
     Error: Optional[str] = None
 
 
-class TerminateProvisionedProductInputTypeDef(BaseValidatorModel):
+class TerminateProvisionedProductInput(BaseValidatorModel):
     TerminateToken: str
     ProvisionedProductName: Optional[str] = None
     ProvisionedProductId: Optional[str] = None
@@ -642,14 +642,14 @@ class TerminateProvisionedProductInputTypeDef(BaseValidatorModel):
     RetainPhysicalResources: Optional[bool] = None
 
 
-class UpdateConstraintInputTypeDef(BaseValidatorModel):
+class UpdateConstraintInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
     Parameters: Optional[str] = None
 
 
-class UpdateProvisioningPreferencesTypeDef(BaseValidatorModel):
+class UpdateProvisioningPreferences(BaseValidatorModel):
     StackSetAccounts: Optional[Sequence[str]] = None
     StackSetRegions: Optional[Sequence[str]] = None
     StackSetFailureToleranceCount: Optional[int] = None
@@ -659,14 +659,14 @@ class UpdateProvisioningPreferencesTypeDef(BaseValidatorModel):
     StackSetOperationType: Optional[StackSetOperationTypeType] = None
 
 
-class UpdateProvisionedProductPropertiesInputTypeDef(BaseValidatorModel):
+class UpdateProvisionedProductPropertiesInput(BaseValidatorModel):
     ProvisionedProductId: str
     ProvisionedProductProperties: Mapping[PropertyKeyType, str]
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
 
 
-class UpdateProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class UpdateProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     AcceptLanguage: Optional[str] = None
@@ -676,7 +676,7 @@ class UpdateProvisioningArtifactInputTypeDef(BaseValidatorModel):
     Guidance: Optional[ProvisioningArtifactGuidanceType] = None
 
 
-class UpdateServiceActionInputTypeDef(BaseValidatorModel):
+class UpdateServiceActionInput(BaseValidatorModel):
     Id: str
     Name: Optional[str] = None
     Definition: Optional[Mapping[ServiceActionDefinitionKeyType, str]] = None
@@ -684,30 +684,30 @@ class UpdateServiceActionInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
 
 
-class UpdateTagOptionInputTypeDef(BaseValidatorModel):
+class UpdateTagOptionInput(BaseValidatorModel):
     Id: str
     Value: Optional[str] = None
     Active: Optional[bool] = None
 
 
-class ListProvisionedProductPlansInputTypeDef(BaseValidatorModel):
+class ListProvisionedProductPlansInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisionProductId: Optional[str] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
 
 
-class ScanProvisionedProductsInputTypeDef(BaseValidatorModel):
+class ScanProvisionedProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class SearchProvisionedProductsInputTypeDef(BaseValidatorModel):
+class SearchProvisionedProductsInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
     Filters: Optional[Mapping[Literal["SearchQuery"], Sequence[str]]] = None
     SortBy: Optional[str] = None
     SortOrder: Optional[SortOrderType] = None
@@ -715,254 +715,254 @@ class SearchProvisionedProductsInputTypeDef(BaseValidatorModel):
     PageToken: Optional[str] = None
 
 
-class BatchAssociateServiceActionWithProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ServiceActionAssociations: Sequence[ServiceActionAssociationTypeDef]
+class BatchAssociateServiceActionWithProvisioningArtifactInput(BaseValidatorModel):
+    ServiceActionAssociations: Sequence[ServiceActionAssociation]
     AcceptLanguage: Optional[str] = None
 
 
-class BatchDisassociateServiceActionFromProvisioningArtifactInputTypeDef(BaseValidatorModel):
-    ServiceActionAssociations: Sequence[ServiceActionAssociationTypeDef]
+class BatchDisassociateServiceActionFromProvisioningArtifactInput(BaseValidatorModel):
+    ServiceActionAssociations: Sequence[ServiceActionAssociation]
     AcceptLanguage: Optional[str] = None
 
 
-class BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    FailedServiceActionAssociations: List[FailedServiceActionAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchAssociateServiceActionWithProvisioningArtifactOutput(BaseValidatorModel):
+    FailedServiceActionAssociations: List[FailedServiceActionAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    FailedServiceActionAssociations: List[FailedServiceActionAssociationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDisassociateServiceActionFromProvisioningArtifactOutput(BaseValidatorModel):
+    FailedServiceActionAssociations: List[FailedServiceActionAssociation]
+    ResponseMetadata: ResponseMetadata
 
 
-class CopyProductOutputTypeDef(BaseValidatorModel):
+class CopyProductOutput(BaseValidatorModel):
     CopyProductToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePortfolioShareOutputTypeDef(BaseValidatorModel):
+class CreatePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProvisionedProductPlanOutputTypeDef(BaseValidatorModel):
+class CreateProvisionedProductPlanOutput(BaseValidatorModel):
     PlanName: str
     PlanId: str
     ProvisionProductId: str
     ProvisionedProductName: str
     ProvisioningArtifactId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePortfolioShareOutputTypeDef(BaseValidatorModel):
+class DeletePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeCopyProductStatusOutputTypeDef(BaseValidatorModel):
+class DescribeCopyProductStatusOutput(BaseValidatorModel):
     CopyProductStatus: CopyProductStatusType
     TargetProductId: str
     StatusDetail: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAWSOrganizationsAccessStatusOutputTypeDef(BaseValidatorModel):
+class GetAWSOrganizationsAccessStatusOutput(BaseValidatorModel):
     AccessStatus: AccessStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPortfolioAccessOutputTypeDef(BaseValidatorModel):
+class ListPortfolioAccessOutput(BaseValidatorModel):
     AccountIds: List[str]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePortfolioShareOutputTypeDef(BaseValidatorModel):
+class UpdatePortfolioShareOutput(BaseValidatorModel):
     PortfolioShareToken: str
     Status: ShareStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProvisionedProductPropertiesOutputTypeDef(BaseValidatorModel):
+class UpdateProvisionedProductPropertiesOutput(BaseValidatorModel):
     ProvisionedProductId: str
     ProvisionedProductProperties: Dict[PropertyKeyType, str]
     RecordId: str
     Status: RecordStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBudgetsForResourceOutputTypeDef(BaseValidatorModel):
-    Budgets: List[BudgetDetailTypeDef]
+class ListBudgetsForResourceOutput(BaseValidatorModel):
+    Budgets: List[BudgetDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceConnectionParametersTypeDef(BaseValidatorModel):
-    CodeStar: Optional[CodeStarParametersTypeDef] = None
+class SourceConnectionParameters(BaseValidatorModel):
+    CodeStar: Optional[CodeStarParameters] = None
 
 
-class ConstraintDetailTypeDef(BaseValidatorModel):
+class ConstraintDetail(BaseValidatorModel):
     pass
 
 
-class CreateConstraintOutputTypeDef(BaseValidatorModel):
-    ConstraintDetail: ConstraintDetailTypeDef
+class CreateConstraintOutput(BaseValidatorModel):
+    ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConstraintOutputTypeDef(BaseValidatorModel):
-    ConstraintDetail: ConstraintDetailTypeDef
+class DescribeConstraintOutput(BaseValidatorModel):
+    ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConstraintsForPortfolioOutputTypeDef(BaseValidatorModel):
-    ConstraintDetails: List[ConstraintDetailTypeDef]
+class ListConstraintsForPortfolioOutput(BaseValidatorModel):
+    ConstraintDetails: List[ConstraintDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConstraintOutputTypeDef(BaseValidatorModel):
-    ConstraintDetail: ConstraintDetailTypeDef
+class UpdateConstraintOutput(BaseValidatorModel):
+    ConstraintDetail: ConstraintDetail
     ConstraintParameters: str
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePortfolioInputTypeDef(BaseValidatorModel):
+class CreatePortfolioInput(BaseValidatorModel):
     DisplayName: str
     ProviderName: str
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ConstraintSummaryTypeDef(BaseValidatorModel):
+class ConstraintSummary(BaseValidatorModel):
     pass
 
 
-class LaunchPathSummaryTypeDef(BaseValidatorModel):
+class LaunchPathSummary(BaseValidatorModel):
     Id: Optional[str] = None
-    ConstraintSummaries: Optional[List[ConstraintSummaryTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    ConstraintSummaries: Optional[List[ConstraintSummary]] = None
+    Tags: Optional[List[Tag]] = None
     Name: Optional[str] = None
 
 
-class UpdatePortfolioInputTypeDef(BaseValidatorModel):
+class UpdatePortfolioInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
     DisplayName: Optional[str] = None
     Description: Optional[str] = None
     ProviderName: Optional[str] = None
-    AddTags: Optional[Sequence[TagTypeDef]] = None
+    AddTags: Optional[Sequence[Tag]] = None
     RemoveTags: Optional[Sequence[str]] = None
 
 
-class CreatePortfolioOutputTypeDef(BaseValidatorModel):
-    PortfolioDetail: PortfolioDetailTypeDef
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePortfolioOutput(BaseValidatorModel):
+    PortfolioDetail: PortfolioDetail
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAcceptedPortfolioSharesOutputTypeDef(BaseValidatorModel):
-    PortfolioDetails: List[PortfolioDetailTypeDef]
+class ListAcceptedPortfolioSharesOutput(BaseValidatorModel):
+    PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPortfoliosForProductOutputTypeDef(BaseValidatorModel):
-    PortfolioDetails: List[PortfolioDetailTypeDef]
+class ListPortfoliosForProductOutput(BaseValidatorModel):
+    PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPortfoliosOutputTypeDef(BaseValidatorModel):
-    PortfolioDetails: List[PortfolioDetailTypeDef]
+class ListPortfoliosOutput(BaseValidatorModel):
+    PortfolioDetails: List[PortfolioDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePortfolioOutputTypeDef(BaseValidatorModel):
-    PortfolioDetail: PortfolioDetailTypeDef
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePortfolioOutput(BaseValidatorModel):
+    PortfolioDetail: PortfolioDetail
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class OrganizationNodeTypeDef(BaseValidatorModel):
+class OrganizationNode(BaseValidatorModel):
     pass
 
 
-class CreatePortfolioShareInputTypeDef(BaseValidatorModel):
+class CreatePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     AccountId: Optional[str] = None
-    OrganizationNode: Optional[OrganizationNodeTypeDef] = None
+    OrganizationNode: Optional[OrganizationNode] = None
     ShareTagOptions: Optional[bool] = None
     SharePrincipals: Optional[bool] = None
 
 
-class DeletePortfolioShareInputTypeDef(BaseValidatorModel):
+class DeletePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     AccountId: Optional[str] = None
-    OrganizationNode: Optional[OrganizationNodeTypeDef] = None
+    OrganizationNode: Optional[OrganizationNode] = None
 
 
-class ListOrganizationPortfolioAccessOutputTypeDef(BaseValidatorModel):
-    OrganizationNodes: List[OrganizationNodeTypeDef]
+class ListOrganizationPortfolioAccessOutput(BaseValidatorModel):
+    OrganizationNodes: List[OrganizationNode]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePortfolioShareInputTypeDef(BaseValidatorModel):
+class UpdatePortfolioShareInput(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     AccountId: Optional[str] = None
-    OrganizationNode: Optional[OrganizationNodeTypeDef] = None
+    OrganizationNode: Optional[OrganizationNode] = None
     ShareTagOptions: Optional[bool] = None
     SharePrincipals: Optional[bool] = None
 
 
-class ProvisioningArtifactPropertiesTypeDef(BaseValidatorModel):
+class ProvisioningArtifactProperties(BaseValidatorModel):
     pass
 
 
-class CreateProvisioningArtifactInputTypeDef(BaseValidatorModel):
+class CreateProvisioningArtifactInput(BaseValidatorModel):
     ProductId: str
-    Parameters: ProvisioningArtifactPropertiesTypeDef
+    Parameters: ProvisioningArtifactProperties
     IdempotencyToken: str
     AcceptLanguage: Optional[str] = None
 
 
-class ProvisioningArtifactDetailTypeDef(BaseValidatorModel):
+class ProvisioningArtifactDetail(BaseValidatorModel):
     pass
 
 
-class CreateProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+class CreateProvisioningArtifactOutput(BaseValidatorModel):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProvisioningArtifactsOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactDetails: List[ProvisioningArtifactDetailTypeDef]
+class ListProvisioningArtifactsOutput(BaseValidatorModel):
+    ProvisioningArtifactDetails: List[ProvisioningArtifactDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+class UpdateProvisioningArtifactOutput(BaseValidatorModel):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
     Status: StatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProvisionedProductPlanInputTypeDef(BaseValidatorModel):
+class CreateProvisionedProductPlanInput(BaseValidatorModel):
     PlanName: str
     PlanType: Literal["CLOUDFORMATION"]
     ProductId: str
@@ -972,11 +972,11 @@ class CreateProvisionedProductPlanInputTypeDef(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     NotificationArns: Optional[Sequence[str]] = None
     PathId: Optional[str] = None
-    ProvisioningParameters: Optional[Sequence[UpdateProvisioningParameterTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProvisioningParameters: Optional[Sequence[UpdateProvisioningParameter]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ProvisionedProductPlanDetailsTypeDef(BaseValidatorModel):
+class ProvisionedProductPlanDetails(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
     PathId: Optional[str] = None
     ProductId: Optional[str] = None
@@ -989,291 +989,291 @@ class ProvisionedProductPlanDetailsTypeDef(BaseValidatorModel):
     Status: Optional[ProvisionedProductPlanStatusType] = None
     UpdatedTime: Optional[datetime] = None
     NotificationArns: Optional[List[str]] = None
-    ProvisioningParameters: Optional[List[UpdateProvisioningParameterTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    ProvisioningParameters: Optional[List[UpdateProvisioningParameter]] = None
+    Tags: Optional[List[Tag]] = None
     StatusMessage: Optional[str] = None
 
 
-class CreateTagOptionOutputTypeDef(BaseValidatorModel):
-    TagOptionDetail: TagOptionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTagOptionOutput(BaseValidatorModel):
+    TagOptionDetail: TagOptionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribePortfolioOutputTypeDef(BaseValidatorModel):
-    PortfolioDetail: PortfolioDetailTypeDef
-    Tags: List[TagTypeDef]
-    TagOptions: List[TagOptionDetailTypeDef]
-    Budgets: List[BudgetDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePortfolioOutput(BaseValidatorModel):
+    PortfolioDetail: PortfolioDetail
+    Tags: List[Tag]
+    TagOptions: List[TagOptionDetail]
+    Budgets: List[BudgetDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTagOptionOutputTypeDef(BaseValidatorModel):
-    TagOptionDetail: TagOptionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTagOptionOutput(BaseValidatorModel):
+    TagOptionDetail: TagOptionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagOptionsOutputTypeDef(BaseValidatorModel):
-    TagOptionDetails: List[TagOptionDetailTypeDef]
+class ListTagOptionsOutput(BaseValidatorModel):
+    TagOptionDetails: List[TagOptionDetail]
     PageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTagOptionOutputTypeDef(BaseValidatorModel):
-    TagOptionDetail: TagOptionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTagOptionOutput(BaseValidatorModel):
+    TagOptionDetail: TagOptionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class PortfolioShareDetailTypeDef(BaseValidatorModel):
+class PortfolioShareDetail(BaseValidatorModel):
     pass
 
 
-class DescribePortfolioSharesOutputTypeDef(BaseValidatorModel):
+class DescribePortfolioSharesOutput(BaseValidatorModel):
     NextPageToken: str
-    PortfolioShareDetails: List[PortfolioShareDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    PortfolioShareDetails: List[PortfolioShareDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProductViewSummaryTypeDef(BaseValidatorModel):
+class ProductViewSummary(BaseValidatorModel):
     pass
 
 
-class DescribeProductOutputTypeDef(BaseValidatorModel):
-    ProductViewSummary: ProductViewSummaryTypeDef
-    ProvisioningArtifacts: List[ProvisioningArtifactTypeDef]
-    Budgets: List[BudgetDetailTypeDef]
-    LaunchPaths: List[LaunchPathTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProductOutput(BaseValidatorModel):
+    ProductViewSummary: ProductViewSummary
+    ProvisioningArtifacts: List[ProvisioningArtifact]
+    Budgets: List[BudgetDetail]
+    LaunchPaths: List[LaunchPath]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeProductViewOutputTypeDef(BaseValidatorModel):
-    ProductViewSummary: ProductViewSummaryTypeDef
-    ProvisioningArtifacts: List[ProvisioningArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProductViewOutput(BaseValidatorModel):
+    ProductViewSummary: ProductViewSummary
+    ProvisioningArtifacts: List[ProvisioningArtifact]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvisioningArtifactViewTypeDef(BaseValidatorModel):
-    ProductViewSummary: Optional[ProductViewSummaryTypeDef] = None
-    ProvisioningArtifact: Optional[ProvisioningArtifactTypeDef] = None
+class ProvisioningArtifactView(BaseValidatorModel):
+    ProductViewSummary: Optional[ProductViewSummary] = None
+    ProvisioningArtifact: Optional[ProvisioningArtifact] = None
 
 
-class ProvisionedProductDetailTypeDef(BaseValidatorModel):
+class ProvisionedProductDetail(BaseValidatorModel):
     pass
 
 
-class DescribeProvisionedProductOutputTypeDef(BaseValidatorModel):
-    ProvisionedProductDetail: ProvisionedProductDetailTypeDef
-    CloudWatchDashboards: List[CloudWatchDashboardTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProvisionedProductOutput(BaseValidatorModel):
+    ProvisionedProductDetail: ProvisionedProductDetail
+    CloudWatchDashboards: List[CloudWatchDashboard]
+    ResponseMetadata: ResponseMetadata
 
 
-class ScanProvisionedProductsOutputTypeDef(BaseValidatorModel):
-    ProvisionedProducts: List[ProvisionedProductDetailTypeDef]
+class ScanProvisionedProductsOutput(BaseValidatorModel):
+    ProvisionedProducts: List[ProvisionedProductDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProvisionedProductOutputsOutputTypeDef(BaseValidatorModel):
-    Outputs: List[RecordOutputTypeDef]
+class GetProvisionedProductOutputsOutput(BaseValidatorModel):
+    Outputs: List[RecordOutput]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NotifyUpdateProvisionedProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
+class NotifyUpdateProvisionedProductEngineWorkflowResultInput(BaseValidatorModel):
     WorkflowToken: str
     RecordId: str
     Status: EngineWorkflowStatusType
     IdempotencyToken: str
     FailureReason: Optional[str] = None
-    Outputs: Optional[Sequence[RecordOutputTypeDef]] = None
+    Outputs: Optional[Sequence[RecordOutput]] = None
 
 
-class ExecutionParameterTypeDef(BaseValidatorModel):
+class ExecutionParameter(BaseValidatorModel):
     pass
 
 
-class DescribeServiceActionExecutionParametersOutputTypeDef(BaseValidatorModel):
-    ServiceActionParameters: List[ExecutionParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeServiceActionExecutionParametersOutput(BaseValidatorModel):
+    ServiceActionParameters: List[ExecutionParameter]
+    ResponseMetadata: ResponseMetadata
 
 
-class EngineWorkflowResourceIdentifierTypeDef(BaseValidatorModel):
-    UniqueTag: Optional[UniqueTagResourceIdentifierTypeDef] = None
+class EngineWorkflowResourceIdentifier(BaseValidatorModel):
+    UniqueTag: Optional[UniqueTagResourceIdentifier] = None
 
 
-class ListAcceptedPortfolioSharesInputPaginateTypeDef(BaseValidatorModel):
+class ListAcceptedPortfolioSharesInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PortfolioShareType: Optional[PortfolioShareTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConstraintsForPortfolioInputPaginateTypeDef(BaseValidatorModel):
+class ListConstraintsForPortfolioInputPaginate(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
     ProductId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLaunchPathsInputPaginateTypeDef(BaseValidatorModel):
+class ListLaunchPathsInputPaginate(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationPortfolioAccessInputPaginateTypeDef(BaseValidatorModel):
+class ListOrganizationPortfolioAccessInputPaginate(BaseValidatorModel):
     PortfolioId: str
     OrganizationNodeType: OrganizationNodeTypeType
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPortfoliosForProductInputPaginateTypeDef(BaseValidatorModel):
+class ListPortfoliosForProductInputPaginate(BaseValidatorModel):
     ProductId: str
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPortfoliosInputPaginateTypeDef(BaseValidatorModel):
+class ListPortfoliosInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrincipalsForPortfolioInputPaginateTypeDef(BaseValidatorModel):
+class ListPrincipalsForPortfolioInputPaginate(BaseValidatorModel):
     PortfolioId: str
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProvisionedProductPlansInputPaginateTypeDef(BaseValidatorModel):
+class ListProvisionedProductPlansInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     ProvisionProductId: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProvisioningArtifactsForServiceActionInputPaginateTypeDef(BaseValidatorModel):
+class ListProvisioningArtifactsForServiceActionInputPaginate(BaseValidatorModel):
     ServiceActionId: str
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListResourcesForTagOptionInputPaginateTypeDef(BaseValidatorModel):
+class ListResourcesForTagOptionInputPaginate(BaseValidatorModel):
     TagOptionId: str
     ResourceType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceActionsForProvisioningArtifactInputPaginateTypeDef(BaseValidatorModel):
+class ListServiceActionsForProvisioningArtifactInputPaginate(BaseValidatorModel):
     ProductId: str
     ProvisioningArtifactId: str
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceActionsInputPaginateTypeDef(BaseValidatorModel):
+class ListServiceActionsInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ScanProvisionedProductsInputPaginateTypeDef(BaseValidatorModel):
+class ScanProvisionedProductsInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchProductsAsAdminInputPaginateTypeDef(BaseValidatorModel):
+class SearchProductsAsAdminInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
     PortfolioId: Optional[str] = None
     Filters: Optional[Mapping[ProductViewFilterByType, Sequence[str]]] = None
     SortBy: Optional[ProductViewSortByType] = None
     SortOrder: Optional[SortOrderType] = None
     ProductSource: Optional[Literal["ACCOUNT"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrincipalsForPortfolioOutputTypeDef(BaseValidatorModel):
-    Principals: List[PrincipalTypeDef]
+class ListPrincipalsForPortfolioOutput(BaseValidatorModel):
+    Principals: List[Principal]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProvisionedProductPlansOutputTypeDef(BaseValidatorModel):
-    ProvisionedProductPlans: List[ProvisionedProductPlanSummaryTypeDef]
+class ListProvisionedProductPlansOutput(BaseValidatorModel):
+    ProvisionedProductPlans: List[ProvisionedProductPlanSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRecordHistoryInputPaginateTypeDef(BaseValidatorModel):
+class ListRecordHistoryInputPaginate(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
-    SearchFilter: Optional[ListRecordHistorySearchFilterTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
+    SearchFilter: Optional[ListRecordHistorySearchFilter] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecordHistoryInputTypeDef(BaseValidatorModel):
+class ListRecordHistoryInput(BaseValidatorModel):
     AcceptLanguage: Optional[str] = None
-    AccessLevelFilter: Optional[AccessLevelFilterTypeDef] = None
-    SearchFilter: Optional[ListRecordHistorySearchFilterTypeDef] = None
+    AccessLevelFilter: Optional[AccessLevelFilter] = None
+    SearchFilter: Optional[ListRecordHistorySearchFilter] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ListResourcesForTagOptionOutputTypeDef(BaseValidatorModel):
-    ResourceDetails: List[ResourceDetailTypeDef]
+class ListResourcesForTagOptionOutput(BaseValidatorModel):
+    ResourceDetails: List[ResourceDetail]
     PageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListServiceActionsForProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
+class ListServiceActionsForProvisioningArtifactOutput(BaseValidatorModel):
+    ServiceActionSummaries: List[ServiceActionSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListServiceActionsOutputTypeDef(BaseValidatorModel):
-    ServiceActionSummaries: List[ServiceActionSummaryTypeDef]
+class ListServiceActionsOutput(BaseValidatorModel):
+    ServiceActionSummaries: List[ServiceActionSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ServiceActionDetailTypeDef(BaseValidatorModel):
-    ServiceActionSummary: Optional[ServiceActionSummaryTypeDef] = None
+class ServiceActionDetail(BaseValidatorModel):
+    ServiceActionSummary: Optional[ServiceActionSummary] = None
     Definition: Optional[Dict[ServiceActionDefinitionKeyType, str]] = None
 
 
-class ListStackInstancesForProvisionedProductOutputTypeDef(BaseValidatorModel):
-    StackInstances: List[StackInstanceTypeDef]
+class ListStackInstancesForProvisionedProductOutput(BaseValidatorModel):
+    StackInstances: List[StackInstance]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagOptionsInputPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[ListTagOptionsFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTagOptionsInputPaginate(BaseValidatorModel):
+    Filters: Optional[ListTagOptionsFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagOptionsInputTypeDef(BaseValidatorModel):
-    Filters: Optional[ListTagOptionsFiltersTypeDef] = None
+class ListTagOptionsInput(BaseValidatorModel):
+    Filters: Optional[ListTagOptionsFilters] = None
     PageSize: Optional[int] = None
     PageToken: Optional[str] = None
 
 
-class ProvisioningArtifactParameterTypeDef(BaseValidatorModel):
+class ProvisioningArtifactParameter(BaseValidatorModel):
     ParameterKey: Optional[str] = None
     DefaultValue: Optional[str] = None
     ParameterType: Optional[str] = None
     IsNoEcho: Optional[bool] = None
     Description: Optional[str] = None
-    ParameterConstraints: Optional[ParameterConstraintsTypeDef] = None
+    ParameterConstraints: Optional[ParameterConstraints] = None
 
 
-class SearchProductsOutputTypeDef(BaseValidatorModel):
-    ProductViewSummaries: List[ProductViewSummaryTypeDef]
-    ProductViewAggregations: Dict[str, List[ProductViewAggregationValueTypeDef]]
+class SearchProductsOutput(BaseValidatorModel):
+    ProductViewSummaries: List[ProductViewSummary]
+    ProductViewAggregations: Dict[str, List[ProductViewAggregationValue]]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvisionProductInputTypeDef(BaseValidatorModel):
+class ProvisionProductInput(BaseValidatorModel):
     ProvisionedProductName: str
     ProvisionToken: str
     AcceptLanguage: Optional[str] = None
@@ -1283,13 +1283,13 @@ class ProvisionProductInputTypeDef(BaseValidatorModel):
     ProvisioningArtifactName: Optional[str] = None
     PathId: Optional[str] = None
     PathName: Optional[str] = None
-    ProvisioningParameters: Optional[Sequence[ProvisioningParameterTypeDef]] = None
-    ProvisioningPreferences: Optional[ProvisioningPreferencesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProvisioningParameters: Optional[Sequence[ProvisioningParameter]] = None
+    ProvisioningPreferences: Optional[ProvisioningPreferences] = None
+    Tags: Optional[Sequence[Tag]] = None
     NotificationArns: Optional[Sequence[str]] = None
 
 
-class RecordDetailTypeDef(BaseValidatorModel):
+class RecordDetail(BaseValidatorModel):
     RecordId: Optional[str] = None
     ProvisionedProductName: Optional[str] = None
     Status: Optional[RecordStatusType] = None
@@ -1301,23 +1301,23 @@ class RecordDetailTypeDef(BaseValidatorModel):
     ProductId: Optional[str] = None
     ProvisioningArtifactId: Optional[str] = None
     PathId: Optional[str] = None
-    RecordErrors: Optional[List[RecordErrorTypeDef]] = None
-    RecordTags: Optional[List[RecordTagTypeDef]] = None
+    RecordErrors: Optional[List[RecordError]] = None
+    RecordTags: Optional[List[RecordTag]] = None
     LaunchRoleArn: Optional[str] = None
 
 
-class ResourceChangeDetailTypeDef(BaseValidatorModel):
-    Target: Optional[ResourceTargetDefinitionTypeDef] = None
+class ResourceChangeDetail(BaseValidatorModel):
+    Target: Optional[ResourceTargetDefinition] = None
     Evaluation: Optional[EvaluationTypeType] = None
     CausingEntity: Optional[str] = None
 
 
-class ShareDetailsTypeDef(BaseValidatorModel):
+class ShareDetails(BaseValidatorModel):
     SuccessfulShares: Optional[List[str]] = None
-    ShareErrors: Optional[List[ShareErrorTypeDef]] = None
+    ShareErrors: Optional[List[ShareError]] = None
 
 
-class UpdateProvisionedProductInputTypeDef(BaseValidatorModel):
+class UpdateProvisionedProductInput(BaseValidatorModel):
     UpdateToken: str
     AcceptLanguage: Optional[str] = None
     ProvisionedProductName: Optional[str] = None
@@ -1328,161 +1328,161 @@ class UpdateProvisionedProductInputTypeDef(BaseValidatorModel):
     ProvisioningArtifactName: Optional[str] = None
     PathId: Optional[str] = None
     PathName: Optional[str] = None
-    ProvisioningParameters: Optional[Sequence[UpdateProvisioningParameterTypeDef]] = None
-    ProvisioningPreferences: Optional[UpdateProvisioningPreferencesTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProvisioningParameters: Optional[Sequence[UpdateProvisioningParameter]] = None
+    ProvisioningPreferences: Optional[UpdateProvisioningPreferences] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListLaunchPathsOutputTypeDef(BaseValidatorModel):
-    LaunchPathSummaries: List[LaunchPathSummaryTypeDef]
+class ListLaunchPathsOutput(BaseValidatorModel):
+    LaunchPathSummaries: List[LaunchPathSummary]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvisionedProductAttributeTypeDef(BaseValidatorModel):
+class ProvisionedProductAttribute(BaseValidatorModel):
     pass
 
 
-class SearchProvisionedProductsOutputTypeDef(BaseValidatorModel):
-    ProvisionedProducts: List[ProvisionedProductAttributeTypeDef]
+class SearchProvisionedProductsOutput(BaseValidatorModel):
+    ProvisionedProducts: List[ProvisionedProductAttribute]
     TotalResultsCount: int
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProvisioningArtifactsForServiceActionOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactViews: List[ProvisioningArtifactViewTypeDef]
+class ListProvisioningArtifactsForServiceActionOutput(BaseValidatorModel):
+    ProvisioningArtifactViews: List[ProvisioningArtifactView]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NotifyProvisionProductEngineWorkflowResultInputTypeDef(BaseValidatorModel):
+class NotifyProvisionProductEngineWorkflowResultInput(BaseValidatorModel):
     WorkflowToken: str
     RecordId: str
     Status: EngineWorkflowStatusType
     IdempotencyToken: str
     FailureReason: Optional[str] = None
-    ResourceIdentifier: Optional[EngineWorkflowResourceIdentifierTypeDef] = None
-    Outputs: Optional[Sequence[RecordOutputTypeDef]] = None
+    ResourceIdentifier: Optional[EngineWorkflowResourceIdentifier] = None
+    Outputs: Optional[Sequence[RecordOutput]] = None
 
 
-class CreateServiceActionOutputTypeDef(BaseValidatorModel):
-    ServiceActionDetail: ServiceActionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateServiceActionOutput(BaseValidatorModel):
+    ServiceActionDetail: ServiceActionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeServiceActionOutputTypeDef(BaseValidatorModel):
-    ServiceActionDetail: ServiceActionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeServiceActionOutput(BaseValidatorModel):
+    ServiceActionDetail: ServiceActionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateServiceActionOutputTypeDef(BaseValidatorModel):
-    ServiceActionDetail: ServiceActionDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateServiceActionOutput(BaseValidatorModel):
+    ServiceActionDetail: ServiceActionDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeProvisioningArtifactOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
+class DescribeProvisioningArtifactOutput(BaseValidatorModel):
+    ProvisioningArtifactDetail: ProvisioningArtifactDetail
     Info: Dict[str, str]
     Status: StatusType
-    ProvisioningArtifactParameters: List[ProvisioningArtifactParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ProvisioningArtifactParameters: List[ProvisioningArtifactParameter]
+    ResponseMetadata: ResponseMetadata
 
 
-class UsageInstructionTypeDef(BaseValidatorModel):
+class UsageInstruction(BaseValidatorModel):
     pass
 
 
-class DescribeProvisioningParametersOutputTypeDef(BaseValidatorModel):
-    ProvisioningArtifactParameters: List[ProvisioningArtifactParameterTypeDef]
-    ConstraintSummaries: List[ConstraintSummaryTypeDef]
-    UsageInstructions: List[UsageInstructionTypeDef]
-    TagOptions: List[TagOptionSummaryTypeDef]
-    ProvisioningArtifactPreferences: ProvisioningArtifactPreferencesTypeDef
-    ProvisioningArtifactOutputs: List[ProvisioningArtifactOutputTypeDef]
-    ProvisioningArtifactOutputKeys: List[ProvisioningArtifactOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProvisioningParametersOutput(BaseValidatorModel):
+    ProvisioningArtifactParameters: List[ProvisioningArtifactParameter]
+    ConstraintSummaries: List[ConstraintSummary]
+    UsageInstructions: List[UsageInstruction]
+    TagOptions: List[TagOptionSummary]
+    ProvisioningArtifactPreferences: ProvisioningArtifactPreferences
+    ProvisioningArtifactOutputs: List[ProvisioningArtifactOutput]
+    ProvisioningArtifactOutputKeys: List[ProvisioningArtifactOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRecordOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    RecordOutputs: List[RecordOutputTypeDef]
+class DescribeRecordOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    RecordOutputs: List[RecordOutput]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteProvisionedProductPlanOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteProvisionedProductPlanOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteProvisionedProductServiceActionOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteProvisionedProductServiceActionOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportAsProvisionedProductOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportAsProvisionedProductOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ListRecordHistoryOutputTypeDef(BaseValidatorModel):
-    RecordDetails: List[RecordDetailTypeDef]
+class ListRecordHistoryOutput(BaseValidatorModel):
+    RecordDetails: List[RecordDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ProvisionProductOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ProvisionProductOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class TerminateProvisionedProductOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class TerminateProvisionedProductOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProvisionedProductOutputTypeDef(BaseValidatorModel):
-    RecordDetail: RecordDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProvisionedProductOutput(BaseValidatorModel):
+    RecordDetail: RecordDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class ResourceChangeTypeDef(BaseValidatorModel):
+class ResourceChange(BaseValidatorModel):
     Action: Optional[ChangeActionType] = None
     LogicalResourceId: Optional[str] = None
     PhysicalResourceId: Optional[str] = None
     ResourceType: Optional[str] = None
     Replacement: Optional[ReplacementType] = None
     Scope: Optional[List[ResourceAttributeType]] = None
-    Details: Optional[List[ResourceChangeDetailTypeDef]] = None
+    Details: Optional[List[ResourceChangeDetail]] = None
 
 
-class DescribePortfolioShareStatusOutputTypeDef(BaseValidatorModel):
+class DescribePortfolioShareStatusOutput(BaseValidatorModel):
     PortfolioShareToken: str
     PortfolioId: str
     OrganizationNodeValue: str
     Status: ShareStatusType
-    ShareDetails: ShareDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ShareDetails: ShareDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class SourceConnectionDetailTypeDef(BaseValidatorModel):
+class SourceConnectionDetail(BaseValidatorModel):
     pass
 
 
-class ProductViewDetailTypeDef(BaseValidatorModel):
-    ProductViewSummary: Optional[ProductViewSummaryTypeDef] = None
+class ProductViewDetail(BaseValidatorModel):
+    ProductViewSummary: Optional[ProductViewSummary] = None
     Status: Optional[StatusType] = None
     ProductARN: Optional[str] = None
     CreatedTime: Optional[datetime] = None
-    SourceConnection: Optional[SourceConnectionDetailTypeDef] = None
+    SourceConnection: Optional[SourceConnectionDetail] = None
 
 
-class SourceConnectionTypeDef(BaseValidatorModel):
+class SourceConnection(BaseValidatorModel):
     pass
 
 
-class CreateProductInputTypeDef(BaseValidatorModel):
+class CreateProductInput(BaseValidatorModel):
     Name: str
     Owner: str
     ProductType: ProductTypeType
@@ -1493,12 +1493,12 @@ class CreateProductInputTypeDef(BaseValidatorModel):
     SupportDescription: Optional[str] = None
     SupportEmail: Optional[str] = None
     SupportUrl: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    ProvisioningArtifactParameters: Optional[ProvisioningArtifactPropertiesTypeDef] = None
-    SourceConnection: Optional[SourceConnectionTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    ProvisioningArtifactParameters: Optional[ProvisioningArtifactProperties] = None
+    SourceConnection: Optional[SourceConnection] = None
 
 
-class UpdateProductInputTypeDef(BaseValidatorModel):
+class UpdateProductInput(BaseValidatorModel):
     Id: str
     AcceptLanguage: Optional[str] = None
     Name: Optional[str] = None
@@ -1508,43 +1508,43 @@ class UpdateProductInputTypeDef(BaseValidatorModel):
     SupportDescription: Optional[str] = None
     SupportEmail: Optional[str] = None
     SupportUrl: Optional[str] = None
-    AddTags: Optional[Sequence[TagTypeDef]] = None
+    AddTags: Optional[Sequence[Tag]] = None
     RemoveTags: Optional[Sequence[str]] = None
-    SourceConnection: Optional[SourceConnectionTypeDef] = None
+    SourceConnection: Optional[SourceConnection] = None
 
 
-class DescribeProvisionedProductPlanOutputTypeDef(BaseValidatorModel):
-    ProvisionedProductPlanDetails: ProvisionedProductPlanDetailsTypeDef
-    ResourceChanges: List[ResourceChangeTypeDef]
+class DescribeProvisionedProductPlanOutput(BaseValidatorModel):
+    ProvisionedProductPlanDetails: ProvisionedProductPlanDetails
+    ResourceChanges: List[ResourceChange]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProductOutputTypeDef(BaseValidatorModel):
-    ProductViewDetail: ProductViewDetailTypeDef
-    ProvisioningArtifactDetail: ProvisioningArtifactDetailTypeDef
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateProductOutput(BaseValidatorModel):
+    ProductViewDetail: ProductViewDetail
+    ProvisioningArtifactDetail: ProvisioningArtifactDetail
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeProductAsAdminOutputTypeDef(BaseValidatorModel):
-    ProductViewDetail: ProductViewDetailTypeDef
-    ProvisioningArtifactSummaries: List[ProvisioningArtifactSummaryTypeDef]
-    Tags: List[TagTypeDef]
-    TagOptions: List[TagOptionDetailTypeDef]
-    Budgets: List[BudgetDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProductAsAdminOutput(BaseValidatorModel):
+    ProductViewDetail: ProductViewDetail
+    ProvisioningArtifactSummaries: List[ProvisioningArtifactSummary]
+    Tags: List[Tag]
+    TagOptions: List[TagOptionDetail]
+    Budgets: List[BudgetDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchProductsAsAdminOutputTypeDef(BaseValidatorModel):
-    ProductViewDetails: List[ProductViewDetailTypeDef]
+class SearchProductsAsAdminOutput(BaseValidatorModel):
+    ProductViewDetails: List[ProductViewDetail]
     NextPageToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateProductOutputTypeDef(BaseValidatorModel):
-    ProductViewDetail: ProductViewDetailTypeDef
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProductOutput(BaseValidatorModel):
+    ProductViewDetail: ProductViewDetail
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 

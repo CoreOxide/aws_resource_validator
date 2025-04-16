@@ -6,25 +6,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelTaskInputTypeDef
+# CancelTaskInput
 
 ### taskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelTaskOutputTypeDef
+# CancelTaskOutput
 
 ### taskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CapacityTypeDef
+# Capacity
 
 ### available
 - **Type**: typing.Optional[int]
@@ -42,7 +42,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CommandTypeDef
+# Command
 
 ### reboot
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
@@ -51,7 +51,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# CpuOptionsTypeDef
+# CpuOptions
 
 ### coreCount
 - **Type**: typing.Optional[int]
@@ -60,10 +60,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateTaskInputTypeDef
+# CreateTaskInput
 
 ### command
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.CommandTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.Command'>
 - **Required**: Yes
 
 ### targets
@@ -80,7 +80,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateTaskOutputTypeDef
+# CreateTaskOutput
 
 ### taskArn
 - **Type**: <class 'str'>
@@ -91,11 +91,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDeviceEc2InputTypeDef
+# DescribeDeviceEc2Input
 
 ### instanceIds
 - **Type**: typing.Sequence[str]
@@ -106,32 +106,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeDeviceEc2OutputTypeDef
+# DescribeDeviceEc2Output
 
 ### instances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDeviceInputTypeDef
+# DescribeDeviceInput
 
 ### managedDeviceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDeviceOutputTypeDef
+# DescribeDeviceOutput
 
 ### associatedWithJob
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### deviceCapacities
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.CapacityTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.Capacity]
 - **Required**: Yes
 
 ### deviceState
@@ -159,11 +159,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### physicalNetworkInterfaces
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.PhysicalNetworkInterfaceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.PhysicalNetworkInterface]
 - **Required**: Yes
 
 ### software
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.SoftwareInformationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.SoftwareInformation'>
 - **Required**: Yes
 
 ### tags
@@ -171,11 +171,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeExecutionInputTypeDef
+# DescribeExecutionInput
 
 ### managedDeviceId
 - **Type**: <class 'str'>
@@ -186,7 +186,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeExecutionOutputTypeDef
+# DescribeExecutionOutput
 
 ### executionId
 - **Type**: <class 'str'>
@@ -213,18 +213,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTaskInputTypeDef
+# DescribeTaskInput
 
 ### taskId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTaskOutputTypeDef
+# DescribeTaskOutput
 
 ### completedAt
 - **Type**: <class 'datetime.datetime'>
@@ -263,11 +263,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceSummaryTypeDef
+# DeviceSummary
 
 ### associatedWithJob
 - **Type**: typing.Optional[str]
@@ -282,7 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# EbsInstanceBlockDeviceTypeDef
+# EbsInstanceBlockDevice
 
 ### attachTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -297,14 +297,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExecutionSummaryTypeDef
+# ExecutionSummary
 
 ### executionId
 - **Type**: typing.Optional[str]
@@ -319,43 +319,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InstanceBlockDeviceMappingTypeDef
-
-### deviceName
-- **Type**: typing.Optional[str]
-
-### ebs
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.EbsInstanceBlockDeviceTypeDef]
-
-
-# InstanceStateTypeDef
-
-### code
-- **Type**: typing.Optional[int]
-
-### name
-- **Type**: typing.Optional[typing.Literal['PENDING', 'RUNNING', 'SHUTTING_DOWN', 'STOPPED', 'STOPPING', 'TERMINATED']]
-
-
-# InstanceSummaryTypeDef
-
-### instance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceTypeDef]
-
-### lastUpdatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# InstanceTypeDef
+# Instance
 
 ### amiLaunchIndex
 - **Type**: typing.Optional[int]
 
 ### blockDeviceMappings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceBlockDeviceMappingTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceBlockDeviceMapping]]
 
 ### cpuOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.CpuOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.CpuOptions]
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -379,39 +352,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### securityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.SecurityGroupIdentifierTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.SecurityGroupIdentifier]]
 
 ### state
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.InstanceState]
 
 ### updatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ListDeviceResourcesOutputTypeDef
+# InstanceBlockDeviceMapping
+
+### deviceName
+- **Type**: typing.Optional[str]
+
+### ebs
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.EbsInstanceBlockDevice]
+
+
+# InstanceState
+
+### code
+- **Type**: typing.Optional[int]
+
+### name
+- **Type**: typing.Optional[typing.Literal['PENDING', 'RUNNING', 'SHUTTING_DOWN', 'STOPPED', 'STOPPING', 'TERMINATED']]
+
+
+# InstanceSummary
+
+### instance
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.Instance]
+
+### lastUpdatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ListDeviceResourcesOutput
 
 ### resources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.ResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.ResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDevicesInputPaginateTypeDef
-
-### jobId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfigTypeDef]
-
-
-# ListDevicesInputTypeDef
+# ListDevicesInput
 
 ### jobId
 - **Type**: typing.Optional[str]
@@ -423,34 +414,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDevicesOutputTypeDef
+# ListDevicesInputPaginate
+
+### jobId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfig]
+
+
+# ListDevicesOutput
 
 ### devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.DeviceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.DeviceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListExecutionsInputPaginateTypeDef
-
-### taskId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### state
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'REJECTED', 'SUCCEEDED', 'TIMED_OUT']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfigTypeDef]
-
-
-# ListExecutionsInputTypeDef
+# ListExecutionsInput
 
 ### taskId
 - **Type**: <class 'str'>
@@ -466,48 +453,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'REJECTED', 'SUCCEEDED', 'TIMED_OUT']]
 
 
-# ListExecutionsOutputTypeDef
+# ListExecutionsInputPaginate
+
+### taskId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### state
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'FAILED', 'IN_PROGRESS', 'QUEUED', 'REJECTED', 'SUCCEEDED', 'TIMED_OUT']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfig]
+
+
+# ListExecutionsOutput
 
 ### executions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.ExecutionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.ExecutionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTasksInputPaginateTypeDef
-
-### state
-- **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETED', 'IN_PROGRESS']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfigTypeDef]
-
-
-# ListTasksInputTypeDef
+# ListTasksInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -519,21 +510,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETED', 'IN_PROGRESS']]
 
 
-# ListTasksOutputTypeDef
+# ListTasksInputPaginate
+
+### state
+- **Type**: typing.Optional[typing.Literal['CANCELED', 'COMPLETED', 'IN_PROGRESS']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.snow_device_management_classes.PaginatorConfig]
+
+
+# ListTasksOutput
 
 ### tasks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.TaskSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.snow_device_management_classes.TaskSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.snow_device_management_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -545,7 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PhysicalNetworkInterfaceTypeDef
+# PhysicalNetworkInterface
 
 ### defaultGateway
 - **Type**: typing.Optional[str]
@@ -569,13 +569,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResourceSummaryTypeDef
+# ResourceSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -597,7 +597,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SecurityGroupIdentifierTypeDef
+# SecurityGroupIdentifier
 
 ### groupId
 - **Type**: typing.Optional[str]
@@ -606,7 +606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SoftwareInformationTypeDef
+# SoftwareInformation
 
 ### installState
 - **Type**: typing.Optional[str]
@@ -618,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -629,7 +629,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TaskSummaryTypeDef
+# TaskSummary
 
 ### taskId
 - **Type**: <class 'str'>
@@ -645,7 +645,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>

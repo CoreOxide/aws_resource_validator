@@ -12,71 +12,71 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kafkaconnect_constants import *
 
-class VpcDescriptionTypeDef(BaseValidatorModel):
+class VpcDescription(BaseValidatorModel):
     securityGroups: Optional[List[str]] = None
     subnets: Optional[List[str]] = None
 
 
-class VpcTypeDef(BaseValidatorModel):
+class Vpc(BaseValidatorModel):
     subnets: Sequence[str]
     securityGroups: Optional[Sequence[str]] = None
 
 
-class ScaleInPolicyDescriptionTypeDef(BaseValidatorModel):
+class ScaleInPolicyDescription(BaseValidatorModel):
     cpuUtilizationPercentage: Optional[int] = None
 
 
-class ScaleOutPolicyDescriptionTypeDef(BaseValidatorModel):
+class ScaleOutPolicyDescription(BaseValidatorModel):
     cpuUtilizationPercentage: Optional[int] = None
 
 
-class ScaleInPolicyTypeDef(BaseValidatorModel):
+class ScaleInPolicy(BaseValidatorModel):
     cpuUtilizationPercentage: int
 
 
-class ScaleOutPolicyTypeDef(BaseValidatorModel):
+class ScaleOutPolicy(BaseValidatorModel):
     cpuUtilizationPercentage: int
 
 
-class ScaleInPolicyUpdateTypeDef(BaseValidatorModel):
+class ScaleInPolicyUpdate(BaseValidatorModel):
     cpuUtilizationPercentage: int
 
 
-class ScaleOutPolicyUpdateTypeDef(BaseValidatorModel):
+class ScaleOutPolicyUpdate(BaseValidatorModel):
     cpuUtilizationPercentage: int
 
 
-class ProvisionedCapacityDescriptionTypeDef(BaseValidatorModel):
+class ProvisionedCapacityDescription(BaseValidatorModel):
     mcuCount: Optional[int] = None
     workerCount: Optional[int] = None
 
 
-class ProvisionedCapacityTypeDef(BaseValidatorModel):
+class ProvisionedCapacity(BaseValidatorModel):
     mcuCount: int
     workerCount: int
 
 
-class ProvisionedCapacityUpdateTypeDef(BaseValidatorModel):
+class ProvisionedCapacityUpdate(BaseValidatorModel):
     mcuCount: int
     workerCount: int
 
 
-class CloudWatchLogsLogDeliveryDescriptionTypeDef(BaseValidatorModel):
+class CloudWatchLogsLogDeliveryDescription(BaseValidatorModel):
     enabled: Optional[bool] = None
     logGroup: Optional[str] = None
 
 
-class CloudWatchLogsLogDeliveryTypeDef(BaseValidatorModel):
+class CloudWatchLogsLogDelivery(BaseValidatorModel):
     enabled: bool
     logGroup: Optional[str] = None
 
 
-class ConnectorOperationStepTypeDef(BaseValidatorModel):
+class ConnectorOperationStep(BaseValidatorModel):
     stepType: Optional[ConnectorOperationStepTypeType] = None
     stepState: Optional[ConnectorOperationStepStateType] = None
 
 
-class ConnectorOperationSummaryTypeDef(BaseValidatorModel):
+class ConnectorOperationSummary(BaseValidatorModel):
     connectorOperationArn: Optional[str] = None
     connectorOperationType: Optional[ConnectorOperationTypeType] = None
     connectorOperationState: Optional[ConnectorOperationStateType] = None
@@ -84,33 +84,33 @@ class ConnectorOperationSummaryTypeDef(BaseValidatorModel):
     endTime: Optional[datetime] = None
 
 
-class KafkaClusterClientAuthenticationDescriptionTypeDef(BaseValidatorModel):
+class KafkaClusterClientAuthenticationDescription(BaseValidatorModel):
     authenticationType: Optional[KafkaClusterClientAuthenticationTypeType] = None
 
 
-class KafkaClusterEncryptionInTransitDescriptionTypeDef(BaseValidatorModel):
+class KafkaClusterEncryptionInTransitDescription(BaseValidatorModel):
     encryptionType: Optional[KafkaClusterEncryptionInTransitTypeType] = None
 
 
-class WorkerConfigurationDescriptionTypeDef(BaseValidatorModel):
+class WorkerConfigurationDescription(BaseValidatorModel):
     revision: Optional[int] = None
     workerConfigurationArn: Optional[str] = None
 
 
-class KafkaClusterClientAuthenticationTypeDef(BaseValidatorModel):
+class KafkaClusterClientAuthentication(BaseValidatorModel):
     authenticationType: KafkaClusterClientAuthenticationTypeType
 
 
-class KafkaClusterEncryptionInTransitTypeDef(BaseValidatorModel):
+class KafkaClusterEncryptionInTransit(BaseValidatorModel):
     encryptionType: KafkaClusterEncryptionInTransitTypeType
 
 
-class WorkerConfigurationTypeDef(BaseValidatorModel):
+class WorkerConfiguration(BaseValidatorModel):
     revision: int
     workerConfigurationArn: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -118,419 +118,419 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateWorkerConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateWorkerConfigurationRequest(BaseValidatorModel):
     name: str
     propertiesFileContent: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class WorkerConfigurationRevisionSummaryTypeDef(BaseValidatorModel):
+class WorkerConfigurationRevisionSummary(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     description: Optional[str] = None
     revision: Optional[int] = None
 
 
-class CustomPluginDescriptionTypeDef(BaseValidatorModel):
+class CustomPluginDescription(BaseValidatorModel):
     customPluginArn: Optional[str] = None
     revision: Optional[int] = None
 
 
-class CustomPluginFileDescriptionTypeDef(BaseValidatorModel):
+class CustomPluginFileDescription(BaseValidatorModel):
     fileMd5: Optional[str] = None
     fileSize: Optional[int] = None
 
 
-class S3LocationDescriptionTypeDef(BaseValidatorModel):
+class S3LocationDescription(BaseValidatorModel):
     bucketArn: Optional[str] = None
     fileKey: Optional[str] = None
     objectVersion: Optional[str] = None
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     bucketArn: str
     fileKey: str
     objectVersion: Optional[str] = None
 
 
-class CustomPluginTypeDef(BaseValidatorModel):
+class CustomPlugin(BaseValidatorModel):
     customPluginArn: str
     revision: int
 
 
-class DeleteConnectorRequestTypeDef(BaseValidatorModel):
+class DeleteConnectorRequest(BaseValidatorModel):
     connectorArn: str
     currentVersion: Optional[str] = None
 
 
-class DeleteCustomPluginRequestTypeDef(BaseValidatorModel):
+class DeleteCustomPluginRequest(BaseValidatorModel):
     customPluginArn: str
 
 
-class DeleteWorkerConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteWorkerConfigurationRequest(BaseValidatorModel):
     workerConfigurationArn: str
 
 
-class DescribeConnectorOperationRequestTypeDef(BaseValidatorModel):
+class DescribeConnectorOperationRequest(BaseValidatorModel):
     connectorOperationArn: str
 
 
-class StateDescriptionTypeDef(BaseValidatorModel):
+class StateDescription(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class DescribeConnectorRequestTypeDef(BaseValidatorModel):
+class DescribeConnectorRequest(BaseValidatorModel):
     connectorArn: str
 
 
-class DescribeCustomPluginRequestTypeDef(BaseValidatorModel):
+class DescribeCustomPluginRequest(BaseValidatorModel):
     customPluginArn: str
 
 
-class DescribeWorkerConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeWorkerConfigurationRequest(BaseValidatorModel):
     workerConfigurationArn: str
 
 
-class WorkerConfigurationRevisionDescriptionTypeDef(BaseValidatorModel):
+class WorkerConfigurationRevisionDescription(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     description: Optional[str] = None
     propertiesFileContent: Optional[str] = None
     revision: Optional[int] = None
 
 
-class FirehoseLogDeliveryDescriptionTypeDef(BaseValidatorModel):
+class FirehoseLogDeliveryDescription(BaseValidatorModel):
     deliveryStream: Optional[str] = None
     enabled: Optional[bool] = None
 
 
-class FirehoseLogDeliveryTypeDef(BaseValidatorModel):
+class FirehoseLogDelivery(BaseValidatorModel):
     enabled: bool
     deliveryStream: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListConnectorOperationsRequestTypeDef(BaseValidatorModel):
+class ListConnectorOperationsRequest(BaseValidatorModel):
     connectorArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListConnectorsRequestTypeDef(BaseValidatorModel):
+class ListConnectorsRequest(BaseValidatorModel):
     connectorNamePrefix: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListCustomPluginsRequestTypeDef(BaseValidatorModel):
+class ListCustomPluginsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     namePrefix: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class ListWorkerConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListWorkerConfigurationsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     namePrefix: Optional[str] = None
 
 
-class S3LogDeliveryDescriptionTypeDef(BaseValidatorModel):
+class S3LogDeliveryDescription(BaseValidatorModel):
     bucket: Optional[str] = None
     enabled: Optional[bool] = None
     prefix: Optional[str] = None
 
 
-class S3LogDeliveryTypeDef(BaseValidatorModel):
+class S3LogDelivery(BaseValidatorModel):
     enabled: bool
     bucket: Optional[str] = None
     prefix: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class ApacheKafkaClusterDescriptionTypeDef(BaseValidatorModel):
+class ApacheKafkaClusterDescription(BaseValidatorModel):
     bootstrapServers: Optional[str] = None
-    vpc: Optional[VpcDescriptionTypeDef] = None
+    vpc: Optional[VpcDescription] = None
 
 
-class ApacheKafkaClusterTypeDef(BaseValidatorModel):
+class ApacheKafkaCluster(BaseValidatorModel):
     bootstrapServers: str
-    vpc: VpcTypeDef
+    vpc: Vpc
 
 
-class AutoScalingDescriptionTypeDef(BaseValidatorModel):
+class AutoScalingDescription(BaseValidatorModel):
     maxWorkerCount: Optional[int] = None
     mcuCount: Optional[int] = None
     minWorkerCount: Optional[int] = None
-    scaleInPolicy: Optional[ScaleInPolicyDescriptionTypeDef] = None
-    scaleOutPolicy: Optional[ScaleOutPolicyDescriptionTypeDef] = None
+    scaleInPolicy: Optional[ScaleInPolicyDescription] = None
+    scaleOutPolicy: Optional[ScaleOutPolicyDescription] = None
 
 
-class AutoScalingTypeDef(BaseValidatorModel):
+class AutoScaling(BaseValidatorModel):
     maxWorkerCount: int
     mcuCount: int
     minWorkerCount: int
-    scaleInPolicy: Optional[ScaleInPolicyTypeDef] = None
-    scaleOutPolicy: Optional[ScaleOutPolicyTypeDef] = None
+    scaleInPolicy: Optional[ScaleInPolicy] = None
+    scaleOutPolicy: Optional[ScaleOutPolicy] = None
 
 
-class AutoScalingUpdateTypeDef(BaseValidatorModel):
+class AutoScalingUpdate(BaseValidatorModel):
     maxWorkerCount: int
     mcuCount: int
     minWorkerCount: int
-    scaleInPolicy: ScaleInPolicyUpdateTypeDef
-    scaleOutPolicy: ScaleOutPolicyUpdateTypeDef
+    scaleInPolicy: ScaleInPolicyUpdate
+    scaleOutPolicy: ScaleOutPolicyUpdate
 
 
-class CreateConnectorResponseTypeDef(BaseValidatorModel):
+class CreateConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorName: str
     connectorState: ConnectorStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCustomPluginResponseTypeDef(BaseValidatorModel):
+class CreateCustomPluginResponse(BaseValidatorModel):
     customPluginArn: str
     customPluginState: CustomPluginStateType
     name: str
     revision: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConnectorResponseTypeDef(BaseValidatorModel):
+class DeleteConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorState: ConnectorStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteCustomPluginResponseTypeDef(BaseValidatorModel):
+class DeleteCustomPluginResponse(BaseValidatorModel):
     customPluginArn: str
     customPluginState: CustomPluginStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteWorkerConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteWorkerConfigurationResponse(BaseValidatorModel):
     workerConfigurationArn: str
     workerConfigurationState: WorkerConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConnectorOperationsResponseTypeDef(BaseValidatorModel):
-    connectorOperations: List[ConnectorOperationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectorOperationsResponse(BaseValidatorModel):
+    connectorOperations: List[ConnectorOperationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConnectorResponseTypeDef(BaseValidatorModel):
+class UpdateConnectorResponse(BaseValidatorModel):
     connectorArn: str
     connectorState: ConnectorStateType
     connectorOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWorkerConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateWorkerConfigurationResponse(BaseValidatorModel):
     creationTime: datetime
-    latestRevision: WorkerConfigurationRevisionSummaryTypeDef
+    latestRevision: WorkerConfigurationRevisionSummary
     name: str
     workerConfigurationArn: str
     workerConfigurationState: WorkerConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class WorkerConfigurationSummaryTypeDef(BaseValidatorModel):
+class WorkerConfigurationSummary(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     description: Optional[str] = None
-    latestRevision: Optional[WorkerConfigurationRevisionSummaryTypeDef] = None
+    latestRevision: Optional[WorkerConfigurationRevisionSummary] = None
     name: Optional[str] = None
     workerConfigurationArn: Optional[str] = None
     workerConfigurationState: Optional[WorkerConfigurationStateType] = None
 
 
-class PluginDescriptionTypeDef(BaseValidatorModel):
-    customPlugin: Optional[CustomPluginDescriptionTypeDef] = None
+class PluginDescription(BaseValidatorModel):
+    customPlugin: Optional[CustomPluginDescription] = None
 
 
-class CustomPluginLocationDescriptionTypeDef(BaseValidatorModel):
-    s3Location: Optional[S3LocationDescriptionTypeDef] = None
+class CustomPluginLocationDescription(BaseValidatorModel):
+    s3Location: Optional[S3LocationDescription] = None
 
 
-class CustomPluginLocationTypeDef(BaseValidatorModel):
-    s3Location: S3LocationTypeDef
+class CustomPluginLocation(BaseValidatorModel):
+    s3Location: S3Location
 
 
-class PluginTypeDef(BaseValidatorModel):
-    customPlugin: CustomPluginTypeDef
+class Plugin(BaseValidatorModel):
+    customPlugin: CustomPlugin
 
 
-class DescribeWorkerConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeWorkerConfigurationResponse(BaseValidatorModel):
     creationTime: datetime
     description: str
-    latestRevision: WorkerConfigurationRevisionDescriptionTypeDef
+    latestRevision: WorkerConfigurationRevisionDescription
     name: str
     workerConfigurationArn: str
     workerConfigurationState: WorkerConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConnectorOperationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConnectorOperationsRequestPaginate(BaseValidatorModel):
     connectorArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConnectorsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConnectorsRequestPaginate(BaseValidatorModel):
     connectorNamePrefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCustomPluginsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCustomPluginsRequestPaginate(BaseValidatorModel):
     namePrefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkerConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkerConfigurationsRequestPaginate(BaseValidatorModel):
     namePrefix: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class WorkerLogDeliveryDescriptionTypeDef(BaseValidatorModel):
-    cloudWatchLogs: Optional[CloudWatchLogsLogDeliveryDescriptionTypeDef] = None
-    firehose: Optional[FirehoseLogDeliveryDescriptionTypeDef] = None
-    s3: Optional[S3LogDeliveryDescriptionTypeDef] = None
+class WorkerLogDeliveryDescription(BaseValidatorModel):
+    cloudWatchLogs: Optional[CloudWatchLogsLogDeliveryDescription] = None
+    firehose: Optional[FirehoseLogDeliveryDescription] = None
+    s3: Optional[S3LogDeliveryDescription] = None
 
 
-class WorkerLogDeliveryTypeDef(BaseValidatorModel):
-    cloudWatchLogs: Optional[CloudWatchLogsLogDeliveryTypeDef] = None
-    firehose: Optional[FirehoseLogDeliveryTypeDef] = None
-    s3: Optional[S3LogDeliveryTypeDef] = None
+class WorkerLogDelivery(BaseValidatorModel):
+    cloudWatchLogs: Optional[CloudWatchLogsLogDelivery] = None
+    firehose: Optional[FirehoseLogDelivery] = None
+    s3: Optional[S3LogDelivery] = None
 
 
-class KafkaClusterDescriptionTypeDef(BaseValidatorModel):
-    apacheKafkaCluster: Optional[ApacheKafkaClusterDescriptionTypeDef] = None
+class KafkaClusterDescription(BaseValidatorModel):
+    apacheKafkaCluster: Optional[ApacheKafkaClusterDescription] = None
 
 
-class KafkaClusterTypeDef(BaseValidatorModel):
-    apacheKafkaCluster: ApacheKafkaClusterTypeDef
+class KafkaCluster(BaseValidatorModel):
+    apacheKafkaCluster: ApacheKafkaCluster
 
 
-class CapacityDescriptionTypeDef(BaseValidatorModel):
-    autoScaling: Optional[AutoScalingDescriptionTypeDef] = None
-    provisionedCapacity: Optional[ProvisionedCapacityDescriptionTypeDef] = None
+class CapacityDescription(BaseValidatorModel):
+    autoScaling: Optional[AutoScalingDescription] = None
+    provisionedCapacity: Optional[ProvisionedCapacityDescription] = None
 
 
-class CapacityTypeDef(BaseValidatorModel):
-    autoScaling: Optional[AutoScalingTypeDef] = None
-    provisionedCapacity: Optional[ProvisionedCapacityTypeDef] = None
+class Capacity(BaseValidatorModel):
+    autoScaling: Optional[AutoScaling] = None
+    provisionedCapacity: Optional[ProvisionedCapacity] = None
 
 
-class CapacityUpdateTypeDef(BaseValidatorModel):
-    autoScaling: Optional[AutoScalingUpdateTypeDef] = None
-    provisionedCapacity: Optional[ProvisionedCapacityUpdateTypeDef] = None
+class CapacityUpdate(BaseValidatorModel):
+    autoScaling: Optional[AutoScalingUpdate] = None
+    provisionedCapacity: Optional[ProvisionedCapacityUpdate] = None
 
 
-class ListWorkerConfigurationsResponseTypeDef(BaseValidatorModel):
-    workerConfigurations: List[WorkerConfigurationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkerConfigurationsResponse(BaseValidatorModel):
+    workerConfigurations: List[WorkerConfigurationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CustomPluginRevisionSummaryTypeDef(BaseValidatorModel):
+class CustomPluginRevisionSummary(BaseValidatorModel):
     contentType: Optional[CustomPluginContentTypeType] = None
     creationTime: Optional[datetime] = None
     description: Optional[str] = None
-    fileDescription: Optional[CustomPluginFileDescriptionTypeDef] = None
-    location: Optional[CustomPluginLocationDescriptionTypeDef] = None
+    fileDescription: Optional[CustomPluginFileDescription] = None
+    location: Optional[CustomPluginLocationDescription] = None
     revision: Optional[int] = None
 
 
-class CreateCustomPluginRequestTypeDef(BaseValidatorModel):
+class CreateCustomPluginRequest(BaseValidatorModel):
     contentType: CustomPluginContentTypeType
-    location: CustomPluginLocationTypeDef
+    location: CustomPluginLocation
     name: str
     description: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class LogDeliveryDescriptionTypeDef(BaseValidatorModel):
-    workerLogDelivery: Optional[WorkerLogDeliveryDescriptionTypeDef] = None
+class LogDeliveryDescription(BaseValidatorModel):
+    workerLogDelivery: Optional[WorkerLogDeliveryDescription] = None
 
 
-class LogDeliveryTypeDef(BaseValidatorModel):
-    workerLogDelivery: WorkerLogDeliveryTypeDef
+class LogDelivery(BaseValidatorModel):
+    workerLogDelivery: WorkerLogDelivery
 
 
-class WorkerSettingTypeDef(BaseValidatorModel):
-    capacity: Optional[CapacityDescriptionTypeDef] = None
+class WorkerSetting(BaseValidatorModel):
+    capacity: Optional[CapacityDescription] = None
 
 
-class UpdateConnectorRequestTypeDef(BaseValidatorModel):
+class UpdateConnectorRequest(BaseValidatorModel):
     connectorArn: str
     currentVersion: str
-    capacity: Optional[CapacityUpdateTypeDef] = None
+    capacity: Optional[CapacityUpdate] = None
     connectorConfiguration: Optional[Mapping[str, str]] = None
 
 
-class CustomPluginSummaryTypeDef(BaseValidatorModel):
+class CustomPluginSummary(BaseValidatorModel):
     creationTime: Optional[datetime] = None
     customPluginArn: Optional[str] = None
     customPluginState: Optional[CustomPluginStateType] = None
     description: Optional[str] = None
-    latestRevision: Optional[CustomPluginRevisionSummaryTypeDef] = None
+    latestRevision: Optional[CustomPluginRevisionSummary] = None
     name: Optional[str] = None
 
 
-class DescribeCustomPluginResponseTypeDef(BaseValidatorModel):
+class DescribeCustomPluginResponse(BaseValidatorModel):
     creationTime: datetime
     customPluginArn: str
     customPluginState: CustomPluginStateType
     description: str
-    latestRevision: CustomPluginRevisionSummaryTypeDef
+    latestRevision: CustomPluginRevisionSummary
     name: str
-    stateDescription: StateDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    stateDescription: StateDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ConnectorSummaryTypeDef(BaseValidatorModel):
-    capacity: Optional[CapacityDescriptionTypeDef] = None
+class ConnectorSummary(BaseValidatorModel):
+    capacity: Optional[CapacityDescription] = None
     connectorArn: Optional[str] = None
     connectorDescription: Optional[str] = None
     connectorName: Optional[str] = None
     connectorState: Optional[ConnectorStateType] = None
     creationTime: Optional[datetime] = None
     currentVersion: Optional[str] = None
-    kafkaCluster: Optional[KafkaClusterDescriptionTypeDef] = None
-    kafkaClusterClientAuthentication: Optional[ KafkaClusterClientAuthenticationDescriptionTypeDef ] = None
-    kafkaClusterEncryptionInTransit: Optional[KafkaClusterEncryptionInTransitDescriptionTypeDef] = None
+    kafkaCluster: Optional[KafkaClusterDescription] = None
+    kafkaClusterClientAuthentication: Optional[ KafkaClusterClientAuthenticationDescription ] = None
+    kafkaClusterEncryptionInTransit: Optional[KafkaClusterEncryptionInTransitDescription] = None
     kafkaConnectVersion: Optional[str] = None
-    logDelivery: Optional[LogDeliveryDescriptionTypeDef] = None
-    plugins: Optional[List[PluginDescriptionTypeDef]] = None
+    logDelivery: Optional[LogDeliveryDescription] = None
+    plugins: Optional[List[PluginDescription]] = None
     serviceExecutionRoleArn: Optional[str] = None
-    workerConfiguration: Optional[WorkerConfigurationDescriptionTypeDef] = None
+    workerConfiguration: Optional[WorkerConfigurationDescription] = None
 
 
-class DescribeConnectorResponseTypeDef(BaseValidatorModel):
-    capacity: CapacityDescriptionTypeDef
+class DescribeConnectorResponse(BaseValidatorModel):
+    capacity: CapacityDescription
     connectorArn: str
     connectorConfiguration: Dict[str, str]
     connectorDescription: str
@@ -538,59 +538,59 @@ class DescribeConnectorResponseTypeDef(BaseValidatorModel):
     connectorState: ConnectorStateType
     creationTime: datetime
     currentVersion: str
-    kafkaCluster: KafkaClusterDescriptionTypeDef
-    kafkaClusterClientAuthentication: KafkaClusterClientAuthenticationDescriptionTypeDef
-    kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransitDescriptionTypeDef
+    kafkaCluster: KafkaClusterDescription
+    kafkaClusterClientAuthentication: KafkaClusterClientAuthenticationDescription
+    kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransitDescription
     kafkaConnectVersion: str
-    logDelivery: LogDeliveryDescriptionTypeDef
-    plugins: List[PluginDescriptionTypeDef]
+    logDelivery: LogDeliveryDescription
+    plugins: List[PluginDescription]
     serviceExecutionRoleArn: str
-    workerConfiguration: WorkerConfigurationDescriptionTypeDef
-    stateDescription: StateDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    workerConfiguration: WorkerConfigurationDescription
+    stateDescription: StateDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateConnectorRequestTypeDef(BaseValidatorModel):
-    capacity: CapacityTypeDef
+class CreateConnectorRequest(BaseValidatorModel):
+    capacity: Capacity
     connectorConfiguration: Mapping[str, str]
     connectorName: str
-    kafkaCluster: KafkaClusterTypeDef
-    kafkaClusterClientAuthentication: KafkaClusterClientAuthenticationTypeDef
-    kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransitTypeDef
+    kafkaCluster: KafkaCluster
+    kafkaClusterClientAuthentication: KafkaClusterClientAuthentication
+    kafkaClusterEncryptionInTransit: KafkaClusterEncryptionInTransit
     kafkaConnectVersion: str
-    plugins: Sequence[PluginTypeDef]
+    plugins: Sequence[Plugin]
     serviceExecutionRoleArn: str
     connectorDescription: Optional[str] = None
-    logDelivery: Optional[LogDeliveryTypeDef] = None
-    workerConfiguration: Optional[WorkerConfigurationTypeDef] = None
+    logDelivery: Optional[LogDelivery] = None
+    workerConfiguration: Optional[WorkerConfiguration] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DescribeConnectorOperationResponseTypeDef(BaseValidatorModel):
+class DescribeConnectorOperationResponse(BaseValidatorModel):
     connectorArn: str
     connectorOperationArn: str
     connectorOperationState: ConnectorOperationStateType
     connectorOperationType: ConnectorOperationTypeType
-    operationSteps: List[ConnectorOperationStepTypeDef]
-    originWorkerSetting: WorkerSettingTypeDef
+    operationSteps: List[ConnectorOperationStep]
+    originWorkerSetting: WorkerSetting
     originConnectorConfiguration: Dict[str, str]
-    targetWorkerSetting: WorkerSettingTypeDef
+    targetWorkerSetting: WorkerSetting
     targetConnectorConfiguration: Dict[str, str]
-    errorInfo: StateDescriptionTypeDef
+    errorInfo: StateDescription
     creationTime: datetime
     endTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListCustomPluginsResponseTypeDef(BaseValidatorModel):
-    customPlugins: List[CustomPluginSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCustomPluginsResponse(BaseValidatorModel):
+    customPlugins: List[CustomPluginSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListConnectorsResponseTypeDef(BaseValidatorModel):
-    connectors: List[ConnectorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectorsResponse(BaseValidatorModel):
+    connectors: List[ConnectorSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

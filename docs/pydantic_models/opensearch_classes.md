@@ -1,27 +1,27 @@
 # Opensearch Classes
 
-# AIMLOptionsInputTypeDef
+# AIMLOptionsInput
 
 ### NaturalLanguageQueryGenerationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NaturalLanguageQueryGenerationOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NaturalLanguageQueryGenerationOptionsInput]
 
 
-# AIMLOptionsOutputTypeDef
+# AIMLOptionsOutput
 
 ### NaturalLanguageQueryGenerationOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NaturalLanguageQueryGenerationOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NaturalLanguageQueryGenerationOptionsOutput]
 
 
-# AIMLOptionsStatusTypeDef
+# AIMLOptionsStatus
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsOutput]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus]
 
 
-# AWSDomainInformationTypeDef
+# AWSDomainInformation
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -34,36 +34,36 @@
 - **Type**: typing.Optional[str]
 
 
-# AcceptInboundConnectionRequestTypeDef
+# AcceptInboundConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AcceptInboundConnectionResponseTypeDef
+# AcceptInboundConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AccessPoliciesStatusTypeDef
+# AccessPoliciesStatus
 
 ### Options
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# AddDataSourceRequestTypeDef
+# AddDataSourceRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -74,32 +74,32 @@
 - **Required**: Yes
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceType'>
 - **Required**: Yes
 
 ### Description
 - **Type**: typing.Optional[str]
 
 
-# AddDataSourceResponseTypeDef
+# AddDataSourceResponse
 
 ### Message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddDirectQueryDataSourceRequestTypeDef
+# AddDirectQueryDataSourceRequest
 
 ### DataSourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceType'>
 - **Required**: Yes
 
 ### OpenSearchArns
@@ -110,32 +110,32 @@
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Tag]]
 
 
-# AddDirectQueryDataSourceResponseTypeDef
+# AddDirectQueryDataSourceResponse
 
 ### DataSourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddTagsRequestTypeDef
+# AddTagsRequest
 
 ### ARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TagList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Tag]
 - **Required**: Yes
 
 
-# AdditionalLimitTypeDef
+# AdditionalLimit
 
 ### LimitName
 - **Type**: typing.Optional[str]
@@ -144,50 +144,18 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# AdvancedOptionsStatusTypeDef
+# AdvancedOptionsStatus
 
 ### Options
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# AdvancedSecurityOptionsInputTypeDef
-
-### Enabled
-- **Type**: typing.Optional[bool]
-
-### InternalUserDatabaseEnabled
-- **Type**: typing.Optional[bool]
-
-### MasterUserOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.MasterUserOptionsTypeDef]
-
-### SAMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLOptionsInputTypeDef]
-
-### JWTOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.JWTOptionsInputTypeDef]
-
-### AnonymousAuthEnabled
-- **Type**: typing.Optional[bool]
-
-
-# AdvancedSecurityOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# AdvancedSecurityOptionsTypeDef
+# AdvancedSecurityOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -196,10 +164,10 @@
 - **Type**: typing.Optional[bool]
 
 ### SAMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLOptionsOutput]
 
 ### JWTOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.JWTOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.JWTOptionsOutput]
 
 ### AnonymousAuthDisableDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -208,7 +176,39 @@
 - **Type**: typing.Optional[bool]
 
 
-# AppConfigTypeDef
+# AdvancedSecurityOptionsInput
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+### InternalUserDatabaseEnabled
+- **Type**: typing.Optional[bool]
+
+### MasterUserOptions
+- **Type**: <class 'NoneType'>
+
+### SAMLOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLOptionsInput]
+
+### JWTOptions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.JWTOptionsInput]
+
+### AnonymousAuthEnabled
+- **Type**: typing.Optional[bool]
+
+
+# AdvancedSecurityOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# AppConfig
 
 ### key
 - **Type**: typing.Optional[typing.Literal['opensearchDashboards.dashboardAdmin.groups', 'opensearchDashboards.dashboardAdmin.users']]
@@ -217,13 +217,13 @@
 - **Type**: typing.Optional[str]
 
 
-# ApplicationSummaryTypeDef
+# ApplicationSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AssociatePackageRequestTypeDef
+# AssociatePackageRequest
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -237,24 +237,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AssociationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfiguration]
 
 
-# AssociatePackageResponseTypeDef
+# AssociatePackageResponse
 
 ### DomainPackageDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociatePackagesRequestTypeDef
+# AssociatePackagesRequest
 
 ### PackageList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsForAssociationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsForAssociation]
 - **Required**: Yes
 
 ### DomainName
@@ -262,18 +262,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociatePackagesResponseTypeDef
+# AssociatePackagesResponse
 
 ### DomainPackageDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthorizeVpcEndpointAccessRequestTypeDef
+# AuthorizeVpcEndpointAccessRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -286,18 +286,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application.opensearchservice.amazonaws.com']]
 
 
-# AuthorizeVpcEndpointAccessResponseTypeDef
+# AuthorizeVpcEndpointAccessResponse
 
 ### AuthorizedPrincipal
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.AuthorizedPrincipalTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.AuthorizedPrincipal'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthorizedPrincipalTypeDef
+# AuthorizedPrincipal
 
 ### PrincipalType
 - **Type**: typing.Optional[typing.Literal['AWS_ACCOUNT', 'AWS_SERVICE']]
@@ -306,43 +306,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AutoTuneDetailsTypeDef
+# AutoTune
+
+### AutoTuneType
+- **Type**: typing.Optional[typing.Literal['SCHEDULED_ACTION']]
+
+### AutoTuneDetails
+- **Type**: <class 'NoneType'>
+
+
+# AutoTuneDetails
 
 ### ScheduledAutoTuneDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ScheduledAutoTuneDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AutoTuneMaintenanceScheduleOutputTypeDef
+# AutoTuneMaintenanceSchedule
+
+### StartAt
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.Timestamp]
+
+### Duration
+- **Type**: <class 'NoneType'>
+
+### CronExpressionForRecurrence
+- **Type**: typing.Optional[str]
+
+
+# AutoTuneMaintenanceScheduleOutput
 
 ### StartAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Duration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CronExpressionForRecurrence
 - **Type**: typing.Optional[str]
 
 
-# AutoTuneMaintenanceScheduleTypeDef
-
-### StartAt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.TimestampTypeDef]
-
-### Duration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DurationTypeDef]
-
-### CronExpressionForRecurrence
-- **Type**: typing.Optional[str]
-
-
-# AutoTuneMaintenanceScheduleUnionTypeDef
+# AutoTuneMaintenanceScheduleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AutoTuneOptionsExtraTypeDef
+# AutoTuneOptions
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -351,25 +360,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEFAULT_ROLLBACK', 'NO_ROLLBACK']]
 
 ### MaintenanceSchedules
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceScheduleOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceSchedule]]
 
 ### UseOffPeakWindow
 - **Type**: typing.Optional[bool]
 
 
-# AutoTuneOptionsInputTypeDef
+# AutoTuneOptionsExtra
+
+### DesiredState
+- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
+
+### RollbackOnDisable
+- **Type**: typing.Optional[typing.Literal['DEFAULT_ROLLBACK', 'NO_ROLLBACK']]
+
+### MaintenanceSchedules
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceScheduleOutput]]
+
+### UseOffPeakWindow
+- **Type**: typing.Optional[bool]
+
+
+# AutoTuneOptionsInput
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 ### MaintenanceSchedules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceScheduleUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceScheduleUnion]]
 
 ### UseOffPeakWindow
 - **Type**: typing.Optional[bool]
 
 
-# AutoTuneOptionsOutputTypeDef
+# AutoTuneOptionsOutput
 
 ### State
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'DISABLED_AND_ROLLBACK_COMPLETE', 'DISABLED_AND_ROLLBACK_ERROR', 'DISABLED_AND_ROLLBACK_IN_PROGRESS', 'DISABLED_AND_ROLLBACK_SCHEDULED', 'DISABLE_IN_PROGRESS', 'ENABLED', 'ENABLE_IN_PROGRESS', 'ERROR']]
@@ -381,37 +405,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# AutoTuneOptionsStatusTypeDef
+# AutoTuneOptionsStatus
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsExtraTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsExtra]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneStatus]
 
 
-# AutoTuneOptionsTypeDef
-
-### DesiredState
-- **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
-
-### RollbackOnDisable
-- **Type**: typing.Optional[typing.Literal['DEFAULT_ROLLBACK', 'NO_ROLLBACK']]
-
-### MaintenanceSchedules
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneMaintenanceScheduleTypeDef]]
-
-### UseOffPeakWindow
-- **Type**: typing.Optional[bool]
-
-
-# AutoTuneOptionsUnionTypeDef
+# AutoTuneOptionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AutoTuneStatusTypeDef
+# AutoTuneStatus
 
 ### CreationDate
 - **Type**: <class 'datetime.datetime'>
@@ -435,16 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# AutoTuneTypeDef
-
-### AutoTuneType
-- **Type**: typing.Optional[typing.Literal['SCHEDULED_ACTION']]
-
-### AutoTuneDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneDetailsTypeDef]
-
-
-# AvailabilityZoneInfoTypeDef
+# AvailabilityZoneInfo
 
 ### AvailabilityZoneName
 - **Type**: typing.Optional[str]
@@ -471,7 +471,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelDomainConfigChangeRequestTypeDef
+# CancelDomainConfigChangeRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -481,14 +481,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CancelDomainConfigChangeResponseTypeDef
+# CancelDomainConfigChangeResponse
 
 ### CancelledChangeIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### CancelledChangeProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.CancelledChangePropertyTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.CancelledChangeProperty]
 - **Required**: Yes
 
 ### DryRun
@@ -496,29 +496,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelServiceSoftwareUpdateRequestTypeDef
+# CancelServiceSoftwareUpdateRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CancelServiceSoftwareUpdateResponseTypeDef
+# CancelServiceSoftwareUpdateResponse
 
 ### ServiceSoftwareOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ServiceSoftwareOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ServiceSoftwareOptions'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelledChangePropertyTypeDef
+# CancelledChangeProperty
 
 ### PropertyName
 - **Type**: typing.Optional[str]
@@ -530,7 +530,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ChangeProgressDetailsTypeDef
+# ChangeProgressDetails
 
 ### ChangeId
 - **Type**: typing.Optional[str]
@@ -551,7 +551,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ChangeProgressStageTypeDef
+# ChangeProgressStage
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -566,7 +566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ChangeProgressStatusDetailsTypeDef
+# ChangeProgressStatusDetails
 
 ### ChangeId
 - **Type**: typing.Optional[str]
@@ -587,7 +587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ChangeProgressStages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressStageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressStage]]
 
 ### LastUpdatedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -599,14 +599,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['CUSTOMER', 'SERVICE']]
 
 
-# CloudWatchDirectQueryDataSourceTypeDef
+# CloudWatchDirectQueryDataSource
 
 ### RoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ClusterConfigOutputTypeDef
+# ClusterConfig
 
 ### InstanceType
 - **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
@@ -621,7 +621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ZoneAwarenessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ZoneAwarenessConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DedicatedMasterType
 - **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
@@ -639,86 +639,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ColdStorageOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ColdStorageOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### MultiAZWithStandbyEnabled
 - **Type**: typing.Optional[bool]
 
 ### NodeOptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.NodeOptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.NodeOption]]
 
 
-# ClusterConfigStatusTypeDef
+# ClusterConfigOutput
+
+### InstanceType
+- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
+
+### InstanceCount
+- **Type**: typing.Optional[int]
+
+### DedicatedMasterEnabled
+- **Type**: typing.Optional[bool]
+
+### ZoneAwarenessEnabled
+- **Type**: typing.Optional[bool]
+
+### ZoneAwarenessConfig
+- **Type**: <class 'NoneType'>
+
+### DedicatedMasterType
+- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
+
+### DedicatedMasterCount
+- **Type**: typing.Optional[int]
+
+### WarmEnabled
+- **Type**: typing.Optional[bool]
+
+### WarmType
+- **Type**: typing.Optional[typing.Literal['ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
+
+### WarmCount
+- **Type**: typing.Optional[int]
+
+### ColdStorageOptions
+- **Type**: <class 'NoneType'>
+
+### MultiAZWithStandbyEnabled
+- **Type**: typing.Optional[bool]
+
+### NodeOptions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.NodeOption]]
+
+
+# ClusterConfigStatus
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigOutput'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# ClusterConfigTypeDef
-
-### InstanceType
-- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
-
-### InstanceCount
-- **Type**: typing.Optional[int]
-
-### DedicatedMasterEnabled
-- **Type**: typing.Optional[bool]
-
-### ZoneAwarenessEnabled
-- **Type**: typing.Optional[bool]
-
-### ZoneAwarenessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ZoneAwarenessConfigTypeDef]
-
-### DedicatedMasterType
-- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
-
-### DedicatedMasterCount
-- **Type**: typing.Optional[int]
-
-### WarmEnabled
-- **Type**: typing.Optional[bool]
-
-### WarmType
-- **Type**: typing.Optional[typing.Literal['ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
-
-### WarmCount
-- **Type**: typing.Optional[int]
-
-### ColdStorageOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ColdStorageOptionsTypeDef]
-
-### MultiAZWithStandbyEnabled
-- **Type**: typing.Optional[bool]
-
-### NodeOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.NodeOptionTypeDef]]
-
-
-# ClusterConfigUnionTypeDef
+# ClusterConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CognitoOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# CognitoOptionsTypeDef
+# CognitoOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -733,14 +722,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ColdStorageOptionsTypeDef
+# CognitoOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# ColdStorageOptions
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# CompatibleVersionsMapTypeDef
+# CompatibleVersionsMap
 
 ### SourceVersion
 - **Type**: typing.Optional[str]
@@ -749,16 +749,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ConnectionPropertiesTypeDef
+# ConnectionProperties
 
 ### Endpoint
 - **Type**: typing.Optional[str]
 
 ### CrossClusterSearch
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CrossClusterSearchConnectionPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CrossClusterSearchConnectionProperties]
 
 
-# CreateApplicationRequestTypeDef
+# CreateApplicationRequest
 
 ### name
 - **Type**: <class 'str'>
@@ -768,19 +768,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### dataSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.DataSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.DataSource]]
 
 ### iamIdentityCenterOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IamIdentityCenterOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IamIdentityCenterOptionsInput]
 
 ### appConfigs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AppConfigTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.AppConfig]]
 
 ### tagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Tag]]
 
 
-# CreateDomainRequestTypeDef
+# CreateDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -790,10 +790,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigUnion]
 
 ### EBSOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AccessPolicies
 - **Type**: typing.Optional[str]
@@ -802,70 +802,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4']]
 
 ### SnapshotOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CognitoOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedOptions
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOption]]
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsInput]
 
 ### IdentityCenterOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsInput]
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Tag]]
 
 ### AutoTuneOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsInput]
 
 ### OffPeakWindowOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SoftwareUpdateOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AIMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsInput]
 
 
-# CreateDomainResponseTypeDef
+# CreateDomainResponse
 
 ### DomainStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOutboundConnectionRequestTypeDef
+# CreateOutboundConnectionRequest
 
 ### LocalDomainInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer'>
 - **Required**: Yes
 
 ### RemoteDomainInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer'>
 - **Required**: Yes
 
 ### ConnectionAlias
@@ -876,17 +876,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DIRECT', 'VPC_ENDPOINT']]
 
 ### ConnectionProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ConnectionPropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateOutboundConnectionResponseTypeDef
+# CreateOutboundConnectionResponse
 
 ### LocalDomainInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer'>
 - **Required**: Yes
 
 ### RemoteDomainInfo
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer'>
 - **Required**: Yes
 
 ### ConnectionAlias
@@ -894,7 +894,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionStatus'>
 - **Required**: Yes
 
 ### ConnectionId
@@ -906,15 +906,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ConnectionProperties
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ConnectionPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ConnectionProperties'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePackageRequestTypeDef
+# CreatePackageRequest
 
 ### PackageName
 - **Type**: <class 'str'>
@@ -925,71 +925,80 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### PackageSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageSource'>
 - **Required**: Yes
 
 ### PackageDescription
 - **Type**: typing.Optional[str]
 
 ### PackageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
 
 ### PackageVendingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageVendingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PackageEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreatePackageResponseTypeDef
+# CreatePackageResponse
 
 ### PackageDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcEndpointRequestTypeDef
+# CreateVpcEndpointRequest
 
 ### DomainArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VpcOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCOptions'>
 - **Required**: Yes
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateVpcEndpointResponseTypeDef
+# CreateVpcEndpointResponse
 
 ### VpcEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CrossClusterSearchConnectionPropertiesTypeDef
+# CrossClusterSearchConnectionProperties
 
 ### SkipUnavailable
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# DataSourceDetailsTypeDef
+# DataSource
+
+### dataSourceArn
+- **Type**: typing.Optional[str]
+
+### dataSourceDescription
+- **Type**: typing.Optional[str]
+
+
+# DataSourceDetails
 
 ### DataSourceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DataSourceTypeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1001,22 +1010,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED']]
 
 
-# DataSourceTypeDef
-
-### dataSourceArn
-- **Type**: typing.Optional[str]
-
-### dataSourceDescription
-- **Type**: typing.Optional[str]
-
-
-# DataSourceTypeTypeDef
+# DataSourceType
 
 ### S3GlueDataCatalog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.S3GlueDataCatalogTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DeleteDataSourceRequestTypeDef
+# DeleteDataSourceRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1027,115 +1027,115 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDataSourceResponseTypeDef
+# DeleteDataSourceResponse
 
 ### Message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDirectQueryDataSourceRequestTypeDef
+# DeleteDirectQueryDataSourceRequest
 
 ### DataSourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDomainRequestTypeDef
+# DeleteDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteDomainResponseTypeDef
+# DeleteDomainResponse
 
 ### DomainStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteInboundConnectionRequestTypeDef
+# DeleteInboundConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteInboundConnectionResponseTypeDef
+# DeleteInboundConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteOutboundConnectionRequestTypeDef
+# DeleteOutboundConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOutboundConnectionResponseTypeDef
+# DeleteOutboundConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePackageRequestTypeDef
+# DeletePackageRequest
 
 ### PackageID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePackageResponseTypeDef
+# DeletePackageResponse
 
 ### PackageDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteVpcEndpointRequestTypeDef
+# DeleteVpcEndpointRequest
 
 ### VpcEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVpcEndpointResponseTypeDef
+# DeleteVpcEndpointResponse
 
 ### VpcEndpointSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainAutoTunesRequestTypeDef
+# DescribeDomainAutoTunesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1148,21 +1148,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainAutoTunesResponseTypeDef
+# DescribeDomainAutoTunesResponse
 
 ### AutoTunes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AutoTune]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainChangeProgressRequestTypeDef
+# DescribeDomainChangeProgressRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1172,43 +1172,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDomainChangeProgressResponseTypeDef
+# DescribeDomainChangeProgressResponse
 
 ### ChangeProgressStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressStatusDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressStatusDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainConfigRequestTypeDef
+# DescribeDomainConfigRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDomainConfigResponseTypeDef
+# DescribeDomainConfigResponse
 
 ### DomainConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainHealthRequestTypeDef
+# DescribeDomainHealthRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDomainHealthResponseTypeDef
+# DescribeDomainHealthResponse
 
 ### DomainState
 - **Type**: typing.Literal['Active', 'NotAvailable', 'Processing']
@@ -1259,69 +1259,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EnvironmentInformation
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.EnvironmentInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.EnvironmentInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainNodesRequestTypeDef
+# DescribeDomainNodesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDomainNodesResponseTypeDef
+# DescribeDomainNodesResponse
 
 ### DomainNodesStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainNodesStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainNodesStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainRequestTypeDef
+# DescribeDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDomainResponseTypeDef
+# DescribeDomainResponse
 
 ### DomainStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDomainsRequestTypeDef
+# DescribeDomainsRequest
 
 ### DomainNames
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeDomainsResponseTypeDef
+# DescribeDomainsResponse
 
 ### DomainStatusList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDryRunProgressRequestTypeDef
+# DescribeDryRunProgressRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -1334,29 +1334,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeDryRunProgressResponseTypeDef
+# DescribeDryRunProgressResponse
 
 ### DryRunProgressStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunProgressStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunProgressStatus'>
 - **Required**: Yes
 
 ### DryRunConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainStatus'>
 - **Required**: Yes
 
 ### DryRunResults
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunResultsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunResults'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeInboundConnectionsRequestTypeDef
+# DescribeInboundConnectionsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1365,21 +1365,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeInboundConnectionsResponseTypeDef
+# DescribeInboundConnectionsResponse
 
 ### Connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.InboundConnection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstanceTypeLimitsRequestTypeDef
+# DescribeInstanceTypeLimitsRequest
 
 ### InstanceType
 - **Type**: typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']
@@ -1393,21 +1393,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeInstanceTypeLimitsResponseTypeDef
+# DescribeInstanceTypeLimitsResponse
 
 ### LimitsByRole
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.opensearch_classes.LimitsTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.opensearch_classes.Limits]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeOutboundConnectionsRequestTypeDef
+# DescribeOutboundConnectionsRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.FilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.Filter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1416,21 +1416,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeOutboundConnectionsResponseTypeDef
+# DescribeOutboundConnectionsResponse
 
 ### Connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribePackagesFilterTypeDef
+# DescribePackagesFilter
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['EngineVersion', 'PackageID', 'PackageName', 'PackageOwner', 'PackageStatus', 'PackageType']]
@@ -1439,10 +1439,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribePackagesRequestTypeDef
+# DescribePackagesRequest
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.DescribePackagesFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.opensearch_classes.DescribePackagesFilter]]
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1451,21 +1451,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePackagesResponseTypeDef
+# DescribePackagesResponse
 
 ### PackageDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.PackageDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedInstanceOfferingsRequestTypeDef
+# DescribeReservedInstanceOfferingsRequest
 
 ### ReservedInstanceOfferingId
 - **Type**: typing.Optional[str]
@@ -1477,21 +1477,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedInstanceOfferingsResponseTypeDef
+# DescribeReservedInstanceOfferingsResponse
 
 ### ReservedInstanceOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ReservedInstanceOfferingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ReservedInstanceOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedInstancesRequestTypeDef
+# DescribeReservedInstancesRequest
 
 ### ReservedInstanceId
 - **Type**: typing.Optional[str]
@@ -1503,49 +1503,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedInstancesResponseTypeDef
+# DescribeReservedInstancesResponse
 
 ### ReservedInstances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ReservedInstanceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ReservedInstance]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeVpcEndpointsRequestTypeDef
+# DescribeVpcEndpointsRequest
 
 ### VpcEndpointIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeVpcEndpointsResponseTypeDef
+# DescribeVpcEndpointsResponse
 
 ### VpcEndpoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpoint]
 - **Required**: Yes
 
 ### VpcEndpointErrors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointError]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DirectQueryDataSourceTypeDef
+# DirectQueryDataSource
 
 ### DataSourceName
 - **Type**: typing.Optional[str]
 
 ### DataSourceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceType]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -1557,19 +1557,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.Tag]]
 
 
-# DirectQueryDataSourceTypeTypeDef
+# DirectQueryDataSourceType
 
 ### CloudWatchLog
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CloudWatchDirectQueryDataSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CloudWatchDirectQueryDataSource]
 
 ### SecurityLake
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SecurityLakeDirectQueryDataSourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SecurityLakeDirectQueryDataSource]
 
 
-# DissociatePackageRequestTypeDef
+# DissociatePackageRequest
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -1580,18 +1580,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DissociatePackageResponseTypeDef
+# DissociatePackageResponse
 
 ### DomainPackageDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DissociatePackagesRequestTypeDef
+# DissociatePackagesRequest
 
 ### PackageList
 - **Type**: typing.Sequence[str]
@@ -1602,95 +1602,84 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DissociatePackagesResponseTypeDef
+# DissociatePackagesResponse
 
 ### DomainPackageDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DomainConfigTypeDef
+# DomainConfig
 
 ### EngineVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VersionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VersionStatus]
 
 ### ClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigStatus]
 
 ### EBSOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsStatus]
 
 ### AccessPolicies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AccessPoliciesStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AccessPoliciesStatus]
 
 ### IPAddressType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IPAddressTypeStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IPAddressTypeStatus]
 
 ### SnapshotOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsStatus]
 
 ### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfoStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfoStatus]
 
 ### CognitoOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsStatus]
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsStatus]
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsStatus]
 
 ### AdvancedOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedOptionsStatus]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionsStatus]
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsStatus]
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsStatus]
 
 ### IdentityCenterOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsStatus]
 
 ### AutoTuneOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsStatus]
 
 ### ChangeProgressDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OffPeakWindowOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsStatus]
 
 ### SoftwareUpdateOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsStatus]
 
 ### ModifyingProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ModifyingPropertiesTypeDef]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### AIMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsStatus]
 
 
-# DomainEndpointOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# DomainEndpointOptionsTypeDef
+# DomainEndpointOptions
 
 ### EnforceHTTPS
 - **Type**: typing.Optional[bool]
@@ -1708,7 +1697,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DomainInfoTypeDef
+# DomainEndpointOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# DomainInfo
 
 ### DomainName
 - **Type**: typing.Optional[str]
@@ -1717,13 +1717,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Elasticsearch', 'OpenSearch']]
 
 
-# DomainInformationContainerTypeDef
+# DomainInformationContainer
 
 ### AWSDomainInformation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AWSDomainInformationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DomainMaintenanceDetailsTypeDef
+# DomainMaintenanceDetails
 
 ### MaintenanceId
 - **Type**: typing.Optional[str]
@@ -1750,7 +1750,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DomainNodesStatusTypeDef
+# DomainNodesStatus
 
 ### NodeId
 - **Type**: typing.Optional[str]
@@ -1777,7 +1777,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DomainPackageDetailsTypeDef
+# DomainPackageDetails
 
 ### PackageID
 - **Type**: typing.Optional[str]
@@ -1807,13 +1807,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ErrorDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ErrorDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AssociationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfiguration]
 
 
-# DomainStatusTypeDef
+# DomainStatus
 
 ### DomainId
 - **Type**: <class 'str'>
@@ -1828,7 +1828,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ClusterConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigOutput'>
 - **Required**: Yes
 
 ### Created
@@ -1859,7 +1859,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EBSOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AccessPolicies
 - **Type**: typing.Optional[str]
@@ -1868,61 +1868,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4']]
 
 ### SnapshotOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfo]
 
 ### CognitoOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedOptions
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOption]]
 
 ### ServiceSoftwareOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ServiceSoftwareOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### IdentityCenterOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AutoTuneOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsOutput]
 
 ### ChangeProgressDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OffPeakWindowOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SoftwareUpdateOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DomainProcessingStatus
 - **Type**: typing.Optional[typing.Literal['Active', 'Creating', 'Deleting', 'Isolated', 'Modifying', 'UpdatingServiceSoftware', 'UpgradingEngineVersion']]
 
 ### ModifyingProperties
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ModifyingPropertiesTypeDef]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 ### AIMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsOutput]
 
 
-# DryRunProgressStatusTypeDef
+# DryRunProgressStatus
 
 ### DryRunId
 - **Type**: <class 'str'>
@@ -1941,10 +1941,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ValidationFailures
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ValidationFailureTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ValidationFailure]]
 
 
-# DryRunResultsTypeDef
+# DryRunResults
 
 ### DeploymentType
 - **Type**: typing.Optional[str]
@@ -1953,7 +1953,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DurationTypeDef
+# Duration
 
 ### Value
 - **Type**: typing.Optional[int]
@@ -1962,18 +1962,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HOURS']]
 
 
-# EBSOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# EBSOptionsTypeDef
+# EBSOptions
 
 ### EBSEnabled
 - **Type**: typing.Optional[bool]
@@ -1991,25 +1980,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EmptyResponseMetadataTypeDef
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# EncryptionAtRestOptionsStatusTypeDef
+# EBSOptionsStatus
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.EBSOptions'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# EncryptionAtRestOptionsTypeDef
+# EmptyResponseMetadata
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# EncryptionAtRestOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -2018,13 +2007,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnvironmentInfoTypeDef
+# EncryptionAtRestOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# EnvironmentInfo
 
 ### AvailabilityZoneInformation
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AvailabilityZoneInfoTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AvailabilityZoneInfo]]
 
 
-# ErrorDetailsTypeDef
+# ErrorDetails
 
 ### ErrorType
 - **Type**: typing.Optional[str]
@@ -2033,7 +2033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FilterTypeDef
+# Filter
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2042,24 +2042,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetCompatibleVersionsRequestTypeDef
+# GetCompatibleVersionsRequest
 
 ### DomainName
 - **Type**: typing.Optional[str]
 
 
-# GetCompatibleVersionsResponseTypeDef
+# GetCompatibleVersionsResponse
 
 ### CompatibleVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.CompatibleVersionsMapTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.CompatibleVersionsMap]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDataSourceRequestTypeDef
+# GetDataSourceRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2070,10 +2070,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDataSourceResponseTypeDef
+# GetDataSourceResponse
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceType'>
 - **Required**: Yes
 
 ### Name
@@ -2089,25 +2089,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDirectQueryDataSourceRequestTypeDef
+# GetDirectQueryDataSourceRequest
 
 ### DataSourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDirectQueryDataSourceResponseTypeDef
+# GetDirectQueryDataSourceResponse
 
 ### DataSourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceType'>
 - **Required**: Yes
 
 ### Description
@@ -2123,11 +2123,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDomainMaintenanceStatusRequestTypeDef
+# GetDomainMaintenanceStatusRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2138,7 +2138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetDomainMaintenanceStatusResponseTypeDef
+# GetDomainMaintenanceStatusResponse
 
 ### Status
 - **Type**: typing.Literal['COMPLETED', 'FAILED', 'IN_PROGRESS', 'PENDING', 'TIMED_OUT']
@@ -2165,11 +2165,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPackageVersionHistoryRequestTypeDef
+# GetPackageVersionHistoryRequest
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -2182,25 +2182,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPackageVersionHistoryResponseTypeDef
+# GetPackageVersionHistoryResponse
 
 ### PackageID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PackageVersionHistoryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.PackageVersionHistoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.PackageVersionHistory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetUpgradeHistoryRequestTypeDef
+# GetUpgradeHistoryRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2213,28 +2213,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetUpgradeHistoryResponseTypeDef
+# GetUpgradeHistoryResponse
 
 ### UpgradeHistories
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.UpgradeHistoryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.UpgradeHistory]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetUpgradeStatusRequestTypeDef
+# GetUpgradeStatusRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetUpgradeStatusResponseTypeDef
+# GetUpgradeStatusResponse
 
 ### UpgradeStep
 - **Type**: typing.Literal['PRE_UPGRADE_CHECK', 'SNAPSHOT', 'UPGRADE']
@@ -2249,34 +2249,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IPAddressTypeStatusTypeDef
+# IPAddressTypeStatus
 
 ### Options
 - **Type**: typing.Literal['dualstack', 'ipv4']
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# IamIdentityCenterOptionsInputTypeDef
-
-### enabled
-- **Type**: typing.Optional[bool]
-
-### iamIdentityCenterInstanceArn
-- **Type**: typing.Optional[str]
-
-### iamRoleForIdentityCenterApplicationArn
-- **Type**: typing.Optional[str]
-
-
-# IamIdentityCenterOptionsTypeDef
+# IamIdentityCenterOptions
 
 ### enabled
 - **Type**: typing.Optional[bool]
@@ -2291,33 +2279,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IdentityCenterOptionsInputTypeDef
+# IamIdentityCenterOptionsInput
 
-### EnabledAPIAccess
+### enabled
 - **Type**: typing.Optional[bool]
 
-### IdentityCenterInstanceARN
+### iamIdentityCenterInstanceArn
 - **Type**: typing.Optional[str]
 
-### SubjectKey
-- **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
-
-### RolesKey
-- **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
+### iamRoleForIdentityCenterApplicationArn
+- **Type**: typing.Optional[str]
 
 
-# IdentityCenterOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# IdentityCenterOptionsTypeDef
+# IdentityCenterOptions
 
 ### EnabledAPIAccess
 - **Type**: typing.Optional[bool]
@@ -2338,7 +2312,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InboundConnectionStatusTypeDef
+# IdentityCenterOptionsInput
+
+### EnabledAPIAccess
+- **Type**: typing.Optional[bool]
+
+### IdentityCenterInstanceARN
+- **Type**: typing.Optional[str]
+
+### SubjectKey
+- **Type**: typing.Optional[typing.Literal['Email', 'UserId', 'UserName']]
+
+### RolesKey
+- **Type**: typing.Optional[typing.Literal['GroupId', 'GroupName']]
+
+
+# IdentityCenterOptionsStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptions'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# InboundConnection
+
+### LocalDomainInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer]
+
+### RemoteDomainInfo
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer]
+
+### ConnectionId
+- **Type**: typing.Optional[str]
+
+### ConnectionStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionStatus]
+
+### ConnectionMode
+- **Type**: typing.Optional[typing.Literal['DIRECT', 'VPC_ENDPOINT']]
+
+
+# InboundConnectionStatus
 
 ### StatusCode
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'APPROVED', 'DELETED', 'DELETING', 'PENDING_ACCEPTANCE', 'PROVISIONING', 'REJECTED', 'REJECTING']]
@@ -2347,25 +2365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InboundConnectionTypeDef
-
-### LocalDomainInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef]
-
-### RemoteDomainInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef]
-
-### ConnectionId
-- **Type**: typing.Optional[str]
-
-### ConnectionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionStatusTypeDef]
-
-### ConnectionMode
-- **Type**: typing.Optional[typing.Literal['DIRECT', 'VPC_ENDPOINT']]
-
-
-# InstanceCountLimitsTypeDef
+# InstanceCountLimits
 
 ### MinimumInstanceCount
 - **Type**: typing.Optional[int]
@@ -2374,13 +2374,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# InstanceLimitsTypeDef
+# InstanceLimits
 
 ### InstanceCountLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.InstanceCountLimitsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# InstanceTypeDetailsTypeDef
+# InstanceTypeDetails
 
 ### InstanceType
 - **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
@@ -2407,7 +2407,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# JWTOptionsInputTypeDef
+# JWTOptionsInput
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -2422,7 +2422,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JWTOptionsOutputTypeDef
+# JWTOptionsOutput
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -2437,7 +2437,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KeyStoreAccessOptionTypeDef
+# KeyStoreAccessOption
 
 ### KeyStoreAccessEnabled
 - **Type**: <class 'bool'>
@@ -2447,28 +2447,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LimitsTypeDef
+# Limits
 
 ### StorageTypes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.StorageTypeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.StorageType]]
 
 ### InstanceLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.InstanceLimitsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdditionalLimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AdditionalLimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AdditionalLimit]]
 
 
-# ListApplicationsRequestPaginateTypeDef
-
-### statuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PaginatorConfigTypeDef]
-
-
-# ListApplicationsRequestTypeDef
+# ListApplicationsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -2480,59 +2471,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListApplicationsResponseTypeDef
+# ListApplicationsRequestPaginate
+
+### statuses
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ACTIVE', 'CREATING', 'DELETING', 'FAILED', 'UPDATING']]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PaginatorConfig]
+
+
+# ListApplicationsResponse
 
 ### ApplicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ApplicationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDataSourcesRequestTypeDef
+# ListDataSourcesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListDataSourcesResponseTypeDef
+# ListDataSourcesResponse
 
 ### DataSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DataSourceDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DataSourceDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDirectQueryDataSourcesRequestTypeDef
+# ListDirectQueryDataSourcesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDirectQueryDataSourcesResponseTypeDef
+# ListDirectQueryDataSourcesResponse
 
 ### DirectQueryDataSources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDomainMaintenancesRequestTypeDef
+# ListDomainMaintenancesRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2551,38 +2551,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainMaintenancesResponseTypeDef
+# ListDomainMaintenancesResponse
 
 ### DomainMaintenances
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainMaintenanceDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainMaintenanceDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListDomainNamesRequestTypeDef
+# ListDomainNamesRequest
 
 ### EngineType
 - **Type**: typing.Optional[typing.Literal['Elasticsearch', 'OpenSearch']]
 
 
-# ListDomainNamesResponseTypeDef
+# ListDomainNamesResponse
 
 ### DomainNames
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDomainsForPackageRequestTypeDef
+# ListDomainsForPackageRequest
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -2595,21 +2595,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDomainsForPackageResponseTypeDef
+# ListDomainsForPackageResponse
 
 ### DomainPackageDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceTypeDetailsRequestTypeDef
+# ListInstanceTypeDetailsRequest
 
 ### EngineVersion
 - **Type**: <class 'str'>
@@ -2631,21 +2631,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInstanceTypeDetailsResponseTypeDef
+# ListInstanceTypeDetailsResponse
 
 ### InstanceTypeDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.InstanceTypeDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.InstanceTypeDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPackagesForDomainRequestTypeDef
+# ListPackagesForDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2658,21 +2658,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPackagesForDomainResponseTypeDef
+# ListPackagesForDomainResponse
 
 ### DomainPackageDetailsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.DomainPackageDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListScheduledActionsRequestTypeDef
+# ListScheduledActionsRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2685,39 +2685,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListScheduledActionsResponseTypeDef
+# ListScheduledActionsResponse
 
 ### ScheduledActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ScheduledActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.ScheduledAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsRequestTypeDef
+# ListTagsRequest
 
 ### ARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsResponseTypeDef
+# ListTagsResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVersionsRequestTypeDef
+# ListVersionsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2726,21 +2726,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVersionsResponseTypeDef
+# ListVersionsResponse
 
 ### Versions
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListVpcEndpointAccessRequestTypeDef
+# ListVpcEndpointAccessRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2750,10 +2750,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVpcEndpointAccessResponseTypeDef
+# ListVpcEndpointAccessResponse
 
 ### AuthorizedPrincipalList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AuthorizedPrincipalTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.AuthorizedPrincipal]
 - **Required**: Yes
 
 ### NextToken
@@ -2761,11 +2761,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVpcEndpointsForDomainRequestTypeDef
+# ListVpcEndpointsForDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -2775,10 +2775,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVpcEndpointsForDomainResponseTypeDef
+# ListVpcEndpointsForDomainResponse
 
 ### VpcEndpointSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummary]
 - **Required**: Yes
 
 ### NextToken
@@ -2786,20 +2786,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVpcEndpointsRequestTypeDef
+# ListVpcEndpointsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListVpcEndpointsResponseTypeDef
+# ListVpcEndpointsResponse
 
 ### VpcEndpointSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointSummary]
 - **Required**: Yes
 
 ### NextToken
@@ -2807,11 +2807,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LogPublishingOptionTypeDef
+# LogPublishingOption
 
 ### CloudWatchLogsLogGroupArn
 - **Type**: typing.Optional[str]
@@ -2820,16 +2820,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LogPublishingOptionsStatusTypeDef
+# LogPublishingOptionsStatus
 
 ### Options
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOption]]
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus]
 
 
-# MasterUserOptionsTypeDef
+# MasterUserOptions
 
 ### MasterUserARN
 - **Type**: typing.Optional[str]
@@ -2841,7 +2841,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyingPropertiesTypeDef
+# ModifyingProperties
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -2856,13 +2856,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PLAIN_TEXT', 'STRINGIFIED_JSON']]
 
 
-# NaturalLanguageQueryGenerationOptionsInputTypeDef
+# NaturalLanguageQueryGenerationOptionsInput
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# NaturalLanguageQueryGenerationOptionsOutputTypeDef
+# NaturalLanguageQueryGenerationOptionsOutput
 
 ### DesiredState
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
@@ -2871,63 +2871,63 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLE_COMPLETE', 'DISABLE_FAILED', 'DISABLE_IN_PROGRESS', 'ENABLE_COMPLETE', 'ENABLE_FAILED', 'ENABLE_IN_PROGRESS', 'NOT_ENABLED']]
 
 
-# NodeConfigTypeDef
+# NodeConfig
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NodeOptionTypeDef
+# NodeOption
 
 ### NodeType
 - **Type**: typing.Optional[typing.Literal['coordinator']]
 
 ### NodeConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# NodeToNodeEncryptionOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# NodeToNodeEncryptionOptionsTypeDef
+# NodeToNodeEncryptionOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# OffPeakWindowOptionsStatusTypeDef
+# NodeToNodeEncryptionOptionsStatus
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsTypeDef]
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptions'>
+- **Required**: Yes
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef]
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
 
 
-# OffPeakWindowOptionsTypeDef
+# OffPeakWindow
+
+### WindowStartTime
+- **Type**: <class 'NoneType'>
+
+
+# OffPeakWindowOptions
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### OffPeakWindow
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# OffPeakWindowTypeDef
+# OffPeakWindowOptionsStatus
 
-### WindowStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.WindowStartTimeTypeDef]
+### Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptions]
+
+### Status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus]
 
 
-# OptionStatusTypeDef
+# OptionStatus
 
 ### CreationDate
 - **Type**: <class 'datetime.datetime'>
@@ -2948,22 +2948,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# OutboundConnectionStatusTypeDef
-
-### StatusCode
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'APPROVED', 'DELETED', 'DELETING', 'PENDING_ACCEPTANCE', 'PROVISIONING', 'REJECTED', 'REJECTING', 'VALIDATING', 'VALIDATION_FAILED']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-
-# OutboundConnectionTypeDef
+# OutboundConnection
 
 ### LocalDomainInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer]
 
 ### RemoteDomainInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainerTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainInformationContainer]
 
 ### ConnectionId
 - **Type**: typing.Optional[str]
@@ -2972,22 +2963,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ConnectionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionStatusTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OutboundConnectionStatus]
 
 ### ConnectionMode
 - **Type**: typing.Optional[typing.Literal['DIRECT', 'VPC_ENDPOINT']]
 
 ### ConnectionProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ConnectionPropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PackageAssociationConfigurationTypeDef
+# OutboundConnectionStatus
+
+### StatusCode
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'APPROVED', 'DELETED', 'DELETING', 'PENDING_ACCEPTANCE', 'PROVISIONING', 'REJECTED', 'REJECTING', 'VALIDATING', 'VALIDATION_FAILED']]
+
+### Message
+- **Type**: typing.Optional[str]
+
+
+# PackageAssociationConfiguration
 
 ### KeyStoreAccessOption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.KeyStoreAccessOptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PackageConfigurationTypeDef
+# PackageConfiguration
 
 ### LicenseRequirement
 - **Type**: typing.Literal['NONE', 'OPTIONAL', 'REQUIRED']
@@ -3004,20 +3004,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# PackageDetailsForAssociationTypeDef
-
-### PackageID
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PrerequisitePackageIDList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### AssociationConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfigurationTypeDef]
-
-
-# PackageDetailsTypeDef
+# PackageDetails
 
 ### PackageID
 - **Type**: typing.Optional[str]
@@ -3044,16 +3031,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ErrorDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ErrorDetailsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EngineVersion
 - **Type**: typing.Optional[str]
 
 ### AvailablePluginProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PluginPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PluginProperties]
 
 ### AvailablePackageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageConfiguration]
 
 ### AllowListedUserList
 - **Type**: typing.Optional[typing.List[str]]
@@ -3062,13 +3049,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PackageVendingOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageVendingOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PackageEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PackageEncryptionOptionsTypeDef
+# PackageDetailsForAssociation
+
+### PackageID
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PrerequisitePackageIDList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### AssociationConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageAssociationConfiguration]
+
+
+# PackageEncryptionOptions
 
 ### EncryptionEnabled
 - **Type**: <class 'bool'>
@@ -3078,7 +3078,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PackageSourceTypeDef
+# PackageSource
 
 ### S3BucketName
 - **Type**: typing.Optional[str]
@@ -3087,14 +3087,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PackageVendingOptionsTypeDef
+# PackageVendingOptions
 
 ### VendingEnabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# PackageVersionHistoryTypeDef
+# PackageVersionHistory
 
 ### PackageVersion
 - **Type**: typing.Optional[str]
@@ -3106,13 +3106,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### PluginProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PluginPropertiesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PackageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -3124,7 +3124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PluginPropertiesTypeDef
+# PluginProperties
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -3142,7 +3142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PurchaseReservedInstanceOfferingRequestTypeDef
+# PurchaseReservedInstanceOfferingRequest
 
 ### ReservedInstanceOfferingId
 - **Type**: <class 'str'>
@@ -3156,7 +3156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PurchaseReservedInstanceOfferingResponseTypeDef
+# PurchaseReservedInstanceOfferingResponse
 
 ### ReservedInstanceId
 - **Type**: <class 'str'>
@@ -3167,11 +3167,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecurringChargeTypeDef
+# RecurringCharge
 
 ### RecurringChargeAmount
 - **Type**: typing.Optional[float]
@@ -3180,25 +3180,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RejectInboundConnectionRequestTypeDef
+# RejectInboundConnectionRequest
 
 ### ConnectionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RejectInboundConnectionResponseTypeDef
+# RejectInboundConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.InboundConnection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveTagsRequestTypeDef
+# RemoveTagsRequest
 
 ### ARN
 - **Type**: <class 'str'>
@@ -3209,34 +3209,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReservedInstanceOfferingTypeDef
-
-### ReservedInstanceOfferingId
-- **Type**: typing.Optional[str]
-
-### InstanceType
-- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
-
-### Duration
-- **Type**: typing.Optional[int]
-
-### FixedPrice
-- **Type**: typing.Optional[float]
-
-### UsagePrice
-- **Type**: typing.Optional[float]
-
-### CurrencyCode
-- **Type**: typing.Optional[str]
-
-### PaymentOption
-- **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
-
-### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.RecurringChargeTypeDef]]
-
-
-# ReservedInstanceTypeDef
+# ReservedInstance
 
 ### ReservationName
 - **Type**: typing.Optional[str]
@@ -3278,10 +3251,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.RecurringChargeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.RecurringCharge]]
 
 
-# ResponseMetadataTypeDef
+# ReservedInstanceOffering
+
+### ReservedInstanceOfferingId
+- **Type**: typing.Optional[str]
+
+### InstanceType
+- **Type**: typing.Optional[typing.Literal['c4.2xlarge.search', 'c4.4xlarge.search', 'c4.8xlarge.search', 'c4.large.search', 'c4.xlarge.search', 'c5.18xlarge.search', 'c5.2xlarge.search', 'c5.4xlarge.search', 'c5.9xlarge.search', 'c5.large.search', 'c5.xlarge.search', 'c6g.12xlarge.search', 'c6g.2xlarge.search', 'c6g.4xlarge.search', 'c6g.8xlarge.search', 'c6g.large.search', 'c6g.xlarge.search', 'd2.2xlarge.search', 'd2.4xlarge.search', 'd2.8xlarge.search', 'd2.xlarge.search', 'i2.2xlarge.search', 'i2.xlarge.search', 'i3.16xlarge.search', 'i3.2xlarge.search', 'i3.4xlarge.search', 'i3.8xlarge.search', 'i3.large.search', 'i3.xlarge.search', 'm3.2xlarge.search', 'm3.large.search', 'm3.medium.search', 'm3.xlarge.search', 'm4.10xlarge.search', 'm4.2xlarge.search', 'm4.4xlarge.search', 'm4.large.search', 'm4.xlarge.search', 'm5.12xlarge.search', 'm5.24xlarge.search', 'm5.2xlarge.search', 'm5.4xlarge.search', 'm5.large.search', 'm5.xlarge.search', 'm6g.12xlarge.search', 'm6g.2xlarge.search', 'm6g.4xlarge.search', 'm6g.8xlarge.search', 'm6g.large.search', 'm6g.xlarge.search', 'or1.12xlarge.search', 'or1.16xlarge.search', 'or1.2xlarge.search', 'or1.4xlarge.search', 'or1.8xlarge.search', 'or1.large.search', 'or1.medium.search', 'or1.xlarge.search', 'r3.2xlarge.search', 'r3.4xlarge.search', 'r3.8xlarge.search', 'r3.large.search', 'r3.xlarge.search', 'r4.16xlarge.search', 'r4.2xlarge.search', 'r4.4xlarge.search', 'r4.8xlarge.search', 'r4.large.search', 'r4.xlarge.search', 'r5.12xlarge.search', 'r5.24xlarge.search', 'r5.2xlarge.search', 'r5.4xlarge.search', 'r5.large.search', 'r5.xlarge.search', 'r6g.12xlarge.search', 'r6g.2xlarge.search', 'r6g.4xlarge.search', 'r6g.8xlarge.search', 'r6g.large.search', 'r6g.xlarge.search', 'r6gd.12xlarge.search', 'r6gd.16xlarge.search', 'r6gd.2xlarge.search', 'r6gd.4xlarge.search', 'r6gd.8xlarge.search', 'r6gd.large.search', 'r6gd.xlarge.search', 't2.medium.search', 't2.micro.search', 't2.small.search', 't3.2xlarge.search', 't3.large.search', 't3.medium.search', 't3.micro.search', 't3.nano.search', 't3.small.search', 't3.xlarge.search', 't4g.medium.search', 't4g.small.search', 'ultrawarm1.large.search', 'ultrawarm1.medium.search', 'ultrawarm1.xlarge.search']]
+
+### Duration
+- **Type**: typing.Optional[int]
+
+### FixedPrice
+- **Type**: typing.Optional[float]
+
+### UsagePrice
+- **Type**: typing.Optional[float]
+
+### CurrencyCode
+- **Type**: typing.Optional[str]
+
+### PaymentOption
+- **Type**: typing.Optional[typing.Literal['ALL_UPFRONT', 'NO_UPFRONT', 'PARTIAL_UPFRONT']]
+
+### RecurringCharges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.RecurringCharge]]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3303,7 +3303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeVpcEndpointAccessRequestTypeDef
+# RevokeVpcEndpointAccessRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3316,13 +3316,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['application.opensearchservice.amazonaws.com']]
 
 
-# S3GlueDataCatalogTypeDef
+# S3GlueDataCatalog
 
 ### RoleArn
 - **Type**: typing.Optional[str]
 
 
-# SAMLIdpTypeDef
+# SAMLIdp
 
 ### MetadataContent
 - **Type**: <class 'str'>
@@ -3333,13 +3333,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SAMLOptionsInputTypeDef
+# SAMLOptionsInput
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### Idp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLIdpTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLIdp]
 
 ### MasterUserName
 - **Type**: typing.Optional[str]
@@ -3357,13 +3357,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SAMLOptionsOutputTypeDef
+# SAMLOptionsOutput
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 ### Idp
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLIdpTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SAMLIdp]
 
 ### SubjectKey
 - **Type**: typing.Optional[str]
@@ -3375,13 +3375,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ScheduledActionTypeDef
+# ScheduledAction
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ScheduledAutoTuneDetailsTypeDef
+# ScheduledAutoTuneDetails
 
 ### Date
 - **Type**: typing.Optional[datetime.datetime]
@@ -3396,14 +3396,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['HIGH', 'LOW', 'MEDIUM']]
 
 
-# SecurityLakeDirectQueryDataSourceTypeDef
+# SecurityLakeDirectQueryDataSource
 
 ### RoleArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ServiceSoftwareOptionsTypeDef
+# ServiceSoftwareOptions
 
 ### CurrentVersion
 - **Type**: typing.Optional[str]
@@ -3430,39 +3430,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# SnapshotOptionsStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# SnapshotOptionsTypeDef
+# SnapshotOptions
 
 ### AutomatedSnapshotStartHour
 - **Type**: typing.Optional[int]
 
 
-# SoftwareUpdateOptionsStatusTypeDef
+# SnapshotOptionsStatus
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsTypeDef]
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptions'>
+- **Required**: Yes
 
 ### Status
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef]
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
 
 
-# SoftwareUpdateOptionsTypeDef
+# SoftwareUpdateOptions
 
 ### AutoSoftwareUpdateEnabled
 - **Type**: typing.Optional[bool]
 
 
-# StartDomainMaintenanceRequestTypeDef
+# SoftwareUpdateOptionsStatus
+
+### Options
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptions]
+
+### Status
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus]
+
+
+# StartDomainMaintenanceRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3476,18 +3476,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartDomainMaintenanceResponseTypeDef
+# StartDomainMaintenanceResponse
 
 ### MaintenanceId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartServiceSoftwareUpdateRequestTypeDef
+# StartServiceSoftwareUpdateRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3500,27 +3500,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartServiceSoftwareUpdateResponseTypeDef
+# StartServiceSoftwareUpdateResponse
 
 ### ServiceSoftwareOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ServiceSoftwareOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ServiceSoftwareOptions'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StorageTypeLimitTypeDef
-
-### LimitName
-- **Type**: typing.Optional[str]
-
-### LimitValues
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# StorageTypeTypeDef
+# StorageType
 
 ### StorageTypeName
 - **Type**: typing.Optional[str]
@@ -3529,10 +3520,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StorageTypeLimits
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.StorageTypeLimitTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.StorageTypeLimit]]
 
 
-# TagTypeDef
+# StorageTypeLimit
+
+### LimitName
+- **Type**: typing.Optional[str]
+
+### LimitValues
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -3543,13 +3543,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UpdateDataSourceRequestTypeDef
+# UpdateDataSourceRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3560,7 +3560,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DataSourceType'>
 - **Required**: Yes
 
 ### Description
@@ -3570,25 +3570,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED']]
 
 
-# UpdateDataSourceResponseTypeDef
+# UpdateDataSourceResponse
 
 ### Message
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDirectQueryDataSourceRequestTypeDef
+# UpdateDirectQueryDataSourceRequest
 
 ### DataSourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DataSourceType
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DirectQueryDataSourceType'>
 - **Required**: Yes
 
 ### OpenSearchArns
@@ -3599,37 +3599,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDirectQueryDataSourceResponseTypeDef
+# UpdateDirectQueryDataSourceResponse
 
 ### DataSourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDomainConfigRequestTypeDef
+# UpdateDomainConfigRequest
 
 ### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ClusterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.ClusterConfigUnion]
 
 ### EBSOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EBSOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SnapshotOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SnapshotOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VPCOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CognitoOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.CognitoOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedOptions
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -3641,25 +3641,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dualstack', 'ipv4']]
 
 ### LogPublishingOptions
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOptionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['AUDIT_LOGS', 'ES_APPLICATION_LOGS', 'INDEX_SLOW_LOGS', 'SEARCH_SLOW_LOGS'], aws_resource_validator.pydantic_models.opensearch_classes.LogPublishingOption]]
 
 ### EncryptionAtRestOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.EncryptionAtRestOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DomainEndpointOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.DomainEndpointOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### NodeToNodeEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.NodeToNodeEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AdvancedSecurityOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AdvancedSecurityOptionsInput]
 
 ### IdentityCenterOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.IdentityCenterOptionsInput]
 
 ### AutoTuneOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AutoTuneOptionsUnion]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -3668,42 +3668,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Basic', 'Verbose']]
 
 ### OffPeakWindowOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.OffPeakWindowOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SoftwareUpdateOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.SoftwareUpdateOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AIMLOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsInputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.AIMLOptionsInput]
 
 
-# UpdateDomainConfigResponseTypeDef
+# UpdateDomainConfigResponse
 
 ### DomainConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DomainConfig'>
 - **Required**: Yes
 
 ### DryRunResults
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunResultsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunResults'>
 - **Required**: Yes
 
 ### DryRunProgressStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunProgressStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.DryRunProgressStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePackageRequestTypeDef
+# UpdatePackageRequest
 
 ### PackageID
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PackageSource
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageSourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageSource'>
 - **Required**: Yes
 
 ### PackageDescription
@@ -3713,24 +3713,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PackageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PackageEncryptionOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.PackageEncryptionOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdatePackageResponseTypeDef
+# UpdatePackageResponse
 
 ### PackageDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.PackageDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePackageScopeRequestTypeDef
+# UpdatePackageScopeRequest
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -3745,7 +3745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePackageScopeResponseTypeDef
+# UpdatePackageScopeResponse
 
 ### PackageID
 - **Type**: <class 'str'>
@@ -3760,11 +3760,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateScheduledActionRequestTypeDef
+# UpdateScheduledActionRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3786,40 +3786,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateScheduledActionResponseTypeDef
+# UpdateScheduledActionResponse
 
 ### ScheduledAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ScheduledActionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ScheduledAction'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVpcEndpointRequestTypeDef
+# UpdateVpcEndpointRequest
 
 ### VpcEndpointId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VpcOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCOptions'>
 - **Required**: Yes
 
 
-# UpdateVpcEndpointResponseTypeDef
+# UpdateVpcEndpointResponse
 
 ### VpcEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VpcEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpgradeDomainRequestTypeDef
+# UpgradeDomainRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -3836,7 +3836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UpgradeDomainResponseTypeDef
+# UpgradeDomainResponse
 
 ### UpgradeId
 - **Type**: <class 'str'>
@@ -3859,15 +3859,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ChangeProgressDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ChangeProgressDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpgradeHistoryTypeDef
+# UpgradeHistory
 
 ### UpgradeName
 - **Type**: typing.Optional[str]
@@ -3879,10 +3879,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED', 'SUCCEEDED_WITH_ISSUES']]
 
 ### StepsList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.UpgradeStepItemTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.opensearch_classes.UpgradeStepItem]]
 
 
-# UpgradeStepItemTypeDef
+# UpgradeStepItem
 
 ### UpgradeStep
 - **Type**: typing.Optional[typing.Literal['PRE_UPGRADE_CHECK', 'SNAPSHOT', 'UPGRADE']]
@@ -3897,18 +3897,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# VPCDerivedInfoStatusTypeDef
-
-### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfoTypeDef'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
-- **Required**: Yes
-
-
-# VPCDerivedInfoTypeDef
+# VPCDerivedInfo
 
 ### VPCId
 - **Type**: typing.Optional[str]
@@ -3923,7 +3912,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# VPCOptionsTypeDef
+# VPCDerivedInfoStatus
+
+### Options
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfo'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
+- **Required**: Yes
+
+
+# VPCOptions
 
 ### SubnetIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3932,7 +3932,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ValidationFailureTypeDef
+# ValidationFailure
 
 ### Code
 - **Type**: typing.Optional[str]
@@ -3941,45 +3941,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VersionStatusTypeDef
+# VersionStatus
 
 ### Options
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Status
-- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.opensearch_classes.OptionStatus'>
 - **Required**: Yes
 
 
-# VpcEndpointErrorTypeDef
-
-### VpcEndpointId
-- **Type**: typing.Optional[str]
-
-### ErrorCode
-- **Type**: typing.Optional[typing.Literal['ENDPOINT_NOT_FOUND', 'SERVER_ERROR']]
-
-### ErrorMessage
-- **Type**: typing.Optional[str]
-
-
-# VpcEndpointSummaryTypeDef
-
-### VpcEndpointId
-- **Type**: typing.Optional[str]
-
-### VpcEndpointOwner
-- **Type**: typing.Optional[str]
-
-### DomainArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING', 'UPDATE_FAILED', 'UPDATING']]
-
-
-# VpcEndpointTypeDef
+# VpcEndpoint
 
 ### VpcEndpointId
 - **Type**: typing.Optional[str]
@@ -3991,7 +3964,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### VpcOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.opensearch_classes.VPCDerivedInfo]
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING', 'UPDATE_FAILED', 'UPDATING']]
@@ -4000,7 +3973,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WindowStartTimeTypeDef
+# VpcEndpointError
+
+### VpcEndpointId
+- **Type**: typing.Optional[str]
+
+### ErrorCode
+- **Type**: typing.Optional[typing.Literal['ENDPOINT_NOT_FOUND', 'SERVER_ERROR']]
+
+### ErrorMessage
+- **Type**: typing.Optional[str]
+
+
+# VpcEndpointSummary
+
+### VpcEndpointId
+- **Type**: typing.Optional[str]
+
+### VpcEndpointOwner
+- **Type**: typing.Optional[str]
+
+### DomainArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'CREATE_FAILED', 'CREATING', 'DELETE_FAILED', 'DELETING', 'UPDATE_FAILED', 'UPDATING']]
+
+
+# WindowStartTime
 
 ### Hours
 - **Type**: <class 'int'>
@@ -4011,7 +4011,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ZoneAwarenessConfigTypeDef
+# ZoneAwarenessConfig
 
 ### AvailabilityZoneCount
 - **Type**: typing.Optional[int]

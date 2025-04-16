@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.apigatewaymanagementapi_constants import *
 
-class DeleteConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,32 +24,32 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetConnectionRequestTypeDef(BaseValidatorModel):
+class GetConnectionRequest(BaseValidatorModel):
     ConnectionId: str
 
 
-class IdentityTypeDef(BaseValidatorModel):
+class Identity(BaseValidatorModel):
     SourceIp: str
     UserAgent: str
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PostToConnectionRequestTypeDef(BaseValidatorModel):
-    Data: BlobTypeDef
+class PostToConnectionRequest(BaseValidatorModel):
+    Data: Blob
     ConnectionId: str
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetConnectionResponseTypeDef(BaseValidatorModel):
+class GetConnectionResponse(BaseValidatorModel):
     ConnectedAt: datetime
-    Identity: IdentityTypeDef
+    Identity: Identity
     LastActiveAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

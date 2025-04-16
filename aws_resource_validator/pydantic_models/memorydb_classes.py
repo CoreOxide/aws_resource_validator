@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.memorydb_constants import *
 
-class ACLPendingChangesTypeDef(BaseValidatorModel):
+class ACLPendingChanges(BaseValidatorModel):
     UserNamesToRemove: Optional[List[str]] = None
     UserNamesToAdd: Optional[List[str]] = None
 
 
-class ACLsUpdateStatusTypeDef(BaseValidatorModel):
+class ACLsUpdateStatus(BaseValidatorModel):
     ACLToApply: Optional[str] = None
 
 
-class AvailabilityZoneTypeDef(BaseValidatorModel):
+class AvailabilityZone(BaseValidatorModel):
     Name: Optional[str] = None
 
 
-class ServiceUpdateRequestTypeDef(BaseValidatorModel):
+class ServiceUpdateRequest(BaseValidatorModel):
     ServiceUpdateNameToApply: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,89 +37,89 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class UnprocessedClusterTypeDef(BaseValidatorModel):
+class UnprocessedCluster(BaseValidatorModel):
     ClusterName: Optional[str] = None
     ErrorType: Optional[str] = None
     ErrorMessage: Optional[str] = None
 
 
-class PendingModifiedServiceUpdateTypeDef(BaseValidatorModel):
+class PendingModifiedServiceUpdate(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     Status: Optional[ServiceUpdateStatusType] = None
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     Address: Optional[str] = None
     Port: Optional[int] = None
 
 
-class SecurityGroupMembershipTypeDef(BaseValidatorModel):
+class SecurityGroupMembership(BaseValidatorModel):
     SecurityGroupId: Optional[str] = None
     Status: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ParameterGroupTypeDef(BaseValidatorModel):
+class ParameterGroup(BaseValidatorModel):
     Name: Optional[str] = None
     Family: Optional[str] = None
     Description: Optional[str] = None
     ARN: Optional[str] = None
 
 
-class DeleteACLRequestTypeDef(BaseValidatorModel):
+class DeleteACLRequest(BaseValidatorModel):
     ACLName: str
 
 
-class DeleteClusterRequestTypeDef(BaseValidatorModel):
+class DeleteClusterRequest(BaseValidatorModel):
     ClusterName: str
     MultiRegionClusterName: Optional[str] = None
     FinalSnapshotName: Optional[str] = None
 
 
-class DeleteMultiRegionClusterRequestTypeDef(BaseValidatorModel):
+class DeleteMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterName: str
 
 
-class DeleteParameterGroupRequestTypeDef(BaseValidatorModel):
+class DeleteParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
 
 
-class DeleteSnapshotRequestTypeDef(BaseValidatorModel):
+class DeleteSnapshotRequest(BaseValidatorModel):
     SnapshotName: str
 
 
-class DeleteSubnetGroupRequestTypeDef(BaseValidatorModel):
+class DeleteSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     UserName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeACLsRequestTypeDef(BaseValidatorModel):
+class DescribeACLsRequest(BaseValidatorModel):
     ACLName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeClustersRequestTypeDef(BaseValidatorModel):
+class DescribeClustersRequest(BaseValidatorModel):
     ClusterName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ShowShardDetails: Optional[bool] = None
 
 
-class DescribeEngineVersionsRequestTypeDef(BaseValidatorModel):
+class DescribeEngineVersionsRequest(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     ParameterGroupFamily: Optional[str] = None
@@ -128,40 +128,40 @@ class DescribeEngineVersionsRequestTypeDef(BaseValidatorModel):
     DefaultOnly: Optional[bool] = None
 
 
-class EngineVersionInfoTypeDef(BaseValidatorModel):
+class EngineVersionInfo(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     EnginePatchVersion: Optional[str] = None
     ParameterGroupFamily: Optional[str] = None
 
 
-class EventTypeDef(BaseValidatorModel):
+class Event(BaseValidatorModel):
     SourceName: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
     Message: Optional[str] = None
     Date: Optional[datetime] = None
 
 
-class DescribeMultiRegionClustersRequestTypeDef(BaseValidatorModel):
+class DescribeMultiRegionClustersRequest(BaseValidatorModel):
     MultiRegionClusterName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ShowClusterDetails: Optional[bool] = None
 
 
-class DescribeParameterGroupsRequestTypeDef(BaseValidatorModel):
+class DescribeParameterGroupsRequest(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeParametersRequestTypeDef(BaseValidatorModel):
+class DescribeParametersRequest(BaseValidatorModel):
     ParameterGroupName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ParameterTypeDef(BaseValidatorModel):
+class Parameter(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
     Description: Optional[str] = None
@@ -170,7 +170,7 @@ class ParameterTypeDef(BaseValidatorModel):
     MinimumEngineVersion: Optional[str] = None
 
 
-class DescribeReservedNodesOfferingsRequestTypeDef(BaseValidatorModel):
+class DescribeReservedNodesOfferingsRequest(BaseValidatorModel):
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
     Duration: Optional[str] = None
@@ -179,7 +179,7 @@ class DescribeReservedNodesOfferingsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeReservedNodesRequestTypeDef(BaseValidatorModel):
+class DescribeReservedNodesRequest(BaseValidatorModel):
     ReservationId: Optional[str] = None
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
@@ -189,7 +189,7 @@ class DescribeReservedNodesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeServiceUpdatesRequestTypeDef(BaseValidatorModel):
+class DescribeServiceUpdatesRequest(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ClusterNames: Optional[Sequence[str]] = None
     Status: Optional[Sequence[ServiceUpdateStatusType]] = None
@@ -197,7 +197,7 @@ class DescribeServiceUpdatesRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class DescribeSnapshotsRequestTypeDef(BaseValidatorModel):
+class DescribeSnapshotsRequest(BaseValidatorModel):
     ClusterName: Optional[str] = None
     SnapshotName: Optional[str] = None
     Source: Optional[str] = None
@@ -206,170 +206,170 @@ class DescribeSnapshotsRequestTypeDef(BaseValidatorModel):
     ShowDetail: Optional[bool] = None
 
 
-class DescribeSubnetGroupsRequestTypeDef(BaseValidatorModel):
+class DescribeSubnetGroupsRequest(BaseValidatorModel):
     SubnetGroupName: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     Name: str
     Values: Sequence[str]
 
 
-class FailoverShardRequestTypeDef(BaseValidatorModel):
+class FailoverShardRequest(BaseValidatorModel):
     ClusterName: str
     ShardName: str
 
 
-class ListAllowedMultiRegionClusterUpdatesRequestTypeDef(BaseValidatorModel):
+class ListAllowedMultiRegionClusterUpdatesRequest(BaseValidatorModel):
     MultiRegionClusterName: str
 
 
-class ListAllowedNodeTypeUpdatesRequestTypeDef(BaseValidatorModel):
+class ListAllowedNodeTypeUpdatesRequest(BaseValidatorModel):
     ClusterName: str
 
 
-class ListTagsRequestTypeDef(BaseValidatorModel):
+class ListTagsRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class RegionalClusterTypeDef(BaseValidatorModel):
+class RegionalCluster(BaseValidatorModel):
     ClusterName: Optional[str] = None
     Region: Optional[str] = None
     Status: Optional[str] = None
     ARN: Optional[str] = None
 
 
-class ParameterNameValueTypeDef(BaseValidatorModel):
+class ParameterNameValue(BaseValidatorModel):
     ParameterName: Optional[str] = None
     ParameterValue: Optional[str] = None
 
 
-class RecurringChargeTypeDef(BaseValidatorModel):
+class RecurringCharge(BaseValidatorModel):
     RecurringChargeAmount: Optional[float] = None
     RecurringChargeFrequency: Optional[str] = None
 
 
-class ReplicaConfigurationRequestTypeDef(BaseValidatorModel):
+class ReplicaConfigurationRequest(BaseValidatorModel):
     ReplicaCount: Optional[int] = None
 
 
-class ResetParameterGroupRequestTypeDef(BaseValidatorModel):
+class ResetParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
     AllParameters: Optional[bool] = None
     ParameterNames: Optional[Sequence[str]] = None
 
 
-class SlotMigrationTypeDef(BaseValidatorModel):
+class SlotMigration(BaseValidatorModel):
     ProgressPercentage: Optional[float] = None
 
 
-class ShardConfigurationRequestTypeDef(BaseValidatorModel):
+class ShardConfigurationRequest(BaseValidatorModel):
     ShardCount: Optional[int] = None
 
 
-class ShardConfigurationTypeDef(BaseValidatorModel):
+class ShardConfiguration(BaseValidatorModel):
     Slots: Optional[str] = None
     ReplicaCount: Optional[int] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateACLRequestTypeDef(BaseValidatorModel):
+class UpdateACLRequest(BaseValidatorModel):
     ACLName: str
     UserNamesToAdd: Optional[Sequence[str]] = None
     UserNamesToRemove: Optional[Sequence[str]] = None
 
 
-class UpdateSubnetGroupRequestTypeDef(BaseValidatorModel):
+class UpdateSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
     Description: Optional[str] = None
     SubnetIds: Optional[Sequence[str]] = None
 
 
-class ACLTypeDef(BaseValidatorModel):
+class ACL(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     UserNames: Optional[List[str]] = None
     MinimumEngineVersion: Optional[str] = None
-    PendingChanges: Optional[ACLPendingChangesTypeDef] = None
+    PendingChanges: Optional[ACLPendingChanges] = None
     Clusters: Optional[List[str]] = None
     ARN: Optional[str] = None
 
 
-class AuthenticationModeTypeDef(BaseValidatorModel):
+class AuthenticationMode(BaseValidatorModel):
     pass
 
 
-class UpdateUserRequestTypeDef(BaseValidatorModel):
+class UpdateUserRequest(BaseValidatorModel):
     UserName: str
-    AuthenticationMode: Optional[AuthenticationModeTypeDef] = None
+    AuthenticationMode: Optional[AuthenticationMode] = None
     AccessString: Optional[str] = None
 
 
-class AuthenticationTypeDef(BaseValidatorModel):
+class Authentication(BaseValidatorModel):
     pass
 
 
-class UserTypeDef(BaseValidatorModel):
+class User(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     AccessString: Optional[str] = None
     ACLNames: Optional[List[str]] = None
     MinimumEngineVersion: Optional[str] = None
-    Authentication: Optional[AuthenticationTypeDef] = None
+    Authentication: Optional[Authentication] = None
     ARN: Optional[str] = None
 
 
-class SubnetTypeDef(BaseValidatorModel):
+class Subnet(BaseValidatorModel):
     Identifier: Optional[str] = None
-    AvailabilityZone: Optional[AvailabilityZoneTypeDef] = None
+    AvailabilityZone: Optional[AvailabilityZone] = None
 
 
-class BatchUpdateClusterRequestTypeDef(BaseValidatorModel):
+class BatchUpdateClusterRequest(BaseValidatorModel):
     ClusterNames: Sequence[str]
-    ServiceUpdate: Optional[ServiceUpdateRequestTypeDef] = None
+    ServiceUpdate: Optional[ServiceUpdateRequest] = None
 
 
-class ListAllowedMultiRegionClusterUpdatesResponseTypeDef(BaseValidatorModel):
+class ListAllowedMultiRegionClusterUpdatesResponse(BaseValidatorModel):
     ScaleUpNodeTypes: List[str]
     ScaleDownNodeTypes: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAllowedNodeTypeUpdatesResponseTypeDef(BaseValidatorModel):
+class ListAllowedNodeTypeUpdatesResponse(BaseValidatorModel):
     ScaleUpNodeTypes: List[str]
     ScaleDownNodeTypes: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NodeTypeDef(BaseValidatorModel):
+class Node(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     AvailabilityZone: Optional[str] = None
     CreateTime: Optional[datetime] = None
-    Endpoint: Optional[EndpointTypeDef] = None
+    Endpoint: Optional[Endpoint] = None
 
 
-class CopySnapshotRequestTypeDef(BaseValidatorModel):
+class CopySnapshotRequest(BaseValidatorModel):
     SourceSnapshotName: str
     TargetSnapshotName: str
     TargetBucket: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateACLRequestTypeDef(BaseValidatorModel):
+class CreateACLRequest(BaseValidatorModel):
     ACLName: str
     UserNames: Optional[Sequence[str]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateClusterRequestTypeDef(BaseValidatorModel):
+class CreateClusterRequest(BaseValidatorModel):
     ClusterName: str
     NodeType: str
     ACLName: str
@@ -388,7 +388,7 @@ class CreateClusterRequestTypeDef(BaseValidatorModel):
     SnapshotArns: Optional[Sequence[str]] = None
     SnapshotName: Optional[str] = None
     SnapshotRetentionLimit: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     SnapshotWindow: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
@@ -396,7 +396,7 @@ class CreateClusterRequestTypeDef(BaseValidatorModel):
     DataTiering: Optional[bool] = None
 
 
-class CreateMultiRegionClusterRequestTypeDef(BaseValidatorModel):
+class CreateMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterNameSuffix: str
     NodeType: str
     Description: Optional[str] = None
@@ -405,227 +405,227 @@ class CreateMultiRegionClusterRequestTypeDef(BaseValidatorModel):
     MultiRegionParameterGroupName: Optional[str] = None
     NumShards: Optional[int] = None
     TLSEnabled: Optional[bool] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateParameterGroupRequestTypeDef(BaseValidatorModel):
+class CreateParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
     Family: str
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSnapshotRequestTypeDef(BaseValidatorModel):
+class CreateSnapshotRequest(BaseValidatorModel):
     ClusterName: str
     SnapshotName: str
     KmsKeyId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSubnetGroupRequestTypeDef(BaseValidatorModel):
+class CreateSubnetGroupRequest(BaseValidatorModel):
     SubnetGroupName: str
     SubnetIds: Sequence[str]
     Description: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     UserName: str
-    AuthenticationMode: AuthenticationModeTypeDef
+    AuthenticationMode: AuthenticationMode
     AccessString: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ListTagsResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class PurchaseReservedNodesOfferingRequestTypeDef(BaseValidatorModel):
+class PurchaseReservedNodesOfferingRequest(BaseValidatorModel):
     ReservedNodesOfferingId: str
     ReservationId: Optional[str] = None
     NodeCount: Optional[int] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class TagResourceResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TagResourceResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class UntagResourceResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UntagResourceResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateParameterGroupResponseTypeDef(BaseValidatorModel):
-    ParameterGroup: ParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateParameterGroupResponse(BaseValidatorModel):
+    ParameterGroup: ParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteParameterGroupResponseTypeDef(BaseValidatorModel):
-    ParameterGroup: ParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteParameterGroupResponse(BaseValidatorModel):
+    ParameterGroup: ParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeParameterGroupsResponseTypeDef(BaseValidatorModel):
-    ParameterGroups: List[ParameterGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeParameterGroupsResponse(BaseValidatorModel):
+    ParameterGroups: List[ParameterGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResetParameterGroupResponseTypeDef(BaseValidatorModel):
-    ParameterGroup: ParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ResetParameterGroupResponse(BaseValidatorModel):
+    ParameterGroup: ParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateParameterGroupResponseTypeDef(BaseValidatorModel):
-    ParameterGroup: ParameterGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateParameterGroupResponse(BaseValidatorModel):
+    ParameterGroup: ParameterGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeACLsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeACLsRequestPaginate(BaseValidatorModel):
     ACLName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeClustersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeClustersRequestPaginate(BaseValidatorModel):
     ClusterName: Optional[str] = None
     ShowShardDetails: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEngineVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEngineVersionsRequestPaginate(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     ParameterGroupFamily: Optional[str] = None
     DefaultOnly: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeMultiRegionClustersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeMultiRegionClustersRequestPaginate(BaseValidatorModel):
     MultiRegionClusterName: Optional[str] = None
     ShowClusterDetails: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeParameterGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeParameterGroupsRequestPaginate(BaseValidatorModel):
     ParameterGroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeParametersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeParametersRequestPaginate(BaseValidatorModel):
     ParameterGroupName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeReservedNodesOfferingsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeReservedNodesOfferingsRequestPaginate(BaseValidatorModel):
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
     Duration: Optional[str] = None
     OfferingType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeReservedNodesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeReservedNodesRequestPaginate(BaseValidatorModel):
     ReservationId: Optional[str] = None
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
     Duration: Optional[str] = None
     OfferingType: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeServiceUpdatesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeServiceUpdatesRequestPaginate(BaseValidatorModel):
     ServiceUpdateName: Optional[str] = None
     ClusterNames: Optional[Sequence[str]] = None
     Status: Optional[Sequence[ServiceUpdateStatusType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSnapshotsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSnapshotsRequestPaginate(BaseValidatorModel):
     ClusterName: Optional[str] = None
     SnapshotName: Optional[str] = None
     Source: Optional[str] = None
     ShowDetail: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSubnetGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeSubnetGroupsRequestPaginate(BaseValidatorModel):
     SubnetGroupName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEngineVersionsResponseTypeDef(BaseValidatorModel):
-    EngineVersions: List[EngineVersionInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEngineVersionsResponse(BaseValidatorModel):
+    EngineVersions: List[EngineVersionInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DescribeEventsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEventsRequestPaginate(BaseValidatorModel):
     SourceName: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Duration: Optional[int] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeEventsRequestTypeDef(BaseValidatorModel):
+class DescribeEventsRequest(BaseValidatorModel):
     SourceName: Optional[str] = None
     SourceType: Optional[SourceTypeType] = None
-    StartTime: Optional[TimestampTypeDef] = None
-    EndTime: Optional[TimestampTypeDef] = None
+    StartTime: Optional[Timestamp] = None
+    EndTime: Optional[Timestamp] = None
     Duration: Optional[int] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeEventsResponseTypeDef(BaseValidatorModel):
-    Events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventsResponse(BaseValidatorModel):
+    Events: List[Event]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeParametersResponseTypeDef(BaseValidatorModel):
-    Parameters: List[ParameterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeParametersResponse(BaseValidatorModel):
+    Parameters: List[Parameter]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ServiceUpdateTypeDef(BaseValidatorModel):
+class ServiceUpdate(BaseValidatorModel):
     pass
 
 
-class DescribeServiceUpdatesResponseTypeDef(BaseValidatorModel):
-    ServiceUpdates: List[ServiceUpdateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeServiceUpdatesResponse(BaseValidatorModel):
+    ServiceUpdates: List[ServiceUpdate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeUsersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeUsersRequestPaginate(BaseValidatorModel):
     UserName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeUsersRequestTypeDef(BaseValidatorModel):
+class DescribeUsersRequest(BaseValidatorModel):
     UserName: Optional[str] = None
-    Filters: Optional[Sequence[FilterTypeDef]] = None
+    Filters: Optional[Sequence[Filter]] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class MultiRegionClusterTypeDef(BaseValidatorModel):
+class MultiRegionCluster(BaseValidatorModel):
     MultiRegionClusterName: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[str] = None
@@ -633,18 +633,18 @@ class MultiRegionClusterTypeDef(BaseValidatorModel):
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     NumberOfShards: Optional[int] = None
-    Clusters: Optional[List[RegionalClusterTypeDef]] = None
+    Clusters: Optional[List[RegionalCluster]] = None
     MultiRegionParameterGroupName: Optional[str] = None
     TLSEnabled: Optional[bool] = None
     ARN: Optional[str] = None
 
 
-class UpdateParameterGroupRequestTypeDef(BaseValidatorModel):
+class UpdateParameterGroupRequest(BaseValidatorModel):
     ParameterGroupName: str
-    ParameterNameValues: Sequence[ParameterNameValueTypeDef]
+    ParameterNameValues: Sequence[ParameterNameValue]
 
 
-class ReservedNodeTypeDef(BaseValidatorModel):
+class ReservedNode(BaseValidatorModel):
     ReservationId: Optional[str] = None
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
@@ -654,24 +654,24 @@ class ReservedNodeTypeDef(BaseValidatorModel):
     NodeCount: Optional[int] = None
     OfferingType: Optional[str] = None
     State: Optional[str] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
     ARN: Optional[str] = None
 
 
-class ReservedNodesOfferingTypeDef(BaseValidatorModel):
+class ReservedNodesOffering(BaseValidatorModel):
     ReservedNodesOfferingId: Optional[str] = None
     NodeType: Optional[str] = None
     Duration: Optional[int] = None
     FixedPrice: Optional[float] = None
     OfferingType: Optional[str] = None
-    RecurringCharges: Optional[List[RecurringChargeTypeDef]] = None
+    RecurringCharges: Optional[List[RecurringCharge]] = None
 
 
-class ReshardingStatusTypeDef(BaseValidatorModel):
-    SlotMigration: Optional[SlotMigrationTypeDef] = None
+class ReshardingStatus(BaseValidatorModel):
+    SlotMigration: Optional[SlotMigration] = None
 
 
-class UpdateClusterRequestTypeDef(BaseValidatorModel):
+class UpdateClusterRequest(BaseValidatorModel):
     ClusterName: str
     Description: Optional[str] = None
     SecurityGroupIds: Optional[Sequence[str]] = None
@@ -684,131 +684,131 @@ class UpdateClusterRequestTypeDef(BaseValidatorModel):
     NodeType: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
-    ReplicaConfiguration: Optional[ReplicaConfigurationRequestTypeDef] = None
-    ShardConfiguration: Optional[ShardConfigurationRequestTypeDef] = None
+    ReplicaConfiguration: Optional[ReplicaConfigurationRequest] = None
+    ShardConfiguration: Optional[ShardConfigurationRequest] = None
     ACLName: Optional[str] = None
 
 
-class UpdateMultiRegionClusterRequestTypeDef(BaseValidatorModel):
+class UpdateMultiRegionClusterRequest(BaseValidatorModel):
     MultiRegionClusterName: str
     NodeType: Optional[str] = None
     Description: Optional[str] = None
     EngineVersion: Optional[str] = None
-    ShardConfiguration: Optional[ShardConfigurationRequestTypeDef] = None
+    ShardConfiguration: Optional[ShardConfigurationRequest] = None
     MultiRegionParameterGroupName: Optional[str] = None
     UpdateStrategy: Optional[UpdateStrategyType] = None
 
 
-class ShardDetailTypeDef(BaseValidatorModel):
+class ShardDetail(BaseValidatorModel):
     Name: Optional[str] = None
-    Configuration: Optional[ShardConfigurationTypeDef] = None
+    Configuration: Optional[ShardConfiguration] = None
     Size: Optional[str] = None
     SnapshotCreationTime: Optional[datetime] = None
 
 
-class CreateACLResponseTypeDef(BaseValidatorModel):
-    ACL: ACLTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateACLResponse(BaseValidatorModel):
+    ACL: ACL
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteACLResponseTypeDef(BaseValidatorModel):
-    ACL: ACLTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteACLResponse(BaseValidatorModel):
+    ACL: ACL
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeACLsResponseTypeDef(BaseValidatorModel):
-    ACLs: List[ACLTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeACLsResponse(BaseValidatorModel):
+    ACLs: List[ACL]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateACLResponseTypeDef(BaseValidatorModel):
-    ACL: ACLTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateACLResponse(BaseValidatorModel):
+    ACL: ACL
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeUsersResponseTypeDef(BaseValidatorModel):
-    Users: List[UserTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeUsersResponse(BaseValidatorModel):
+    Users: List[User]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateUserResponseTypeDef(BaseValidatorModel):
-    User: UserTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateUserResponse(BaseValidatorModel):
+    User: User
+    ResponseMetadata: ResponseMetadata
 
 
-class SubnetGroupTypeDef(BaseValidatorModel):
+class SubnetGroup(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     VpcId: Optional[str] = None
-    Subnets: Optional[List[SubnetTypeDef]] = None
+    Subnets: Optional[List[Subnet]] = None
     ARN: Optional[str] = None
 
 
-class ShardTypeDef(BaseValidatorModel):
+class Shard(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     Slots: Optional[str] = None
-    Nodes: Optional[List[NodeTypeDef]] = None
+    Nodes: Optional[List[Node]] = None
     NumberOfNodes: Optional[int] = None
 
 
-class CreateMultiRegionClusterResponseTypeDef(BaseValidatorModel):
-    MultiRegionCluster: MultiRegionClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateMultiRegionClusterResponse(BaseValidatorModel):
+    MultiRegionCluster: MultiRegionCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteMultiRegionClusterResponseTypeDef(BaseValidatorModel):
-    MultiRegionCluster: MultiRegionClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteMultiRegionClusterResponse(BaseValidatorModel):
+    MultiRegionCluster: MultiRegionCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMultiRegionClustersResponseTypeDef(BaseValidatorModel):
-    MultiRegionClusters: List[MultiRegionClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMultiRegionClustersResponse(BaseValidatorModel):
+    MultiRegionClusters: List[MultiRegionCluster]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateMultiRegionClusterResponseTypeDef(BaseValidatorModel):
-    MultiRegionCluster: MultiRegionClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateMultiRegionClusterResponse(BaseValidatorModel):
+    MultiRegionCluster: MultiRegionCluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeReservedNodesResponseTypeDef(BaseValidatorModel):
-    ReservedNodes: List[ReservedNodeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReservedNodesResponse(BaseValidatorModel):
+    ReservedNodes: List[ReservedNode]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PurchaseReservedNodesOfferingResponseTypeDef(BaseValidatorModel):
-    ReservedNode: ReservedNodeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PurchaseReservedNodesOfferingResponse(BaseValidatorModel):
+    ReservedNode: ReservedNode
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeReservedNodesOfferingsResponseTypeDef(BaseValidatorModel):
-    ReservedNodesOfferings: List[ReservedNodesOfferingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeReservedNodesOfferingsResponse(BaseValidatorModel):
+    ReservedNodesOfferings: List[ReservedNodesOffering]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClusterPendingUpdatesTypeDef(BaseValidatorModel):
-    Resharding: Optional[ReshardingStatusTypeDef] = None
-    ACLs: Optional[ACLsUpdateStatusTypeDef] = None
-    ServiceUpdates: Optional[List[PendingModifiedServiceUpdateTypeDef]] = None
+class ClusterPendingUpdates(BaseValidatorModel):
+    Resharding: Optional[ReshardingStatus] = None
+    ACLs: Optional[ACLsUpdateStatus] = None
+    ServiceUpdates: Optional[List[PendingModifiedServiceUpdate]] = None
 
 
-class ClusterConfigurationTypeDef(BaseValidatorModel):
+class ClusterConfiguration(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     NodeType: Optional[str] = None
@@ -823,49 +823,49 @@ class ClusterConfigurationTypeDef(BaseValidatorModel):
     SnapshotRetentionLimit: Optional[int] = None
     SnapshotWindow: Optional[str] = None
     NumShards: Optional[int] = None
-    Shards: Optional[List[ShardDetailTypeDef]] = None
+    Shards: Optional[List[ShardDetail]] = None
     MultiRegionParameterGroupName: Optional[str] = None
     MultiRegionClusterName: Optional[str] = None
 
 
-class CreateSubnetGroupResponseTypeDef(BaseValidatorModel):
-    SubnetGroup: SubnetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSubnetGroupResponse(BaseValidatorModel):
+    SubnetGroup: SubnetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSubnetGroupResponseTypeDef(BaseValidatorModel):
-    SubnetGroup: SubnetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteSubnetGroupResponse(BaseValidatorModel):
+    SubnetGroup: SubnetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSubnetGroupsResponseTypeDef(BaseValidatorModel):
-    SubnetGroups: List[SubnetGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSubnetGroupsResponse(BaseValidatorModel):
+    SubnetGroups: List[SubnetGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSubnetGroupResponseTypeDef(BaseValidatorModel):
-    SubnetGroup: SubnetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSubnetGroupResponse(BaseValidatorModel):
+    SubnetGroup: SubnetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ClusterTypeDef(BaseValidatorModel):
+class Cluster(BaseValidatorModel):
     Name: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[str] = None
-    PendingUpdates: Optional[ClusterPendingUpdatesTypeDef] = None
+    PendingUpdates: Optional[ClusterPendingUpdates] = None
     MultiRegionClusterName: Optional[str] = None
     NumberOfShards: Optional[int] = None
-    Shards: Optional[List[ShardTypeDef]] = None
+    Shards: Optional[List[Shard]] = None
     AvailabilityMode: Optional[AZStatusType] = None
-    ClusterEndpoint: Optional[EndpointTypeDef] = None
+    ClusterEndpoint: Optional[Endpoint] = None
     NodeType: Optional[str] = None
     Engine: Optional[str] = None
     EngineVersion: Optional[str] = None
     EnginePatchVersion: Optional[str] = None
     ParameterGroupName: Optional[str] = None
     ParameterGroupStatus: Optional[str] = None
-    SecurityGroups: Optional[List[SecurityGroupMembershipTypeDef]] = None
+    SecurityGroups: Optional[List[SecurityGroupMembership]] = None
     SubnetGroupName: Optional[str] = None
     TLSEnabled: Optional[bool] = None
     KmsKeyId: Optional[str] = None
@@ -880,66 +880,66 @@ class ClusterTypeDef(BaseValidatorModel):
     DataTiering: Optional[DataTieringStatusType] = None
 
 
-class SnapshotTypeDef(BaseValidatorModel):
+class Snapshot(BaseValidatorModel):
     Name: Optional[str] = None
     Status: Optional[str] = None
     Source: Optional[str] = None
     KmsKeyId: Optional[str] = None
     ARN: Optional[str] = None
-    ClusterConfiguration: Optional[ClusterConfigurationTypeDef] = None
+    ClusterConfiguration: Optional[ClusterConfiguration] = None
     DataTiering: Optional[DataTieringStatusType] = None
 
 
-class BatchUpdateClusterResponseTypeDef(BaseValidatorModel):
-    ProcessedClusters: List[ClusterTypeDef]
-    UnprocessedClusters: List[UnprocessedClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateClusterResponse(BaseValidatorModel):
+    ProcessedClusters: List[Cluster]
+    UnprocessedClusters: List[UnprocessedCluster]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeClustersResponseTypeDef(BaseValidatorModel):
-    Clusters: List[ClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClustersResponse(BaseValidatorModel):
+    Clusters: List[Cluster]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class FailoverShardResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class FailoverShardResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class CopySnapshotResponseTypeDef(BaseValidatorModel):
-    Snapshot: SnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopySnapshotResponse(BaseValidatorModel):
+    Snapshot: Snapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSnapshotResponseTypeDef(BaseValidatorModel):
-    Snapshot: SnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSnapshotResponse(BaseValidatorModel):
+    Snapshot: Snapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSnapshotResponseTypeDef(BaseValidatorModel):
-    Snapshot: SnapshotTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteSnapshotResponse(BaseValidatorModel):
+    Snapshot: Snapshot
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSnapshotsResponseTypeDef(BaseValidatorModel):
-    Snapshots: List[SnapshotTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSnapshotsResponse(BaseValidatorModel):
+    Snapshots: List[Snapshot]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

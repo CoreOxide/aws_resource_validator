@@ -1,6 +1,6 @@
 # Redshift Classes
 
-# AcceptReservedNodeExchangeInputMessageTypeDef
+# AcceptReservedNodeExchangeInputMessage
 
 ### ReservedNodeId
 - **Type**: <class 'str'>
@@ -11,38 +11,38 @@
 - **Required**: Yes
 
 
-# AcceptReservedNodeExchangeOutputMessageTypeDef
+# AcceptReservedNodeExchangeOutputMessage
 
 ### ExchangedReservedNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ReservedNode'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AccountAttributeListTypeDef
-
-### AccountAttributes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.AccountAttributeTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# AccountAttributeTypeDef
+# AccountAttribute
 
 ### AttributeName
 - **Type**: typing.Optional[str]
 
 ### AttributeValues
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AttributeValueTargetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AttributeValueTarget]]
 
 
-# AccountWithRestoreAccessTypeDef
+# AccountAttributeList
+
+### AccountAttributes
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.AccountAttribute]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# AccountWithRestoreAccess
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -51,7 +51,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AquaConfigurationTypeDef
+# AquaConfiguration
 
 ### AquaStatus
 - **Type**: typing.Optional[typing.Literal['applying', 'disabled', 'enabled']]
@@ -60,7 +60,7 @@
 - **Type**: typing.Optional[typing.Literal['auto', 'disabled', 'enabled']]
 
 
-# AssociateDataShareConsumerMessageTypeDef
+# AssociateDataShareConsumerMessage
 
 ### DataShareArn
 - **Type**: <class 'str'>
@@ -79,7 +79,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AssociationTypeDef
+# Association
 
 ### CustomDomainCertificateArn
 - **Type**: typing.Optional[str]
@@ -88,16 +88,16 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CertificateAssociations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.CertificateAssociationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.CertificateAssociation]]
 
 
-# AttributeValueTargetTypeDef
+# AttributeValueTarget
 
 ### AttributeValue
 - **Type**: typing.Optional[str]
 
 
-# AuthenticationProfileTypeDef
+# AuthenticationProfile
 
 ### AuthenticationProfileName
 - **Type**: typing.Optional[str]
@@ -106,7 +106,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AuthorizeClusterSecurityGroupIngressMessageTypeDef
+# AuthorizeClusterSecurityGroupIngressMessage
 
 ### ClusterSecurityGroupName
 - **Type**: <class 'str'>
@@ -122,18 +122,18 @@
 - **Type**: typing.Optional[str]
 
 
-# AuthorizeClusterSecurityGroupIngressResultTypeDef
+# AuthorizeClusterSecurityGroupIngressResult
 
 ### ClusterSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthorizeDataShareMessageTypeDef
+# AuthorizeDataShareMessage
 
 ### DataShareArn
 - **Type**: <class 'str'>
@@ -147,7 +147,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AuthorizeEndpointAccessMessageTypeDef
+# AuthorizeEndpointAccessMessage
 
 ### Account
 - **Type**: <class 'str'>
@@ -160,7 +160,7 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AuthorizeSnapshotAccessMessageTypeDef
+# AuthorizeSnapshotAccessMessage
 
 ### AccountWithRestoreAccess
 - **Type**: <class 'str'>
@@ -176,27 +176,18 @@
 - **Type**: typing.Optional[str]
 
 
-# AuthorizeSnapshotAccessResultTypeDef
+# AuthorizeSnapshotAccessResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AuthorizedTokenIssuerOutputTypeDef
-
-### TrustedTokenIssuerArn
-- **Type**: typing.Optional[str]
-
-### AuthorizedAudiencesList
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# AuthorizedTokenIssuerTypeDef
+# AuthorizedTokenIssuer
 
 ### TrustedTokenIssuerArn
 - **Type**: typing.Optional[str]
@@ -205,19 +196,28 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AuthorizedTokenIssuerUnionTypeDef
+# AuthorizedTokenIssuerOutput
+
+### TrustedTokenIssuerArn
+- **Type**: typing.Optional[str]
+
+### AuthorizedAudiencesList
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# AuthorizedTokenIssuerUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AvailabilityZoneTypeDef
+# AvailabilityZone
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### SupportedPlatforms
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.SupportedPlatformTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.SupportedPlatform]]
 
 
 # BaseValidatorModel
@@ -226,29 +226,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BatchDeleteClusterSnapshotsRequestTypeDef
+# BatchDeleteClusterSnapshotsRequest
 
 ### Identifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DeleteClusterSnapshotMessageTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DeleteClusterSnapshotMessage]
 - **Required**: Yes
 
 
-# BatchDeleteClusterSnapshotsResultTypeDef
+# BatchDeleteClusterSnapshotsResult
 
 ### Resources
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotErrorMessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotErrorMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# BatchModifyClusterSnapshotsMessageTypeDef
+# BatchModifyClusterSnapshotsMessage
 
 ### SnapshotIdentifierList
 - **Type**: typing.Sequence[str]
@@ -261,29 +261,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# BatchModifyClusterSnapshotsOutputMessageTypeDef
+# BatchModifyClusterSnapshotsOutputMessage
 
 ### Resources
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotErrorMessageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotErrorMessage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CancelResizeMessageTypeDef
+# CancelResizeMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CertificateAssociationTypeDef
+# CertificateAssociation
 
 ### CustomDomainName
 - **Type**: typing.Optional[str]
@@ -292,289 +292,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClusterAssociatedToScheduleTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### ScheduleAssociationState
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'MODIFYING']]
-
-
-# ClusterCredentialsTypeDef
-
-### DbUser
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DbPassword
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Expiration
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterDbRevisionTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### CurrentDatabaseRevision
-- **Type**: typing.Optional[str]
-
-### DatabaseRevisionReleaseDate
-- **Type**: typing.Optional[datetime.datetime]
-
-### RevisionTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RevisionTargetTypeDef]]
-
-
-# ClusterDbRevisionsMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClusterDbRevisions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterDbRevisionTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterExtendedCredentialsTypeDef
-
-### DbUser
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DbPassword
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Expiration
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### NextRefreshTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterIamRoleTypeDef
-
-### IamRoleArn
-- **Type**: typing.Optional[str]
-
-### ApplyStatus
-- **Type**: typing.Optional[str]
-
-
-# ClusterNodeTypeDef
-
-### NodeRole
-- **Type**: typing.Optional[str]
-
-### PrivateIPAddress
-- **Type**: typing.Optional[str]
-
-### PublicIPAddress
-- **Type**: typing.Optional[str]
-
-
-# ClusterParameterGroupDetailsTypeDef
-
-### Parameters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ParameterTypeDef]
-- **Required**: Yes
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterParameterGroupNameMessageTypeDef
-
-### ParameterGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ParameterGroupStatus
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterParameterGroupStatusTypeDef
-
-### ParameterGroupName
-- **Type**: typing.Optional[str]
-
-### ParameterApplyStatus
-- **Type**: typing.Optional[str]
-
-### ClusterParameterStatusList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterStatusTypeDef]]
-
-
-# ClusterParameterGroupTypeDef
-
-### ParameterGroupName
-- **Type**: typing.Optional[str]
-
-### ParameterGroupFamily
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-
-# ClusterParameterGroupsMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ParameterGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroupTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterParameterStatusTypeDef
-
-### ParameterName
-- **Type**: typing.Optional[str]
-
-### ParameterApplyStatus
-- **Type**: typing.Optional[str]
-
-### ParameterApplyErrorDescription
-- **Type**: typing.Optional[str]
-
-
-# ClusterSecurityGroupMembershipTypeDef
-
-### ClusterSecurityGroupName
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[str]
-
-
-# ClusterSecurityGroupMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClusterSecurityGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterSecurityGroupTypeDef
-
-### ClusterSecurityGroupName
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### EC2SecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.EC2SecurityGroupTypeDef]]
-
-### IPRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IPRangeTypeDef]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-
-# ClusterSnapshotCopyStatusTypeDef
-
-### DestinationRegion
-- **Type**: typing.Optional[str]
-
-### RetentionPeriod
-- **Type**: typing.Optional[int]
-
-### ManualSnapshotRetentionPeriod
-- **Type**: typing.Optional[int]
-
-### SnapshotCopyGrantName
-- **Type**: typing.Optional[str]
-
-
-# ClusterSubnetGroupMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClusterSubnetGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroupTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ClusterSubnetGroupTypeDef
-
-### ClusterSubnetGroupName
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### VpcId
-- **Type**: typing.Optional[str]
-
-### SubnetGroupStatus
-- **Type**: typing.Optional[str]
-
-### Subnets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.SubnetTypeDef]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-### SupportedClusterIpAddressTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ClusterTypeDef
+# Cluster
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -598,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Endpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.EndpointTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterCreateTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -610,13 +328,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ClusterSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupMembershipTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupMembership]]
 
 ### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembershipTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembership]]
 
 ### ClusterParameterGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroupStatusTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroupStatus]]
 
 ### ClusterSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -631,7 +349,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PendingModifiedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PendingModifiedValuesTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterVersion
 - **Type**: typing.Optional[str]
@@ -649,31 +367,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### RestoreStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.RestoreStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DataTransferProgress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.DataTransferProgressTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### HsmStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.HsmStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterSnapshotCopyStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ClusterSnapshotCopyStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterPublicKey
 - **Type**: typing.Optional[str]
 
 ### ClusterNodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterNodeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterNode]]
 
 ### ElasticIpStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ElasticIpStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ClusterRevisionNumber
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -682,7 +400,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IamRoles
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterIamRoleTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterIamRole]]
 
 ### PendingActions
 - **Type**: typing.Optional[typing.List[str]]
@@ -694,7 +412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeferredMaintenanceWindows
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.DeferredMaintenanceWindowTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.DeferredMaintenanceWindow]]
 
 ### SnapshotScheduleIdentifier
 - **Type**: typing.Optional[str]
@@ -712,7 +430,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### ResizeInfo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ResizeInfoTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AvailabilityZoneRelocationStatus
 - **Type**: typing.Optional[str]
@@ -724,13 +442,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### AquaConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.AquaConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DefaultIamRoleArn
 - **Type**: typing.Optional[str]
 
 ### ReservedNodeExchangeStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeExchangeStatusTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CustomDomainName
 - **Type**: typing.Optional[str]
@@ -754,10 +472,292 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### MultiAZSecondary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.SecondaryClusterInfoTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.SecondaryClusterInfo]
 
 
-# ClusterVersionTypeDef
+# ClusterAssociatedToSchedule
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### ScheduleAssociationState
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'MODIFYING']]
+
+
+# ClusterCredentials
+
+### DbUser
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DbPassword
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expiration
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterDbRevision
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### CurrentDatabaseRevision
+- **Type**: typing.Optional[str]
+
+### DatabaseRevisionReleaseDate
+- **Type**: typing.Optional[datetime.datetime]
+
+### RevisionTargets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RevisionTarget]]
+
+
+# ClusterDbRevisionsMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterDbRevisions
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterDbRevision]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterExtendedCredentials
+
+### DbUser
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DbPassword
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Expiration
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### NextRefreshTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterIamRole
+
+### IamRoleArn
+- **Type**: typing.Optional[str]
+
+### ApplyStatus
+- **Type**: typing.Optional[str]
+
+
+# ClusterNode
+
+### NodeRole
+- **Type**: typing.Optional[str]
+
+### PrivateIPAddress
+- **Type**: typing.Optional[str]
+
+### PublicIPAddress
+- **Type**: typing.Optional[str]
+
+
+# ClusterParameterGroup
+
+### ParameterGroupName
+- **Type**: typing.Optional[str]
+
+### ParameterGroupFamily
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+
+# ClusterParameterGroupDetails
+
+### Parameters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Parameter]
+- **Required**: Yes
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterParameterGroupNameMessage
+
+### ParameterGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ParameterGroupStatus
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterParameterGroupStatus
+
+### ParameterGroupName
+- **Type**: typing.Optional[str]
+
+### ParameterApplyStatus
+- **Type**: typing.Optional[str]
+
+### ClusterParameterStatusList
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterStatus]]
+
+
+# ClusterParameterGroupsMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ParameterGroups
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroup]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterParameterStatus
+
+### ParameterName
+- **Type**: typing.Optional[str]
+
+### ParameterApplyStatus
+- **Type**: typing.Optional[str]
+
+### ParameterApplyErrorDescription
+- **Type**: typing.Optional[str]
+
+
+# ClusterSecurityGroup
+
+### ClusterSecurityGroupName
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### EC2SecurityGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.EC2SecurityGroup]]
+
+### IPRanges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IPRange]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+
+# ClusterSecurityGroupMembership
+
+### ClusterSecurityGroupName
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[str]
+
+
+# ClusterSecurityGroupMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSecurityGroups
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroup]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterSnapshotCopyStatus
+
+### DestinationRegion
+- **Type**: typing.Optional[str]
+
+### RetentionPeriod
+- **Type**: typing.Optional[int]
+
+### ManualSnapshotRetentionPeriod
+- **Type**: typing.Optional[int]
+
+### SnapshotCopyGrantName
+- **Type**: typing.Optional[str]
+
+
+# ClusterSubnetGroup
+
+### ClusterSubnetGroupName
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### SubnetGroupStatus
+- **Type**: typing.Optional[str]
+
+### Subnets
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Subnet]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+### SupportedClusterIpAddressTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ClusterSubnetGroupMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterSubnetGroups
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroup]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ClusterVersion
 
 ### ClusterVersion
 - **Type**: typing.Optional[str]
@@ -769,37 +769,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClusterVersionsMessageTypeDef
+# ClusterVersionsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ClusterVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ClustersMessageTypeDef
+# ClustersMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Clusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Cluster]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CopyClusterSnapshotMessageTypeDef
+# CopyClusterSnapshotMessage
 
 ### SourceSnapshotIdentifier
 - **Type**: <class 'str'>
@@ -816,18 +816,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CopyClusterSnapshotResultTypeDef
+# CopyClusterSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAuthenticationProfileMessageTypeDef
+# CreateAuthenticationProfileMessage
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
@@ -838,7 +838,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAuthenticationProfileResultTypeDef
+# CreateAuthenticationProfileResult
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
@@ -849,11 +849,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterMessageTypeDef
+# CreateClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -928,7 +928,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 ### KmsKeyId
 - **Type**: typing.Optional[str]
@@ -976,7 +976,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateClusterParameterGroupMessageTypeDef
+# CreateClusterParameterGroupMessage
 
 ### ParameterGroupName
 - **Type**: <class 'str'>
@@ -991,32 +991,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateClusterParameterGroupResultTypeDef
+# CreateClusterParameterGroupResult
 
 ### ClusterParameterGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterParameterGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterResultTypeDef
+# CreateClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterSecurityGroupMessageTypeDef
+# CreateClusterSecurityGroupMessage
 
 ### ClusterSecurityGroupName
 - **Type**: <class 'str'>
@@ -1027,21 +1027,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateClusterSecurityGroupResultTypeDef
+# CreateClusterSecurityGroupResult
 
 ### ClusterSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterSnapshotMessageTypeDef
+# CreateClusterSnapshotMessage
 
 ### SnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1055,21 +1055,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateClusterSnapshotResultTypeDef
+# CreateClusterSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateClusterSubnetGroupMessageTypeDef
+# CreateClusterSubnetGroupMessage
 
 ### ClusterSubnetGroupName
 - **Type**: <class 'str'>
@@ -1084,21 +1084,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateClusterSubnetGroupResultTypeDef
+# CreateClusterSubnetGroupResult
 
 ### ClusterSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomDomainAssociationMessageTypeDef
+# CreateCustomDomainAssociationMessage
 
 ### CustomDomainName
 - **Type**: <class 'str'>
@@ -1113,7 +1113,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomDomainAssociationResultTypeDef
+# CreateCustomDomainAssociationResult
 
 ### CustomDomainName
 - **Type**: <class 'str'>
@@ -1132,11 +1132,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEndpointAccessMessageTypeDef
+# CreateEndpointAccessMessage
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -1156,7 +1156,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CreateEventSubscriptionMessageTypeDef
+# CreateEventSubscriptionMessage
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -1182,42 +1182,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateEventSubscriptionResultTypeDef
+# CreateEventSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.EventSubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHsmClientCertificateMessageTypeDef
+# CreateHsmClientCertificateMessage
 
 ### HsmClientCertificateIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateHsmClientCertificateResultTypeDef
+# CreateHsmClientCertificateResult
 
 ### HsmClientCertificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.HsmClientCertificateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.HsmClientCertificate'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateHsmConfigurationMessageTypeDef
+# CreateHsmConfigurationMessage
 
 ### HsmConfigurationIdentifier
 - **Type**: <class 'str'>
@@ -1244,21 +1244,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateHsmConfigurationResultTypeDef
+# CreateHsmConfigurationResult
 
 ### HsmConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.HsmConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.HsmConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateIntegrationMessageTypeDef
+# CreateIntegrationMessage
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -1276,7 +1276,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TagList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 ### AdditionalEncryptionContext
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1285,7 +1285,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateRedshiftIdcApplicationMessageTypeDef
+# CreateRedshiftIdcApplicationMessage
 
 ### IdcInstanceArn
 - **Type**: <class 'str'>
@@ -1307,31 +1307,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthorizedTokenIssuerList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerUnion]]
 
 ### ServiceIntegrations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionUnion]]
 
 
-# CreateRedshiftIdcApplicationResultTypeDef
+# CreateRedshiftIdcApplicationResult
 
 ### RedshiftIdcApplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplicationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplication'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateScheduledActionMessageTypeDef
+# CreateScheduledActionMessage
 
 ### ScheduledActionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TargetAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionType'>
 - **Required**: Yes
 
 ### Schedule
@@ -1346,16 +1346,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### Enable
 - **Type**: typing.Optional[bool]
 
 
-# CreateSnapshotCopyGrantMessageTypeDef
+# CreateSnapshotCopyGrantMessage
 
 ### SnapshotCopyGrantName
 - **Type**: <class 'str'>
@@ -1365,21 +1365,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CreateSnapshotCopyGrantResultTypeDef
+# CreateSnapshotCopyGrantResult
 
 ### SnapshotCopyGrant
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotCopyGrantTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotCopyGrant'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSnapshotScheduleMessageTypeDef
+# CreateSnapshotScheduleMessage
 
 ### ScheduleDefinitions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1391,7 +1391,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 ### DryRun
 - **Type**: typing.Optional[bool]
@@ -1400,18 +1400,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateTagsMessageTypeDef
+# CreateTagsMessage
 
 ### ResourceName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]
 - **Required**: Yes
 
 
-# CreateUsageLimitMessageTypeDef
+# CreateUsageLimitMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -1436,25 +1436,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disable', 'emit-metric', 'log']]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# CustomDomainAssociationsMessageTypeDef
+# CustomDomainAssociationsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Associations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.AssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Association]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomerStorageMessageTypeDef
+# CustomerStorageMessage
 
 ### TotalBackupSizeInMegaBytes
 - **Type**: <class 'float'>
@@ -1465,11 +1465,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataShareAssociationTypeDef
+# DataShare
+
+### DataShareArn
+- **Type**: typing.Optional[str]
+
+### ProducerArn
+- **Type**: typing.Optional[str]
+
+### AllowPubliclyAccessibleConsumers
+- **Type**: typing.Optional[bool]
+
+### DataShareAssociations
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareAssociation]]
+
+### ManagedBy
+- **Type**: typing.Optional[str]
+
+### DataShareType
+- **Type**: typing.Optional[typing.Literal['INTERNAL']]
+
+
+# DataShareAssociation
 
 ### ConsumerIdentifier
 - **Type**: typing.Optional[str]
@@ -1493,7 +1514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DataShareResponseTypeDef
+# DataShareResponse
 
 ### DataShareArn
 - **Type**: <class 'str'>
@@ -1508,7 +1529,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DataShareAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareAssociation]
 - **Required**: Yes
 
 ### ManagedBy
@@ -1520,32 +1541,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DataShareTypeDef
-
-### DataShareArn
-- **Type**: typing.Optional[str]
-
-### ProducerArn
-- **Type**: typing.Optional[str]
-
-### AllowPubliclyAccessibleConsumers
-- **Type**: typing.Optional[bool]
-
-### DataShareAssociations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareAssociationTypeDef]]
-
-### ManagedBy
-- **Type**: typing.Optional[str]
-
-### DataShareType
-- **Type**: typing.Optional[typing.Literal['INTERNAL']]
-
-
-# DataTransferProgressTypeDef
+# DataTransferProgress
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -1566,7 +1566,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeauthorizeDataShareMessageTypeDef
+# DeauthorizeDataShareMessage
 
 ### DataShareArn
 - **Type**: <class 'str'>
@@ -1577,7 +1577,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DefaultClusterParametersTypeDef
+# DefaultClusterParameters
 
 ### ParameterGroupFamily
 - **Type**: typing.Optional[str]
@@ -1586,10 +1586,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Parameter]]
 
 
-# DeferredMaintenanceWindowTypeDef
+# DeferredMaintenanceWindow
 
 ### DeferMaintenanceIdentifier
 - **Type**: typing.Optional[str]
@@ -1601,25 +1601,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# DeleteAuthenticationProfileMessageTypeDef
+# DeleteAuthenticationProfileMessage
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAuthenticationProfileResultTypeDef
+# DeleteAuthenticationProfileResult
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterMessageTypeDef
+# DeleteClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -1635,32 +1635,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DeleteClusterParameterGroupMessageTypeDef
+# DeleteClusterParameterGroupMessage
 
 ### ParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteClusterResultTypeDef
+# DeleteClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterSecurityGroupMessageTypeDef
+# DeleteClusterSecurityGroupMessage
 
 ### ClusterSecurityGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteClusterSnapshotMessageRequestTypeDef
+# DeleteClusterSnapshotMessage
 
 ### SnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1670,7 +1670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteClusterSnapshotMessageTypeDef
+# DeleteClusterSnapshotMessageRequest
 
 ### SnapshotIdentifier
 - **Type**: <class 'str'>
@@ -1680,25 +1680,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteClusterSnapshotResultTypeDef
+# DeleteClusterSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteClusterSubnetGroupMessageTypeDef
+# DeleteClusterSubnetGroupMessage
 
 ### ClusterSubnetGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomDomainAssociationMessageTypeDef
+# DeleteCustomDomainAssociationMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -1709,77 +1709,77 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEndpointAccessMessageTypeDef
+# DeleteEndpointAccessMessage
 
 ### EndpointName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventSubscriptionMessageTypeDef
+# DeleteEventSubscriptionMessage
 
 ### SubscriptionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHsmClientCertificateMessageTypeDef
+# DeleteHsmClientCertificateMessage
 
 ### HsmClientCertificateIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteHsmConfigurationMessageTypeDef
+# DeleteHsmConfigurationMessage
 
 ### HsmConfigurationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIntegrationMessageTypeDef
+# DeleteIntegrationMessage
 
 ### IntegrationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRedshiftIdcApplicationMessageTypeDef
+# DeleteRedshiftIdcApplicationMessage
 
 ### RedshiftIdcApplicationArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyMessageTypeDef
+# DeleteResourcePolicyMessage
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteScheduledActionMessageTypeDef
+# DeleteScheduledActionMessage
 
 ### ScheduledActionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSnapshotCopyGrantMessageTypeDef
+# DeleteSnapshotCopyGrantMessage
 
 ### SnapshotCopyGrantName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSnapshotScheduleMessageTypeDef
+# DeleteSnapshotScheduleMessage
 
 ### ScheduleIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTagsMessageTypeDef
+# DeleteTagsMessage
 
 ### ResourceName
 - **Type**: <class 'str'>
@@ -1790,17 +1790,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUsageLimitMessageTypeDef
+# DeleteUsageLimitMessage
 
 ### UsageLimitId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeregisterNamespaceInputMessageTypeDef
+# DeregisterNamespaceInputMessage
 
 ### NamespaceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.NamespaceIdentifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.NamespaceIdentifierUnion'>
 - **Required**: Yes
 
 ### ConsumerIdentifiers
@@ -1808,50 +1808,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterNamespaceOutputMessageTypeDef
+# DeregisterNamespaceOutputMessage
 
 ### Status
 - **Type**: typing.Literal['Deregistering', 'Registering']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAccountAttributesMessageTypeDef
+# DescribeAccountAttributesMessage
 
 ### AttributeNames
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeAuthenticationProfilesMessageTypeDef
+# DescribeAuthenticationProfilesMessage
 
 ### AuthenticationProfileName
 - **Type**: typing.Optional[str]
 
 
-# DescribeAuthenticationProfilesResultTypeDef
+# DescribeAuthenticationProfilesResult
 
 ### AuthenticationProfiles
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.AuthenticationProfileTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.AuthenticationProfile]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeClusterDbRevisionsMessagePaginateTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeClusterDbRevisionsMessageTypeDef
+# DescribeClusterDbRevisionsMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -1863,22 +1854,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeClusterParameterGroupsMessagePaginateTypeDef
+# DescribeClusterDbRevisionsMessagePaginate
 
-### ParameterGroupName
+### ClusterIdentifier
 - **Type**: typing.Optional[str]
 
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterParameterGroupsMessageTypeDef
+# DescribeClusterParameterGroupsMessage
 
 ### ParameterGroupName
 - **Type**: typing.Optional[str]
@@ -1896,20 +1881,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeClusterParametersMessagePaginateTypeDef
+# DescribeClusterParameterGroupsMessagePaginate
 
 ### ParameterGroupName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Source
 - **Type**: typing.Optional[str]
 
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterParametersMessageTypeDef
+# DescribeClusterParametersMessage
 
 ### ParameterGroupName
 - **Type**: <class 'str'>
@@ -1925,22 +1912,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeClusterSecurityGroupsMessagePaginateTypeDef
+# DescribeClusterParametersMessagePaginate
 
-### ClusterSecurityGroupName
+### ParameterGroupName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Source
 - **Type**: typing.Optional[str]
 
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterSecurityGroupsMessageTypeDef
+# DescribeClusterSecurityGroupsMessage
 
 ### ClusterSecurityGroupName
 - **Type**: typing.Optional[str]
@@ -1958,27 +1943,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeClusterSnapshotsMessagePaginateTypeDef
+# DescribeClusterSecurityGroupsMessagePaginate
 
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotArn
-- **Type**: typing.Optional[str]
-
-### SnapshotType
-- **Type**: typing.Optional[str]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### OwnerAccount
+### ClusterSecurityGroupName
 - **Type**: typing.Optional[str]
 
 ### TagKeys
@@ -1986,18 +1953,12 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 ### TagValues
 - **Type**: typing.Optional[typing.Sequence[str]]
-
-### ClusterExists
-- **Type**: typing.Optional[bool]
-
-### SortingEntities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntityTypeDef]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterSnapshotsMessageTypeDef
+# DescribeClusterSnapshotsMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2012,10 +1973,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -2036,10 +1997,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SortingEntities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntityTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntity]]
 
 
-# DescribeClusterSnapshotsMessageWaitTypeDef
+# DescribeClusterSnapshotsMessagePaginate
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2054,10 +2015,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### OwnerAccount
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### ClusterExists
+- **Type**: typing.Optional[bool]
+
+### SortingEntities
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntity]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeClusterSnapshotsMessageWait
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotArn
+- **Type**: typing.Optional[str]
+
+### SnapshotType
+- **Type**: typing.Optional[str]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
@@ -2078,13 +2078,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### SortingEntities
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntityTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSortingEntity]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeClusterSubnetGroupsMessagePaginateTypeDef
+# DescribeClusterSubnetGroupsMessage
+
+### ClusterSubnetGroupName
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeClusterSubnetGroupsMessagePaginate
 
 ### ClusterSubnetGroupName
 - **Type**: typing.Optional[str]
@@ -2096,37 +2114,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterSubnetGroupsMessageTypeDef
-
-### ClusterSubnetGroupName
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# DescribeClusterTracksMessagePaginateTypeDef
-
-### MaintenanceTrackName
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeClusterTracksMessageTypeDef
+# DescribeClusterTracksMessage
 
 ### MaintenanceTrackName
 - **Type**: typing.Optional[str]
@@ -2138,19 +2129,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeClusterVersionsMessagePaginateTypeDef
+# DescribeClusterTracksMessagePaginate
 
-### ClusterVersion
-- **Type**: typing.Optional[str]
-
-### ClusterParameterGroupFamily
+### MaintenanceTrackName
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClusterVersionsMessageTypeDef
+# DescribeClusterVersionsMessage
 
 ### ClusterVersion
 - **Type**: typing.Optional[str]
@@ -2165,7 +2153,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeClustersMessagePaginateTypeDef
+# DescribeClusterVersionsMessagePaginate
+
+### ClusterVersion
+- **Type**: typing.Optional[str]
+
+### ClusterParameterGroupFamily
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeClustersMessage
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeClustersMessagePaginate
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2177,28 +2195,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeClustersMessageTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# DescribeClustersMessageWaitExtraExtraTypeDef
+# DescribeClustersMessageWait
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2216,31 +2216,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeClustersMessageWaitExtraTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.WaiterConfigTypeDef]
-
-
-# DescribeClustersMessageWaitTypeDef
+# DescribeClustersMessageWaitExtra
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2258,10 +2237,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeCustomDomainAssociationsMessagePaginateTypeDef
+# DescribeClustersMessageWaitExtraExtra
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### WaiterConfig
+- **Type**: <class 'NoneType'>
+
+
+# DescribeCustomDomainAssociationsMessage
+
+### CustomDomainName
+- **Type**: typing.Optional[str]
+
+### CustomDomainCertificateArn
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+
+# DescribeCustomDomainAssociationsMessagePaginate
 
 ### CustomDomainName
 - **Type**: typing.Optional[str]
@@ -2270,37 +2285,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeCustomDomainAssociationsMessageTypeDef
-
-### CustomDomainName
-- **Type**: typing.Optional[str]
-
-### CustomDomainCertificateArn
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribeDataSharesForConsumerMessagePaginateTypeDef
-
-### ConsumerArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AVAILABLE']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDataSharesForConsumerMessageTypeDef
+# DescribeDataSharesForConsumerMessage
 
 ### ConsumerArn
 - **Type**: typing.Optional[str]
@@ -2315,10 +2303,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDataSharesForConsumerResultTypeDef
+# DescribeDataSharesForConsumerMessagePaginate
+
+### ConsumerArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AVAILABLE']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeDataSharesForConsumerResult
 
 ### DataShares
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShare]
 - **Required**: Yes
 
 ### Marker
@@ -2326,11 +2326,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDataSharesForProducerMessagePaginateTypeDef
+# DescribeDataSharesForProducerMessage
+
+### ProducerArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AUTHORIZED', 'DEAUTHORIZED', 'PENDING_AUTHORIZATION', 'REJECTED']]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+
+# DescribeDataSharesForProducerMessagePaginate
 
 ### ProducerArn
 - **Type**: typing.Optional[str]
@@ -2339,28 +2354,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'AUTHORIZED', 'DEAUTHORIZED', 'PENDING_AUTHORIZATION', 'REJECTED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeDataSharesForProducerMessageTypeDef
-
-### ProducerArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'AUTHORIZED', 'DEAUTHORIZED', 'PENDING_AUTHORIZATION', 'REJECTED']]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribeDataSharesForProducerResultTypeDef
+# DescribeDataSharesForProducerResult
 
 ### DataShares
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShare]
 - **Required**: Yes
 
 ### Marker
@@ -2368,20 +2368,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDataSharesMessagePaginateTypeDef
-
-### DataShareArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDataSharesMessageTypeDef
+# DescribeDataSharesMessage
 
 ### DataShareArn
 - **Type**: typing.Optional[str]
@@ -2393,10 +2384,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDataSharesResultTypeDef
+# DescribeDataSharesMessagePaginate
+
+### DataShareArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeDataSharesResult
 
 ### DataShares
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShareTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.DataShare]
 - **Required**: Yes
 
 ### Marker
@@ -2404,21 +2404,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDefaultClusterParametersMessagePaginateTypeDef
-
-### ParameterGroupFamily
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeDefaultClusterParametersMessageTypeDef
+# DescribeDefaultClusterParametersMessage
 
 ### ParameterGroupFamily
 - **Type**: <class 'str'>
@@ -2431,36 +2421,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeDefaultClusterParametersResultTypeDef
+# DescribeDefaultClusterParametersMessagePaginate
+
+### ParameterGroupFamily
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeDefaultClusterParametersResult
 
 ### DefaultClusterParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.DefaultClusterParametersTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.DefaultClusterParameters'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEndpointAccessMessagePaginateTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### ResourceOwner
-- **Type**: typing.Optional[str]
-
-### EndpointName
-- **Type**: typing.Optional[str]
-
-### VpcId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEndpointAccessMessageTypeDef
+# DescribeEndpointAccessMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2481,7 +2463,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeEndpointAuthorizationMessagePaginateTypeDef
+# DescribeEndpointAccessMessagePaginate
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### ResourceOwner
+- **Type**: typing.Optional[str]
+
+### EndpointName
+- **Type**: typing.Optional[str]
+
+### VpcId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeEndpointAuthorizationMessage
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### Account
+- **Type**: typing.Optional[str]
+
+### Grantee
+- **Type**: typing.Optional[bool]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+
+# DescribeEndpointAuthorizationMessagePaginate
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -2493,49 +2511,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeEndpointAuthorizationMessageTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### Account
-- **Type**: typing.Optional[str]
-
-### Grantee
-- **Type**: typing.Optional[bool]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribeEventCategoriesMessageTypeDef
+# DescribeEventCategoriesMessage
 
 ### SourceType
 - **Type**: typing.Optional[str]
 
 
-# DescribeEventSubscriptionsMessagePaginateTypeDef
-
-### SubscriptionName
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeEventSubscriptionsMessageTypeDef
+# DescribeEventSubscriptionsMessage
 
 ### SubscriptionName
 - **Type**: typing.Optional[str]
@@ -2553,28 +2538,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeEventsMessagePaginateTypeDef
+# DescribeEventSubscriptionsMessagePaginate
 
-### SourceIdentifier
+### SubscriptionName
 - **Type**: typing.Optional[str]
 
-### SourceType
-- **Type**: typing.Optional[typing.Literal['cluster', 'cluster-parameter-group', 'cluster-security-group', 'cluster-snapshot', 'scheduled-action']]
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
 
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### Duration
-- **Type**: typing.Optional[int]
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeEventsMessageTypeDef
+# DescribeEventsMessage
 
 ### SourceIdentifier
 - **Type**: typing.Optional[str]
@@ -2583,10 +2562,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['cluster', 'cluster-parameter-group', 'cluster-security-group', 'cluster-snapshot', 'scheduled-action']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### Duration
 - **Type**: typing.Optional[int]
@@ -2598,7 +2577,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeHsmClientCertificatesMessagePaginateTypeDef
+# DescribeEventsMessagePaginate
+
+### SourceIdentifier
+- **Type**: typing.Optional[str]
+
+### SourceType
+- **Type**: typing.Optional[typing.Literal['cluster', 'cluster-parameter-group', 'cluster-security-group', 'cluster-snapshot', 'scheduled-action']]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### Duration
+- **Type**: typing.Optional[int]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeHsmClientCertificatesMessage
+
+### HsmClientCertificateIdentifier
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# DescribeHsmClientCertificatesMessagePaginate
 
 ### HsmClientCertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -2610,43 +2628,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeHsmClientCertificatesMessageTypeDef
-
-### HsmClientCertificateIdentifier
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# DescribeHsmConfigurationsMessagePaginateTypeDef
-
-### HsmConfigurationIdentifier
-- **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeHsmConfigurationsMessageTypeDef
+# DescribeHsmConfigurationsMessage
 
 ### HsmConfigurationIdentifier
 - **Type**: typing.Optional[str]
@@ -2664,19 +2649,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeInboundIntegrationsMessagePaginateTypeDef
+# DescribeHsmConfigurationsMessagePaginate
 
-### IntegrationArn
+### HsmConfigurationIdentifier
 - **Type**: typing.Optional[str]
 
-### TargetArn
-- **Type**: typing.Optional[str]
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeInboundIntegrationsMessageTypeDef
+# DescribeInboundIntegrationsMessage
 
 ### IntegrationArn
 - **Type**: typing.Optional[str]
@@ -2691,7 +2679,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeIntegrationsFilterTypeDef
+# DescribeInboundIntegrationsMessagePaginate
+
+### IntegrationArn
+- **Type**: typing.Optional[str]
+
+### TargetArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeIntegrationsFilter
 
 ### Name
 - **Type**: typing.Literal['integration-arn', 'source-arn', 'source-types', 'status']
@@ -2702,19 +2702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeIntegrationsMessagePaginateTypeDef
-
-### IntegrationArn
-- **Type**: typing.Optional[str]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DescribeIntegrationsFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeIntegrationsMessageTypeDef
+# DescribeIntegrationsMessage
 
 ### IntegrationArn
 - **Type**: typing.Optional[str]
@@ -2726,17 +2714,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DescribeIntegrationsFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DescribeIntegrationsFilter]]
 
 
-# DescribeLoggingStatusMessageTypeDef
+# DescribeIntegrationsMessagePaginate
+
+### IntegrationArn
+- **Type**: typing.Optional[str]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.DescribeIntegrationsFilter]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeLoggingStatusMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeNodeConfigurationOptionsMessagePaginateTypeDef
+# DescribeNodeConfigurationOptionsMessage
 
 ### ActionType
 - **Type**: typing.Literal['recommend-node-config', 'resize-cluster', 'restore-cluster']
@@ -2755,13 +2755,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOptionsFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOptionsFilter]]
 
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+### Marker
+- **Type**: typing.Optional[str]
+
+### MaxRecords
+- **Type**: typing.Optional[int]
 
 
-# DescribeNodeConfigurationOptionsMessageTypeDef
+# DescribeNodeConfigurationOptionsMessagePaginate
 
 ### ActionType
 - **Type**: typing.Literal['recommend-node-config', 'resize-cluster', 'restore-cluster']
@@ -2780,16 +2783,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOptionsFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOptionsFilter]]
 
-### Marker
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeOrderableClusterOptionsMessage
+
+### ClusterVersion
+- **Type**: typing.Optional[str]
+
+### NodeType
 - **Type**: typing.Optional[str]
 
 ### MaxRecords
 - **Type**: typing.Optional[int]
 
+### Marker
+- **Type**: typing.Optional[str]
 
-# DescribeOrderableClusterOptionsMessagePaginateTypeDef
+
+# DescribeOrderableClusterOptionsMessagePaginate
 
 ### ClusterVersion
 - **Type**: typing.Optional[str]
@@ -2798,25 +2813,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeOrderableClusterOptionsMessageTypeDef
-
-### ClusterVersion
-- **Type**: typing.Optional[str]
-
-### NodeType
-- **Type**: typing.Optional[str]
-
-### MaxRecords
-- **Type**: typing.Optional[int]
-
-### Marker
-- **Type**: typing.Optional[str]
-
-
-# DescribePartnersInputMessageTypeDef
+# DescribePartnersInputMessage
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -2833,27 +2833,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribePartnersOutputMessageTypeDef
+# DescribePartnersOutputMessage
 
 ### PartnerIntegrationInfoList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.PartnerIntegrationInfoTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.PartnerIntegrationInfo]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRedshiftIdcApplicationsMessagePaginateTypeDef
-
-### RedshiftIdcApplicationArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeRedshiftIdcApplicationsMessageTypeDef
+# DescribeRedshiftIdcApplicationsMessage
 
 ### RedshiftIdcApplicationArn
 - **Type**: typing.Optional[str]
@@ -2865,10 +2856,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeRedshiftIdcApplicationsResultTypeDef
+# DescribeRedshiftIdcApplicationsMessagePaginate
+
+### RedshiftIdcApplicationArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeRedshiftIdcApplicationsResult
 
 ### RedshiftIdcApplications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplicationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplication]
 - **Required**: Yes
 
 ### Marker
@@ -2876,23 +2876,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReservedNodeExchangeStatusInputMessagePaginateTypeDef
-
-### ReservedNodeId
-- **Type**: typing.Optional[str]
-
-### ReservedNodeExchangeRequestId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeReservedNodeExchangeStatusInputMessageTypeDef
+# DescribeReservedNodeExchangeStatusInputMessage
 
 ### ReservedNodeId
 - **Type**: typing.Optional[str]
@@ -2907,10 +2895,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedNodeExchangeStatusOutputMessageTypeDef
+# DescribeReservedNodeExchangeStatusInputMessagePaginate
+
+### ReservedNodeId
+- **Type**: typing.Optional[str]
+
+### ReservedNodeExchangeRequestId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeReservedNodeExchangeStatusOutputMessage
 
 ### ReservedNodeExchangeStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeExchangeStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeExchangeStatus]
 - **Required**: Yes
 
 ### Marker
@@ -2918,20 +2918,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReservedNodeOfferingsMessagePaginateTypeDef
-
-### ReservedNodeOfferingId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeReservedNodeOfferingsMessageTypeDef
+# DescribeReservedNodeOfferingsMessage
 
 ### ReservedNodeOfferingId
 - **Type**: typing.Optional[str]
@@ -2943,16 +2934,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeReservedNodesMessagePaginateTypeDef
+# DescribeReservedNodeOfferingsMessagePaginate
 
-### ReservedNodeId
+### ReservedNodeOfferingId
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeReservedNodesMessageTypeDef
+# DescribeReservedNodesMessage
 
 ### ReservedNodeId
 - **Type**: typing.Optional[str]
@@ -2964,14 +2955,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeResizeMessageTypeDef
+# DescribeReservedNodesMessagePaginate
+
+### ReservedNodeId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeResizeMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeScheduledActionsMessagePaginateTypeDef
+# DescribeScheduledActionsMessage
 
 ### ScheduledActionName
 - **Type**: typing.Optional[str]
@@ -2980,40 +2980,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['PauseCluster', 'ResizeCluster', 'ResumeCluster']]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### Active
 - **Type**: typing.Optional[bool]
 
 ### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionFilterTypeDef]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeScheduledActionsMessageTypeDef
-
-### ScheduledActionName
-- **Type**: typing.Optional[str]
-
-### TargetActionType
-- **Type**: typing.Optional[typing.Literal['PauseCluster', 'ResizeCluster', 'ResumeCluster']]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
-
-### Active
-- **Type**: typing.Optional[bool]
-
-### Filters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionFilterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionFilter]]
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -3022,22 +2998,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeSnapshotCopyGrantsMessagePaginateTypeDef
+# DescribeScheduledActionsMessagePaginate
 
-### SnapshotCopyGrantName
+### ScheduledActionName
 - **Type**: typing.Optional[str]
 
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
+### TargetActionType
+- **Type**: typing.Optional[typing.Literal['PauseCluster', 'ResizeCluster', 'ResumeCluster']]
 
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
+
+### Active
+- **Type**: typing.Optional[bool]
+
+### Filters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionFilter]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeSnapshotCopyGrantsMessageTypeDef
+# DescribeSnapshotCopyGrantsMessage
 
 ### SnapshotCopyGrantName
 - **Type**: typing.Optional[str]
@@ -3055,12 +3040,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeSnapshotSchedulesMessagePaginateTypeDef
+# DescribeSnapshotCopyGrantsMessagePaginate
 
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### ScheduleIdentifier
+### SnapshotCopyGrantName
 - **Type**: typing.Optional[str]
 
 ### TagKeys
@@ -3070,10 +3052,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeSnapshotSchedulesMessageTypeDef
+# DescribeSnapshotSchedulesMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -3094,10 +3076,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeSnapshotSchedulesOutputMessageTypeDef
+# DescribeSnapshotSchedulesMessagePaginate
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### ScheduleIdentifier
+- **Type**: typing.Optional[str]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DescribeSnapshotSchedulesOutputMessage
 
 ### SnapshotSchedules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotScheduleTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotSchedule]
 - **Required**: Yes
 
 ### Marker
@@ -3105,23 +3105,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTableRestoreStatusMessagePaginateTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### TableRestoreRequestId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# DescribeTableRestoreStatusMessageTypeDef
+# DescribeTableRestoreStatusMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -3136,25 +3124,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeTagsMessagePaginateTypeDef
+# DescribeTableRestoreStatusMessagePaginate
 
-### ResourceName
+### ClusterIdentifier
 - **Type**: typing.Optional[str]
 
-### ResourceType
+### TableRestoreRequestId
 - **Type**: typing.Optional[str]
-
-### TagKeys
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### TagValues
-- **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeTagsMessageTypeDef
+# DescribeTagsMessage
 
 ### ResourceName
 - **Type**: typing.Optional[str]
@@ -3175,16 +3157,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DescribeUsageLimitsMessagePaginateTypeDef
+# DescribeTagsMessagePaginate
 
-### UsageLimitId
+### ResourceName
 - **Type**: typing.Optional[str]
 
-### ClusterIdentifier
+### ResourceType
 - **Type**: typing.Optional[str]
-
-### FeatureType
-- **Type**: typing.Optional[typing.Literal['concurrency-scaling', 'cross-region-datasharing', 'spectrum']]
 
 ### TagKeys
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3193,10 +3172,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
 
 
-# DescribeUsageLimitsMessageTypeDef
+# DescribeUsageLimitsMessage
 
 ### UsageLimitId
 - **Type**: typing.Optional[str]
@@ -3220,32 +3199,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# DisableLoggingMessageTypeDef
+# DescribeUsageLimitsMessagePaginate
+
+### UsageLimitId
+- **Type**: typing.Optional[str]
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### FeatureType
+- **Type**: typing.Optional[typing.Literal['concurrency-scaling', 'cross-region-datasharing', 'spectrum']]
+
+### TagKeys
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### TagValues
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# DisableLoggingMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableSnapshotCopyMessageTypeDef
+# DisableSnapshotCopyMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableSnapshotCopyResultTypeDef
+# DisableSnapshotCopyResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateDataShareConsumerMessageTypeDef
+# DisassociateDataShareConsumerMessage
 
 ### DataShareArn
 - **Type**: <class 'str'>
@@ -3261,7 +3261,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EC2SecurityGroupTypeDef
+# EC2SecurityGroup
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -3273,10 +3273,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# ElasticIpStatusTypeDef
+# ElasticIpStatus
 
 ### ElasticIp
 - **Type**: typing.Optional[str]
@@ -3285,14 +3285,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableLoggingMessageTypeDef
+# EnableLoggingMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -3311,7 +3311,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EnableSnapshotCopyMessageTypeDef
+# EnableSnapshotCopyMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -3331,21 +3331,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EnableSnapshotCopyResultTypeDef
+# EnableSnapshotCopyResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointAccessListTypeDef
+# Endpoint
+
+### Address
+- **Type**: typing.Optional[str]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### VpcEndpoints
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcEndpoint]]
+
+
+# EndpointAccess
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### ResourceOwner
+- **Type**: typing.Optional[str]
+
+### SubnetGroupName
+- **Type**: typing.Optional[str]
+
+### EndpointStatus
+- **Type**: typing.Optional[str]
+
+### EndpointName
+- **Type**: typing.Optional[str]
+
+### EndpointCreateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Port
+- **Type**: typing.Optional[int]
+
+### Address
+- **Type**: typing.Optional[str]
+
+### VpcSecurityGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembership]]
+
+### VpcEndpoint
+- **Type**: <class 'NoneType'>
+
+
+# EndpointAccessList
 
 ### EndpointAccessList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EndpointAccessTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EndpointAccess]
 - **Required**: Yes
 
 ### Marker
@@ -3353,11 +3398,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointAccessResponseTypeDef
+# EndpointAccessResponse
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -3392,55 +3437,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### VpcSecurityGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembershipTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembership]
 - **Required**: Yes
 
 ### VpcEndpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.VpcEndpointTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.VpcEndpoint'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointAccessTypeDef
+# EndpointAuthorization
+
+### Grantor
+- **Type**: typing.Optional[str]
+
+### Grantee
+- **Type**: typing.Optional[str]
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
 
-### ResourceOwner
-- **Type**: typing.Optional[str]
-
-### SubnetGroupName
-- **Type**: typing.Optional[str]
-
-### EndpointStatus
-- **Type**: typing.Optional[str]
-
-### EndpointName
-- **Type**: typing.Optional[str]
-
-### EndpointCreateTime
+### AuthorizeTime
 - **Type**: typing.Optional[datetime.datetime]
 
-### Port
-- **Type**: typing.Optional[int]
-
-### Address
+### ClusterStatus
 - **Type**: typing.Optional[str]
 
-### VpcSecurityGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcSecurityGroupMembershipTypeDef]]
+### Status
+- **Type**: typing.Optional[typing.Literal['Authorized', 'Revoking']]
 
-### VpcEndpoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.VpcEndpointTypeDef]
+### AllowedAllVPCs
+- **Type**: typing.Optional[bool]
+
+### AllowedVPCs
+- **Type**: typing.Optional[typing.List[str]]
+
+### EndpointCount
+- **Type**: typing.Optional[int]
 
 
-# EndpointAuthorizationListTypeDef
+# EndpointAuthorizationList
 
 ### EndpointAuthorizationList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EndpointAuthorizationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EndpointAuthorization]
 - **Required**: Yes
 
 ### Marker
@@ -3448,11 +3490,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointAuthorizationResponseTypeDef
+# EndpointAuthorizationResponse
 
 ### Grantor
 - **Type**: <class 'str'>
@@ -3491,73 +3533,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointAuthorizationTypeDef
+# Event
 
-### Grantor
+### SourceIdentifier
 - **Type**: typing.Optional[str]
 
-### Grantee
+### SourceType
+- **Type**: typing.Optional[typing.Literal['cluster', 'cluster-parameter-group', 'cluster-security-group', 'cluster-snapshot', 'scheduled-action']]
+
+### Message
 - **Type**: typing.Optional[str]
 
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### AuthorizeTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### ClusterStatus
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['Authorized', 'Revoking']]
-
-### AllowedAllVPCs
-- **Type**: typing.Optional[bool]
-
-### AllowedVPCs
+### EventCategories
 - **Type**: typing.Optional[typing.List[str]]
 
-### EndpointCount
-- **Type**: typing.Optional[int]
-
-
-# EndpointTypeDef
-
-### Address
+### Severity
 - **Type**: typing.Optional[str]
 
-### Port
-- **Type**: typing.Optional[int]
+### Date
+- **Type**: typing.Optional[datetime.datetime]
 
-### VpcEndpoints
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.VpcEndpointTypeDef]]
+### EventId
+- **Type**: typing.Optional[str]
 
 
-# EventCategoriesMapTypeDef
+# EventCategoriesMap
 
 ### SourceType
 - **Type**: typing.Optional[str]
 
 ### Events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventInfoMapTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventInfoMap]]
 
 
-# EventCategoriesMessageTypeDef
+# EventCategoriesMessage
 
 ### EventCategoriesMapList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventCategoriesMapTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventCategoriesMap]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventInfoMapTypeDef
+# EventInfoMap
 
 ### EventId
 - **Type**: typing.Optional[str]
@@ -3572,7 +3596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EventSubscriptionTypeDef
+# EventSubscription
 
 ### CustomerAwsId
 - **Type**: typing.Optional[str]
@@ -3605,82 +3629,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# EventSubscriptionsMessageTypeDef
+# EventSubscriptionsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventSubscriptionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventSubscriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventSubscription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventTypeDef
-
-### SourceIdentifier
-- **Type**: typing.Optional[str]
-
-### SourceType
-- **Type**: typing.Optional[typing.Literal['cluster', 'cluster-parameter-group', 'cluster-security-group', 'cluster-snapshot', 'scheduled-action']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-### EventCategories
-- **Type**: typing.Optional[typing.List[str]]
-
-### Severity
-- **Type**: typing.Optional[str]
-
-### Date
-- **Type**: typing.Optional[datetime.datetime]
-
-### EventId
-- **Type**: typing.Optional[str]
-
-
-# EventsMessageTypeDef
+# EventsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Events
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.EventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Event]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FailoverPrimaryComputeInputMessageTypeDef
+# FailoverPrimaryComputeInputMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# FailoverPrimaryComputeResultTypeDef
+# FailoverPrimaryComputeResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetClusterCredentialsMessageTypeDef
+# GetClusterCredentialsMessage
 
 ### DbUser
 - **Type**: <class 'str'>
@@ -3705,7 +3705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetClusterCredentialsWithIAMMessageTypeDef
+# GetClusterCredentialsWithIAMMessage
 
 ### DbName
 - **Type**: typing.Optional[str]
@@ -3720,23 +3720,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetReservedNodeExchangeConfigurationOptionsInputMessagePaginateTypeDef
-
-### ActionType
-- **Type**: typing.Literal['resize-cluster', 'restore-cluster']
-- **Required**: Yes
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# GetReservedNodeExchangeConfigurationOptionsInputMessageTypeDef
+# GetReservedNodeExchangeConfigurationOptionsInputMessage
 
 ### ActionType
 - **Type**: typing.Literal['resize-cluster', 'restore-cluster']
@@ -3755,32 +3739,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetReservedNodeExchangeConfigurationOptionsOutputMessageTypeDef
+# GetReservedNodeExchangeConfigurationOptionsInputMessagePaginate
+
+### ActionType
+- **Type**: typing.Literal['resize-cluster', 'restore-cluster']
+- **Required**: Yes
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# GetReservedNodeExchangeConfigurationOptionsOutputMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ReservedNodeConfigurationOptionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeConfigurationOptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeConfigurationOption]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetReservedNodeExchangeOfferingsInputMessagePaginateTypeDef
-
-### ReservedNodeId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# GetReservedNodeExchangeOfferingsInputMessageTypeDef
+# GetReservedNodeExchangeOfferingsInputMessage
 
 ### ReservedNodeId
 - **Type**: <class 'str'>
@@ -3793,55 +3783,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetReservedNodeExchangeOfferingsOutputMessageTypeDef
+# GetReservedNodeExchangeOfferingsInputMessagePaginate
+
+### ReservedNodeId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# GetReservedNodeExchangeOfferingsOutputMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ReservedNodeOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOfferingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOffering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourcePolicyMessageTypeDef
+# GetResourcePolicyMessage
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyResultTypeDef
+# GetResourcePolicyResult
 
 ### ResourcePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResourcePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HsmClientCertificateMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HsmClientCertificates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.HsmClientCertificateTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# HsmClientCertificateTypeDef
+# HsmClientCertificate
 
 ### HsmClientCertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -3850,25 +3835,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# HsmConfigurationMessageTypeDef
+# HsmClientCertificateMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### HsmConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.HsmConfigurationTypeDef]
+### HsmClientCertificates
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.HsmClientCertificate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HsmConfigurationTypeDef
+# HsmConfiguration
 
 ### HsmConfigurationIdentifier
 - **Type**: typing.Optional[str]
@@ -3883,10 +3868,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# HsmStatusTypeDef
+# HsmConfigurationMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HsmConfigurations
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.HsmConfiguration]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# HsmStatus
 
 ### HsmClientCertificateIdentifier
 - **Type**: typing.Optional[str]
@@ -3898,7 +3898,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IPRangeTypeDef
+# IPRange
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -3907,10 +3907,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# InboundIntegrationTypeDef
+# InboundIntegration
 
 ### IntegrationArn
 - **Type**: typing.Optional[str]
@@ -3925,28 +3925,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['active', 'creating', 'deleting', 'failed', 'modifying', 'needs_attention', 'syncing']]
 
 ### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationError]]
 
 ### CreateTime
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# InboundIntegrationsMessageTypeDef
+# InboundIntegrationsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InboundIntegrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.InboundIntegrationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.InboundIntegration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IntegrationErrorTypeDef
+# Integration
+
+### IntegrationArn
+- **Type**: typing.Optional[str]
+
+### IntegrationName
+- **Type**: typing.Optional[str]
+
+### SourceArn
+- **Type**: typing.Optional[str]
+
+### TargetArn
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['active', 'creating', 'deleting', 'failed', 'modifying', 'needs_attention', 'syncing']]
+
+### Errors
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationError]]
+
+### CreateTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### KMSKeyId
+- **Type**: typing.Optional[str]
+
+### AdditionalEncryptionContext
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+
+# IntegrationError
 
 ### ErrorCode
 - **Type**: <class 'str'>
@@ -3956,7 +3992,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# IntegrationResponseTypeDef
+# IntegrationResponse
 
 ### IntegrationArn
 - **Type**: <class 'str'>
@@ -3979,7 +4015,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Errors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationErrorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationError]
 - **Required**: Yes
 
 ### CreateTime
@@ -3999,91 +4035,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IntegrationTypeDef
-
-### IntegrationArn
-- **Type**: typing.Optional[str]
-
-### IntegrationName
-- **Type**: typing.Optional[str]
-
-### SourceArn
-- **Type**: typing.Optional[str]
-
-### TargetArn
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['active', 'creating', 'deleting', 'failed', 'modifying', 'needs_attention', 'syncing']]
-
-### Errors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationErrorTypeDef]]
-
-### CreateTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### KMSKeyId
-- **Type**: typing.Optional[str]
-
-### AdditionalEncryptionContext
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-
-# IntegrationsMessageTypeDef
+# IntegrationsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Integrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.IntegrationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Integration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LakeFormationQueryTypeDef
+# LakeFormationQuery
 
 ### Authorization
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# LakeFormationScopeUnionTypeDef
+# LakeFormationScopeUnion
 
 ### LakeFormationQuery
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.LakeFormationQueryTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListRecommendationsMessagePaginateTypeDef
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### NamespaceArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfigTypeDef]
-
-
-# ListRecommendationsMessageTypeDef
+# ListRecommendationsMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -4098,10 +4086,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationsResultTypeDef
+# ListRecommendationsMessagePaginate
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### NamespaceArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PaginatorConfig]
+
+
+# ListRecommendationsResult
 
 ### Recommendations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Recommendation]
 - **Required**: Yes
 
 ### Marker
@@ -4109,11 +4109,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoggingStatusTypeDef
+# LoggingStatus
 
 ### LoggingEnabled
 - **Type**: <class 'bool'>
@@ -4148,11 +4148,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MaintenanceTrackTypeDef
+# MaintenanceTrack
 
 ### MaintenanceTrackName
 - **Type**: typing.Optional[str]
@@ -4161,10 +4161,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### UpdateTargets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.UpdateTargetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.UpdateTarget]]
 
 
-# ModifyAquaInputMessageTypeDef
+# ModifyAquaInputMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4174,18 +4174,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['auto', 'disabled', 'enabled']]
 
 
-# ModifyAquaOutputMessageTypeDef
+# ModifyAquaOutputMessage
 
 ### AquaConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.AquaConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.AquaConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyAuthenticationProfileMessageTypeDef
+# ModifyAuthenticationProfileMessage
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
@@ -4196,7 +4196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyAuthenticationProfileResultTypeDef
+# ModifyAuthenticationProfileResult
 
 ### AuthenticationProfileName
 - **Type**: <class 'str'>
@@ -4207,11 +4207,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterDbRevisionMessageTypeDef
+# ModifyClusterDbRevisionMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4222,18 +4222,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyClusterDbRevisionResultTypeDef
+# ModifyClusterDbRevisionResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterIamRolesMessageTypeDef
+# ModifyClusterIamRolesMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4249,18 +4249,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyClusterIamRolesResultTypeDef
+# ModifyClusterIamRolesResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterMaintenanceMessageTypeDef
+# ModifyClusterMaintenanceMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4273,27 +4273,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DeferMaintenanceStartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### DeferMaintenanceEndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### DeferMaintenanceDuration
 - **Type**: typing.Optional[int]
 
 
-# ModifyClusterMaintenanceResultTypeDef
+# ModifyClusterMaintenanceResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterMessageTypeDef
+# ModifyClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4384,29 +4384,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ModifyClusterParameterGroupMessageTypeDef
+# ModifyClusterParameterGroupMessage
 
 ### ParameterGroupName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Parameters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ParameterTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Parameter]
 - **Required**: Yes
 
 
-# ModifyClusterResultTypeDef
+# ModifyClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterSnapshotMessageTypeDef
+# ModifyClusterSnapshotMessage
 
 ### SnapshotIdentifier
 - **Type**: <class 'str'>
@@ -4419,18 +4419,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ModifyClusterSnapshotResultTypeDef
+# ModifyClusterSnapshotResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyClusterSnapshotScheduleMessageTypeDef
+# ModifyClusterSnapshotScheduleMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4443,7 +4443,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ModifyClusterSubnetGroupMessageTypeDef
+# ModifyClusterSubnetGroupMessage
 
 ### ClusterSubnetGroupName
 - **Type**: <class 'str'>
@@ -4457,18 +4457,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyClusterSubnetGroupResultTypeDef
+# ModifyClusterSubnetGroupResult
 
 ### ClusterSubnetGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSubnetGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyCustomDomainAssociationMessageTypeDef
+# ModifyCustomDomainAssociationMessage
 
 ### CustomDomainName
 - **Type**: <class 'str'>
@@ -4483,7 +4483,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyCustomDomainAssociationResultTypeDef
+# ModifyCustomDomainAssociationResult
 
 ### CustomDomainName
 - **Type**: <class 'str'>
@@ -4502,11 +4502,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyEndpointAccessMessageTypeDef
+# ModifyEndpointAccessMessage
 
 ### EndpointName
 - **Type**: <class 'str'>
@@ -4516,7 +4516,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ModifyEventSubscriptionMessageTypeDef
+# ModifyEventSubscriptionMessage
 
 ### SubscriptionName
 - **Type**: <class 'str'>
@@ -4541,18 +4541,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ModifyEventSubscriptionResultTypeDef
+# ModifyEventSubscriptionResult
 
 ### EventSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.EventSubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.EventSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyIntegrationMessageTypeDef
+# ModifyIntegrationMessage
 
 ### IntegrationArn
 - **Type**: <class 'str'>
@@ -4565,7 +4565,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ModifyRedshiftIdcApplicationMessageTypeDef
+# ModifyRedshiftIdcApplicationMessage
 
 ### RedshiftIdcApplicationArn
 - **Type**: <class 'str'>
@@ -4581,31 +4581,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthorizedTokenIssuerList
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerUnion]]
 
 ### ServiceIntegrations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionUnion]]
 
 
-# ModifyRedshiftIdcApplicationResultTypeDef
+# ModifyRedshiftIdcApplicationResult
 
 ### RedshiftIdcApplication
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplicationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.RedshiftIdcApplication'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifyScheduledActionMessageTypeDef
+# ModifyScheduledActionMessage
 
 ### ScheduledActionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TargetAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionTypeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionType]
 
 ### Schedule
 - **Type**: typing.Optional[str]
@@ -4617,16 +4617,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.Timestamp]
 
 ### Enable
 - **Type**: typing.Optional[bool]
 
 
-# ModifySnapshotCopyRetentionPeriodMessageTypeDef
+# ModifySnapshotCopyRetentionPeriodMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -4640,18 +4640,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ModifySnapshotCopyRetentionPeriodResultTypeDef
+# ModifySnapshotCopyRetentionPeriodResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ModifySnapshotScheduleMessageTypeDef
+# ModifySnapshotScheduleMessage
 
 ### ScheduleIdentifier
 - **Type**: <class 'str'>
@@ -4662,7 +4662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ModifyUsageLimitMessageTypeDef
+# ModifyUsageLimitMessage
 
 ### UsageLimitId
 - **Type**: <class 'str'>
@@ -4675,16 +4675,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['disable', 'emit-metric', 'log']]
 
 
-# NamespaceIdentifierUnionTypeDef
+# NamespaceIdentifierUnion
 
 ### ServerlessIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ServerlessIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProvisionedIdentifier
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ProvisionedIdentifierTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# NetworkInterfaceTypeDef
+# NetworkInterface
 
 ### NetworkInterfaceId
 - **Type**: typing.Optional[str]
@@ -4702,7 +4702,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NodeConfigurationOptionTypeDef
+# NodeConfigurationOption
 
 ### NodeType
 - **Type**: typing.Optional[str]
@@ -4717,7 +4717,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['high-performance', 'standard']]
 
 
-# NodeConfigurationOptionsFilterTypeDef
+# NodeConfigurationOptionsFilter
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['EstimatedDiskUtilizationPercent', 'Mode', 'NodeType', 'NumberOfNodes']]
@@ -4729,10 +4729,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# NodeConfigurationOptionsMessageTypeDef
+# NodeConfigurationOptionsMessage
 
 ### NodeConfigurationOptionList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.NodeConfigurationOption]
 - **Required**: Yes
 
 ### Marker
@@ -4740,11 +4740,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# OrderableClusterOptionTypeDef
+# OrderableClusterOption
 
 ### ClusterVersion
 - **Type**: typing.Optional[str]
@@ -4756,13 +4756,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AvailabilityZones
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AvailabilityZoneTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AvailabilityZone]]
 
 
-# OrderableClusterOptionsMessageTypeDef
+# OrderableClusterOptionsMessage
 
 ### OrderableClusterOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.OrderableClusterOptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.OrderableClusterOption]
 - **Required**: Yes
 
 ### Marker
@@ -4770,11 +4770,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -4786,7 +4786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParameterTypeDef
+# Parameter
 
 ### ParameterName
 - **Type**: typing.Optional[str]
@@ -4816,7 +4816,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PartnerIntegrationInfoTypeDef
+# PartnerIntegrationInfo
 
 ### DatabaseName
 - **Type**: typing.Optional[str]
@@ -4837,7 +4837,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PartnerIntegrationInputMessageRequestTypeDef
+# PartnerIntegrationInputMessage
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -4856,7 +4856,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PartnerIntegrationInputMessageTypeDef
+# PartnerIntegrationInputMessageRequest
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -4875,7 +4875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PartnerIntegrationOutputMessageTypeDef
+# PartnerIntegrationOutputMessage
 
 ### DatabaseName
 - **Type**: <class 'str'>
@@ -4886,36 +4886,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PauseClusterMessageRequestTypeDef
+# PauseClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PauseClusterMessageTypeDef
+# PauseClusterMessageRequest
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PauseClusterResultTypeDef
+# PauseClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PendingModifiedValuesTypeDef
+# PendingModifiedValues
 
 ### MasterUserPassword
 - **Type**: typing.Optional[str]
@@ -4951,14 +4951,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProvisionedIdentifierTypeDef
+# ProvisionedIdentifier
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# PurchaseReservedNodeOfferingMessageTypeDef
+# PurchaseReservedNodeOfferingMessage
 
 ### ReservedNodeOfferingId
 - **Type**: <class 'str'>
@@ -4968,18 +4968,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PurchaseReservedNodeOfferingResultTypeDef
+# PurchaseReservedNodeOfferingResult
 
 ### ReservedNode
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ReservedNode'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourcePolicyMessageTypeDef
+# PutResourcePolicyMessage
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4990,43 +4990,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutResourcePolicyResultTypeDef
+# PutResourcePolicyResult
 
 ### ResourcePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResourcePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResourcePolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReadWriteAccessTypeDef
+# ReadWriteAccess
 
 ### Authorization
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# RebootClusterMessageTypeDef
+# RebootClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RebootClusterResultTypeDef
+# RebootClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RecommendationTypeDef
+# Recommendation
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -5059,19 +5059,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecommendedActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecommendedActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecommendedAction]]
 
 ### ReferenceLinks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReferenceLinkTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReferenceLink]]
 
 
-# RecommendedActionTypeDef
+# RecommendedAction
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecurringChargeTypeDef
+# RecurringCharge
 
 ### RecurringChargeAmount
 - **Type**: typing.Optional[float]
@@ -5080,7 +5080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RedshiftIdcApplicationTypeDef
+# RedshiftIdcApplication
 
 ### IdcInstanceArn
 - **Type**: typing.Optional[str]
@@ -5107,22 +5107,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AuthorizedTokenIssuerList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AuthorizedTokenIssuerOutput]]
 
 ### ServiceIntegrations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ServiceIntegrationsUnionOutput]]
 
 
-# ReferenceLinkTypeDef
+# ReferenceLink
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RegisterNamespaceInputMessageTypeDef
+# RegisterNamespaceInputMessage
 
 ### NamespaceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.NamespaceIdentifierUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.NamespaceIdentifierUnion'>
 - **Required**: Yes
 
 ### ConsumerIdentifiers
@@ -5130,112 +5130,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterNamespaceOutputMessageTypeDef
+# RegisterNamespaceOutputMessage
 
 ### Status
 - **Type**: typing.Literal['Deregistering', 'Registering']
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RejectDataShareMessageTypeDef
+# RejectDataShareMessage
 
 ### DataShareArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReservedNodeConfigurationOptionTypeDef
-
-### SourceReservedNode
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeTypeDef]
-
-### TargetReservedNodeCount
-- **Type**: typing.Optional[int]
-
-### TargetReservedNodeOffering
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOfferingTypeDef]
-
-
-# ReservedNodeExchangeStatusTypeDef
-
-### ReservedNodeExchangeRequestId
-- **Type**: typing.Optional[str]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'PENDING', 'REQUESTED', 'RETRYING', 'SUCCEEDED']]
-
-### RequestTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### SourceReservedNodeId
-- **Type**: typing.Optional[str]
-
-### SourceReservedNodeType
-- **Type**: typing.Optional[str]
-
-### SourceReservedNodeCount
-- **Type**: typing.Optional[int]
-
-### TargetReservedNodeOfferingId
-- **Type**: typing.Optional[str]
-
-### TargetReservedNodeType
-- **Type**: typing.Optional[str]
-
-### TargetReservedNodeCount
-- **Type**: typing.Optional[int]
-
-
-# ReservedNodeOfferingTypeDef
-
-### ReservedNodeOfferingId
-- **Type**: typing.Optional[str]
-
-### NodeType
-- **Type**: typing.Optional[str]
-
-### Duration
-- **Type**: typing.Optional[int]
-
-### FixedPrice
-- **Type**: typing.Optional[float]
-
-### UsagePrice
-- **Type**: typing.Optional[float]
-
-### CurrencyCode
-- **Type**: typing.Optional[str]
-
-### OfferingType
-- **Type**: typing.Optional[str]
-
-### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecurringChargeTypeDef]]
-
-### ReservedNodeOfferingType
-- **Type**: typing.Optional[typing.Literal['Regular', 'Upgradable']]
-
-
-# ReservedNodeOfferingsMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ReservedNodeOfferings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOfferingTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ReservedNodeTypeDef
+# ReservedNode
 
 ### ReservedNodeId
 - **Type**: typing.Optional[str]
@@ -5271,28 +5184,115 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecurringCharges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecurringChargeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecurringCharge]]
 
 ### ReservedNodeOfferingType
 - **Type**: typing.Optional[typing.Literal['Regular', 'Upgradable']]
 
 
-# ReservedNodesMessageTypeDef
+# ReservedNodeConfigurationOption
+
+### SourceReservedNode
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReservedNode]
+
+### TargetReservedNodeCount
+- **Type**: typing.Optional[int]
+
+### TargetReservedNodeOffering
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOffering]
+
+
+# ReservedNodeExchangeStatus
+
+### ReservedNodeExchangeRequestId
+- **Type**: typing.Optional[str]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'PENDING', 'REQUESTED', 'RETRYING', 'SUCCEEDED']]
+
+### RequestTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### SourceReservedNodeId
+- **Type**: typing.Optional[str]
+
+### SourceReservedNodeType
+- **Type**: typing.Optional[str]
+
+### SourceReservedNodeCount
+- **Type**: typing.Optional[int]
+
+### TargetReservedNodeOfferingId
+- **Type**: typing.Optional[str]
+
+### TargetReservedNodeType
+- **Type**: typing.Optional[str]
+
+### TargetReservedNodeCount
+- **Type**: typing.Optional[int]
+
+
+# ReservedNodeOffering
+
+### ReservedNodeOfferingId
+- **Type**: typing.Optional[str]
+
+### NodeType
+- **Type**: typing.Optional[str]
+
+### Duration
+- **Type**: typing.Optional[int]
+
+### FixedPrice
+- **Type**: typing.Optional[float]
+
+### UsagePrice
+- **Type**: typing.Optional[float]
+
+### CurrencyCode
+- **Type**: typing.Optional[str]
+
+### OfferingType
+- **Type**: typing.Optional[str]
+
+### RecurringCharges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.RecurringCharge]]
+
+### ReservedNodeOfferingType
+- **Type**: typing.Optional[typing.Literal['Regular', 'Upgradable']]
+
+
+# ReservedNodeOfferingsMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ReservedNodeOfferings
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeOffering]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ReservedNodesMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ReservedNodes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNodeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ReservedNode]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResetClusterParameterGroupMessageTypeDef
+# ResetClusterParameterGroupMessage
 
 ### ParameterGroupName
 - **Type**: <class 'str'>
@@ -5302,35 +5302,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.ParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.Parameter]]
 
 
-# ResizeClusterMessageRequestTypeDef
-
-### ClusterIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ClusterType
-- **Type**: typing.Optional[str]
-
-### NodeType
-- **Type**: typing.Optional[str]
-
-### NumberOfNodes
-- **Type**: typing.Optional[int]
-
-### Classic
-- **Type**: typing.Optional[bool]
-
-### ReservedNodeId
-- **Type**: typing.Optional[str]
-
-### TargetReservedNodeOfferingId
-- **Type**: typing.Optional[str]
-
-
-# ResizeClusterMessageTypeDef
+# ResizeClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -5355,18 +5330,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResizeClusterResultTypeDef
+# ResizeClusterMessageRequest
+
+### ClusterIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ClusterType
+- **Type**: typing.Optional[str]
+
+### NodeType
+- **Type**: typing.Optional[str]
+
+### NumberOfNodes
+- **Type**: typing.Optional[int]
+
+### Classic
+- **Type**: typing.Optional[bool]
+
+### ReservedNodeId
+- **Type**: typing.Optional[str]
+
+### TargetReservedNodeOfferingId
+- **Type**: typing.Optional[str]
+
+
+# ResizeClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResizeInfoTypeDef
+# ResizeInfo
 
 ### ResizeType
 - **Type**: typing.Optional[str]
@@ -5375,7 +5375,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ResizeProgressMessageTypeDef
+# ResizeProgressMessage
 
 ### TargetNodeType
 - **Type**: <class 'str'>
@@ -5442,11 +5442,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResourcePolicyTypeDef
+# ResourcePolicy
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -5455,7 +5455,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -5477,7 +5477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreFromClusterSnapshotMessageTypeDef
+# RestoreFromClusterSnapshotMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -5592,18 +5592,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RestoreFromClusterSnapshotResultTypeDef
+# RestoreFromClusterSnapshotResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RestoreStatusTypeDef
+# RestoreStatus
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -5624,7 +5624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTableFromClusterSnapshotMessageTypeDef
+# RestoreTableFromClusterSnapshotMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
@@ -5659,43 +5659,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RestoreTableFromClusterSnapshotResultTypeDef
+# RestoreTableFromClusterSnapshotResult
 
 ### TableRestoreStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.TableRestoreStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.TableRestoreStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResumeClusterMessageRequestTypeDef
+# ResumeClusterMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResumeClusterMessageTypeDef
+# ResumeClusterMessageRequest
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResumeClusterResultTypeDef
+# ResumeClusterResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RevisionTargetTypeDef
+# RevisionTarget
 
 ### DatabaseRevision
 - **Type**: typing.Optional[str]
@@ -5707,7 +5707,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RevokeClusterSecurityGroupIngressMessageTypeDef
+# RevokeClusterSecurityGroupIngressMessage
 
 ### ClusterSecurityGroupName
 - **Type**: <class 'str'>
@@ -5723,18 +5723,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeClusterSecurityGroupIngressResultTypeDef
+# RevokeClusterSecurityGroupIngressResult
 
 ### ClusterSecurityGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterSecurityGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RevokeEndpointAccessMessageTypeDef
+# RevokeEndpointAccessMessage
 
 ### ClusterIdentifier
 - **Type**: typing.Optional[str]
@@ -5749,7 +5749,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# RevokeSnapshotAccessMessageTypeDef
+# RevokeSnapshotAccessMessage
 
 ### AccountWithRestoreAccess
 - **Type**: <class 'str'>
@@ -5765,42 +5765,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RevokeSnapshotAccessResultTypeDef
+# RevokeSnapshotAccessResult
 
 ### Snapshot
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Snapshot'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RotateEncryptionKeyMessageTypeDef
+# RotateEncryptionKeyMessage
 
 ### ClusterIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RotateEncryptionKeyResultTypeDef
+# RotateEncryptionKeyResult
 
 ### Cluster
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ClusterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.Cluster'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# S3AccessGrantsScopeUnionTypeDef
+# S3AccessGrantsScopeUnion
 
 ### ReadWriteAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ReadWriteAccessTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ScheduledActionFilterTypeDef
+# ScheduledAction
+
+### ScheduledActionName
+- **Type**: typing.Optional[str]
+
+### TargetAction
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionType]
+
+### Schedule
+- **Type**: typing.Optional[str]
+
+### IamRole
+- **Type**: typing.Optional[str]
+
+### ScheduledActionDescription
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED']]
+
+### NextInvocations
+- **Type**: typing.Optional[typing.List[datetime.datetime]]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ScheduledActionFilter
 
 ### Name
 - **Type**: typing.Literal['cluster-identifier', 'iam-role']
@@ -5811,14 +5841,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ScheduledActionResponseTypeDef
+# ScheduledActionResponse
 
 ### ScheduledActionName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TargetAction
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionTypeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionType'>
 - **Required**: Yes
 
 ### Schedule
@@ -5850,77 +5880,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ScheduledActionTypeDef
-
-### ScheduledActionName
-- **Type**: typing.Optional[str]
-
-### TargetAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionTypeTypeDef]
-
-### Schedule
-- **Type**: typing.Optional[str]
-
-### IamRole
-- **Type**: typing.Optional[str]
-
-### ScheduledActionDescription
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DISABLED']]
-
-### NextInvocations
-- **Type**: typing.Optional[typing.List[datetime.datetime]]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ScheduledActionTypeTypeDef
+# ScheduledActionType
 
 ### ResizeCluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ResizeClusterMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ResizeClusterMessage]
 
 ### PauseCluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PauseClusterMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.PauseClusterMessage]
 
 ### ResumeCluster
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ResumeClusterMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.ResumeClusterMessage]
 
 
-# ScheduledActionsMessageTypeDef
+# ScheduledActionsMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ScheduledActions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ScheduledActionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ScheduledAction]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SecondaryClusterInfoTypeDef
+# SecondaryClusterInfo
 
 ### AvailabilityZone
 - **Type**: typing.Optional[str]
 
 ### ClusterNodes
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterNodeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterNode]]
 
 
-# ServerlessIdentifierTypeDef
+# ServerlessIdentifier
 
 ### NamespaceIdentifier
 - **Type**: <class 'str'>
@@ -5931,157 +5931,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ServiceIntegrationsUnionOutputTypeDef
+# ServiceIntegrationsUnion
 
 ### LakeFormation
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.LakeFormationScopeUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.LakeFormationScopeUnion]]
 
 ### S3AccessGrants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.S3AccessGrantsScopeUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.S3AccessGrantsScopeUnion]]
 
 
-# ServiceIntegrationsUnionTypeDef
+# ServiceIntegrationsUnionOutput
 
 ### LakeFormation
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.LakeFormationScopeUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.LakeFormationScopeUnion]]
 
 ### S3AccessGrants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.redshift_classes.S3AccessGrantsScopeUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.S3AccessGrantsScopeUnion]]
 
 
-# ServiceIntegrationsUnionUnionTypeDef
+# ServiceIntegrationsUnionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SnapshotCopyGrantMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SnapshotCopyGrants
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotCopyGrantTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# SnapshotCopyGrantTypeDef
-
-### SnapshotCopyGrantName
-- **Type**: typing.Optional[str]
-
-### KmsKeyId
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-
-# SnapshotErrorMessageTypeDef
-
-### SnapshotIdentifier
-- **Type**: typing.Optional[str]
-
-### SnapshotClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### FailureCode
-- **Type**: typing.Optional[str]
-
-### FailureReason
-- **Type**: typing.Optional[str]
-
-
-# SnapshotMessageTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Snapshots
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# SnapshotScheduleResponseTypeDef
-
-### ScheduleDefinitions
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### ScheduleIdentifier
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ScheduleDescription
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]
-- **Required**: Yes
-
-### NextInvocations
-- **Type**: typing.List[datetime.datetime]
-- **Required**: Yes
-
-### AssociatedClusterCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### AssociatedClusters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterAssociatedToScheduleTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# SnapshotScheduleTypeDef
-
-### ScheduleDefinitions
-- **Type**: typing.Optional[typing.List[str]]
-
-### ScheduleIdentifier
-- **Type**: typing.Optional[str]
-
-### ScheduleDescription
-- **Type**: typing.Optional[str]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-### NextInvocations
-- **Type**: typing.Optional[typing.List[datetime.datetime]]
-
-### AssociatedClusterCount
-- **Type**: typing.Optional[int]
-
-### AssociatedClusters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterAssociatedToScheduleTypeDef]]
-
-
-# SnapshotSortingEntityTypeDef
-
-### Attribute
-- **Type**: typing.Literal['CREATE_TIME', 'SOURCE_TYPE', 'TOTAL_SIZE']
-- **Required**: Yes
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
-
-
-# SnapshotTypeDef
+# Snapshot
 
 ### SnapshotIdentifier
 - **Type**: typing.Optional[str]
@@ -6138,7 +6012,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### AccountsWithRestoreAccess
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AccountWithRestoreAccessTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.AccountWithRestoreAccess]]
 
 ### OwnerAccount
 - **Type**: typing.Optional[str]
@@ -6165,7 +6039,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 ### RestorableNodeTypes
 - **Type**: typing.Optional[typing.List[str]]
@@ -6195,46 +6069,157 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SubnetTypeDef
+# SnapshotCopyGrant
 
-### SubnetIdentifier
+### SnapshotCopyGrantName
 - **Type**: typing.Optional[str]
 
-### SubnetAvailabilityZone
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.AvailabilityZoneTypeDef]
-
-### SubnetStatus
+### KmsKeyId
 - **Type**: typing.Optional[str]
 
-
-# SupportedOperationTypeDef
-
-### OperationName
-- **Type**: typing.Optional[str]
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
 
 
-# SupportedPlatformTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-
-# TableRestoreStatusMessageTypeDef
-
-### TableRestoreStatusDetails
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TableRestoreStatusTypeDef]
-- **Required**: Yes
+# SnapshotCopyGrantMessage
 
 ### Marker
 - **Type**: <class 'str'>
 - **Required**: Yes
 
+### SnapshotCopyGrants
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.SnapshotCopyGrant]
+- **Required**: Yes
+
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TableRestoreStatusTypeDef
+# SnapshotErrorMessage
+
+### SnapshotIdentifier
+- **Type**: typing.Optional[str]
+
+### SnapshotClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### FailureCode
+- **Type**: typing.Optional[str]
+
+### FailureReason
+- **Type**: typing.Optional[str]
+
+
+# SnapshotMessage
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Snapshots
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Snapshot]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# SnapshotSchedule
+
+### ScheduleDefinitions
+- **Type**: typing.Optional[typing.List[str]]
+
+### ScheduleIdentifier
+- **Type**: typing.Optional[str]
+
+### ScheduleDescription
+- **Type**: typing.Optional[str]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+### NextInvocations
+- **Type**: typing.Optional[typing.List[datetime.datetime]]
+
+### AssociatedClusterCount
+- **Type**: typing.Optional[int]
+
+### AssociatedClusters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterAssociatedToSchedule]]
+
+
+# SnapshotScheduleResponse
+
+### ScheduleDefinitions
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### ScheduleIdentifier
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ScheduleDescription
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]
+- **Required**: Yes
+
+### NextInvocations
+- **Type**: typing.List[datetime.datetime]
+- **Required**: Yes
+
+### AssociatedClusterCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### AssociatedClusters
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.ClusterAssociatedToSchedule]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# SnapshotSortingEntity
+
+### Attribute
+- **Type**: typing.Literal['CREATE_TIME', 'SOURCE_TYPE', 'TOTAL_SIZE']
+- **Required**: Yes
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
+
+
+# Subnet
+
+### SubnetIdentifier
+- **Type**: typing.Optional[str]
+
+### SubnetAvailabilityZone
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.AvailabilityZone]
+
+### SubnetStatus
+- **Type**: typing.Optional[str]
+
+
+# SupportedOperation
+
+### OperationName
+- **Type**: typing.Optional[str]
+
+
+# SupportedPlatform
+
+### Name
+- **Type**: typing.Optional[str]
+
+
+# TableRestoreStatus
 
 ### TableRestoreRequestId
 - **Type**: typing.Optional[str]
@@ -6279,7 +6264,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
+# TableRestoreStatusMessage
+
+### TableRestoreStatusDetails
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TableRestoreStatus]
+- **Required**: Yes
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -6288,25 +6288,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TaggedResourceListMessageTypeDef
-
-### TaggedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TaggedResourceTypeDef]
-- **Required**: Yes
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# TaggedResourceTypeDef
+# TaggedResource
 
 ### Tag
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ResourceName
 - **Type**: typing.Optional[str]
@@ -6315,16 +6300,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# TaggedResourceListMessage
 
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TrackListMessageTypeDef
-
-### MaintenanceTracks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.MaintenanceTrackTypeDef]
+### TaggedResources
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TaggedResource]
 - **Required**: Yes
 
 ### Marker
@@ -6332,11 +6311,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePartnerStatusInputMessageTypeDef
+# Timestamp
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TrackListMessage
+
+### MaintenanceTracks
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.MaintenanceTrack]
+- **Required**: Yes
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# UpdatePartnerStatusInputMessage
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -6362,7 +6362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateTargetTypeDef
+# UpdateTarget
 
 ### MaintenanceTrackName
 - **Type**: typing.Optional[str]
@@ -6371,13 +6371,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SupportedOperations
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.SupportedOperationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.SupportedOperation]]
 
 
-# UsageLimitListTypeDef
+# UsageLimit
+
+### UsageLimitId
+- **Type**: typing.Optional[str]
+
+### ClusterIdentifier
+- **Type**: typing.Optional[str]
+
+### FeatureType
+- **Type**: typing.Optional[typing.Literal['concurrency-scaling', 'cross-region-datasharing', 'spectrum']]
+
+### LimitType
+- **Type**: typing.Optional[typing.Literal['data-scanned', 'time']]
+
+### Amount
+- **Type**: typing.Optional[int]
+
+### Period
+- **Type**: typing.Optional[typing.Literal['daily', 'monthly', 'weekly']]
+
+### BreachAction
+- **Type**: typing.Optional[typing.Literal['disable', 'emit-metric', 'log']]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]]
+
+
+# UsageLimitList
 
 ### UsageLimits
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.UsageLimitTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.UsageLimit]
 - **Required**: Yes
 
 ### Marker
@@ -6385,11 +6412,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UsageLimitResponseTypeDef
+# UsageLimitResponse
 
 ### UsageLimitId
 - **Type**: <class 'str'>
@@ -6420,42 +6447,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.redshift_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.redshift_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UsageLimitTypeDef
-
-### UsageLimitId
-- **Type**: typing.Optional[str]
-
-### ClusterIdentifier
-- **Type**: typing.Optional[str]
-
-### FeatureType
-- **Type**: typing.Optional[typing.Literal['concurrency-scaling', 'cross-region-datasharing', 'spectrum']]
-
-### LimitType
-- **Type**: typing.Optional[typing.Literal['data-scanned', 'time']]
-
-### Amount
-- **Type**: typing.Optional[int]
-
-### Period
-- **Type**: typing.Optional[typing.Literal['daily', 'monthly', 'weekly']]
-
-### BreachAction
-- **Type**: typing.Optional[typing.Literal['disable', 'emit-metric', 'log']]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.TagTypeDef]]
-
-
-# VpcEndpointTypeDef
+# VpcEndpoint
 
 ### VpcEndpointId
 - **Type**: typing.Optional[str]
@@ -6464,10 +6464,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### NetworkInterfaces
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.NetworkInterfaceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.redshift_classes.NetworkInterface]]
 
 
-# VpcSecurityGroupMembershipTypeDef
+# VpcSecurityGroupMembership
 
 ### VpcSecurityGroupId
 - **Type**: typing.Optional[str]
@@ -6476,7 +6476,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

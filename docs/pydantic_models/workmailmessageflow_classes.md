@@ -6,43 +6,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetRawMessageContentRequestTypeDef
+# GetRawMessageContentRequest
 
 ### messageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRawMessageContentResponseTypeDef
+# GetRawMessageContentResponse
 
 ### messageContent
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutRawMessageContentRequestTypeDef
+# PutRawMessageContentRequest
 
 ### messageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### content
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.RawMessageContentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.RawMessageContent'>
 - **Required**: Yes
 
 
-# RawMessageContentTypeDef
+# RawMessageContent
 
 ### s3Reference
-- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.S3ReferenceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.workmailmessageflow_classes.S3Reference'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ReferenceTypeDef
+# S3Reference
 
 ### bucket
 - **Type**: <class 'str'>

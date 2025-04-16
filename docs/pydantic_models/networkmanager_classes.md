@@ -1,6 +1,6 @@
 # Networkmanager Classes
 
-# AWSLocationTypeDef
+# AWSLocation
 
 ### Zone
 - **Type**: typing.Optional[str]
@@ -9,25 +9,25 @@
 - **Type**: typing.Optional[str]
 
 
-# AcceptAttachmentRequestTypeDef
+# AcceptAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AcceptAttachmentResponseTypeDef
+# AcceptAttachmentResponse
 
 ### Attachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AccountStatusTypeDef
+# AccountStatus
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -36,7 +36,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateConnectPeerRequestTypeDef
+# AssociateConnectPeerRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -54,18 +54,18 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateConnectPeerResponseTypeDef
+# AssociateConnectPeerResponse
 
 ### ConnectPeerAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateCustomerGatewayRequestTypeDef
+# AssociateCustomerGatewayRequest
 
 ### CustomerGatewayArn
 - **Type**: <class 'str'>
@@ -83,18 +83,18 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateCustomerGatewayResponseTypeDef
+# AssociateCustomerGatewayResponse
 
 ### CustomerGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateLinkRequestTypeDef
+# AssociateLinkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -109,18 +109,18 @@
 - **Required**: Yes
 
 
-# AssociateLinkResponseTypeDef
+# AssociateLinkResponse
 
 ### LinkAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateTransitGatewayConnectPeerRequestTypeDef
+# AssociateTransitGatewayConnectPeerRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -138,33 +138,18 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateTransitGatewayConnectPeerResponseTypeDef
+# AssociateTransitGatewayConnectPeerResponse
 
 ### TransitGatewayConnectPeerAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachmentErrorTypeDef
-
-### Code
-- **Type**: typing.Optional[typing.Literal['DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS', 'DIRECT_CONNECT_GATEWAY_NOT_FOUND', 'DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF', 'MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED', 'SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE', 'SUBNET_NOT_FOUND', 'SUBNET_NO_FREE_ADDRESSES', 'SUBNET_NO_IPV6_CIDRS', 'SUBNET_UNSUPPORTED_AVAILABILITY_ZONE', 'VPC_NOT_FOUND', 'VPN_CONNECTION_NOT_FOUND']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### RequestId
-- **Type**: typing.Optional[str]
-
-
-# AttachmentTypeDef
+# Attachment
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -203,13 +188,13 @@
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ProposedSegmentChange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ProposedSegmentChangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ProposedNetworkFunctionGroupChange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ProposedNetworkFunctionGroupChangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -218,10 +203,25 @@
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModificationErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentError]]
 
 
-# BandwidthTypeDef
+# AttachmentError
+
+### Code
+- **Type**: typing.Optional[typing.Literal['DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS', 'DIRECT_CONNECT_GATEWAY_NOT_FOUND', 'DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF', 'MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED', 'SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE', 'SUBNET_NOT_FOUND', 'SUBNET_NO_FREE_ADDRESSES', 'SUBNET_NO_IPV6_CIDRS', 'SUBNET_UNSUPPORTED_AVAILABILITY_ZONE', 'VPC_NOT_FOUND', 'VPN_CONNECTION_NOT_FOUND']]
+
+### Message
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### RequestId
+- **Type**: typing.Optional[str]
+
+
+# Bandwidth
 
 ### UploadSpeed
 - **Type**: typing.Optional[int]
@@ -236,112 +236,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BgpOptionsTypeDef
+# BgpOptions
 
 ### PeerAsn
 - **Type**: typing.Optional[int]
 
 
-# ConnectAttachmentOptionsTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ConnectAttachmentTypeDef
+# ConnectAttachment
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TransportAttachmentId
 - **Type**: typing.Optional[str]
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentOptions]
 
 
-# ConnectPeerAssociationTypeDef
-
-### ConnectPeerId
-- **Type**: typing.Optional[str]
-
-### GlobalNetworkId
-- **Type**: typing.Optional[str]
-
-### DeviceId
-- **Type**: typing.Optional[str]
-
-### LinkId
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'PENDING']]
-
-
-# ConnectPeerBgpConfigurationTypeDef
-
-### CoreNetworkAsn
-- **Type**: typing.Optional[int]
-
-### PeerAsn
-- **Type**: typing.Optional[int]
-
-### CoreNetworkAddress
-- **Type**: typing.Optional[str]
-
-### PeerAddress
-- **Type**: typing.Optional[str]
-
-
-# ConnectPeerConfigurationTypeDef
+# ConnectAttachmentOptions
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConnectPeerErrorTypeDef
-
-### Code
-- **Type**: typing.Optional[typing.Literal['EDGE_LOCATION_NO_FREE_IPS', 'EDGE_LOCATION_PEER_DUPLICATE', 'INVALID_INSIDE_CIDR_BLOCK', 'IP_OUTSIDE_SUBNET_CIDR_RANGE', 'NO_ASSOCIATED_CIDR_BLOCK', 'SUBNET_NOT_FOUND']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### RequestId
-- **Type**: typing.Optional[str]
-
-
-# ConnectPeerSummaryTypeDef
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### ConnectAttachmentId
-- **Type**: typing.Optional[str]
-
-### ConnectPeerId
-- **Type**: typing.Optional[str]
-
-### EdgeLocation
-- **Type**: typing.Optional[str]
-
-### ConnectPeerState
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
-
-### SubnetArn
-- **Type**: typing.Optional[str]
-
-
-# ConnectPeerTypeDef
+# ConnectPeer
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -362,25 +281,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerConfiguration]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### SubnetArn
 - **Type**: typing.Optional[str]
 
 ### LastModificationErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerError]]
 
 
-# ConnectionHealthTypeDef
+# ConnectPeerAssociation
+
+### ConnectPeerId
+- **Type**: typing.Optional[str]
+
+### GlobalNetworkId
+- **Type**: typing.Optional[str]
+
+### DeviceId
+- **Type**: typing.Optional[str]
+
+### LinkId
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'PENDING']]
+
+
+# ConnectPeerBgpConfiguration
+
+### CoreNetworkAsn
+- **Type**: typing.Optional[int]
+
+### PeerAsn
+- **Type**: typing.Optional[int]
+
+### CoreNetworkAddress
+- **Type**: typing.Optional[str]
+
+### PeerAddress
+- **Type**: typing.Optional[str]
+
+
+# ConnectPeerConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConnectionTypeDef
+# ConnectPeerError
+
+### Code
+- **Type**: typing.Optional[typing.Literal['EDGE_LOCATION_NO_FREE_IPS', 'EDGE_LOCATION_PEER_DUPLICATE', 'INVALID_INSIDE_CIDR_BLOCK', 'IP_OUTSIDE_SUBNET_CIDR_RANGE', 'NO_ASSOCIATED_CIDR_BLOCK', 'SUBNET_NOT_FOUND']]
+
+### Message
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### RequestId
+- **Type**: typing.Optional[str]
+
+
+# ConnectPeerSummary
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### ConnectAttachmentId
+- **Type**: typing.Optional[str]
+
+### ConnectPeerId
+- **Type**: typing.Optional[str]
+
+### EdgeLocation
+- **Type**: typing.Optional[str]
+
+### ConnectPeerState
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
+
+### SubnetArn
+- **Type**: typing.Optional[str]
+
+
+# Connection
 
 ### ConnectionId
 - **Type**: typing.Optional[str]
@@ -413,16 +407,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETING', 'PENDING', 'UPDATING']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# CoreNetworkChangeEventTypeDef
+# ConnectionHealth
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CoreNetworkChangeEventValuesTypeDef
+# CoreNetwork
+
+### GlobalNetworkId
+- **Type**: typing.Optional[str]
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### CoreNetworkArn
+- **Type**: typing.Optional[str]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### CreatedAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### State
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'UPDATING']]
+
+### Segments
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegment]]
+
+### NetworkFunctionGroups
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkNetworkFunctionGroup]]
+
+### Edges
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkEdge]]
+
+### Tags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
+
+
+# CoreNetworkChange
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CoreNetworkChangeEvent
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# CoreNetworkChangeEventValues
 
 ### EdgeLocation
 - **Type**: typing.Optional[str]
@@ -440,13 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CoreNetworkChangeTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# CoreNetworkChangeValuesTypeDef
+# CoreNetworkChangeValues
 
 ### SegmentName
 - **Type**: typing.Optional[str]
@@ -473,10 +506,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ServiceInsertionActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ServiceInsertionActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ServiceInsertionAction]]
 
 
-# CoreNetworkEdgeTypeDef
+# CoreNetworkEdge
 
 ### EdgeLocation
 - **Type**: typing.Optional[str]
@@ -488,7 +521,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CoreNetworkNetworkFunctionGroupIdentifierTypeDef
+# CoreNetworkNetworkFunctionGroup
+
+### Name
+- **Type**: typing.Optional[str]
+
+### EdgeLocations
+- **Type**: typing.Optional[typing.List[str]]
+
+### Segments
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ServiceInsertionSegments]
+
+
+# CoreNetworkNetworkFunctionGroupIdentifier
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -500,33 +545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CoreNetworkNetworkFunctionGroupTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### EdgeLocations
-- **Type**: typing.Optional[typing.List[str]]
-
-### Segments
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ServiceInsertionSegmentsTypeDef]
-
-
-# CoreNetworkPolicyErrorTypeDef
-
-### ErrorCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Message
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Path
-- **Type**: typing.Optional[str]
-
-
-# CoreNetworkPolicyTypeDef
+# CoreNetworkPolicy
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -547,13 +566,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXECUTING', 'EXECUTION_SUCCEEDED', 'FAILED_GENERATION', 'OUT_OF_DATE', 'PENDING_GENERATION', 'READY_TO_EXECUTE']]
 
 ### PolicyErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyError]]
 
 ### PolicyDocument
 - **Type**: typing.Optional[str]
 
 
-# CoreNetworkPolicyVersionTypeDef
+# CoreNetworkPolicyError
+
+### ErrorCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Message
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Path
+- **Type**: typing.Optional[str]
+
+
+# CoreNetworkPolicyVersion
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -574,19 +607,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXECUTING', 'EXECUTION_SUCCEEDED', 'FAILED_GENERATION', 'OUT_OF_DATE', 'PENDING_GENERATION', 'READY_TO_EXECUTE']]
 
 
-# CoreNetworkSegmentEdgeIdentifierTypeDef
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### SegmentName
-- **Type**: typing.Optional[str]
-
-### EdgeLocation
-- **Type**: typing.Optional[str]
-
-
-# CoreNetworkSegmentTypeDef
+# CoreNetworkSegment
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -598,7 +619,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# CoreNetworkSummaryTypeDef
+# CoreNetworkSegmentEdgeIdentifier
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### SegmentName
+- **Type**: typing.Optional[str]
+
+### EdgeLocation
+- **Type**: typing.Optional[str]
+
+
+# CoreNetworkSummary
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -619,43 +652,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# CoreNetworkTypeDef
-
-### GlobalNetworkId
-- **Type**: typing.Optional[str]
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### CoreNetworkArn
-- **Type**: typing.Optional[str]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### CreatedAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### State
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'UPDATING']]
-
-### Segments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegmentTypeDef]]
-
-### NetworkFunctionGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkNetworkFunctionGroupTypeDef]]
-
-### Edges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkEdgeTypeDef]]
-
-### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
-
-
-# CreateConnectAttachmentRequestTypeDef
+# CreateConnectAttachmentRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -670,28 +670,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentOptions'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateConnectAttachmentResponseTypeDef
+# CreateConnectAttachmentResponse
 
 ### ConnectAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConnectPeerRequestTypeDef
+# CreateConnectPeerRequest
 
 ### ConnectAttachmentId
 - **Type**: <class 'str'>
@@ -705,13 +705,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### BgpOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.BgpOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### InsideCidrBlocks
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
@@ -720,18 +720,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConnectPeerResponseTypeDef
+# CreateConnectPeerResponse
 
 ### ConnectPeer
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateConnectionRequestTypeDef
+# CreateConnectionRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -755,21 +755,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# CreateConnectionResponseTypeDef
+# CreateConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCoreNetworkRequestTypeDef
+# CreateCoreNetworkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -779,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### PolicyDocument
 - **Type**: typing.Optional[str]
@@ -788,29 +788,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateCoreNetworkResponseTypeDef
+# CreateCoreNetworkResponse
 
 ### CoreNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDeviceResponseTypeDef
+# CreateDeviceResponse
 
 ### Device
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Device'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDirectConnectGatewayAttachmentRequestTypeDef
+# CreateDirectConnectGatewayAttachmentRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -825,55 +825,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateDirectConnectGatewayAttachmentResponseTypeDef
+# CreateDirectConnectGatewayAttachmentResponse
 
 ### DirectConnectGatewayAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateGlobalNetworkRequestTypeDef
+# CreateGlobalNetworkRequest
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# CreateGlobalNetworkResponseTypeDef
+# CreateGlobalNetworkResponse
 
 ### GlobalNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLinkResponseTypeDef
+# CreateLinkResponse
 
 ### Link
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Link'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSiteRequestTypeDef
+# CreateSiteRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -883,24 +883,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.LocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# CreateSiteResponseTypeDef
+# CreateSiteResponse
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSiteToSiteVpnAttachmentRequestTypeDef
+# CreateSiteToSiteVpnAttachmentRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -911,24 +911,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateSiteToSiteVpnAttachmentResponseTypeDef
+# CreateSiteToSiteVpnAttachmentResponse
 
 ### SiteToSiteVpnAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteToSiteVpnAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteToSiteVpnAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTransitGatewayPeeringRequestTypeDef
+# CreateTransitGatewayPeeringRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -939,24 +939,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateTransitGatewayPeeringResponseTypeDef
+# CreateTransitGatewayPeeringResponse
 
 ### TransitGatewayPeering
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayPeeringTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayPeering'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTransitGatewayRouteTableAttachmentRequestTypeDef
+# CreateTransitGatewayRouteTableAttachmentRequest
 
 ### PeeringId
 - **Type**: <class 'str'>
@@ -967,24 +967,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateTransitGatewayRouteTableAttachmentResponseTypeDef
+# CreateTransitGatewayRouteTableAttachmentResponse
 
 ### TransitGatewayRouteTableAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRouteTableAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRouteTableAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcAttachmentRequestTypeDef
+# CreateVpcAttachmentRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -999,27 +999,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptions]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### ClientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateVpcAttachmentResponseTypeDef
+# CreateVpcAttachmentResponse
 
 ### VpcAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomerGatewayAssociationTypeDef
+# CustomerGatewayAssociation
 
 ### CustomerGatewayArn
 - **Type**: typing.Optional[str]
@@ -1037,43 +1037,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'PENDING']]
 
 
-# DeleteAttachmentRequestTypeDef
+# DeleteAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAttachmentResponseTypeDef
+# DeleteAttachmentResponse
 
 ### Attachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteConnectPeerRequestTypeDef
+# DeleteConnectPeerRequest
 
 ### ConnectPeerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConnectPeerResponseTypeDef
+# DeleteConnectPeerResponse
 
 ### ConnectPeer
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteConnectionRequestTypeDef
+# DeleteConnectionRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1084,18 +1084,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConnectionResponseTypeDef
+# DeleteConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCoreNetworkPolicyVersionRequestTypeDef
+# DeleteCoreNetworkPolicyVersionRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -1106,36 +1106,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCoreNetworkPolicyVersionResponseTypeDef
+# DeleteCoreNetworkPolicyVersionResponse
 
 ### CoreNetworkPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCoreNetworkRequestTypeDef
+# DeleteCoreNetworkRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCoreNetworkResponseTypeDef
+# DeleteCoreNetworkResponse
 
 ### CoreNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDeviceRequestTypeDef
+# DeleteDeviceRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1146,36 +1146,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteDeviceResponseTypeDef
+# DeleteDeviceResponse
 
 ### Device
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Device'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGlobalNetworkRequestTypeDef
+# DeleteGlobalNetworkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGlobalNetworkResponseTypeDef
+# DeleteGlobalNetworkResponse
 
 ### GlobalNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLinkRequestTypeDef
+# DeleteLinkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1186,43 +1186,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteLinkResponseTypeDef
+# DeleteLinkResponse
 
 ### Link
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Link'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePeeringRequestTypeDef
+# DeletePeeringRequest
 
 ### PeeringId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePeeringResponseTypeDef
+# DeletePeeringResponse
 
 ### Peering
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.PeeringTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Peering'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSiteRequestTypeDef
+# DeleteSiteRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1233,18 +1233,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSiteResponseTypeDef
+# DeleteSiteResponse
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeregisterTransitGatewayRequestTypeDef
+# DeregisterTransitGatewayRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1255,27 +1255,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeregisterTransitGatewayResponseTypeDef
+# DeregisterTransitGatewayResponse
 
 ### TransitGatewayRegistration
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistrationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeGlobalNetworksRequestPaginateTypeDef
-
-### GlobalNetworkIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# DescribeGlobalNetworksRequestTypeDef
+# DescribeGlobalNetworksRequest
 
 ### GlobalNetworkIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -1287,36 +1278,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeGlobalNetworksResponseTypeDef
+# DescribeGlobalNetworksRequestPaginate
+
+### GlobalNetworkIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# DescribeGlobalNetworksResponse
 
 ### GlobalNetworks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetworkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetwork]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# DeviceTypeDef
+# Device
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DirectConnectGatewayAttachmentTypeDef
+# DirectConnectGatewayAttachment
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DirectConnectGatewayArn
 - **Type**: typing.Optional[str]
 
 
-# DisassociateConnectPeerRequestTypeDef
+# DisassociateConnectPeerRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1327,18 +1327,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateConnectPeerResponseTypeDef
+# DisassociateConnectPeerResponse
 
 ### ConnectPeerAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateCustomerGatewayRequestTypeDef
+# DisassociateCustomerGatewayRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1349,18 +1349,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateCustomerGatewayResponseTypeDef
+# DisassociateCustomerGatewayResponse
 
 ### CustomerGatewayAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateLinkRequestTypeDef
+# DisassociateLinkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1375,18 +1375,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateLinkResponseTypeDef
+# DisassociateLinkResponse
 
 ### LinkAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateTransitGatewayConnectPeerRequestTypeDef
+# DisassociateTransitGatewayConnectPeerRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1397,18 +1397,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateTransitGatewayConnectPeerResponseTypeDef
+# DisassociateTransitGatewayConnectPeerResponse
 
 ### TransitGatewayConnectPeerAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EdgeOverrideTypeDef
+# EdgeOverride
 
 ### EdgeSets
 - **Type**: typing.Optional[typing.List[typing.List[str]]]
@@ -1417,7 +1417,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ExecuteCoreNetworkChangeSetRequestTypeDef
+# ExecuteCoreNetworkChangeSetRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -1428,38 +1428,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetConnectAttachmentRequestTypeDef
+# GetConnectAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectAttachmentResponseTypeDef
+# GetConnectAttachmentResponse
 
 ### ConnectAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectPeerAssociationsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ConnectPeerIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetConnectPeerAssociationsRequestTypeDef
+# GetConnectPeerAssociationsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1475,55 +1462,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetConnectPeerAssociationsResponseTypeDef
+# GetConnectPeerAssociationsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConnectPeerIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetConnectPeerAssociationsResponse
 
 ### ConnectPeerAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetConnectPeerRequestTypeDef
+# GetConnectPeerRequest
 
 ### ConnectPeerId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetConnectPeerResponseTypeDef
+# GetConnectPeerResponse
 
 ### ConnectPeer
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeer'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetConnectionsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ConnectionIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### DeviceId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetConnectionsRequestTypeDef
+# GetConnectionsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1542,35 +1526,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetConnectionsResponseTypeDef
+# GetConnectionsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ConnectionIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### DeviceId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetConnectionsResponse
 
 ### Connections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Connection]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCoreNetworkChangeEventsRequestPaginateTypeDef
-
-### CoreNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyVersionId
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetCoreNetworkChangeEventsRequestTypeDef
+# GetCoreNetworkChangeEventsRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -1587,35 +1573,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCoreNetworkChangeEventsResponseTypeDef
+# GetCoreNetworkChangeEventsRequestPaginate
+
+### CoreNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyVersionId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetCoreNetworkChangeEventsResponse
 
 ### CoreNetworkChangeEvents
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkChangeEventTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkChangeEvent]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCoreNetworkChangeSetRequestPaginateTypeDef
-
-### CoreNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PolicyVersionId
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetCoreNetworkChangeSetRequestTypeDef
+# GetCoreNetworkChangeSetRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -1632,21 +1618,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCoreNetworkChangeSetResponseTypeDef
+# GetCoreNetworkChangeSetRequestPaginate
+
+### CoreNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PolicyVersionId
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetCoreNetworkChangeSetResponse
 
 ### CoreNetworkChanges
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkChangeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkChange]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetCoreNetworkPolicyRequestTypeDef
+# GetCoreNetworkPolicyRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -1659,49 +1659,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['LATEST', 'LIVE']]
 
 
-# GetCoreNetworkPolicyResponseTypeDef
+# GetCoreNetworkPolicyResponse
 
 ### CoreNetworkPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCoreNetworkRequestTypeDef
+# GetCoreNetworkRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCoreNetworkResponseTypeDef
+# GetCoreNetworkResponse
 
 ### CoreNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCustomerGatewayAssociationsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CustomerGatewayArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetCustomerGatewayAssociationsRequestTypeDef
+# GetCustomerGatewayAssociationsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1717,37 +1704,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCustomerGatewayAssociationsResponseTypeDef
+# GetCustomerGatewayAssociationsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CustomerGatewayArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetCustomerGatewayAssociationsResponse
 
 ### CustomerGatewayAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CustomerGatewayAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetDevicesRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DeviceIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### SiteId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetDevicesRequestTypeDef
+# GetDevicesRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1766,55 +1750,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDevicesResponseTypeDef
+# GetDevicesRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### SiteId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetDevicesResponse
 
 ### Devices
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.DeviceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Device]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetDirectConnectGatewayAttachmentRequestTypeDef
+# GetDirectConnectGatewayAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDirectConnectGatewayAttachmentResponseTypeDef
+# GetDirectConnectGatewayAttachmentResponse
 
 ### DirectConnectGatewayAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLinkAssociationsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DeviceId
-- **Type**: typing.Optional[str]
-
-### LinkId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetLinkAssociationsRequestTypeDef
+# GetLinkAssociationsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1833,48 +1817,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetLinkAssociationsResponseTypeDef
+# GetLinkAssociationsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DeviceId
+- **Type**: typing.Optional[str]
+
+### LinkId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetLinkAssociationsResponse
 
 ### LinkAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.LinkAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetLinksResponseTypeDef
+# GetLinksResponse
 
 ### Links
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.LinkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Link]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourceCountsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetNetworkResourceCountsRequestTypeDef
+# GetNetworkResourceCountsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1890,49 +1877,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourceCountsResponseTypeDef
+# GetNetworkResourceCountsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetNetworkResourceCountsResponse
 
 ### NetworkResourceCounts
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkResourceCountTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkResourceCount]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourceRelationshipsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### RegisteredGatewayArn
-- **Type**: typing.Optional[str]
-
-### AwsRegion
-- **Type**: typing.Optional[str]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetNetworkResourceRelationshipsRequestTypeDef
+# GetNetworkResourceRelationshipsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -1963,49 +1935,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourceRelationshipsResponseTypeDef
+# GetNetworkResourceRelationshipsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### RegisteredGatewayArn
+- **Type**: typing.Optional[str]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetNetworkResourceRelationshipsResponse
 
 ### Relationships
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.RelationshipTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Relationship]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourcesRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### RegisteredGatewayArn
-- **Type**: typing.Optional[str]
-
-### AwsRegion
-- **Type**: typing.Optional[str]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetNetworkResourcesRequestTypeDef
+# GetNetworkResourcesRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2036,28 +2008,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkResourcesResponseTypeDef
+# GetNetworkResourcesRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### RegisteredGatewayArn
+- **Type**: typing.Optional[str]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetNetworkResourcesResponse
 
 ### NetworkResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkRoutesRequestTypeDef
+# GetNetworkRoutesRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RouteTableIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteTableIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteTableIdentifier'>
 - **Required**: Yes
 
 ### ExactCidrMatches
@@ -2085,14 +2085,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# GetNetworkRoutesResponseTypeDef
+# GetNetworkRoutesResponse
 
 ### RouteTableArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CoreNetworkSegmentEdge
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegmentEdgeIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegmentEdgeIdentifier'>
 - **Required**: Yes
 
 ### RouteTableType
@@ -2104,43 +2104,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### NetworkRoutes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkRouteTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkRoute]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNetworkTelemetryRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### RegisteredGatewayArn
-- **Type**: typing.Optional[str]
-
-### AwsRegion
-- **Type**: typing.Optional[str]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetNetworkTelemetryRequestTypeDef
+# GetNetworkTelemetryRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2171,39 +2143,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetNetworkTelemetryResponseTypeDef
+# GetNetworkTelemetryRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### RegisteredGatewayArn
+- **Type**: typing.Optional[str]
+
+### AwsRegion
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetNetworkTelemetryResponse
 
 ### NetworkTelemetry
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkTelemetryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkTelemetry]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### PolicyDocument
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRouteAnalysisRequestTypeDef
+# GetRouteAnalysisRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2214,49 +2214,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRouteAnalysisResponseTypeDef
+# GetRouteAnalysisResponse
 
 ### RouteAnalysis
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysis'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSiteToSiteVpnAttachmentRequestTypeDef
+# GetSiteToSiteVpnAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSiteToSiteVpnAttachmentResponseTypeDef
+# GetSiteToSiteVpnAttachmentResponse
 
 ### SiteToSiteVpnAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteToSiteVpnAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteToSiteVpnAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSitesRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SiteIds
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetSitesRequestTypeDef
+# GetSitesRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2272,34 +2259,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSitesResponseTypeDef
+# GetSitesRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SiteIds
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetSitesResponse
 
 ### Sites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.SiteTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Site]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTransitGatewayConnectPeerAssociationsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TransitGatewayConnectPeerArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetTransitGatewayConnectPeerAssociationsRequestTypeDef
+# GetTransitGatewayConnectPeerAssociationsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2315,52 +2302,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTransitGatewayConnectPeerAssociationsResponseTypeDef
+# GetTransitGatewayConnectPeerAssociationsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TransitGatewayConnectPeerArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetTransitGatewayConnectPeerAssociationsResponse
 
 ### TransitGatewayConnectPeerAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayConnectPeerAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTransitGatewayPeeringRequestTypeDef
+# GetTransitGatewayPeeringRequest
 
 ### PeeringId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTransitGatewayPeeringResponseTypeDef
+# GetTransitGatewayPeeringResponse
 
 ### TransitGatewayPeering
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayPeeringTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayPeering'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTransitGatewayRegistrationsRequestPaginateTypeDef
-
-### GlobalNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TransitGatewayArns
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# GetTransitGatewayRegistrationsRequestTypeDef
+# GetTransitGatewayRegistrationsRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -2376,57 +2363,70 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetTransitGatewayRegistrationsResponseTypeDef
+# GetTransitGatewayRegistrationsRequestPaginate
+
+### GlobalNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TransitGatewayArns
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# GetTransitGatewayRegistrationsResponse
 
 ### TransitGatewayRegistrations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistrationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GetTransitGatewayRouteTableAttachmentRequestTypeDef
+# GetTransitGatewayRouteTableAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTransitGatewayRouteTableAttachmentResponseTypeDef
+# GetTransitGatewayRouteTableAttachmentResponse
 
 ### TransitGatewayRouteTableAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRouteTableAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRouteTableAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVpcAttachmentRequestTypeDef
+# GetVpcAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVpcAttachmentResponseTypeDef
+# GetVpcAttachmentResponse
 
 ### VpcAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GlobalNetworkTypeDef
+# GlobalNetwork
 
 ### GlobalNetworkId
 - **Type**: typing.Optional[str]
@@ -2444,10 +2444,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETING', 'PENDING', 'UPDATING']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# LinkAssociationTypeDef
+# Link
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# LinkAssociation
 
 ### GlobalNetworkId
 - **Type**: typing.Optional[str]
@@ -2462,31 +2468,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'PENDING']]
 
 
-# LinkTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ListAttachmentsRequestPaginateTypeDef
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### AttachmentType
-- **Type**: typing.Optional[typing.Literal['CONNECT', 'DIRECT_CONNECT_GATEWAY', 'SITE_TO_SITE_VPN', 'TRANSIT_GATEWAY_ROUTE_TABLE', 'VPC']]
-
-### EdgeLocation
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'PENDING_ATTACHMENT_ACCEPTANCE', 'PENDING_NETWORK_UPDATE', 'PENDING_TAG_ACCEPTANCE', 'REJECTED', 'UPDATING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListAttachmentsRequestTypeDef
+# ListAttachmentsRequest
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -2507,33 +2489,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAttachmentsResponseTypeDef
+# ListAttachmentsRequestPaginate
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### AttachmentType
+- **Type**: typing.Optional[typing.Literal['CONNECT', 'DIRECT_CONNECT_GATEWAY', 'SITE_TO_SITE_VPN', 'TRANSIT_GATEWAY_ROUTE_TABLE', 'VPC']]
+
+### EdgeLocation
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED', 'PENDING_ATTACHMENT_ACCEPTANCE', 'PENDING_NETWORK_UPDATE', 'PENDING_TAG_ACCEPTANCE', 'REJECTED', 'UPDATING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# ListAttachmentsResponse
 
 ### Attachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Attachment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListConnectPeersRequestPaginateTypeDef
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### ConnectAttachmentId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListConnectPeersRequestTypeDef
+# ListConnectPeersRequest
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -2548,31 +2536,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListConnectPeersResponseTypeDef
+# ListConnectPeersRequestPaginate
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### ConnectAttachmentId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# ListConnectPeersResponse
 
 ### ConnectPeers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectPeerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCoreNetworkPolicyVersionsRequestPaginateTypeDef
-
-### CoreNetworkId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListCoreNetworkPolicyVersionsRequestTypeDef
+# ListCoreNetworkPolicyVersionsRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -2585,27 +2575,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCoreNetworkPolicyVersionsResponseTypeDef
+# ListCoreNetworkPolicyVersionsRequestPaginate
+
+### CoreNetworkId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# ListCoreNetworkPolicyVersionsResponse
 
 ### CoreNetworkPolicyVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyVersionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyVersion]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCoreNetworksRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
-
-
-# ListCoreNetworksRequestTypeDef
+# ListCoreNetworksRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2614,21 +2608,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCoreNetworksResponseTypeDef
+# ListCoreNetworksRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
+
+
+# ListCoreNetworksResponse
 
 ### CoreNetworks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationServiceAccessStatusRequestTypeDef
+# ListOrganizationServiceAccessStatusRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2637,21 +2637,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOrganizationServiceAccessStatusResponseTypeDef
+# ListOrganizationServiceAccessStatusResponse
 
 ### OrganizationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.OrganizationStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.OrganizationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPeeringsRequestPaginateTypeDef
+# ListPeeringsRequest
+
+### CoreNetworkId
+- **Type**: typing.Optional[str]
+
+### PeeringType
+- **Type**: typing.Optional[typing.Literal['TRANSIT_GATEWAY']]
+
+### EdgeLocation
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
+
+### MaxResults
+- **Type**: typing.Optional[int]
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListPeeringsRequestPaginate
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -2666,63 +2687,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PaginatorConfig]
 
 
-# ListPeeringsRequestTypeDef
-
-### CoreNetworkId
-- **Type**: typing.Optional[str]
-
-### PeeringType
-- **Type**: typing.Optional[typing.Literal['TRANSIT_GATEWAY']]
-
-### EdgeLocation
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'CREATING', 'DELETING', 'FAILED']]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListPeeringsResponseTypeDef
+# ListPeeringsResponse
 
 ### Peerings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.PeeringTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Peering]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### TagList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LocationTypeDef
+# Location
 
 ### Address
 - **Type**: typing.Optional[str]
@@ -2734,43 +2734,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkFunctionGroupTypeDef
+# NetworkFunctionGroup
 
 ### Name
 - **Type**: typing.Optional[str]
 
 
-# NetworkResourceCountTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### Count
-- **Type**: typing.Optional[int]
-
-
-# NetworkResourceSummaryTypeDef
-
-### RegisteredGatewayArn
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### Definition
-- **Type**: typing.Optional[str]
-
-### NameTag
-- **Type**: typing.Optional[str]
-
-### IsMiddlebox
-- **Type**: typing.Optional[bool]
-
-
-# NetworkResourceTypeDef
+# NetworkResource
 
 ### RegisteredGatewayArn
 - **Type**: typing.Optional[str]
@@ -2800,13 +2770,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### Metadata
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# NetworkRouteDestinationTypeDef
+# NetworkResourceCount
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### Count
+- **Type**: typing.Optional[int]
+
+
+# NetworkResourceSummary
+
+### RegisteredGatewayArn
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### Definition
+- **Type**: typing.Optional[str]
+
+### NameTag
+- **Type**: typing.Optional[str]
+
+### IsMiddlebox
+- **Type**: typing.Optional[bool]
+
+
+# NetworkRoute
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# NetworkRouteDestination
 
 ### CoreNetworkAttachmentId
 - **Type**: typing.Optional[str]
@@ -2830,13 +2836,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkRouteTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# NetworkTelemetryTypeDef
+# NetworkTelemetry
 
 ### RegisteredGatewayArn
 - **Type**: typing.Optional[str]
@@ -2863,10 +2863,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Health
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionHealthTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionHealth]
 
 
-# OrganizationStatusTypeDef
+# OrganizationStatus
 
 ### OrganizationId
 - **Type**: typing.Optional[str]
@@ -2878,10 +2878,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### AccountStatusList
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.AccountStatusTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.AccountStatus]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -2893,31 +2893,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PathComponentTypeDef
+# PathComponent
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PeeringErrorTypeDef
-
-### Code
-- **Type**: typing.Optional[typing.Literal['EDGE_LOCATION_PEER_DUPLICATE', 'INTERNAL_ERROR', 'INVALID_TRANSIT_GATEWAY_STATE', 'MISSING_PERMISSIONS', 'TRANSIT_GATEWAY_NOT_FOUND', 'TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-### ResourceArn
-- **Type**: typing.Optional[str]
-
-### RequestId
-- **Type**: typing.Optional[str]
-
-### MissingPermissionsContext
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PermissionsErrorContextTypeDef]
-
-
-# PeeringTypeDef
+# Peering
 
 ### CoreNetworkId
 - **Type**: typing.Optional[str]
@@ -2944,25 +2926,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
 
 ### LastModificationErrors
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.PeeringErrorTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.PeeringError]]
 
 
-# PermissionsErrorContextTypeDef
+# PeeringError
+
+### Code
+- **Type**: typing.Optional[typing.Literal['EDGE_LOCATION_PEER_DUPLICATE', 'INTERNAL_ERROR', 'INVALID_TRANSIT_GATEWAY_STATE', 'MISSING_PERMISSIONS', 'TRANSIT_GATEWAY_NOT_FOUND', 'TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED']]
+
+### Message
+- **Type**: typing.Optional[str]
+
+### ResourceArn
+- **Type**: typing.Optional[str]
+
+### RequestId
+- **Type**: typing.Optional[str]
+
+### MissingPermissionsContext
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PermissionsErrorContext]
+
+
+# PermissionsErrorContext
 
 ### MissingPermission
 - **Type**: typing.Optional[str]
 
 
-# ProposedNetworkFunctionGroupChangeTypeDef
+# ProposedNetworkFunctionGroupChange
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### AttachmentPolicyRuleNumber
 - **Type**: typing.Optional[int]
@@ -2971,10 +2971,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProposedSegmentChangeTypeDef
+# ProposedSegmentChange
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 ### AttachmentPolicyRuleNumber
 - **Type**: typing.Optional[int]
@@ -2983,7 +2983,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCoreNetworkPolicyRequestTypeDef
+# PutCoreNetworkPolicyRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -3003,18 +3003,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCoreNetworkPolicyResponseTypeDef
+# PutCoreNetworkPolicyResponse
 
 ### CoreNetworkPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### PolicyDocument
 - **Type**: <class 'str'>
@@ -3025,7 +3025,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterTransitGatewayRequestTypeDef
+# RegisterTransitGatewayRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -3036,36 +3036,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RegisterTransitGatewayResponseTypeDef
+# RegisterTransitGatewayResponse
 
 ### TransitGatewayRegistration
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistrationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RejectAttachmentRequestTypeDef
+# RejectAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RejectAttachmentResponseTypeDef
+# RejectAttachmentResponse
 
 ### Attachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RelationshipTypeDef
+# Relationship
 
 ### From
 - **Type**: typing.Optional[str]
@@ -3074,7 +3074,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3096,7 +3096,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreCoreNetworkPolicyVersionRequestTypeDef
+# RestoreCoreNetworkPolicyVersionRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -3107,60 +3107,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RestoreCoreNetworkPolicyVersionResponseTypeDef
+# RestoreCoreNetworkPolicyVersionResponse
 
 ### CoreNetworkPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkPolicy'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RouteAnalysisCompletionTypeDef
-
-### ResultCode
-- **Type**: typing.Optional[typing.Literal['CONNECTED', 'NOT_CONNECTED']]
-
-### ReasonCode
-- **Type**: typing.Optional[typing.Literal['BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND', 'CYCLIC_PATH_DETECTED', 'INACTIVE_ROUTE_FOR_DESTINATION_FOUND', 'MAX_HOPS_EXCEEDED', 'NO_DESTINATION_ARN_PROVIDED', 'POSSIBLE_MIDDLEBOX', 'ROUTE_NOT_FOUND', 'TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH', 'TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND', 'TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY', 'TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND']]
-
-### ReasonContext
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# RouteAnalysisEndpointOptionsSpecificationTypeDef
-
-### TransitGatewayAttachmentArn
-- **Type**: typing.Optional[str]
-
-### IpAddress
-- **Type**: typing.Optional[str]
-
-
-# RouteAnalysisEndpointOptionsTypeDef
-
-### TransitGatewayAttachmentArn
-- **Type**: typing.Optional[str]
-
-### TransitGatewayArn
-- **Type**: typing.Optional[str]
-
-### IpAddress
-- **Type**: typing.Optional[str]
-
-
-# RouteAnalysisPathTypeDef
-
-### CompletionStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisCompletionTypeDef]
-
-### Path
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.PathComponentTypeDef]]
-
-
-# RouteAnalysisTypeDef
+# RouteAnalysis
 
 ### GlobalNetworkId
 - **Type**: typing.Optional[str]
@@ -3178,10 +3136,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'FAILED', 'RUNNING']]
 
 ### Source
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptions]
 
 ### Destination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptions]
 
 ### IncludeReturnPath
 - **Type**: typing.Optional[bool]
@@ -3190,25 +3148,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### ForwardPath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisPathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisPath]
 
 ### ReturnPath
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisPathTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisPath]
 
 
-# RouteTableIdentifierTypeDef
+# RouteAnalysisCompletion
+
+### ResultCode
+- **Type**: typing.Optional[typing.Literal['CONNECTED', 'NOT_CONNECTED']]
+
+### ReasonCode
+- **Type**: typing.Optional[typing.Literal['BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND', 'CYCLIC_PATH_DETECTED', 'INACTIVE_ROUTE_FOR_DESTINATION_FOUND', 'MAX_HOPS_EXCEEDED', 'NO_DESTINATION_ARN_PROVIDED', 'POSSIBLE_MIDDLEBOX', 'ROUTE_NOT_FOUND', 'TRANSIT_GATEWAY_ATTACHMENT_ATTACH_ARN_NO_MATCH', 'TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND', 'TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY', 'TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND']]
+
+### ReasonContext
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# RouteAnalysisEndpointOptions
+
+### TransitGatewayAttachmentArn
+- **Type**: typing.Optional[str]
+
+### TransitGatewayArn
+- **Type**: typing.Optional[str]
+
+### IpAddress
+- **Type**: typing.Optional[str]
+
+
+# RouteAnalysisEndpointOptionsSpecification
+
+### TransitGatewayAttachmentArn
+- **Type**: typing.Optional[str]
+
+### IpAddress
+- **Type**: typing.Optional[str]
+
+
+# RouteAnalysisPath
+
+### CompletionStatus
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisCompletion]
+
+### Path
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.PathComponent]]
+
+
+# RouteTableIdentifier
 
 ### TransitGatewayRouteTableArn
 - **Type**: typing.Optional[str]
 
 ### CoreNetworkSegmentEdge
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegmentEdgeIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkSegmentEdgeIdentifier]
 
 ### CoreNetworkNetworkFunctionGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkNetworkFunctionGroupIdentifierTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkNetworkFunctionGroupIdentifier]
 
 
-# ServiceInsertionActionTypeDef
+# ServiceInsertionAction
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['send-to', 'send-via']]
@@ -3217,13 +3217,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['dual-hop', 'single-hop']]
 
 ### WhenSentTo
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.WhenSentToTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Via
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.ViaTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ServiceInsertionSegmentsTypeDef
+# ServiceInsertionSegments
 
 ### SendVia
 - **Type**: typing.Optional[typing.List[str]]
@@ -3232,16 +3232,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# SiteToSiteVpnAttachmentTypeDef
-
-### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
-
-### VpnConnectionArn
-- **Type**: typing.Optional[str]
-
-
-# SiteTypeDef
+# Site
 
 ### SiteId
 - **Type**: typing.Optional[str]
@@ -3256,7 +3247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.LocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CreatedAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -3265,39 +3256,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETING', 'PENDING', 'UPDATING']]
 
 ### Tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]]
 
 
-# StartOrganizationServiceAccessUpdateRequestTypeDef
+# SiteToSiteVpnAttachment
+
+### Attachment
+- **Type**: <class 'NoneType'>
+
+### VpnConnectionArn
+- **Type**: typing.Optional[str]
+
+
+# StartOrganizationServiceAccessUpdateRequest
 
 ### Action
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartOrganizationServiceAccessUpdateResponseTypeDef
+# StartOrganizationServiceAccessUpdateResponse
 
 ### OrganizationStatus
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.OrganizationStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.OrganizationStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartRouteAnalysisRequestTypeDef
+# StartRouteAnalysisRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Source
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsSpecification'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsSpecificationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisEndpointOptionsSpecification'>
 - **Required**: Yes
 
 ### IncludeReturnPath
@@ -3307,29 +3307,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartRouteAnalysisResponseTypeDef
+# StartRouteAnalysisResponse
 
 ### RouteAnalysis
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysisTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.RouteAnalysis'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -3338,7 +3327,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TransitGatewayConnectPeerAssociationTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.networkmanager_classes.Tag]
+- **Required**: Yes
+
+
+# TransitGatewayConnectPeerAssociation
 
 ### TransitGatewayConnectPeerArn
 - **Type**: typing.Optional[str]
@@ -3356,10 +3356,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'PENDING']]
 
 
-# TransitGatewayPeeringTypeDef
+# TransitGatewayPeering
 
 ### Peering
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.PeeringTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TransitGatewayArn
 - **Type**: typing.Optional[str]
@@ -3368,16 +3368,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TransitGatewayRegistrationStateReasonTypeDef
-
-### Code
-- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'FAILED', 'PENDING']]
-
-### Message
-- **Type**: typing.Optional[str]
-
-
-# TransitGatewayRegistrationTypeDef
+# TransitGatewayRegistration
 
 ### GlobalNetworkId
 - **Type**: typing.Optional[str]
@@ -3386,13 +3377,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistrationStateReasonTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.TransitGatewayRegistrationStateReason]
 
 
-# TransitGatewayRouteTableAttachmentTypeDef
+# TransitGatewayRegistrationStateReason
+
+### Code
+- **Type**: typing.Optional[typing.Literal['AVAILABLE', 'DELETED', 'DELETING', 'FAILED', 'PENDING']]
+
+### Message
+- **Type**: typing.Optional[str]
+
+
+# TransitGatewayRouteTableAttachment
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PeeringId
 - **Type**: typing.Optional[str]
@@ -3401,7 +3401,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3412,7 +3412,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConnectionRequestTypeDef
+# UpdateConnectionRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -3432,18 +3432,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateConnectionResponseTypeDef
+# UpdateConnectionResponse
 
 ### Connection
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ConnectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Connection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCoreNetworkRequestTypeDef
+# UpdateCoreNetworkRequest
 
 ### CoreNetworkId
 - **Type**: <class 'str'>
@@ -3453,29 +3453,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCoreNetworkResponseTypeDef
+# UpdateCoreNetworkResponse
 
 ### CoreNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.CoreNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDeviceResponseTypeDef
+# UpdateDeviceResponse
 
 ### Device
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DeviceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Device'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDirectConnectGatewayAttachmentRequestTypeDef
+# UpdateDirectConnectGatewayAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
@@ -3485,18 +3485,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateDirectConnectGatewayAttachmentResponseTypeDef
+# UpdateDirectConnectGatewayAttachmentResponse
 
 ### DirectConnectGatewayAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.DirectConnectGatewayAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGlobalNetworkRequestTypeDef
+# UpdateGlobalNetworkRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -3506,29 +3506,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateGlobalNetworkResponseTypeDef
+# UpdateGlobalNetworkResponse
 
 ### GlobalNetwork
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.GlobalNetwork'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLinkResponseTypeDef
+# UpdateLinkResponse
 
 ### Link
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.LinkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Link'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateNetworkResourceMetadataRequestTypeDef
+# UpdateNetworkResourceMetadataRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -3543,7 +3543,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNetworkResourceMetadataResponseTypeDef
+# UpdateNetworkResourceMetadataResponse
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3554,11 +3554,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSiteRequestTypeDef
+# UpdateSiteRequest
 
 ### GlobalNetworkId
 - **Type**: <class 'str'>
@@ -3572,21 +3572,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.LocationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateSiteResponseTypeDef
+# UpdateSiteResponse
 
 ### Site
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.SiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.Site'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVpcAttachmentRequestTypeDef
+# UpdateVpcAttachmentRequest
 
 ### AttachmentId
 - **Type**: <class 'str'>
@@ -3599,42 +3599,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptions]
 
 
-# UpdateVpcAttachmentResponseTypeDef
+# UpdateVpcAttachmentResponse
 
 ### VpcAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.VpcAttachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmanager_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ViaTypeDef
+# Via
 
 ### NetworkFunctionGroups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkFunctionGroupTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.NetworkFunctionGroup]]
 
 ### WithEdgeOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.EdgeOverrideTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.networkmanager_classes.EdgeOverride]]
 
 
-# VpcAttachmentTypeDef
+# VpcAttachment
 
 ### Attachment
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.AttachmentTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SubnetArns
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmanager_classes.VpcOptions]
 
 
-# VpcOptionsTypeDef
+# VpcOptions
 
 ### Ipv6Support
 - **Type**: typing.Optional[bool]
@@ -3643,7 +3643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# WhenSentToTypeDef
+# WhenSentTo
 
 ### WhenSentToSegmentsList
 - **Type**: typing.Optional[typing.List[str]]

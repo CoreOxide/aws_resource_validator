@@ -6,27 +6,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteObjectRequestTypeDef
+# DeleteObjectRequest
 
 ### Path
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeObjectRequestTypeDef
+# DescribeObjectRequest
 
 ### Path
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeObjectResponseTypeDef
+# DescribeObjectResponse
 
 ### ETag
 - **Type**: <class 'str'>
@@ -49,11 +49,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetObjectRequestTypeDef
+# GetObjectRequest
 
 ### Path
 - **Type**: <class 'str'>
@@ -63,7 +63,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetObjectResponseTypeDef
+# GetObjectResponse
 
 ### Body
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -98,26 +98,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ItemTypeDef
+# Item
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListItemsRequestPaginateTypeDef
-
-### Path
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_data_classes.PaginatorConfigTypeDef]
-
-
-# ListItemsRequestTypeDef
+# ListItemsRequest
 
 ### Path
 - **Type**: typing.Optional[str]
@@ -129,21 +120,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListItemsResponseTypeDef
+# ListItemsRequestPaginate
+
+### Path
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.mediastore_data_classes.PaginatorConfig]
+
+
+# ListItemsResponse
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_data_classes.ItemTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.mediastore_data_classes.Item]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -155,10 +155,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutObjectRequestTypeDef
+# PutObjectRequest
 
 ### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.Blob'>
 - **Required**: Yes
 
 ### Path
@@ -178,7 +178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['STANDARD', 'STREAMING']]
 
 
-# PutObjectResponseTypeDef
+# PutObjectResponse
 
 ### ContentSHA256
 - **Type**: <class 'str'>
@@ -193,11 +193,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.mediastore_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

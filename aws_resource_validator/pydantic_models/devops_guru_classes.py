@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.devops_guru_constants import *
 
-class AccountInsightHealthTypeDef(BaseValidatorModel):
+class AccountInsightHealth(BaseValidatorModel):
     OpenProactiveInsights: Optional[int] = None
     OpenReactiveInsights: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,112 +25,112 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AmazonCodeGuruProfilerIntegrationTypeDef(BaseValidatorModel):
+class AmazonCodeGuruProfilerIntegration(BaseValidatorModel):
     Status: Optional[EventSourceOptInStatusType] = None
 
 
-class AnomalyReportedTimeRangeTypeDef(BaseValidatorModel):
+class AnomalyReportedTimeRange(BaseValidatorModel):
     OpenTime: datetime
     CloseTime: Optional[datetime] = None
 
 
-class AnomalySourceMetadataTypeDef(BaseValidatorModel):
+class AnomalySourceMetadata(BaseValidatorModel):
     Source: Optional[str] = None
     SourceResourceName: Optional[str] = None
     SourceResourceType: Optional[str] = None
 
 
-class AnomalyTimeRangeTypeDef(BaseValidatorModel):
+class AnomalyTimeRange(BaseValidatorModel):
     StartTime: datetime
     EndTime: Optional[datetime] = None
 
 
-class CloudFormationCollectionFilterTypeDef(BaseValidatorModel):
+class CloudFormationCollectionFilter(BaseValidatorModel):
     StackNames: Optional[List[str]] = None
 
 
-class CloudFormationCollectionOutputTypeDef(BaseValidatorModel):
+class CloudFormationCollectionOutput(BaseValidatorModel):
     StackNames: Optional[List[str]] = None
 
 
-class CloudFormationCollectionTypeDef(BaseValidatorModel):
+class CloudFormationCollection(BaseValidatorModel):
     StackNames: Optional[Sequence[str]] = None
 
 
-class CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef(BaseValidatorModel):
+class CloudFormationCostEstimationResourceCollectionFilterOutput(BaseValidatorModel):
     StackNames: Optional[List[str]] = None
 
 
-class CloudFormationCostEstimationResourceCollectionFilterTypeDef(BaseValidatorModel):
+class CloudFormationCostEstimationResourceCollectionFilter(BaseValidatorModel):
     StackNames: Optional[Sequence[str]] = None
 
 
-class InsightHealthTypeDef(BaseValidatorModel):
+class InsightHealth(BaseValidatorModel):
     OpenProactiveInsights: Optional[int] = None
     OpenReactiveInsights: Optional[int] = None
     MeanTimeToRecoverInMilliseconds: Optional[int] = None
 
 
-class TimestampMetricValuePairTypeDef(BaseValidatorModel):
+class TimestampMetricValuePair(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     MetricValue: Optional[float] = None
 
 
-class CloudWatchMetricsDimensionTypeDef(BaseValidatorModel):
+class CloudWatchMetricsDimension(BaseValidatorModel):
     Name: Optional[str] = None
     Value: Optional[str] = None
 
 
-class TagCostEstimationResourceCollectionFilterOutputTypeDef(BaseValidatorModel):
+class TagCostEstimationResourceCollectionFilterOutput(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: List[str]
 
 
-class TagCostEstimationResourceCollectionFilterTypeDef(BaseValidatorModel):
+class TagCostEstimationResourceCollectionFilter(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: Sequence[str]
 
 
-class CostEstimationTimeRangeTypeDef(BaseValidatorModel):
+class CostEstimationTimeRange(BaseValidatorModel):
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
 
-class DeleteInsightRequestTypeDef(BaseValidatorModel):
+class DeleteInsightRequest(BaseValidatorModel):
     Id: str
 
 
-class DescribeAnomalyRequestTypeDef(BaseValidatorModel):
+class DescribeAnomalyRequest(BaseValidatorModel):
     Id: str
     AccountId: Optional[str] = None
 
 
-class DescribeFeedbackRequestTypeDef(BaseValidatorModel):
+class DescribeFeedbackRequest(BaseValidatorModel):
     InsightId: Optional[str] = None
 
 
-class InsightFeedbackTypeDef(BaseValidatorModel):
+class InsightFeedback(BaseValidatorModel):
     Id: Optional[str] = None
     Feedback: Optional[InsightFeedbackOptionType] = None
 
 
-class DescribeInsightRequestTypeDef(BaseValidatorModel):
+class DescribeInsightRequest(BaseValidatorModel):
     Id: str
     AccountId: Optional[str] = None
 
 
-class DescribeOrganizationHealthRequestTypeDef(BaseValidatorModel):
+class DescribeOrganizationHealthRequest(BaseValidatorModel):
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeOrganizationResourceCollectionHealthRequestTypeDef(BaseValidatorModel):
+class DescribeOrganizationResourceCollectionHealthRequest(BaseValidatorModel):
     OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
@@ -138,48 +138,48 @@ class DescribeOrganizationResourceCollectionHealthRequestTypeDef(BaseValidatorMo
     MaxResults: Optional[int] = None
 
 
-class DescribeResourceCollectionHealthRequestTypeDef(BaseValidatorModel):
+class DescribeResourceCollectionHealthRequest(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
     NextToken: Optional[str] = None
 
 
-class GetCostEstimationRequestTypeDef(BaseValidatorModel):
+class GetCostEstimationRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class GetResourceCollectionRequestTypeDef(BaseValidatorModel):
+class GetResourceCollectionRequest(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
     NextToken: Optional[str] = None
 
 
-class InsightTimeRangeTypeDef(BaseValidatorModel):
+class InsightTimeRange(BaseValidatorModel):
     StartTime: datetime
     EndTime: Optional[datetime] = None
 
 
-class ListAnomalousLogGroupsRequestTypeDef(BaseValidatorModel):
+class ListAnomalousLogGroupsRequest(BaseValidatorModel):
     InsightId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListMonitoredResourcesFiltersTypeDef(BaseValidatorModel):
+class ListMonitoredResourcesFilters(BaseValidatorModel):
     ResourcePermission: ResourcePermissionType
     ResourceTypeFilters: Sequence[ResourceTypeFilterType]
 
 
-class ListNotificationChannelsRequestTypeDef(BaseValidatorModel):
+class ListNotificationChannelsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListRecommendationsRequestTypeDef(BaseValidatorModel):
+class ListRecommendationsRequest(BaseValidatorModel):
     InsightId: str
     NextToken: Optional[str] = None
     Locale: Optional[LocaleType] = None
     AccountId: Optional[str] = None
 
 
-class LogAnomalyClassTypeDef(BaseValidatorModel):
+class LogAnomalyClass(BaseValidatorModel):
     LogStreamName: Optional[str] = None
     LogAnomalyType: Optional[LogAnomalyTypeType] = None
     LogAnomalyToken: Optional[str] = None
@@ -189,801 +189,801 @@ class LogAnomalyClassTypeDef(BaseValidatorModel):
     LogEventTimestamp: Optional[datetime] = None
 
 
-class LogsAnomalyDetectionIntegrationConfigTypeDef(BaseValidatorModel):
+class LogsAnomalyDetectionIntegrationConfig(BaseValidatorModel):
     OptInStatus: Optional[OptInStatusType] = None
 
 
-class LogsAnomalyDetectionIntegrationTypeDef(BaseValidatorModel):
+class LogsAnomalyDetectionIntegration(BaseValidatorModel):
     OptInStatus: Optional[OptInStatusType] = None
 
 
-class NotificationFilterConfigOutputTypeDef(BaseValidatorModel):
+class NotificationFilterConfigOutput(BaseValidatorModel):
     Severities: Optional[List[InsightSeverityType]] = None
     MessageTypes: Optional[List[NotificationMessageTypeType]] = None
 
 
-class SnsChannelConfigTypeDef(BaseValidatorModel):
+class SnsChannelConfig(BaseValidatorModel):
     TopicArn: Optional[str] = None
 
 
-class NotificationFilterConfigTypeDef(BaseValidatorModel):
+class NotificationFilterConfig(BaseValidatorModel):
     Severities: Optional[Sequence[InsightSeverityType]] = None
     MessageTypes: Optional[Sequence[NotificationMessageTypeType]] = None
 
 
-class OpsCenterIntegrationConfigTypeDef(BaseValidatorModel):
+class OpsCenterIntegrationConfig(BaseValidatorModel):
     OptInStatus: Optional[OptInStatusType] = None
 
 
-class OpsCenterIntegrationTypeDef(BaseValidatorModel):
+class OpsCenterIntegration(BaseValidatorModel):
     OptInStatus: Optional[OptInStatusType] = None
 
 
-class PerformanceInsightsMetricDimensionGroupTypeDef(BaseValidatorModel):
+class PerformanceInsightsMetricDimensionGroup(BaseValidatorModel):
     Group: Optional[str] = None
     Dimensions: Optional[List[str]] = None
     Limit: Optional[int] = None
 
 
-class PerformanceInsightsReferenceScalarTypeDef(BaseValidatorModel):
+class PerformanceInsightsReferenceScalar(BaseValidatorModel):
     Value: Optional[float] = None
 
 
-class PredictionTimeRangeTypeDef(BaseValidatorModel):
+class PredictionTimeRange(BaseValidatorModel):
     StartTime: datetime
     EndTime: Optional[datetime] = None
 
 
-class ServiceCollectionOutputTypeDef(BaseValidatorModel):
+class ServiceCollectionOutput(BaseValidatorModel):
     ServiceNames: Optional[List[ServiceNameType]] = None
 
 
-class RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef(BaseValidatorModel):
+class RecommendationRelatedCloudWatchMetricsSourceDetail(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
 
 
-class RemoveNotificationChannelRequestTypeDef(BaseValidatorModel):
+class RemoveNotificationChannelRequest(BaseValidatorModel):
     Id: str
 
 
-class TagCollectionFilterTypeDef(BaseValidatorModel):
+class TagCollectionFilter(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: List[str]
 
 
-class TagCollectionOutputTypeDef(BaseValidatorModel):
+class TagCollectionOutput(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: List[str]
 
 
-class ServiceCollectionTypeDef(BaseValidatorModel):
+class ServiceCollection(BaseValidatorModel):
     ServiceNames: Optional[Sequence[ServiceNameType]] = None
 
 
-class ServiceInsightHealthTypeDef(BaseValidatorModel):
+class ServiceInsightHealth(BaseValidatorModel):
     OpenProactiveInsights: Optional[int] = None
     OpenReactiveInsights: Optional[int] = None
 
 
-class TagCollectionTypeDef(BaseValidatorModel):
+class TagCollection(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: Sequence[str]
 
 
-class UpdateCloudFormationCollectionFilterTypeDef(BaseValidatorModel):
+class UpdateCloudFormationCollectionFilter(BaseValidatorModel):
     StackNames: Optional[Sequence[str]] = None
 
 
-class UpdateTagCollectionFilterTypeDef(BaseValidatorModel):
+class UpdateTagCollectionFilter(BaseValidatorModel):
     AppBoundaryKey: str
     TagValues: Sequence[str]
 
 
-class AccountHealthTypeDef(BaseValidatorModel):
+class AccountHealth(BaseValidatorModel):
     AccountId: Optional[str] = None
-    Insight: Optional[AccountInsightHealthTypeDef] = None
+    Insight: Optional[AccountInsightHealth] = None
 
 
-class AddNotificationChannelResponseTypeDef(BaseValidatorModel):
+class AddNotificationChannelResponse(BaseValidatorModel):
     Id: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountHealthResponseTypeDef(BaseValidatorModel):
+class DescribeAccountHealthResponse(BaseValidatorModel):
     OpenReactiveInsights: int
     OpenProactiveInsights: int
     MetricsAnalyzed: int
     ResourceHours: int
     AnalyzedResourceCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAccountOverviewResponseTypeDef(BaseValidatorModel):
+class DescribeAccountOverviewResponse(BaseValidatorModel):
     ReactiveInsights: int
     ProactiveInsights: int
     MeanTimeToRecoverInMilliseconds: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOrganizationHealthResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationHealthResponse(BaseValidatorModel):
     OpenReactiveInsights: int
     OpenProactiveInsights: int
     MetricsAnalyzed: int
     ResourceHours: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeOrganizationOverviewResponseTypeDef(BaseValidatorModel):
+class DescribeOrganizationOverviewResponse(BaseValidatorModel):
     ReactiveInsights: int
     ProactiveInsights: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EventSourcesConfigTypeDef(BaseValidatorModel):
-    AmazonCodeGuruProfiler: Optional[AmazonCodeGuruProfilerIntegrationTypeDef] = None
+class EventSourcesConfig(BaseValidatorModel):
+    AmazonCodeGuruProfiler: Optional[AmazonCodeGuruProfilerIntegration] = None
 
 
-class CloudFormationHealthTypeDef(BaseValidatorModel):
+class CloudFormationHealth(BaseValidatorModel):
     StackName: Optional[str] = None
-    Insight: Optional[InsightHealthTypeDef] = None
+    Insight: Optional[InsightHealth] = None
     AnalyzedResourceCount: Optional[int] = None
 
 
-class TagHealthTypeDef(BaseValidatorModel):
+class TagHealth(BaseValidatorModel):
     AppBoundaryKey: Optional[str] = None
     TagValue: Optional[str] = None
-    Insight: Optional[InsightHealthTypeDef] = None
+    Insight: Optional[InsightHealth] = None
     AnalyzedResourceCount: Optional[int] = None
 
 
-class CloudWatchMetricsDataSummaryTypeDef(BaseValidatorModel):
-    TimestampMetricValuePairList: Optional[List[TimestampMetricValuePairTypeDef]] = None
+class CloudWatchMetricsDataSummary(BaseValidatorModel):
+    TimestampMetricValuePairList: Optional[List[TimestampMetricValuePair]] = None
     StatusCode: Optional[CloudWatchMetricDataStatusCodeType] = None
 
 
-class CostEstimationResourceCollectionFilterOutputTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[CloudFormationCostEstimationResourceCollectionFilterOutputTypeDef] = None
-    Tags: Optional[List[TagCostEstimationResourceCollectionFilterOutputTypeDef]] = None
+class CostEstimationResourceCollectionFilterOutput(BaseValidatorModel):
+    CloudFormation: Optional[CloudFormationCostEstimationResourceCollectionFilterOutput] = None
+    Tags: Optional[List[TagCostEstimationResourceCollectionFilterOutput]] = None
 
 
-class CostEstimationResourceCollectionFilterTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[CloudFormationCostEstimationResourceCollectionFilterTypeDef] = None
-    Tags: Optional[Sequence[TagCostEstimationResourceCollectionFilterTypeDef]] = None
+class CostEstimationResourceCollectionFilter(BaseValidatorModel):
+    CloudFormation: Optional[CloudFormationCostEstimationResourceCollectionFilter] = None
+    Tags: Optional[Sequence[TagCostEstimationResourceCollectionFilter]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DescribeAccountOverviewRequestTypeDef(BaseValidatorModel):
-    FromTime: TimestampTypeDef
-    ToTime: Optional[TimestampTypeDef] = None
+class DescribeAccountOverviewRequest(BaseValidatorModel):
+    FromTime: Timestamp
+    ToTime: Optional[Timestamp] = None
 
 
-class DescribeOrganizationOverviewRequestTypeDef(BaseValidatorModel):
-    FromTime: TimestampTypeDef
-    ToTime: Optional[TimestampTypeDef] = None
+class DescribeOrganizationOverviewRequest(BaseValidatorModel):
+    FromTime: Timestamp
+    ToTime: Optional[Timestamp] = None
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
 
 
-class EndTimeRangeTypeDef(BaseValidatorModel):
-    FromTime: Optional[TimestampTypeDef] = None
-    ToTime: Optional[TimestampTypeDef] = None
+class EndTimeRange(BaseValidatorModel):
+    FromTime: Optional[Timestamp] = None
+    ToTime: Optional[Timestamp] = None
 
 
-class EventTimeRangeTypeDef(BaseValidatorModel):
-    FromTime: TimestampTypeDef
-    ToTime: TimestampTypeDef
+class EventTimeRange(BaseValidatorModel):
+    FromTime: Timestamp
+    ToTime: Timestamp
 
 
-class StartTimeRangeTypeDef(BaseValidatorModel):
-    FromTime: Optional[TimestampTypeDef] = None
-    ToTime: Optional[TimestampTypeDef] = None
+class StartTimeRange(BaseValidatorModel):
+    FromTime: Optional[Timestamp] = None
+    ToTime: Optional[Timestamp] = None
 
 
-class DescribeFeedbackResponseTypeDef(BaseValidatorModel):
-    InsightFeedback: InsightFeedbackTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFeedbackResponse(BaseValidatorModel):
+    InsightFeedback: InsightFeedback
+    ResponseMetadata: ResponseMetadata
 
 
-class PutFeedbackRequestTypeDef(BaseValidatorModel):
-    InsightFeedback: Optional[InsightFeedbackTypeDef] = None
+class PutFeedbackRequest(BaseValidatorModel):
+    InsightFeedback: Optional[InsightFeedback] = None
 
 
-class DescribeOrganizationResourceCollectionHealthRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeOrganizationResourceCollectionHealthRequestPaginate(BaseValidatorModel):
     OrganizationResourceCollectionType: OrganizationResourceCollectionTypeType
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
     MaxResults: Optional[int] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeResourceCollectionHealthRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeResourceCollectionHealthRequestPaginate(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetCostEstimationRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class GetCostEstimationRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetResourceCollectionRequestPaginateTypeDef(BaseValidatorModel):
+class GetResourceCollectionRequestPaginate(BaseValidatorModel):
     ResourceCollectionType: ResourceCollectionTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAnomalousLogGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAnomalousLogGroupsRequestPaginate(BaseValidatorModel):
     InsightId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotificationChannelsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListNotificationChannelsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecommendationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecommendationsRequestPaginate(BaseValidatorModel):
     InsightId: str
     Locale: Optional[LocaleType] = None
     AccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoredResourcesRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: Optional[ListMonitoredResourcesFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListMonitoredResourcesRequestPaginate(BaseValidatorModel):
+    Filters: Optional[ListMonitoredResourcesFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitoredResourcesRequestTypeDef(BaseValidatorModel):
-    Filters: Optional[ListMonitoredResourcesFiltersTypeDef] = None
+class ListMonitoredResourcesRequest(BaseValidatorModel):
+    Filters: Optional[ListMonitoredResourcesFilters] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class LogAnomalyShowcaseTypeDef(BaseValidatorModel):
-    LogAnomalyClasses: Optional[List[LogAnomalyClassTypeDef]] = None
+class LogAnomalyShowcase(BaseValidatorModel):
+    LogAnomalyClasses: Optional[List[LogAnomalyClass]] = None
 
 
-class NotificationChannelConfigOutputTypeDef(BaseValidatorModel):
-    Sns: SnsChannelConfigTypeDef
-    Filters: Optional[NotificationFilterConfigOutputTypeDef] = None
+class NotificationChannelConfigOutput(BaseValidatorModel):
+    Sns: SnsChannelConfig
+    Filters: Optional[NotificationFilterConfigOutput] = None
 
 
-class NotificationChannelConfigTypeDef(BaseValidatorModel):
-    Sns: SnsChannelConfigTypeDef
-    Filters: Optional[NotificationFilterConfigTypeDef] = None
+class NotificationChannelConfig(BaseValidatorModel):
+    Sns: SnsChannelConfig
+    Filters: Optional[NotificationFilterConfig] = None
 
 
-class KMSServerSideEncryptionIntegrationConfigTypeDef(BaseValidatorModel):
+class KMSServerSideEncryptionIntegrationConfig(BaseValidatorModel):
     pass
 
 
-class UpdateServiceIntegrationConfigTypeDef(BaseValidatorModel):
-    OpsCenter: Optional[OpsCenterIntegrationConfigTypeDef] = None
-    LogsAnomalyDetection: Optional[LogsAnomalyDetectionIntegrationConfigTypeDef] = None
-    KMSServerSideEncryption: Optional[KMSServerSideEncryptionIntegrationConfigTypeDef] = None
+class UpdateServiceIntegrationConfig(BaseValidatorModel):
+    OpsCenter: Optional[OpsCenterIntegrationConfig] = None
+    LogsAnomalyDetection: Optional[LogsAnomalyDetectionIntegrationConfig] = None
+    KMSServerSideEncryption: Optional[KMSServerSideEncryptionIntegrationConfig] = None
 
 
-class KMSServerSideEncryptionIntegrationTypeDef(BaseValidatorModel):
+class KMSServerSideEncryptionIntegration(BaseValidatorModel):
     pass
 
 
-class ServiceIntegrationConfigTypeDef(BaseValidatorModel):
-    OpsCenter: Optional[OpsCenterIntegrationTypeDef] = None
-    LogsAnomalyDetection: Optional[LogsAnomalyDetectionIntegrationTypeDef] = None
-    KMSServerSideEncryption: Optional[KMSServerSideEncryptionIntegrationTypeDef] = None
+class ServiceIntegrationConfig(BaseValidatorModel):
+    OpsCenter: Optional[OpsCenterIntegration] = None
+    LogsAnomalyDetection: Optional[LogsAnomalyDetectionIntegration] = None
+    KMSServerSideEncryption: Optional[KMSServerSideEncryptionIntegration] = None
 
 
-class PerformanceInsightsMetricQueryTypeDef(BaseValidatorModel):
+class PerformanceInsightsMetricQuery(BaseValidatorModel):
     Metric: Optional[str] = None
-    GroupBy: Optional[PerformanceInsightsMetricDimensionGroupTypeDef] = None
+    GroupBy: Optional[PerformanceInsightsMetricDimensionGroup] = None
     Filter: Optional[Dict[str, str]] = None
 
 
-class RecommendationRelatedAnomalySourceDetailTypeDef(BaseValidatorModel):
-    CloudWatchMetrics: Optional[List[RecommendationRelatedCloudWatchMetricsSourceDetailTypeDef]] = None
+class RecommendationRelatedAnomalySourceDetail(BaseValidatorModel):
+    CloudWatchMetrics: Optional[List[RecommendationRelatedCloudWatchMetricsSourceDetail]] = None
 
 
-class RecommendationRelatedEventResourceTypeDef(BaseValidatorModel):
+class RecommendationRelatedEventResource(BaseValidatorModel):
     pass
 
 
-class RecommendationRelatedEventTypeDef(BaseValidatorModel):
+class RecommendationRelatedEvent(BaseValidatorModel):
     Name: Optional[str] = None
-    Resources: Optional[List[RecommendationRelatedEventResourceTypeDef]] = None
+    Resources: Optional[List[RecommendationRelatedEventResource]] = None
 
 
-class ResourceCollectionFilterTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[CloudFormationCollectionFilterTypeDef] = None
-    Tags: Optional[List[TagCollectionFilterTypeDef]] = None
+class ResourceCollectionFilter(BaseValidatorModel):
+    CloudFormation: Optional[CloudFormationCollectionFilter] = None
+    Tags: Optional[List[TagCollectionFilter]] = None
 
 
-class ResourceCollectionOutputTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[CloudFormationCollectionOutputTypeDef] = None
-    Tags: Optional[List[TagCollectionOutputTypeDef]] = None
+class ResourceCollectionOutput(BaseValidatorModel):
+    CloudFormation: Optional[CloudFormationCollectionOutput] = None
+    Tags: Optional[List[TagCollectionOutput]] = None
 
 
-class UpdateResourceCollectionFilterTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[UpdateCloudFormationCollectionFilterTypeDef] = None
-    Tags: Optional[Sequence[UpdateTagCollectionFilterTypeDef]] = None
+class UpdateResourceCollectionFilter(BaseValidatorModel):
+    CloudFormation: Optional[UpdateCloudFormationCollectionFilter] = None
+    Tags: Optional[Sequence[UpdateTagCollectionFilter]] = None
 
 
-class DescribeEventSourcesConfigResponseTypeDef(BaseValidatorModel):
-    EventSources: EventSourcesConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventSourcesConfigResponse(BaseValidatorModel):
+    EventSources: EventSourcesConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateEventSourcesConfigRequestTypeDef(BaseValidatorModel):
-    EventSources: Optional[EventSourcesConfigTypeDef] = None
+class UpdateEventSourcesConfigRequest(BaseValidatorModel):
+    EventSources: Optional[EventSourcesConfig] = None
 
 
-class CloudWatchMetricsDetailTypeDef(BaseValidatorModel):
+class CloudWatchMetricsDetail(BaseValidatorModel):
     MetricName: Optional[str] = None
     Namespace: Optional[str] = None
-    Dimensions: Optional[List[CloudWatchMetricsDimensionTypeDef]] = None
+    Dimensions: Optional[List[CloudWatchMetricsDimension]] = None
     Stat: Optional[CloudWatchMetricsStatType] = None
     Unit: Optional[str] = None
     Period: Optional[int] = None
-    MetricDataSummary: Optional[CloudWatchMetricsDataSummaryTypeDef] = None
+    MetricDataSummary: Optional[CloudWatchMetricsDataSummary] = None
 
 
-class ServiceResourceCostTypeDef(BaseValidatorModel):
+class ServiceResourceCost(BaseValidatorModel):
     pass
 
 
-class GetCostEstimationResponseTypeDef(BaseValidatorModel):
-    ResourceCollection: CostEstimationResourceCollectionFilterOutputTypeDef
+class GetCostEstimationResponse(BaseValidatorModel):
+    ResourceCollection: CostEstimationResourceCollectionFilterOutput
     Status: CostEstimationStatusType
-    Costs: List[ServiceResourceCostTypeDef]
-    TimeRange: CostEstimationTimeRangeTypeDef
+    Costs: List[ServiceResourceCost]
+    TimeRange: CostEstimationTimeRange
     TotalCost: float
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AnomalousLogGroupTypeDef(BaseValidatorModel):
+class AnomalousLogGroup(BaseValidatorModel):
     LogGroupName: Optional[str] = None
     ImpactStartTime: Optional[datetime] = None
     ImpactEndTime: Optional[datetime] = None
     NumberOfLogLinesScanned: Optional[int] = None
-    LogAnomalyShowcases: Optional[List[LogAnomalyShowcaseTypeDef]] = None
+    LogAnomalyShowcases: Optional[List[LogAnomalyShowcase]] = None
 
 
-class NotificationChannelTypeDef(BaseValidatorModel):
+class NotificationChannel(BaseValidatorModel):
     Id: Optional[str] = None
-    Config: Optional[NotificationChannelConfigOutputTypeDef] = None
+    Config: Optional[NotificationChannelConfigOutput] = None
 
 
-class UpdateServiceIntegrationRequestTypeDef(BaseValidatorModel):
-    ServiceIntegration: UpdateServiceIntegrationConfigTypeDef
+class UpdateServiceIntegrationRequest(BaseValidatorModel):
+    ServiceIntegration: UpdateServiceIntegrationConfig
 
 
-class DescribeServiceIntegrationResponseTypeDef(BaseValidatorModel):
-    ServiceIntegration: ServiceIntegrationConfigTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeServiceIntegrationResponse(BaseValidatorModel):
+    ServiceIntegration: ServiceIntegrationConfig
+    ResponseMetadata: ResponseMetadata
 
 
-class PerformanceInsightsReferenceMetricTypeDef(BaseValidatorModel):
-    MetricQuery: Optional[PerformanceInsightsMetricQueryTypeDef] = None
+class PerformanceInsightsReferenceMetric(BaseValidatorModel):
+    MetricQuery: Optional[PerformanceInsightsMetricQuery] = None
 
 
-class RecommendationRelatedAnomalyResourceTypeDef(BaseValidatorModel):
+class RecommendationRelatedAnomalyResource(BaseValidatorModel):
     pass
 
 
-class RecommendationRelatedAnomalyTypeDef(BaseValidatorModel):
-    Resources: Optional[List[RecommendationRelatedAnomalyResourceTypeDef]] = None
-    SourceDetails: Optional[List[RecommendationRelatedAnomalySourceDetailTypeDef]] = None
+class RecommendationRelatedAnomaly(BaseValidatorModel):
+    Resources: Optional[List[RecommendationRelatedAnomalyResource]] = None
+    SourceDetails: Optional[List[RecommendationRelatedAnomalySourceDetail]] = None
     AnomalyId: Optional[str] = None
 
 
-class GetResourceCollectionResponseTypeDef(BaseValidatorModel):
-    ResourceCollection: ResourceCollectionFilterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetResourceCollectionResponse(BaseValidatorModel):
+    ResourceCollection: ResourceCollectionFilter
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EventResourceTypeDef(BaseValidatorModel):
+class EventResource(BaseValidatorModel):
     pass
 
 
-class EventTypeDef(BaseValidatorModel):
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
+class Event(BaseValidatorModel):
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
     Id: Optional[str] = None
     Time: Optional[datetime] = None
     EventSource: Optional[str] = None
     Name: Optional[str] = None
     DataSource: Optional[EventDataSourceType] = None
     EventClass: Optional[EventClassType] = None
-    Resources: Optional[List[EventResourceTypeDef]] = None
+    Resources: Optional[List[EventResource]] = None
 
 
-class ProactiveInsightSummaryTypeDef(BaseValidatorModel):
+class ProactiveInsightSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    PredictionTimeRange: Optional[PredictionTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
+    ServiceCollection: Optional[ServiceCollectionOutput] = None
     AssociatedResourceArns: Optional[List[str]] = None
 
 
-class ProactiveInsightTypeDef(BaseValidatorModel):
+class ProactiveInsight(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    PredictionTimeRange: Optional[PredictionTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
     SsmOpsItemId: Optional[str] = None
     Description: Optional[str] = None
 
 
-class ProactiveOrganizationInsightSummaryTypeDef(BaseValidatorModel):
+class ProactiveOrganizationInsightSummary(BaseValidatorModel):
     Id: Optional[str] = None
     AccountId: Optional[str] = None
     OrganizationalUnitId: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    PredictionTimeRange: Optional[PredictionTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
+    ServiceCollection: Optional[ServiceCollectionOutput] = None
 
 
-class ReactiveInsightSummaryTypeDef(BaseValidatorModel):
+class ReactiveInsightSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
+    ServiceCollection: Optional[ServiceCollectionOutput] = None
     AssociatedResourceArns: Optional[List[str]] = None
 
 
-class ReactiveInsightTypeDef(BaseValidatorModel):
+class ReactiveInsight(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
     SsmOpsItemId: Optional[str] = None
     Description: Optional[str] = None
 
 
-class ReactiveOrganizationInsightSummaryTypeDef(BaseValidatorModel):
+class ReactiveOrganizationInsightSummary(BaseValidatorModel):
     Id: Optional[str] = None
     AccountId: Optional[str] = None
     OrganizationalUnitId: Optional[str] = None
     Name: Optional[str] = None
     Severity: Optional[InsightSeverityType] = None
     Status: Optional[InsightStatusType] = None
-    InsightTimeRange: Optional[InsightTimeRangeTypeDef] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionOutputTypeDef] = None
+    InsightTimeRange: Optional[InsightTimeRange] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
+    ServiceCollection: Optional[ServiceCollectionOutput] = None
 
 
-class ServiceCollectionUnionTypeDef(BaseValidatorModel):
+class ServiceCollectionUnion(BaseValidatorModel):
     pass
 
 
-class ListAnomaliesForInsightFiltersTypeDef(BaseValidatorModel):
-    ServiceCollection: Optional[ServiceCollectionUnionTypeDef] = None
+class ListAnomaliesForInsightFilters(BaseValidatorModel):
+    ServiceCollection: Optional[ServiceCollectionUnion] = None
 
 
-class ServiceHealthTypeDef(BaseValidatorModel):
+class ServiceHealth(BaseValidatorModel):
     pass
 
 
-class DescribeOrganizationResourceCollectionHealthResponseTypeDef(BaseValidatorModel):
-    CloudFormation: List[CloudFormationHealthTypeDef]
-    Service: List[ServiceHealthTypeDef]
-    Account: List[AccountHealthTypeDef]
-    Tags: List[TagHealthTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeOrganizationResourceCollectionHealthResponse(BaseValidatorModel):
+    CloudFormation: List[CloudFormationHealth]
+    Service: List[ServiceHealth]
+    Account: List[AccountHealth]
+    Tags: List[TagHealth]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeResourceCollectionHealthResponseTypeDef(BaseValidatorModel):
-    CloudFormation: List[CloudFormationHealthTypeDef]
-    Service: List[ServiceHealthTypeDef]
-    Tags: List[TagHealthTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeResourceCollectionHealthResponse(BaseValidatorModel):
+    CloudFormation: List[CloudFormationHealth]
+    Service: List[ServiceHealth]
+    Tags: List[TagHealth]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CloudFormationCollectionUnionTypeDef(BaseValidatorModel):
+class CloudFormationCollectionUnion(BaseValidatorModel):
     pass
 
 
-class TagCollectionUnionTypeDef(BaseValidatorModel):
+class TagCollectionUnion(BaseValidatorModel):
     pass
 
 
-class ResourceCollectionTypeDef(BaseValidatorModel):
-    CloudFormation: Optional[CloudFormationCollectionUnionTypeDef] = None
-    Tags: Optional[Sequence[TagCollectionUnionTypeDef]] = None
+class ResourceCollection(BaseValidatorModel):
+    CloudFormation: Optional[CloudFormationCollectionUnion] = None
+    Tags: Optional[Sequence[TagCollectionUnion]] = None
 
 
-class UpdateResourceCollectionRequestTypeDef(BaseValidatorModel):
+class UpdateResourceCollectionRequest(BaseValidatorModel):
     Action: UpdateResourceCollectionActionType
-    ResourceCollection: UpdateResourceCollectionFilterTypeDef
+    ResourceCollection: UpdateResourceCollectionFilter
 
 
-class CostEstimationResourceCollectionFilterUnionTypeDef(BaseValidatorModel):
+class CostEstimationResourceCollectionFilterUnion(BaseValidatorModel):
     pass
 
 
-class StartCostEstimationRequestTypeDef(BaseValidatorModel):
-    ResourceCollection: CostEstimationResourceCollectionFilterUnionTypeDef
+class StartCostEstimationRequest(BaseValidatorModel):
+    ResourceCollection: CostEstimationResourceCollectionFilterUnion
     ClientToken: Optional[str] = None
 
 
-class ListAnomalousLogGroupsResponseTypeDef(BaseValidatorModel):
+class ListAnomalousLogGroupsResponse(BaseValidatorModel):
     InsightId: str
-    AnomalousLogGroups: List[AnomalousLogGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    AnomalousLogGroups: List[AnomalousLogGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNotificationChannelsResponseTypeDef(BaseValidatorModel):
-    Channels: List[NotificationChannelTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationChannelsResponse(BaseValidatorModel):
+    Channels: List[NotificationChannel]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class NotificationChannelConfigUnionTypeDef(BaseValidatorModel):
+class NotificationChannelConfigUnion(BaseValidatorModel):
     pass
 
 
-class AddNotificationChannelRequestTypeDef(BaseValidatorModel):
-    Config: NotificationChannelConfigUnionTypeDef
+class AddNotificationChannelRequest(BaseValidatorModel):
+    Config: NotificationChannelConfigUnion
 
 
-class PerformanceInsightsReferenceComparisonValuesTypeDef(BaseValidatorModel):
-    ReferenceScalar: Optional[PerformanceInsightsReferenceScalarTypeDef] = None
-    ReferenceMetric: Optional[PerformanceInsightsReferenceMetricTypeDef] = None
+class PerformanceInsightsReferenceComparisonValues(BaseValidatorModel):
+    ReferenceScalar: Optional[PerformanceInsightsReferenceScalar] = None
+    ReferenceMetric: Optional[PerformanceInsightsReferenceMetric] = None
 
 
-class RecommendationTypeDef(BaseValidatorModel):
+class Recommendation(BaseValidatorModel):
     Description: Optional[str] = None
     Link: Optional[str] = None
     Name: Optional[str] = None
     Reason: Optional[str] = None
-    RelatedEvents: Optional[List[RecommendationRelatedEventTypeDef]] = None
-    RelatedAnomalies: Optional[List[RecommendationRelatedAnomalyTypeDef]] = None
+    RelatedEvents: Optional[List[RecommendationRelatedEvent]] = None
+    RelatedAnomalies: Optional[List[RecommendationRelatedAnomaly]] = None
     Category: Optional[str] = None
 
 
-class ListEventsResponseTypeDef(BaseValidatorModel):
-    Events: List[EventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventsResponse(BaseValidatorModel):
+    Events: List[Event]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class MonitoredResourceIdentifierTypeDef(BaseValidatorModel):
+class MonitoredResourceIdentifier(BaseValidatorModel):
     pass
 
 
-class ListMonitoredResourcesResponseTypeDef(BaseValidatorModel):
-    MonitoredResourceIdentifiers: List[MonitoredResourceIdentifierTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitoredResourcesResponse(BaseValidatorModel):
+    MonitoredResourceIdentifiers: List[MonitoredResourceIdentifier]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListInsightsResponseTypeDef(BaseValidatorModel):
-    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
-    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListInsightsResponse(BaseValidatorModel):
+    ProactiveInsights: List[ProactiveInsightSummary]
+    ReactiveInsights: List[ReactiveInsightSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchInsightsResponseTypeDef(BaseValidatorModel):
-    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
-    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchInsightsResponse(BaseValidatorModel):
+    ProactiveInsights: List[ProactiveInsightSummary]
+    ReactiveInsights: List[ReactiveInsightSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchOrganizationInsightsResponseTypeDef(BaseValidatorModel):
-    ProactiveInsights: List[ProactiveInsightSummaryTypeDef]
-    ReactiveInsights: List[ReactiveInsightSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchOrganizationInsightsResponse(BaseValidatorModel):
+    ProactiveInsights: List[ProactiveInsightSummary]
+    ReactiveInsights: List[ReactiveInsightSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeInsightResponseTypeDef(BaseValidatorModel):
-    ProactiveInsight: ProactiveInsightTypeDef
-    ReactiveInsight: ReactiveInsightTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeInsightResponse(BaseValidatorModel):
+    ProactiveInsight: ProactiveInsight
+    ReactiveInsight: ReactiveInsight
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOrganizationInsightsResponseTypeDef(BaseValidatorModel):
-    ProactiveInsights: List[ProactiveOrganizationInsightSummaryTypeDef]
-    ReactiveInsights: List[ReactiveOrganizationInsightSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationInsightsResponse(BaseValidatorModel):
+    ProactiveInsights: List[ProactiveOrganizationInsightSummary]
+    ReactiveInsights: List[ReactiveOrganizationInsightSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListAnomaliesForInsightRequestPaginateTypeDef(BaseValidatorModel):
+class ListAnomaliesForInsightRequestPaginate(BaseValidatorModel):
     InsightId: str
-    StartTimeRange: Optional[StartTimeRangeTypeDef] = None
+    StartTimeRange: Optional[StartTimeRange] = None
     AccountId: Optional[str] = None
-    Filters: Optional[ListAnomaliesForInsightFiltersTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    Filters: Optional[ListAnomaliesForInsightFilters] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAnomaliesForInsightRequestTypeDef(BaseValidatorModel):
+class ListAnomaliesForInsightRequest(BaseValidatorModel):
     InsightId: str
-    StartTimeRange: Optional[StartTimeRangeTypeDef] = None
+    StartTimeRange: Optional[StartTimeRange] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
-    Filters: Optional[ListAnomaliesForInsightFiltersTypeDef] = None
+    Filters: Optional[ListAnomaliesForInsightFilters] = None
 
 
-class ListInsightsStatusFilterTypeDef(BaseValidatorModel):
+class ListInsightsStatusFilter(BaseValidatorModel):
     pass
 
 
-class ListInsightsRequestPaginateTypeDef(BaseValidatorModel):
-    StatusFilter: ListInsightsStatusFilterTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListInsightsRequestPaginate(BaseValidatorModel):
+    StatusFilter: ListInsightsStatusFilter
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInsightsRequestTypeDef(BaseValidatorModel):
-    StatusFilter: ListInsightsStatusFilterTypeDef
+class ListInsightsRequest(BaseValidatorModel):
+    StatusFilter: ListInsightsStatusFilter
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListOrganizationInsightsRequestPaginateTypeDef(BaseValidatorModel):
-    StatusFilter: ListInsightsStatusFilterTypeDef
+class ListOrganizationInsightsRequestPaginate(BaseValidatorModel):
+    StatusFilter: ListInsightsStatusFilter
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationInsightsRequestTypeDef(BaseValidatorModel):
-    StatusFilter: ListInsightsStatusFilterTypeDef
+class ListOrganizationInsightsRequest(BaseValidatorModel):
+    StatusFilter: ListInsightsStatusFilter
     MaxResults: Optional[int] = None
     AccountIds: Optional[Sequence[str]] = None
     OrganizationalUnitIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
 
 
-class PerformanceInsightsReferenceDataTypeDef(BaseValidatorModel):
+class PerformanceInsightsReferenceData(BaseValidatorModel):
     Name: Optional[str] = None
-    ComparisonValues: Optional[PerformanceInsightsReferenceComparisonValuesTypeDef] = None
+    ComparisonValues: Optional[PerformanceInsightsReferenceComparisonValues] = None
 
 
-class ListRecommendationsResponseTypeDef(BaseValidatorModel):
-    Recommendations: List[RecommendationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendationsResponse(BaseValidatorModel):
+    Recommendations: List[Recommendation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResourceCollectionUnionTypeDef(BaseValidatorModel):
+class ResourceCollectionUnion(BaseValidatorModel):
     pass
 
 
-class ListEventsFiltersTypeDef(BaseValidatorModel):
+class ListEventsFilters(BaseValidatorModel):
     InsightId: Optional[str] = None
-    EventTimeRange: Optional[EventTimeRangeTypeDef] = None
+    EventTimeRange: Optional[EventTimeRange] = None
     EventClass: Optional[EventClassType] = None
     EventSource: Optional[str] = None
     DataSource: Optional[EventDataSourceType] = None
-    ResourceCollection: Optional[ResourceCollectionUnionTypeDef] = None
+    ResourceCollection: Optional[ResourceCollectionUnion] = None
 
 
-class SearchInsightsFiltersTypeDef(BaseValidatorModel):
+class SearchInsightsFilters(BaseValidatorModel):
     Severities: Optional[Sequence[InsightSeverityType]] = None
     Statuses: Optional[Sequence[InsightStatusType]] = None
-    ResourceCollection: Optional[ResourceCollectionUnionTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionUnionTypeDef] = None
+    ResourceCollection: Optional[ResourceCollectionUnion] = None
+    ServiceCollection: Optional[ServiceCollectionUnion] = None
 
 
-class SearchOrganizationInsightsFiltersTypeDef(BaseValidatorModel):
+class SearchOrganizationInsightsFilters(BaseValidatorModel):
     Severities: Optional[Sequence[InsightSeverityType]] = None
     Statuses: Optional[Sequence[InsightStatusType]] = None
-    ResourceCollection: Optional[ResourceCollectionUnionTypeDef] = None
-    ServiceCollection: Optional[ServiceCollectionUnionTypeDef] = None
+    ResourceCollection: Optional[ResourceCollectionUnion] = None
+    ServiceCollection: Optional[ServiceCollectionUnion] = None
 
 
-class PerformanceInsightsStatTypeDef(BaseValidatorModel):
+class PerformanceInsightsStat(BaseValidatorModel):
     pass
 
 
-class PerformanceInsightsMetricsDetailTypeDef(BaseValidatorModel):
+class PerformanceInsightsMetricsDetail(BaseValidatorModel):
     MetricDisplayName: Optional[str] = None
     Unit: Optional[str] = None
-    MetricQuery: Optional[PerformanceInsightsMetricQueryTypeDef] = None
-    ReferenceData: Optional[List[PerformanceInsightsReferenceDataTypeDef]] = None
-    StatsAtAnomaly: Optional[List[PerformanceInsightsStatTypeDef]] = None
-    StatsAtBaseline: Optional[List[PerformanceInsightsStatTypeDef]] = None
+    MetricQuery: Optional[PerformanceInsightsMetricQuery] = None
+    ReferenceData: Optional[List[PerformanceInsightsReferenceData]] = None
+    StatsAtAnomaly: Optional[List[PerformanceInsightsStat]] = None
+    StatsAtBaseline: Optional[List[PerformanceInsightsStat]] = None
 
 
-class ListEventsRequestPaginateTypeDef(BaseValidatorModel):
-    Filters: ListEventsFiltersTypeDef
+class ListEventsRequestPaginate(BaseValidatorModel):
+    Filters: ListEventsFilters
     AccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventsRequestTypeDef(BaseValidatorModel):
-    Filters: ListEventsFiltersTypeDef
+class ListEventsRequest(BaseValidatorModel):
+    Filters: ListEventsFilters
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     AccountId: Optional[str] = None
 
 
-class AnomalySourceDetailsTypeDef(BaseValidatorModel):
-    CloudWatchMetrics: Optional[List[CloudWatchMetricsDetailTypeDef]] = None
-    PerformanceInsightsMetrics: Optional[List[PerformanceInsightsMetricsDetailTypeDef]] = None
+class AnomalySourceDetails(BaseValidatorModel):
+    CloudWatchMetrics: Optional[List[CloudWatchMetricsDetail]] = None
+    PerformanceInsightsMetrics: Optional[List[PerformanceInsightsMetricsDetail]] = None
 
 
-class AnomalyResourceTypeDef(BaseValidatorModel):
+class AnomalyResource(BaseValidatorModel):
     pass
 
 
-class ProactiveAnomalySummaryTypeDef(BaseValidatorModel):
+class ProactiveAnomalySummary(BaseValidatorModel):
     Id: Optional[str] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     UpdateTime: Optional[datetime] = None
-    AnomalyTimeRange: Optional[AnomalyTimeRangeTypeDef] = None
-    AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
-    PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
-    SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
+    AnomalyTimeRange: Optional[AnomalyTimeRange] = None
+    AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRange] = None
+    PredictionTimeRange: Optional[PredictionTimeRange] = None
+    SourceDetails: Optional[AnomalySourceDetails] = None
     AssociatedInsightId: Optional[str] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
     Limit: Optional[float] = None
-    SourceMetadata: Optional[AnomalySourceMetadataTypeDef] = None
-    AnomalyResources: Optional[List[AnomalyResourceTypeDef]] = None
+    SourceMetadata: Optional[AnomalySourceMetadata] = None
+    AnomalyResources: Optional[List[AnomalyResource]] = None
     Description: Optional[str] = None
 
 
-class ProactiveAnomalyTypeDef(BaseValidatorModel):
+class ProactiveAnomaly(BaseValidatorModel):
     Id: Optional[str] = None
     Severity: Optional[AnomalySeverityType] = None
     Status: Optional[AnomalyStatusType] = None
     UpdateTime: Optional[datetime] = None
-    AnomalyTimeRange: Optional[AnomalyTimeRangeTypeDef] = None
-    AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRangeTypeDef] = None
-    PredictionTimeRange: Optional[PredictionTimeRangeTypeDef] = None
-    SourceDetails: Optional[AnomalySourceDetailsTypeDef] = None
+    AnomalyTimeRange: Optional[AnomalyTimeRange] = None
+    AnomalyReportedTimeRange: Optional[AnomalyReportedTimeRange] = None
+    PredictionTimeRange: Optional[PredictionTimeRange] = None
+    SourceDetails: Optional[AnomalySourceDetails] = None
     AssociatedInsightId: Optional[str] = None
-    ResourceCollection: Optional[ResourceCollectionOutputTypeDef] = None
+    ResourceCollection: Optional[ResourceCollectionOutput] = None
     Limit: Optional[float] = None
-    SourceMetadata: Optional[AnomalySourceMetadataTypeDef] = None
-    AnomalyResources: Optional[List[AnomalyResourceTypeDef]] = None
+    SourceMetadata: Optional[AnomalySourceMetadata] = None
+    AnomalyResources: Optional[List[AnomalyResource]] = None
     Description: Optional[str] = None
 
 
-class ReactiveAnomalySummaryTypeDef(BaseValidatorModel):
+class ReactiveAnomalySummary(BaseValidatorModel):
     pass
 
 
-class ListAnomaliesForInsightResponseTypeDef(BaseValidatorModel):
-    ProactiveAnomalies: List[ProactiveAnomalySummaryTypeDef]
-    ReactiveAnomalies: List[ReactiveAnomalySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAnomaliesForInsightResponse(BaseValidatorModel):
+    ProactiveAnomalies: List[ProactiveAnomalySummary]
+    ReactiveAnomalies: List[ReactiveAnomalySummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ReactiveAnomalyTypeDef(BaseValidatorModel):
+class ReactiveAnomaly(BaseValidatorModel):
     pass
 
 
-class DescribeAnomalyResponseTypeDef(BaseValidatorModel):
-    ProactiveAnomaly: ProactiveAnomalyTypeDef
-    ReactiveAnomaly: ReactiveAnomalyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAnomalyResponse(BaseValidatorModel):
+    ProactiveAnomaly: ProactiveAnomaly
+    ReactiveAnomaly: ReactiveAnomaly
+    ResponseMetadata: ResponseMetadata
 
 

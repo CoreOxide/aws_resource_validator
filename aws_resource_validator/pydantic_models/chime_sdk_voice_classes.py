@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_voice_constants import *
 
-class AddressTypeDef(BaseValidatorModel):
+class Address(BaseValidatorModel):
     streetName: Optional[str] = None
     streetSuffix: Optional[str] = None
     postDirectional: Optional[str] = None
@@ -25,19 +25,19 @@ class AddressTypeDef(BaseValidatorModel):
     country: Optional[str] = None
 
 
-class AssociatePhoneNumbersWithVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class AssociatePhoneNumbersWithVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     E164PhoneNumbers: Sequence[str]
     ForceAssociate: Optional[bool] = None
 
 
-class PhoneNumberErrorTypeDef(BaseValidatorModel):
+class PhoneNumberError(BaseValidatorModel):
     PhoneNumberId: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -45,30 +45,30 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AssociatePhoneNumbersWithVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class AssociatePhoneNumbersWithVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     E164PhoneNumbers: Sequence[str]
     ForceAssociate: Optional[bool] = None
 
 
-class BatchDeletePhoneNumberRequestTypeDef(BaseValidatorModel):
+class BatchDeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberIds: Sequence[str]
 
 
-class UpdatePhoneNumberRequestItemTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberRequestItem(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
     CallingName: Optional[str] = None
     Name: Optional[str] = None
 
 
-class CallDetailsTypeDef(BaseValidatorModel):
+class CallDetails(BaseValidatorModel):
     VoiceConnectorId: Optional[str] = None
     TransactionId: Optional[str] = None
     IsCaller: Optional[bool] = None
 
 
-class CandidateAddressTypeDef(BaseValidatorModel):
+class CandidateAddress(BaseValidatorModel):
     streetInfo: Optional[str] = None
     streetNumber: Optional[str] = None
     city: Optional[str] = None
@@ -78,18 +78,18 @@ class CandidateAddressTypeDef(BaseValidatorModel):
     country: Optional[str] = None
 
 
-class CreatePhoneNumberOrderRequestTypeDef(BaseValidatorModel):
+class CreatePhoneNumberOrderRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
     E164PhoneNumbers: Sequence[str]
     Name: Optional[str] = None
 
 
-class GeoMatchParamsTypeDef(BaseValidatorModel):
+class GeoMatchParams(BaseValidatorModel):
     Country: str
     AreaCode: str
 
 
-class CreateSipMediaApplicationCallRequestTypeDef(BaseValidatorModel):
+class CreateSipMediaApplicationCallRequest(BaseValidatorModel):
     FromPhoneNumber: str
     ToPhoneNumber: str
     SipMediaApplicationId: str
@@ -97,31 +97,31 @@ class CreateSipMediaApplicationCallRequestTypeDef(BaseValidatorModel):
     ArgumentsMap: Optional[Mapping[str, str]] = None
 
 
-class SipMediaApplicationCallTypeDef(BaseValidatorModel):
+class SipMediaApplicationCall(BaseValidatorModel):
     TransactionId: Optional[str] = None
 
 
-class SipMediaApplicationEndpointTypeDef(BaseValidatorModel):
+class SipMediaApplicationEndpoint(BaseValidatorModel):
     LambdaArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class SipRuleTargetApplicationTypeDef(BaseValidatorModel):
+class SipRuleTargetApplication(BaseValidatorModel):
     SipMediaApplicationId: Optional[str] = None
     Priority: Optional[int] = None
     AwsRegion: Optional[str] = None
 
 
-class VoiceConnectorItemTypeDef(BaseValidatorModel):
+class VoiceConnectorItem(BaseValidatorModel):
     VoiceConnectorId: str
     Priority: int
 
 
-class VoiceConnectorTypeDef(BaseValidatorModel):
+class VoiceConnector(BaseValidatorModel):
     VoiceConnectorId: Optional[str] = None
     AwsRegion: Optional[VoiceConnectorAwsRegionType] = None
     Name: Optional[str] = None
@@ -133,15 +133,15 @@ class VoiceConnectorTypeDef(BaseValidatorModel):
     IntegrationType: Optional[VoiceConnectorIntegrationTypeType] = None
 
 
-class ServerSideEncryptionConfigurationTypeDef(BaseValidatorModel):
+class ServerSideEncryptionConfiguration(BaseValidatorModel):
     KmsKeyArn: str
 
 
-class CreateVoiceProfileRequestTypeDef(BaseValidatorModel):
+class CreateVoiceProfileRequest(BaseValidatorModel):
     SpeakerSearchTaskId: str
 
 
-class VoiceProfileTypeDef(BaseValidatorModel):
+class VoiceProfile(BaseValidatorModel):
     VoiceProfileId: Optional[str] = None
     VoiceProfileArn: Optional[str] = None
     VoiceProfileDomainId: Optional[str] = None
@@ -150,199 +150,199 @@ class VoiceProfileTypeDef(BaseValidatorModel):
     ExpirationTimestamp: Optional[datetime] = None
 
 
-class CredentialTypeDef(BaseValidatorModel):
+class Credential(BaseValidatorModel):
     Username: Optional[str] = None
     Password: Optional[str] = None
 
 
-class DNISEmergencyCallingConfigurationTypeDef(BaseValidatorModel):
+class DNISEmergencyCallingConfiguration(BaseValidatorModel):
     EmergencyPhoneNumber: str
     CallingCountry: str
     TestPhoneNumber: Optional[str] = None
 
 
-class DeletePhoneNumberRequestTypeDef(BaseValidatorModel):
+class DeletePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class DeleteProxySessionRequestTypeDef(BaseValidatorModel):
+class DeleteProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
 
 
-class DeleteSipMediaApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
-class DeleteSipRuleRequestTypeDef(BaseValidatorModel):
+class DeleteSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
 
 
-class DeleteVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
 
 
-class DeleteVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Usernames: Sequence[str]
 
 
-class DeleteVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class DeleteVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
 
 
-class DeleteVoiceProfileRequestTypeDef(BaseValidatorModel):
+class DeleteVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
 
 
-class DisassociatePhoneNumbersFromVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class DisassociatePhoneNumbersFromVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     E164PhoneNumbers: Sequence[str]
 
 
-class DisassociatePhoneNumbersFromVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class DisassociatePhoneNumbersFromVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     E164PhoneNumbers: Sequence[str]
 
 
-class ExternalSystemsConfigurationTypeDef(BaseValidatorModel):
+class ExternalSystemsConfiguration(BaseValidatorModel):
     SessionBorderControllerTypes: Optional[List[SessionBorderControllerTypeType]] = None
     ContactCenterSystemTypes: Optional[List[ContactCenterSystemTypeType]] = None
 
 
-class VoiceConnectorSettingsTypeDef(BaseValidatorModel):
+class VoiceConnectorSettings(BaseValidatorModel):
     CdrBucket: Optional[str] = None
 
 
-class GetPhoneNumberOrderRequestTypeDef(BaseValidatorModel):
+class GetPhoneNumberOrderRequest(BaseValidatorModel):
     PhoneNumberOrderId: str
 
 
-class GetPhoneNumberRequestTypeDef(BaseValidatorModel):
+class GetPhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class GetProxySessionRequestTypeDef(BaseValidatorModel):
+class GetProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
 
 
-class GetSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(BaseValidatorModel):
+class GetSipMediaApplicationAlexaSkillConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
-class SipMediaApplicationAlexaSkillConfigurationOutputTypeDef(BaseValidatorModel):
+class SipMediaApplicationAlexaSkillConfigurationOutput(BaseValidatorModel):
     AlexaSkillStatus: AlexaSkillStatusType
     AlexaSkillIds: List[str]
 
 
-class GetSipMediaApplicationLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+class GetSipMediaApplicationLoggingConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
-class SipMediaApplicationLoggingConfigurationTypeDef(BaseValidatorModel):
+class SipMediaApplicationLoggingConfiguration(BaseValidatorModel):
     EnableSipMediaApplicationMessageLogs: Optional[bool] = None
 
 
-class GetSipMediaApplicationRequestTypeDef(BaseValidatorModel):
+class GetSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
 
 
-class GetSipRuleRequestTypeDef(BaseValidatorModel):
+class GetSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
 
 
-class GetSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
+class GetSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SpeakerSearchTaskId: str
 
 
-class GetVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class GetVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class GetVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
 
 
-class GetVoiceConnectorLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorLoggingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class LoggingConfigurationTypeDef(BaseValidatorModel):
+class LoggingConfiguration(BaseValidatorModel):
     EnableSIPLogs: Optional[bool] = None
     EnableMediaMetricLogs: Optional[bool] = None
 
 
-class GetVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class GetVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class ProxyTypeDef(BaseValidatorModel):
+class Proxy(BaseValidatorModel):
     DefaultSessionExpiryMinutes: Optional[int] = None
     Disabled: Optional[bool] = None
     FallBackPhoneNumber: Optional[str] = None
     PhoneNumberCountries: Optional[List[str]] = None
 
 
-class GetVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class GetVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class GetVoiceConnectorTerminationHealthRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorTerminationHealthRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class TerminationHealthTypeDef(BaseValidatorModel):
+class TerminationHealth(BaseValidatorModel):
     Timestamp: Optional[datetime] = None
     Source: Optional[str] = None
 
 
-class GetVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
+class GetVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class TerminationOutputTypeDef(BaseValidatorModel):
+class TerminationOutput(BaseValidatorModel):
     CpsLimit: Optional[int] = None
     DefaultPhoneNumber: Optional[str] = None
     CallingRegions: Optional[List[str]] = None
@@ -350,26 +350,26 @@ class TerminationOutputTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
-class GetVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
+class GetVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
 
 
-class GetVoiceProfileRequestTypeDef(BaseValidatorModel):
+class GetVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
 
 
-class GetVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
+class GetVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     VoiceToneAnalysisTaskId: str
     IsCaller: bool
 
 
-class ListPhoneNumberOrdersRequestTypeDef(BaseValidatorModel):
+class ListPhoneNumberOrdersRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
+class ListPhoneNumbersRequest(BaseValidatorModel):
     Status: Optional[str] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     FilterName: Optional[PhoneNumberAssociationNameType] = None
@@ -378,63 +378,63 @@ class ListPhoneNumbersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListProxySessionsRequestTypeDef(BaseValidatorModel):
+class ListProxySessionsRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Status: Optional[ProxySessionStatusType] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListSipMediaApplicationsRequestTypeDef(BaseValidatorModel):
+class ListSipMediaApplicationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListSipRulesRequestTypeDef(BaseValidatorModel):
+class ListSipRulesRequest(BaseValidatorModel):
     SipMediaApplicationId: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListSupportedPhoneNumberCountriesRequestTypeDef(BaseValidatorModel):
+class ListSupportedPhoneNumberCountriesRequest(BaseValidatorModel):
     ProductType: PhoneNumberProductTypeType
 
 
-class PhoneNumberCountryTypeDef(BaseValidatorModel):
+class PhoneNumberCountry(BaseValidatorModel):
     CountryCode: Optional[str] = None
     SupportedPhoneNumberTypes: Optional[List[PhoneNumberTypeType]] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class ListVoiceConnectorGroupsRequestTypeDef(BaseValidatorModel):
+class ListVoiceConnectorGroupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
+class ListVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
 
 
-class ListVoiceConnectorsRequestTypeDef(BaseValidatorModel):
+class ListVoiceConnectorsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListVoiceProfileDomainsRequestTypeDef(BaseValidatorModel):
+class ListVoiceProfileDomainsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class VoiceProfileDomainSummaryTypeDef(BaseValidatorModel):
+class VoiceProfileDomainSummary(BaseValidatorModel):
     VoiceProfileDomainId: Optional[str] = None
     VoiceProfileDomainArn: Optional[str] = None
     Name: Optional[str] = None
@@ -443,13 +443,13 @@ class VoiceProfileDomainSummaryTypeDef(BaseValidatorModel):
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class ListVoiceProfilesRequestTypeDef(BaseValidatorModel):
+class ListVoiceProfilesRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class VoiceProfileSummaryTypeDef(BaseValidatorModel):
+class VoiceProfileSummary(BaseValidatorModel):
     VoiceProfileId: Optional[str] = None
     VoiceProfileArn: Optional[str] = None
     VoiceProfileDomainId: Optional[str] = None
@@ -458,28 +458,28 @@ class VoiceProfileSummaryTypeDef(BaseValidatorModel):
     ExpirationTimestamp: Optional[datetime] = None
 
 
-class MediaInsightsConfigurationTypeDef(BaseValidatorModel):
+class MediaInsightsConfiguration(BaseValidatorModel):
     Disabled: Optional[bool] = None
     ConfigurationArn: Optional[str] = None
 
 
-class OrderedPhoneNumberTypeDef(BaseValidatorModel):
+class OrderedPhoneNumber(BaseValidatorModel):
     E164PhoneNumber: Optional[str] = None
     Status: Optional[OrderedPhoneNumberStatusType] = None
 
 
-class ParticipantTypeDef(BaseValidatorModel):
+class Participant(BaseValidatorModel):
     PhoneNumber: Optional[str] = None
     ProxyPhoneNumber: Optional[str] = None
 
 
-class PhoneNumberAssociationTypeDef(BaseValidatorModel):
+class PhoneNumberAssociation(BaseValidatorModel):
     Value: Optional[str] = None
     Name: Optional[PhoneNumberAssociationNameType] = None
     AssociatedTimestamp: Optional[datetime] = None
 
 
-class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
+class PhoneNumberCapabilities(BaseValidatorModel):
     InboundCall: Optional[bool] = None
     OutboundCall: Optional[bool] = None
     InboundSMS: Optional[bool] = None
@@ -488,13 +488,13 @@ class PhoneNumberCapabilitiesTypeDef(BaseValidatorModel):
     OutboundMMS: Optional[bool] = None
 
 
-class PutVoiceConnectorExternalSystemsConfigurationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorExternalSystemsConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SessionBorderControllerTypes: Optional[Sequence[SessionBorderControllerTypeType]] = None
     ContactCenterSystemTypes: Optional[Sequence[ContactCenterSystemTypeType]] = None
 
 
-class PutVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorProxyRequest(BaseValidatorModel):
     VoiceConnectorId: str
     DefaultSessionExpiryMinutes: int
     PhoneNumberPoolCountries: Sequence[str]
@@ -502,11 +502,11 @@ class PutVoiceConnectorProxyRequestTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
-class RestorePhoneNumberRequestTypeDef(BaseValidatorModel):
+class RestorePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
 
 
-class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
+class SearchAvailablePhoneNumbersRequest(BaseValidatorModel):
     AreaCode: Optional[str] = None
     City: Optional[str] = None
     Country: Optional[str] = None
@@ -517,17 +517,17 @@ class SearchAvailablePhoneNumbersRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class SipMediaApplicationAlexaSkillConfigurationTypeDef(BaseValidatorModel):
+class SipMediaApplicationAlexaSkillConfiguration(BaseValidatorModel):
     AlexaSkillStatus: AlexaSkillStatusType
     AlexaSkillIds: Sequence[str]
 
 
-class SpeakerSearchResultTypeDef(BaseValidatorModel):
+class SpeakerSearchResult(BaseValidatorModel):
     ConfidenceScore: Optional[float] = None
     VoiceProfileId: Optional[str] = None
 
 
-class StartSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
+class StartSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     TransactionId: str
     VoiceProfileDomainId: str
@@ -535,28 +535,28 @@ class StartSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
     CallLeg: Optional[CallLegTypeType] = None
 
 
-class StartVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
+class StartVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     TransactionId: str
     LanguageCode: Literal["en-US"]
     ClientRequestToken: Optional[str] = None
 
 
-class StopSpeakerSearchTaskRequestTypeDef(BaseValidatorModel):
+class StopSpeakerSearchTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     SpeakerSearchTaskId: str
 
 
-class StopVoiceToneAnalysisTaskRequestTypeDef(BaseValidatorModel):
+class StopVoiceToneAnalysisTaskRequest(BaseValidatorModel):
     VoiceConnectorId: str
     VoiceToneAnalysisTaskId: str
 
 
-class StreamingNotificationTargetTypeDef(BaseValidatorModel):
+class StreamingNotificationTarget(BaseValidatorModel):
     NotificationTarget: Optional[NotificationTargetType] = None
 
 
-class TerminationTypeDef(BaseValidatorModel):
+class Termination(BaseValidatorModel):
     CpsLimit: Optional[int] = None
     DefaultPhoneNumber: Optional[str] = None
     CallingRegions: Optional[Sequence[str]] = None
@@ -564,53 +564,53 @@ class TerminationTypeDef(BaseValidatorModel):
     Disabled: Optional[bool] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberRequest(BaseValidatorModel):
     PhoneNumberId: str
     ProductType: Optional[PhoneNumberProductTypeType] = None
     CallingName: Optional[str] = None
     Name: Optional[str] = None
 
 
-class UpdatePhoneNumberSettingsRequestTypeDef(BaseValidatorModel):
+class UpdatePhoneNumberSettingsRequest(BaseValidatorModel):
     CallingName: str
 
 
-class UpdateProxySessionRequestTypeDef(BaseValidatorModel):
+class UpdateProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ProxySessionId: str
     Capabilities: Sequence[CapabilityType]
     ExpiryMinutes: Optional[int] = None
 
 
-class UpdateSipMediaApplicationCallRequestTypeDef(BaseValidatorModel):
+class UpdateSipMediaApplicationCallRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     TransactionId: str
     Arguments: Mapping[str, str]
 
 
-class UpdateVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class UpdateVoiceConnectorRequest(BaseValidatorModel):
     VoiceConnectorId: str
     Name: str
     RequireEncryption: bool
 
 
-class UpdateVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
+class UpdateVoiceProfileDomainRequest(BaseValidatorModel):
     VoiceProfileDomainId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
 
 
-class UpdateVoiceProfileRequestTypeDef(BaseValidatorModel):
+class UpdateVoiceProfileRequest(BaseValidatorModel):
     VoiceProfileId: str
     SpeakerSearchTaskId: str
 
 
-class ValidateE911AddressRequestTypeDef(BaseValidatorModel):
+class ValidateE911AddressRequest(BaseValidatorModel):
     AwsAccountId: str
     StreetNumber: str
     StreetInfo: str
@@ -620,85 +620,85 @@ class ValidateE911AddressRequestTypeDef(BaseValidatorModel):
     PostalCode: str
 
 
-class AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatePhoneNumbersWithVoiceConnectorGroupResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class AssociatePhoneNumbersWithVoiceConnectorResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDeletePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeletePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchUpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdatePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociatePhoneNumbersFromVoiceConnectorGroupResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef(BaseValidatorModel):
-    PhoneNumberErrors: List[PhoneNumberErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DisassociatePhoneNumbersFromVoiceConnectorResponse(BaseValidatorModel):
+    PhoneNumberErrors: List[PhoneNumberError]
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPhoneNumberSettingsResponseTypeDef(BaseValidatorModel):
+class GetPhoneNumberSettingsResponse(BaseValidatorModel):
     CallingName: str
     CallingNameUpdatedTimestamp: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListAvailableVoiceConnectorRegionsResponseTypeDef(BaseValidatorModel):
+class ListAvailableVoiceConnectorRegionsResponse(BaseValidatorModel):
     VoiceConnectorRegions: List[VoiceConnectorAwsRegionType]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVoiceConnectorTerminationCredentialsResponseTypeDef(BaseValidatorModel):
+class ListVoiceConnectorTerminationCredentialsResponse(BaseValidatorModel):
     Usernames: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SearchAvailablePhoneNumbersResponseTypeDef(BaseValidatorModel):
+class SearchAvailablePhoneNumbersResponse(BaseValidatorModel):
     E164PhoneNumbers: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BatchUpdatePhoneNumberRequestTypeDef(BaseValidatorModel):
-    UpdatePhoneNumberRequestItems: Sequence[UpdatePhoneNumberRequestItemTypeDef]
+class BatchUpdatePhoneNumberRequest(BaseValidatorModel):
+    UpdatePhoneNumberRequestItems: Sequence[UpdatePhoneNumberRequestItem]
 
 
-class VoiceToneAnalysisTaskTypeDef(BaseValidatorModel):
+class VoiceToneAnalysisTask(BaseValidatorModel):
     VoiceToneAnalysisTaskId: Optional[str] = None
     VoiceToneAnalysisTaskStatus: Optional[str] = None
-    CallDetails: Optional[CallDetailsTypeDef] = None
+    CallDetails: Optional[CallDetails] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     StartedTimestamp: Optional[datetime] = None
     StatusMessage: Optional[str] = None
 
 
-class ValidateE911AddressResponseTypeDef(BaseValidatorModel):
+class ValidateE911AddressResponse(BaseValidatorModel):
     ValidationResult: int
     AddressExternalId: str
-    Address: AddressTypeDef
-    CandidateAddressList: List[CandidateAddressTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Address: Address
+    CandidateAddressList: List[CandidateAddress]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProxySessionRequestTypeDef(BaseValidatorModel):
+class CreateProxySessionRequest(BaseValidatorModel):
     VoiceConnectorId: str
     ParticipantPhoneNumbers: Sequence[str]
     Capabilities: Sequence[CapabilityType]
@@ -706,308 +706,308 @@ class CreateProxySessionRequestTypeDef(BaseValidatorModel):
     ExpiryMinutes: Optional[int] = None
     NumberSelectionBehavior: Optional[NumberSelectionBehaviorType] = None
     GeoMatchLevel: Optional[GeoMatchLevelType] = None
-    GeoMatchParams: Optional[GeoMatchParamsTypeDef] = None
+    GeoMatchParams: Optional[GeoMatchParams] = None
 
 
-class CreateSipMediaApplicationCallResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationCall: SipMediaApplicationCallTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSipMediaApplicationCallResponse(BaseValidatorModel):
+    SipMediaApplicationCall: SipMediaApplicationCall
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSipMediaApplicationCallResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationCall: SipMediaApplicationCallTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSipMediaApplicationCallResponse(BaseValidatorModel):
+    SipMediaApplicationCall: SipMediaApplicationCall
+    ResponseMetadata: ResponseMetadata
 
 
-class SipMediaApplicationTypeDef(BaseValidatorModel):
+class SipMediaApplication(BaseValidatorModel):
     SipMediaApplicationId: Optional[str] = None
     AwsRegion: Optional[str] = None
     Name: Optional[str] = None
-    Endpoints: Optional[List[SipMediaApplicationEndpointTypeDef]] = None
+    Endpoints: Optional[List[SipMediaApplicationEndpoint]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     SipMediaApplicationArn: Optional[str] = None
 
 
-class UpdateSipMediaApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateSipMediaApplicationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
     Name: Optional[str] = None
-    Endpoints: Optional[Sequence[SipMediaApplicationEndpointTypeDef]] = None
+    Endpoints: Optional[Sequence[SipMediaApplicationEndpoint]] = None
 
 
-class CreateSipMediaApplicationRequestTypeDef(BaseValidatorModel):
+class CreateSipMediaApplicationRequest(BaseValidatorModel):
     AwsRegion: str
     Name: str
-    Endpoints: Sequence[SipMediaApplicationEndpointTypeDef]
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Endpoints: Sequence[SipMediaApplicationEndpoint]
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class CreateVoiceConnectorRequestTypeDef(BaseValidatorModel):
+class CreateVoiceConnectorRequest(BaseValidatorModel):
     Name: str
     RequireEncryption: bool
     AwsRegion: Optional[VoiceConnectorAwsRegionType] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     IntegrationType: Optional[VoiceConnectorIntegrationTypeType] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateSipRuleRequestTypeDef(BaseValidatorModel):
+class CreateSipRuleRequest(BaseValidatorModel):
     Name: str
     TriggerType: SipRuleTriggerTypeType
     TriggerValue: str
     Disabled: Optional[bool] = None
-    TargetApplications: Optional[Sequence[SipRuleTargetApplicationTypeDef]] = None
+    TargetApplications: Optional[Sequence[SipRuleTargetApplication]] = None
 
 
-class SipRuleTypeDef(BaseValidatorModel):
+class SipRule(BaseValidatorModel):
     SipRuleId: Optional[str] = None
     Name: Optional[str] = None
     Disabled: Optional[bool] = None
     TriggerType: Optional[SipRuleTriggerTypeType] = None
     TriggerValue: Optional[str] = None
-    TargetApplications: Optional[List[SipRuleTargetApplicationTypeDef]] = None
+    TargetApplications: Optional[List[SipRuleTargetApplication]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class UpdateSipRuleRequestTypeDef(BaseValidatorModel):
+class UpdateSipRuleRequest(BaseValidatorModel):
     SipRuleId: str
     Name: str
     Disabled: Optional[bool] = None
-    TargetApplications: Optional[Sequence[SipRuleTargetApplicationTypeDef]] = None
+    TargetApplications: Optional[Sequence[SipRuleTargetApplication]] = None
 
 
-class CreateVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class CreateVoiceConnectorGroupRequest(BaseValidatorModel):
     Name: str
-    VoiceConnectorItems: Optional[Sequence[VoiceConnectorItemTypeDef]] = None
+    VoiceConnectorItems: Optional[Sequence[VoiceConnectorItem]] = None
 
 
-class UpdateVoiceConnectorGroupRequestTypeDef(BaseValidatorModel):
+class UpdateVoiceConnectorGroupRequest(BaseValidatorModel):
     VoiceConnectorGroupId: str
     Name: str
-    VoiceConnectorItems: Sequence[VoiceConnectorItemTypeDef]
+    VoiceConnectorItems: Sequence[VoiceConnectorItem]
 
 
-class VoiceConnectorGroupTypeDef(BaseValidatorModel):
+class VoiceConnectorGroup(BaseValidatorModel):
     VoiceConnectorGroupId: Optional[str] = None
     Name: Optional[str] = None
-    VoiceConnectorItems: Optional[List[VoiceConnectorItemTypeDef]] = None
+    VoiceConnectorItems: Optional[List[VoiceConnectorItem]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     VoiceConnectorGroupArn: Optional[str] = None
 
 
-class CreateVoiceConnectorResponseTypeDef(BaseValidatorModel):
-    VoiceConnector: VoiceConnectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVoiceConnectorResponse(BaseValidatorModel):
+    VoiceConnector: VoiceConnector
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorResponseTypeDef(BaseValidatorModel):
-    VoiceConnector: VoiceConnectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorResponse(BaseValidatorModel):
+    VoiceConnector: VoiceConnector
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVoiceConnectorsResponseTypeDef(BaseValidatorModel):
-    VoiceConnectors: List[VoiceConnectorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVoiceConnectorsResponse(BaseValidatorModel):
+    VoiceConnectors: List[VoiceConnector]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateVoiceConnectorResponseTypeDef(BaseValidatorModel):
-    VoiceConnector: VoiceConnectorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVoiceConnectorResponse(BaseValidatorModel):
+    VoiceConnector: VoiceConnector
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVoiceProfileDomainRequestTypeDef(BaseValidatorModel):
+class CreateVoiceProfileDomainRequest(BaseValidatorModel):
     Name: str
-    ServerSideEncryptionConfiguration: ServerSideEncryptionConfigurationTypeDef
+    ServerSideEncryptionConfiguration: ServerSideEncryptionConfiguration
     Description: Optional[str] = None
     ClientRequestToken: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class VoiceProfileDomainTypeDef(BaseValidatorModel):
+class VoiceProfileDomain(BaseValidatorModel):
     VoiceProfileDomainId: Optional[str] = None
     VoiceProfileDomainArn: Optional[str] = None
     Name: Optional[str] = None
     Description: Optional[str] = None
-    ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfigurationTypeDef] = None
+    ServerSideEncryptionConfiguration: Optional[ServerSideEncryptionConfiguration] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class CreateVoiceProfileResponseTypeDef(BaseValidatorModel):
-    VoiceProfile: VoiceProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVoiceProfileResponse(BaseValidatorModel):
+    VoiceProfile: VoiceProfile
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceProfileResponseTypeDef(BaseValidatorModel):
-    VoiceProfile: VoiceProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceProfileResponse(BaseValidatorModel):
+    VoiceProfile: VoiceProfile
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVoiceProfileResponseTypeDef(BaseValidatorModel):
-    VoiceProfile: VoiceProfileTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVoiceProfileResponse(BaseValidatorModel):
+    VoiceProfile: VoiceProfile
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorTerminationCredentialsRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorTerminationCredentialsRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    Credentials: Optional[Sequence[CredentialTypeDef]] = None
+    Credentials: Optional[Sequence[Credential]] = None
 
 
-class EmergencyCallingConfigurationOutputTypeDef(BaseValidatorModel):
-    DNIS: Optional[List[DNISEmergencyCallingConfigurationTypeDef]] = None
+class EmergencyCallingConfigurationOutput(BaseValidatorModel):
+    DNIS: Optional[List[DNISEmergencyCallingConfiguration]] = None
 
 
-class EmergencyCallingConfigurationTypeDef(BaseValidatorModel):
-    DNIS: Optional[Sequence[DNISEmergencyCallingConfigurationTypeDef]] = None
+class EmergencyCallingConfiguration(BaseValidatorModel):
+    DNIS: Optional[Sequence[DNISEmergencyCallingConfiguration]] = None
 
 
-class GetVoiceConnectorExternalSystemsConfigurationResponseTypeDef(BaseValidatorModel):
-    ExternalSystemsConfiguration: ExternalSystemsConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorExternalSystemsConfigurationResponse(BaseValidatorModel):
+    ExternalSystemsConfiguration: ExternalSystemsConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorExternalSystemsConfigurationResponseTypeDef(BaseValidatorModel):
-    ExternalSystemsConfiguration: ExternalSystemsConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorExternalSystemsConfigurationResponse(BaseValidatorModel):
+    ExternalSystemsConfiguration: ExternalSystemsConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGlobalSettingsResponseTypeDef(BaseValidatorModel):
-    VoiceConnector: VoiceConnectorSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGlobalSettingsResponse(BaseValidatorModel):
+    VoiceConnector: VoiceConnectorSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGlobalSettingsRequestTypeDef(BaseValidatorModel):
-    VoiceConnector: Optional[VoiceConnectorSettingsTypeDef] = None
+class UpdateGlobalSettingsRequest(BaseValidatorModel):
+    VoiceConnector: Optional[VoiceConnectorSettings] = None
 
 
-class GetSipMediaApplicationAlexaSkillConfigurationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationAlexaSkillConfiguration: ( SipMediaApplicationAlexaSkillConfigurationOutputTypeDef )
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSipMediaApplicationAlexaSkillConfigurationResponse(BaseValidatorModel):
+    SipMediaApplicationAlexaSkillConfiguration: ( SipMediaApplicationAlexaSkillConfigurationOutput )
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSipMediaApplicationAlexaSkillConfigurationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationAlexaSkillConfiguration: ( SipMediaApplicationAlexaSkillConfigurationOutputTypeDef )
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutSipMediaApplicationAlexaSkillConfigurationResponse(BaseValidatorModel):
+    SipMediaApplicationAlexaSkillConfiguration: ( SipMediaApplicationAlexaSkillConfigurationOutput )
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSipMediaApplicationLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSipMediaApplicationLoggingConfigurationResponse(BaseValidatorModel):
+    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutSipMediaApplicationLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+class PutSipMediaApplicationLoggingConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
-    SipMediaApplicationLoggingConfiguration: Optional[ SipMediaApplicationLoggingConfigurationTypeDef ] = None
+    SipMediaApplicationLoggingConfiguration: Optional[ SipMediaApplicationLoggingConfiguration ] = None
 
 
-class PutSipMediaApplicationLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutSipMediaApplicationLoggingConfigurationResponse(BaseValidatorModel):
+    SipMediaApplicationLoggingConfiguration: SipMediaApplicationLoggingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorLoggingConfigurationResponse(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorLoggingConfigurationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorLoggingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    LoggingConfiguration: LoggingConfigurationTypeDef
+    LoggingConfiguration: LoggingConfiguration
 
 
-class PutVoiceConnectorLoggingConfigurationResponseTypeDef(BaseValidatorModel):
-    LoggingConfiguration: LoggingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorLoggingConfigurationResponse(BaseValidatorModel):
+    LoggingConfiguration: LoggingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorProxyResponseTypeDef(BaseValidatorModel):
-    Proxy: ProxyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorProxyResponse(BaseValidatorModel):
+    Proxy: Proxy
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorProxyResponseTypeDef(BaseValidatorModel):
-    Proxy: ProxyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorProxyResponse(BaseValidatorModel):
+    Proxy: Proxy
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorTerminationHealthResponseTypeDef(BaseValidatorModel):
-    TerminationHealth: TerminationHealthTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorTerminationHealthResponse(BaseValidatorModel):
+    TerminationHealth: TerminationHealth
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorTerminationResponseTypeDef(BaseValidatorModel):
-    Termination: TerminationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorTerminationResponse(BaseValidatorModel):
+    Termination: TerminationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorTerminationResponseTypeDef(BaseValidatorModel):
-    Termination: TerminationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorTerminationResponse(BaseValidatorModel):
+    Termination: TerminationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSipMediaApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSipMediaApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSipRulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSipRulesRequestPaginate(BaseValidatorModel):
     SipMediaApplicationId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSupportedPhoneNumberCountriesResponseTypeDef(BaseValidatorModel):
-    PhoneNumberCountries: List[PhoneNumberCountryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSupportedPhoneNumberCountriesResponse(BaseValidatorModel):
+    PhoneNumberCountries: List[PhoneNumberCountry]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVoiceProfileDomainsResponseTypeDef(BaseValidatorModel):
-    VoiceProfileDomains: List[VoiceProfileDomainSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVoiceProfileDomainsResponse(BaseValidatorModel):
+    VoiceProfileDomains: List[VoiceProfileDomainSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListVoiceProfilesResponseTypeDef(BaseValidatorModel):
-    VoiceProfiles: List[VoiceProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVoiceProfilesResponse(BaseValidatorModel):
+    VoiceProfiles: List[VoiceProfileSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PhoneNumberOrderTypeDef(BaseValidatorModel):
+class PhoneNumberOrder(BaseValidatorModel):
     PhoneNumberOrderId: Optional[str] = None
     ProductType: Optional[PhoneNumberProductTypeType] = None
     Status: Optional[PhoneNumberOrderStatusType] = None
     OrderType: Optional[PhoneNumberOrderTypeType] = None
-    OrderedPhoneNumbers: Optional[List[OrderedPhoneNumberTypeDef]] = None
+    OrderedPhoneNumbers: Optional[List[OrderedPhoneNumber]] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
 
 
-class OriginationRouteTypeDef(BaseValidatorModel):
+class OriginationRoute(BaseValidatorModel):
     pass
 
 
-class OriginationOutputTypeDef(BaseValidatorModel):
-    Routes: Optional[List[OriginationRouteTypeDef]] = None
+class OriginationOutput(BaseValidatorModel):
+    Routes: Optional[List[OriginationRoute]] = None
     Disabled: Optional[bool] = None
 
 
-class OriginationTypeDef(BaseValidatorModel):
-    Routes: Optional[Sequence[OriginationRouteTypeDef]] = None
+class Origination(BaseValidatorModel):
+    Routes: Optional[Sequence[OriginationRoute]] = None
     Disabled: Optional[bool] = None
 
 
-class ProxySessionTypeDef(BaseValidatorModel):
+class ProxySession(BaseValidatorModel):
     VoiceConnectorId: Optional[str] = None
     ProxySessionId: Optional[str] = None
     Name: Optional[str] = None
@@ -1017,274 +1017,274 @@ class ProxySessionTypeDef(BaseValidatorModel):
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     EndedTimestamp: Optional[datetime] = None
-    Participants: Optional[List[ParticipantTypeDef]] = None
+    Participants: Optional[List[Participant]] = None
     NumberSelectionBehavior: Optional[NumberSelectionBehaviorType] = None
     GeoMatchLevel: Optional[GeoMatchLevelType] = None
-    GeoMatchParams: Optional[GeoMatchParamsTypeDef] = None
+    GeoMatchParams: Optional[GeoMatchParams] = None
 
 
-class SpeakerSearchDetailsTypeDef(BaseValidatorModel):
-    Results: Optional[List[SpeakerSearchResultTypeDef]] = None
+class SpeakerSearchDetails(BaseValidatorModel):
+    Results: Optional[List[SpeakerSearchResult]] = None
     VoiceprintGenerationStatus: Optional[str] = None
 
 
-class StreamingConfigurationOutputTypeDef(BaseValidatorModel):
+class StreamingConfigurationOutput(BaseValidatorModel):
     DataRetentionInHours: int
     Disabled: bool
-    StreamingNotificationTargets: Optional[List[StreamingNotificationTargetTypeDef]] = None
-    MediaInsightsConfiguration: Optional[MediaInsightsConfigurationTypeDef] = None
+    StreamingNotificationTargets: Optional[List[StreamingNotificationTarget]] = None
+    MediaInsightsConfiguration: Optional[MediaInsightsConfiguration] = None
 
 
-class StreamingConfigurationTypeDef(BaseValidatorModel):
+class StreamingConfiguration(BaseValidatorModel):
     DataRetentionInHours: int
     Disabled: bool
-    StreamingNotificationTargets: Optional[Sequence[StreamingNotificationTargetTypeDef]] = None
-    MediaInsightsConfiguration: Optional[MediaInsightsConfigurationTypeDef] = None
+    StreamingNotificationTargets: Optional[Sequence[StreamingNotificationTarget]] = None
+    MediaInsightsConfiguration: Optional[MediaInsightsConfiguration] = None
 
 
-class GetVoiceToneAnalysisTaskResponseTypeDef(BaseValidatorModel):
-    VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceToneAnalysisTaskResponse(BaseValidatorModel):
+    VoiceToneAnalysisTask: VoiceToneAnalysisTask
+    ResponseMetadata: ResponseMetadata
 
 
-class StartVoiceToneAnalysisTaskResponseTypeDef(BaseValidatorModel):
-    VoiceToneAnalysisTask: VoiceToneAnalysisTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartVoiceToneAnalysisTaskResponse(BaseValidatorModel):
+    VoiceToneAnalysisTask: VoiceToneAnalysisTask
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSipMediaApplicationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplication: SipMediaApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSipMediaApplicationResponse(BaseValidatorModel):
+    SipMediaApplication: SipMediaApplication
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSipMediaApplicationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplication: SipMediaApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSipMediaApplicationResponse(BaseValidatorModel):
+    SipMediaApplication: SipMediaApplication
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSipMediaApplicationsResponseTypeDef(BaseValidatorModel):
-    SipMediaApplications: List[SipMediaApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSipMediaApplicationsResponse(BaseValidatorModel):
+    SipMediaApplications: List[SipMediaApplication]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSipMediaApplicationResponseTypeDef(BaseValidatorModel):
-    SipMediaApplication: SipMediaApplicationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSipMediaApplicationResponse(BaseValidatorModel):
+    SipMediaApplication: SipMediaApplication
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSipRuleResponseTypeDef(BaseValidatorModel):
-    SipRule: SipRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateSipRuleResponse(BaseValidatorModel):
+    SipRule: SipRule
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSipRuleResponseTypeDef(BaseValidatorModel):
-    SipRule: SipRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSipRuleResponse(BaseValidatorModel):
+    SipRule: SipRule
+    ResponseMetadata: ResponseMetadata
 
 
-class ListSipRulesResponseTypeDef(BaseValidatorModel):
-    SipRules: List[SipRuleTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSipRulesResponse(BaseValidatorModel):
+    SipRules: List[SipRule]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateSipRuleResponseTypeDef(BaseValidatorModel):
-    SipRule: SipRuleTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateSipRuleResponse(BaseValidatorModel):
+    SipRule: SipRule
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVoiceConnectorGroupResponseTypeDef(BaseValidatorModel):
-    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVoiceConnectorGroupResponse(BaseValidatorModel):
+    VoiceConnectorGroup: VoiceConnectorGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorGroupResponseTypeDef(BaseValidatorModel):
-    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorGroupResponse(BaseValidatorModel):
+    VoiceConnectorGroup: VoiceConnectorGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ListVoiceConnectorGroupsResponseTypeDef(BaseValidatorModel):
-    VoiceConnectorGroups: List[VoiceConnectorGroupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVoiceConnectorGroupsResponse(BaseValidatorModel):
+    VoiceConnectorGroups: List[VoiceConnectorGroup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateVoiceConnectorGroupResponseTypeDef(BaseValidatorModel):
-    VoiceConnectorGroup: VoiceConnectorGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVoiceConnectorGroupResponse(BaseValidatorModel):
+    VoiceConnectorGroup: VoiceConnectorGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVoiceProfileDomainResponseTypeDef(BaseValidatorModel):
-    VoiceProfileDomain: VoiceProfileDomainTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateVoiceProfileDomainResponse(BaseValidatorModel):
+    VoiceProfileDomain: VoiceProfileDomain
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceProfileDomainResponseTypeDef(BaseValidatorModel):
-    VoiceProfileDomain: VoiceProfileDomainTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceProfileDomainResponse(BaseValidatorModel):
+    VoiceProfileDomain: VoiceProfileDomain
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateVoiceProfileDomainResponseTypeDef(BaseValidatorModel):
-    VoiceProfileDomain: VoiceProfileDomainTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateVoiceProfileDomainResponse(BaseValidatorModel):
+    VoiceProfileDomain: VoiceProfileDomain
+    ResponseMetadata: ResponseMetadata
 
 
-class GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef(BaseValidatorModel):
-    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorEmergencyCallingConfigurationResponse(BaseValidatorModel):
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef(BaseValidatorModel):
-    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorEmergencyCallingConfigurationResponse(BaseValidatorModel):
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePhoneNumberOrderResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrder: PhoneNumberOrderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreatePhoneNumberOrderResponse(BaseValidatorModel):
+    PhoneNumberOrder: PhoneNumberOrder
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPhoneNumberOrderResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrder: PhoneNumberOrderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPhoneNumberOrderResponse(BaseValidatorModel):
+    PhoneNumberOrder: PhoneNumberOrder
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPhoneNumberOrdersResponseTypeDef(BaseValidatorModel):
-    PhoneNumberOrders: List[PhoneNumberOrderTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPhoneNumberOrdersResponse(BaseValidatorModel):
+    PhoneNumberOrders: List[PhoneNumberOrder]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetVoiceConnectorOriginationResponseTypeDef(BaseValidatorModel):
-    Origination: OriginationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorOriginationResponse(BaseValidatorModel):
+    Origination: OriginationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorOriginationResponseTypeDef(BaseValidatorModel):
-    Origination: OriginationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorOriginationResponse(BaseValidatorModel):
+    Origination: OriginationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProxySessionResponseTypeDef(BaseValidatorModel):
-    ProxySession: ProxySessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateProxySessionResponse(BaseValidatorModel):
+    ProxySession: ProxySession
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProxySessionResponseTypeDef(BaseValidatorModel):
-    ProxySession: ProxySessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetProxySessionResponse(BaseValidatorModel):
+    ProxySession: ProxySession
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProxySessionsResponseTypeDef(BaseValidatorModel):
-    ProxySessions: List[ProxySessionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProxySessionsResponse(BaseValidatorModel):
+    ProxySessions: List[ProxySession]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateProxySessionResponseTypeDef(BaseValidatorModel):
-    ProxySession: ProxySessionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateProxySessionResponse(BaseValidatorModel):
+    ProxySession: ProxySession
+    ResponseMetadata: ResponseMetadata
 
 
-class PhoneNumberTypeDef(BaseValidatorModel):
+class PhoneNumber(BaseValidatorModel):
     pass
 
 
-class GetPhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetPhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPhoneNumbersResponseTypeDef(BaseValidatorModel):
-    PhoneNumbers: List[PhoneNumberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPhoneNumbersResponse(BaseValidatorModel):
+    PhoneNumbers: List[PhoneNumber]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class RestorePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestorePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdatePhoneNumberResponseTypeDef(BaseValidatorModel):
-    PhoneNumber: PhoneNumberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdatePhoneNumberResponse(BaseValidatorModel):
+    PhoneNumber: PhoneNumber
+    ResponseMetadata: ResponseMetadata
 
 
-class SipMediaApplicationAlexaSkillConfigurationUnionTypeDef(BaseValidatorModel):
+class SipMediaApplicationAlexaSkillConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutSipMediaApplicationAlexaSkillConfigurationRequestTypeDef(BaseValidatorModel):
+class PutSipMediaApplicationAlexaSkillConfigurationRequest(BaseValidatorModel):
     SipMediaApplicationId: str
-    SipMediaApplicationAlexaSkillConfiguration: Optional[ SipMediaApplicationAlexaSkillConfigurationUnionTypeDef ] = None
+    SipMediaApplicationAlexaSkillConfiguration: Optional[ SipMediaApplicationAlexaSkillConfigurationUnion ] = None
 
 
-class SpeakerSearchTaskTypeDef(BaseValidatorModel):
+class SpeakerSearchTask(BaseValidatorModel):
     SpeakerSearchTaskId: Optional[str] = None
     SpeakerSearchTaskStatus: Optional[str] = None
-    CallDetails: Optional[CallDetailsTypeDef] = None
-    SpeakerSearchDetails: Optional[SpeakerSearchDetailsTypeDef] = None
+    CallDetails: Optional[CallDetails] = None
+    SpeakerSearchDetails: Optional[SpeakerSearchDetails] = None
     CreatedTimestamp: Optional[datetime] = None
     UpdatedTimestamp: Optional[datetime] = None
     StartedTimestamp: Optional[datetime] = None
     StatusMessage: Optional[str] = None
 
 
-class GetVoiceConnectorStreamingConfigurationResponseTypeDef(BaseValidatorModel):
-    StreamingConfiguration: StreamingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetVoiceConnectorStreamingConfigurationResponse(BaseValidatorModel):
+    StreamingConfiguration: StreamingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class PutVoiceConnectorStreamingConfigurationResponseTypeDef(BaseValidatorModel):
-    StreamingConfiguration: StreamingConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutVoiceConnectorStreamingConfigurationResponse(BaseValidatorModel):
+    StreamingConfiguration: StreamingConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class TerminationUnionTypeDef(BaseValidatorModel):
+class TerminationUnion(BaseValidatorModel):
     pass
 
 
-class PutVoiceConnectorTerminationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorTerminationRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    Termination: TerminationUnionTypeDef
+    Termination: TerminationUnion
 
 
-class EmergencyCallingConfigurationUnionTypeDef(BaseValidatorModel):
+class EmergencyCallingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutVoiceConnectorEmergencyCallingConfigurationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorEmergencyCallingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    EmergencyCallingConfiguration: EmergencyCallingConfigurationUnionTypeDef
+    EmergencyCallingConfiguration: EmergencyCallingConfigurationUnion
 
 
-class OriginationUnionTypeDef(BaseValidatorModel):
+class OriginationUnion(BaseValidatorModel):
     pass
 
 
-class PutVoiceConnectorOriginationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorOriginationRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    Origination: OriginationUnionTypeDef
+    Origination: OriginationUnion
 
 
-class GetSpeakerSearchTaskResponseTypeDef(BaseValidatorModel):
-    SpeakerSearchTask: SpeakerSearchTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetSpeakerSearchTaskResponse(BaseValidatorModel):
+    SpeakerSearchTask: SpeakerSearchTask
+    ResponseMetadata: ResponseMetadata
 
 
-class StartSpeakerSearchTaskResponseTypeDef(BaseValidatorModel):
-    SpeakerSearchTask: SpeakerSearchTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class StartSpeakerSearchTaskResponse(BaseValidatorModel):
+    SpeakerSearchTask: SpeakerSearchTask
+    ResponseMetadata: ResponseMetadata
 
 
-class StreamingConfigurationUnionTypeDef(BaseValidatorModel):
+class StreamingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutVoiceConnectorStreamingConfigurationRequestTypeDef(BaseValidatorModel):
+class PutVoiceConnectorStreamingConfigurationRequest(BaseValidatorModel):
     VoiceConnectorId: str
-    StreamingConfiguration: StreamingConfigurationUnionTypeDef
+    StreamingConfiguration: StreamingConfigurationUnion
 
 

@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.application_signals_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,53 +20,53 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ServiceLevelObjectiveBudgetReportErrorTypeDef(BaseValidatorModel):
+class ServiceLevelObjectiveBudgetReportError(BaseValidatorModel):
     Name: str
     Arn: str
     ErrorCode: str
     ErrorMessage: str
 
 
-class BurnRateConfigurationTypeDef(BaseValidatorModel):
+class BurnRateConfiguration(BaseValidatorModel):
     LookBackWindowMinutes: int
 
 
-class CalendarIntervalOutputTypeDef(BaseValidatorModel):
+class CalendarIntervalOutput(BaseValidatorModel):
     StartTime: datetime
     DurationUnit: DurationUnitType
     Duration: int
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class DeleteServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
+class DeleteServiceLevelObjectiveInput(BaseValidatorModel):
     Id: str
 
 
-class DimensionTypeDef(BaseValidatorModel):
+class Dimension(BaseValidatorModel):
     Name: str
     Value: str
 
 
-class GetServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
+class GetServiceLevelObjectiveInput(BaseValidatorModel):
     Id: str
 
 
-class RollingIntervalTypeDef(BaseValidatorModel):
+class RollingInterval(BaseValidatorModel):
     DurationUnit: DurationUnitType
     Duration: int
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListServiceLevelObjectivesInputTypeDef(BaseValidatorModel):
+class ListServiceLevelObjectivesInput(BaseValidatorModel):
     KeyAttributes: Optional[Mapping[str, str]] = None
     OperationName: Optional[str] = None
     MaxResults: Optional[int] = None
@@ -75,7 +75,7 @@ class ListServiceLevelObjectivesInputTypeDef(BaseValidatorModel):
     SloOwnerAwsAccountId: Optional[str] = None
 
 
-class ServiceLevelObjectiveSummaryTypeDef(BaseValidatorModel):
+class ServiceLevelObjectiveSummary(BaseValidatorModel):
     Arn: str
     Name: str
     KeyAttributes: Optional[Dict[str, str]] = None
@@ -83,206 +83,206 @@ class ServiceLevelObjectiveSummaryTypeDef(BaseValidatorModel):
     CreatedTime: Optional[datetime] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class BatchGetServiceLevelObjectiveBudgetReportInputTypeDef(BaseValidatorModel):
-    Timestamp: TimestampTypeDef
+class BatchGetServiceLevelObjectiveBudgetReportInput(BaseValidatorModel):
+    Timestamp: Timestamp
     SloIds: Sequence[str]
 
 
-class CalendarIntervalTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
+class CalendarInterval(BaseValidatorModel):
+    StartTime: Timestamp
     DurationUnit: DurationUnitType
     Duration: int
 
 
-class GetServiceInputTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class GetServiceInput(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
 
 
-class ListServiceDependenciesInputTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
-    KeyAttributes: Mapping[str, str]
-    MaxResults: Optional[int] = None
-    NextToken: Optional[str] = None
-
-
-class ListServiceDependentsInputTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceDependenciesInput(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListServiceOperationsInputTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceDependentsInput(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListServicesInputTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceOperationsInput(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
+    KeyAttributes: Mapping[str, str]
+    MaxResults: Optional[int] = None
+    NextToken: Optional[str] = None
+
+
+class ListServicesInput(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
     AwsAccountId: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class MetricOutputTypeDef(BaseValidatorModel):
+class MetricOutput(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
-    Dimensions: Optional[List[DimensionTypeDef]] = None
+    Dimensions: Optional[List[Dimension]] = None
 
 
-class MetricReferenceTypeDef(BaseValidatorModel):
+class MetricReference(BaseValidatorModel):
     Namespace: str
     MetricType: str
     MetricName: str
-    Dimensions: Optional[List[DimensionTypeDef]] = None
+    Dimensions: Optional[List[Dimension]] = None
     AccountId: Optional[str] = None
 
 
-class MetricTypeDef(BaseValidatorModel):
+class Metric(BaseValidatorModel):
     Namespace: Optional[str] = None
     MetricName: Optional[str] = None
-    Dimensions: Optional[Sequence[DimensionTypeDef]] = None
+    Dimensions: Optional[Sequence[Dimension]] = None
 
 
-class IntervalOutputTypeDef(BaseValidatorModel):
-    RollingInterval: Optional[RollingIntervalTypeDef] = None
-    CalendarInterval: Optional[CalendarIntervalOutputTypeDef] = None
+class IntervalOutput(BaseValidatorModel):
+    RollingInterval: Optional[RollingInterval] = None
+    CalendarInterval: Optional[CalendarIntervalOutput] = None
 
 
-class ListServiceDependenciesInputPaginateTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceDependenciesInputPaginate(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceDependentsInputPaginateTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceDependentsInputPaginate(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceLevelObjectivesInputPaginateTypeDef(BaseValidatorModel):
+class ListServiceLevelObjectivesInputPaginate(BaseValidatorModel):
     KeyAttributes: Optional[Mapping[str, str]] = None
     OperationName: Optional[str] = None
     IncludeLinkedAccounts: Optional[bool] = None
     SloOwnerAwsAccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceOperationsInputPaginateTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServiceOperationsInputPaginate(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     KeyAttributes: Mapping[str, str]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServicesInputPaginateTypeDef(BaseValidatorModel):
-    StartTime: TimestampTypeDef
-    EndTime: TimestampTypeDef
+class ListServicesInputPaginate(BaseValidatorModel):
+    StartTime: Timestamp
+    EndTime: Timestamp
     IncludeLinkedAccounts: Optional[bool] = None
     AwsAccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListServiceLevelObjectivesOutputTypeDef(BaseValidatorModel):
-    SloSummaries: List[ServiceLevelObjectiveSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListServiceLevelObjectivesOutput(BaseValidatorModel):
+    SloSummaries: List[ServiceLevelObjectiveSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class IntervalTypeDef(BaseValidatorModel):
-    RollingInterval: Optional[RollingIntervalTypeDef] = None
-    CalendarInterval: Optional[CalendarIntervalTypeDef] = None
+class Interval(BaseValidatorModel):
+    RollingInterval: Optional[RollingInterval] = None
+    CalendarInterval: Optional[CalendarInterval] = None
 
 
-class MetricStatOutputTypeDef(BaseValidatorModel):
-    Metric: MetricOutputTypeDef
+class MetricStatOutput(BaseValidatorModel):
+    Metric: MetricOutput
     Period: int
     Stat: str
     Unit: Optional[StandardUnitType] = None
 
 
-class ServiceDependencyTypeDef(BaseValidatorModel):
+class ServiceDependency(BaseValidatorModel):
     OperationName: str
     DependencyKeyAttributes: Dict[str, str]
     DependencyOperationName: str
-    MetricReferences: List[MetricReferenceTypeDef]
+    MetricReferences: List[MetricReference]
 
 
-class ServiceDependentTypeDef(BaseValidatorModel):
+class ServiceDependent(BaseValidatorModel):
     DependentKeyAttributes: Dict[str, str]
-    MetricReferences: List[MetricReferenceTypeDef]
+    MetricReferences: List[MetricReference]
     OperationName: Optional[str] = None
     DependentOperationName: Optional[str] = None
 
 
-class ServiceOperationTypeDef(BaseValidatorModel):
+class ServiceOperation(BaseValidatorModel):
     Name: str
-    MetricReferences: List[MetricReferenceTypeDef]
+    MetricReferences: List[MetricReference]
 
 
-class ServiceSummaryTypeDef(BaseValidatorModel):
+class ServiceSummary(BaseValidatorModel):
     KeyAttributes: Dict[str, str]
-    MetricReferences: List[MetricReferenceTypeDef]
+    MetricReferences: List[MetricReference]
     AttributeMaps: Optional[List[Dict[str, str]]] = None
 
 
-class ServiceTypeDef(BaseValidatorModel):
+class Service(BaseValidatorModel):
     KeyAttributes: Dict[str, str]
-    MetricReferences: List[MetricReferenceTypeDef]
+    MetricReferences: List[MetricReference]
     AttributeMaps: Optional[List[Dict[str, str]]] = None
     LogGroupReferences: Optional[List[Dict[str, str]]] = None
 
 
-class GoalOutputTypeDef(BaseValidatorModel):
-    Interval: Optional[IntervalOutputTypeDef] = None
+class GoalOutput(BaseValidatorModel):
+    Interval: Optional[IntervalOutput] = None
     AttainmentGoal: Optional[float] = None
     WarningThreshold: Optional[float] = None
 
 
-class GoalTypeDef(BaseValidatorModel):
-    Interval: Optional[IntervalTypeDef] = None
+class Goal(BaseValidatorModel):
+    Interval: Optional[Interval] = None
     AttainmentGoal: Optional[float] = None
     WarningThreshold: Optional[float] = None
 
 
-class MetricDataQueryOutputTypeDef(BaseValidatorModel):
+class MetricDataQueryOutput(BaseValidatorModel):
     Id: str
-    MetricStat: Optional[MetricStatOutputTypeDef] = None
+    MetricStat: Optional[MetricStatOutput] = None
     Expression: Optional[str] = None
     Label: Optional[str] = None
     ReturnData: Optional[bool] = None
@@ -290,90 +290,90 @@ class MetricDataQueryOutputTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class ListServiceDependenciesOutputTypeDef(BaseValidatorModel):
+class ListServiceDependenciesOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
-    ServiceDependencies: List[ServiceDependencyTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ServiceDependencies: List[ServiceDependency]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListServiceDependentsOutputTypeDef(BaseValidatorModel):
+class ListServiceDependentsOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
-    ServiceDependents: List[ServiceDependentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ServiceDependents: List[ServiceDependent]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListServiceOperationsOutputTypeDef(BaseValidatorModel):
+class ListServiceOperationsOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
-    ServiceOperations: List[ServiceOperationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ServiceOperations: List[ServiceOperation]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListServicesOutputTypeDef(BaseValidatorModel):
+class ListServicesOutput(BaseValidatorModel):
     StartTime: datetime
     EndTime: datetime
-    ServiceSummaries: List[ServiceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ServiceSummaries: List[ServiceSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetServiceOutputTypeDef(BaseValidatorModel):
-    Service: ServiceTypeDef
+class GetServiceOutput(BaseValidatorModel):
+    Service: Service
     StartTime: datetime
     EndTime: datetime
     LogGroupReferences: List[Dict[str, str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class MetricUnionTypeDef(BaseValidatorModel):
+class MetricUnion(BaseValidatorModel):
     pass
 
 
-class MetricStatTypeDef(BaseValidatorModel):
-    Metric: MetricUnionTypeDef
+class MetricStat(BaseValidatorModel):
+    Metric: MetricUnion
     Period: int
     Stat: str
     Unit: Optional[StandardUnitType] = None
 
 
-class MonitoredRequestCountMetricDataQueriesOutputTypeDef(BaseValidatorModel):
-    GoodCountMetric: Optional[List[MetricDataQueryOutputTypeDef]] = None
-    BadCountMetric: Optional[List[MetricDataQueryOutputTypeDef]] = None
+class MonitoredRequestCountMetricDataQueriesOutput(BaseValidatorModel):
+    GoodCountMetric: Optional[List[MetricDataQueryOutput]] = None
+    BadCountMetric: Optional[List[MetricDataQueryOutput]] = None
 
 
-class ServiceLevelIndicatorMetricTypeDef(BaseValidatorModel):
-    MetricDataQueries: List[MetricDataQueryOutputTypeDef]
+class ServiceLevelIndicatorMetric(BaseValidatorModel):
+    MetricDataQueries: List[MetricDataQueryOutput]
     KeyAttributes: Optional[Dict[str, str]] = None
     OperationName: Optional[str] = None
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
 
 
-class RequestBasedServiceLevelIndicatorMetricTypeDef(BaseValidatorModel):
-    TotalRequestCountMetric: List[MetricDataQueryOutputTypeDef]
-    MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueriesOutputTypeDef
+class RequestBasedServiceLevelIndicatorMetric(BaseValidatorModel):
+    TotalRequestCountMetric: List[MetricDataQueryOutput]
+    MonitoredRequestCountMetric: MonitoredRequestCountMetricDataQueriesOutput
     KeyAttributes: Optional[Dict[str, str]] = None
     OperationName: Optional[str] = None
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
 
 
-class ServiceLevelIndicatorTypeDef(BaseValidatorModel):
-    SliMetric: ServiceLevelIndicatorMetricTypeDef
+class ServiceLevelIndicator(BaseValidatorModel):
+    SliMetric: ServiceLevelIndicatorMetric
     MetricThreshold: float
     ComparisonOperator: ServiceLevelIndicatorComparisonOperatorType
 
 
-class MetricStatUnionTypeDef(BaseValidatorModel):
+class MetricStatUnion(BaseValidatorModel):
     pass
 
 
-class MetricDataQueryTypeDef(BaseValidatorModel):
+class MetricDataQuery(BaseValidatorModel):
     Id: str
-    MetricStat: Optional[MetricStatUnionTypeDef] = None
+    MetricStat: Optional[MetricStatUnion] = None
     Expression: Optional[str] = None
     Label: Optional[str] = None
     ReturnData: Optional[bool] = None
@@ -381,13 +381,13 @@ class MetricDataQueryTypeDef(BaseValidatorModel):
     AccountId: Optional[str] = None
 
 
-class RequestBasedServiceLevelIndicatorTypeDef(BaseValidatorModel):
-    RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetricTypeDef
+class RequestBasedServiceLevelIndicator(BaseValidatorModel):
+    RequestBasedSliMetric: RequestBasedServiceLevelIndicatorMetric
     MetricThreshold: Optional[float] = None
     ComparisonOperator: Optional[ServiceLevelIndicatorComparisonOperatorType] = None
 
 
-class ServiceLevelObjectiveBudgetReportTypeDef(BaseValidatorModel):
+class ServiceLevelObjectiveBudgetReport(BaseValidatorModel):
     Arn: str
     Name: str
     BudgetStatus: ServiceLevelObjectiveBudgetStatusType
@@ -397,108 +397,108 @@ class ServiceLevelObjectiveBudgetReportTypeDef(BaseValidatorModel):
     BudgetSecondsRemaining: Optional[int] = None
     TotalBudgetRequests: Optional[int] = None
     BudgetRequestsRemaining: Optional[int] = None
-    Sli: Optional[ServiceLevelIndicatorTypeDef] = None
-    RequestBasedSli: Optional[RequestBasedServiceLevelIndicatorTypeDef] = None
-    Goal: Optional[GoalOutputTypeDef] = None
+    Sli: Optional[ServiceLevelIndicator] = None
+    RequestBasedSli: Optional[RequestBasedServiceLevelIndicator] = None
+    Goal: Optional[GoalOutput] = None
 
 
-class ServiceLevelObjectiveTypeDef(BaseValidatorModel):
+class ServiceLevelObjective(BaseValidatorModel):
     Arn: str
     Name: str
     CreatedTime: datetime
     LastUpdatedTime: datetime
-    Goal: GoalOutputTypeDef
+    Goal: GoalOutput
     Description: Optional[str] = None
-    Sli: Optional[ServiceLevelIndicatorTypeDef] = None
-    RequestBasedSli: Optional[RequestBasedServiceLevelIndicatorTypeDef] = None
+    Sli: Optional[ServiceLevelIndicator] = None
+    RequestBasedSli: Optional[RequestBasedServiceLevelIndicator] = None
     EvaluationType: Optional[EvaluationTypeType] = None
-    BurnRateConfigurations: Optional[List[BurnRateConfigurationTypeDef]] = None
+    BurnRateConfigurations: Optional[List[BurnRateConfiguration]] = None
 
 
-class MetricDataQueryUnionTypeDef(BaseValidatorModel):
+class MetricDataQueryUnion(BaseValidatorModel):
     pass
 
 
-class MonitoredRequestCountMetricDataQueriesTypeDef(BaseValidatorModel):
-    GoodCountMetric: Optional[Sequence[MetricDataQueryUnionTypeDef]] = None
-    BadCountMetric: Optional[Sequence[MetricDataQueryTypeDef]] = None
+class MonitoredRequestCountMetricDataQueries(BaseValidatorModel):
+    GoodCountMetric: Optional[Sequence[MetricDataQueryUnion]] = None
+    BadCountMetric: Optional[Sequence[MetricDataQuery]] = None
 
 
-class ServiceLevelIndicatorMetricConfigTypeDef(BaseValidatorModel):
+class ServiceLevelIndicatorMetricConfig(BaseValidatorModel):
     KeyAttributes: Optional[Mapping[str, str]] = None
     OperationName: Optional[str] = None
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
     Statistic: Optional[str] = None
     PeriodSeconds: Optional[int] = None
-    MetricDataQueries: Optional[Sequence[MetricDataQueryUnionTypeDef]] = None
+    MetricDataQueries: Optional[Sequence[MetricDataQueryUnion]] = None
 
 
-class BatchGetServiceLevelObjectiveBudgetReportOutputTypeDef(BaseValidatorModel):
+class BatchGetServiceLevelObjectiveBudgetReportOutput(BaseValidatorModel):
     Timestamp: datetime
-    Reports: List[ServiceLevelObjectiveBudgetReportTypeDef]
-    Errors: List[ServiceLevelObjectiveBudgetReportErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Reports: List[ServiceLevelObjectiveBudgetReport]
+    Errors: List[ServiceLevelObjectiveBudgetReportError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateServiceLevelObjectiveOutputTypeDef(BaseValidatorModel):
-    Slo: ServiceLevelObjectiveTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateServiceLevelObjectiveOutput(BaseValidatorModel):
+    Slo: ServiceLevelObjective
+    ResponseMetadata: ResponseMetadata
 
 
-class GetServiceLevelObjectiveOutputTypeDef(BaseValidatorModel):
-    Slo: ServiceLevelObjectiveTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetServiceLevelObjectiveOutput(BaseValidatorModel):
+    Slo: ServiceLevelObjective
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateServiceLevelObjectiveOutputTypeDef(BaseValidatorModel):
-    Slo: ServiceLevelObjectiveTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateServiceLevelObjectiveOutput(BaseValidatorModel):
+    Slo: ServiceLevelObjective
+    ResponseMetadata: ResponseMetadata
 
 
-class ServiceLevelIndicatorConfigTypeDef(BaseValidatorModel):
-    SliMetricConfig: ServiceLevelIndicatorMetricConfigTypeDef
+class ServiceLevelIndicatorConfig(BaseValidatorModel):
+    SliMetricConfig: ServiceLevelIndicatorMetricConfig
     MetricThreshold: float
     ComparisonOperator: ServiceLevelIndicatorComparisonOperatorType
 
 
-class MonitoredRequestCountMetricDataQueriesUnionTypeDef(BaseValidatorModel):
+class MonitoredRequestCountMetricDataQueriesUnion(BaseValidatorModel):
     pass
 
 
-class RequestBasedServiceLevelIndicatorMetricConfigTypeDef(BaseValidatorModel):
+class RequestBasedServiceLevelIndicatorMetricConfig(BaseValidatorModel):
     KeyAttributes: Optional[Mapping[str, str]] = None
     OperationName: Optional[str] = None
     MetricType: Optional[ServiceLevelIndicatorMetricTypeType] = None
-    TotalRequestCountMetric: Optional[Sequence[MetricDataQueryUnionTypeDef]] = None
-    MonitoredRequestCountMetric: Optional[MonitoredRequestCountMetricDataQueriesUnionTypeDef] = None
+    TotalRequestCountMetric: Optional[Sequence[MetricDataQueryUnion]] = None
+    MonitoredRequestCountMetric: Optional[MonitoredRequestCountMetricDataQueriesUnion] = None
 
 
-class RequestBasedServiceLevelIndicatorConfigTypeDef(BaseValidatorModel):
-    RequestBasedSliMetricConfig: RequestBasedServiceLevelIndicatorMetricConfigTypeDef
+class RequestBasedServiceLevelIndicatorConfig(BaseValidatorModel):
+    RequestBasedSliMetricConfig: RequestBasedServiceLevelIndicatorMetricConfig
     MetricThreshold: Optional[float] = None
     ComparisonOperator: Optional[ServiceLevelIndicatorComparisonOperatorType] = None
 
 
-class GoalUnionTypeDef(BaseValidatorModel):
+class GoalUnion(BaseValidatorModel):
     pass
 
 
-class CreateServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
+class CreateServiceLevelObjectiveInput(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
-    SliConfig: Optional[ServiceLevelIndicatorConfigTypeDef] = None
-    RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfigTypeDef] = None
-    Goal: Optional[GoalUnionTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    BurnRateConfigurations: Optional[Sequence[BurnRateConfigurationTypeDef]] = None
+    SliConfig: Optional[ServiceLevelIndicatorConfig] = None
+    RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfig] = None
+    Goal: Optional[GoalUnion] = None
+    Tags: Optional[Sequence[Tag]] = None
+    BurnRateConfigurations: Optional[Sequence[BurnRateConfiguration]] = None
 
 
-class UpdateServiceLevelObjectiveInputTypeDef(BaseValidatorModel):
+class UpdateServiceLevelObjectiveInput(BaseValidatorModel):
     Id: str
     Description: Optional[str] = None
-    SliConfig: Optional[ServiceLevelIndicatorConfigTypeDef] = None
-    RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfigTypeDef] = None
-    Goal: Optional[GoalUnionTypeDef] = None
-    BurnRateConfigurations: Optional[Sequence[BurnRateConfigurationTypeDef]] = None
+    SliConfig: Optional[ServiceLevelIndicatorConfig] = None
+    RequestBasedSliConfig: Optional[RequestBasedServiceLevelIndicatorConfig] = None
+    Goal: Optional[GoalUnion] = None
+    BurnRateConfigurations: Optional[Sequence[BurnRateConfiguration]] = None
 
 

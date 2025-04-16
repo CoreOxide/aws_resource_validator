@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.networkflowmonitor_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,52 +20,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteMonitorInputTypeDef(BaseValidatorModel):
+class DeleteMonitorInput(BaseValidatorModel):
     monitorName: str
 
 
-class DeleteScopeInputTypeDef(BaseValidatorModel):
+class DeleteScopeInput(BaseValidatorModel):
     scopeId: str
 
 
-class GetMonitorInputTypeDef(BaseValidatorModel):
+class GetMonitorInput(BaseValidatorModel):
     monitorName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetQueryResultsMonitorTopContributorsInputTypeDef(BaseValidatorModel):
+class GetQueryResultsMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     queryId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsDataInputTypeDef(BaseValidatorModel):
+class GetQueryResultsWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     queryId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class WorkloadInsightsTopContributorsDataPointTypeDef(BaseValidatorModel):
+class WorkloadInsightsTopContributorsDataPoint(BaseValidatorModel):
     timestamps: List[datetime]
     values: List[float]
     label: str
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorModel):
+class GetQueryResultsWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     queryId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class WorkloadInsightsTopContributorsRowTypeDef(BaseValidatorModel):
+class WorkloadInsightsTopContributorsRow(BaseValidatorModel):
     accountId: Optional[str] = None
     localSubnetId: Optional[str] = None
     localAz: Optional[str] = None
@@ -77,26 +77,26 @@ class WorkloadInsightsTopContributorsRowTypeDef(BaseValidatorModel):
     localVpcArn: Optional[str] = None
 
 
-class GetQueryStatusMonitorTopContributorsInputTypeDef(BaseValidatorModel):
+class GetQueryStatusMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     queryId: str
 
 
-class GetQueryStatusWorkloadInsightsTopContributorsDataInputTypeDef(BaseValidatorModel):
+class GetQueryStatusWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
-class GetQueryStatusWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorModel):
+class GetQueryStatusWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
-class GetScopeInputTypeDef(BaseValidatorModel):
+class GetScopeInput(BaseValidatorModel):
     scopeId: str
 
 
-class KubernetesMetadataTypeDef(BaseValidatorModel):
+class KubernetesMetadata(BaseValidatorModel):
     localServiceName: Optional[str] = None
     localPodName: Optional[str] = None
     localPodNamespace: Optional[str] = None
@@ -105,235 +105,235 @@ class KubernetesMetadataTypeDef(BaseValidatorModel):
     remotePodNamespace: Optional[str] = None
 
 
-class ListMonitorsInputTypeDef(BaseValidatorModel):
+class ListMonitorsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     monitorStatus: Optional[MonitorStatusType] = None
 
 
-class MonitorSummaryTypeDef(BaseValidatorModel):
+class MonitorSummary(BaseValidatorModel):
     monitorArn: str
     monitorName: str
     monitorStatus: MonitorStatusType
 
 
-class ListScopesInputTypeDef(BaseValidatorModel):
+class ListScopesInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ScopeSummaryTypeDef(BaseValidatorModel):
+class ScopeSummary(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
     scopeArn: str
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class TraversedComponentTypeDef(BaseValidatorModel):
+class TraversedComponent(BaseValidatorModel):
     componentId: Optional[str] = None
     componentType: Optional[str] = None
     componentArn: Optional[str] = None
     serviceName: Optional[str] = None
 
 
-class StopQueryMonitorTopContributorsInputTypeDef(BaseValidatorModel):
+class StopQueryMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
     queryId: str
 
 
-class StopQueryWorkloadInsightsTopContributorsDataInputTypeDef(BaseValidatorModel):
+class StopQueryWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
-class StopQueryWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorModel):
+class StopQueryWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
     queryId: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TargetIdTypeDef(BaseValidatorModel):
+class TargetId(BaseValidatorModel):
     accountId: Optional[str] = None
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class MonitorRemoteResourceTypeDef(BaseValidatorModel):
+class MonitorRemoteResource(BaseValidatorModel):
     pass
 
 
-class MonitorLocalResourceTypeDef(BaseValidatorModel):
+class MonitorLocalResource(BaseValidatorModel):
     pass
 
 
-class CreateMonitorInputTypeDef(BaseValidatorModel):
+class CreateMonitorInput(BaseValidatorModel):
     monitorName: str
-    localResources: Sequence[MonitorLocalResourceTypeDef]
+    localResources: Sequence[MonitorLocalResource]
     scopeArn: str
-    remoteResources: Optional[Sequence[MonitorRemoteResourceTypeDef]] = None
+    remoteResources: Optional[Sequence[MonitorRemoteResource]] = None
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateMonitorInputTypeDef(BaseValidatorModel):
+class UpdateMonitorInput(BaseValidatorModel):
     monitorName: str
-    localResourcesToAdd: Optional[Sequence[MonitorLocalResourceTypeDef]] = None
-    localResourcesToRemove: Optional[Sequence[MonitorLocalResourceTypeDef]] = None
-    remoteResourcesToAdd: Optional[Sequence[MonitorRemoteResourceTypeDef]] = None
-    remoteResourcesToRemove: Optional[Sequence[MonitorRemoteResourceTypeDef]] = None
+    localResourcesToAdd: Optional[Sequence[MonitorLocalResource]] = None
+    localResourcesToRemove: Optional[Sequence[MonitorLocalResource]] = None
+    remoteResourcesToAdd: Optional[Sequence[MonitorRemoteResource]] = None
+    remoteResourcesToRemove: Optional[Sequence[MonitorRemoteResource]] = None
     clientToken: Optional[str] = None
 
 
-class CreateMonitorOutputTypeDef(BaseValidatorModel):
+class CreateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
     monitorStatus: MonitorStatusType
-    localResources: List[MonitorLocalResourceTypeDef]
-    remoteResources: List[MonitorRemoteResourceTypeDef]
+    localResources: List[MonitorLocalResource]
+    remoteResources: List[MonitorRemoteResource]
     createdAt: datetime
     modifiedAt: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateScopeOutputTypeDef(BaseValidatorModel):
+class CreateScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
     scopeArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMonitorOutputTypeDef(BaseValidatorModel):
+class GetMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
     monitorStatus: MonitorStatusType
-    localResources: List[MonitorLocalResourceTypeDef]
-    remoteResources: List[MonitorRemoteResourceTypeDef]
+    localResources: List[MonitorLocalResource]
+    remoteResources: List[MonitorRemoteResource]
     createdAt: datetime
     modifiedAt: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryStatusMonitorTopContributorsOutputTypeDef(BaseValidatorModel):
+class GetQueryStatusMonitorTopContributorsOutput(BaseValidatorModel):
     status: QueryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryStatusWorkloadInsightsTopContributorsDataOutputTypeDef(BaseValidatorModel):
+class GetQueryStatusWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     status: QueryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryStatusWorkloadInsightsTopContributorsOutputTypeDef(BaseValidatorModel):
+class GetQueryStatusWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
     status: QueryStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQueryMonitorTopContributorsOutputTypeDef(BaseValidatorModel):
+class StartQueryMonitorTopContributorsOutput(BaseValidatorModel):
     queryId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQueryWorkloadInsightsTopContributorsDataOutputTypeDef(BaseValidatorModel):
+class StartQueryWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     queryId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartQueryWorkloadInsightsTopContributorsOutputTypeDef(BaseValidatorModel):
+class StartQueryWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
     queryId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitorOutputTypeDef(BaseValidatorModel):
+class UpdateMonitorOutput(BaseValidatorModel):
     monitorArn: str
     monitorName: str
     monitorStatus: MonitorStatusType
-    localResources: List[MonitorLocalResourceTypeDef]
-    remoteResources: List[MonitorRemoteResourceTypeDef]
+    localResources: List[MonitorLocalResource]
+    remoteResources: List[MonitorRemoteResource]
     createdAt: datetime
     modifiedAt: datetime
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateScopeOutputTypeDef(BaseValidatorModel):
+class UpdateScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
     scopeArn: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetQueryResultsMonitorTopContributorsInputPaginateTypeDef(BaseValidatorModel):
+class GetQueryResultsMonitorTopContributorsInputPaginate(BaseValidatorModel):
     monitorName: str
     queryId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsDataInputPaginateTypeDef(BaseValidatorModel):
+class GetQueryResultsWorkloadInsightsTopContributorsDataInputPaginate(BaseValidatorModel):
     scopeId: str
     queryId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsInputPaginateTypeDef(BaseValidatorModel):
+class GetQueryResultsWorkloadInsightsTopContributorsInputPaginate(BaseValidatorModel):
     scopeId: str
     queryId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMonitorsInputPaginateTypeDef(BaseValidatorModel):
+class ListMonitorsInputPaginate(BaseValidatorModel):
     monitorStatus: Optional[MonitorStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListScopesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListScopesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsDataOutputTypeDef(BaseValidatorModel):
+class GetQueryResultsWorkloadInsightsTopContributorsDataOutput(BaseValidatorModel):
     unit: MetricUnitType
-    datapoints: List[WorkloadInsightsTopContributorsDataPointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    datapoints: List[WorkloadInsightsTopContributorsDataPoint]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsOutputTypeDef(BaseValidatorModel):
-    topContributors: List[WorkloadInsightsTopContributorsRowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetQueryResultsWorkloadInsightsTopContributorsOutput(BaseValidatorModel):
+    topContributors: List[WorkloadInsightsTopContributorsRow]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListMonitorsOutputTypeDef(BaseValidatorModel):
-    monitors: List[MonitorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMonitorsOutput(BaseValidatorModel):
+    monitors: List[MonitorSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListScopesOutputTypeDef(BaseValidatorModel):
-    scopes: List[ScopeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListScopesOutput(BaseValidatorModel):
+    scopes: List[ScopeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MonitorTopContributorsRowTypeDef(BaseValidatorModel):
+class MonitorTopContributorsRow(BaseValidatorModel):
     localIp: Optional[str] = None
     snatIp: Optional[str] = None
     localInstanceId: Optional[str] = None
@@ -351,8 +351,8 @@ class MonitorTopContributorsRowTypeDef(BaseValidatorModel):
     remoteIp: Optional[str] = None
     dnatIp: Optional[str] = None
     value: Optional[int] = None
-    traversedConstructs: Optional[List[TraversedComponentTypeDef]] = None
-    kubernetesMetadata: Optional[KubernetesMetadataTypeDef] = None
+    traversedConstructs: Optional[List[TraversedComponent]] = None
+    kubernetesMetadata: Optional[KubernetesMetadata] = None
     localInstanceArn: Optional[str] = None
     localSubnetArn: Optional[str] = None
     localVpcArn: Optional[str] = None
@@ -361,71 +361,71 @@ class MonitorTopContributorsRowTypeDef(BaseValidatorModel):
     remoteVpcArn: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class StartQueryMonitorTopContributorsInputTypeDef(BaseValidatorModel):
+class StartQueryMonitorTopContributorsInput(BaseValidatorModel):
     monitorName: str
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+    startTime: Timestamp
+    endTime: Timestamp
     metricName: MonitorMetricType
     destinationCategory: DestinationCategoryType
     limit: Optional[int] = None
 
 
-class StartQueryWorkloadInsightsTopContributorsDataInputTypeDef(BaseValidatorModel):
+class StartQueryWorkloadInsightsTopContributorsDataInput(BaseValidatorModel):
     scopeId: str
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+    startTime: Timestamp
+    endTime: Timestamp
     metricName: WorkloadInsightsMetricType
     destinationCategory: DestinationCategoryType
 
 
-class StartQueryWorkloadInsightsTopContributorsInputTypeDef(BaseValidatorModel):
+class StartQueryWorkloadInsightsTopContributorsInput(BaseValidatorModel):
     scopeId: str
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+    startTime: Timestamp
+    endTime: Timestamp
     metricName: WorkloadInsightsMetricType
     destinationCategory: DestinationCategoryType
     limit: Optional[int] = None
 
 
-class TargetIdentifierTypeDef(BaseValidatorModel):
-    targetId: TargetIdTypeDef
+class TargetIdentifier(BaseValidatorModel):
+    targetId: TargetId
     targetType: Literal["ACCOUNT"]
 
 
-class GetQueryResultsMonitorTopContributorsOutputTypeDef(BaseValidatorModel):
+class GetQueryResultsMonitorTopContributorsOutput(BaseValidatorModel):
     unit: MetricUnitType
-    topContributors: List[MonitorTopContributorsRowTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    topContributors: List[MonitorTopContributorsRow]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TargetResourceTypeDef(BaseValidatorModel):
-    targetIdentifier: TargetIdentifierTypeDef
+class TargetResource(BaseValidatorModel):
+    targetIdentifier: TargetIdentifier
     region: str
 
 
-class CreateScopeInputTypeDef(BaseValidatorModel):
-    targets: Sequence[TargetResourceTypeDef]
+class CreateScopeInput(BaseValidatorModel):
+    targets: Sequence[TargetResource]
     clientToken: Optional[str] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class GetScopeOutputTypeDef(BaseValidatorModel):
+class GetScopeOutput(BaseValidatorModel):
     scopeId: str
     status: ScopeStatusType
     scopeArn: str
-    targets: List[TargetResourceTypeDef]
+    targets: List[TargetResource]
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateScopeInputTypeDef(BaseValidatorModel):
+class UpdateScopeInput(BaseValidatorModel):
     scopeId: str
-    resourcesToAdd: Optional[Sequence[TargetResourceTypeDef]] = None
-    resourcesToDelete: Optional[Sequence[TargetResourceTypeDef]] = None
+    resourcesToAdd: Optional[Sequence[TargetResource]] = None
+    resourcesToDelete: Optional[Sequence[TargetResource]] = None
 
 

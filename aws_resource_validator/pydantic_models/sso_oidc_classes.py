@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sso_oidc_constants import *
 
-class CreateTokenRequestTypeDef(BaseValidatorModel):
+class CreateTokenRequest(BaseValidatorModel):
     clientId: str
     clientSecret: str
     grantType: str
@@ -24,7 +24,7 @@ class CreateTokenRequestTypeDef(BaseValidatorModel):
     codeVerifier: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,7 +32,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateTokenWithIAMRequestTypeDef(BaseValidatorModel):
+class CreateTokenWithIAMRequest(BaseValidatorModel):
     clientId: str
     grantType: str
     code: Optional[str] = None
@@ -46,7 +46,7 @@ class CreateTokenWithIAMRequestTypeDef(BaseValidatorModel):
     codeVerifier: Optional[str] = None
 
 
-class RegisterClientRequestTypeDef(BaseValidatorModel):
+class RegisterClientRequest(BaseValidatorModel):
     clientName: str
     clientType: str
     scopes: Optional[Sequence[str]] = None
@@ -56,22 +56,22 @@ class RegisterClientRequestTypeDef(BaseValidatorModel):
     entitledApplicationArn: Optional[str] = None
 
 
-class StartDeviceAuthorizationRequestTypeDef(BaseValidatorModel):
+class StartDeviceAuthorizationRequest(BaseValidatorModel):
     clientId: str
     clientSecret: str
     startUrl: str
 
 
-class CreateTokenResponseTypeDef(BaseValidatorModel):
+class CreateTokenResponse(BaseValidatorModel):
     accessToken: str
     tokenType: str
     expiresIn: int
     refreshToken: str
     idToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTokenWithIAMResponseTypeDef(BaseValidatorModel):
+class CreateTokenWithIAMResponse(BaseValidatorModel):
     accessToken: str
     tokenType: str
     expiresIn: int
@@ -79,26 +79,26 @@ class CreateTokenWithIAMResponseTypeDef(BaseValidatorModel):
     idToken: str
     issuedTokenType: str
     scope: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RegisterClientResponseTypeDef(BaseValidatorModel):
+class RegisterClientResponse(BaseValidatorModel):
     clientId: str
     clientSecret: str
     clientIdIssuedAt: int
     clientSecretExpiresAt: int
     authorizationEndpoint: str
     tokenEndpoint: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartDeviceAuthorizationResponseTypeDef(BaseValidatorModel):
+class StartDeviceAuthorizationResponse(BaseValidatorModel):
     deviceCode: str
     userCode: str
     verificationUri: str
     verificationUriComplete: str
     expiresIn: int
     interval: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

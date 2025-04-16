@@ -1,6 +1,6 @@
 # Ses Classes
 
-# AddHeaderActionTypeDef
+# AddHeaderAction
 
 ### HeaderName
 - **Type**: <class 'str'>
@@ -17,19 +17,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BodyTypeDef
+# Body
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BounceActionTypeDef
+# BounceAction
 
 ### SmtpReplyCode
 - **Type**: <class 'str'>
@@ -50,7 +50,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BouncedRecipientInfoTypeDef
+# BouncedRecipientInfo
 
 ### Recipient
 - **Type**: <class 'str'>
@@ -63,10 +63,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ContentRejected', 'DoesNotExist', 'ExceededQuota', 'MessageTooLarge', 'TemporaryFailure', 'Undefined']]
 
 ### RecipientDsnFields
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.RecipientDsnFieldsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# BulkEmailDestinationStatusTypeDef
+# BulkEmailDestination
+
+### Destination
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Destination'>
+- **Required**: Yes
+
+### ReplacementTags
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTag]]
+
+### ReplacementTemplateData
+- **Type**: typing.Optional[str]
+
+
+# BulkEmailDestinationStatus
 
 ### Status
 - **Type**: typing.Optional[typing.Literal['AccountDailyQuotaExceeded', 'AccountSendingPaused', 'AccountSuspended', 'AccountThrottled', 'ConfigurationSetDoesNotExist', 'ConfigurationSetSendingPaused', 'Failed', 'InvalidParameterValue', 'InvalidSendingPoolName', 'MailFromDomainNotVerified', 'MessageRejected', 'Success', 'TemplateDoesNotExist', 'TransientFailure']]
@@ -78,20 +91,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BulkEmailDestinationTypeDef
-
-### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.DestinationTypeDef'>
-- **Required**: Yes
-
-### ReplacementTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTagTypeDef]]
-
-### ReplacementTemplateData
-- **Type**: typing.Optional[str]
-
-
-# CloneReceiptRuleSetRequestTypeDef
+# CloneReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -102,21 +102,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CloudWatchDestinationOutputTypeDef
+# CloudWatchDestination
 
 ### DimensionConfigurations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDimensionConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDimensionConfiguration]
 - **Required**: Yes
 
 
-# CloudWatchDestinationTypeDef
+# CloudWatchDestinationOutput
 
 ### DimensionConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDimensionConfigurationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDimensionConfiguration]
 - **Required**: Yes
 
 
-# CloudWatchDimensionConfigurationTypeDef
+# CloudWatchDimensionConfiguration
 
 ### DimensionName
 - **Type**: <class 'str'>
@@ -131,14 +131,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfigurationSetTypeDef
+# ConfigurationSet
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ConnectActionTypeDef
+# ConnectAction
 
 ### InstanceARN
 - **Type**: <class 'str'>
@@ -149,7 +149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContentTypeDef
+# Content
 
 ### Data
 - **Type**: <class 'str'>
@@ -159,36 +159,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateConfigurationSetEventDestinationRequestTypeDef
+# CreateConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnion'>
 - **Required**: Yes
 
 
-# CreateConfigurationSetRequestTypeDef
+# CreateConfigurationSetRequest
 
 ### ConfigurationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ConfigurationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ConfigurationSet'>
 - **Required**: Yes
 
 
-# CreateConfigurationSetTrackingOptionsRequestTypeDef
+# CreateConfigurationSetTrackingOptionsRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TrackingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptions'>
 - **Required**: Yes
 
 
-# CreateCustomVerificationEmailTemplateRequestTypeDef
+# CreateCustomVerificationEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -215,42 +215,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateReceiptFilterRequestTypeDef
+# CreateReceiptFilterRequest
 
 ### Filter
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptFilter'>
 - **Required**: Yes
 
 
-# CreateReceiptRuleRequestTypeDef
+# CreateReceiptRuleRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnion'>
 - **Required**: Yes
 
 ### After
 - **Type**: typing.Optional[str]
 
 
-# CreateReceiptRuleSetRequestTypeDef
+# CreateReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CreateTemplateRequestTypeDef
+# CreateTemplateRequest
 
 ### Template
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Template'>
 - **Required**: Yes
 
 
-# CustomVerificationEmailTemplateTypeDef
+# CustomVerificationEmailTemplate
 
 ### TemplateName
 - **Type**: typing.Optional[str]
@@ -268,7 +268,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteConfigurationSetEventDestinationRequestTypeDef
+# DeleteConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -279,28 +279,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteConfigurationSetRequestTypeDef
+# DeleteConfigurationSetRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteConfigurationSetTrackingOptionsRequestTypeDef
+# DeleteConfigurationSetTrackingOptionsRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomVerificationEmailTemplateRequestTypeDef
+# DeleteCustomVerificationEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteIdentityPolicyRequestTypeDef
+# DeleteIdentityPolicyRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -311,21 +311,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteIdentityRequestTypeDef
+# DeleteIdentityRequest
 
 ### Identity
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReceiptFilterRequestTypeDef
+# DeleteReceiptFilterRequest
 
 ### FilterName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteReceiptRuleRequestTypeDef
+# DeleteReceiptRuleRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -336,49 +336,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReceiptRuleSetRequestTypeDef
+# DeleteReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteTemplateRequestTypeDef
+# DeleteTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVerifiedEmailAddressRequestTypeDef
+# DeleteVerifiedEmailAddressRequest
 
 ### EmailAddress
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeliveryOptionsTypeDef
+# DeliveryOptions
 
 ### TlsPolicy
 - **Type**: typing.Optional[typing.Literal['Optional', 'Require']]
 
 
-# DescribeActiveReceiptRuleSetResponseTypeDef
+# DescribeActiveReceiptRuleSetResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadata'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeConfigurationSetRequestTypeDef
+# DescribeConfigurationSetRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -388,34 +388,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['deliveryOptions', 'eventDestinations', 'reputationOptions', 'trackingOptions']]]
 
 
-# DescribeConfigurationSetResponseTypeDef
+# DescribeConfigurationSetResponse
 
 ### ConfigurationSet
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ConfigurationSetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ConfigurationSet'>
 - **Required**: Yes
 
 ### EventDestinations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.EventDestinationOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.EventDestinationOutput]
 - **Required**: Yes
 
 ### TrackingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptions'>
 - **Required**: Yes
 
 ### DeliveryOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.DeliveryOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.DeliveryOptions'>
 - **Required**: Yes
 
 ### ReputationOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReputationOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReputationOptions'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReceiptRuleRequestTypeDef
+# DescribeReceiptRuleRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -426,40 +426,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeReceiptRuleResponseTypeDef
+# DescribeReceiptRuleResponse
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReceiptRuleSetRequestTypeDef
+# DescribeReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeReceiptRuleSetResponseTypeDef
+# DescribeReceiptRuleSetResponse
 
 ### Metadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadata'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DestinationTypeDef
+# Destination
 
 ### ToAddresses
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -471,37 +471,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EventDestinationOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MatchingEventTypes
-- **Type**: typing.List[typing.Literal['bounce', 'click', 'complaint', 'delivery', 'open', 'reject', 'renderingFailure', 'send']]
-- **Required**: Yes
-
-### Enabled
-- **Type**: typing.Optional[bool]
-
-### KinesisFirehoseDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.KinesisFirehoseDestinationTypeDef]
-
-### CloudWatchDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDestinationOutputTypeDef]
-
-### SNSDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.SNSDestinationTypeDef]
-
-
-# EventDestinationTypeDef
+# EventDestination
 
 ### Name
 - **Type**: <class 'str'>
@@ -515,22 +492,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### KinesisFirehoseDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.KinesisFirehoseDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SNSDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.SNSDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EventDestinationUnionTypeDef
+# EventDestinationOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MatchingEventTypes
+- **Type**: typing.List[typing.Literal['bounce', 'click', 'complaint', 'delivery', 'open', 'reject', 'renderingFailure', 'send']]
+- **Required**: Yes
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+### KinesisFirehoseDestination
+- **Type**: <class 'NoneType'>
+
+### CloudWatchDestination
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.CloudWatchDestinationOutput]
+
+### SNSDestination
+- **Type**: <class 'NoneType'>
+
+
+# EventDestinationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExtensionFieldTypeDef
+# ExtensionField
 
 ### Name
 - **Type**: <class 'str'>
@@ -541,25 +541,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccountSendingEnabledResponseTypeDef
+# GetAccountSendingEnabledResponse
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCustomVerificationEmailTemplateRequestTypeDef
+# GetCustomVerificationEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCustomVerificationEmailTemplateResponseTypeDef
+# GetCustomVerificationEmailTemplateResponse
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -586,65 +586,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdentityDkimAttributesRequestTypeDef
+# GetIdentityDkimAttributesRequest
 
 ### Identities
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# GetIdentityDkimAttributesResponseTypeDef
+# GetIdentityDkimAttributesResponse
 
 ### DkimAttributes
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityDkimAttributesTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityDkimAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdentityMailFromDomainAttributesRequestTypeDef
+# GetIdentityMailFromDomainAttributesRequest
 
 ### Identities
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# GetIdentityMailFromDomainAttributesResponseTypeDef
+# GetIdentityMailFromDomainAttributesResponse
 
 ### MailFromDomainAttributes
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityMailFromDomainAttributesTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityMailFromDomainAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdentityNotificationAttributesRequestTypeDef
+# GetIdentityNotificationAttributesRequest
 
 ### Identities
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# GetIdentityNotificationAttributesResponseTypeDef
+# GetIdentityNotificationAttributesResponse
 
 ### NotificationAttributes
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityNotificationAttributesTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityNotificationAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdentityPoliciesRequestTypeDef
+# GetIdentityPoliciesRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -655,46 +655,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetIdentityPoliciesResponseTypeDef
+# GetIdentityPoliciesResponse
 
 ### Policies
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetIdentityVerificationAttributesRequestTypeDef
+# GetIdentityVerificationAttributesRequest
 
 ### Identities
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# GetIdentityVerificationAttributesRequestWaitTypeDef
+# GetIdentityVerificationAttributesRequestWait
 
 ### Identities
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetIdentityVerificationAttributesResponseTypeDef
+# GetIdentityVerificationAttributesResponse
 
 ### VerificationAttributes
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityVerificationAttributesTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.ses_classes.IdentityVerificationAttributes]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSendQuotaResponseTypeDef
+# GetSendQuotaResponse
 
 ### Max24HourSend
 - **Type**: <class 'float'>
@@ -709,40 +709,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSendStatisticsResponseTypeDef
+# GetSendStatisticsResponse
 
 ### SendDataPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.SendDataPointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.SendDataPoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetTemplateRequestTypeDef
+# GetTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetTemplateResponseTypeDef
+# GetTemplateResponse
 
 ### Template
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Template'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IdentityDkimAttributesTypeDef
+# IdentityDkimAttributes
 
 ### DkimEnabled
 - **Type**: <class 'bool'>
@@ -756,7 +756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# IdentityMailFromDomainAttributesTypeDef
+# IdentityMailFromDomainAttributes
 
 ### MailFromDomain
 - **Type**: <class 'str'>
@@ -771,7 +771,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# IdentityNotificationAttributesTypeDef
+# IdentityNotificationAttributes
 
 ### BounceTopic
 - **Type**: <class 'str'>
@@ -799,7 +799,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# IdentityVerificationAttributesTypeDef
+# IdentityVerificationAttributes
 
 ### VerificationStatus
 - **Type**: typing.Literal['Failed', 'NotStarted', 'Pending', 'Success', 'TemporaryFailure']
@@ -809,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KinesisFirehoseDestinationTypeDef
+# KinesisFirehoseDestination
 
 ### IAMRoleARN
 - **Type**: <class 'str'>
@@ -820,7 +820,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LambdaActionTypeDef
+# LambdaAction
 
 ### FunctionArn
 - **Type**: <class 'str'>
@@ -833,13 +833,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Event', 'RequestResponse']]
 
 
-# ListConfigurationSetsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
-
-
-# ListConfigurationSetsRequestTypeDef
+# ListConfigurationSetsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -848,27 +842,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListConfigurationSetsResponseTypeDef
+# ListConfigurationSetsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfig]
+
+
+# ListConfigurationSetsResponse
 
 ### ConfigurationSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ConfigurationSetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ConfigurationSet]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomVerificationEmailTemplatesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomVerificationEmailTemplatesRequestTypeDef
+# ListCustomVerificationEmailTemplatesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -877,30 +871,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListCustomVerificationEmailTemplatesResponseTypeDef
+# ListCustomVerificationEmailTemplatesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfig]
+
+
+# ListCustomVerificationEmailTemplatesResponse
 
 ### CustomVerificationEmailTemplates
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.CustomVerificationEmailTemplateTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.CustomVerificationEmailTemplate]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIdentitiesRequestPaginateTypeDef
-
-### IdentityType
-- **Type**: typing.Optional[typing.Literal['Domain', 'EmailAddress']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
-
-
-# ListIdentitiesRequestTypeDef
+# ListIdentitiesRequest
 
 ### IdentityType
 - **Type**: typing.Optional[typing.Literal['Domain', 'EmailAddress']]
@@ -912,82 +903,85 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListIdentitiesResponseTypeDef
+# ListIdentitiesRequestPaginate
+
+### IdentityType
+- **Type**: typing.Optional[typing.Literal['Domain', 'EmailAddress']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfig]
+
+
+# ListIdentitiesResponse
 
 ### Identities
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIdentityPoliciesRequestTypeDef
+# ListIdentityPoliciesRequest
 
 ### Identity
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListIdentityPoliciesResponseTypeDef
+# ListIdentityPoliciesResponse
 
 ### PolicyNames
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListReceiptFiltersResponseTypeDef
+# ListReceiptFiltersResponse
 
 ### Filters
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptFilterTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptFilter]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListReceiptRuleSetsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
-
-
-# ListReceiptRuleSetsRequestTypeDef
+# ListReceiptRuleSetsRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReceiptRuleSetsResponseTypeDef
+# ListReceiptRuleSetsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfig]
+
+
+# ListReceiptRuleSetsResponse
 
 ### RuleSets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleSetMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTemplatesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfigTypeDef]
-
-
-# ListTemplatesRequestTypeDef
+# ListTemplatesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -996,45 +990,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTemplatesResponseTypeDef
+# ListTemplatesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.PaginatorConfig]
+
+
+# ListTemplatesResponse
 
 ### TemplatesMetadata
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.TemplateMetadataTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.TemplateMetadata]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListVerifiedEmailAddressesResponseTypeDef
+# ListVerifiedEmailAddressesResponse
 
 ### VerifiedEmailAddresses
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MessageDsnTypeDef
+# Message
+
+### Subject
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Content'>
+- **Required**: Yes
+
+### Body
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Body'>
+- **Required**: Yes
+
+
+# MessageDsn
 
 ### ReportingMta
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ArrivalDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.Timestamp]
 
 ### ExtensionFields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionFieldTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionField]]
 
 
-# MessageTagTypeDef
+# MessageTag
 
 ### Name
 - **Type**: <class 'str'>
@@ -1045,18 +1056,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MessageTypeDef
-
-### Subject
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ContentTypeDef'>
-- **Required**: Yes
-
-### Body
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.BodyTypeDef'>
-- **Required**: Yes
-
-
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1068,17 +1068,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutConfigurationSetDeliveryOptionsRequestTypeDef
+# PutConfigurationSetDeliveryOptionsRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### DeliveryOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.DeliveryOptionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# PutIdentityPolicyRequestTypeDef
+# PutIdentityPolicyRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1093,52 +1093,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RawMessageTypeDef
+# RawMessage
 
 ### Data
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Blob'>
 - **Required**: Yes
 
 
-# ReceiptActionTypeDef
+# ReceiptAction
 
 ### S3Action
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.S3ActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BounceAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.BounceActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### WorkmailAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.WorkmailActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LambdaAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.LambdaActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### StopAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.StopActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AddHeaderAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.AddHeaderActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SNSAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.SNSActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ConnectAction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.ConnectActionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ReceiptFilterTypeDef
+# ReceiptFilter
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### IpFilter
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptIpFilterTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptIpFilter'>
 - **Required**: Yes
 
 
-# ReceiptIpFilterTypeDef
+# ReceiptIpFilter
 
 ### Policy
 - **Type**: typing.Literal['Allow', 'Block']
@@ -1149,38 +1149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReceiptRuleOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Enabled
-- **Type**: typing.Optional[bool]
-
-### TlsPolicy
-- **Type**: typing.Optional[typing.Literal['Optional', 'Require']]
-
-### Recipients
-- **Type**: typing.Optional[typing.List[str]]
-
-### Actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptActionTypeDef]]
-
-### ScanEnabled
-- **Type**: typing.Optional[bool]
-
-
-# ReceiptRuleSetMetadataTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ReceiptRuleTypeDef
+# ReceiptRule
 
 ### Name
 - **Type**: <class 'str'>
@@ -1196,19 +1165,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Actions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ReceiptActionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ReceiptAction]]
 
 ### ScanEnabled
 - **Type**: typing.Optional[bool]
 
 
-# ReceiptRuleUnionTypeDef
+# ReceiptRuleOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: typing.Optional[bool]
+
+### TlsPolicy
+- **Type**: typing.Optional[typing.Literal['Optional', 'Require']]
+
+### Recipients
+- **Type**: typing.Optional[typing.List[str]]
+
+### Actions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.ses_classes.ReceiptAction]]
+
+### ScanEnabled
+- **Type**: typing.Optional[bool]
+
+
+# ReceiptRuleSetMetadata
+
+### Name
+- **Type**: typing.Optional[str]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# ReceiptRuleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RecipientDsnFieldsTypeDef
+# RecipientDsnFields
 
 ### Action
 - **Type**: typing.Literal['delayed', 'delivered', 'expanded', 'failed', 'relayed']
@@ -1228,13 +1228,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### LastAttemptDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.Timestamp]
 
 ### ExtensionFields
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionFieldTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.ExtensionField]]
 
 
-# ReorderReceiptRuleSetRequestTypeDef
+# ReorderReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -1245,7 +1245,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ReputationOptionsTypeDef
+# ReputationOptions
 
 ### SendingEnabled
 - **Type**: typing.Optional[bool]
@@ -1257,7 +1257,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1279,7 +1279,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3ActionTypeDef
+# S3Action
 
 ### BucketName
 - **Type**: <class 'str'>
@@ -1298,7 +1298,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SNSActionTypeDef
+# SNSAction
 
 ### TopicArn
 - **Type**: <class 'str'>
@@ -1308,14 +1308,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Base64', 'UTF-8']]
 
 
-# SNSDestinationTypeDef
+# SNSDestination
 
 ### TopicARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SendBounceRequestTypeDef
+# SendBounceRequest
 
 ### OriginalMessageId
 - **Type**: <class 'str'>
@@ -1326,31 +1326,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### BouncedRecipientInfoList
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.BouncedRecipientInfoTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.BouncedRecipientInfo]
 - **Required**: Yes
 
 ### Explanation
 - **Type**: typing.Optional[str]
 
 ### MessageDsn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.ses_classes.MessageDsnTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BounceSenderArn
 - **Type**: typing.Optional[str]
 
 
-# SendBounceResponseTypeDef
+# SendBounceResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendBulkTemplatedEmailRequestTypeDef
+# SendBulkTemplatedEmailRequest
 
 ### Source
 - **Type**: <class 'str'>
@@ -1365,7 +1365,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Destinations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.BulkEmailDestinationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.BulkEmailDestination]
 - **Required**: Yes
 
 ### SourceArn
@@ -1384,24 +1384,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DefaultTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTag]]
 
 ### TemplateArn
 - **Type**: typing.Optional[str]
 
 
-# SendBulkTemplatedEmailResponseTypeDef
+# SendBulkTemplatedEmailResponse
 
 ### Status
-- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.BulkEmailDestinationStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.ses_classes.BulkEmailDestinationStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendCustomVerificationEmailRequestTypeDef
+# SendCustomVerificationEmailRequest
 
 ### EmailAddress
 - **Type**: <class 'str'>
@@ -1415,18 +1415,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendCustomVerificationEmailResponseTypeDef
+# SendCustomVerificationEmailResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendDataPointTypeDef
+# SendDataPoint
 
 ### Timestamp
 - **Type**: typing.Optional[datetime.datetime]
@@ -1444,18 +1444,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SendEmailRequestTypeDef
+# SendEmailRequest
 
 ### Source
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Destination'>
 - **Required**: Yes
 
 ### Message
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.MessageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Message'>
 - **Required**: Yes
 
 ### ReplyToAddresses
@@ -1471,27 +1471,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTag]]
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
 
 
-# SendEmailResponseTypeDef
+# SendEmailResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendRawEmailRequestTypeDef
+# SendRawEmailRequest
 
 ### RawMessage
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.RawMessageTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.RawMessage'>
 - **Required**: Yes
 
 ### Source
@@ -1510,31 +1510,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTag]]
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
 
 
-# SendRawEmailResponseTypeDef
+# SendRawEmailResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendTemplatedEmailRequestTypeDef
+# SendTemplatedEmailRequest
 
 ### Source
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Destination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.DestinationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Destination'>
 - **Required**: Yes
 
 ### Template
@@ -1558,7 +1558,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.ses_classes.MessageTag]]
 
 ### ConfigurationSetName
 - **Type**: typing.Optional[str]
@@ -1567,24 +1567,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SendTemplatedEmailResponseTypeDef
+# SendTemplatedEmailResponse
 
 ### MessageId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SetActiveReceiptRuleSetRequestTypeDef
+# SetActiveReceiptRuleSetRequest
 
 ### RuleSetName
 - **Type**: typing.Optional[str]
 
 
-# SetIdentityDkimEnabledRequestTypeDef
+# SetIdentityDkimEnabledRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1595,7 +1595,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityFeedbackForwardingEnabledRequestTypeDef
+# SetIdentityFeedbackForwardingEnabledRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1606,7 +1606,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityHeadersInNotificationsEnabledRequestTypeDef
+# SetIdentityHeadersInNotificationsEnabledRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1621,7 +1621,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SetIdentityMailFromDomainRequestTypeDef
+# SetIdentityMailFromDomainRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1634,7 +1634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['RejectMessage', 'UseDefaultValue']]
 
 
-# SetIdentityNotificationTopicRequestTypeDef
+# SetIdentityNotificationTopicRequest
 
 ### Identity
 - **Type**: <class 'str'>
@@ -1648,7 +1648,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetReceiptRulePositionRequestTypeDef
+# SetReceiptRulePositionRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
@@ -1662,7 +1662,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StopActionTypeDef
+# StopAction
 
 ### Scope
 - **Type**: typing.Literal['RuleSet']
@@ -1672,16 +1672,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateMetadataTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### CreatedTimestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# TemplateTypeDef
+# Template
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1697,7 +1688,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestRenderTemplateRequestTypeDef
+# TemplateMetadata
+
+### Name
+- **Type**: typing.Optional[str]
+
+### CreatedTimestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# TestRenderTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1708,47 +1708,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestRenderTemplateResponseTypeDef
+# TestRenderTemplateResponse
 
 ### RenderedTemplate
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrackingOptionsTypeDef
+# TrackingOptions
 
 ### CustomRedirectDomain
 - **Type**: typing.Optional[str]
 
 
-# UpdateAccountSendingEnabledRequestTypeDef
+# UpdateAccountSendingEnabledRequest
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# UpdateConfigurationSetEventDestinationRequestTypeDef
+# UpdateConfigurationSetEventDestinationRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventDestination
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.EventDestinationUnion'>
 - **Required**: Yes
 
 
-# UpdateConfigurationSetReputationMetricsEnabledRequestTypeDef
+# UpdateConfigurationSetReputationMetricsEnabledRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1759,7 +1759,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationSetSendingEnabledRequestTypeDef
+# UpdateConfigurationSetSendingEnabledRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
@@ -1770,18 +1770,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateConfigurationSetTrackingOptionsRequestTypeDef
+# UpdateConfigurationSetTrackingOptionsRequest
 
 ### ConfigurationSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TrackingOptions
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TrackingOptions'>
 - **Required**: Yes
 
 
-# UpdateCustomVerificationEmailTemplateRequestTypeDef
+# UpdateCustomVerificationEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1803,75 +1803,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateReceiptRuleRequestTypeDef
+# UpdateReceiptRuleRequest
 
 ### RuleSetName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rule
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ReceiptRuleUnion'>
 - **Required**: Yes
 
 
-# UpdateTemplateRequestTypeDef
+# UpdateTemplateRequest
 
 ### Template
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.TemplateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.Template'>
 - **Required**: Yes
 
 
-# VerifyDomainDkimRequestTypeDef
+# VerifyDomainDkimRequest
 
 ### Domain
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# VerifyDomainDkimResponseTypeDef
+# VerifyDomainDkimResponse
 
 ### DkimTokens
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VerifyDomainIdentityRequestTypeDef
+# VerifyDomainIdentityRequest
 
 ### Domain
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# VerifyDomainIdentityResponseTypeDef
+# VerifyDomainIdentityResponse
 
 ### VerificationToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.ses_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VerifyEmailAddressRequestTypeDef
+# VerifyEmailAddressRequest
 
 ### EmailAddress
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# VerifyEmailIdentityRequestTypeDef
+# VerifyEmailIdentityRequest
 
 ### EmailAddress
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]
@@ -1880,7 +1880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WorkmailActionTypeDef
+# WorkmailAction
 
 ### OrganizationArn
 - **Type**: <class 'str'>

@@ -12,43 +12,43 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.personalize_constants import *
 
-class AlgorithmImageTypeDef(BaseValidatorModel):
+class AlgorithmImage(BaseValidatorModel):
     dockerURI: str
     name: Optional[str] = None
 
 
-class AutoMLConfigOutputTypeDef(BaseValidatorModel):
+class AutoMLConfigOutput(BaseValidatorModel):
     metricName: Optional[str] = None
     recipeList: Optional[List[str]] = None
 
 
-class AutoMLConfigTypeDef(BaseValidatorModel):
+class AutoMLConfig(BaseValidatorModel):
     metricName: Optional[str] = None
     recipeList: Optional[Sequence[str]] = None
 
 
-class AutoMLResultTypeDef(BaseValidatorModel):
+class AutoMLResult(BaseValidatorModel):
     bestRecipeArn: Optional[str] = None
 
 
-class AutoTrainingConfigTypeDef(BaseValidatorModel):
+class AutoTrainingConfig(BaseValidatorModel):
     schedulingExpression: Optional[str] = None
 
 
-class BatchInferenceJobConfigOutputTypeDef(BaseValidatorModel):
+class BatchInferenceJobConfigOutput(BaseValidatorModel):
     itemExplorationConfig: Optional[Dict[str, str]] = None
 
 
-class BatchInferenceJobConfigTypeDef(BaseValidatorModel):
+class BatchInferenceJobConfig(BaseValidatorModel):
     itemExplorationConfig: Optional[Mapping[str, str]] = None
 
 
-class S3DataConfigTypeDef(BaseValidatorModel):
+class S3DataConfig(BaseValidatorModel):
     path: str
     kmsKeyArn: Optional[str] = None
 
 
-class BatchInferenceJobSummaryTypeDef(BaseValidatorModel):
+class BatchInferenceJobSummary(BaseValidatorModel):
     batchInferenceJobArn: Optional[str] = None
     jobName: Optional[str] = None
     status: Optional[str] = None
@@ -59,7 +59,7 @@ class BatchInferenceJobSummaryTypeDef(BaseValidatorModel):
     batchInferenceJobMode: Optional[BatchInferenceJobModeType] = None
 
 
-class BatchSegmentJobSummaryTypeDef(BaseValidatorModel):
+class BatchSegmentJobSummary(BaseValidatorModel):
     batchSegmentJobArn: Optional[str] = None
     jobName: Optional[str] = None
     status: Optional[str] = None
@@ -69,19 +69,19 @@ class BatchSegmentJobSummaryTypeDef(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
 
 
-class CampaignConfigOutputTypeDef(BaseValidatorModel):
+class CampaignConfigOutput(BaseValidatorModel):
     itemExplorationConfig: Optional[Dict[str, str]] = None
     enableMetadataWithRecommendations: Optional[bool] = None
     syncWithLatestSolutionVersion: Optional[bool] = None
 
 
-class CampaignConfigTypeDef(BaseValidatorModel):
+class CampaignConfig(BaseValidatorModel):
     itemExplorationConfig: Optional[Mapping[str, str]] = None
     enableMetadataWithRecommendations: Optional[bool] = None
     syncWithLatestSolutionVersion: Optional[bool] = None
 
 
-class CampaignSummaryTypeDef(BaseValidatorModel):
+class CampaignSummary(BaseValidatorModel):
     name: Optional[str] = None
     campaignArn: Optional[str] = None
     status: Optional[str] = None
@@ -90,28 +90,28 @@ class CampaignSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class CategoricalHyperParameterRangeOutputTypeDef(BaseValidatorModel):
+class CategoricalHyperParameterRangeOutput(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[List[str]] = None
 
 
-class CategoricalHyperParameterRangeTypeDef(BaseValidatorModel):
+class CategoricalHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[Sequence[str]] = None
 
 
-class ContinuousHyperParameterRangeTypeDef(BaseValidatorModel):
+class ContinuousHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     minValue: Optional[float] = None
     maxValue: Optional[float] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     tagKey: str
     tagValue: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -119,23 +119,23 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     dataLocation: Optional[str] = None
 
 
-class MetricAttributeTypeDef(BaseValidatorModel):
+class MetricAttribute(BaseValidatorModel):
     eventType: str
     metricName: str
     expression: str
 
 
-class CreateSchemaRequestTypeDef(BaseValidatorModel):
+class CreateSchemaRequest(BaseValidatorModel):
     name: str
     schema: str
     domain: Optional[DomainType] = None
 
 
-class DataDeletionJobSummaryTypeDef(BaseValidatorModel):
+class DataDeletionJobSummary(BaseValidatorModel):
     dataDeletionJobArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     jobName: Optional[str] = None
@@ -145,7 +145,7 @@ class DataDeletionJobSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class DatasetExportJobSummaryTypeDef(BaseValidatorModel):
+class DatasetExportJobSummary(BaseValidatorModel):
     datasetExportJobArn: Optional[str] = None
     jobName: Optional[str] = None
     status: Optional[str] = None
@@ -154,7 +154,7 @@ class DatasetExportJobSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class DatasetGroupSummaryTypeDef(BaseValidatorModel):
+class DatasetGroupSummary(BaseValidatorModel):
     name: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     status: Optional[str] = None
@@ -164,7 +164,7 @@ class DatasetGroupSummaryTypeDef(BaseValidatorModel):
     domain: Optional[DomainType] = None
 
 
-class DatasetGroupTypeDef(BaseValidatorModel):
+class DatasetGroup(BaseValidatorModel):
     name: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     status: Optional[str] = None
@@ -176,7 +176,7 @@ class DatasetGroupTypeDef(BaseValidatorModel):
     domain: Optional[DomainType] = None
 
 
-class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
+class DatasetImportJobSummary(BaseValidatorModel):
     datasetImportJobArn: Optional[str] = None
     jobName: Optional[str] = None
     status: Optional[str] = None
@@ -186,7 +186,7 @@ class DatasetImportJobSummaryTypeDef(BaseValidatorModel):
     importMode: Optional[ImportModeType] = None
 
 
-class DatasetSchemaSummaryTypeDef(BaseValidatorModel):
+class DatasetSchemaSummary(BaseValidatorModel):
     name: Optional[str] = None
     schemaArn: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -194,7 +194,7 @@ class DatasetSchemaSummaryTypeDef(BaseValidatorModel):
     domain: Optional[DomainType] = None
 
 
-class DatasetSchemaTypeDef(BaseValidatorModel):
+class DatasetSchema(BaseValidatorModel):
     name: Optional[str] = None
     schemaArn: Optional[str] = None
     schema: Optional[str] = None
@@ -203,7 +203,7 @@ class DatasetSchemaTypeDef(BaseValidatorModel):
     domain: Optional[DomainType] = None
 
 
-class DatasetSummaryTypeDef(BaseValidatorModel):
+class DatasetSummary(BaseValidatorModel):
     name: Optional[str] = None
     datasetArn: Optional[str] = None
     datasetType: Optional[str] = None
@@ -212,7 +212,7 @@ class DatasetSummaryTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class DatasetUpdateSummaryTypeDef(BaseValidatorModel):
+class DatasetUpdateSummary(BaseValidatorModel):
     schemaArn: Optional[str] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
@@ -220,103 +220,103 @@ class DatasetUpdateSummaryTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class DefaultCategoricalHyperParameterRangeTypeDef(BaseValidatorModel):
+class DefaultCategoricalHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     values: Optional[List[str]] = None
     isTunable: Optional[bool] = None
 
 
-class DefaultContinuousHyperParameterRangeTypeDef(BaseValidatorModel):
+class DefaultContinuousHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     minValue: Optional[float] = None
     maxValue: Optional[float] = None
     isTunable: Optional[bool] = None
 
 
-class DefaultIntegerHyperParameterRangeTypeDef(BaseValidatorModel):
+class DefaultIntegerHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     minValue: Optional[int] = None
     maxValue: Optional[int] = None
     isTunable: Optional[bool] = None
 
 
-class DeleteCampaignRequestTypeDef(BaseValidatorModel):
+class DeleteCampaignRequest(BaseValidatorModel):
     campaignArn: str
 
 
-class DeleteDatasetGroupRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetGroupRequest(BaseValidatorModel):
     datasetGroupArn: str
 
 
-class DeleteDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetRequest(BaseValidatorModel):
     datasetArn: str
 
 
-class DeleteEventTrackerRequestTypeDef(BaseValidatorModel):
+class DeleteEventTrackerRequest(BaseValidatorModel):
     eventTrackerArn: str
 
 
-class DeleteFilterRequestTypeDef(BaseValidatorModel):
+class DeleteFilterRequest(BaseValidatorModel):
     filterArn: str
 
 
-class DeleteMetricAttributionRequestTypeDef(BaseValidatorModel):
+class DeleteMetricAttributionRequest(BaseValidatorModel):
     metricAttributionArn: str
 
 
-class DeleteRecommenderRequestTypeDef(BaseValidatorModel):
+class DeleteRecommenderRequest(BaseValidatorModel):
     recommenderArn: str
 
 
-class DeleteSchemaRequestTypeDef(BaseValidatorModel):
+class DeleteSchemaRequest(BaseValidatorModel):
     schemaArn: str
 
 
-class DeleteSolutionRequestTypeDef(BaseValidatorModel):
+class DeleteSolutionRequest(BaseValidatorModel):
     solutionArn: str
 
 
-class DescribeAlgorithmRequestTypeDef(BaseValidatorModel):
+class DescribeAlgorithmRequest(BaseValidatorModel):
     algorithmArn: str
 
 
-class DescribeBatchInferenceJobRequestTypeDef(BaseValidatorModel):
+class DescribeBatchInferenceJobRequest(BaseValidatorModel):
     batchInferenceJobArn: str
 
 
-class DescribeBatchSegmentJobRequestTypeDef(BaseValidatorModel):
+class DescribeBatchSegmentJobRequest(BaseValidatorModel):
     batchSegmentJobArn: str
 
 
-class DescribeCampaignRequestTypeDef(BaseValidatorModel):
+class DescribeCampaignRequest(BaseValidatorModel):
     campaignArn: str
 
 
-class DescribeDataDeletionJobRequestTypeDef(BaseValidatorModel):
+class DescribeDataDeletionJobRequest(BaseValidatorModel):
     dataDeletionJobArn: str
 
 
-class DescribeDatasetExportJobRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetExportJobRequest(BaseValidatorModel):
     datasetExportJobArn: str
 
 
-class DescribeDatasetGroupRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetGroupRequest(BaseValidatorModel):
     datasetGroupArn: str
 
 
-class DescribeDatasetImportJobRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetImportJobRequest(BaseValidatorModel):
     datasetImportJobArn: str
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     datasetArn: str
 
 
-class DescribeEventTrackerRequestTypeDef(BaseValidatorModel):
+class DescribeEventTrackerRequest(BaseValidatorModel):
     eventTrackerArn: str
 
 
-class EventTrackerTypeDef(BaseValidatorModel):
+class EventTracker(BaseValidatorModel):
     name: Optional[str] = None
     eventTrackerArn: Optional[str] = None
     accountId: Optional[str] = None
@@ -327,11 +327,11 @@ class EventTrackerTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class DescribeFeatureTransformationRequestTypeDef(BaseValidatorModel):
+class DescribeFeatureTransformationRequest(BaseValidatorModel):
     featureTransformationArn: str
 
 
-class FeatureTransformationTypeDef(BaseValidatorModel):
+class FeatureTransformation(BaseValidatorModel):
     name: Optional[str] = None
     featureTransformationArn: Optional[str] = None
     defaultParameters: Optional[Dict[str, str]] = None
@@ -340,11 +340,11 @@ class FeatureTransformationTypeDef(BaseValidatorModel):
     status: Optional[str] = None
 
 
-class DescribeFilterRequestTypeDef(BaseValidatorModel):
+class DescribeFilterRequest(BaseValidatorModel):
     filterArn: str
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     name: Optional[str] = None
     filterArn: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -355,15 +355,15 @@ class FilterTypeDef(BaseValidatorModel):
     status: Optional[str] = None
 
 
-class DescribeMetricAttributionRequestTypeDef(BaseValidatorModel):
+class DescribeMetricAttributionRequest(BaseValidatorModel):
     metricAttributionArn: str
 
 
-class DescribeRecipeRequestTypeDef(BaseValidatorModel):
+class DescribeRecipeRequest(BaseValidatorModel):
     recipeArn: str
 
 
-class RecipeTypeDef(BaseValidatorModel):
+class Recipe(BaseValidatorModel):
     name: Optional[str] = None
     recipeArn: Optional[str] = None
     algorithmArn: Optional[str] = None
@@ -375,23 +375,23 @@ class RecipeTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class DescribeRecommenderRequestTypeDef(BaseValidatorModel):
+class DescribeRecommenderRequest(BaseValidatorModel):
     recommenderArn: str
 
 
-class DescribeSchemaRequestTypeDef(BaseValidatorModel):
+class DescribeSchemaRequest(BaseValidatorModel):
     schemaArn: str
 
 
-class DescribeSolutionRequestTypeDef(BaseValidatorModel):
+class DescribeSolutionRequest(BaseValidatorModel):
     solutionArn: str
 
 
-class DescribeSolutionVersionRequestTypeDef(BaseValidatorModel):
+class DescribeSolutionVersionRequest(BaseValidatorModel):
     solutionVersionArn: str
 
 
-class EventTrackerSummaryTypeDef(BaseValidatorModel):
+class EventTrackerSummary(BaseValidatorModel):
     name: Optional[str] = None
     eventTrackerArn: Optional[str] = None
     status: Optional[str] = None
@@ -399,11 +399,11 @@ class EventTrackerSummaryTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class FieldsForThemeGenerationTypeDef(BaseValidatorModel):
+class FieldsForThemeGeneration(BaseValidatorModel):
     itemName: str
 
 
-class FilterSummaryTypeDef(BaseValidatorModel):
+class FilterSummary(BaseValidatorModel):
     name: Optional[str] = None
     filterArn: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -413,99 +413,99 @@ class FilterSummaryTypeDef(BaseValidatorModel):
     status: Optional[str] = None
 
 
-class GetSolutionMetricsRequestTypeDef(BaseValidatorModel):
+class GetSolutionMetricsRequest(BaseValidatorModel):
     solutionVersionArn: str
 
 
-class HPOResourceConfigTypeDef(BaseValidatorModel):
+class HPOResourceConfig(BaseValidatorModel):
     maxNumberOfTrainingJobs: Optional[str] = None
     maxParallelTrainingJobs: Optional[str] = None
 
 
-class IntegerHyperParameterRangeTypeDef(BaseValidatorModel):
+class IntegerHyperParameterRange(BaseValidatorModel):
     name: Optional[str] = None
     minValue: Optional[int] = None
     maxValue: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBatchInferenceJobsRequestTypeDef(BaseValidatorModel):
+class ListBatchInferenceJobsRequest(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListBatchSegmentJobsRequestTypeDef(BaseValidatorModel):
+class ListBatchSegmentJobsRequest(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListCampaignsRequestTypeDef(BaseValidatorModel):
+class ListCampaignsRequest(BaseValidatorModel):
     solutionArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDataDeletionJobsRequestTypeDef(BaseValidatorModel):
+class ListDataDeletionJobsRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetExportJobsRequestTypeDef(BaseValidatorModel):
+class ListDatasetExportJobsRequest(BaseValidatorModel):
     datasetArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetGroupsRequestTypeDef(BaseValidatorModel):
+class ListDatasetGroupsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetImportJobsRequestTypeDef(BaseValidatorModel):
+class ListDatasetImportJobsRequest(BaseValidatorModel):
     datasetArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDatasetsRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListEventTrackersRequestTypeDef(BaseValidatorModel):
+class ListEventTrackersRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListFiltersRequestTypeDef(BaseValidatorModel):
+class ListFiltersRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMetricAttributionMetricsRequestTypeDef(BaseValidatorModel):
+class ListMetricAttributionMetricsRequest(BaseValidatorModel):
     metricAttributionArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMetricAttributionsRequestTypeDef(BaseValidatorModel):
+class ListMetricAttributionsRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class MetricAttributionSummaryTypeDef(BaseValidatorModel):
+class MetricAttributionSummary(BaseValidatorModel):
     name: Optional[str] = None
     metricAttributionArn: Optional[str] = None
     status: Optional[str] = None
@@ -514,14 +514,14 @@ class MetricAttributionSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class ListRecipesRequestTypeDef(BaseValidatorModel):
+class ListRecipesRequest(BaseValidatorModel):
     recipeProvider: Optional[Literal["SERVICE"]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
     domain: Optional[DomainType] = None
 
 
-class RecipeSummaryTypeDef(BaseValidatorModel):
+class RecipeSummary(BaseValidatorModel):
     name: Optional[str] = None
     recipeArn: Optional[str] = None
     status: Optional[str] = None
@@ -530,24 +530,24 @@ class RecipeSummaryTypeDef(BaseValidatorModel):
     domain: Optional[DomainType] = None
 
 
-class ListRecommendersRequestTypeDef(BaseValidatorModel):
+class ListRecommendersRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSchemasRequestTypeDef(BaseValidatorModel):
+class ListSchemasRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSolutionVersionsRequestTypeDef(BaseValidatorModel):
+class ListSolutionVersionsRequest(BaseValidatorModel):
     solutionArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class SolutionVersionSummaryTypeDef(BaseValidatorModel):
+class SolutionVersionSummary(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
     status: Optional[str] = None
     trainingMode: Optional[TrainingModeType] = None
@@ -557,13 +557,13 @@ class SolutionVersionSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class ListSolutionsRequestTypeDef(BaseValidatorModel):
+class ListSolutionsRequest(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class SolutionSummaryTypeDef(BaseValidatorModel):
+class SolutionSummary(BaseValidatorModel):
     name: Optional[str] = None
     solutionArn: Optional[str] = None
     status: Optional[str] = None
@@ -572,297 +572,297 @@ class SolutionSummaryTypeDef(BaseValidatorModel):
     recipeArn: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class OptimizationObjectiveTypeDef(BaseValidatorModel):
+class OptimizationObjective(BaseValidatorModel):
     itemAttribute: Optional[str] = None
     objectiveSensitivity: Optional[ObjectiveSensitivityType] = None
 
 
-class TrainingDataConfigOutputTypeDef(BaseValidatorModel):
+class TrainingDataConfigOutput(BaseValidatorModel):
     excludedDatasetColumns: Optional[Dict[str, List[str]]] = None
 
 
-class TrainingDataConfigTypeDef(BaseValidatorModel):
+class TrainingDataConfig(BaseValidatorModel):
     excludedDatasetColumns: Optional[Mapping[str, Sequence[str]]] = None
 
 
-class TunedHPOParamsTypeDef(BaseValidatorModel):
+class TunedHPOParams(BaseValidatorModel):
     algorithmHyperParameters: Optional[Dict[str, str]] = None
 
 
-class StartRecommenderRequestTypeDef(BaseValidatorModel):
+class StartRecommenderRequest(BaseValidatorModel):
     recommenderArn: str
 
 
-class StopRecommenderRequestTypeDef(BaseValidatorModel):
+class StopRecommenderRequest(BaseValidatorModel):
     recommenderArn: str
 
 
-class StopSolutionVersionCreationRequestTypeDef(BaseValidatorModel):
+class StopSolutionVersionCreationRequest(BaseValidatorModel):
     solutionVersionArn: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDatasetRequestTypeDef(BaseValidatorModel):
+class UpdateDatasetRequest(BaseValidatorModel):
     datasetArn: str
     schemaArn: str
 
 
-class SolutionUpdateConfigTypeDef(BaseValidatorModel):
-    autoTrainingConfig: Optional[AutoTrainingConfigTypeDef] = None
+class SolutionUpdateConfig(BaseValidatorModel):
+    autoTrainingConfig: Optional[AutoTrainingConfig] = None
 
 
-class BatchInferenceJobInputTypeDef(BaseValidatorModel):
-    s3DataSource: S3DataConfigTypeDef
+class BatchInferenceJobInput(BaseValidatorModel):
+    s3DataSource: S3DataConfig
 
 
-class BatchInferenceJobOutputTypeDef(BaseValidatorModel):
-    s3DataDestination: S3DataConfigTypeDef
+class BatchInferenceJobOutput(BaseValidatorModel):
+    s3DataDestination: S3DataConfig
 
 
-class BatchSegmentJobInputTypeDef(BaseValidatorModel):
-    s3DataSource: S3DataConfigTypeDef
+class BatchSegmentJobInput(BaseValidatorModel):
+    s3DataSource: S3DataConfig
 
 
-class BatchSegmentJobOutputTypeDef(BaseValidatorModel):
-    s3DataDestination: S3DataConfigTypeDef
+class BatchSegmentJobOutput(BaseValidatorModel):
+    s3DataDestination: S3DataConfig
 
 
-class DatasetExportJobOutputTypeDef(BaseValidatorModel):
-    s3DataDestination: S3DataConfigTypeDef
+class DatasetExportJobOutput(BaseValidatorModel):
+    s3DataDestination: S3DataConfig
 
 
-class MetricAttributionOutputTypeDef(BaseValidatorModel):
+class MetricAttributionOutput(BaseValidatorModel):
     roleArn: str
-    s3DataDestination: Optional[S3DataConfigTypeDef] = None
+    s3DataDestination: Optional[S3DataConfig] = None
 
 
-class CampaignUpdateSummaryTypeDef(BaseValidatorModel):
+class CampaignUpdateSummary(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
     minProvisionedTPS: Optional[int] = None
-    campaignConfig: Optional[CampaignConfigOutputTypeDef] = None
+    campaignConfig: Optional[CampaignConfigOutput] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class CreateDatasetGroupRequestTypeDef(BaseValidatorModel):
+class CreateDatasetGroupRequest(BaseValidatorModel):
     name: str
     roleArn: Optional[str] = None
     kmsKeyArn: Optional[str] = None
     domain: Optional[DomainType] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     name: str
     schemaArn: str
     datasetGroupArn: str
     datasetType: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateEventTrackerRequestTypeDef(BaseValidatorModel):
+class CreateEventTrackerRequest(BaseValidatorModel):
     name: str
     datasetGroupArn: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateFilterRequestTypeDef(BaseValidatorModel):
+class CreateFilterRequest(BaseValidatorModel):
     name: str
     datasetGroupArn: str
     filterExpression: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateSolutionVersionRequestTypeDef(BaseValidatorModel):
+class CreateSolutionVersionRequest(BaseValidatorModel):
     solutionArn: str
     name: Optional[str] = None
     trainingMode: Optional[TrainingModeType] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class CreateBatchInferenceJobResponseTypeDef(BaseValidatorModel):
+class CreateBatchInferenceJobResponse(BaseValidatorModel):
     batchInferenceJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateBatchSegmentJobResponseTypeDef(BaseValidatorModel):
+class CreateBatchSegmentJobResponse(BaseValidatorModel):
     batchSegmentJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCampaignResponseTypeDef(BaseValidatorModel):
+class CreateCampaignResponse(BaseValidatorModel):
     campaignArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataDeletionJobResponseTypeDef(BaseValidatorModel):
+class CreateDataDeletionJobResponse(BaseValidatorModel):
     dataDeletionJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetExportJobResponseTypeDef(BaseValidatorModel):
+class CreateDatasetExportJobResponse(BaseValidatorModel):
     datasetExportJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetGroupResponseTypeDef(BaseValidatorModel):
+class CreateDatasetGroupResponse(BaseValidatorModel):
     datasetGroupArn: str
     domain: DomainType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetImportJobResponseTypeDef(BaseValidatorModel):
+class CreateDatasetImportJobResponse(BaseValidatorModel):
     datasetImportJobArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
+class CreateDatasetResponse(BaseValidatorModel):
     datasetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEventTrackerResponseTypeDef(BaseValidatorModel):
+class CreateEventTrackerResponse(BaseValidatorModel):
     eventTrackerArn: str
     trackingId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFilterResponseTypeDef(BaseValidatorModel):
+class CreateFilterResponse(BaseValidatorModel):
     filterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMetricAttributionResponseTypeDef(BaseValidatorModel):
+class CreateMetricAttributionResponse(BaseValidatorModel):
     metricAttributionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRecommenderResponseTypeDef(BaseValidatorModel):
+class CreateRecommenderResponse(BaseValidatorModel):
     recommenderArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSchemaResponseTypeDef(BaseValidatorModel):
+class CreateSchemaResponse(BaseValidatorModel):
     schemaArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSolutionResponseTypeDef(BaseValidatorModel):
+class CreateSolutionResponse(BaseValidatorModel):
     solutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSolutionVersionResponseTypeDef(BaseValidatorModel):
+class CreateSolutionVersionResponse(BaseValidatorModel):
     solutionVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSolutionMetricsResponseTypeDef(BaseValidatorModel):
+class GetSolutionMetricsResponse(BaseValidatorModel):
     solutionVersionArn: str
     metrics: Dict[str, float]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBatchInferenceJobsResponseTypeDef(BaseValidatorModel):
-    batchInferenceJobs: List[BatchInferenceJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBatchInferenceJobsResponse(BaseValidatorModel):
+    batchInferenceJobs: List[BatchInferenceJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListBatchSegmentJobsResponseTypeDef(BaseValidatorModel):
-    batchSegmentJobs: List[BatchSegmentJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListBatchSegmentJobsResponse(BaseValidatorModel):
+    batchSegmentJobs: List[BatchSegmentJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCampaignsResponseTypeDef(BaseValidatorModel):
-    campaigns: List[CampaignSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCampaignsResponse(BaseValidatorModel):
+    campaigns: List[CampaignSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class StartRecommenderResponseTypeDef(BaseValidatorModel):
+class StartRecommenderResponse(BaseValidatorModel):
     recommenderArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopRecommenderResponseTypeDef(BaseValidatorModel):
+class StopRecommenderResponse(BaseValidatorModel):
     recommenderArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateCampaignResponseTypeDef(BaseValidatorModel):
+class UpdateCampaignResponse(BaseValidatorModel):
     campaignArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDatasetResponseTypeDef(BaseValidatorModel):
+class UpdateDatasetResponse(BaseValidatorModel):
     datasetArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMetricAttributionResponseTypeDef(BaseValidatorModel):
+class UpdateMetricAttributionResponse(BaseValidatorModel):
     metricAttributionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRecommenderResponseTypeDef(BaseValidatorModel):
+class UpdateRecommenderResponse(BaseValidatorModel):
     recommenderArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSolutionResponseTypeDef(BaseValidatorModel):
+class UpdateSolutionResponse(BaseValidatorModel):
     solutionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataDeletionJobRequestTypeDef(BaseValidatorModel):
+class CreateDataDeletionJobRequest(BaseValidatorModel):
     jobName: str
     datasetGroupArn: str
-    dataSource: DataSourceTypeDef
+    dataSource: DataSource
     roleArn: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDatasetImportJobRequestTypeDef(BaseValidatorModel):
+class CreateDatasetImportJobRequest(BaseValidatorModel):
     jobName: str
     datasetArn: str
-    dataSource: DataSourceTypeDef
+    dataSource: DataSource
     roleArn: str
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
     importMode: Optional[ImportModeType] = None
     publishAttributionMetricsToS3: Optional[bool] = None
 
 
-class DataDeletionJobTypeDef(BaseValidatorModel):
+class DataDeletionJob(BaseValidatorModel):
     jobName: Optional[str] = None
     dataDeletionJobArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
-    dataSource: Optional[DataSourceTypeDef] = None
+    dataSource: Optional[DataSource] = None
     roleArn: Optional[str] = None
     status: Optional[str] = None
     numDeleted: Optional[int] = None
@@ -871,11 +871,11 @@ class DataDeletionJobTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class DatasetImportJobTypeDef(BaseValidatorModel):
+class DatasetImportJob(BaseValidatorModel):
     jobName: Optional[str] = None
     datasetImportJobArn: Optional[str] = None
     datasetArn: Optional[str] = None
-    dataSource: Optional[DataSourceTypeDef] = None
+    dataSource: Optional[DataSource] = None
     roleArn: Optional[str] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -885,59 +885,59 @@ class DatasetImportJobTypeDef(BaseValidatorModel):
     publishAttributionMetricsToS3: Optional[bool] = None
 
 
-class ListMetricAttributionMetricsResponseTypeDef(BaseValidatorModel):
-    metrics: List[MetricAttributeTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMetricAttributionMetricsResponse(BaseValidatorModel):
+    metrics: List[MetricAttribute]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDataDeletionJobsResponseTypeDef(BaseValidatorModel):
-    dataDeletionJobs: List[DataDeletionJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataDeletionJobsResponse(BaseValidatorModel):
+    dataDeletionJobs: List[DataDeletionJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDatasetExportJobsResponseTypeDef(BaseValidatorModel):
-    datasetExportJobs: List[DatasetExportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetExportJobsResponse(BaseValidatorModel):
+    datasetExportJobs: List[DatasetExportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDatasetGroupsResponseTypeDef(BaseValidatorModel):
-    datasetGroups: List[DatasetGroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetGroupsResponse(BaseValidatorModel):
+    datasetGroups: List[DatasetGroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeDatasetGroupResponseTypeDef(BaseValidatorModel):
-    datasetGroup: DatasetGroupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetGroupResponse(BaseValidatorModel):
+    datasetGroup: DatasetGroup
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDatasetImportJobsResponseTypeDef(BaseValidatorModel):
-    datasetImportJobs: List[DatasetImportJobSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetImportJobsResponse(BaseValidatorModel):
+    datasetImportJobs: List[DatasetImportJobSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSchemasResponseTypeDef(BaseValidatorModel):
-    schemas: List[DatasetSchemaSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSchemasResponse(BaseValidatorModel):
+    schemas: List[DatasetSchemaSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeSchemaResponseTypeDef(BaseValidatorModel):
-    schema: DatasetSchemaTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSchemaResponse(BaseValidatorModel):
+    schema: DatasetSchema
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    datasets: List[DatasetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetsResponse(BaseValidatorModel):
+    datasets: List[DatasetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DatasetTypeDef(BaseValidatorModel):
+class Dataset(BaseValidatorModel):
     name: Optional[str] = None
     datasetArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
@@ -946,178 +946,178 @@ class DatasetTypeDef(BaseValidatorModel):
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    latestDatasetUpdate: Optional[DatasetUpdateSummaryTypeDef] = None
+    latestDatasetUpdate: Optional[DatasetUpdateSummary] = None
     trackingId: Optional[str] = None
 
 
-class DefaultHyperParameterRangesTypeDef(BaseValidatorModel):
-    integerHyperParameterRanges: Optional[List[DefaultIntegerHyperParameterRangeTypeDef]] = None
-    continuousHyperParameterRanges: Optional[List[DefaultContinuousHyperParameterRangeTypeDef]] = None
-    categoricalHyperParameterRanges: Optional[List[DefaultCategoricalHyperParameterRangeTypeDef]] = None
+class DefaultHyperParameterRanges(BaseValidatorModel):
+    integerHyperParameterRanges: Optional[List[DefaultIntegerHyperParameterRange]] = None
+    continuousHyperParameterRanges: Optional[List[DefaultContinuousHyperParameterRange]] = None
+    categoricalHyperParameterRanges: Optional[List[DefaultCategoricalHyperParameterRange]] = None
 
 
-class DescribeEventTrackerResponseTypeDef(BaseValidatorModel):
-    eventTracker: EventTrackerTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEventTrackerResponse(BaseValidatorModel):
+    eventTracker: EventTracker
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeFeatureTransformationResponseTypeDef(BaseValidatorModel):
-    featureTransformation: FeatureTransformationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeFeatureTransformationResponse(BaseValidatorModel):
+    featureTransformation: FeatureTransformation
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeRecipeResponseTypeDef(BaseValidatorModel):
-    recipe: RecipeTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRecipeResponse(BaseValidatorModel):
+    recipe: Recipe
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEventTrackersResponseTypeDef(BaseValidatorModel):
-    eventTrackers: List[EventTrackerSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventTrackersResponse(BaseValidatorModel):
+    eventTrackers: List[EventTrackerSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ThemeGenerationConfigTypeDef(BaseValidatorModel):
-    fieldsForThemeGeneration: FieldsForThemeGenerationTypeDef
+class ThemeGenerationConfig(BaseValidatorModel):
+    fieldsForThemeGeneration: FieldsForThemeGeneration
 
 
-class ListFiltersResponseTypeDef(BaseValidatorModel):
-    Filters: List[FilterSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFiltersResponse(BaseValidatorModel):
+    Filters: List[FilterSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class HyperParameterRangesOutputTypeDef(BaseValidatorModel):
-    integerHyperParameterRanges: Optional[List[IntegerHyperParameterRangeTypeDef]] = None
-    continuousHyperParameterRanges: Optional[List[ContinuousHyperParameterRangeTypeDef]] = None
-    categoricalHyperParameterRanges: Optional[List[CategoricalHyperParameterRangeOutputTypeDef]] = None
+class HyperParameterRangesOutput(BaseValidatorModel):
+    integerHyperParameterRanges: Optional[List[IntegerHyperParameterRange]] = None
+    continuousHyperParameterRanges: Optional[List[ContinuousHyperParameterRange]] = None
+    categoricalHyperParameterRanges: Optional[List[CategoricalHyperParameterRangeOutput]] = None
 
 
-class HyperParameterRangesTypeDef(BaseValidatorModel):
-    integerHyperParameterRanges: Optional[Sequence[IntegerHyperParameterRangeTypeDef]] = None
-    continuousHyperParameterRanges: Optional[Sequence[ContinuousHyperParameterRangeTypeDef]] = None
-    categoricalHyperParameterRanges: Optional[Sequence[CategoricalHyperParameterRangeTypeDef]] = None
+class HyperParameterRanges(BaseValidatorModel):
+    integerHyperParameterRanges: Optional[Sequence[IntegerHyperParameterRange]] = None
+    continuousHyperParameterRanges: Optional[Sequence[ContinuousHyperParameterRange]] = None
+    categoricalHyperParameterRanges: Optional[Sequence[CategoricalHyperParameterRange]] = None
 
 
-class ListBatchInferenceJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBatchInferenceJobsRequestPaginate(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListBatchSegmentJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListBatchSegmentJobsRequestPaginate(BaseValidatorModel):
     solutionVersionArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCampaignsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCampaignsRequestPaginate(BaseValidatorModel):
     solutionArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetExportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetExportJobsRequestPaginate(BaseValidatorModel):
     datasetArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetGroupsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDatasetGroupsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetImportJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetImportJobsRequestPaginate(BaseValidatorModel):
     datasetArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetsRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventTrackersRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventTrackersRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListFiltersRequestPaginateTypeDef(BaseValidatorModel):
+class ListFiltersRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMetricAttributionMetricsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMetricAttributionMetricsRequestPaginate(BaseValidatorModel):
     metricAttributionArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMetricAttributionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListMetricAttributionsRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecipesRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecipesRequestPaginate(BaseValidatorModel):
     recipeProvider: Optional[Literal["SERVICE"]] = None
     domain: Optional[DomainType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecommendersRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecommendersRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSchemasRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSchemasRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSolutionVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSolutionVersionsRequestPaginate(BaseValidatorModel):
     solutionArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSolutionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSolutionsRequestPaginate(BaseValidatorModel):
     datasetGroupArn: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMetricAttributionsResponseTypeDef(BaseValidatorModel):
-    metricAttributions: List[MetricAttributionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMetricAttributionsResponse(BaseValidatorModel):
+    metricAttributions: List[MetricAttributionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListRecipesResponseTypeDef(BaseValidatorModel):
-    recipes: List[RecipeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecipesResponse(BaseValidatorModel):
+    recipes: List[RecipeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSolutionVersionsResponseTypeDef(BaseValidatorModel):
-    solutionVersions: List[SolutionVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSolutionVersionsResponse(BaseValidatorModel):
+    solutionVersions: List[SolutionVersionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSolutionsResponseTypeDef(BaseValidatorModel):
-    solutions: List[SolutionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSolutionsResponse(BaseValidatorModel):
+    solutions: List[SolutionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommenderConfigOutputTypeDef(BaseValidatorModel):
+class RecommenderConfigOutput(BaseValidatorModel):
     itemExplorationConfig: Optional[Dict[str, str]] = None
     minRecommendationRequestsPerSecond: Optional[int] = None
-    trainingDataConfig: Optional[TrainingDataConfigOutputTypeDef] = None
+    trainingDataConfig: Optional[TrainingDataConfigOutput] = None
     enableMetadataWithRecommendations: Optional[bool] = None
 
 
-class RecommenderConfigTypeDef(BaseValidatorModel):
+class RecommenderConfig(BaseValidatorModel):
     itemExplorationConfig: Optional[Mapping[str, str]] = None
     minRecommendationRequestsPerSecond: Optional[int] = None
-    trainingDataConfig: Optional[TrainingDataConfigTypeDef] = None
+    trainingDataConfig: Optional[TrainingDataConfig] = None
     enableMetadataWithRecommendations: Optional[bool] = None
 
 
-class SolutionUpdateSummaryTypeDef(BaseValidatorModel):
-    solutionUpdateConfig: Optional[SolutionUpdateConfigTypeDef] = None
+class SolutionUpdateSummary(BaseValidatorModel):
+    solutionUpdateConfig: Optional[SolutionUpdateConfig] = None
     status: Optional[str] = None
     performAutoTraining: Optional[bool] = None
     creationDateTime: Optional[datetime] = None
@@ -1125,138 +1125,138 @@ class SolutionUpdateSummaryTypeDef(BaseValidatorModel):
     failureReason: Optional[str] = None
 
 
-class UpdateSolutionRequestTypeDef(BaseValidatorModel):
+class UpdateSolutionRequest(BaseValidatorModel):
     solutionArn: str
     performAutoTraining: Optional[bool] = None
-    solutionUpdateConfig: Optional[SolutionUpdateConfigTypeDef] = None
+    solutionUpdateConfig: Optional[SolutionUpdateConfig] = None
 
 
-class BatchSegmentJobTypeDef(BaseValidatorModel):
+class BatchSegmentJob(BaseValidatorModel):
     jobName: Optional[str] = None
     batchSegmentJobArn: Optional[str] = None
     filterArn: Optional[str] = None
     failureReason: Optional[str] = None
     solutionVersionArn: Optional[str] = None
     numResults: Optional[int] = None
-    jobInput: Optional[BatchSegmentJobInputTypeDef] = None
-    jobOutput: Optional[BatchSegmentJobOutputTypeDef] = None
+    jobInput: Optional[BatchSegmentJobInput] = None
+    jobOutput: Optional[BatchSegmentJobOutput] = None
     roleArn: Optional[str] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class CreateBatchSegmentJobRequestTypeDef(BaseValidatorModel):
+class CreateBatchSegmentJobRequest(BaseValidatorModel):
     jobName: str
     solutionVersionArn: str
-    jobInput: BatchSegmentJobInputTypeDef
-    jobOutput: BatchSegmentJobOutputTypeDef
+    jobInput: BatchSegmentJobInput
+    jobOutput: BatchSegmentJobOutput
     roleArn: str
     filterArn: Optional[str] = None
     numResults: Optional[int] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class CreateDatasetExportJobRequestTypeDef(BaseValidatorModel):
+class CreateDatasetExportJobRequest(BaseValidatorModel):
     jobName: str
     datasetArn: str
     roleArn: str
-    jobOutput: DatasetExportJobOutputTypeDef
+    jobOutput: DatasetExportJobOutput
     ingestionMode: Optional[IngestionModeType] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class DatasetExportJobTypeDef(BaseValidatorModel):
+class DatasetExportJob(BaseValidatorModel):
     jobName: Optional[str] = None
     datasetExportJobArn: Optional[str] = None
     datasetArn: Optional[str] = None
     ingestionMode: Optional[IngestionModeType] = None
     roleArn: Optional[str] = None
     status: Optional[str] = None
-    jobOutput: Optional[DatasetExportJobOutputTypeDef] = None
+    jobOutput: Optional[DatasetExportJobOutput] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReason: Optional[str] = None
 
 
-class CreateMetricAttributionRequestTypeDef(BaseValidatorModel):
+class CreateMetricAttributionRequest(BaseValidatorModel):
     name: str
     datasetGroupArn: str
-    metrics: Sequence[MetricAttributeTypeDef]
-    metricsOutputConfig: MetricAttributionOutputTypeDef
+    metrics: Sequence[MetricAttribute]
+    metricsOutputConfig: MetricAttributionOutput
 
 
-class MetricAttributionTypeDef(BaseValidatorModel):
+class MetricAttribution(BaseValidatorModel):
     name: Optional[str] = None
     metricAttributionArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
-    metricsOutputConfig: Optional[MetricAttributionOutputTypeDef] = None
+    metricsOutputConfig: Optional[MetricAttributionOutput] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     failureReason: Optional[str] = None
 
 
-class UpdateMetricAttributionRequestTypeDef(BaseValidatorModel):
-    addMetrics: Optional[Sequence[MetricAttributeTypeDef]] = None
+class UpdateMetricAttributionRequest(BaseValidatorModel):
+    addMetrics: Optional[Sequence[MetricAttribute]] = None
     removeMetrics: Optional[Sequence[str]] = None
-    metricsOutputConfig: Optional[MetricAttributionOutputTypeDef] = None
+    metricsOutputConfig: Optional[MetricAttributionOutput] = None
     metricAttributionArn: Optional[str] = None
 
 
-class CampaignTypeDef(BaseValidatorModel):
+class Campaign(BaseValidatorModel):
     name: Optional[str] = None
     campaignArn: Optional[str] = None
     solutionVersionArn: Optional[str] = None
     minProvisionedTPS: Optional[int] = None
-    campaignConfig: Optional[CampaignConfigOutputTypeDef] = None
+    campaignConfig: Optional[CampaignConfigOutput] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    latestCampaignUpdate: Optional[CampaignUpdateSummaryTypeDef] = None
+    latestCampaignUpdate: Optional[CampaignUpdateSummary] = None
 
 
-class CampaignConfigUnionTypeDef(BaseValidatorModel):
+class CampaignConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateCampaignRequestTypeDef(BaseValidatorModel):
+class CreateCampaignRequest(BaseValidatorModel):
     name: str
     solutionVersionArn: str
     minProvisionedTPS: Optional[int] = None
-    campaignConfig: Optional[CampaignConfigUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    campaignConfig: Optional[CampaignConfigUnion] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateCampaignRequestTypeDef(BaseValidatorModel):
+class UpdateCampaignRequest(BaseValidatorModel):
     campaignArn: str
     solutionVersionArn: Optional[str] = None
     minProvisionedTPS: Optional[int] = None
-    campaignConfig: Optional[CampaignConfigUnionTypeDef] = None
+    campaignConfig: Optional[CampaignConfigUnion] = None
 
 
-class DescribeDataDeletionJobResponseTypeDef(BaseValidatorModel):
-    dataDeletionJob: DataDeletionJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDataDeletionJobResponse(BaseValidatorModel):
+    dataDeletionJob: DataDeletionJob
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDatasetImportJobResponseTypeDef(BaseValidatorModel):
-    datasetImportJob: DatasetImportJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetImportJobResponse(BaseValidatorModel):
+    datasetImportJob: DatasetImportJob
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    dataset: DatasetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetResponse(BaseValidatorModel):
+    dataset: Dataset
+    ResponseMetadata: ResponseMetadata
 
 
-class AlgorithmTypeDef(BaseValidatorModel):
+class Algorithm(BaseValidatorModel):
     name: Optional[str] = None
     algorithmArn: Optional[str] = None
-    algorithmImage: Optional[AlgorithmImageTypeDef] = None
+    algorithmImage: Optional[AlgorithmImage] = None
     defaultHyperParameters: Optional[Dict[str, str]] = None
-    defaultHyperParameterRanges: Optional[DefaultHyperParameterRangesTypeDef] = None
+    defaultHyperParameterRanges: Optional[DefaultHyperParameterRanges] = None
     defaultResourceConfig: Optional[Dict[str, str]] = None
     trainingInputMode: Optional[str] = None
     roleArn: Optional[str] = None
@@ -1264,167 +1264,167 @@ class AlgorithmTypeDef(BaseValidatorModel):
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class BatchInferenceJobTypeDef(BaseValidatorModel):
+class BatchInferenceJob(BaseValidatorModel):
     jobName: Optional[str] = None
     batchInferenceJobArn: Optional[str] = None
     filterArn: Optional[str] = None
     failureReason: Optional[str] = None
     solutionVersionArn: Optional[str] = None
     numResults: Optional[int] = None
-    jobInput: Optional[BatchInferenceJobInputTypeDef] = None
-    jobOutput: Optional[BatchInferenceJobOutputTypeDef] = None
-    batchInferenceJobConfig: Optional[BatchInferenceJobConfigOutputTypeDef] = None
+    jobInput: Optional[BatchInferenceJobInput] = None
+    jobOutput: Optional[BatchInferenceJobOutput] = None
+    batchInferenceJobConfig: Optional[BatchInferenceJobConfigOutput] = None
     roleArn: Optional[str] = None
     batchInferenceJobMode: Optional[BatchInferenceJobModeType] = None
-    themeGenerationConfig: Optional[ThemeGenerationConfigTypeDef] = None
+    themeGenerationConfig: Optional[ThemeGenerationConfig] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class BatchInferenceJobConfigUnionTypeDef(BaseValidatorModel):
+class BatchInferenceJobConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateBatchInferenceJobRequestTypeDef(BaseValidatorModel):
+class CreateBatchInferenceJobRequest(BaseValidatorModel):
     jobName: str
     solutionVersionArn: str
-    jobInput: BatchInferenceJobInputTypeDef
-    jobOutput: BatchInferenceJobOutputTypeDef
+    jobInput: BatchInferenceJobInput
+    jobOutput: BatchInferenceJobOutput
     roleArn: str
     filterArn: Optional[str] = None
     numResults: Optional[int] = None
-    batchInferenceJobConfig: Optional[BatchInferenceJobConfigUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    batchInferenceJobConfig: Optional[BatchInferenceJobConfigUnion] = None
+    tags: Optional[Sequence[Tag]] = None
     batchInferenceJobMode: Optional[BatchInferenceJobModeType] = None
-    themeGenerationConfig: Optional[ThemeGenerationConfigTypeDef] = None
+    themeGenerationConfig: Optional[ThemeGenerationConfig] = None
 
 
-class HPOObjectiveTypeDef(BaseValidatorModel):
+class HPOObjective(BaseValidatorModel):
     pass
 
 
-class HPOConfigOutputTypeDef(BaseValidatorModel):
-    hpoObjective: Optional[HPOObjectiveTypeDef] = None
-    hpoResourceConfig: Optional[HPOResourceConfigTypeDef] = None
-    algorithmHyperParameterRanges: Optional[HyperParameterRangesOutputTypeDef] = None
+class HPOConfigOutput(BaseValidatorModel):
+    hpoObjective: Optional[HPOObjective] = None
+    hpoResourceConfig: Optional[HPOResourceConfig] = None
+    algorithmHyperParameterRanges: Optional[HyperParameterRangesOutput] = None
 
 
-class HPOConfigTypeDef(BaseValidatorModel):
-    hpoObjective: Optional[HPOObjectiveTypeDef] = None
-    hpoResourceConfig: Optional[HPOResourceConfigTypeDef] = None
-    algorithmHyperParameterRanges: Optional[HyperParameterRangesTypeDef] = None
+class HPOConfig(BaseValidatorModel):
+    hpoObjective: Optional[HPOObjective] = None
+    hpoResourceConfig: Optional[HPOResourceConfig] = None
+    algorithmHyperParameterRanges: Optional[HyperParameterRanges] = None
 
 
-class RecommenderSummaryTypeDef(BaseValidatorModel):
+class RecommenderSummary(BaseValidatorModel):
     name: Optional[str] = None
     recommenderArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     recipeArn: Optional[str] = None
-    recommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
+    recommenderConfig: Optional[RecommenderConfigOutput] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
 
 
-class RecommenderUpdateSummaryTypeDef(BaseValidatorModel):
-    recommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
+class RecommenderUpdateSummary(BaseValidatorModel):
+    recommenderConfig: Optional[RecommenderConfigOutput] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
 
 
-class DescribeBatchSegmentJobResponseTypeDef(BaseValidatorModel):
-    batchSegmentJob: BatchSegmentJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBatchSegmentJobResponse(BaseValidatorModel):
+    batchSegmentJob: BatchSegmentJob
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDatasetExportJobResponseTypeDef(BaseValidatorModel):
-    datasetExportJob: DatasetExportJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetExportJobResponse(BaseValidatorModel):
+    datasetExportJob: DatasetExportJob
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeMetricAttributionResponseTypeDef(BaseValidatorModel):
-    metricAttribution: MetricAttributionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMetricAttributionResponse(BaseValidatorModel):
+    metricAttribution: MetricAttribution
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeCampaignResponseTypeDef(BaseValidatorModel):
-    campaign: CampaignTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeCampaignResponse(BaseValidatorModel):
+    campaign: Campaign
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeAlgorithmResponseTypeDef(BaseValidatorModel):
-    algorithm: AlgorithmTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeAlgorithmResponse(BaseValidatorModel):
+    algorithm: Algorithm
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBatchInferenceJobResponseTypeDef(BaseValidatorModel):
-    batchInferenceJob: BatchInferenceJobTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBatchInferenceJobResponse(BaseValidatorModel):
+    batchInferenceJob: BatchInferenceJob
+    ResponseMetadata: ResponseMetadata
 
 
-class SolutionConfigOutputTypeDef(BaseValidatorModel):
+class SolutionConfigOutput(BaseValidatorModel):
     eventValueThreshold: Optional[str] = None
-    hpoConfig: Optional[HPOConfigOutputTypeDef] = None
+    hpoConfig: Optional[HPOConfigOutput] = None
     algorithmHyperParameters: Optional[Dict[str, str]] = None
     featureTransformationParameters: Optional[Dict[str, str]] = None
-    autoMLConfig: Optional[AutoMLConfigOutputTypeDef] = None
-    optimizationObjective: Optional[OptimizationObjectiveTypeDef] = None
-    trainingDataConfig: Optional[TrainingDataConfigOutputTypeDef] = None
-    autoTrainingConfig: Optional[AutoTrainingConfigTypeDef] = None
+    autoMLConfig: Optional[AutoMLConfigOutput] = None
+    optimizationObjective: Optional[OptimizationObjective] = None
+    trainingDataConfig: Optional[TrainingDataConfigOutput] = None
+    autoTrainingConfig: Optional[AutoTrainingConfig] = None
 
 
-class SolutionConfigTypeDef(BaseValidatorModel):
+class SolutionConfig(BaseValidatorModel):
     eventValueThreshold: Optional[str] = None
-    hpoConfig: Optional[HPOConfigTypeDef] = None
+    hpoConfig: Optional[HPOConfig] = None
     algorithmHyperParameters: Optional[Mapping[str, str]] = None
     featureTransformationParameters: Optional[Mapping[str, str]] = None
-    autoMLConfig: Optional[AutoMLConfigTypeDef] = None
-    optimizationObjective: Optional[OptimizationObjectiveTypeDef] = None
-    trainingDataConfig: Optional[TrainingDataConfigTypeDef] = None
-    autoTrainingConfig: Optional[AutoTrainingConfigTypeDef] = None
+    autoMLConfig: Optional[AutoMLConfig] = None
+    optimizationObjective: Optional[OptimizationObjective] = None
+    trainingDataConfig: Optional[TrainingDataConfig] = None
+    autoTrainingConfig: Optional[AutoTrainingConfig] = None
 
 
-class ListRecommendersResponseTypeDef(BaseValidatorModel):
-    recommenders: List[RecommenderSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendersResponse(BaseValidatorModel):
+    recommenders: List[RecommenderSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommenderTypeDef(BaseValidatorModel):
+class Recommender(BaseValidatorModel):
     recommenderArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     name: Optional[str] = None
     recipeArn: Optional[str] = None
-    recommenderConfig: Optional[RecommenderConfigOutputTypeDef] = None
+    recommenderConfig: Optional[RecommenderConfigOutput] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
-    latestRecommenderUpdate: Optional[RecommenderUpdateSummaryTypeDef] = None
+    latestRecommenderUpdate: Optional[RecommenderUpdateSummary] = None
     modelMetrics: Optional[Dict[str, float]] = None
 
 
-class RecommenderConfigUnionTypeDef(BaseValidatorModel):
+class RecommenderConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateRecommenderRequestTypeDef(BaseValidatorModel):
+class CreateRecommenderRequest(BaseValidatorModel):
     name: str
     datasetGroupArn: str
     recipeArn: str
-    recommenderConfig: Optional[RecommenderConfigUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    recommenderConfig: Optional[RecommenderConfigUnion] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateRecommenderRequestTypeDef(BaseValidatorModel):
+class UpdateRecommenderRequest(BaseValidatorModel):
     recommenderArn: str
-    recommenderConfig: RecommenderConfigUnionTypeDef
+    recommenderConfig: RecommenderConfigUnion
 
 
-class SolutionTypeDef(BaseValidatorModel):
+class Solution(BaseValidatorModel):
     name: Optional[str] = None
     solutionArn: Optional[str] = None
     performHPO: Optional[bool] = None
@@ -1433,16 +1433,16 @@ class SolutionTypeDef(BaseValidatorModel):
     recipeArn: Optional[str] = None
     datasetGroupArn: Optional[str] = None
     eventType: Optional[str] = None
-    solutionConfig: Optional[SolutionConfigOutputTypeDef] = None
-    autoMLResult: Optional[AutoMLResultTypeDef] = None
+    solutionConfig: Optional[SolutionConfigOutput] = None
+    autoMLResult: Optional[AutoMLResult] = None
     status: Optional[str] = None
     creationDateTime: Optional[datetime] = None
     lastUpdatedDateTime: Optional[datetime] = None
-    latestSolutionVersion: Optional[SolutionVersionSummaryTypeDef] = None
-    latestSolutionUpdate: Optional[SolutionUpdateSummaryTypeDef] = None
+    latestSolutionVersion: Optional[SolutionVersionSummary] = None
+    latestSolutionUpdate: Optional[SolutionUpdateSummary] = None
 
 
-class SolutionVersionTypeDef(BaseValidatorModel):
+class SolutionVersion(BaseValidatorModel):
     name: Optional[str] = None
     solutionVersionArn: Optional[str] = None
     solutionArn: Optional[str] = None
@@ -1451,10 +1451,10 @@ class SolutionVersionTypeDef(BaseValidatorModel):
     recipeArn: Optional[str] = None
     eventType: Optional[str] = None
     datasetGroupArn: Optional[str] = None
-    solutionConfig: Optional[SolutionConfigOutputTypeDef] = None
+    solutionConfig: Optional[SolutionConfigOutput] = None
     trainingHours: Optional[float] = None
     trainingMode: Optional[TrainingModeType] = None
-    tunedHPOParams: Optional[TunedHPOParamsTypeDef] = None
+    tunedHPOParams: Optional[TunedHPOParams] = None
     status: Optional[str] = None
     failureReason: Optional[str] = None
     creationDateTime: Optional[datetime] = None
@@ -1462,26 +1462,26 @@ class SolutionVersionTypeDef(BaseValidatorModel):
     trainingType: Optional[TrainingTypeType] = None
 
 
-class DescribeRecommenderResponseTypeDef(BaseValidatorModel):
-    recommender: RecommenderTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeRecommenderResponse(BaseValidatorModel):
+    recommender: Recommender
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSolutionResponseTypeDef(BaseValidatorModel):
-    solution: SolutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSolutionResponse(BaseValidatorModel):
+    solution: Solution
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSolutionVersionResponseTypeDef(BaseValidatorModel):
-    solutionVersion: SolutionVersionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSolutionVersionResponse(BaseValidatorModel):
+    solutionVersion: SolutionVersion
+    ResponseMetadata: ResponseMetadata
 
 
-class SolutionConfigUnionTypeDef(BaseValidatorModel):
+class SolutionConfigUnion(BaseValidatorModel):
     pass
 
 
-class CreateSolutionRequestTypeDef(BaseValidatorModel):
+class CreateSolutionRequest(BaseValidatorModel):
     name: str
     datasetGroupArn: str
     performHPO: Optional[bool] = None
@@ -1489,7 +1489,7 @@ class CreateSolutionRequestTypeDef(BaseValidatorModel):
     performAutoTraining: Optional[bool] = None
     recipeArn: Optional[str] = None
     eventType: Optional[str] = None
-    solutionConfig: Optional[SolutionConfigUnionTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    solutionConfig: Optional[SolutionConfigUnion] = None
+    tags: Optional[Sequence[Tag]] = None
 
 

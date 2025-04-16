@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.socialmessaging_constants import *
 
-class WhatsAppSignupCallbackTypeDef(BaseValidatorModel):
+class WhatsAppSignupCallback(BaseValidatorModel):
     accessToken: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,12 +24,12 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
+class DeleteWhatsAppMessageMediaInput(BaseValidatorModel):
     mediaId: str
     originationPhoneNumberId: str
 
 
-class WhatsAppPhoneNumberDetailTypeDef(BaseValidatorModel):
+class WhatsAppPhoneNumberDetail(BaseValidatorModel):
     arn: str
     phoneNumber: str
     phoneNumberId: str
@@ -39,22 +39,22 @@ class WhatsAppPhoneNumberDetailTypeDef(BaseValidatorModel):
     qualityRating: str
 
 
-class S3FileTypeDef(BaseValidatorModel):
+class S3File(BaseValidatorModel):
     bucketName: str
     key: str
 
 
-class S3PresignedUrlTypeDef(BaseValidatorModel):
+class S3PresignedUrl(BaseValidatorModel):
     url: str
     headers: Mapping[str, str]
 
 
-class WhatsAppBusinessAccountEventDestinationTypeDef(BaseValidatorModel):
+class WhatsAppBusinessAccountEventDestination(BaseValidatorModel):
     eventDestinationArn: str
     roleArn: Optional[str] = None
 
 
-class WhatsAppPhoneNumberSummaryTypeDef(BaseValidatorModel):
+class WhatsAppPhoneNumberSummary(BaseValidatorModel):
     arn: str
     phoneNumber: str
     phoneNumberId: str
@@ -64,161 +64,161 @@ class WhatsAppPhoneNumberSummaryTypeDef(BaseValidatorModel):
     qualityRating: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListLinkedWhatsAppBusinessAccountsInputTypeDef(BaseValidatorModel):
+class ListLinkedWhatsAppBusinessAccountsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: Optional[str] = None
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class DeleteWhatsAppMessageMediaOutputTypeDef(BaseValidatorModel):
+class DeleteWhatsAppMessageMediaOutput(BaseValidatorModel):
     success: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetWhatsAppMessageMediaOutputTypeDef(BaseValidatorModel):
+class GetWhatsAppMessageMediaOutput(BaseValidatorModel):
     mimeType: str
     fileSize: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PostWhatsAppMessageMediaOutputTypeDef(BaseValidatorModel):
+class PostWhatsAppMessageMediaOutput(BaseValidatorModel):
     mediaId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SendWhatsAppMessageOutputTypeDef(BaseValidatorModel):
+class SendWhatsAppMessageOutput(BaseValidatorModel):
     messageId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceOutputTypeDef(BaseValidatorModel):
+class TagResourceOutput(BaseValidatorModel):
     statusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UntagResourceOutputTypeDef(BaseValidatorModel):
+class UntagResourceOutput(BaseValidatorModel):
     statusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class SendWhatsAppMessageInputTypeDef(BaseValidatorModel):
+class SendWhatsAppMessageInput(BaseValidatorModel):
     originationPhoneNumberId: str
-    message: BlobTypeDef
+    message: Blob
     metaApiVersion: str
 
 
-class GetLinkedWhatsAppBusinessAccountPhoneNumberOutputTypeDef(BaseValidatorModel):
-    phoneNumber: WhatsAppPhoneNumberDetailTypeDef
+class GetLinkedWhatsAppBusinessAccountPhoneNumberOutput(BaseValidatorModel):
+    phoneNumber: WhatsAppPhoneNumberDetail
     linkedWhatsAppBusinessAccountId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LinkedWhatsAppBusinessAccountIdMetaDataTypeDef(BaseValidatorModel):
+class LinkedWhatsAppBusinessAccountIdMetaData(BaseValidatorModel):
     accountName: Optional[str] = None
     registrationStatus: Optional[RegistrationStatusType] = None
-    unregisteredWhatsAppPhoneNumbers: Optional[List[WhatsAppPhoneNumberDetailTypeDef]] = None
+    unregisteredWhatsAppPhoneNumbers: Optional[List[WhatsAppPhoneNumberDetail]] = None
     wabaId: Optional[str] = None
 
 
-class GetWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
+class GetWhatsAppMessageMediaInput(BaseValidatorModel):
     mediaId: str
     originationPhoneNumberId: str
     metadataOnly: Optional[bool] = None
-    destinationS3PresignedUrl: Optional[S3PresignedUrlTypeDef] = None
-    destinationS3File: Optional[S3FileTypeDef] = None
+    destinationS3PresignedUrl: Optional[S3PresignedUrl] = None
+    destinationS3File: Optional[S3File] = None
 
 
-class PostWhatsAppMessageMediaInputTypeDef(BaseValidatorModel):
+class PostWhatsAppMessageMediaInput(BaseValidatorModel):
     originationPhoneNumberId: str
-    sourceS3PresignedUrl: Optional[S3PresignedUrlTypeDef] = None
-    sourceS3File: Optional[S3FileTypeDef] = None
+    sourceS3PresignedUrl: Optional[S3PresignedUrl] = None
+    sourceS3File: Optional[S3File] = None
 
 
-class ListLinkedWhatsAppBusinessAccountsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListLinkedWhatsAppBusinessAccountsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     statusCode: int
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class WhatsAppSignupCallbackResultTypeDef(BaseValidatorModel):
+class WhatsAppSignupCallbackResult(BaseValidatorModel):
     associateInProgressToken: Optional[str] = None
-    linkedAccountsWithIncompleteSetup: Optional[ Dict[str, LinkedWhatsAppBusinessAccountIdMetaDataTypeDef] ] = None
+    linkedAccountsWithIncompleteSetup: Optional[ Dict[str, LinkedWhatsAppBusinessAccountIdMetaData] ] = None
 
 
-class LinkedWhatsAppBusinessAccountSummaryTypeDef(BaseValidatorModel):
+class LinkedWhatsAppBusinessAccountSummary(BaseValidatorModel):
     pass
 
 
-class ListLinkedWhatsAppBusinessAccountsOutputTypeDef(BaseValidatorModel):
-    linkedAccounts: List[LinkedWhatsAppBusinessAccountSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLinkedWhatsAppBusinessAccountsOutput(BaseValidatorModel):
+    linkedAccounts: List[LinkedWhatsAppBusinessAccountSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LinkedWhatsAppBusinessAccountTypeDef(BaseValidatorModel):
+class LinkedWhatsAppBusinessAccount(BaseValidatorModel):
     pass
 
 
-class GetLinkedWhatsAppBusinessAccountOutputTypeDef(BaseValidatorModel):
-    account: LinkedWhatsAppBusinessAccountTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetLinkedWhatsAppBusinessAccountOutput(BaseValidatorModel):
+    account: LinkedWhatsAppBusinessAccount
+    ResponseMetadata: ResponseMetadata
 
 
-class WabaSetupFinalizationTypeDef(BaseValidatorModel):
+class WabaSetupFinalization(BaseValidatorModel):
     pass
 
 
-class WabaPhoneNumberSetupFinalizationTypeDef(BaseValidatorModel):
+class WabaPhoneNumberSetupFinalization(BaseValidatorModel):
     pass
 
 
-class WhatsAppSetupFinalizationTypeDef(BaseValidatorModel):
+class WhatsAppSetupFinalization(BaseValidatorModel):
     associateInProgressToken: str
-    phoneNumbers: Sequence[WabaPhoneNumberSetupFinalizationTypeDef]
+    phoneNumbers: Sequence[WabaPhoneNumberSetupFinalization]
     phoneNumberParent: Optional[str] = None
-    waba: Optional[WabaSetupFinalizationTypeDef] = None
+    waba: Optional[WabaSetupFinalization] = None
 
 
-class AssociateWhatsAppBusinessAccountOutputTypeDef(BaseValidatorModel):
-    signupCallbackResult: WhatsAppSignupCallbackResultTypeDef
+class AssociateWhatsAppBusinessAccountOutput(BaseValidatorModel):
+    signupCallbackResult: WhatsAppSignupCallbackResult
     statusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AssociateWhatsAppBusinessAccountInputTypeDef(BaseValidatorModel):
-    signupCallback: Optional[WhatsAppSignupCallbackTypeDef] = None
-    setupFinalization: Optional[WhatsAppSetupFinalizationTypeDef] = None
+class AssociateWhatsAppBusinessAccountInput(BaseValidatorModel):
+    signupCallback: Optional[WhatsAppSignupCallback] = None
+    setupFinalization: Optional[WhatsAppSetupFinalization] = None
 
 

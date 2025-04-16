@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.dsql_constants import *
 
-class ClusterSummaryTypeDef(BaseValidatorModel):
+class ClusterSummary(BaseValidatorModel):
     identifier: str
     arn: str
 
 
-class CreateClusterInputTypeDef(BaseValidatorModel):
+class CreateClusterInput(BaseValidatorModel):
     deletionProtectionEnabled: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
     clientToken: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,89 +31,89 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class LinkedClusterPropertiesTypeDef(BaseValidatorModel):
+class LinkedClusterProperties(BaseValidatorModel):
     deletionProtectionEnabled: Optional[bool] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteClusterInputTypeDef(BaseValidatorModel):
+class DeleteClusterInput(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
 
 
-class DeleteMultiRegionClustersInputTypeDef(BaseValidatorModel):
+class DeleteMultiRegionClustersInput(BaseValidatorModel):
     linkedClusterArns: Sequence[str]
     clientToken: Optional[str] = None
 
 
-class GetClusterInputTypeDef(BaseValidatorModel):
+class GetClusterInput(BaseValidatorModel):
     identifier: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListClustersInputTypeDef(BaseValidatorModel):
+class ListClustersInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateClusterInputTypeDef(BaseValidatorModel):
+class UpdateClusterInput(BaseValidatorModel):
     identifier: str
     deletionProtectionEnabled: Optional[bool] = None
     clientToken: Optional[str] = None
 
 
-class CreateClusterOutputTypeDef(BaseValidatorModel):
+class CreateClusterOutput(BaseValidatorModel):
     identifier: str
     arn: str
     status: ClusterStatusType
     creationTime: datetime
     deletionProtectionEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMultiRegionClustersOutputTypeDef(BaseValidatorModel):
+class CreateMultiRegionClustersOutput(BaseValidatorModel):
     linkedClusterArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterOutputTypeDef(BaseValidatorModel):
+class DeleteClusterOutput(BaseValidatorModel):
     identifier: str
     arn: str
     status: ClusterStatusType
     creationTime: datetime
     deletionProtectionEnabled: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetClusterOutputTypeDef(BaseValidatorModel):
+class GetClusterOutput(BaseValidatorModel):
     identifier: str
     arn: str
     status: ClusterStatusType
@@ -121,21 +121,21 @@ class GetClusterOutputTypeDef(BaseValidatorModel):
     deletionProtectionEnabled: bool
     witnessRegion: str
     linkedClusterArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClustersOutputTypeDef(BaseValidatorModel):
-    clusters: List[ClusterSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClustersOutput(BaseValidatorModel):
+    clusters: List[ClusterSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterOutputTypeDef(BaseValidatorModel):
+class UpdateClusterOutput(BaseValidatorModel):
     identifier: str
     arn: str
     status: ClusterStatusType
@@ -143,27 +143,27 @@ class UpdateClusterOutputTypeDef(BaseValidatorModel):
     deletionProtectionEnabled: bool
     witnessRegion: str
     linkedClusterArns: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateMultiRegionClustersInputTypeDef(BaseValidatorModel):
+class CreateMultiRegionClustersInput(BaseValidatorModel):
     linkedRegionList: Sequence[str]
     witnessRegion: str
-    clusterProperties: Optional[Mapping[str, LinkedClusterPropertiesTypeDef]] = None
+    clusterProperties: Optional[Mapping[str, LinkedClusterProperties]] = None
     clientToken: Optional[str] = None
 
 
-class GetClusterInputWaitExtraTypeDef(BaseValidatorModel):
+class GetClusterInputWaitExtra(BaseValidatorModel):
     identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetClusterInputWaitTypeDef(BaseValidatorModel):
+class GetClusterInputWait(BaseValidatorModel):
     identifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class ListClustersInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListClustersInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 

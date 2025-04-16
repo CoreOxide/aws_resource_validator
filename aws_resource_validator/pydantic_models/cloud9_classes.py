@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloud9_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,13 +25,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
+class CreateEnvironmentMembershipRequest(BaseValidatorModel):
     environmentId: str
     userArn: str
     permissions: MemberPermissionsType
 
 
-class EnvironmentMemberTypeDef(BaseValidatorModel):
+class EnvironmentMember(BaseValidatorModel):
     permissions: PermissionsType
     userId: str
     userArn: str
@@ -39,22 +39,22 @@ class EnvironmentMemberTypeDef(BaseValidatorModel):
     lastAccess: Optional[datetime] = None
 
 
-class DeleteEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteEnvironmentMembershipRequest(BaseValidatorModel):
     environmentId: str
     userArn: str
 
 
-class DeleteEnvironmentRequestTypeDef(BaseValidatorModel):
+class DeleteEnvironmentRequest(BaseValidatorModel):
     environmentId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeEnvironmentMembershipsRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentMembershipsRequest(BaseValidatorModel):
     userArn: Optional[str] = None
     environmentId: Optional[str] = None
     permissions: Optional[Sequence[PermissionsType]] = None
@@ -62,48 +62,48 @@ class DescribeEnvironmentMembershipsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class DescribeEnvironmentStatusRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentStatusRequest(BaseValidatorModel):
     environmentId: str
 
 
-class DescribeEnvironmentsRequestTypeDef(BaseValidatorModel):
+class DescribeEnvironmentsRequest(BaseValidatorModel):
     environmentIds: Sequence[str]
 
 
-class EnvironmentLifecycleTypeDef(BaseValidatorModel):
+class EnvironmentLifecycle(BaseValidatorModel):
     status: Optional[EnvironmentLifecycleStatusType] = None
     reason: Optional[str] = None
     failureResource: Optional[str] = None
 
 
-class ListEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListEnvironmentsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateEnvironmentMembershipRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentMembershipRequest(BaseValidatorModel):
     environmentId: str
     userArn: str
     permissions: MemberPermissionsType
 
 
-class UpdateEnvironmentRequestTypeDef(BaseValidatorModel):
+class UpdateEnvironmentRequest(BaseValidatorModel):
     environmentId: str
     name: Optional[str] = None
     description: Optional[str] = None
     managedCredentialsAction: Optional[ManagedCredentialsActionType] = None
 
 
-class CreateEnvironmentEC2RequestTypeDef(BaseValidatorModel):
+class CreateEnvironmentEC2Request(BaseValidatorModel):
     name: str
     instanceType: str
     imageId: str
@@ -112,71 +112,71 @@ class CreateEnvironmentEC2RequestTypeDef(BaseValidatorModel):
     subnetId: Optional[str] = None
     automaticStopTimeMinutes: Optional[int] = None
     ownerArn: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
     connectionType: Optional[ConnectionTypeType] = None
     dryRun: Optional[bool] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateEnvironmentEC2ResultTypeDef(BaseValidatorModel):
+class CreateEnvironmentEC2Result(BaseValidatorModel):
     environmentId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEnvironmentStatusResultTypeDef(BaseValidatorModel):
+class DescribeEnvironmentStatusResult(BaseValidatorModel):
     status: EnvironmentStatusType
     message: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListEnvironmentsResultTypeDef(BaseValidatorModel):
+class ListEnvironmentsResult(BaseValidatorModel):
     environmentIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateEnvironmentMembershipResultTypeDef(BaseValidatorModel):
-    membership: EnvironmentMemberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateEnvironmentMembershipResult(BaseValidatorModel):
+    membership: EnvironmentMember
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEnvironmentMembershipsResultTypeDef(BaseValidatorModel):
-    memberships: List[EnvironmentMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEnvironmentMembershipsResult(BaseValidatorModel):
+    memberships: List[EnvironmentMember]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateEnvironmentMembershipResultTypeDef(BaseValidatorModel):
-    membership: EnvironmentMemberTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateEnvironmentMembershipResult(BaseValidatorModel):
+    membership: EnvironmentMember
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEnvironmentMembershipsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeEnvironmentMembershipsRequestPaginate(BaseValidatorModel):
     userArn: Optional[str] = None
     environmentId: Optional[str] = None
     permissions: Optional[Sequence[PermissionsType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEnvironmentsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class EnvironmentTypeDef(BaseValidatorModel):
+class Environment(BaseValidatorModel):
     pass
 
 
-class DescribeEnvironmentsResultTypeDef(BaseValidatorModel):
-    environments: List[EnvironmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEnvironmentsResult(BaseValidatorModel):
+    environments: List[Environment]
+    ResponseMetadata: ResponseMetadata
 
 

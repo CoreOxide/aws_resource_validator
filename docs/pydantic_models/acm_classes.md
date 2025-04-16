@@ -1,13 +1,13 @@
 # Acm Classes
 
-# AddTagsToCertificateRequestTypeDef
+# AddTagsToCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.Tag]
 - **Required**: Yes
 
 
@@ -17,77 +17,66 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificateDetailTypeDef
+# CertificateDetail
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CertificateOptionsTypeDef
+# CertificateOptions
 
 ### CertificateTransparencyLoggingPreference
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# CertificateSummaryTypeDef
+# CertificateSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteCertificateRequestTypeDef
+# DeleteCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCertificateRequestTypeDef
+# DescribeCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCertificateRequestWaitTypeDef
+# DescribeCertificateRequestWait
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeCertificateResponseTypeDef
+# DescribeCertificateResponse
 
 ### Certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.CertificateDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.CertificateDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DomainValidationOptionTypeDef
-
-### DomainName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ValidationDomain
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# DomainValidationTypeDef
+# DomainValidation
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -103,37 +92,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'PENDING_VALIDATION', 'SUCCESS']]
 
 ### ResourceRecord
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.ResourceRecordTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ValidationMethod
 - **Type**: typing.Optional[typing.Literal['DNS', 'EMAIL']]
 
 
-# EmptyResponseMetadataTypeDef
+# DomainValidationOption
 
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+### DomainName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ValidationDomain
+- **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExpiryEventsConfigurationTypeDef
+# EmptyResponseMetadata
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ExpiryEventsConfiguration
 
 ### DaysBeforeExpiry
 - **Type**: typing.Optional[int]
 
 
-# ExportCertificateRequestTypeDef
+# ExportCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Passphrase
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.Blob'>
 - **Required**: Yes
 
 
-# ExportCertificateResponseTypeDef
+# ExportCertificateResponse
 
 ### Certificate
 - **Type**: <class 'str'>
@@ -148,11 +148,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExtendedKeyUsageTypeDef
+# ExtendedKeyUsage
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['ANY', 'CODE_SIGNING', 'CUSTOM', 'EMAIL_PROTECTION', 'IPSEC_END_SYSTEM', 'IPSEC_TUNNEL', 'IPSEC_USER', 'NONE', 'OCSP_SIGNING', 'TIME_STAMPING', 'TLS_WEB_CLIENT_AUTHENTICATION', 'TLS_WEB_SERVER_AUTHENTICATION']]
@@ -161,7 +161,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FiltersTypeDef
+# Filters
 
 ### extendedKeyUsage
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ANY', 'CODE_SIGNING', 'CUSTOM', 'EMAIL_PROTECTION', 'IPSEC_END_SYSTEM', 'IPSEC_TUNNEL', 'IPSEC_USER', 'NONE', 'OCSP_SIGNING', 'TIME_STAMPING', 'TLS_WEB_CLIENT_AUTHENTICATION', 'TLS_WEB_SERVER_AUTHENTICATION']]]
@@ -173,25 +173,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EC_prime256v1', 'EC_secp384r1', 'EC_secp521r1', 'RSA_1024', 'RSA_2048', 'RSA_3072', 'RSA_4096']]]
 
 
-# GetAccountConfigurationResponseTypeDef
+# GetAccountConfigurationResponse
 
 ### ExpiryEvents
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ExpiryEventsConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ExpiryEventsConfiguration'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCertificateRequestTypeDef
+# GetCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCertificateResponseTypeDef
+# GetCertificateResponse
 
 ### Certificate
 - **Type**: <class 'str'>
@@ -202,72 +202,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ImportCertificateRequestTypeDef
+# ImportCertificateRequest
 
 ### Certificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.Blob'>
 - **Required**: Yes
 
 ### PrivateKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.Blob'>
 - **Required**: Yes
 
 ### CertificateArn
 - **Type**: typing.Optional[str]
 
 ### CertificateChain
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.Blob]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.Tag]]
 
 
-# ImportCertificateResponseTypeDef
+# ImportCertificateResponse
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# KeyUsageTypeDef
+# KeyUsage
 
 ### Name
 - **Type**: typing.Optional[typing.Literal['ANY', 'CERTIFICATE_SIGNING', 'CRL_SIGNING', 'CUSTOM', 'DATA_ENCIPHERMENT', 'DECIPHER_ONLY', 'DIGITAL_SIGNATURE', 'ENCIPHER_ONLY', 'KEY_AGREEMENT', 'KEY_ENCIPHERMENT', 'NON_REPUDIATION']]
 
 
-# ListCertificatesRequestPaginateTypeDef
+# ListCertificatesRequest
 
 ### CertificateStatuses
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
 
 ### Includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.FiltersTypeDef]
-
-### SortBy
-- **Type**: typing.Optional[typing.Literal['CREATED_AT']]
-
-### SortOrder
-- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.PaginatorConfigTypeDef]
-
-
-# ListCertificatesRequestTypeDef
-
-### CertificateStatuses
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
-
-### Includes
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.FiltersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.Filters]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -282,39 +264,57 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
 
 
-# ListCertificatesResponseTypeDef
+# ListCertificatesRequestPaginate
+
+### CertificateStatuses
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['EXPIRED', 'FAILED', 'INACTIVE', 'ISSUED', 'PENDING_VALIDATION', 'REVOKED', 'VALIDATION_TIMED_OUT']]]
+
+### Includes
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.Filters]
+
+### SortBy
+- **Type**: typing.Optional[typing.Literal['CREATED_AT']]
+
+### SortOrder
+- **Type**: typing.Optional[typing.Literal['ASCENDING', 'DESCENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.PaginatorConfig]
+
+
+# ListCertificatesResponse
 
 ### CertificateSummaryList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.CertificateSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.CertificateSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForCertificateRequestTypeDef
+# ListTagsForCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForCertificateResponseTypeDef
+# ListTagsForCertificateResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -326,42 +326,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutAccountConfigurationRequestTypeDef
+# PutAccountConfigurationRequest
 
 ### IdempotencyToken
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExpiryEvents
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.ExpiryEventsConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.ExpiryEventsConfiguration]
 
 
-# RemoveTagsFromCertificateRequestTypeDef
+# RemoveTagsFromCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.TagTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.Tag]
 - **Required**: Yes
 
 
-# RenewCertificateRequestTypeDef
+# RenewCertificateRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RenewalSummaryTypeDef
+# RenewalSummary
 
 ### RenewalStatus
 - **Type**: typing.Literal['FAILED', 'PENDING_AUTO_RENEWAL', 'PENDING_VALIDATION', 'SUCCESS']
 - **Required**: Yes
 
 ### DomainValidationOptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.DomainValidationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.acm_classes.DomainValidation]
 - **Required**: Yes
 
 ### UpdatedAt
@@ -372,7 +372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADDITIONAL_VERIFICATION_REQUIRED', 'CAA_ERROR', 'DOMAIN_NOT_ALLOWED', 'DOMAIN_VALIDATION_DENIED', 'INVALID_PUBLIC_DOMAIN', 'NO_AVAILABLE_CONTACTS', 'OTHER', 'PCA_ACCESS_DENIED', 'PCA_INVALID_ARGS', 'PCA_INVALID_ARN', 'PCA_INVALID_DURATION', 'PCA_INVALID_STATE', 'PCA_LIMIT_EXCEEDED', 'PCA_NAME_CONSTRAINTS_VALIDATION', 'PCA_REQUEST_FAILED', 'PCA_RESOURCE_NOT_FOUND', 'SLR_NOT_FOUND']]
 
 
-# RequestCertificateRequestTypeDef
+# RequestCertificateRequest
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -388,33 +388,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DomainValidationOptions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.DomainValidationOptionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.DomainValidationOption]]
 
 ### Options
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.CertificateOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.acm_classes.CertificateOptions]
 
 ### CertificateAuthorityArn
 - **Type**: typing.Optional[str]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.acm_classes.Tag]]
 
 ### KeyAlgorithm
 - **Type**: typing.Optional[typing.Literal['EC_prime256v1', 'EC_secp384r1', 'EC_secp521r1', 'RSA_1024', 'RSA_2048', 'RSA_3072', 'RSA_4096']]
 
 
-# RequestCertificateResponseTypeDef
+# RequestCertificateResponse
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResendValidationEmailRequestTypeDef
+# ResendValidationEmailRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
@@ -429,13 +429,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceRecordTypeDef
+# ResourceRecord
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -457,7 +457,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -467,18 +467,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCertificateOptionsRequestTypeDef
+# UpdateCertificateOptionsRequest
 
 ### CertificateArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Options
-- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.CertificateOptionsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.acm_classes.CertificateOptions'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

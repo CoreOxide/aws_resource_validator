@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.dynamodb_constants import *
 
-class ArchivalSummaryTypeDef(BaseValidatorModel):
+class ArchivalSummary(BaseValidatorModel):
     ArchivalDateTime: Optional[datetime] = None
     ArchivalReason: Optional[str] = None
     ArchivalBackupArn: Optional[str] = None
 
 
-class AttributeDefinitionTypeDef(BaseValidatorModel):
+class AttributeDefinition(BaseValidatorModel):
     AttributeName: str
     AttributeType: ScalarAttributeTypeType
 
 
-class AttributeValueTypeDef(BaseValidatorModel):
+class AttributeValue(BaseValidatorModel):
     S: Optional[str] = None
     N: Optional[str] = None
     B: Optional[bytes] = None
@@ -36,21 +36,21 @@ class AttributeValueTypeDef(BaseValidatorModel):
     BOOL: Optional[bool] = None
 
 
-class AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef(BaseValidatorModel):
+class AutoScalingTargetTrackingScalingPolicyConfigurationDescription(BaseValidatorModel):
     TargetValue: float
     DisableScaleIn: Optional[bool] = None
     ScaleInCooldown: Optional[int] = None
     ScaleOutCooldown: Optional[int] = None
 
 
-class AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef(BaseValidatorModel):
+class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(BaseValidatorModel):
     TargetValue: float
     DisableScaleIn: Optional[bool] = None
     ScaleInCooldown: Optional[int] = None
     ScaleOutCooldown: Optional[int] = None
 
 
-class BackupDetailsTypeDef(BaseValidatorModel):
+class BackupDetails(BaseValidatorModel):
     BackupArn: str
     BackupName: str
     BackupStatus: BackupStatusType
@@ -60,7 +60,7 @@ class BackupDetailsTypeDef(BaseValidatorModel):
     BackupExpiryDateTime: Optional[datetime] = None
 
 
-class BackupSummaryTypeDef(BaseValidatorModel):
+class BackupSummary(BaseValidatorModel):
     TableName: Optional[str] = None
     TableId: Optional[str] = None
     TableArn: Optional[str] = None
@@ -73,7 +73,7 @@ class BackupSummaryTypeDef(BaseValidatorModel):
     BackupSizeBytes: Optional[int] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -81,210 +81,210 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BillingModeSummaryTypeDef(BaseValidatorModel):
+class BillingModeSummary(BaseValidatorModel):
     BillingMode: Optional[BillingModeType] = None
     LastUpdateToPayPerRequestDateTime: Optional[datetime] = None
 
 
-class CapacityTypeDef(BaseValidatorModel):
+class Capacity(BaseValidatorModel):
     ReadCapacityUnits: Optional[float] = None
     WriteCapacityUnits: Optional[float] = None
     CapacityUnits: Optional[float] = None
 
 
-class PointInTimeRecoveryDescriptionTypeDef(BaseValidatorModel):
+class PointInTimeRecoveryDescription(BaseValidatorModel):
     PointInTimeRecoveryStatus: Optional[PointInTimeRecoveryStatusType] = None
     RecoveryPeriodInDays: Optional[int] = None
     EarliestRestorableDateTime: Optional[datetime] = None
     LatestRestorableDateTime: Optional[datetime] = None
 
 
-class ContributorInsightsSummaryTypeDef(BaseValidatorModel):
+class ContributorInsightsSummary(BaseValidatorModel):
     TableName: Optional[str] = None
     IndexName: Optional[str] = None
     ContributorInsightsStatus: Optional[ContributorInsightsStatusType] = None
 
 
-class CreateBackupInputTypeDef(BaseValidatorModel):
+class CreateBackupInput(BaseValidatorModel):
     TableName: str
     BackupName: str
 
 
-class KeySchemaElementTypeDef(BaseValidatorModel):
+class KeySchemaElement(BaseValidatorModel):
     AttributeName: str
     KeyType: KeyTypeType
 
 
-class OnDemandThroughputTypeDef(BaseValidatorModel):
+class OnDemandThroughput(BaseValidatorModel):
     MaxReadRequestUnits: Optional[int] = None
     MaxWriteRequestUnits: Optional[int] = None
 
 
-class ProvisionedThroughputTypeDef(BaseValidatorModel):
+class ProvisionedThroughput(BaseValidatorModel):
     ReadCapacityUnits: int
     WriteCapacityUnits: int
 
 
-class WarmThroughputTypeDef(BaseValidatorModel):
+class WarmThroughput(BaseValidatorModel):
     ReadUnitsPerSecond: Optional[int] = None
     WriteUnitsPerSecond: Optional[int] = None
 
 
-class OnDemandThroughputOverrideTypeDef(BaseValidatorModel):
+class OnDemandThroughputOverride(BaseValidatorModel):
     MaxReadRequestUnits: Optional[int] = None
 
 
-class ProvisionedThroughputOverrideTypeDef(BaseValidatorModel):
+class ProvisionedThroughputOverride(BaseValidatorModel):
     ReadCapacityUnits: Optional[int] = None
 
 
-class SSESpecificationTypeDef(BaseValidatorModel):
+class SSESpecification(BaseValidatorModel):
     Enabled: Optional[bool] = None
     SSEType: Optional[SSETypeType] = None
     KMSMasterKeyId: Optional[str] = None
 
 
-class StreamSpecificationTypeDef(BaseValidatorModel):
+class StreamSpecification(BaseValidatorModel):
     StreamEnabled: bool
     StreamViewType: Optional[StreamViewTypeType] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CsvOptionsOutputTypeDef(BaseValidatorModel):
+class CsvOptionsOutput(BaseValidatorModel):
     Delimiter: Optional[str] = None
     HeaderList: Optional[List[str]] = None
 
 
-class CsvOptionsTypeDef(BaseValidatorModel):
+class CsvOptions(BaseValidatorModel):
     Delimiter: Optional[str] = None
     HeaderList: Optional[Sequence[str]] = None
 
 
-class DeleteBackupInputTypeDef(BaseValidatorModel):
+class DeleteBackupInput(BaseValidatorModel):
     BackupArn: str
 
 
-class DeleteGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
+class DeleteGlobalSecondaryIndexAction(BaseValidatorModel):
     IndexName: str
 
 
-class DeleteResourcePolicyInputTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
     ExpectedRevisionId: Optional[str] = None
 
 
-class DeleteTableInputTypeDef(BaseValidatorModel):
+class DeleteTableInput(BaseValidatorModel):
     TableName: str
 
 
-class DescribeBackupInputTypeDef(BaseValidatorModel):
+class DescribeBackupInput(BaseValidatorModel):
     BackupArn: str
 
 
-class DescribeContinuousBackupsInputTypeDef(BaseValidatorModel):
+class DescribeContinuousBackupsInput(BaseValidatorModel):
     TableName: str
 
 
-class DescribeContributorInsightsInputTypeDef(BaseValidatorModel):
+class DescribeContributorInsightsInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
 
 
-class FailureExceptionTypeDef(BaseValidatorModel):
+class FailureException(BaseValidatorModel):
     ExceptionName: Optional[str] = None
     ExceptionDescription: Optional[str] = None
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     Address: str
     CachePeriodInMinutes: int
 
 
-class DescribeExportInputTypeDef(BaseValidatorModel):
+class DescribeExportInput(BaseValidatorModel):
     ExportArn: str
 
 
-class DescribeGlobalTableInputTypeDef(BaseValidatorModel):
+class DescribeGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
 
 
-class DescribeGlobalTableSettingsInputTypeDef(BaseValidatorModel):
+class DescribeGlobalTableSettingsInput(BaseValidatorModel):
     GlobalTableName: str
 
 
-class DescribeImportInputTypeDef(BaseValidatorModel):
+class DescribeImportInput(BaseValidatorModel):
     ImportArn: str
 
 
-class DescribeKinesisStreamingDestinationInputTypeDef(BaseValidatorModel):
+class DescribeKinesisStreamingDestinationInput(BaseValidatorModel):
     TableName: str
 
 
-class KinesisDataStreamDestinationTypeDef(BaseValidatorModel):
+class KinesisDataStreamDestination(BaseValidatorModel):
     StreamArn: Optional[str] = None
     DestinationStatus: Optional[DestinationStatusType] = None
     DestinationStatusDescription: Optional[str] = None
     ApproximateCreationDateTimePrecision: Optional[ApproximateCreationDateTimePrecisionType] = None
 
 
-class DescribeTableInputTypeDef(BaseValidatorModel):
+class DescribeTableInput(BaseValidatorModel):
     TableName: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeTableReplicaAutoScalingInputTypeDef(BaseValidatorModel):
+class DescribeTableReplicaAutoScalingInput(BaseValidatorModel):
     TableName: str
 
 
-class DescribeTimeToLiveInputTypeDef(BaseValidatorModel):
+class DescribeTimeToLiveInput(BaseValidatorModel):
     TableName: str
 
 
-class TimeToLiveDescriptionTypeDef(BaseValidatorModel):
+class TimeToLiveDescription(BaseValidatorModel):
     TimeToLiveStatus: Optional[TimeToLiveStatusType] = None
     AttributeName: Optional[str] = None
 
 
-class EnableKinesisStreamingConfigurationTypeDef(BaseValidatorModel):
+class EnableKinesisStreamingConfiguration(BaseValidatorModel):
     ApproximateCreationDateTimePrecision: Optional[ApproximateCreationDateTimePrecisionType] = None
 
 
-class IncrementalExportSpecificationOutputTypeDef(BaseValidatorModel):
+class IncrementalExportSpecificationOutput(BaseValidatorModel):
     ExportFromTime: Optional[datetime] = None
     ExportToTime: Optional[datetime] = None
     ExportViewType: Optional[ExportViewTypeType] = None
 
 
-class ExportSummaryTypeDef(BaseValidatorModel):
+class ExportSummary(BaseValidatorModel):
     ExportArn: Optional[str] = None
     ExportStatus: Optional[ExportStatusType] = None
     ExportType: Optional[ExportTypeType] = None
 
 
-class GetResourcePolicyInputTypeDef(BaseValidatorModel):
+class GetResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
 
 
-class GlobalSecondaryIndexWarmThroughputDescriptionTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexWarmThroughputDescription(BaseValidatorModel):
     ReadUnitsPerSecond: Optional[int] = None
     WriteUnitsPerSecond: Optional[int] = None
     Status: Optional[IndexStatusType] = None
 
 
-class ProjectionOutputTypeDef(BaseValidatorModel):
+class ProjectionOutput(BaseValidatorModel):
     ProjectionType: Optional[ProjectionTypeType] = None
     NonKeyAttributes: Optional[List[str]] = None
 
 
-class ProvisionedThroughputDescriptionTypeDef(BaseValidatorModel):
+class ProvisionedThroughputDescription(BaseValidatorModel):
     LastIncreaseDateTime: Optional[datetime] = None
     LastDecreaseDateTime: Optional[datetime] = None
     NumberOfDecreasesToday: Optional[int] = None
@@ -292,174 +292,174 @@ class ProvisionedThroughputDescriptionTypeDef(BaseValidatorModel):
     WriteCapacityUnits: Optional[int] = None
 
 
-class S3BucketSourceTypeDef(BaseValidatorModel):
+class S3BucketSource(BaseValidatorModel):
     S3Bucket: str
     S3BucketOwner: Optional[str] = None
     S3KeyPrefix: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListContributorInsightsInputTypeDef(BaseValidatorModel):
+class ListContributorInsightsInput(BaseValidatorModel):
     TableName: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListExportsInputTypeDef(BaseValidatorModel):
+class ListExportsInput(BaseValidatorModel):
     TableArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListImportsInputTypeDef(BaseValidatorModel):
+class ListImportsInput(BaseValidatorModel):
     TableArn: Optional[str] = None
     PageSize: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTablesInputTypeDef(BaseValidatorModel):
+class ListTablesInput(BaseValidatorModel):
     ExclusiveStartTableName: Optional[str] = None
     Limit: Optional[int] = None
 
 
-class ListTagsOfResourceInputTypeDef(BaseValidatorModel):
+class ListTagsOfResourceInput(BaseValidatorModel):
     ResourceArn: str
     NextToken: Optional[str] = None
 
 
-class PointInTimeRecoverySpecificationTypeDef(BaseValidatorModel):
+class PointInTimeRecoverySpecification(BaseValidatorModel):
     PointInTimeRecoveryEnabled: bool
     RecoveryPeriodInDays: Optional[int] = None
 
 
-class ProjectionTypeDef(BaseValidatorModel):
+class Projection(BaseValidatorModel):
     ProjectionType: Optional[ProjectionTypeType] = None
     NonKeyAttributes: Optional[Sequence[str]] = None
 
 
-class PutResourcePolicyInputTypeDef(BaseValidatorModel):
+class PutResourcePolicyInput(BaseValidatorModel):
     ResourceArn: str
     Policy: str
     ExpectedRevisionId: Optional[str] = None
     ConfirmRemoveSelfResourceAccess: Optional[bool] = None
 
 
-class TableClassSummaryTypeDef(BaseValidatorModel):
+class TableClassSummary(BaseValidatorModel):
     TableClass: Optional[TableClassType] = None
     LastUpdateDateTime: Optional[datetime] = None
 
 
-class TableWarmThroughputDescriptionTypeDef(BaseValidatorModel):
+class TableWarmThroughputDescription(BaseValidatorModel):
     ReadUnitsPerSecond: Optional[int] = None
     WriteUnitsPerSecond: Optional[int] = None
     Status: Optional[TableStatusType] = None
 
 
-class RestoreSummaryTypeDef(BaseValidatorModel):
+class RestoreSummary(BaseValidatorModel):
     RestoreDateTime: datetime
     RestoreInProgress: bool
     SourceBackupArn: Optional[str] = None
     SourceTableArn: Optional[str] = None
 
 
-class SSEDescriptionTypeDef(BaseValidatorModel):
+class SSEDescription(BaseValidatorModel):
     Status: Optional[SSEStatusType] = None
     SSEType: Optional[SSETypeType] = None
     KMSMasterKeyArn: Optional[str] = None
     InaccessibleEncryptionDateTime: Optional[datetime] = None
 
 
-class TableBatchWriterRequestTypeDef(BaseValidatorModel):
+class TableBatchWriterRequest(BaseValidatorModel):
     overwrite_by_pkeys: Optional[List[str]] = None
 
 
-class TimeToLiveSpecificationTypeDef(BaseValidatorModel):
+class TimeToLiveSpecification(BaseValidatorModel):
     Enabled: bool
     AttributeName: str
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateContributorInsightsInputTypeDef(BaseValidatorModel):
+class UpdateContributorInsightsInput(BaseValidatorModel):
     TableName: str
     ContributorInsightsAction: ContributorInsightsActionType
     IndexName: Optional[str] = None
 
 
-class UpdateKinesisStreamingConfigurationTypeDef(BaseValidatorModel):
+class UpdateKinesisStreamingConfiguration(BaseValidatorModel):
     ApproximateCreationDateTimePrecision: Optional[ApproximateCreationDateTimePrecisionType] = None
 
 
-class BatchStatementErrorTypeDef(BaseValidatorModel):
+class BatchStatementError(BaseValidatorModel):
     Code: Optional[BatchStatementErrorCodeEnumType] = None
     Message: Optional[str] = None
-    Item: Optional[Dict[str, AttributeValueTypeDef]] = None
+    Item: Optional[Dict[str, AttributeValue]] = None
 
 
-class DeleteRequestOutputTypeDef(BaseValidatorModel):
-    Key: Dict[str, AttributeValueTypeDef]
+class DeleteRequestOutput(BaseValidatorModel):
+    Key: Dict[str, AttributeValue]
 
 
-class ItemCollectionMetricsTypeDef(BaseValidatorModel):
-    ItemCollectionKey: Optional[Dict[str, AttributeValueTypeDef]] = None
+class ItemCollectionMetrics(BaseValidatorModel):
+    ItemCollectionKey: Optional[Dict[str, AttributeValue]] = None
     SizeEstimateRangeGB: Optional[List[float]] = None
 
 
-class ItemResponseTypeDef(BaseValidatorModel):
-    Item: Optional[Dict[str, AttributeValueTypeDef]] = None
+class ItemResponse(BaseValidatorModel):
+    Item: Optional[Dict[str, AttributeValue]] = None
 
 
-class KeysAndAttributesOutputTypeDef(BaseValidatorModel):
-    Keys: List[Dict[str, AttributeValueTypeDef]]
+class KeysAndAttributesOutput(BaseValidatorModel):
+    Keys: List[Dict[str, AttributeValue]]
     AttributesToGet: Optional[List[str]] = None
     ConsistentRead: Optional[bool] = None
     ProjectionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Dict[str, str]] = None
 
 
-class PutRequestOutputTypeDef(BaseValidatorModel):
-    Item: Dict[str, AttributeValueTypeDef]
+class PutRequestOutput(BaseValidatorModel):
+    Item: Dict[str, AttributeValue]
 
 
-class TableAttributeValueTypeDef(BaseValidatorModel):
+class TableAttributeValue(BaseValidatorModel):
     pass
 
 
-class AttributeValueUpdateTableTypeDef(BaseValidatorModel):
-    Value: Optional[TableAttributeValueTypeDef] = None
+class AttributeValueUpdateTable(BaseValidatorModel):
+    Value: Optional[TableAttributeValue] = None
     Action: Optional[AttributeActionType] = None
 
 
-class ConditionTableTypeDef(BaseValidatorModel):
+class ConditionTable(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
-    AttributeValueList: Optional[Sequence[TableAttributeValueTypeDef]] = None
+    AttributeValueList: Optional[Sequence[TableAttributeValue]] = None
 
 
-class DeleteRequestServiceResourceOutputTypeDef(BaseValidatorModel):
-    Key: Dict[str, TableAttributeValueTypeDef]
+class DeleteRequestServiceResourceOutput(BaseValidatorModel):
+    Key: Dict[str, TableAttributeValue]
 
 
-class DeleteRequestServiceResourceTypeDef(BaseValidatorModel):
-    Key: Mapping[str, TableAttributeValueTypeDef]
+class DeleteRequestServiceResource(BaseValidatorModel):
+    Key: Mapping[str, TableAttributeValue]
 
 
-class ExpectedAttributeValueTableTypeDef(BaseValidatorModel):
-    Value: Optional[TableAttributeValueTypeDef] = None
+class ExpectedAttributeValueTable(BaseValidatorModel):
+    Value: Optional[TableAttributeValue] = None
     Exists: Optional[bool] = None
     ComparisonOperator: Optional[ComparisonOperatorType] = None
-    AttributeValueList: Optional[Sequence[TableAttributeValueTypeDef]] = None
+    AttributeValueList: Optional[Sequence[TableAttributeValue]] = None
 
 
-class GetItemInputTableGetItemTypeDef(BaseValidatorModel):
-    Key: Mapping[str, TableAttributeValueTypeDef]
+class GetItemInputTableGetItem(BaseValidatorModel):
+    Key: Mapping[str, TableAttributeValue]
     AttributesToGet: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -467,252 +467,252 @@ class GetItemInputTableGetItemTypeDef(BaseValidatorModel):
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
 
 
-class ItemCollectionMetricsServiceResourceTypeDef(BaseValidatorModel):
-    ItemCollectionKey: Optional[Dict[str, TableAttributeValueTypeDef]] = None
+class ItemCollectionMetricsServiceResource(BaseValidatorModel):
+    ItemCollectionKey: Optional[Dict[str, TableAttributeValue]] = None
     SizeEstimateRangeGB: Optional[List[float]] = None
 
 
-class ItemCollectionMetricsTableTypeDef(BaseValidatorModel):
-    ItemCollectionKey: Optional[Dict[str, TableAttributeValueTypeDef]] = None
+class ItemCollectionMetricsTable(BaseValidatorModel):
+    ItemCollectionKey: Optional[Dict[str, TableAttributeValue]] = None
     SizeEstimateRangeGB: Optional[List[float]] = None
 
 
-class KeysAndAttributesServiceResourceOutputTypeDef(BaseValidatorModel):
-    Keys: List[Dict[str, TableAttributeValueTypeDef]]
+class KeysAndAttributesServiceResourceOutput(BaseValidatorModel):
+    Keys: List[Dict[str, TableAttributeValue]]
     AttributesToGet: Optional[List[str]] = None
     ConsistentRead: Optional[bool] = None
     ProjectionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Dict[str, str]] = None
 
 
-class KeysAndAttributesServiceResourceTypeDef(BaseValidatorModel):
-    Keys: Sequence[Mapping[str, TableAttributeValueTypeDef]]
+class KeysAndAttributesServiceResource(BaseValidatorModel):
+    Keys: Sequence[Mapping[str, TableAttributeValue]]
     AttributesToGet: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
     ProjectionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
 
 
-class PutRequestServiceResourceOutputTypeDef(BaseValidatorModel):
-    Item: Dict[str, TableAttributeValueTypeDef]
+class PutRequestServiceResourceOutput(BaseValidatorModel):
+    Item: Dict[str, TableAttributeValue]
 
 
-class PutRequestServiceResourceTypeDef(BaseValidatorModel):
-    Item: Mapping[str, TableAttributeValueTypeDef]
+class PutRequestServiceResource(BaseValidatorModel):
+    Item: Mapping[str, TableAttributeValue]
 
 
-class AutoScalingPolicyDescriptionTypeDef(BaseValidatorModel):
+class AutoScalingPolicyDescription(BaseValidatorModel):
     PolicyName: Optional[str] = None
-    TargetTrackingScalingPolicyConfiguration: Optional[ AutoScalingTargetTrackingScalingPolicyConfigurationDescriptionTypeDef ] = None
+    TargetTrackingScalingPolicyConfiguration: Optional[ AutoScalingTargetTrackingScalingPolicyConfigurationDescription ] = None
 
 
-class AutoScalingPolicyUpdateTypeDef(BaseValidatorModel):
-    TargetTrackingScalingPolicyConfiguration: ( AutoScalingTargetTrackingScalingPolicyConfigurationUpdateTypeDef )
+class AutoScalingPolicyUpdate(BaseValidatorModel):
+    TargetTrackingScalingPolicyConfiguration: ( AutoScalingTargetTrackingScalingPolicyConfigurationUpdate )
     PolicyName: Optional[str] = None
 
 
-class CreateBackupOutputTypeDef(BaseValidatorModel):
-    BackupDetails: BackupDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateBackupOutput(BaseValidatorModel):
+    BackupDetails: BackupDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourcePolicyOutputTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyOutput(BaseValidatorModel):
     RevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeLimitsOutputTypeDef(BaseValidatorModel):
+class DescribeLimitsOutput(BaseValidatorModel):
     AccountMaxReadCapacityUnits: int
     AccountMaxWriteCapacityUnits: int
     TableMaxReadCapacityUnits: int
     TableMaxWriteCapacityUnits: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyOutputTypeDef(BaseValidatorModel):
+class GetResourcePolicyOutput(BaseValidatorModel):
     Policy: str
     RevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListBackupsOutputTypeDef(BaseValidatorModel):
-    BackupSummaries: List[BackupSummaryTypeDef]
+class ListBackupsOutput(BaseValidatorModel):
+    BackupSummaries: List[BackupSummary]
     LastEvaluatedBackupArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTablesOutputTypeDef(BaseValidatorModel):
+class ListTablesOutput(BaseValidatorModel):
     TableNames: List[str]
     LastEvaluatedTableName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutResourcePolicyOutputTypeDef(BaseValidatorModel):
+class PutResourcePolicyOutput(BaseValidatorModel):
     RevisionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateContributorInsightsOutputTypeDef(BaseValidatorModel):
+class UpdateContributorInsightsOutput(BaseValidatorModel):
     TableName: str
     IndexName: str
     ContributorInsightsStatus: ContributorInsightsStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ConsumedCapacityTypeDef(BaseValidatorModel):
+class ConsumedCapacity(BaseValidatorModel):
     TableName: Optional[str] = None
     CapacityUnits: Optional[float] = None
     ReadCapacityUnits: Optional[float] = None
     WriteCapacityUnits: Optional[float] = None
-    Table: Optional[CapacityTypeDef] = None
-    LocalSecondaryIndexes: Optional[Dict[str, CapacityTypeDef]] = None
-    GlobalSecondaryIndexes: Optional[Dict[str, CapacityTypeDef]] = None
+    Table: Optional[Capacity] = None
+    LocalSecondaryIndexes: Optional[Dict[str, Capacity]] = None
+    GlobalSecondaryIndexes: Optional[Dict[str, Capacity]] = None
 
 
-class ContinuousBackupsDescriptionTypeDef(BaseValidatorModel):
+class ContinuousBackupsDescription(BaseValidatorModel):
     ContinuousBackupsStatus: ContinuousBackupsStatusType
-    PointInTimeRecoveryDescription: Optional[PointInTimeRecoveryDescriptionTypeDef] = None
+    PointInTimeRecoveryDescription: Optional[PointInTimeRecoveryDescription] = None
 
 
-class ListContributorInsightsOutputTypeDef(BaseValidatorModel):
-    ContributorInsightsSummaries: List[ContributorInsightsSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListContributorInsightsOutput(BaseValidatorModel):
+    ContributorInsightsSummaries: List[ContributorInsightsSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SourceTableDetailsTypeDef(BaseValidatorModel):
+class SourceTableDetails(BaseValidatorModel):
     TableName: str
     TableId: str
-    KeySchema: List[KeySchemaElementTypeDef]
+    KeySchema: List[KeySchemaElement]
     TableCreationDateTime: datetime
-    ProvisionedThroughput: ProvisionedThroughputTypeDef
+    ProvisionedThroughput: ProvisionedThroughput
     TableArn: Optional[str] = None
     TableSizeBytes: Optional[int] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
     ItemCount: Optional[int] = None
     BillingMode: Optional[BillingModeType] = None
 
 
-class UpdateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
+class UpdateGlobalSecondaryIndexAction(BaseValidatorModel):
     IndexName: str
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class ReplicaTypeDef(BaseValidatorModel):
+class Replica(BaseValidatorModel):
     pass
 
 
-class CreateGlobalTableInputTypeDef(BaseValidatorModel):
+class CreateGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
-    ReplicationGroup: Sequence[ReplicaTypeDef]
+    ReplicationGroup: Sequence[Replica]
 
 
-class GlobalTableTypeDef(BaseValidatorModel):
+class GlobalTable(BaseValidatorModel):
     GlobalTableName: Optional[str] = None
-    ReplicationGroup: Optional[List[ReplicaTypeDef]] = None
+    ReplicationGroup: Optional[List[Replica]] = None
 
 
-class ReplicaGlobalSecondaryIndexTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndex(BaseValidatorModel):
     IndexName: str
-    ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverrideTypeDef] = None
-    OnDemandThroughputOverride: Optional[OnDemandThroughputOverrideTypeDef] = None
+    ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverride] = None
+    OnDemandThroughputOverride: Optional[OnDemandThroughputOverride] = None
 
 
-class ListTagsOfResourceOutputTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsOfResourceOutput(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class InputFormatOptionsOutputTypeDef(BaseValidatorModel):
-    Csv: Optional[CsvOptionsOutputTypeDef] = None
+class InputFormatOptionsOutput(BaseValidatorModel):
+    Csv: Optional[CsvOptionsOutput] = None
 
 
-class InputFormatOptionsTypeDef(BaseValidatorModel):
-    Csv: Optional[CsvOptionsTypeDef] = None
+class InputFormatOptions(BaseValidatorModel):
+    Csv: Optional[CsvOptions] = None
 
 
-class DeleteReplicaActionTypeDef(BaseValidatorModel):
+class DeleteReplicaAction(BaseValidatorModel):
     pass
 
 
-class CreateReplicaActionTypeDef(BaseValidatorModel):
+class CreateReplicaAction(BaseValidatorModel):
     pass
 
 
-class ReplicaUpdateTypeDef(BaseValidatorModel):
-    Create: Optional[CreateReplicaActionTypeDef] = None
-    Delete: Optional[DeleteReplicaActionTypeDef] = None
+class ReplicaUpdate(BaseValidatorModel):
+    Create: Optional[CreateReplicaAction] = None
+    Delete: Optional[DeleteReplicaAction] = None
 
 
-class DescribeContributorInsightsOutputTypeDef(BaseValidatorModel):
+class DescribeContributorInsightsOutput(BaseValidatorModel):
     TableName: str
     IndexName: str
     ContributorInsightsRuleList: List[str]
     ContributorInsightsStatus: ContributorInsightsStatusType
     LastUpdateDateTime: datetime
-    FailureException: FailureExceptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    FailureException: FailureException
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeEndpointsResponseTypeDef(BaseValidatorModel):
-    Endpoints: List[EndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeEndpointsResponse(BaseValidatorModel):
+    Endpoints: List[Endpoint]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeKinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
+class DescribeKinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
-    KinesisDataStreamDestinations: List[KinesisDataStreamDestinationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    KinesisDataStreamDestinations: List[KinesisDataStreamDestination]
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTableInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeTableInputWaitExtra(BaseValidatorModel):
     TableName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTableInputWaitTypeDef(BaseValidatorModel):
+class DescribeTableInputWait(BaseValidatorModel):
     TableName: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeTimeToLiveOutputTypeDef(BaseValidatorModel):
-    TimeToLiveDescription: TimeToLiveDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTimeToLiveOutput(BaseValidatorModel):
+    TimeToLiveDescription: TimeToLiveDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class KinesisStreamingDestinationInputRequestTypeDef(BaseValidatorModel):
-    TableName: str
-    StreamArn: str
-    EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfigurationTypeDef] = None
-
-
-class KinesisStreamingDestinationInputTypeDef(BaseValidatorModel):
+class KinesisStreamingDestinationInputRequest(BaseValidatorModel):
     TableName: str
     StreamArn: str
-    EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfigurationTypeDef] = None
+    EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfiguration] = None
 
 
-class KinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
+class KinesisStreamingDestinationInput(BaseValidatorModel):
+    TableName: str
+    StreamArn: str
+    EnableKinesisStreamingConfiguration: Optional[EnableKinesisStreamingConfiguration] = None
+
+
+class KinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
     StreamArn: str
     DestinationStatus: DestinationStatusType
-    EnableKinesisStreamingConfiguration: EnableKinesisStreamingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    EnableKinesisStreamingConfiguration: EnableKinesisStreamingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportDescriptionTypeDef(BaseValidatorModel):
+class ExportDescription(BaseValidatorModel):
     ExportArn: Optional[str] = None
     ExportStatus: Optional[ExportStatusType] = None
     StartTime: Optional[datetime] = None
@@ -733,201 +733,201 @@ class ExportDescriptionTypeDef(BaseValidatorModel):
     BilledSizeBytes: Optional[int] = None
     ItemCount: Optional[int] = None
     ExportType: Optional[ExportTypeType] = None
-    IncrementalExportSpecification: Optional[IncrementalExportSpecificationOutputTypeDef] = None
+    IncrementalExportSpecification: Optional[IncrementalExportSpecificationOutput] = None
 
 
-class ListExportsOutputTypeDef(BaseValidatorModel):
-    ExportSummaries: List[ExportSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExportsOutput(BaseValidatorModel):
+    ExportSummaries: List[ExportSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class IncrementalExportSpecificationTypeDef(BaseValidatorModel):
-    ExportFromTime: Optional[TimestampTypeDef] = None
-    ExportToTime: Optional[TimestampTypeDef] = None
+class IncrementalExportSpecification(BaseValidatorModel):
+    ExportFromTime: Optional[Timestamp] = None
+    ExportToTime: Optional[Timestamp] = None
     ExportViewType: Optional[ExportViewTypeType] = None
 
 
-class ListBackupsInputTypeDef(BaseValidatorModel):
+class ListBackupsInput(BaseValidatorModel):
     TableName: Optional[str] = None
     Limit: Optional[int] = None
-    TimeRangeLowerBound: Optional[TimestampTypeDef] = None
-    TimeRangeUpperBound: Optional[TimestampTypeDef] = None
+    TimeRangeLowerBound: Optional[Timestamp] = None
+    TimeRangeUpperBound: Optional[Timestamp] = None
     ExclusiveStartBackupArn: Optional[str] = None
     BackupType: Optional[BackupTypeFilterType] = None
 
 
-class ReplicaGlobalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndexDescription(BaseValidatorModel):
     IndexName: Optional[str] = None
-    ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverrideTypeDef] = None
-    OnDemandThroughputOverride: Optional[OnDemandThroughputOverrideTypeDef] = None
-    WarmThroughput: Optional[GlobalSecondaryIndexWarmThroughputDescriptionTypeDef] = None
+    ProvisionedThroughputOverride: Optional[ProvisionedThroughputOverride] = None
+    OnDemandThroughputOverride: Optional[OnDemandThroughputOverride] = None
+    WarmThroughput: Optional[GlobalSecondaryIndexWarmThroughputDescription] = None
 
 
-class GlobalSecondaryIndexInfoTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexInfo(BaseValidatorModel):
     IndexName: Optional[str] = None
-    KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
-    Projection: Optional[ProjectionOutputTypeDef] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
+    KeySchema: Optional[List[KeySchemaElement]] = None
+    Projection: Optional[ProjectionOutput] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
 
 
-class GlobalSecondaryIndexOutputTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexOutput(BaseValidatorModel):
     IndexName: str
-    KeySchema: List[KeySchemaElementTypeDef]
-    Projection: ProjectionOutputTypeDef
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    KeySchema: List[KeySchemaElement]
+    Projection: ProjectionOutput
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class LocalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
+class LocalSecondaryIndexDescription(BaseValidatorModel):
     IndexName: Optional[str] = None
-    KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
-    Projection: Optional[ProjectionOutputTypeDef] = None
+    KeySchema: Optional[List[KeySchemaElement]] = None
+    Projection: Optional[ProjectionOutput] = None
     IndexSizeBytes: Optional[int] = None
     ItemCount: Optional[int] = None
     IndexArn: Optional[str] = None
 
 
-class LocalSecondaryIndexInfoTypeDef(BaseValidatorModel):
+class LocalSecondaryIndexInfo(BaseValidatorModel):
     IndexName: Optional[str] = None
-    KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
-    Projection: Optional[ProjectionOutputTypeDef] = None
+    KeySchema: Optional[List[KeySchemaElement]] = None
+    Projection: Optional[ProjectionOutput] = None
 
 
-class GlobalSecondaryIndexDescriptionTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexDescription(BaseValidatorModel):
     IndexName: Optional[str] = None
-    KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
-    Projection: Optional[ProjectionOutputTypeDef] = None
+    KeySchema: Optional[List[KeySchemaElement]] = None
+    Projection: Optional[ProjectionOutput] = None
     IndexStatus: Optional[IndexStatusType] = None
     Backfilling: Optional[bool] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputDescriptionTypeDef] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughputDescription] = None
     IndexSizeBytes: Optional[int] = None
     ItemCount: Optional[int] = None
     IndexArn: Optional[str] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[GlobalSecondaryIndexWarmThroughputDescriptionTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[GlobalSecondaryIndexWarmThroughputDescription] = None
 
 
-class ImportSummaryTypeDef(BaseValidatorModel):
+class ImportSummary(BaseValidatorModel):
     ImportArn: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
     TableArn: Optional[str] = None
-    S3BucketSource: Optional[S3BucketSourceTypeDef] = None
+    S3BucketSource: Optional[S3BucketSource] = None
     CloudWatchLogGroupArn: Optional[str] = None
     InputFormat: Optional[InputFormatType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
 
 
-class ListBackupsInputPaginateTypeDef(BaseValidatorModel):
+class ListBackupsInputPaginate(BaseValidatorModel):
     TableName: Optional[str] = None
-    TimeRangeLowerBound: Optional[TimestampTypeDef] = None
-    TimeRangeUpperBound: Optional[TimestampTypeDef] = None
+    TimeRangeLowerBound: Optional[Timestamp] = None
+    TimeRangeUpperBound: Optional[Timestamp] = None
     BackupType: Optional[BackupTypeFilterType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTablesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListTablesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsOfResourceInputPaginateTypeDef(BaseValidatorModel):
+class ListTagsOfResourceInputPaginate(BaseValidatorModel):
     ResourceArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class UpdateContinuousBackupsInputTypeDef(BaseValidatorModel):
+class UpdateContinuousBackupsInput(BaseValidatorModel):
     TableName: str
-    PointInTimeRecoverySpecification: PointInTimeRecoverySpecificationTypeDef
+    PointInTimeRecoverySpecification: PointInTimeRecoverySpecification
 
 
-class UpdateTimeToLiveInputTypeDef(BaseValidatorModel):
+class UpdateTimeToLiveInput(BaseValidatorModel):
     TableName: str
-    TimeToLiveSpecification: TimeToLiveSpecificationTypeDef
+    TimeToLiveSpecification: TimeToLiveSpecification
 
 
-class UpdateTimeToLiveOutputTypeDef(BaseValidatorModel):
-    TimeToLiveSpecification: TimeToLiveSpecificationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTimeToLiveOutput(BaseValidatorModel):
+    TimeToLiveSpecification: TimeToLiveSpecification
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateKinesisStreamingDestinationInputTypeDef(BaseValidatorModel):
+class UpdateKinesisStreamingDestinationInput(BaseValidatorModel):
     TableName: str
     StreamArn: str
-    UpdateKinesisStreamingConfiguration: Optional[UpdateKinesisStreamingConfigurationTypeDef] = None
+    UpdateKinesisStreamingConfiguration: Optional[UpdateKinesisStreamingConfiguration] = None
 
 
-class UpdateKinesisStreamingDestinationOutputTypeDef(BaseValidatorModel):
+class UpdateKinesisStreamingDestinationOutput(BaseValidatorModel):
     TableName: str
     StreamArn: str
     DestinationStatus: DestinationStatusType
-    UpdateKinesisStreamingConfiguration: UpdateKinesisStreamingConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    UpdateKinesisStreamingConfiguration: UpdateKinesisStreamingConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchStatementResponseTypeDef(BaseValidatorModel):
-    Error: Optional[BatchStatementErrorTypeDef] = None
+class BatchStatementResponse(BaseValidatorModel):
+    Error: Optional[BatchStatementError] = None
     TableName: Optional[str] = None
-    Item: Optional[Dict[str, AttributeValueTypeDef]] = None
+    Item: Optional[Dict[str, AttributeValue]] = None
 
 
-class WriteRequestOutputTypeDef(BaseValidatorModel):
-    PutRequest: Optional[PutRequestOutputTypeDef] = None
-    DeleteRequest: Optional[DeleteRequestOutputTypeDef] = None
+class WriteRequestOutput(BaseValidatorModel):
+    PutRequest: Optional[PutRequestOutput] = None
+    DeleteRequest: Optional[DeleteRequestOutput] = None
 
 
-class UniversalAttributeValueTypeDef(BaseValidatorModel):
+class UniversalAttributeValue(BaseValidatorModel):
     pass
 
 
-class AttributeValueUpdateTypeDef(BaseValidatorModel):
-    Value: Optional[UniversalAttributeValueTypeDef] = None
+class AttributeValueUpdate(BaseValidatorModel):
+    Value: Optional[UniversalAttributeValue] = None
     Action: Optional[AttributeActionType] = None
 
 
-class BatchStatementRequestTypeDef(BaseValidatorModel):
+class BatchStatementRequest(BaseValidatorModel):
     Statement: str
-    Parameters: Optional[Sequence[UniversalAttributeValueTypeDef]] = None
+    Parameters: Optional[Sequence[UniversalAttributeValue]] = None
     ConsistentRead: Optional[bool] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class ConditionCheckTypeDef(BaseValidatorModel):
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+class ConditionCheck(BaseValidatorModel):
+    Key: Mapping[str, UniversalAttributeValue]
     TableName: str
     ConditionExpression: str
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class ConditionTypeDef(BaseValidatorModel):
+class Condition(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
-    AttributeValueList: Optional[Sequence[UniversalAttributeValueTypeDef]] = None
+    AttributeValueList: Optional[Sequence[UniversalAttributeValue]] = None
 
 
-class DeleteRequestTypeDef(BaseValidatorModel):
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+class DeleteRequest(BaseValidatorModel):
+    Key: Mapping[str, UniversalAttributeValue]
 
 
-class DeleteTypeDef(BaseValidatorModel):
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+class Delete(BaseValidatorModel):
+    Key: Mapping[str, UniversalAttributeValue]
     TableName: str
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class ExecuteStatementInputTypeDef(BaseValidatorModel):
+class ExecuteStatementInput(BaseValidatorModel):
     Statement: str
-    Parameters: Optional[Sequence[UniversalAttributeValueTypeDef]] = None
+    Parameters: Optional[Sequence[UniversalAttributeValue]] = None
     ConsistentRead: Optional[bool] = None
     NextToken: Optional[str] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -935,16 +935,16 @@ class ExecuteStatementInputTypeDef(BaseValidatorModel):
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class ExpectedAttributeValueTypeDef(BaseValidatorModel):
-    Value: Optional[UniversalAttributeValueTypeDef] = None
+class ExpectedAttributeValue(BaseValidatorModel):
+    Value: Optional[UniversalAttributeValue] = None
     Exists: Optional[bool] = None
     ComparisonOperator: Optional[ComparisonOperatorType] = None
-    AttributeValueList: Optional[Sequence[UniversalAttributeValueTypeDef]] = None
+    AttributeValueList: Optional[Sequence[UniversalAttributeValue]] = None
 
 
-class GetItemInputTypeDef(BaseValidatorModel):
+class GetItemInput(BaseValidatorModel):
     TableName: str
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+    Key: Mapping[str, UniversalAttributeValue]
     AttributesToGet: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -952,393 +952,393 @@ class GetItemInputTypeDef(BaseValidatorModel):
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
 
 
-class GetTypeDef(BaseValidatorModel):
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+class Get(BaseValidatorModel):
+    Key: Mapping[str, UniversalAttributeValue]
     TableName: str
     ProjectionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
 
 
-class KeysAndAttributesTypeDef(BaseValidatorModel):
-    Keys: Sequence[Mapping[str, UniversalAttributeValueTypeDef]]
+class KeysAndAttributes(BaseValidatorModel):
+    Keys: Sequence[Mapping[str, UniversalAttributeValue]]
     AttributesToGet: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
     ProjectionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
 
 
-class ParameterizedStatementTypeDef(BaseValidatorModel):
+class ParameterizedStatement(BaseValidatorModel):
     Statement: str
-    Parameters: Optional[Sequence[UniversalAttributeValueTypeDef]] = None
+    Parameters: Optional[Sequence[UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class PutRequestTypeDef(BaseValidatorModel):
-    Item: Mapping[str, UniversalAttributeValueTypeDef]
+class PutRequest(BaseValidatorModel):
+    Item: Mapping[str, UniversalAttributeValue]
 
 
-class PutTypeDef(BaseValidatorModel):
-    Item: Mapping[str, UniversalAttributeValueTypeDef]
+class Put(BaseValidatorModel):
+    Item: Mapping[str, UniversalAttributeValue]
     TableName: str
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class UpdateTypeDef(BaseValidatorModel):
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
+class Update(BaseValidatorModel):
+    Key: Mapping[str, UniversalAttributeValue]
     UpdateExpression: str
     TableName: str
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class ConditionBaseImportTypeDef(BaseValidatorModel):
+class ConditionBaseImport(BaseValidatorModel):
     pass
 
 
-class QueryInputTableQueryTypeDef(BaseValidatorModel):
+class QueryInputTableQuery(BaseValidatorModel):
     IndexName: Optional[str] = None
     Select: Optional[SelectType] = None
     AttributesToGet: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     ConsistentRead: Optional[bool] = None
-    KeyConditions: Optional[Mapping[str, ConditionTableTypeDef]] = None
-    QueryFilter: Optional[Mapping[str, ConditionTableTypeDef]] = None
+    KeyConditions: Optional[Mapping[str, ConditionTable]] = None
+    QueryFilter: Optional[Mapping[str, ConditionTable]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ScanIndexForward: Optional[bool] = None
-    ExclusiveStartKey: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExclusiveStartKey: Optional[Mapping[str, TableAttributeValue]] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ProjectionExpression: Optional[str] = None
-    FilterExpression: Optional[ConditionBaseImportTypeDef] = None
-    KeyConditionExpression: Optional[ConditionBaseImportTypeDef] = None
+    FilterExpression: Optional[ConditionBaseImport] = None
+    KeyConditionExpression: Optional[ConditionBaseImport] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValue]] = None
 
 
-class ScanInputTableScanTypeDef(BaseValidatorModel):
+class ScanInputTableScan(BaseValidatorModel):
     IndexName: Optional[str] = None
     AttributesToGet: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     Select: Optional[SelectType] = None
-    ScanFilter: Optional[Mapping[str, ConditionTableTypeDef]] = None
+    ScanFilter: Optional[Mapping[str, ConditionTable]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
-    ExclusiveStartKey: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExclusiveStartKey: Optional[Mapping[str, TableAttributeValue]] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     TotalSegments: Optional[int] = None
     Segment: Optional[int] = None
     ProjectionExpression: Optional[str] = None
-    FilterExpression: Optional[ConditionBaseImportTypeDef] = None
+    FilterExpression: Optional[ConditionBaseImport] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValue]] = None
     ConsistentRead: Optional[bool] = None
 
 
-class DeleteItemInputTableDeleteItemTypeDef(BaseValidatorModel):
-    Key: Mapping[str, TableAttributeValueTypeDef]
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTableTypeDef]] = None
+class DeleteItemInputTableDeleteItem(BaseValidatorModel):
+    Key: Mapping[str, TableAttributeValue]
+    Expected: Optional[Mapping[str, ExpectedAttributeValueTable]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
-    ConditionExpression: Optional[ConditionBaseImportTypeDef] = None
+    ConditionExpression: Optional[ConditionBaseImport] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class PutItemInputTablePutItemTypeDef(BaseValidatorModel):
-    Item: Mapping[str, TableAttributeValueTypeDef]
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTableTypeDef]] = None
+class PutItemInputTablePutItem(BaseValidatorModel):
+    Item: Mapping[str, TableAttributeValue]
+    Expected: Optional[Mapping[str, ExpectedAttributeValueTable]] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
-    ConditionExpression: Optional[ConditionBaseImportTypeDef] = None
+    ConditionExpression: Optional[ConditionBaseImport] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class UpdateItemInputTableUpdateItemTypeDef(BaseValidatorModel):
-    Key: Mapping[str, TableAttributeValueTypeDef]
-    AttributeUpdates: Optional[Mapping[str, AttributeValueUpdateTableTypeDef]] = None
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTableTypeDef]] = None
+class UpdateItemInputTableUpdateItem(BaseValidatorModel):
+    Key: Mapping[str, TableAttributeValue]
+    AttributeUpdates: Optional[Mapping[str, AttributeValueUpdateTable]] = None
+    Expected: Optional[Mapping[str, ExpectedAttributeValueTable]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
     UpdateExpression: Optional[str] = None
-    ConditionExpression: Optional[ConditionBaseImportTypeDef] = None
+    ConditionExpression: Optional[ConditionBaseImport] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, TableAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class WriteRequestServiceResourceOutputTypeDef(BaseValidatorModel):
-    PutRequest: Optional[PutRequestServiceResourceOutputTypeDef] = None
-    DeleteRequest: Optional[DeleteRequestServiceResourceOutputTypeDef] = None
+class WriteRequestServiceResourceOutput(BaseValidatorModel):
+    PutRequest: Optional[PutRequestServiceResourceOutput] = None
+    DeleteRequest: Optional[DeleteRequestServiceResourceOutput] = None
 
 
-class AutoScalingSettingsDescriptionTypeDef(BaseValidatorModel):
+class AutoScalingSettingsDescription(BaseValidatorModel):
     MinimumUnits: Optional[int] = None
     MaximumUnits: Optional[int] = None
     AutoScalingDisabled: Optional[bool] = None
     AutoScalingRoleArn: Optional[str] = None
-    ScalingPolicies: Optional[List[AutoScalingPolicyDescriptionTypeDef]] = None
+    ScalingPolicies: Optional[List[AutoScalingPolicyDescription]] = None
 
 
-class AutoScalingSettingsUpdateTypeDef(BaseValidatorModel):
+class AutoScalingSettingsUpdate(BaseValidatorModel):
     MinimumUnits: Optional[int] = None
     MaximumUnits: Optional[int] = None
     AutoScalingDisabled: Optional[bool] = None
     AutoScalingRoleArn: Optional[str] = None
-    ScalingPolicyUpdate: Optional[AutoScalingPolicyUpdateTypeDef] = None
+    ScalingPolicyUpdate: Optional[AutoScalingPolicyUpdate] = None
 
 
-class BatchGetItemOutputServiceResourceTypeDef(BaseValidatorModel):
-    Responses: Dict[str, List[Dict[str, TableAttributeValueTypeDef]]]
-    UnprocessedKeys: Dict[str, KeysAndAttributesServiceResourceOutputTypeDef]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetItemOutputServiceResource(BaseValidatorModel):
+    Responses: Dict[str, List[Dict[str, TableAttributeValue]]]
+    UnprocessedKeys: Dict[str, KeysAndAttributesServiceResourceOutput]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchGetItemOutputTypeDef(BaseValidatorModel):
-    Responses: Dict[str, List[Dict[str, AttributeValueTypeDef]]]
-    UnprocessedKeys: Dict[str, KeysAndAttributesOutputTypeDef]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetItemOutput(BaseValidatorModel):
+    Responses: Dict[str, List[Dict[str, AttributeValue]]]
+    UnprocessedKeys: Dict[str, KeysAndAttributesOutput]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteItemOutputTableTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, TableAttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteItemOutputTable(BaseValidatorModel):
+    Attributes: Dict[str, TableAttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetricsTable
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteItemOutputTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, AttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteItemOutput(BaseValidatorModel):
+    Attributes: Dict[str, AttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetrics
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteStatementOutputTypeDef(BaseValidatorModel):
-    Items: List[Dict[str, AttributeValueTypeDef]]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteStatementOutput(BaseValidatorModel):
+    Items: List[Dict[str, AttributeValue]]
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
-    LastEvaluatedKey: Optional[Dict[str, AttributeValueTypeDef]] = None
+    LastEvaluatedKey: Optional[Dict[str, AttributeValue]] = None
 
 
-class ExecuteTransactionOutputTypeDef(BaseValidatorModel):
-    Responses: List[ItemResponseTypeDef]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExecuteTransactionOutput(BaseValidatorModel):
+    Responses: List[ItemResponse]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetItemOutputTableTypeDef(BaseValidatorModel):
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    Item: Optional[Dict[str, TableAttributeValueTypeDef]] = None
+class GetItemOutputTable(BaseValidatorModel):
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    Item: Optional[Dict[str, TableAttributeValue]] = None
 
 
-class GetItemOutputTypeDef(BaseValidatorModel):
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    Item: Optional[Dict[str, AttributeValueTypeDef]] = None
+class GetItemOutput(BaseValidatorModel):
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    Item: Optional[Dict[str, AttributeValue]] = None
 
 
-class PutItemOutputTableTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, TableAttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutItemOutputTable(BaseValidatorModel):
+    Attributes: Dict[str, TableAttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetricsTable
+    ResponseMetadata: ResponseMetadata
 
 
-class PutItemOutputTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, AttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutItemOutput(BaseValidatorModel):
+    Attributes: Dict[str, AttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetrics
+    ResponseMetadata: ResponseMetadata
 
 
-class QueryOutputTableTypeDef(BaseValidatorModel):
-    Items: List[Dict[str, TableAttributeValueTypeDef]]
+class QueryOutputTable(BaseValidatorModel):
+    Items: List[Dict[str, TableAttributeValue]]
     Count: int
     ScannedCount: int
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    LastEvaluatedKey: Optional[Dict[str, TableAttributeValueTypeDef]] = None
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    LastEvaluatedKey: Optional[Dict[str, TableAttributeValue]] = None
 
 
-class QueryOutputTypeDef(BaseValidatorModel):
-    Items: List[Dict[str, AttributeValueTypeDef]]
+class QueryOutput(BaseValidatorModel):
+    Items: List[Dict[str, AttributeValue]]
     Count: int
     ScannedCount: int
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    LastEvaluatedKey: Optional[Dict[str, AttributeValueTypeDef]] = None
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    LastEvaluatedKey: Optional[Dict[str, AttributeValue]] = None
 
 
-class ScanOutputTableTypeDef(BaseValidatorModel):
-    Items: List[Dict[str, TableAttributeValueTypeDef]]
+class ScanOutputTable(BaseValidatorModel):
+    Items: List[Dict[str, TableAttributeValue]]
     Count: int
     ScannedCount: int
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    LastEvaluatedKey: Optional[Dict[str, TableAttributeValueTypeDef]] = None
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    LastEvaluatedKey: Optional[Dict[str, TableAttributeValue]] = None
 
 
-class ScanOutputTypeDef(BaseValidatorModel):
-    Items: List[Dict[str, AttributeValueTypeDef]]
+class ScanOutput(BaseValidatorModel):
+    Items: List[Dict[str, AttributeValue]]
     Count: int
     ScannedCount: int
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
-    LastEvaluatedKey: Optional[Dict[str, AttributeValueTypeDef]] = None
+    ConsumedCapacity: ConsumedCapacity
+    ResponseMetadata: ResponseMetadata
+    LastEvaluatedKey: Optional[Dict[str, AttributeValue]] = None
 
 
-class TransactGetItemsOutputTypeDef(BaseValidatorModel):
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    Responses: List[ItemResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TransactGetItemsOutput(BaseValidatorModel):
+    ConsumedCapacity: List[ConsumedCapacity]
+    Responses: List[ItemResponse]
+    ResponseMetadata: ResponseMetadata
 
 
-class TransactWriteItemsOutputTypeDef(BaseValidatorModel):
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsTypeDef]]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TransactWriteItemsOutput(BaseValidatorModel):
+    ConsumedCapacity: List[ConsumedCapacity]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetrics]]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateItemOutputTableTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, TableAttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTableTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateItemOutputTable(BaseValidatorModel):
+    Attributes: Dict[str, TableAttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetricsTable
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateItemOutputTypeDef(BaseValidatorModel):
-    Attributes: Dict[str, AttributeValueTypeDef]
-    ConsumedCapacity: ConsumedCapacityTypeDef
-    ItemCollectionMetrics: ItemCollectionMetricsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateItemOutput(BaseValidatorModel):
+    Attributes: Dict[str, AttributeValue]
+    ConsumedCapacity: ConsumedCapacity
+    ItemCollectionMetrics: ItemCollectionMetrics
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeContinuousBackupsOutputTypeDef(BaseValidatorModel):
-    ContinuousBackupsDescription: ContinuousBackupsDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeContinuousBackupsOutput(BaseValidatorModel):
+    ContinuousBackupsDescription: ContinuousBackupsDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateContinuousBackupsOutputTypeDef(BaseValidatorModel):
-    ContinuousBackupsDescription: ContinuousBackupsDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateContinuousBackupsOutput(BaseValidatorModel):
+    ContinuousBackupsDescription: ContinuousBackupsDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ListGlobalTablesOutputTypeDef(BaseValidatorModel):
-    GlobalTables: List[GlobalTableTypeDef]
+class ListGlobalTablesOutput(BaseValidatorModel):
+    GlobalTables: List[GlobalTable]
     LastEvaluatedGlobalTableName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGlobalTableInputTypeDef(BaseValidatorModel):
+class UpdateGlobalTableInput(BaseValidatorModel):
     GlobalTableName: str
-    ReplicaUpdates: Sequence[ReplicaUpdateTypeDef]
+    ReplicaUpdates: Sequence[ReplicaUpdate]
 
 
-class DescribeExportOutputTypeDef(BaseValidatorModel):
-    ExportDescription: ExportDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeExportOutput(BaseValidatorModel):
+    ExportDescription: ExportDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportTableToPointInTimeOutputTypeDef(BaseValidatorModel):
-    ExportDescription: ExportDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ExportTableToPointInTimeOutput(BaseValidatorModel):
+    ExportDescription: ExportDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class TableCreationParametersOutputTypeDef(BaseValidatorModel):
+class TableCreationParametersOutput(BaseValidatorModel):
     TableName: str
-    AttributeDefinitions: List[AttributeDefinitionTypeDef]
-    KeySchema: List[KeySchemaElementTypeDef]
+    AttributeDefinitions: List[AttributeDefinition]
+    KeySchema: List[KeySchemaElement]
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexOutputTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    SSESpecification: Optional[SSESpecification] = None
+    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexOutput]] = None
 
 
-class SourceTableFeatureDetailsTypeDef(BaseValidatorModel):
-    LocalSecondaryIndexes: Optional[List[LocalSecondaryIndexInfoTypeDef]] = None
-    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexInfoTypeDef]] = None
-    StreamDescription: Optional[StreamSpecificationTypeDef] = None
-    TimeToLiveDescription: Optional[TimeToLiveDescriptionTypeDef] = None
-    SSEDescription: Optional[SSEDescriptionTypeDef] = None
+class SourceTableFeatureDetails(BaseValidatorModel):
+    LocalSecondaryIndexes: Optional[List[LocalSecondaryIndexInfo]] = None
+    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexInfo]] = None
+    StreamDescription: Optional[StreamSpecification] = None
+    TimeToLiveDescription: Optional[TimeToLiveDescription] = None
+    SSEDescription: Optional[SSEDescription] = None
 
 
-class ListImportsOutputTypeDef(BaseValidatorModel):
-    ImportSummaryList: List[ImportSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportsOutput(BaseValidatorModel):
+    ImportSummaryList: List[ImportSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ProjectionUnionTypeDef(BaseValidatorModel):
+class ProjectionUnion(BaseValidatorModel):
     pass
 
 
-class CreateGlobalSecondaryIndexActionTypeDef(BaseValidatorModel):
+class CreateGlobalSecondaryIndexAction(BaseValidatorModel):
     IndexName: str
-    KeySchema: Sequence[KeySchemaElementTypeDef]
-    Projection: ProjectionUnionTypeDef
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    KeySchema: Sequence[KeySchemaElement]
+    Projection: ProjectionUnion
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class GlobalSecondaryIndexTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndex(BaseValidatorModel):
     IndexName: str
-    KeySchema: Sequence[KeySchemaElementTypeDef]
-    Projection: ProjectionUnionTypeDef
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    KeySchema: Sequence[KeySchemaElement]
+    Projection: ProjectionUnion
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class LocalSecondaryIndexTypeDef(BaseValidatorModel):
+class LocalSecondaryIndex(BaseValidatorModel):
     IndexName: str
-    KeySchema: Sequence[KeySchemaElementTypeDef]
-    Projection: ProjectionUnionTypeDef
+    KeySchema: Sequence[KeySchemaElement]
+    Projection: ProjectionUnion
 
 
-class BatchExecuteStatementOutputTypeDef(BaseValidatorModel):
-    Responses: List[BatchStatementResponseTypeDef]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchExecuteStatementOutput(BaseValidatorModel):
+    Responses: List[BatchStatementResponse]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchWriteItemOutputTypeDef(BaseValidatorModel):
-    UnprocessedItems: Dict[str, List[WriteRequestOutputTypeDef]]
-    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsTypeDef]]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchWriteItemOutput(BaseValidatorModel):
+    UnprocessedItems: Dict[str, List[WriteRequestOutput]]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetrics]]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchExecuteStatementInputTypeDef(BaseValidatorModel):
-    Statements: Sequence[BatchStatementRequestTypeDef]
+class BatchExecuteStatementInput(BaseValidatorModel):
+    Statements: Sequence[BatchStatementRequest]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
-class QueryInputPaginateTypeDef(BaseValidatorModel):
+class QueryInputPaginate(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
     Select: Optional[SelectType] = None
     AttributesToGet: Optional[Sequence[str]] = None
     ConsistentRead: Optional[bool] = None
-    KeyConditions: Optional[Mapping[str, ConditionTypeDef]] = None
-    QueryFilter: Optional[Mapping[str, ConditionTypeDef]] = None
+    KeyConditions: Optional[Mapping[str, Condition]] = None
+    QueryFilter: Optional[Mapping[str, Condition]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ScanIndexForward: Optional[bool] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -1346,36 +1346,36 @@ class QueryInputPaginateTypeDef(BaseValidatorModel):
     FilterExpression: Optional[str] = None
     KeyConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class QueryInputTypeDef(BaseValidatorModel):
+class QueryInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
     Select: Optional[SelectType] = None
     AttributesToGet: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     ConsistentRead: Optional[bool] = None
-    KeyConditions: Optional[Mapping[str, ConditionTypeDef]] = None
-    QueryFilter: Optional[Mapping[str, ConditionTypeDef]] = None
+    KeyConditions: Optional[Mapping[str, Condition]] = None
+    QueryFilter: Optional[Mapping[str, Condition]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ScanIndexForward: Optional[bool] = None
-    ExclusiveStartKey: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExclusiveStartKey: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ProjectionExpression: Optional[str] = None
     FilterExpression: Optional[str] = None
     KeyConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
 
 
-class ScanInputPaginateTypeDef(BaseValidatorModel):
+class ScanInputPaginate(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
     AttributesToGet: Optional[Sequence[str]] = None
     Select: Optional[SelectType] = None
-    ScanFilter: Optional[Mapping[str, ConditionTypeDef]] = None
+    ScanFilter: Optional[Mapping[str, Condition]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     TotalSegments: Optional[int] = None
@@ -1383,63 +1383,63 @@ class ScanInputPaginateTypeDef(BaseValidatorModel):
     ProjectionExpression: Optional[str] = None
     FilterExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ConsistentRead: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ScanInputTypeDef(BaseValidatorModel):
+class ScanInput(BaseValidatorModel):
     TableName: str
     IndexName: Optional[str] = None
     AttributesToGet: Optional[Sequence[str]] = None
     Limit: Optional[int] = None
     Select: Optional[SelectType] = None
-    ScanFilter: Optional[Mapping[str, ConditionTypeDef]] = None
+    ScanFilter: Optional[Mapping[str, Condition]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
-    ExclusiveStartKey: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExclusiveStartKey: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     TotalSegments: Optional[int] = None
     Segment: Optional[int] = None
     ProjectionExpression: Optional[str] = None
     FilterExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ConsistentRead: Optional[bool] = None
 
 
-class DeleteItemInputTypeDef(BaseValidatorModel):
+class DeleteItemInput(BaseValidatorModel):
     TableName: str
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTypeDef]] = None
+    Key: Mapping[str, UniversalAttributeValue]
+    Expected: Optional[Mapping[str, ExpectedAttributeValue]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class PutItemInputTypeDef(BaseValidatorModel):
+class PutItemInput(BaseValidatorModel):
     TableName: str
-    Item: Mapping[str, UniversalAttributeValueTypeDef]
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTypeDef]] = None
+    Item: Mapping[str, UniversalAttributeValue]
+    Expected: Optional[Mapping[str, ExpectedAttributeValue]] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class UpdateItemInputTypeDef(BaseValidatorModel):
+class UpdateItemInput(BaseValidatorModel):
     TableName: str
-    Key: Mapping[str, UniversalAttributeValueTypeDef]
-    AttributeUpdates: Optional[Mapping[str, AttributeValueUpdateTypeDef]] = None
-    Expected: Optional[Mapping[str, ExpectedAttributeValueTypeDef]] = None
+    Key: Mapping[str, UniversalAttributeValue]
+    AttributeUpdates: Optional[Mapping[str, AttributeValueUpdate]] = None
+    Expected: Optional[Mapping[str, ExpectedAttributeValue]] = None
     ConditionalOperator: Optional[ConditionalOperatorType] = None
     ReturnValues: Optional[ReturnValueType] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
@@ -1447,120 +1447,120 @@ class UpdateItemInputTypeDef(BaseValidatorModel):
     UpdateExpression: Optional[str] = None
     ConditionExpression: Optional[str] = None
     ExpressionAttributeNames: Optional[Mapping[str, str]] = None
-    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValueTypeDef]] = None
+    ExpressionAttributeValues: Optional[Mapping[str, UniversalAttributeValue]] = None
     ReturnValuesOnConditionCheckFailure: Optional[ReturnValuesOnConditionCheckFailureType] = None
 
 
-class TransactGetItemTypeDef(BaseValidatorModel):
-    Get: GetTypeDef
+class TransactGetItem(BaseValidatorModel):
+    Get: Get
 
 
-class ExecuteTransactionInputTypeDef(BaseValidatorModel):
-    TransactStatements: Sequence[ParameterizedStatementTypeDef]
+class ExecuteTransactionInput(BaseValidatorModel):
+    TransactStatements: Sequence[ParameterizedStatement]
     ClientRequestToken: Optional[str] = None
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
-class TransactWriteItemTypeDef(BaseValidatorModel):
-    ConditionCheck: Optional[ConditionCheckTypeDef] = None
-    Put: Optional[PutTypeDef] = None
-    Delete: Optional[DeleteTypeDef] = None
-    Update: Optional[UpdateTypeDef] = None
+class TransactWriteItem(BaseValidatorModel):
+    ConditionCheck: Optional[ConditionCheck] = None
+    Put: Optional[Put] = None
+    Delete: Optional[Delete] = None
+    Update: Optional[Update] = None
 
 
-class KeysAndAttributesServiceResourceUnionTypeDef(BaseValidatorModel):
+class KeysAndAttributesServiceResourceUnion(BaseValidatorModel):
     pass
 
 
-class BatchGetItemInputServiceResourceBatchGetItemTypeDef(BaseValidatorModel):
-    RequestItems: Mapping[str, KeysAndAttributesServiceResourceUnionTypeDef]
+class BatchGetItemInputServiceResourceBatchGetItem(BaseValidatorModel):
+    RequestItems: Mapping[str, KeysAndAttributesServiceResourceUnion]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
-class BatchWriteItemOutputServiceResourceTypeDef(BaseValidatorModel):
-    UnprocessedItems: Dict[str, List[WriteRequestServiceResourceOutputTypeDef]]
-    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsServiceResourceTypeDef]]
-    ConsumedCapacity: List[ConsumedCapacityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchWriteItemOutputServiceResource(BaseValidatorModel):
+    UnprocessedItems: Dict[str, List[WriteRequestServiceResourceOutput]]
+    ItemCollectionMetrics: Dict[str, List[ItemCollectionMetricsServiceResource]]
+    ConsumedCapacity: List[ConsumedCapacity]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutRequestServiceResourceUnionTypeDef(BaseValidatorModel):
+class PutRequestServiceResourceUnion(BaseValidatorModel):
     pass
 
 
-class DeleteRequestServiceResourceUnionTypeDef(BaseValidatorModel):
+class DeleteRequestServiceResourceUnion(BaseValidatorModel):
     pass
 
 
-class WriteRequestServiceResourceTypeDef(BaseValidatorModel):
-    PutRequest: Optional[PutRequestServiceResourceUnionTypeDef] = None
-    DeleteRequest: Optional[DeleteRequestServiceResourceUnionTypeDef] = None
+class WriteRequestServiceResource(BaseValidatorModel):
+    PutRequest: Optional[PutRequestServiceResourceUnion] = None
+    DeleteRequest: Optional[DeleteRequestServiceResourceUnion] = None
 
 
-class ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndexAutoScalingDescription(BaseValidatorModel):
     IndexName: Optional[str] = None
     IndexStatus: Optional[IndexStatusType] = None
-    ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
-    ProvisionedWriteCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
+    ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescription] = None
+    ProvisionedWriteCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescription] = None
 
 
-class ReplicaGlobalSecondaryIndexSettingsDescriptionTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndexSettingsDescription(BaseValidatorModel):
     IndexName: str
     IndexStatus: Optional[IndexStatusType] = None
     ProvisionedReadCapacityUnits: Optional[int] = None
-    ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
+    ProvisionedReadCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescription] = None
     ProvisionedWriteCapacityUnits: Optional[int] = None
-    ProvisionedWriteCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescriptionTypeDef] = None
+    ProvisionedWriteCapacityAutoScalingSettings: Optional[AutoScalingSettingsDescription] = None
 
 
-class GlobalSecondaryIndexAutoScalingUpdateTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexAutoScalingUpdate(BaseValidatorModel):
     IndexName: Optional[str] = None
-    ProvisionedWriteCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
+    ProvisionedWriteCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdate] = None
 
 
-class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(BaseValidatorModel):
+class GlobalTableGlobalSecondaryIndexSettingsUpdate(BaseValidatorModel):
     IndexName: str
     ProvisionedWriteCapacityUnits: Optional[int] = None
-    ProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
+    ProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdate] = None
 
 
-class ReplicaGlobalSecondaryIndexAutoScalingUpdateTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndexAutoScalingUpdate(BaseValidatorModel):
     IndexName: Optional[str] = None
-    ProvisionedReadCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
+    ProvisionedReadCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdate] = None
 
 
-class ReplicaGlobalSecondaryIndexSettingsUpdateTypeDef(BaseValidatorModel):
+class ReplicaGlobalSecondaryIndexSettingsUpdate(BaseValidatorModel):
     IndexName: str
     ProvisionedReadCapacityUnits: Optional[int] = None
-    ProvisionedReadCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
+    ProvisionedReadCapacityAutoScalingSettingsUpdate: Optional[AutoScalingSettingsUpdate] = None
 
 
-class DeleteReplicationGroupMemberActionTypeDef(BaseValidatorModel):
+class DeleteReplicationGroupMemberAction(BaseValidatorModel):
     pass
 
 
-class UpdateReplicationGroupMemberActionTypeDef(BaseValidatorModel):
+class UpdateReplicationGroupMemberAction(BaseValidatorModel):
     pass
 
 
-class CreateReplicationGroupMemberActionTypeDef(BaseValidatorModel):
+class CreateReplicationGroupMemberAction(BaseValidatorModel):
     pass
 
 
-class ReplicationGroupUpdateTypeDef(BaseValidatorModel):
-    Create: Optional[CreateReplicationGroupMemberActionTypeDef] = None
-    Update: Optional[UpdateReplicationGroupMemberActionTypeDef] = None
-    Delete: Optional[DeleteReplicationGroupMemberActionTypeDef] = None
+class ReplicationGroupUpdate(BaseValidatorModel):
+    Create: Optional[CreateReplicationGroupMemberAction] = None
+    Update: Optional[UpdateReplicationGroupMemberAction] = None
+    Delete: Optional[DeleteReplicationGroupMemberAction] = None
 
 
-class IncrementalExportSpecificationUnionTypeDef(BaseValidatorModel):
+class IncrementalExportSpecificationUnion(BaseValidatorModel):
     pass
 
 
-class ExportTableToPointInTimeInputTypeDef(BaseValidatorModel):
+class ExportTableToPointInTimeInput(BaseValidatorModel):
     TableArn: str
     S3Bucket: str
-    ExportTime: Optional[TimestampTypeDef] = None
+    ExportTime: Optional[Timestamp] = None
     ClientToken: Optional[str] = None
     S3BucketOwner: Optional[str] = None
     S3Prefix: Optional[str] = None
@@ -1568,63 +1568,63 @@ class ExportTableToPointInTimeInputTypeDef(BaseValidatorModel):
     S3SseKmsKeyId: Optional[str] = None
     ExportFormat: Optional[ExportFormatType] = None
     ExportType: Optional[ExportTypeType] = None
-    IncrementalExportSpecification: Optional[IncrementalExportSpecificationUnionTypeDef] = None
+    IncrementalExportSpecification: Optional[IncrementalExportSpecificationUnion] = None
 
 
-class ReplicaDescriptionTypeDef(BaseValidatorModel):
+class ReplicaDescription(BaseValidatorModel):
     pass
 
 
-class GlobalTableDescriptionTypeDef(BaseValidatorModel):
-    ReplicationGroup: Optional[List[ReplicaDescriptionTypeDef]] = None
+class GlobalTableDescription(BaseValidatorModel):
+    ReplicationGroup: Optional[List[ReplicaDescription]] = None
     GlobalTableArn: Optional[str] = None
     CreationDateTime: Optional[datetime] = None
     GlobalTableStatus: Optional[GlobalTableStatusType] = None
     GlobalTableName: Optional[str] = None
 
 
-class TableDescriptionTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Optional[List[AttributeDefinitionTypeDef]] = None
+class TableDescription(BaseValidatorModel):
+    AttributeDefinitions: Optional[List[AttributeDefinition]] = None
     TableName: Optional[str] = None
-    KeySchema: Optional[List[KeySchemaElementTypeDef]] = None
+    KeySchema: Optional[List[KeySchemaElement]] = None
     TableStatus: Optional[TableStatusType] = None
     CreationDateTime: Optional[datetime] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputDescriptionTypeDef] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughputDescription] = None
     TableSizeBytes: Optional[int] = None
     ItemCount: Optional[int] = None
     TableArn: Optional[str] = None
     TableId: Optional[str] = None
-    BillingModeSummary: Optional[BillingModeSummaryTypeDef] = None
-    LocalSecondaryIndexes: Optional[List[LocalSecondaryIndexDescriptionTypeDef]] = None
-    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexDescriptionTypeDef]] = None
-    StreamSpecification: Optional[StreamSpecificationTypeDef] = None
+    BillingModeSummary: Optional[BillingModeSummary] = None
+    LocalSecondaryIndexes: Optional[List[LocalSecondaryIndexDescription]] = None
+    GlobalSecondaryIndexes: Optional[List[GlobalSecondaryIndexDescription]] = None
+    StreamSpecification: Optional[StreamSpecification] = None
     LatestStreamLabel: Optional[str] = None
     LatestStreamArn: Optional[str] = None
     GlobalTableVersion: Optional[str] = None
-    Replicas: Optional[List[ReplicaDescriptionTypeDef]] = None
-    RestoreSummary: Optional[RestoreSummaryTypeDef] = None
-    SSEDescription: Optional[SSEDescriptionTypeDef] = None
-    ArchivalSummary: Optional[ArchivalSummaryTypeDef] = None
-    TableClassSummary: Optional[TableClassSummaryTypeDef] = None
+    Replicas: Optional[List[ReplicaDescription]] = None
+    RestoreSummary: Optional[RestoreSummary] = None
+    SSEDescription: Optional[SSEDescription] = None
+    ArchivalSummary: Optional[ArchivalSummary] = None
+    TableClassSummary: Optional[TableClassSummary] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[TableWarmThroughputDescriptionTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[TableWarmThroughputDescription] = None
     MultiRegionConsistency: Optional[MultiRegionConsistencyType] = None
 
 
-class ImportTableDescriptionTypeDef(BaseValidatorModel):
+class ImportTableDescription(BaseValidatorModel):
     ImportArn: Optional[str] = None
     ImportStatus: Optional[ImportStatusType] = None
     TableArn: Optional[str] = None
     TableId: Optional[str] = None
     ClientToken: Optional[str] = None
-    S3BucketSource: Optional[S3BucketSourceTypeDef] = None
+    S3BucketSource: Optional[S3BucketSource] = None
     ErrorCount: Optional[int] = None
     CloudWatchLogGroupArn: Optional[str] = None
     InputFormat: Optional[InputFormatType] = None
-    InputFormatOptions: Optional[InputFormatOptionsOutputTypeDef] = None
+    InputFormatOptions: Optional[InputFormatOptionsOutput] = None
     InputCompressionType: Optional[InputCompressionTypeType] = None
-    TableCreationParameters: Optional[TableCreationParametersOutputTypeDef] = None
+    TableCreationParameters: Optional[TableCreationParametersOutput] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
     ProcessedSizeBytes: Optional[int] = None
@@ -1634,318 +1634,318 @@ class ImportTableDescriptionTypeDef(BaseValidatorModel):
     FailureMessage: Optional[str] = None
 
 
-class BackupDescriptionTypeDef(BaseValidatorModel):
-    BackupDetails: Optional[BackupDetailsTypeDef] = None
-    SourceTableDetails: Optional[SourceTableDetailsTypeDef] = None
-    SourceTableFeatureDetails: Optional[SourceTableFeatureDetailsTypeDef] = None
+class BackupDescription(BaseValidatorModel):
+    BackupDetails: Optional[BackupDetails] = None
+    SourceTableDetails: Optional[SourceTableDetails] = None
+    SourceTableFeatureDetails: Optional[SourceTableFeatureDetails] = None
 
 
-class GlobalSecondaryIndexUpdateTypeDef(BaseValidatorModel):
-    Update: Optional[UpdateGlobalSecondaryIndexActionTypeDef] = None
-    Create: Optional[CreateGlobalSecondaryIndexActionTypeDef] = None
-    Delete: Optional[DeleteGlobalSecondaryIndexActionTypeDef] = None
+class GlobalSecondaryIndexUpdate(BaseValidatorModel):
+    Update: Optional[UpdateGlobalSecondaryIndexAction] = None
+    Create: Optional[CreateGlobalSecondaryIndexAction] = None
+    Delete: Optional[DeleteGlobalSecondaryIndexAction] = None
 
 
-class TableCreationParametersTypeDef(BaseValidatorModel):
+class TableCreationParameters(BaseValidatorModel):
     TableName: str
-    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
-    KeySchema: Sequence[KeySchemaElementTypeDef]
+    AttributeDefinitions: Sequence[AttributeDefinition]
+    KeySchema: Sequence[KeySchemaElement]
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndexTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    SSESpecification: Optional[SSESpecification] = None
+    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndex]] = None
 
 
-class TransactGetItemsInputTypeDef(BaseValidatorModel):
-    TransactItems: Sequence[TransactGetItemTypeDef]
+class TransactGetItemsInput(BaseValidatorModel):
+    TransactItems: Sequence[TransactGetItem]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
-class KeysAndAttributesUnionTypeDef(BaseValidatorModel):
+class KeysAndAttributesUnion(BaseValidatorModel):
     pass
 
 
-class BatchGetItemInputTypeDef(BaseValidatorModel):
-    RequestItems: Mapping[str, KeysAndAttributesUnionTypeDef]
+class BatchGetItemInput(BaseValidatorModel):
+    RequestItems: Mapping[str, KeysAndAttributesUnion]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
 
 
-class PutRequestUnionTypeDef(BaseValidatorModel):
+class PutRequestUnion(BaseValidatorModel):
     pass
 
 
-class DeleteRequestUnionTypeDef(BaseValidatorModel):
+class DeleteRequestUnion(BaseValidatorModel):
     pass
 
 
-class WriteRequestTypeDef(BaseValidatorModel):
-    PutRequest: Optional[PutRequestUnionTypeDef] = None
-    DeleteRequest: Optional[DeleteRequestUnionTypeDef] = None
+class WriteRequest(BaseValidatorModel):
+    PutRequest: Optional[PutRequestUnion] = None
+    DeleteRequest: Optional[DeleteRequestUnion] = None
 
 
-class TransactWriteItemsInputTypeDef(BaseValidatorModel):
-    TransactItems: Sequence[TransactWriteItemTypeDef]
+class TransactWriteItemsInput(BaseValidatorModel):
+    TransactItems: Sequence[TransactWriteItem]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
     ClientRequestToken: Optional[str] = None
 
 
-class CreateGlobalTableOutputTypeDef(BaseValidatorModel):
-    GlobalTableDescription: GlobalTableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateGlobalTableOutput(BaseValidatorModel):
+    GlobalTableDescription: GlobalTableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeGlobalTableOutputTypeDef(BaseValidatorModel):
-    GlobalTableDescription: GlobalTableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeGlobalTableOutput(BaseValidatorModel):
+    GlobalTableDescription: GlobalTableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGlobalTableOutputTypeDef(BaseValidatorModel):
-    GlobalTableDescription: GlobalTableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateGlobalTableOutput(BaseValidatorModel):
+    GlobalTableDescription: GlobalTableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTableOutputTypeDef(BaseValidatorModel):
-    TableDescription: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateTableOutput(BaseValidatorModel):
+    TableDescription: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteTableOutputTypeDef(BaseValidatorModel):
-    TableDescription: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteTableOutput(BaseValidatorModel):
+    TableDescription: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeTableOutputTypeDef(BaseValidatorModel):
-    Table: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTableOutput(BaseValidatorModel):
+    Table: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreTableFromBackupOutputTypeDef(BaseValidatorModel):
-    TableDescription: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreTableFromBackupOutput(BaseValidatorModel):
+    TableDescription: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreTableToPointInTimeOutputTypeDef(BaseValidatorModel):
-    TableDescription: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreTableToPointInTimeOutput(BaseValidatorModel):
+    TableDescription: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTableOutputTypeDef(BaseValidatorModel):
-    TableDescription: TableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTableOutput(BaseValidatorModel):
+    TableDescription: TableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeImportOutputTypeDef(BaseValidatorModel):
-    ImportTableDescription: ImportTableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeImportOutput(BaseValidatorModel):
+    ImportTableDescription: ImportTableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ImportTableOutputTypeDef(BaseValidatorModel):
-    ImportTableDescription: ImportTableDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ImportTableOutput(BaseValidatorModel):
+    ImportTableDescription: ImportTableDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteBackupOutputTypeDef(BaseValidatorModel):
-    BackupDescription: BackupDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteBackupOutput(BaseValidatorModel):
+    BackupDescription: BackupDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBackupOutputTypeDef(BaseValidatorModel):
-    BackupDescription: BackupDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBackupOutput(BaseValidatorModel):
+    BackupDescription: BackupDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTableInputTableUpdateTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Optional[Sequence[AttributeDefinitionTypeDef]] = None
+class UpdateTableInputTableUpdate(BaseValidatorModel):
+    AttributeDefinitions: Optional[Sequence[AttributeDefinition]] = None
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexUpdateTypeDef]] = None
-    StreamSpecification: Optional[StreamSpecificationTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    ReplicaUpdates: Optional[Sequence[ReplicationGroupUpdateTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexUpdate]] = None
+    StreamSpecification: Optional[StreamSpecification] = None
+    SSESpecification: Optional[SSESpecification] = None
+    ReplicaUpdates: Optional[Sequence[ReplicationGroupUpdate]] = None
     TableClass: Optional[TableClassType] = None
     DeletionProtectionEnabled: Optional[bool] = None
     MultiRegionConsistency: Optional[MultiRegionConsistencyType] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class UpdateTableInputTypeDef(BaseValidatorModel):
+class UpdateTableInput(BaseValidatorModel):
     TableName: str
-    AttributeDefinitions: Optional[Sequence[AttributeDefinitionTypeDef]] = None
+    AttributeDefinitions: Optional[Sequence[AttributeDefinition]] = None
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexUpdateTypeDef]] = None
-    StreamSpecification: Optional[StreamSpecificationTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    ReplicaUpdates: Optional[Sequence[ReplicationGroupUpdateTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexUpdate]] = None
+    StreamSpecification: Optional[StreamSpecification] = None
+    SSESpecification: Optional[SSESpecification] = None
+    ReplicaUpdates: Optional[Sequence[ReplicationGroupUpdate]] = None
     TableClass: Optional[TableClassType] = None
     DeletionProtectionEnabled: Optional[bool] = None
     MultiRegionConsistency: Optional[MultiRegionConsistencyType] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
+    WarmThroughput: Optional[WarmThroughput] = None
 
 
-class GlobalSecondaryIndexUnionTypeDef(BaseValidatorModel):
+class GlobalSecondaryIndexUnion(BaseValidatorModel):
     pass
 
 
-class CreateTableInputServiceResourceCreateTableTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
+class CreateTableInputServiceResourceCreateTable(BaseValidatorModel):
+    AttributeDefinitions: Sequence[AttributeDefinition]
     TableName: str
-    KeySchema: Sequence[KeySchemaElementTypeDef]
-    LocalSecondaryIndexes: Optional[Sequence[LocalSecondaryIndexTypeDef]] = None
-    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndexUnionTypeDef]] = None
+    KeySchema: Sequence[KeySchemaElement]
+    LocalSecondaryIndexes: Optional[Sequence[LocalSecondaryIndex]] = None
+    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndexUnion]] = None
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    StreamSpecification: Optional[StreamSpecificationTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    StreamSpecification: Optional[StreamSpecification] = None
+    SSESpecification: Optional[SSESpecification] = None
+    Tags: Optional[Sequence[Tag]] = None
     TableClass: Optional[TableClassType] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    WarmThroughput: Optional[WarmThroughput] = None
     ResourcePolicy: Optional[str] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
 
 
-class CreateTableInputTypeDef(BaseValidatorModel):
-    AttributeDefinitions: Sequence[AttributeDefinitionTypeDef]
+class CreateTableInput(BaseValidatorModel):
+    AttributeDefinitions: Sequence[AttributeDefinition]
     TableName: str
-    KeySchema: Sequence[KeySchemaElementTypeDef]
-    LocalSecondaryIndexes: Optional[Sequence[LocalSecondaryIndexTypeDef]] = None
-    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndexUnionTypeDef]] = None
+    KeySchema: Sequence[KeySchemaElement]
+    LocalSecondaryIndexes: Optional[Sequence[LocalSecondaryIndex]] = None
+    GlobalSecondaryIndexes: Optional[Sequence[GlobalSecondaryIndexUnion]] = None
     BillingMode: Optional[BillingModeType] = None
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
-    StreamSpecification: Optional[StreamSpecificationTypeDef] = None
-    SSESpecification: Optional[SSESpecificationTypeDef] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
+    StreamSpecification: Optional[StreamSpecification] = None
+    SSESpecification: Optional[SSESpecification] = None
+    Tags: Optional[Sequence[Tag]] = None
     TableClass: Optional[TableClassType] = None
     DeletionProtectionEnabled: Optional[bool] = None
-    WarmThroughput: Optional[WarmThroughputTypeDef] = None
+    WarmThroughput: Optional[WarmThroughput] = None
     ResourcePolicy: Optional[str] = None
-    OnDemandThroughput: Optional[OnDemandThroughputTypeDef] = None
+    OnDemandThroughput: Optional[OnDemandThroughput] = None
 
 
-class RestoreTableFromBackupInputTypeDef(BaseValidatorModel):
+class RestoreTableFromBackupInput(BaseValidatorModel):
     TargetTableName: str
     BackupArn: str
     BillingModeOverride: Optional[BillingModeType] = None
-    GlobalSecondaryIndexOverride: Optional[Sequence[GlobalSecondaryIndexUnionTypeDef]] = None
-    LocalSecondaryIndexOverride: Optional[Sequence[LocalSecondaryIndexTypeDef]] = None
-    ProvisionedThroughputOverride: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughputOverride: Optional[OnDemandThroughputTypeDef] = None
-    SSESpecificationOverride: Optional[SSESpecificationTypeDef] = None
+    GlobalSecondaryIndexOverride: Optional[Sequence[GlobalSecondaryIndexUnion]] = None
+    LocalSecondaryIndexOverride: Optional[Sequence[LocalSecondaryIndex]] = None
+    ProvisionedThroughputOverride: Optional[ProvisionedThroughput] = None
+    OnDemandThroughputOverride: Optional[OnDemandThroughput] = None
+    SSESpecificationOverride: Optional[SSESpecification] = None
 
 
-class RestoreTableToPointInTimeInputTypeDef(BaseValidatorModel):
+class RestoreTableToPointInTimeInput(BaseValidatorModel):
     TargetTableName: str
     SourceTableArn: Optional[str] = None
     SourceTableName: Optional[str] = None
     UseLatestRestorableTime: Optional[bool] = None
-    RestoreDateTime: Optional[TimestampTypeDef] = None
+    RestoreDateTime: Optional[Timestamp] = None
     BillingModeOverride: Optional[BillingModeType] = None
-    GlobalSecondaryIndexOverride: Optional[Sequence[GlobalSecondaryIndexUnionTypeDef]] = None
-    LocalSecondaryIndexOverride: Optional[Sequence[LocalSecondaryIndexTypeDef]] = None
-    ProvisionedThroughputOverride: Optional[ProvisionedThroughputTypeDef] = None
-    OnDemandThroughputOverride: Optional[OnDemandThroughputTypeDef] = None
-    SSESpecificationOverride: Optional[SSESpecificationTypeDef] = None
+    GlobalSecondaryIndexOverride: Optional[Sequence[GlobalSecondaryIndexUnion]] = None
+    LocalSecondaryIndexOverride: Optional[Sequence[LocalSecondaryIndex]] = None
+    ProvisionedThroughputOverride: Optional[ProvisionedThroughput] = None
+    OnDemandThroughputOverride: Optional[OnDemandThroughput] = None
+    SSESpecificationOverride: Optional[SSESpecification] = None
 
 
-class WriteRequestServiceResourceUnionTypeDef(BaseValidatorModel):
+class WriteRequestServiceResourceUnion(BaseValidatorModel):
     pass
 
 
-class BatchWriteItemInputServiceResourceBatchWriteItemTypeDef(BaseValidatorModel):
-    RequestItems: Mapping[str, Sequence[WriteRequestServiceResourceUnionTypeDef]]
+class BatchWriteItemInputServiceResourceBatchWriteItem(BaseValidatorModel):
+    RequestItems: Mapping[str, Sequence[WriteRequestServiceResourceUnion]]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
 
 
-class ReplicaAutoScalingDescriptionTypeDef(BaseValidatorModel):
+class ReplicaAutoScalingDescription(BaseValidatorModel):
     pass
 
 
-class TableAutoScalingDescriptionTypeDef(BaseValidatorModel):
+class TableAutoScalingDescription(BaseValidatorModel):
     TableName: Optional[str] = None
     TableStatus: Optional[TableStatusType] = None
-    Replicas: Optional[List[ReplicaAutoScalingDescriptionTypeDef]] = None
+    Replicas: Optional[List[ReplicaAutoScalingDescription]] = None
 
 
-class ReplicaSettingsDescriptionTypeDef(BaseValidatorModel):
+class ReplicaSettingsDescription(BaseValidatorModel):
     pass
 
 
-class DescribeGlobalTableSettingsOutputTypeDef(BaseValidatorModel):
+class DescribeGlobalTableSettingsOutput(BaseValidatorModel):
     GlobalTableName: str
-    ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicaSettings: List[ReplicaSettingsDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateGlobalTableSettingsOutputTypeDef(BaseValidatorModel):
+class UpdateGlobalTableSettingsOutput(BaseValidatorModel):
     GlobalTableName: str
-    ReplicaSettings: List[ReplicaSettingsDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReplicaSettings: List[ReplicaSettingsDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class ReplicaAutoScalingUpdateTypeDef(BaseValidatorModel):
+class ReplicaAutoScalingUpdate(BaseValidatorModel):
     pass
 
 
-class UpdateTableReplicaAutoScalingInputTypeDef(BaseValidatorModel):
+class UpdateTableReplicaAutoScalingInput(BaseValidatorModel):
     TableName: str
-    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexAutoScalingUpdateTypeDef]] = None
-    ProvisionedWriteCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdateTypeDef] = None
-    ReplicaUpdates: Optional[Sequence[ReplicaAutoScalingUpdateTypeDef]] = None
+    GlobalSecondaryIndexUpdates: Optional[Sequence[GlobalSecondaryIndexAutoScalingUpdate]] = None
+    ProvisionedWriteCapacityAutoScalingUpdate: Optional[AutoScalingSettingsUpdate] = None
+    ReplicaUpdates: Optional[Sequence[ReplicaAutoScalingUpdate]] = None
 
 
-class ReplicaSettingsUpdateTypeDef(BaseValidatorModel):
+class ReplicaSettingsUpdate(BaseValidatorModel):
     pass
 
 
-class UpdateGlobalTableSettingsInputTypeDef(BaseValidatorModel):
+class UpdateGlobalTableSettingsInput(BaseValidatorModel):
     GlobalTableName: str
     GlobalTableBillingMode: Optional[BillingModeType] = None
     GlobalTableProvisionedWriteCapacityUnits: Optional[int] = None
-    GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[ AutoScalingSettingsUpdateTypeDef ] = None
-    GlobalTableGlobalSecondaryIndexSettingsUpdate: Optional[ Sequence[GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef] ] = None
-    ReplicaSettingsUpdate: Optional[Sequence[ReplicaSettingsUpdateTypeDef]] = None
+    GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: Optional[ AutoScalingSettingsUpdate ] = None
+    GlobalTableGlobalSecondaryIndexSettingsUpdate: Optional[ Sequence[GlobalTableGlobalSecondaryIndexSettingsUpdate] ] = None
+    ReplicaSettingsUpdate: Optional[Sequence[ReplicaSettingsUpdate]] = None
 
 
-class TableCreationParametersUnionTypeDef(BaseValidatorModel):
+class TableCreationParametersUnion(BaseValidatorModel):
     pass
 
 
-class InputFormatOptionsUnionTypeDef(BaseValidatorModel):
+class InputFormatOptionsUnion(BaseValidatorModel):
     pass
 
 
-class ImportTableInputTypeDef(BaseValidatorModel):
-    S3BucketSource: S3BucketSourceTypeDef
+class ImportTableInput(BaseValidatorModel):
+    S3BucketSource: S3BucketSource
     InputFormat: InputFormatType
-    TableCreationParameters: TableCreationParametersUnionTypeDef
+    TableCreationParameters: TableCreationParametersUnion
     ClientToken: Optional[str] = None
-    InputFormatOptions: Optional[InputFormatOptionsUnionTypeDef] = None
+    InputFormatOptions: Optional[InputFormatOptionsUnion] = None
     InputCompressionType: Optional[InputCompressionTypeType] = None
 
 
-class WriteRequestUnionTypeDef(BaseValidatorModel):
+class WriteRequestUnion(BaseValidatorModel):
     pass
 
 
-class BatchWriteItemInputTypeDef(BaseValidatorModel):
-    RequestItems: Mapping[str, Sequence[WriteRequestUnionTypeDef]]
+class BatchWriteItemInput(BaseValidatorModel):
+    RequestItems: Mapping[str, Sequence[WriteRequestUnion]]
     ReturnConsumedCapacity: Optional[ReturnConsumedCapacityType] = None
     ReturnItemCollectionMetrics: Optional[ReturnItemCollectionMetricsType] = None
 
 
-class DescribeTableReplicaAutoScalingOutputTypeDef(BaseValidatorModel):
-    TableAutoScalingDescription: TableAutoScalingDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeTableReplicaAutoScalingOutput(BaseValidatorModel):
+    TableAutoScalingDescription: TableAutoScalingDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTableReplicaAutoScalingOutputTypeDef(BaseValidatorModel):
-    TableAutoScalingDescription: TableAutoScalingDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateTableReplicaAutoScalingOutput(BaseValidatorModel):
+    TableAutoScalingDescription: TableAutoScalingDescription
+    ResponseMetadata: ResponseMetadata
 
 

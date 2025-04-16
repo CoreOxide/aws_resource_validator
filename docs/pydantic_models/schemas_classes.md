@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateDiscovererRequestTypeDef
+# CreateDiscovererRequest
 
 ### SourceArn
 - **Type**: <class 'str'>
@@ -22,7 +22,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateDiscovererResponseTypeDef
+# CreateDiscovererResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -53,11 +53,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRegistryRequestTypeDef
+# CreateRegistryRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -70,7 +70,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateRegistryResponseTypeDef
+# CreateRegistryResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -89,31 +89,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteDiscovererRequestTypeDef
+# DeleteDiscovererRequest
 
 ### DiscovererId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRegistryRequestTypeDef
+# DeleteRegistryRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteResourcePolicyRequestTypeDef
+# DeleteResourcePolicyRequest
 
 ### RegistryName
 - **Type**: typing.Optional[str]
 
 
-# DeleteSchemaRequestTypeDef
+# DeleteSchemaRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -124,7 +124,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSchemaVersionRequestTypeDef
+# DeleteSchemaVersionRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -139,7 +139,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCodeBindingRequestTypeDef
+# DescribeCodeBindingRequest
 
 ### Language
 - **Type**: <class 'str'>
@@ -157,7 +157,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeCodeBindingRequestWaitTypeDef
+# DescribeCodeBindingRequestWait
 
 ### Language
 - **Type**: <class 'str'>
@@ -175,10 +175,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# DescribeCodeBindingResponseTypeDef
+# DescribeCodeBindingResponse
 
 ### CreationDate
 - **Type**: <class 'datetime.datetime'>
@@ -197,18 +197,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeDiscovererRequestTypeDef
+# DescribeDiscovererRequest
 
 ### DiscovererId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeDiscovererResponseTypeDef
+# DescribeDiscovererResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -239,18 +239,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRegistryRequestTypeDef
+# DescribeRegistryRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRegistryResponseTypeDef
+# DescribeRegistryResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -269,11 +269,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSchemaRequestTypeDef
+# DescribeSchemaRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -287,7 +287,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DiscovererSummaryTypeDef
+# DiscovererSummary
 
 ### DiscovererArn
 - **Type**: typing.Optional[str]
@@ -308,14 +308,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCodeBindingSourceRequestTypeDef
+# GetCodeBindingSourceRequest
 
 ### Language
 - **Type**: <class 'str'>
@@ -333,35 +333,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCodeBindingSourceResponseTypeDef
+# GetCodeBindingSourceResponse
 
 ### Body
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDiscoveredSchemaResponseTypeDef
+# GetDiscoveredSchemaResponse
 
 ### Content
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResourcePolicyRequestTypeDef
+# GetResourcePolicyRequest
 
 ### RegistryName
 - **Type**: typing.Optional[str]
 
 
-# GetResourcePolicyResponseTypeDef
+# GetResourcePolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
@@ -372,23 +372,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDiscoverersRequestPaginateTypeDef
-
-### DiscovererIdPrefix
-- **Type**: typing.Optional[str]
-
-### SourceArnPrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
-# ListDiscoverersRequestTypeDef
+# ListDiscoverersRequest
 
 ### DiscovererIdPrefix
 - **Type**: typing.Optional[str]
@@ -403,33 +391,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDiscoverersResponseTypeDef
+# ListDiscoverersRequestPaginate
+
+### DiscovererIdPrefix
+- **Type**: typing.Optional[str]
+
+### SourceArnPrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfig]
+
+
+# ListDiscoverersResponse
 
 ### Discoverers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.DiscovererSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.DiscovererSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRegistriesRequestPaginateTypeDef
-
-### RegistryNamePrefix
-- **Type**: typing.Optional[str]
-
-### Scope
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
-# ListRegistriesRequestTypeDef
+# ListRegistriesRequest
 
 ### Limit
 - **Type**: typing.Optional[int]
@@ -444,35 +432,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRegistriesResponseTypeDef
+# ListRegistriesRequestPaginate
+
+### RegistryNamePrefix
+- **Type**: typing.Optional[str]
+
+### Scope
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfig]
+
+
+# ListRegistriesResponse
 
 ### Registries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.RegistrySummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.RegistrySummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSchemaVersionsRequestPaginateTypeDef
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
-# ListSchemaVersionsRequestTypeDef
+# ListSchemaVersionsRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -489,34 +475,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSchemaVersionsResponseTypeDef
+# ListSchemaVersionsRequestPaginate
+
+### RegistryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchemaName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfig]
+
+
+# ListSchemaVersionsResponse
 
 ### SchemaVersions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaVersionSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaVersionSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListSchemasRequestPaginateTypeDef
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SchemaNamePrefix
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
-# ListSchemasRequestTypeDef
+# ListSchemasRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -532,39 +519,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListSchemasResponseTypeDef
+# ListSchemasRequestPaginate
+
+### RegistryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SchemaNamePrefix
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfig]
+
+
+# ListSchemasResponse
 
 ### Schemas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SchemaSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -576,7 +576,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCodeBindingRequestTypeDef
+# PutCodeBindingRequest
 
 ### Language
 - **Type**: <class 'str'>
@@ -594,7 +594,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutCodeBindingResponseTypeDef
+# PutCodeBindingResponse
 
 ### CreationDate
 - **Type**: <class 'datetime.datetime'>
@@ -613,11 +613,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutResourcePolicyRequestTypeDef
+# PutResourcePolicyRequest
 
 ### Policy
 - **Type**: <class 'str'>
@@ -630,7 +630,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutResourcePolicyResponseTypeDef
+# PutResourcePolicyResponse
 
 ### Policy
 - **Type**: <class 'str'>
@@ -641,11 +641,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RegistrySummaryTypeDef
+# RegistrySummary
 
 ### RegistryArn
 - **Type**: typing.Optional[str]
@@ -657,7 +657,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -679,7 +679,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SchemaSummaryTypeDef
+# SchemaSummary
 
 ### LastModified
 - **Type**: typing.Optional[datetime.datetime]
@@ -697,13 +697,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SchemaVersionSummaryTypeDef
+# SchemaVersionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SearchSchemaSummaryTypeDef
+# SearchSchemaSummary
 
 ### RegistryName
 - **Type**: typing.Optional[str]
@@ -715,30 +715,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SchemaVersions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.schemas_classes.SearchSchemaVersionSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.schemas_classes.SearchSchemaVersionSummary]]
 
 
-# SearchSchemaVersionSummaryTypeDef
+# SearchSchemaVersionSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SearchSchemasRequestPaginateTypeDef
-
-### Keywords
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RegistryName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfigTypeDef]
-
-
-# SearchSchemasRequestTypeDef
+# SearchSchemasRequest
 
 ### Keywords
 - **Type**: <class 'str'>
@@ -755,50 +741,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SearchSchemasResponseTypeDef
+# SearchSchemasRequestPaginate
+
+### Keywords
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RegistryName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.schemas_classes.PaginatorConfig]
+
+
+# SearchSchemasResponse
 
 ### Schemas
-- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SearchSchemaSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.schemas_classes.SearchSchemaSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# StartDiscovererRequestTypeDef
+# StartDiscovererRequest
 
 ### DiscovererId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# StartDiscovererResponseTypeDef
-
-### DiscovererId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### State
-- **Type**: typing.Literal['STARTED', 'STOPPED']
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# StopDiscovererRequestTypeDef
-
-### DiscovererId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# StopDiscovererResponseTypeDef
+# StartDiscovererResponse
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -809,11 +787,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# StopDiscovererRequest
+
+### DiscovererId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# StopDiscovererResponse
+
+### DiscovererId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### State
+- **Type**: typing.Literal['STARTED', 'STOPPED']
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -824,7 +824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -835,7 +835,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateDiscovererRequestTypeDef
+# UpdateDiscovererRequest
 
 ### DiscovererId
 - **Type**: <class 'str'>
@@ -848,7 +848,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateDiscovererResponseTypeDef
+# UpdateDiscovererResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -879,11 +879,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRegistryRequestTypeDef
+# UpdateRegistryRequest
 
 ### RegistryName
 - **Type**: <class 'str'>
@@ -893,7 +893,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRegistryResponseTypeDef
+# UpdateRegistryResponse
 
 ### Description
 - **Type**: <class 'str'>
@@ -912,11 +912,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.schemas_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

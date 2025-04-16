@@ -6,14 +6,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateMonitorInputTypeDef
+# CreateMonitorInput
 
 ### monitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### probes
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmonitor_classes.CreateMonitorProbeInputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.networkmonitor_classes.CreateMonitorProbeInput]]
 
 ### aggregationPeriod
 - **Type**: typing.Optional[int]
@@ -25,7 +25,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateMonitorOutputTypeDef
+# CreateMonitorOutput
 
 ### monitorArn
 - **Type**: <class 'str'>
@@ -48,11 +48,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMonitorProbeInputTypeDef
+# CreateMonitorProbeInput
 
 ### sourceArn
 - **Type**: <class 'str'>
@@ -76,14 +76,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProbeInputTypeDef
+# CreateProbeInput
 
 ### monitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### probe
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ProbeInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ProbeInput'>
 - **Required**: Yes
 
 ### clientToken
@@ -93,7 +93,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateProbeOutputTypeDef
+# CreateProbeOutput
 
 ### probeId
 - **Type**: <class 'str'>
@@ -148,18 +148,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteMonitorInputTypeDef
+# DeleteMonitorInput
 
 ### monitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProbeInputTypeDef
+# DeleteProbeInput
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -170,14 +170,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetMonitorInputTypeDef
+# GetMonitorInput
 
 ### monitorName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMonitorOutputTypeDef
+# GetMonitorOutput
 
 ### monitorArn
 - **Type**: <class 'str'>
@@ -200,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### probes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.ProbeTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.Probe]
 - **Required**: Yes
 
 ### createdAt
@@ -212,11 +212,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProbeInputTypeDef
+# GetProbeInput
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -227,7 +227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetProbeOutputTypeDef
+# GetProbeOutput
 
 ### probeId
 - **Type**: <class 'str'>
@@ -282,20 +282,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListMonitorsInputPaginateTypeDef
-
-### state
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmonitor_classes.PaginatorConfigTypeDef]
-
-
-# ListMonitorsInputTypeDef
+# ListMonitorsInput
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -307,39 +298,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListMonitorsOutputTypeDef
+# ListMonitorsInputPaginate
+
+### state
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.networkmonitor_classes.PaginatorConfig]
+
+
+# ListMonitorsOutput
 
 ### monitors
-- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.MonitorSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.networkmonitor_classes.MonitorSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MonitorSummaryTypeDef
+# MonitorSummary
 
 ### monitorArn
 - **Type**: <class 'str'>
@@ -360,7 +360,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -372,31 +372,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProbeInputTypeDef
-
-### sourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### destination
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### protocol
-- **Type**: typing.Literal['ICMP', 'TCP']
-- **Required**: Yes
-
-### destinationPort
-- **Type**: typing.Optional[int]
-
-### packetSize
-- **Type**: typing.Optional[int]
-
-### tags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# ProbeTypeDef
+# Probe
 
 ### sourceArn
 - **Type**: <class 'str'>
@@ -441,7 +417,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ResponseMetadataTypeDef
+# ProbeInput
+
+### sourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### destination
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### protocol
+- **Type**: typing.Literal['ICMP', 'TCP']
+- **Required**: Yes
+
+### destinationPort
+- **Type**: typing.Optional[int]
+
+### packetSize
+- **Type**: typing.Optional[int]
+
+### tags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -463,7 +463,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -474,7 +474,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -485,7 +485,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitorInputTypeDef
+# UpdateMonitorInput
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -496,7 +496,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateMonitorOutputTypeDef
+# UpdateMonitorOutput
 
 ### monitorArn
 - **Type**: <class 'str'>
@@ -519,11 +519,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateProbeInputTypeDef
+# UpdateProbeInput
 
 ### monitorName
 - **Type**: <class 'str'>
@@ -549,7 +549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateProbeOutputTypeDef
+# UpdateProbeOutput
 
 ### probeId
 - **Type**: <class 'str'>
@@ -604,7 +604,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.networkmonitor_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

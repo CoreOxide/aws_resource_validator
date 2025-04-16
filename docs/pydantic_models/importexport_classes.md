@@ -1,6 +1,6 @@
 # Importexport Classes
 
-# ArtifactTypeDef
+# Artifact
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -15,7 +15,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobInputTypeDef
+# CancelJobInput
 
 ### JobId
 - **Type**: <class 'str'>
@@ -25,18 +25,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CancelJobOutputTypeDef
+# CancelJobOutput
 
 ### Success
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateJobInputTypeDef
+# CreateJobInput
 
 ### JobType
 - **Type**: typing.Literal['Export', 'Import']
@@ -57,7 +57,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateJobOutputTypeDef
+# CreateJobOutput
 
 ### JobId
 - **Type**: <class 'str'>
@@ -80,15 +80,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArtifactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.ArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetShippingLabelInputTypeDef
+# GetShippingLabelInput
 
 ### jobIds
 - **Type**: typing.Sequence[str]
@@ -128,7 +128,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetStatusInputTypeDef
+# GetStatusInput
 
 ### JobId
 - **Type**: <class 'str'>
@@ -138,7 +138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetStatusOutputTypeDef
+# GetStatusOutput
 
 ### JobId
 - **Type**: <class 'str'>
@@ -201,15 +201,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArtifactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.ArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# JobTypeDef
+# Job
 
 ### JobId
 - **Type**: typing.Optional[str]
@@ -224,16 +224,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Export', 'Import']]
 
 
-# ListJobsInputPaginateTypeDef
-
-### APIVersion
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.importexport_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsInputTypeDef
+# ListJobsInput
 
 ### MaxJobs
 - **Type**: typing.Optional[int]
@@ -245,10 +236,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsOutputTypeDef
+# ListJobsInputPaginate
+
+### APIVersion
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.importexport_classes.PaginatorConfig]
+
+
+# ListJobsOutput
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.JobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.Job]
 - **Required**: Yes
 
 ### IsTruncated
@@ -256,11 +256,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -272,7 +272,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateJobInputTypeDef
+# UpdateJobInput
 
 ### JobId
 - **Type**: <class 'str'>
@@ -316,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateJobOutputTypeDef
+# UpdateJobOutput
 
 ### Success
 - **Type**: <class 'bool'>
@@ -327,11 +327,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ArtifactList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.ArtifactTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.importexport_classes.Artifact]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.importexport_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

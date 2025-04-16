@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.inspector_scan_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,13 +20,13 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ScanSbomRequestTypeDef(BaseValidatorModel):
+class ScanSbomRequest(BaseValidatorModel):
     sbom: Mapping[str, Any]
     outputFormat: Optional[OutputFormatType] = None
 
 
-class ScanSbomResponseTypeDef(BaseValidatorModel):
+class ScanSbomResponse(BaseValidatorModel):
     sbom: Dict[str, Any]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 

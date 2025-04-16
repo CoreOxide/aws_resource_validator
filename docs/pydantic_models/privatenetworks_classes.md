@@ -1,24 +1,24 @@
 # Privatenetworks Classes
 
-# AcknowledgeOrderReceiptRequestTypeDef
+# AcknowledgeOrderReceiptRequest
 
 ### orderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AcknowledgeOrderReceiptResponseTypeDef
+# AcknowledgeOrderReceiptResponse
 
 ### order
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.OrderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Order'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ActivateDeviceIdentifierRequestTypeDef
+# ActivateDeviceIdentifierRequest
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
@@ -28,10 +28,10 @@
 - **Type**: typing.Optional[str]
 
 
-# ActivateDeviceIdentifierResponseTypeDef
+# ActivateDeviceIdentifierResponse
 
 ### deviceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifier'>
 - **Required**: Yes
 
 ### tags
@@ -39,39 +39,39 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ActivateNetworkSiteRequestTypeDef
+# ActivateNetworkSiteRequest
 
 ### networkSiteArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### shippingAddress
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.AddressTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Address'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 ### commitmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfiguration]
 
 
-# ActivateNetworkSiteResponseTypeDef
+# ActivateNetworkSiteResponse
 
 ### networkSite
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddressTypeDef
+# Address
 
 ### city
 - **Type**: <class 'str'>
@@ -119,7 +119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CommitmentConfigurationTypeDef
+# CommitmentConfiguration
 
 ### automaticRenewal
 - **Type**: <class 'bool'>
@@ -130,10 +130,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CommitmentInformationTypeDef
+# CommitmentInformation
 
 ### commitmentConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfiguration'>
 - **Required**: Yes
 
 ### expiresOn
@@ -143,7 +143,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ConfigureAccessPointRequestTypeDef
+# ConfigureAccessPointRequest
 
 ### accessPointArn
 - **Type**: <class 'str'>
@@ -162,21 +162,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### position
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PositionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.Position]
 
 
-# ConfigureAccessPointResponseTypeDef
+# ConfigureAccessPointResponse
 
 ### accessPoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateNetworkRequestTypeDef
+# CreateNetworkRequest
 
 ### networkName
 - **Type**: <class 'str'>
@@ -192,10 +192,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateNetworkResponseTypeDef
+# CreateNetworkResponse
 
 ### network
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Network'>
 - **Required**: Yes
 
 ### tags
@@ -203,11 +203,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateNetworkSiteRequestTypeDef
+# CreateNetworkSiteRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -230,16 +230,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### pendingPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnion]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateNetworkSiteResponseTypeDef
+# CreateNetworkSiteResponse
 
 ### networkSite
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite'>
 - **Required**: Yes
 
 ### tags
@@ -247,11 +247,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeactivateDeviceIdentifierRequestTypeDef
+# DeactivateDeviceIdentifierRequest
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
@@ -261,18 +261,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeactivateDeviceIdentifierResponseTypeDef
+# DeactivateDeviceIdentifierResponse
 
 ### deviceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifier'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteNetworkRequestTypeDef
+# DeleteNetworkRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -282,18 +282,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteNetworkResponseTypeDef
+# DeleteNetworkResponse
 
 ### network
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Network'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteNetworkSiteRequestTypeDef
+# DeleteNetworkSiteRequest
 
 ### networkSiteArn
 - **Type**: <class 'str'>
@@ -303,18 +303,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteNetworkSiteResponseTypeDef
+# DeleteNetworkSiteResponse
 
 ### networkSite
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeviceIdentifierTypeDef
+# DeviceIdentifier
 
 ### createdAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -344,17 +344,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetDeviceIdentifierRequestTypeDef
+# GetDeviceIdentifierRequest
 
 ### deviceIdentifierArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDeviceIdentifierResponseTypeDef
+# GetDeviceIdentifierResponse
 
 ### deviceIdentifier
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifierTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifier'>
 - **Required**: Yes
 
 ### tags
@@ -362,28 +362,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNetworkRequestTypeDef
+# GetNetworkRequest
 
 ### networkArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNetworkResourceRequestTypeDef
+# GetNetworkResourceRequest
 
 ### networkResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNetworkResourceResponseTypeDef
+# GetNetworkResourceResponse
 
 ### networkResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResource'>
 - **Required**: Yes
 
 ### tags
@@ -391,14 +391,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNetworkResponseTypeDef
+# GetNetworkResponse
 
 ### network
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Network'>
 - **Required**: Yes
 
 ### tags
@@ -406,21 +406,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetNetworkSiteRequestTypeDef
+# GetNetworkSiteRequest
 
 ### networkSiteArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetNetworkSiteResponseTypeDef
+# GetNetworkSiteResponse
 
 ### networkSite
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite'>
 - **Required**: Yes
 
 ### tags
@@ -428,21 +428,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOrderRequestTypeDef
+# GetOrderRequest
 
 ### orderArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOrderResponseTypeDef
+# GetOrderResponse
 
 ### order
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.OrderTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.Order'>
 - **Required**: Yes
 
 ### tags
@@ -450,24 +450,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDeviceIdentifiersRequestPaginateTypeDef
-
-### networkArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ORDER', 'STATUS', 'TRAFFIC_GROUP'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
-
-
-# ListDeviceIdentifiersRequestTypeDef
+# ListDeviceIdentifiersRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -483,34 +470,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDeviceIdentifiersResponseTypeDef
+# ListDeviceIdentifiersRequestPaginate
+
+### networkArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['ORDER', 'STATUS', 'TRAFFIC_GROUP'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfig]
+
+
+# ListDeviceIdentifiersResponse
 
 ### deviceIdentifiers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifierTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.DeviceIdentifier]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNetworkResourcesRequestPaginateTypeDef
-
-### networkArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['ORDER', 'STATUS'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
-
-
-# ListNetworkResourcesRequestTypeDef
+# ListNetworkResourcesRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -526,34 +513,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNetworkResourcesResponseTypeDef
+# ListNetworkResourcesRequestPaginate
+
+### networkArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['ORDER', 'STATUS'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfig]
+
+
+# ListNetworkResourcesResponse
 
 ### networkResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNetworkSitesRequestPaginateTypeDef
-
-### networkArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
-
-
-# ListNetworkSitesRequestTypeDef
+# ListNetworkSitesRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -569,30 +556,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNetworkSitesResponseTypeDef
+# ListNetworkSitesRequestPaginate
+
+### networkArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfig]
+
+
+# ListNetworkSitesResponse
 
 ### networkSites
-- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListNetworksRequestPaginateTypeDef
-
-### filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
-
-
-# ListNetworksRequestTypeDef
+# ListNetworksRequest
 
 ### filters
 - **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
@@ -604,34 +595,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListNetworksResponseTypeDef
+# ListNetworksRequestPaginate
+
+### filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['STATUS'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfig]
+
+
+# ListNetworksResponse
 
 ### networks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.Network]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListOrdersRequestPaginateTypeDef
-
-### networkArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### filters
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['NETWORK_SITE', 'STATUS'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfigTypeDef]
-
-
-# ListOrdersRequestTypeDef
+# ListOrdersRequest
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -647,39 +634,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOrdersResponseTypeDef
+# ListOrdersRequestPaginate
+
+### networkArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### filters
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['NETWORK_SITE', 'STATUS'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.PaginatorConfig]
+
+
+# ListOrdersResponse
 
 ### orders
-- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.OrderTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.Order]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# NameValuePairTypeDef
+# NameValuePair
 
 ### name
 - **Type**: <class 'str'>
@@ -689,25 +689,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NetworkResourceDefinitionOutputTypeDef
+# Network
+
+### networkArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### networkName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### status
+- **Type**: typing.Literal['AVAILABLE', 'CREATED', 'DELETED', 'DEPROVISIONING', 'PROVISIONING']
+- **Required**: Yes
+
+### createdAt
+- **Type**: typing.Optional[datetime.datetime]
+
+### description
+- **Type**: typing.Optional[str]
+
+### statusReason
+- **Type**: typing.Optional[str]
+
+
+# NetworkResource
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NetworkResourceDefinitionTypeDef
+# NetworkResourceDefinition
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NetworkResourceTypeDef
+# NetworkResourceDefinitionOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NetworkSiteTypeDef
+# NetworkSite
 
 ### networkArn
 - **Type**: <class 'str'>
@@ -735,43 +759,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### currentPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutput]
 
 ### description
 - **Type**: typing.Optional[str]
 
 ### pendingPlan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanOutput]
 
 ### statusReason
 - **Type**: typing.Optional[str]
 
 
-# NetworkTypeDef
-
-### networkArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### networkName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### status
-- **Type**: typing.Literal['AVAILABLE', 'CREATED', 'DELETED', 'DEPROVISIONING', 'PROVISIONING']
-- **Required**: Yes
-
-### createdAt
-- **Type**: typing.Optional[datetime.datetime]
-
-### description
-- **Type**: typing.Optional[str]
-
-### statusReason
-- **Type**: typing.Optional[str]
-
-
-# OrderTypeDef
+# Order
 
 ### acknowledgmentStatus
 - **Type**: typing.Optional[typing.Literal['ACKNOWLEDGED', 'ACKNOWLEDGING', 'UNACKNOWLEDGED']]
@@ -789,22 +789,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### orderedResources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.OrderedResourceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.OrderedResourceDefinition]]
 
 ### shippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.AddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.Address]
 
 ### trackingInformation
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.TrackingInformationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.TrackingInformation]]
 
 
-# OrderedResourceDefinitionTypeDef
+# OrderedResourceDefinition
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -816,18 +816,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PingResponseTypeDef
+# PingResponse
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PositionTypeDef
+# Position
 
 ### elevation
 - **Type**: typing.Optional[float]
@@ -845,7 +845,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -867,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReturnInformationTypeDef
+# ReturnInformation
 
 ### replacementOrderArn
 - **Type**: typing.Optional[str]
@@ -876,37 +876,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### shippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.AddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.Address]
 
 ### shippingLabel
 - **Type**: typing.Optional[str]
 
 
-# SitePlanOutputTypeDef
+# SitePlan
 
 ### options
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePair]]
 
 ### resourceDefinitions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinition]]
 
 
-# SitePlanTypeDef
+# SitePlanOutput
 
 ### options
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePairTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NameValuePair]]
 
 ### resourceDefinitions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceDefinitionOutput]]
 
 
-# SitePlanUnionTypeDef
+# SitePlanUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StartNetworkResourceUpdateRequestTypeDef
+# StartNetworkResourceUpdateRequest
 
 ### networkResourceArn
 - **Type**: <class 'str'>
@@ -917,27 +917,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### commitmentConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.CommitmentConfiguration]
 
 ### returnReason
 - **Type**: typing.Optional[str]
 
 ### shippingAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.AddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.privatenetworks_classes.Address]
 
 
-# StartNetworkResourceUpdateResponseTypeDef
+# StartNetworkResourceUpdateResponse
 
 ### networkResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -948,13 +948,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrackingInformationTypeDef
+# TrackingInformation
 
 ### trackingNumber
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -965,21 +965,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateNetworkSitePlanRequestTypeDef
+# UpdateNetworkSitePlanRequest
 
 ### networkSiteArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### pendingPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.SitePlanUnion'>
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateNetworkSiteRequestTypeDef
+# UpdateNetworkSiteRequest
 
 ### networkSiteArn
 - **Type**: <class 'str'>
@@ -992,10 +992,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateNetworkSiteResponseTypeDef
+# UpdateNetworkSiteResponse
 
 ### networkSite
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSiteTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.NetworkSite'>
 - **Required**: Yes
 
 ### tags
@@ -1003,7 +1003,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.privatenetworks_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

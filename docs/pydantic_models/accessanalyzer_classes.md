@@ -1,31 +1,6 @@
 # Accessanalyzer Classes
 
-# AccessPreviewFindingTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AccessPreviewStatusReasonTypeDef
-
-### code
-- **Type**: typing.Literal['INTERNAL_ERROR', 'INVALID_CONFIGURATION']
-- **Required**: Yes
-
-
-# AccessPreviewSummaryTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AccessPreviewTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AccessTypeDef
+# Access
 
 ### actions
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -34,22 +9,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AclGranteeTypeDef
+# AccessPreview
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AnalysisRuleCriteriaOutputTypeDef
+# AccessPreviewFinding
 
-### accountIds
-- **Type**: typing.Optional[typing.List[str]]
+Oops! This Pydantic model is currently empty. Stay tuned!
 
-### resourceTags
-- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AccessPreviewStatusReason
+
+### code
+- **Type**: typing.Literal['INTERNAL_ERROR', 'INVALID_CONFIGURATION']
+- **Required**: Yes
 
 
-# AnalysisRuleCriteriaTypeDef
+# AccessPreviewSummary
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AclGrantee
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AnalysisRule
+
+### exclusions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleCriteria]]
+
+
+# AnalysisRuleCriteria
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -58,34 +55,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Mapping[str, str]]]
 
 
-# AnalysisRuleOutputTypeDef
+# AnalysisRuleCriteriaOutput
+
+### accountIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### resourceTags
+- **Type**: typing.Optional[typing.List[typing.Dict[str, str]]]
+
+
+# AnalysisRuleOutput
 
 ### exclusions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleCriteriaOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleCriteriaOutput]]
 
 
-# AnalysisRuleTypeDef
-
-### exclusions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleCriteriaTypeDef]]
-
-
-# AnalyzedResourceSummaryTypeDef
-
-### resourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resourceOwnerAccount
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resourceType
-- **Type**: typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret']
-- **Required**: Yes
-
-
-# AnalyzedResourceTypeDef
+# AnalyzedResource
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -128,31 +113,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AnalyzerConfigurationOutputTypeDef
+# AnalyzedResourceSummary
+
+### resourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resourceOwnerAccount
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resourceType
+- **Type**: typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret']
+- **Required**: Yes
+
+
+# AnalyzerConfiguration
 
 ### unusedAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessConfiguration]
 
 
-# AnalyzerConfigurationTypeDef
+# AnalyzerConfigurationOutput
 
 ### unusedAccess
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessConfigurationOutput]
 
 
-# AnalyzerConfigurationUnionTypeDef
+# AnalyzerConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AnalyzerSummaryTypeDef
+# AnalyzerSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ApplyArchiveRuleRequestTypeDef
+# ApplyArchiveRuleRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -166,7 +166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ArchiveRuleSummaryTypeDef
+# ArchiveRuleSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -178,21 +178,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelPolicyGenerationRequestTypeDef
+# CancelPolicyGenerationRequest
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CheckAccessNotGrantedRequestTypeDef
+# CheckAccessNotGrantedRequest
 
 ### policyDocument
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### access
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.Access]
 - **Required**: Yes
 
 ### policyType
@@ -200,7 +200,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CheckAccessNotGrantedResponseTypeDef
+# CheckAccessNotGrantedResponse
 
 ### result
 - **Type**: typing.Literal['FAIL', 'PASS']
@@ -211,15 +211,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### reasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CheckNoNewAccessRequestTypeDef
+# CheckNoNewAccessRequest
 
 ### newPolicyDocument
 - **Type**: <class 'str'>
@@ -234,7 +234,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CheckNoNewAccessResponseTypeDef
+# CheckNoNewAccessResponse
 
 ### result
 - **Type**: typing.Literal['FAIL', 'PASS']
@@ -245,15 +245,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### reasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CheckNoPublicAccessRequestTypeDef
+# CheckNoPublicAccessRequest
 
 ### policyDocument
 - **Type**: <class 'str'>
@@ -264,7 +264,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CheckNoPublicAccessResponseTypeDef
+# CheckNoPublicAccessResponse
 
 ### result
 - **Type**: typing.Literal['FAIL', 'PASS']
@@ -275,18 +275,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### reasons
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ReasonSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CloudTrailDetailsTypeDef
+# CloudTrailDetails
 
 ### trails
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.TrailTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.Trail]
 - **Required**: Yes
 
 ### accessRole
@@ -294,17 +294,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### startTime
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.TimestampTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.Timestamp'>
 - **Required**: Yes
 
 ### endTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.Timestamp]
 
 
-# CloudTrailPropertiesTypeDef
+# CloudTrailProperties
 
 ### trailProperties
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.TrailPropertiesTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.TrailProperties]
 - **Required**: Yes
 
 ### startTime
@@ -316,143 +316,128 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConfigurationOutputTypeDef
+# Configuration
 
 ### ebsSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EbsSnapshotConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EbsSnapshotConfigurationUnion]
 
 ### ecrRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EcrRepositoryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EcrRepositoryConfiguration]
 
 ### iamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.IamRoleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.IamRoleConfiguration]
 
 ### efsFileSystem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EfsFileSystemConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EfsFileSystemConfiguration]
 
 ### kmsKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsKeyConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsKeyConfigurationUnion]
 
 ### rdsDbClusterSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotConfigurationUnion]
 
 ### rdsDbSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotConfigurationUnion]
 
 ### secretsManagerSecret
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SecretsManagerSecretConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SecretsManagerSecretConfiguration]
 
 ### s3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketConfigurationUnion]
 
 ### snsTopic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SnsTopicConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SnsTopicConfiguration]
 
 ### sqsQueue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SqsQueueConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SqsQueueConfiguration]
 
 ### s3ExpressDirectoryBucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3ExpressDirectoryBucketConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3ExpressDirectoryBucketConfiguration]
 
 ### dynamodbStream
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbStreamConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbStreamConfiguration]
 
 ### dynamodbTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbTableConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbTableConfiguration]
 
 
-# ConfigurationTypeDef
+# ConfigurationOutput
 
 ### ebsSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EbsSnapshotConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EbsSnapshotConfigurationOutput]
 
 ### ecrRepository
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EcrRepositoryConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EcrRepositoryConfiguration]
 
 ### iamRole
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.IamRoleConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.IamRoleConfiguration]
 
 ### efsFileSystem
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EfsFileSystemConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.EfsFileSystemConfiguration]
 
 ### kmsKey
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsKeyConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsKeyConfigurationOutput]
 
 ### rdsDbClusterSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotConfigurationOutput]
 
 ### rdsDbSnapshot
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotConfigurationOutput]
 
 ### secretsManagerSecret
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SecretsManagerSecretConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SecretsManagerSecretConfiguration]
 
 ### s3Bucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketConfigurationOutput]
 
 ### snsTopic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SnsTopicConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SnsTopicConfiguration]
 
 ### sqsQueue
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SqsQueueConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SqsQueueConfiguration]
 
 ### s3ExpressDirectoryBucket
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3ExpressDirectoryBucketConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3ExpressDirectoryBucketConfiguration]
 
 ### dynamodbStream
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbStreamConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbStreamConfiguration]
 
 ### dynamodbTable
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbTableConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.DynamodbTableConfiguration]
 
 
-# ConfigurationUnionTypeDef
+# ConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateAccessPreviewRequestTypeDef
+# CreateAccessPreviewRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### configurations
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.ConfigurationUnionTypeDef]
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.ConfigurationUnion]
 - **Required**: Yes
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# CreateAnalyzerResponseTypeDef
+# CreateAnalyzerResponse
 
 ### arn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CriterionOutputTypeDef
-
-### eq
-- **Type**: typing.Optional[typing.List[str]]
-
-### neq
-- **Type**: typing.Optional[typing.List[str]]
-
-### contains
-- **Type**: typing.Optional[typing.List[str]]
-
-### exists
-- **Type**: typing.Optional[bool]
-
-
-# CriterionTypeDef
+# Criterion
 
 ### eq
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -467,7 +452,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeleteAnalyzerRequestTypeDef
+# CriterionOutput
+
+### eq
+- **Type**: typing.Optional[typing.List[str]]
+
+### neq
+- **Type**: typing.Optional[typing.List[str]]
+
+### contains
+- **Type**: typing.Optional[typing.List[str]]
+
+### exists
+- **Type**: typing.Optional[bool]
+
+
+# DeleteAnalyzerRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
@@ -477,7 +477,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteArchiveRuleRequestTypeDef
+# DeleteArchiveRuleRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
@@ -491,31 +491,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DynamodbStreamConfigurationTypeDef
+# DynamodbStreamConfiguration
 
 ### streamPolicy
 - **Type**: typing.Optional[str]
 
 
-# DynamodbTableConfigurationTypeDef
+# DynamodbTableConfiguration
 
 ### tablePolicy
 - **Type**: typing.Optional[str]
 
 
-# EbsSnapshotConfigurationOutputTypeDef
-
-### userIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### groups
-- **Type**: typing.Optional[typing.List[str]]
-
-### kmsKeyId
-- **Type**: typing.Optional[str]
-
-
-# EbsSnapshotConfigurationTypeDef
+# EbsSnapshotConfiguration
 
 ### userIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -527,32 +515,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EbsSnapshotConfigurationUnionTypeDef
+# EbsSnapshotConfigurationOutput
+
+### userIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### groups
+- **Type**: typing.Optional[typing.List[str]]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# EbsSnapshotConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EcrRepositoryConfigurationTypeDef
+# EcrRepositoryConfiguration
 
 ### repositoryPolicy
 - **Type**: typing.Optional[str]
 
 
-# EfsFileSystemConfigurationTypeDef
+# EfsFileSystemConfiguration
 
 ### fileSystemPolicy
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExternalAccessDetailsTypeDef
+# ExternalAccessDetails
 
 ### condition
 - **Type**: typing.Dict[str, str]
@@ -568,16 +568,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### sources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSource]]
 
 ### resourceControlPolicyRestriction
 - **Type**: typing.Optional[typing.Literal['APPLICABLE', 'FAILED_TO_EVALUATE_RCP', 'NOT_APPLICABLE']]
 
 
-# ExternalAccessFindingsStatisticsTypeDef
+# ExternalAccessFindingsStatistics
 
 ### resourceTypeStatistics
-- **Type**: typing.Optional[typing.Dict[typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret'], aws_resource_validator.pydantic_models.accessanalyzer_classes.ResourceTypeDetailsTypeDef]]
+- **Type**: typing.Optional[typing.Dict[typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret'], aws_resource_validator.pydantic_models.accessanalyzer_classes.ResourceTypeDetails]]
 
 ### totalActiveFindings
 - **Type**: typing.Optional[int]
@@ -589,7 +589,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# FindingAggregationAccountDetailsTypeDef
+# Finding
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FindingAggregationAccountDetails
 
 ### account
 - **Type**: typing.Optional[str]
@@ -601,25 +607,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# FindingDetailsTypeDef
+# FindingDetails
 
 ### externalAccessDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.ExternalAccessDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.ExternalAccessDetails]
 
 ### unusedPermissionDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedPermissionDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedPermissionDetails]
 
 ### unusedIamUserAccessKeyDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamUserAccessKeyDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamUserAccessKeyDetails]
 
 ### unusedIamRoleDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamRoleDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamRoleDetails]
 
 ### unusedIamUserPasswordDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamUserPasswordDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedIamUserPasswordDetails]
 
 
-# FindingSourceDetailTypeDef
+# FindingSource
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FindingSourceDetail
 
 ### accessPointArn
 - **Type**: typing.Optional[str]
@@ -628,40 +640,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# FindingSourceTypeDef
+# FindingSummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FindingSummaryTypeDef
+# FindingSummaryV2
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FindingSummaryV2TypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FindingTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FindingsStatisticsTypeDef
+# FindingsStatistics
 
 ### externalAccessFindingsStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.ExternalAccessFindingsStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.ExternalAccessFindingsStatistics]
 
 ### unusedAccessFindingsStatistics
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessFindingsStatisticsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessFindingsStatistics]
 
 
-# GeneratedPolicyPropertiesTypeDef
+# GeneratedPolicy
+
+### policy
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# GeneratedPolicyProperties
 
 ### principalArn
 - **Type**: <class 'str'>
@@ -671,27 +678,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### cloudTrailProperties
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.CloudTrailPropertiesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.CloudTrailProperties]
 
 
-# GeneratedPolicyResultTypeDef
+# GeneratedPolicyResult
 
 ### properties
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicyPropertiesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicyProperties'>
 - **Required**: Yes
 
 ### generatedPolicies
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicyTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicy]]
 
 
-# GeneratedPolicyTypeDef
-
-### policy
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# GetAccessPreviewRequestTypeDef
+# GetAccessPreviewRequest
 
 ### accessPreviewId
 - **Type**: <class 'str'>
@@ -702,18 +702,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAccessPreviewResponseTypeDef
+# GetAccessPreviewResponse
 
 ### accessPreview
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreviewTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreview'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAnalyzedResourceRequestTypeDef
+# GetAnalyzedResourceRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -724,36 +724,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetAnalyzedResourceResponseTypeDef
+# GetAnalyzedResourceResponse
 
 ### resource
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzedResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzedResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAnalyzerRequestTypeDef
+# GetAnalyzerRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAnalyzerResponseTypeDef
+# GetAnalyzerResponse
 
 ### analyzer
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetArchiveRuleRequestTypeDef
+# GetArchiveRuleRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
@@ -764,18 +764,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetArchiveRuleResponseTypeDef
+# GetArchiveRuleResponse
 
 ### archiveRule
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ArchiveRuleSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ArchiveRuleSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFindingRecommendationResponseTypeDef
+# GetFindingRecommendationResponse
 
 ### startedAt
 - **Type**: <class 'datetime.datetime'>
@@ -786,7 +786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### error
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.RecommendationErrorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.RecommendationError'>
 - **Required**: Yes
 
 ### resourceArn
@@ -794,7 +794,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### recommendedSteps
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.RecommendedStepTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.RecommendedStep]
 - **Required**: Yes
 
 ### recommendationType
@@ -806,35 +806,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# GetFindingResponseTypeDef
+# GetFindingResponse
 
 ### finding
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.Finding'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFindingsStatisticsRequestTypeDef
+# GetFindingsStatisticsRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFindingsStatisticsResponseTypeDef
+# GetFindingsStatisticsResponse
 
 ### findingsStatistics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingsStatisticsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingsStatistics]
 - **Required**: Yes
 
 ### lastUpdatedAt
@@ -842,11 +842,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGeneratedPolicyRequestTypeDef
+# GetGeneratedPolicyRequest
 
 ### jobId
 - **Type**: <class 'str'>
@@ -859,28 +859,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# GetGeneratedPolicyResponseTypeDef
+# GetGeneratedPolicyResponse
 
 ### jobDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.JobDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.JobDetails'>
 - **Required**: Yes
 
 ### generatedPolicyResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicyResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.GeneratedPolicyResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IamRoleConfigurationTypeDef
+# IamRoleConfiguration
 
 ### trustPolicy
 - **Type**: typing.Optional[str]
 
 
-# JobDetailsTypeDef
+# JobDetails
 
 ### jobId
 - **Type**: <class 'str'>
@@ -898,10 +898,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### jobError
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.JobErrorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.JobError]
 
 
-# JobErrorTypeDef
+# JobError
 
 ### code
 - **Type**: typing.Literal['AUTHORIZATION_ERROR', 'RESOURCE_NOT_FOUND_ERROR', 'SERVICE_ERROR', 'SERVICE_QUOTA_EXCEEDED_ERROR']
@@ -912,28 +912,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# KmsGrantConfigurationOutputTypeDef
-
-### operations
-- **Type**: typing.List[typing.Literal['CreateGrant', 'Decrypt', 'DescribeKey', 'Encrypt', 'GenerateDataKey', 'GenerateDataKeyPair', 'GenerateDataKeyPairWithoutPlaintext', 'GenerateDataKeyWithoutPlaintext', 'GetPublicKey', 'ReEncryptFrom', 'ReEncryptTo', 'RetireGrant', 'Sign', 'Verify']]
-- **Required**: Yes
-
-### granteePrincipal
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### issuingAccount
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### retiringPrincipal
-- **Type**: typing.Optional[str]
-
-### constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConstraintsOutputTypeDef]
-
-
-# KmsGrantConfigurationTypeDef
+# KmsGrantConfiguration
 
 ### operations
 - **Type**: typing.Sequence[typing.Literal['CreateGrant', 'Decrypt', 'DescribeKey', 'Encrypt', 'GenerateDataKey', 'GenerateDataKeyPair', 'GenerateDataKeyPairWithoutPlaintext', 'GenerateDataKeyWithoutPlaintext', 'GetPublicKey', 'ReEncryptFrom', 'ReEncryptTo', 'RetireGrant', 'Sign', 'Verify']]
@@ -951,16 +930,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### constraints
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConstraintsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConstraintsUnion]
 
 
-# KmsGrantConfigurationUnionTypeDef
+# KmsGrantConfigurationOutput
+
+### operations
+- **Type**: typing.List[typing.Literal['CreateGrant', 'Decrypt', 'DescribeKey', 'Encrypt', 'GenerateDataKey', 'GenerateDataKeyPair', 'GenerateDataKeyPairWithoutPlaintext', 'GenerateDataKeyWithoutPlaintext', 'GetPublicKey', 'ReEncryptFrom', 'ReEncryptTo', 'RetireGrant', 'Sign', 'Verify']]
+- **Required**: Yes
+
+### granteePrincipal
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### issuingAccount
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### retiringPrincipal
+- **Type**: typing.Optional[str]
+
+### constraints
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConstraintsOutput]
+
+
+# KmsGrantConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KmsGrantConstraintsOutputTypeDef
+# KmsGrantConstraints
+
+### encryptionContextEquals
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### encryptionContextSubset
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+
+# KmsGrantConstraintsOutput
 
 ### encryptionContextEquals
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -969,70 +978,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# KmsGrantConstraintsTypeDef
-
-### encryptionContextEquals
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### encryptionContextSubset
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-
-# KmsGrantConstraintsUnionTypeDef
+# KmsGrantConstraintsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KmsKeyConfigurationOutputTypeDef
+# KmsKeyConfiguration
+
+### keyPolicies
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### grants
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConfigurationUnion]]
+
+
+# KmsKeyConfigurationOutput
 
 ### keyPolicies
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### grants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConfigurationOutput]]
 
 
-# KmsKeyConfigurationTypeDef
-
-### keyPolicies
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### grants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.KmsGrantConfigurationUnionTypeDef]]
-
-
-# KmsKeyConfigurationUnionTypeDef
+# KmsKeyConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAccessPreviewFindingsResponseTypeDef
+# ListAccessPreviewFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreviewFindingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreviewFinding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAccessPreviewsRequestPaginateTypeDef
-
-### analyzerArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfigTypeDef]
-
-
-# ListAccessPreviewsRequestTypeDef
+# ListAccessPreviewsRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -1045,34 +1035,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAccessPreviewsResponseTypeDef
+# ListAccessPreviewsRequestPaginate
+
+### analyzerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfig]
+
+
+# ListAccessPreviewsResponse
 
 ### accessPreviews
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreviewSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AccessPreviewSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnalyzedResourcesRequestPaginateTypeDef
-
-### analyzerArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### resourceType
-- **Type**: typing.Optional[typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfigTypeDef]
-
-
-# ListAnalyzedResourcesRequestTypeDef
+# ListAnalyzedResourcesRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -1088,45 +1075,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAnalyzedResourcesResponseTypeDef
+# ListAnalyzedResourcesRequestPaginate
+
+### analyzerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### resourceType
+- **Type**: typing.Optional[typing.Literal['AWS::DynamoDB::Stream', 'AWS::DynamoDB::Table', 'AWS::EC2::Snapshot', 'AWS::ECR::Repository', 'AWS::EFS::FileSystem', 'AWS::IAM::Role', 'AWS::IAM::User', 'AWS::KMS::Key', 'AWS::Lambda::Function', 'AWS::Lambda::LayerVersion', 'AWS::RDS::DBClusterSnapshot', 'AWS::RDS::DBSnapshot', 'AWS::S3::Bucket', 'AWS::S3Express::DirectoryBucket', 'AWS::SNS::Topic', 'AWS::SQS::Queue', 'AWS::SecretsManager::Secret']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfig]
+
+
+# ListAnalyzedResourcesResponse
 
 ### analyzedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzedResourceSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzedResourceSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListAnalyzersResponseTypeDef
+# ListAnalyzersResponse
 
 ### analyzers
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListArchiveRulesRequestPaginateTypeDef
-
-### analyzerName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfigTypeDef]
-
-
-# ListArchiveRulesRequestTypeDef
+# ListArchiveRulesRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
@@ -1139,58 +1129,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListArchiveRulesResponseTypeDef
+# ListArchiveRulesRequestPaginate
+
+### analyzerName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfig]
+
+
+# ListArchiveRulesResponse
 
 ### archiveRules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ArchiveRuleSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ArchiveRuleSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFindingsResponseTypeDef
+# ListFindingsResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFindingsV2ResponseTypeDef
+# ListFindingsV2Response
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSummaryV2TypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingSummaryV2]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListPolicyGenerationsRequestPaginateTypeDef
-
-### principalArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfigTypeDef]
-
-
-# ListPolicyGenerationsRequestTypeDef
+# ListPolicyGenerationsRequest
 
 ### principalArn
 - **Type**: typing.Optional[str]
@@ -1202,74 +1193,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPolicyGenerationsResponseTypeDef
+# ListPolicyGenerationsRequestPaginate
+
+### principalArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfig]
+
+
+# ListPolicyGenerationsResponse
 
 ### policyGenerations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.PolicyGenerationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.PolicyGeneration]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LocationTypeDef
+# Location
 
 ### path
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.PathElementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.PathElement]
 - **Required**: Yes
 
 ### span
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.SpanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.Span'>
 - **Required**: Yes
 
 
-# NetworkOriginConfigurationOutputTypeDef
+# NetworkOriginConfiguration
 
 ### vpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.VpcConfigurationTypeDef]
-
-### internetConfiguration
-- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
-
-
-# NetworkOriginConfigurationTypeDef
-
-### vpcConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.VpcConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.VpcConfiguration]
 
 ### internetConfiguration
 - **Type**: typing.Optional[typing.Mapping[str, typing.Any]]
 
 
-# NetworkOriginConfigurationUnionTypeDef
+# NetworkOriginConfigurationOutput
+
+### vpcConfiguration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.VpcConfiguration]
+
+### internetConfiguration
+- **Type**: typing.Optional[typing.Dict[str, typing.Any]]
+
+
+# NetworkOriginConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1281,7 +1281,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PathElementTypeDef
+# PathElement
 
 ### index
 - **Type**: typing.Optional[int]
@@ -1290,20 +1290,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### substring
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.SubstringTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.Substring]
 
 ### value
 - **Type**: typing.Optional[str]
 
 
-# PolicyGenerationDetailsTypeDef
-
-### principalArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# PolicyGenerationTypeDef
+# PolicyGeneration
 
 ### jobId
 - **Type**: <class 'str'>
@@ -1325,7 +1318,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# PositionTypeDef
+# PolicyGenerationDetails
+
+### principalArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# Position
 
 ### line
 - **Type**: <class 'int'>
@@ -1340,91 +1340,91 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RdsDbClusterSnapshotAttributeValueOutputTypeDef
-
-### accountIds
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# RdsDbClusterSnapshotAttributeValueTypeDef
+# RdsDbClusterSnapshotAttributeValue
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RdsDbClusterSnapshotAttributeValueUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RdsDbClusterSnapshotConfigurationOutputTypeDef
-
-### attributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotAttributeValueOutputTypeDef]]
-
-### kmsKeyId
-- **Type**: typing.Optional[str]
-
-
-# RdsDbClusterSnapshotConfigurationTypeDef
-
-### attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotAttributeValueUnionTypeDef]]
-
-### kmsKeyId
-- **Type**: typing.Optional[str]
-
-
-# RdsDbClusterSnapshotConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# RdsDbSnapshotAttributeValueOutputTypeDef
+# RdsDbClusterSnapshotAttributeValueOutput
 
 ### accountIds
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# RdsDbSnapshotAttributeValueTypeDef
+# RdsDbClusterSnapshotAttributeValueUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RdsDbClusterSnapshotConfiguration
+
+### attributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotAttributeValueUnion]]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# RdsDbClusterSnapshotConfigurationOutput
+
+### attributes
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbClusterSnapshotAttributeValueOutput]]
+
+### kmsKeyId
+- **Type**: typing.Optional[str]
+
+
+# RdsDbClusterSnapshotConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# RdsDbSnapshotAttributeValue
 
 ### accountIds
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RdsDbSnapshotAttributeValueUnionTypeDef
+# RdsDbSnapshotAttributeValueOutput
+
+### accountIds
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# RdsDbSnapshotAttributeValueUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RdsDbSnapshotConfigurationOutputTypeDef
+# RdsDbSnapshotConfiguration
 
 ### attributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotAttributeValueOutputTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotAttributeValueUnion]]
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# RdsDbSnapshotConfigurationTypeDef
+# RdsDbSnapshotConfigurationOutput
 
 ### attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotAttributeValueUnionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.RdsDbSnapshotAttributeValueOutput]]
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
 
 
-# RdsDbSnapshotConfigurationUnionTypeDef
+# RdsDbSnapshotConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ReasonSummaryTypeDef
+# ReasonSummary
 
 ### description
 - **Type**: typing.Optional[str]
@@ -1436,7 +1436,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecommendationErrorTypeDef
+# RecommendationError
 
 ### code
 - **Type**: <class 'str'>
@@ -1447,13 +1447,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecommendedStepTypeDef
+# RecommendedStep
 
 ### unusedPermissionsRecommendedStep
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedPermissionsRecommendedStepTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedPermissionsRecommendedStep]
 
 
-# ResourceTypeDetailsTypeDef
+# ResourceTypeDetails
 
 ### totalActivePublic
 - **Type**: typing.Optional[int]
@@ -1462,7 +1462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1484,90 +1484,90 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# S3AccessPointConfigurationOutputTypeDef
+# S3AccessPointConfiguration
 
 ### accessPointPolicy
 - **Type**: typing.Optional[str]
 
 ### publicAccessBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfiguration]
 
 ### networkOrigin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.NetworkOriginConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.NetworkOriginConfigurationUnion]
 
 
-# S3AccessPointConfigurationTypeDef
+# S3AccessPointConfigurationOutput
 
 ### accessPointPolicy
 - **Type**: typing.Optional[str]
 
 ### publicAccessBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfiguration]
 
 ### networkOrigin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.NetworkOriginConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.NetworkOriginConfigurationOutput]
 
 
-# S3AccessPointConfigurationUnionTypeDef
+# S3AccessPointConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# S3BucketAclGrantConfigurationTypeDef
+# S3BucketAclGrantConfiguration
 
 ### permission
 - **Type**: typing.Literal['FULL_CONTROL', 'READ', 'READ_ACP', 'WRITE', 'WRITE_ACP']
 - **Required**: Yes
 
 ### grantee
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AclGranteeTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AclGrantee'>
 - **Required**: Yes
 
 
-# S3BucketConfigurationOutputTypeDef
+# S3BucketConfiguration
 
 ### bucketPolicy
 - **Type**: typing.Optional[str]
 
 ### bucketAclGrants
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketAclGrantConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketAclGrantConfiguration]]
 
 ### bucketPublicAccessBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfiguration]
 
 ### accessPoints
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.S3AccessPointConfigurationOutputTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.S3AccessPointConfigurationUnion]]
 
 
-# S3BucketConfigurationTypeDef
+# S3BucketConfigurationOutput
 
 ### bucketPolicy
 - **Type**: typing.Optional[str]
 
 ### bucketAclGrants
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketAclGrantConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3BucketAclGrantConfiguration]]
 
 ### bucketPublicAccessBlock
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.S3PublicAccessBlockConfiguration]
 
 ### accessPoints
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.S3AccessPointConfigurationUnionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.accessanalyzer_classes.S3AccessPointConfigurationOutput]]
 
 
-# S3BucketConfigurationUnionTypeDef
+# S3BucketConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# S3ExpressDirectoryBucketConfigurationTypeDef
+# S3ExpressDirectoryBucketConfiguration
 
 ### bucketPolicy
 - **Type**: typing.Optional[str]
 
 
-# S3PublicAccessBlockConfigurationTypeDef
+# S3PublicAccessBlockConfiguration
 
 ### ignorePublicAcls
 - **Type**: <class 'bool'>
@@ -1578,7 +1578,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SecretsManagerSecretConfigurationTypeDef
+# SecretsManagerSecretConfiguration
 
 ### kmsKeyId
 - **Type**: typing.Optional[str]
@@ -1587,13 +1587,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SnsTopicConfigurationTypeDef
+# SnsTopicConfiguration
 
 ### topicPolicy
 - **Type**: typing.Optional[str]
 
 
-# SortCriteriaTypeDef
+# SortCriteria
 
 ### attributeName
 - **Type**: typing.Optional[str]
@@ -1602,48 +1602,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ASC', 'DESC']]
 
 
-# SpanTypeDef
+# Span
 
 ### start
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.PositionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.Position'>
 - **Required**: Yes
 
 ### end
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.PositionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.Position'>
 - **Required**: Yes
 
 
-# SqsQueueConfigurationTypeDef
+# SqsQueueConfiguration
 
 ### queuePolicy
 - **Type**: typing.Optional[str]
 
 
-# StartPolicyGenerationRequestTypeDef
+# StartPolicyGenerationRequest
 
 ### policyGenerationDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.PolicyGenerationDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.PolicyGenerationDetails'>
 - **Required**: Yes
 
 ### cloudTrailDetails
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.CloudTrailDetailsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.CloudTrailDetails]
 
 ### clientToken
 - **Type**: typing.Optional[str]
 
 
-# StartPolicyGenerationResponseTypeDef
+# StartPolicyGenerationResponse
 
 ### jobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartResourceScanRequestTypeDef
+# StartResourceScanRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -1657,14 +1657,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StatusReasonTypeDef
+# StatusReason
 
 ### code
 - **Type**: typing.Literal['AWS_SERVICE_ACCESS_DISABLED', 'DELEGATED_ADMINISTRATOR_DEREGISTERED', 'ORGANIZATION_DELETED', 'SERVICE_LINKED_ROLE_CREATION_FAILED']
 - **Required**: Yes
 
 
-# SubstringTypeDef
+# Substring
 
 ### start
 - **Type**: <class 'int'>
@@ -1675,7 +1675,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1686,26 +1686,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrailPropertiesTypeDef
-
-### cloudTrailArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### regions
-- **Type**: typing.Optional[typing.List[str]]
-
-### allRegions
-- **Type**: typing.Optional[bool]
-
-
-# TrailTypeDef
+# Trail
 
 ### cloudTrailArn
 - **Type**: <class 'str'>
@@ -1718,7 +1705,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UntagResourceRequestTypeDef
+# TrailProperties
+
+### cloudTrailArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### regions
+- **Type**: typing.Optional[typing.List[str]]
+
+### allRegions
+- **Type**: typing.Optional[bool]
+
+
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -1729,31 +1729,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UnusedAccessConfigurationOutputTypeDef
+# UnusedAccessConfiguration
 
 ### unusedAccessAge
 - **Type**: typing.Optional[int]
 
 ### analysisRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRule]
 
 
-# UnusedAccessConfigurationTypeDef
+# UnusedAccessConfigurationOutput
 
 ### unusedAccessAge
 - **Type**: typing.Optional[int]
 
 ### analysisRule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalysisRuleOutput]
 
 
-# UnusedAccessFindingsStatisticsTypeDef
+# UnusedAccessFindingsStatistics
 
 ### unusedAccessTypeStatistics
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessTypeStatisticsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAccessTypeStatistics]]
 
 ### topAccounts
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingAggregationAccountDetailsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.FindingAggregationAccountDetails]]
 
 ### totalActiveFindings
 - **Type**: typing.Optional[int]
@@ -1765,7 +1765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UnusedAccessTypeStatisticsTypeDef
+# UnusedAccessTypeStatistics
 
 ### unusedAccessType
 - **Type**: typing.Optional[str]
@@ -1774,7 +1774,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UnusedActionTypeDef
+# UnusedAction
 
 ### action
 - **Type**: <class 'str'>
@@ -1784,13 +1784,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UnusedIamRoleDetailsTypeDef
+# UnusedIamRoleDetails
 
 ### lastAccessed
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UnusedIamUserAccessKeyDetailsTypeDef
+# UnusedIamUserAccessKeyDetails
 
 ### accessKeyId
 - **Type**: <class 'str'>
@@ -1800,26 +1800,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UnusedIamUserPasswordDetailsTypeDef
+# UnusedIamUserPasswordDetails
 
 ### lastAccessed
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UnusedPermissionDetailsTypeDef
+# UnusedPermissionDetails
 
 ### serviceNamespace
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### actions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.UnusedAction]]
 
 ### lastAccessed
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# UnusedPermissionsRecommendedStepTypeDef
+# UnusedPermissionsRecommendedStep
 
 ### recommendedAction
 - **Type**: typing.Literal['CREATE_POLICY', 'DETACH_POLICY']
@@ -1835,28 +1835,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAnalyzerRequestTypeDef
+# UpdateAnalyzerRequest
 
 ### analyzerName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerConfigurationUnion]
 
 
-# UpdateAnalyzerResponseTypeDef
+# UpdateAnalyzerResponse
 
 ### configuration
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerConfigurationOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.AnalyzerConfigurationOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFindingsRequestTypeDef
+# UpdateFindingsRequest
 
 ### analyzerArn
 - **Type**: <class 'str'>
@@ -1876,7 +1876,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ValidatePolicyFindingTypeDef
+# ValidatePolicyFinding
 
 ### findingDetails
 - **Type**: <class 'str'>
@@ -1895,31 +1895,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### locations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.LocationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.Location]
 - **Required**: Yes
 
 
-# ValidatePolicyRequestPaginateTypeDef
-
-### policyDocument
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### policyType
-- **Type**: typing.Literal['IDENTITY_POLICY', 'RESOURCE_CONTROL_POLICY', 'RESOURCE_POLICY', 'SERVICE_CONTROL_POLICY']
-- **Required**: Yes
-
-### locale
-- **Type**: typing.Optional[typing.Literal['DE', 'EN', 'ES', 'FR', 'IT', 'JA', 'KO', 'PT_BR', 'ZH_CN', 'ZH_TW']]
-
-### validatePolicyResourceType
-- **Type**: typing.Optional[typing.Literal['AWS::DynamoDB::Table', 'AWS::IAM::AssumeRolePolicyDocument', 'AWS::S3::AccessPoint', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3ObjectLambda::AccessPoint']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfigTypeDef]
-
-
-# ValidatePolicyRequestTypeDef
+# ValidatePolicyRequest
 
 ### policyDocument
 - **Type**: <class 'str'>
@@ -1942,21 +1922,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AWS::DynamoDB::Table', 'AWS::IAM::AssumeRolePolicyDocument', 'AWS::S3::AccessPoint', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3ObjectLambda::AccessPoint']]
 
 
-# ValidatePolicyResponseTypeDef
+# ValidatePolicyRequestPaginate
+
+### policyDocument
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### policyType
+- **Type**: typing.Literal['IDENTITY_POLICY', 'RESOURCE_CONTROL_POLICY', 'RESOURCE_POLICY', 'SERVICE_CONTROL_POLICY']
+- **Required**: Yes
+
+### locale
+- **Type**: typing.Optional[typing.Literal['DE', 'EN', 'ES', 'FR', 'IT', 'JA', 'KO', 'PT_BR', 'ZH_CN', 'ZH_TW']]
+
+### validatePolicyResourceType
+- **Type**: typing.Optional[typing.Literal['AWS::DynamoDB::Table', 'AWS::IAM::AssumeRolePolicyDocument', 'AWS::S3::AccessPoint', 'AWS::S3::Bucket', 'AWS::S3::MultiRegionAccessPoint', 'AWS::S3ObjectLambda::AccessPoint']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.accessanalyzer_classes.PaginatorConfig]
+
+
+# ValidatePolicyResponse
 
 ### findings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ValidatePolicyFindingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.accessanalyzer_classes.ValidatePolicyFinding]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.accessanalyzer_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# VpcConfigurationTypeDef
+# VpcConfiguration
 
 ### vpcId
 - **Type**: <class 'str'>

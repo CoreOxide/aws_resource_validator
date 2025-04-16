@@ -1,6 +1,6 @@
 # Elastictranscoder Classes
 
-# ArtworkTypeDef
+# Artwork
 
 ### InputKey
 - **Type**: typing.Optional[str]
@@ -21,10 +21,10 @@
 - **Type**: typing.Optional[str]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# AudioCodecOptionsTypeDef
+# AudioCodecOptions
 
 ### Profile
 - **Type**: typing.Optional[str]
@@ -39,7 +39,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AudioParametersTypeDef
+# AudioParameters
 
 ### Codec
 - **Type**: typing.Optional[str]
@@ -57,7 +57,7 @@
 - **Type**: typing.Optional[str]
 
 ### CodecOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.AudioCodecOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.AudioCodecOptions]
 
 
 # BaseValidatorModel
@@ -66,20 +66,20 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CancelJobRequestTypeDef
+# CancelJobRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# CaptionFormatTypeDef
+# CaptionFormat
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CaptionSourceTypeDef
+# CaptionSource
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -94,46 +94,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CaptionsOutputTypeDef
-
-### MergePolicy
-- **Type**: typing.Optional[str]
-
-### CaptionSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSourceTypeDef]]
-
-### CaptionFormats
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionFormatTypeDef]]
-
-
-# CaptionsTypeDef
+# Captions
 
 ### MergePolicy
 - **Type**: typing.Optional[str]
 
 ### CaptionSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSource]]
 
 ### CaptionFormats
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionFormatTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionFormat]]
 
 
-# CaptionsUnionTypeDef
+# CaptionsOutput
+
+### MergePolicy
+- **Type**: typing.Optional[str]
+
+### CaptionSources
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSource]]
+
+### CaptionFormats
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionFormat]]
+
+
+# CaptionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ClipTypeDef
+# Clip
 
 ### TimeSpan
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.TimeSpanTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateJobOutputTypeDef
+# CreateJobOutput
 
 ### Key
 - **Type**: typing.Optional[str]
@@ -142,7 +142,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ThumbnailEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.Encryption]
 
 ### Rotate
 - **Type**: typing.Optional[str]
@@ -154,22 +154,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Watermarks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobWatermarkTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobWatermark]]
 
 ### AlbumArt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobAlbumArtUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobAlbumArtUnion]
 
 ### Composition
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.ClipTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.Clip]]
 
 ### Captions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionsUnion]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateJobPlaylistTypeDef
+# CreateJobPlaylist
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -181,52 +181,52 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### HlsContentProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.HlsContentProtectionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PlayReadyDrm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PlayReadyDrmTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateJobRequestTypeDef
+# CreateJobRequest
 
 ### PipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputUnion]
 
 ### Inputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputUnion]]
 
 ### Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobOutput]
 
 ### Outputs
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobOutput]]
 
 ### OutputKeyPrefix
 - **Type**: typing.Optional[str]
 
 ### Playlists
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobPlaylistTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CreateJobPlaylist]]
 
 ### UserMetadata
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateJobResponseTypeDef
+# CreateJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.JobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePipelineRequestTypeDef
+# CreatePipelineRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -247,45 +247,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.NotificationsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnion]
 
 ### ThumbnailConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnion]
 
 
-# CreatePipelineResponseTypeDef
+# CreatePipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline'>
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Warning]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePipelineRequestTypeDef
+# DeletePipelineRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeletePresetRequestTypeDef
+# DeletePresetRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DetectedPropertiesTypeDef
+# DetectedProperties
 
 ### Width
 - **Type**: typing.Optional[int]
@@ -303,7 +303,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EncryptionTypeDef
+# Encryption
 
 ### Mode
 - **Type**: typing.Optional[str]
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# HlsContentProtectionTypeDef
+# HlsContentProtection
 
 ### Method
 - **Type**: typing.Optional[str]
@@ -339,61 +339,100 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InputCaptionsOutputTypeDef
+# InputCaptions
 
 ### MergePolicy
 - **Type**: typing.Optional[str]
 
 ### CaptionSources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSource]]
 
 
-# InputCaptionsTypeDef
+# InputCaptionsOutput
 
 ### MergePolicy
 - **Type**: typing.Optional[str]
 
 ### CaptionSources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionSource]]
 
 
-# JobAlbumArtOutputTypeDef
+# Job
+
+### Id
+- **Type**: typing.Optional[str]
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### PipelineId
+- **Type**: typing.Optional[str]
+
+### Input
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputOutput]
+
+### Inputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputOutput]]
+
+### Output
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobOutput]
+
+### Outputs
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobOutput]]
+
+### OutputKeyPrefix
+- **Type**: typing.Optional[str]
+
+### Playlists
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Playlist]]
+
+### Status
+- **Type**: typing.Optional[str]
+
+### UserMetadata
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Timing
+- **Type**: <class 'NoneType'>
+
+
+# JobAlbumArt
 
 ### MergePolicy
 - **Type**: typing.Optional[str]
 
 ### Artwork
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.ArtworkTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[NoneType]]
 
 
-# JobAlbumArtTypeDef
+# JobAlbumArtOutput
 
 ### MergePolicy
 - **Type**: typing.Optional[str]
 
 ### Artwork
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.ArtworkTypeDef]]
+- **Type**: typing.Optional[typing.List[NoneType]]
 
 
-# JobAlbumArtUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# JobInputOutputTypeDef
+# JobAlbumArtUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobInputUnionTypeDef
+# JobInputOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JobOutputTypeDef
+# JobInputUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# JobOutput
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -405,7 +444,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ThumbnailEncryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.Encryption]
 
 ### Rotate
 - **Type**: typing.Optional[str]
@@ -441,64 +480,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Watermarks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobWatermarkTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobWatermark]]
 
 ### AlbumArt
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobAlbumArtOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobAlbumArtOutput]
 
 ### Composition
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.ClipTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Clip]]
 
 ### Captions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.CaptionsOutput]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AppliedColorSpaceConversion
 - **Type**: typing.Optional[str]
 
 
-# JobTypeDef
-
-### Id
-- **Type**: typing.Optional[str]
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### PipelineId
-- **Type**: typing.Optional[str]
-
-### Input
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputOutputTypeDef]
-
-### Inputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobInputOutputTypeDef]]
-
-### Output
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobOutputTypeDef]
-
-### Outputs
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobOutputTypeDef]]
-
-### OutputKeyPrefix
-- **Type**: typing.Optional[str]
-
-### Playlists
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PlaylistTypeDef]]
-
-### Status
-- **Type**: typing.Optional[str]
-
-### UserMetadata
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### Timing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.TimingTypeDef]
-
-
-# JobWatermarkTypeDef
+# JobWatermark
 
 ### PresetWatermarkId
 - **Type**: typing.Optional[str]
@@ -507,23 +507,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Encryption
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.EncryptionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ListJobsByPipelineRequestPaginateTypeDef
-
-### PipelineId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Ascending
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfigTypeDef]
-
-
-# ListJobsByPipelineRequestTypeDef
+# ListJobsByPipelineRequest
 
 ### PipelineId
 - **Type**: <class 'str'>
@@ -536,24 +523,9 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsByPipelineResponseTypeDef
+# ListJobsByPipelineRequestPaginate
 
-### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobTypeDef]
-- **Required**: Yes
-
-### NextPageToken
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# ListJobsByStatusRequestPaginateTypeDef
-
-### Status
+### PipelineId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
@@ -561,10 +533,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfig]
 
 
-# ListJobsByStatusRequestTypeDef
+# ListJobsByPipelineResponse
+
+### Jobs
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Job]
+- **Required**: Yes
+
+### NextPageToken
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# ListJobsByStatusRequest
 
 ### Status
 - **Type**: <class 'str'>
@@ -577,10 +564,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJobsByStatusResponseTypeDef
+# ListJobsByStatusRequestPaginate
+
+### Status
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Ascending
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfig]
+
+
+# ListJobsByStatusResponse
 
 ### Jobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.JobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Job]
 - **Required**: Yes
 
 ### NextPageToken
@@ -588,20 +588,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPipelinesRequestPaginateTypeDef
-
-### Ascending
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfigTypeDef]
-
-
-# ListPipelinesRequestTypeDef
+# ListPipelinesRequest
 
 ### Ascending
 - **Type**: typing.Optional[str]
@@ -610,10 +601,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPipelinesResponseTypeDef
+# ListPipelinesRequestPaginate
+
+### Ascending
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfig]
+
+
+# ListPipelinesResponse
 
 ### Pipelines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline]
 - **Required**: Yes
 
 ### NextPageToken
@@ -621,20 +621,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPresetsRequestPaginateTypeDef
-
-### Ascending
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfigTypeDef]
-
-
-# ListPresetsRequestTypeDef
+# ListPresetsRequest
 
 ### Ascending
 - **Type**: typing.Optional[str]
@@ -643,10 +634,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPresetsResponseTypeDef
+# ListPresetsRequestPaginate
+
+### Ascending
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PaginatorConfig]
+
+
+# ListPresetsResponse
 
 ### Presets
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Preset]
 - **Required**: Yes
 
 ### NextPageToken
@@ -654,17 +654,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# NotificationsTypeDef
+# Notifications
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -676,19 +676,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PermissionOutputTypeDef
-
-### GranteeType
-- **Type**: typing.Optional[str]
-
-### Grantee
-- **Type**: typing.Optional[str]
-
-### Access
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# PermissionTypeDef
+# Permission
 
 ### GranteeType
 - **Type**: typing.Optional[str]
@@ -700,37 +688,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PipelineOutputConfigOutputTypeDef
+# PermissionOutput
 
-### Bucket
+### GranteeType
 - **Type**: typing.Optional[str]
 
-### StorageClass
+### Grantee
 - **Type**: typing.Optional[str]
 
-### Permissions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PermissionOutputTypeDef]]
+### Access
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# PipelineOutputConfigTypeDef
-
-### Bucket
-- **Type**: typing.Optional[str]
-
-### StorageClass
-- **Type**: typing.Optional[str]
-
-### Permissions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.PermissionTypeDef]]
-
-
-# PipelineOutputConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# PipelineTypeDef
+# Pipeline
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -757,16 +727,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.NotificationsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigOutput]
 
 ### ThumbnailConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigOutput]
 
 
-# PlayReadyDrmTypeDef
+# PipelineOutputConfig
+
+### Bucket
+- **Type**: typing.Optional[str]
+
+### StorageClass
+- **Type**: typing.Optional[str]
+
+### Permissions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.Permission]]
+
+
+# PipelineOutputConfigOutput
+
+### Bucket
+- **Type**: typing.Optional[str]
+
+### StorageClass
+- **Type**: typing.Optional[str]
+
+### Permissions
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PermissionOutput]]
+
+
+# PipelineOutputConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PlayReadyDrm
 
 ### Format
 - **Type**: typing.Optional[str]
@@ -787,7 +787,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PlaylistTypeDef
+# Playlist
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -799,10 +799,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### HlsContentProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.HlsContentProtectionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### PlayReadyDrm
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PlayReadyDrmTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Status
 - **Type**: typing.Optional[str]
@@ -811,13 +811,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PresetTypeDef
+# Preset
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PresetWatermarkTypeDef
+# PresetWatermark
 
 ### Id
 - **Type**: typing.Optional[str]
@@ -850,75 +850,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ReadJobRequestTypeDef
+# ReadJobRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReadJobRequestWaitTypeDef
+# ReadJobRequestWait
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ReadJobResponseTypeDef
+# ReadJobResponse
 
 ### Job
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.JobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Job'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReadPipelineRequestTypeDef
+# ReadPipelineRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReadPipelineResponseTypeDef
+# ReadPipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline'>
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Warning]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ReadPresetRequestTypeDef
+# ReadPresetRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ReadPresetResponseTypeDef
+# ReadPresetResponse
 
 ### Preset
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Preset'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -940,7 +940,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TestRoleRequestTypeDef
+# TestRoleRequest
 
 ### Role
 - **Type**: <class 'str'>
@@ -959,7 +959,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TestRoleResponseTypeDef
+# TestRoleResponse
 
 ### Success
 - **Type**: <class 'str'>
@@ -970,11 +970,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ThumbnailsTypeDef
+# Thumbnails
 
 ### Format
 - **Type**: typing.Optional[str]
@@ -1001,7 +1001,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimeSpanTypeDef
+# TimeSpan
 
 ### StartTime
 - **Type**: typing.Optional[str]
@@ -1010,7 +1010,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TimingTypeDef
+# Timing
 
 ### SubmitTimeMillis
 - **Type**: typing.Optional[int]
@@ -1022,29 +1022,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdatePipelineNotificationsRequestTypeDef
+# UpdatePipelineNotificationsRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Notifications
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.NotificationsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Notifications'>
 - **Required**: Yes
 
 
-# UpdatePipelineNotificationsResponseTypeDef
+# UpdatePipelineNotificationsResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePipelineRequestTypeDef
+# UpdatePipelineRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1063,31 +1063,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Notifications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.NotificationsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ContentConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnion]
 
 ### ThumbnailConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineOutputConfigUnion]
 
 
-# UpdatePipelineResponseTypeDef
+# UpdatePipelineResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline'>
 - **Required**: Yes
 
 ### Warnings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.WarningTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.Warning]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePipelineStatusRequestTypeDef
+# UpdatePipelineStatusRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1098,66 +1098,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdatePipelineStatusResponseTypeDef
+# UpdatePipelineStatusResponse
 
 ### Pipeline
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.PipelineTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.Pipeline'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.elastictranscoder_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VideoParametersOutputTypeDef
-
-### Codec
-- **Type**: typing.Optional[str]
-
-### CodecOptions
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### KeyframesMaxDist
-- **Type**: typing.Optional[str]
-
-### FixedGOP
-- **Type**: typing.Optional[str]
-
-### BitRate
-- **Type**: typing.Optional[str]
-
-### FrameRate
-- **Type**: typing.Optional[str]
-
-### MaxFrameRate
-- **Type**: typing.Optional[str]
-
-### Resolution
-- **Type**: typing.Optional[str]
-
-### AspectRatio
-- **Type**: typing.Optional[str]
-
-### MaxWidth
-- **Type**: typing.Optional[str]
-
-### MaxHeight
-- **Type**: typing.Optional[str]
-
-### DisplayAspectRatio
-- **Type**: typing.Optional[str]
-
-### SizingPolicy
-- **Type**: typing.Optional[str]
-
-### PaddingPolicy
-- **Type**: typing.Optional[str]
-
-### Watermarks
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetWatermarkTypeDef]]
-
-
-# VideoParametersTypeDef
+# VideoParameters
 
 ### Codec
 - **Type**: typing.Optional[str]
@@ -1202,10 +1154,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Watermarks
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetWatermarkTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetWatermark]]
 
 
-# WaiterConfigTypeDef
+# VideoParametersOutput
+
+### Codec
+- **Type**: typing.Optional[str]
+
+### CodecOptions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### KeyframesMaxDist
+- **Type**: typing.Optional[str]
+
+### FixedGOP
+- **Type**: typing.Optional[str]
+
+### BitRate
+- **Type**: typing.Optional[str]
+
+### FrameRate
+- **Type**: typing.Optional[str]
+
+### MaxFrameRate
+- **Type**: typing.Optional[str]
+
+### Resolution
+- **Type**: typing.Optional[str]
+
+### AspectRatio
+- **Type**: typing.Optional[str]
+
+### MaxWidth
+- **Type**: typing.Optional[str]
+
+### MaxHeight
+- **Type**: typing.Optional[str]
+
+### DisplayAspectRatio
+- **Type**: typing.Optional[str]
+
+### SizingPolicy
+- **Type**: typing.Optional[str]
+
+### PaddingPolicy
+- **Type**: typing.Optional[str]
+
+### Watermarks
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.elastictranscoder_classes.PresetWatermark]]
+
+
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]
@@ -1214,7 +1214,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WarningTypeDef
+# Warning
 
 ### Code
 - **Type**: typing.Optional[str]

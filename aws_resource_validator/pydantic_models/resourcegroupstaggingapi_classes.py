@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.resourcegroupstaggingapi_constants import *
 
-class ComplianceDetailsTypeDef(BaseValidatorModel):
+class ComplianceDetails(BaseValidatorModel):
     NoncompliantKeys: Optional[List[str]] = None
     KeysWithNoncompliantValues: Optional[List[str]] = None
     ComplianceStatus: Optional[bool] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,19 +26,19 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class FailureInfoTypeDef(BaseValidatorModel):
+class FailureInfo(BaseValidatorModel):
     StatusCode: Optional[int] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetComplianceSummaryInputTypeDef(BaseValidatorModel):
+class GetComplianceSummaryInput(BaseValidatorModel):
     TargetIdFilters: Optional[Sequence[str]] = None
     RegionFilters: Optional[Sequence[str]] = None
     ResourceTypeFilters: Optional[Sequence[str]] = None
@@ -48,7 +48,7 @@ class GetComplianceSummaryInputTypeDef(BaseValidatorModel):
     PaginationToken: Optional[str] = None
 
 
-class SummaryTypeDef(BaseValidatorModel):
+class Summary(BaseValidatorModel):
     LastUpdated: Optional[str] = None
     TargetId: Optional[str] = None
     TargetIdType: Optional[TargetIdTypeType] = None
@@ -57,105 +57,105 @@ class SummaryTypeDef(BaseValidatorModel):
     NonCompliantResources: Optional[int] = None
 
 
-class TagFilterTypeDef(BaseValidatorModel):
+class TagFilter(BaseValidatorModel):
     Key: Optional[str] = None
     Values: Optional[Sequence[str]] = None
 
 
-class GetTagKeysInputTypeDef(BaseValidatorModel):
+class GetTagKeysInput(BaseValidatorModel):
     PaginationToken: Optional[str] = None
 
 
-class GetTagValuesInputTypeDef(BaseValidatorModel):
+class GetTagValuesInput(BaseValidatorModel):
     Key: str
     PaginationToken: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class StartReportCreationInputTypeDef(BaseValidatorModel):
+class StartReportCreationInput(BaseValidatorModel):
     S3Bucket: str
 
 
-class TagResourcesInputTypeDef(BaseValidatorModel):
+class TagResourcesInput(BaseValidatorModel):
     ResourceARNList: Sequence[str]
     Tags: Mapping[str, str]
 
 
-class UntagResourcesInputTypeDef(BaseValidatorModel):
+class UntagResourcesInput(BaseValidatorModel):
     ResourceARNList: Sequence[str]
     TagKeys: Sequence[str]
 
 
-class DescribeReportCreationOutputTypeDef(BaseValidatorModel):
+class DescribeReportCreationOutput(BaseValidatorModel):
     Status: str
     S3Location: str
     ErrorMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTagKeysOutputTypeDef(BaseValidatorModel):
+class GetTagKeysOutput(BaseValidatorModel):
     PaginationToken: str
     TagKeys: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetTagValuesOutputTypeDef(BaseValidatorModel):
+class GetTagValuesOutput(BaseValidatorModel):
     PaginationToken: str
     TagValues: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourcesOutputTypeDef(BaseValidatorModel):
-    FailedResourcesMap: Dict[str, FailureInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class TagResourcesOutput(BaseValidatorModel):
+    FailedResourcesMap: Dict[str, FailureInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class UntagResourcesOutputTypeDef(BaseValidatorModel):
-    FailedResourcesMap: Dict[str, FailureInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UntagResourcesOutput(BaseValidatorModel):
+    FailedResourcesMap: Dict[str, FailureInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetComplianceSummaryInputPaginateTypeDef(BaseValidatorModel):
+class GetComplianceSummaryInputPaginate(BaseValidatorModel):
     TargetIdFilters: Optional[Sequence[str]] = None
     RegionFilters: Optional[Sequence[str]] = None
     ResourceTypeFilters: Optional[Sequence[str]] = None
     TagKeyFilters: Optional[Sequence[str]] = None
     GroupBy: Optional[Sequence[GroupByAttributeType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetTagKeysInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class GetTagKeysInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetTagValuesInputPaginateTypeDef(BaseValidatorModel):
+class GetTagValuesInputPaginate(BaseValidatorModel):
     Key: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetComplianceSummaryOutputTypeDef(BaseValidatorModel):
-    SummaryList: List[SummaryTypeDef]
+class GetComplianceSummaryOutput(BaseValidatorModel):
+    SummaryList: List[Summary]
     PaginationToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcesInputPaginateTypeDef(BaseValidatorModel):
-    TagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+class GetResourcesInputPaginate(BaseValidatorModel):
+    TagFilters: Optional[Sequence[TagFilter]] = None
     TagsPerPage: Optional[int] = None
     ResourceTypeFilters: Optional[Sequence[str]] = None
     IncludeComplianceDetails: Optional[bool] = None
     ExcludeCompliantResources: Optional[bool] = None
     ResourceARNList: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class GetResourcesInputTypeDef(BaseValidatorModel):
+class GetResourcesInput(BaseValidatorModel):
     PaginationToken: Optional[str] = None
-    TagFilters: Optional[Sequence[TagFilterTypeDef]] = None
+    TagFilters: Optional[Sequence[TagFilter]] = None
     ResourcesPerPage: Optional[int] = None
     TagsPerPage: Optional[int] = None
     ResourceTypeFilters: Optional[Sequence[str]] = None
@@ -164,15 +164,15 @@ class GetResourcesInputTypeDef(BaseValidatorModel):
     ResourceARNList: Optional[Sequence[str]] = None
 
 
-class ResourceTagMappingTypeDef(BaseValidatorModel):
+class ResourceTagMapping(BaseValidatorModel):
     ResourceARN: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    ComplianceDetails: Optional[ComplianceDetailsTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    ComplianceDetails: Optional[ComplianceDetails] = None
 
 
-class GetResourcesOutputTypeDef(BaseValidatorModel):
+class GetResourcesOutput(BaseValidatorModel):
     PaginationToken: str
-    ResourceTagMappingList: List[ResourceTagMappingTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResourceTagMappingList: List[ResourceTagMapping]
+    ResponseMetadata: ResponseMetadata
 
 

@@ -1,6 +1,6 @@
 # Cloudfront Classes
 
-# ActiveTrustedKeyGroupsTypeDef
+# ActiveTrustedKeyGroups
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -11,10 +11,10 @@
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KGKeyPairIdsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KGKeyPairIds]]
 
 
-# ActiveTrustedSignersTypeDef
+# ActiveTrustedSigners
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -25,10 +25,10 @@
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.SignerTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.Signer]]
 
 
-# AliasICPRecordalTypeDef
+# AliasICPRecordal
 
 ### CNAME
 - **Type**: typing.Optional[str]
@@ -37,17 +37,7 @@
 - **Type**: typing.Optional[typing.Literal['APPROVED', 'PENDING', 'SUSPENDED']]
 
 
-# AliasesOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# AliasesTypeDef
+# Aliases
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -57,27 +47,23 @@
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# AliasesUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AllowedMethodsOutputTypeDef
+# AliasesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
-- **Required**: Yes
-
-### CachedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CachedMethodsOutputTypeDef]
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# AllowedMethodsTypeDef
+# AliasesUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AllowedMethods
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -88,68 +74,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CachedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CachedMethodsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CachedMethodsUnion]
 
 
-# AllowedMethodsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# AnycastIpListCollectionTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### IsTruncated
-- **Type**: <class 'bool'>
-- **Required**: Yes
+# AllowedMethodsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListSummaryTypeDef]]
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-
-# AnycastIpListSummaryTypeDef
-
-### Id
-- **Type**: <class 'str'>
+- **Type**: typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
 - **Required**: Yes
 
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IpCount
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
+### CachedMethods
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CachedMethodsOutput]
 
 
-# AnycastIpListTypeDef
+# AllowedMethodsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# AnycastIpList
 
 ### Id
 - **Type**: <class 'str'>
@@ -180,7 +128,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# AssociateAliasRequestTypeDef
+# AnycastIpListCollection
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### IsTruncated
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListSummary]]
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+
+# AnycastIpListSummary
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IpCount
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+
+# AssociateAliasRequest
 
 ### TargetDistributionId
 - **Type**: <class 'str'>
@@ -197,13 +197,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CacheBehaviorOutputTypeDef
+# CacheBehavior
 
 ### PathPattern
 - **Type**: <class 'str'>
@@ -218,13 +218,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedSigners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnion]
 
 ### TrustedKeyGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsUnion]
 
 ### AllowedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsUnion]
 
 ### SmoothStreaming
 - **Type**: typing.Optional[bool]
@@ -233,10 +233,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LambdaFunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsUnion]
 
 ### FunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsUnion]
 
 ### FieldLevelEncryptionId
 - **Type**: typing.Optional[str]
@@ -254,10 +254,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GrpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.GrpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ForwardedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesUnion]
 
 ### MinTTL
 - **Type**: typing.Optional[int]
@@ -269,7 +269,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CacheBehaviorTypeDef
+# CacheBehaviorOutput
 
 ### PathPattern
 - **Type**: <class 'str'>
@@ -284,13 +284,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedSigners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutput]
 
 ### TrustedKeyGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsOutput]
 
 ### AllowedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsOutput]
 
 ### SmoothStreaming
 - **Type**: typing.Optional[bool]
@@ -299,10 +299,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LambdaFunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsOutput]
 
 ### FunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsOutput]
 
 ### FieldLevelEncryptionId
 - **Type**: typing.Optional[str]
@@ -320,10 +320,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GrpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.GrpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ForwardedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesOutput]
 
 ### MinTTL
 - **Type**: typing.Optional[int]
@@ -335,39 +335,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CacheBehaviorUnionTypeDef
+# CacheBehaviorUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CacheBehaviorsOutputTypeDef
+# CacheBehaviors
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorUnion]]
 
 
-# CacheBehaviorsTypeDef
+# CacheBehaviorsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorOutput]]
 
 
-# CacheBehaviorsUnionTypeDef
+# CacheBehaviorsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CachePolicyConfigOutputTypeDef
+# CachePolicy
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### CachePolicyConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigOutput'>
+- **Required**: Yes
+
+
+# CachePolicyConfig
 
 ### Name
 - **Type**: <class 'str'>
@@ -387,10 +402,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ParametersInCacheKeyAndForwardedToOrigin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ParametersInCacheKeyAndForwardedToOriginOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CachePolicyConfigTypeDef
+# CachePolicyConfigOutput
 
 ### Name
 - **Type**: <class 'str'>
@@ -410,56 +425,56 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### ParametersInCacheKeyAndForwardedToOrigin
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ParametersInCacheKeyAndForwardedToOriginTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ParametersInCacheKeyAndForwardedToOriginOutput]
 
 
-# CachePolicyConfigUnionTypeDef
+# CachePolicyConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CachePolicyCookiesConfigOutputTypeDef
+# CachePolicyCookiesConfig
 
 ### CookieBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### Cookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNames]
 
 
-# CachePolicyCookiesConfigTypeDef
+# CachePolicyCookiesConfigOutput
 
 ### CookieBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### Cookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutput]
 
 
-# CachePolicyHeadersConfigOutputTypeDef
-
-### HeaderBehavior
-- **Type**: typing.Literal['none', 'whitelist']
-- **Required**: Yes
-
-### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutputTypeDef]
-
-
-# CachePolicyHeadersConfigTypeDef
+# CachePolicyHeadersConfig
 
 ### HeaderBehavior
 - **Type**: typing.Literal['none', 'whitelist']
 - **Required**: Yes
 
 ### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CachePolicyListTypeDef
+# CachePolicyHeadersConfigOutput
+
+### HeaderBehavior
+- **Type**: typing.Literal['none', 'whitelist']
+- **Required**: Yes
+
+### Headers
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutput]
+
+
+# CachePolicyList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -473,62 +488,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicySummary]]
 
 
-# CachePolicyQueryStringsConfigOutputTypeDef
-
-### QueryStringBehavior
-- **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
-- **Required**: Yes
-
-### QueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesOutputTypeDef]
-
-
-# CachePolicyQueryStringsConfigTypeDef
+# CachePolicyQueryStringsConfig
 
 ### QueryStringBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### QueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNames]
 
 
-# CachePolicySummaryTypeDef
+# CachePolicyQueryStringsConfigOutput
+
+### QueryStringBehavior
+- **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
+- **Required**: Yes
+
+### QueryStrings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesOutput]
+
+
+# CachePolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CachePolicyTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### CachePolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# CachedMethodsOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
-- **Required**: Yes
-
-
-# CachedMethodsTypeDef
+# CachedMethods
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -539,13 +528,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CachedMethodsUnionTypeDef
+# CachedMethodsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.List[typing.Literal['DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
+- **Required**: Yes
+
+
+# CachedMethodsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CloudFrontOriginAccessIdentityConfigTypeDef
+# CloudFrontOriginAccessIdentity
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3CanonicalUserId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CloudFrontOriginAccessIdentityConfig
+- **Type**: <class 'NoneType'>
+
+
+# CloudFrontOriginAccessIdentityConfig
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -556,7 +570,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CloudFrontOriginAccessIdentityListTypeDef
+# CloudFrontOriginAccessIdentityList
 
 ### Marker
 - **Type**: <class 'str'>
@@ -578,10 +592,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentitySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentitySummary]]
 
 
-# CloudFrontOriginAccessIdentitySummaryTypeDef
+# CloudFrontOriginAccessIdentitySummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -596,21 +610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CloudFrontOriginAccessIdentityTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3CanonicalUserId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CloudFrontOriginAccessIdentityConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfigTypeDef]
-
-
-# ConflictingAliasTypeDef
+# ConflictingAlias
 
 ### Alias
 - **Type**: typing.Optional[str]
@@ -622,7 +622,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConflictingAliasesListTypeDef
+# ConflictingAliasesList
 
 ### NextMarker
 - **Type**: typing.Optional[str]
@@ -634,30 +634,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ConflictingAliasTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ConflictingAlias]]
 
 
-# ContentTypeProfileConfigOutputTypeDef
-
-### ForwardWhenContentTypeIsUnknown
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### ContentTypeProfiles
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfilesOutputTypeDef]
-
-
-# ContentTypeProfileConfigTypeDef
-
-### ForwardWhenContentTypeIsUnknown
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### ContentTypeProfiles
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfilesTypeDef]
-
-
-# ContentTypeProfileTypeDef
+# ContentTypeProfile
 
 ### Format
 - **Type**: typing.Literal['URLEncoded']
@@ -671,30 +651,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ContentTypeProfilesOutputTypeDef
+# ContentTypeProfileConfig
+
+### ForwardWhenContentTypeIsUnknown
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ContentTypeProfiles
+- **Type**: <class 'NoneType'>
+
+
+# ContentTypeProfileConfigOutput
+
+### ForwardWhenContentTypeIsUnknown
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ContentTypeProfiles
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfilesOutput]
+
+
+# ContentTypeProfiles
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfile]]
 
 
-# ContentTypeProfilesTypeDef
+# ContentTypeProfilesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfile]]
 
 
-# ContinuousDeploymentPolicyConfigOutputTypeDef
+# ContinuousDeploymentPolicy
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ContinuousDeploymentPolicyConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigOutput'>
+- **Required**: Yes
+
+
+# ContinuousDeploymentPolicyConfig
 
 ### StagingDistributionDnsNames
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StagingDistributionDnsNamesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StagingDistributionDnsNames'>
 - **Required**: Yes
 
 ### Enabled
@@ -702,13 +717,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrafficConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ContinuousDeploymentPolicyConfigTypeDef
+# ContinuousDeploymentPolicyConfigOutput
 
 ### StagingDistributionDnsNames
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StagingDistributionDnsNamesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StagingDistributionDnsNamesOutput'>
 - **Required**: Yes
 
 ### Enabled
@@ -716,16 +731,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrafficConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrafficConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ContinuousDeploymentPolicyConfigUnionTypeDef
+# ContinuousDeploymentPolicyConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContinuousDeploymentPolicyListTypeDef
+# ContinuousDeploymentPolicyList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -739,32 +754,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicySummary]]
 
 
-# ContinuousDeploymentPolicySummaryTypeDef
+# ContinuousDeploymentPolicySummary
 
 ### ContinuousDeploymentPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicy'>
 - **Required**: Yes
 
 
-# ContinuousDeploymentPolicyTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ContinuousDeploymentPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# ContinuousDeploymentSingleHeaderConfigTypeDef
+# ContinuousDeploymentSingleHeaderConfig
 
 ### Header
 - **Type**: <class 'str'>
@@ -775,27 +775,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ContinuousDeploymentSingleWeightConfigTypeDef
+# ContinuousDeploymentSingleWeightConfig
 
 ### Weight
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### SessionStickinessConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.SessionStickinessConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CookieNamesOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# CookieNamesTypeDef
+# CookieNames
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -805,39 +795,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# CookieNamesUnionTypeDef
+# CookieNamesOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# CookieNamesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CookiePreferenceOutputTypeDef
+# CookiePreference
 
 ### Forward
 - **Type**: typing.Literal['all', 'none', 'whitelist']
 - **Required**: Yes
 
 ### WhitelistedNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesUnion]
 
 
-# CookiePreferenceTypeDef
+# CookiePreferenceOutput
 
 ### Forward
 - **Type**: typing.Literal['all', 'none', 'whitelist']
 - **Required**: Yes
 
 ### WhitelistedNames
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutput]
 
 
-# CookiePreferenceUnionTypeDef
+# CookiePreferenceUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CopyDistributionRequestTypeDef
+# CopyDistributionRequest
 
 ### PrimaryDistributionId
 - **Type**: <class 'str'>
@@ -857,10 +857,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# CopyDistributionResultTypeDef
+# CopyDistributionResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### Location
@@ -872,11 +872,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateAnycastIpListRequestTypeDef
+# CreateAnycastIpListRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -887,13 +887,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnion]
 
 
-# CreateAnycastIpListResultTypeDef
+# CreateAnycastIpListResult
 
 ### AnycastIpList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpList'>
 - **Required**: Yes
 
 ### ETag
@@ -901,21 +901,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCachePolicyRequestTypeDef
+# CreateCachePolicyRequest
 
 ### CachePolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigUnion'>
 - **Required**: Yes
 
 
-# CreateCachePolicyResultTypeDef
+# CreateCachePolicyResult
 
 ### CachePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicy'>
 - **Required**: Yes
 
 ### Location
@@ -927,21 +927,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCloudFrontOriginAccessIdentityRequestTypeDef
+# CreateCloudFrontOriginAccessIdentityRequest
 
 ### CloudFrontOriginAccessIdentityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfig'>
 - **Required**: Yes
 
 
-# CreateCloudFrontOriginAccessIdentityResultTypeDef
+# CreateCloudFrontOriginAccessIdentityResult
 
 ### CloudFrontOriginAccessIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentity'>
 - **Required**: Yes
 
 ### Location
@@ -953,21 +953,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateContinuousDeploymentPolicyRequestTypeDef
+# CreateContinuousDeploymentPolicyRequest
 
 ### ContinuousDeploymentPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigUnion'>
 - **Required**: Yes
 
 
-# CreateContinuousDeploymentPolicyResultTypeDef
+# CreateContinuousDeploymentPolicyResult
 
 ### ContinuousDeploymentPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicy'>
 - **Required**: Yes
 
 ### Location
@@ -979,21 +979,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDistributionRequestTypeDef
+# CreateDistributionRequest
 
 ### DistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnion'>
 - **Required**: Yes
 
 
-# CreateDistributionResultTypeDef
+# CreateDistributionResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### Location
@@ -1005,21 +1005,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateDistributionWithTagsRequestTypeDef
+# CreateDistributionWithTagsRequest
 
 ### DistributionConfigWithTags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigWithTagsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigWithTags'>
 - **Required**: Yes
 
 
-# CreateDistributionWithTagsResultTypeDef
+# CreateDistributionWithTagsResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### Location
@@ -1031,21 +1031,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFieldLevelEncryptionConfigRequestTypeDef
+# CreateFieldLevelEncryptionConfigRequest
 
 ### FieldLevelEncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigUnion'>
 - **Required**: Yes
 
 
-# CreateFieldLevelEncryptionConfigResultTypeDef
+# CreateFieldLevelEncryptionConfigResult
 
 ### FieldLevelEncryption
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryption'>
 - **Required**: Yes
 
 ### Location
@@ -1057,21 +1057,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFieldLevelEncryptionProfileRequestTypeDef
+# CreateFieldLevelEncryptionProfileRequest
 
 ### FieldLevelEncryptionProfileConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigUnion'>
 - **Required**: Yes
 
 
-# CreateFieldLevelEncryptionProfileResultTypeDef
+# CreateFieldLevelEncryptionProfileResult
 
 ### FieldLevelEncryptionProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfile'>
 - **Required**: Yes
 
 ### Location
@@ -1083,29 +1083,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFunctionRequestTypeDef
+# CreateFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FunctionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigUnion'>
 - **Required**: Yes
 
 ### FunctionCode
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Blob'>
 - **Required**: Yes
 
 
-# CreateFunctionResultTypeDef
+# CreateFunctionResult
 
 ### FunctionSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummary'>
 - **Required**: Yes
 
 ### Location
@@ -1117,47 +1117,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInvalidationRequestTypeDef
+# CreateInvalidationRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### InvalidationBatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationBatchUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationBatchUnion'>
 - **Required**: Yes
 
 
-# CreateInvalidationResultTypeDef
+# CreateInvalidationResult
 
 ### Location
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Invalidation
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Invalidation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateKeyGroupRequestTypeDef
+# CreateKeyGroupRequest
 
 ### KeyGroupConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigUnion'>
 - **Required**: Yes
 
 
-# CreateKeyGroupResultTypeDef
+# CreateKeyGroupResult
 
 ### KeyGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroup'>
 - **Required**: Yes
 
 ### Location
@@ -1169,11 +1169,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateKeyValueStoreRequestTypeDef
+# CreateKeyValueStoreRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1183,13 +1183,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ImportSource
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ImportSourceTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CreateKeyValueStoreResultTypeDef
+# CreateKeyValueStoreResult
 
 ### KeyValueStore
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStore'>
 - **Required**: Yes
 
 ### ETag
@@ -1201,43 +1201,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateMonitoringSubscriptionRequestTypeDef
+# CreateMonitoringSubscriptionRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MonitoringSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscription'>
 - **Required**: Yes
 
 
-# CreateMonitoringSubscriptionResultTypeDef
+# CreateMonitoringSubscriptionResult
 
 ### MonitoringSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOriginAccessControlRequestTypeDef
+# CreateOriginAccessControlRequest
 
 ### OriginAccessControlConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfig'>
 - **Required**: Yes
 
 
-# CreateOriginAccessControlResultTypeDef
+# CreateOriginAccessControlResult
 
 ### OriginAccessControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControl'>
 - **Required**: Yes
 
 ### Location
@@ -1249,21 +1249,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateOriginRequestPolicyRequestTypeDef
+# CreateOriginRequestPolicyRequest
 
 ### OriginRequestPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigUnion'>
 - **Required**: Yes
 
 
-# CreateOriginRequestPolicyResultTypeDef
+# CreateOriginRequestPolicyResult
 
 ### OriginRequestPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicy'>
 - **Required**: Yes
 
 ### Location
@@ -1275,21 +1275,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePublicKeyRequestTypeDef
+# CreatePublicKeyRequest
 
 ### PublicKeyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfig'>
 - **Required**: Yes
 
 
-# CreatePublicKeyResultTypeDef
+# CreatePublicKeyResult
 
 ### PublicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKey'>
 - **Required**: Yes
 
 ### Location
@@ -1301,14 +1301,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRealtimeLogConfigRequestTypeDef
+# CreateRealtimeLogConfigRequest
 
 ### EndPoints
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EndPointTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EndPoint]
 - **Required**: Yes
 
 ### Fields
@@ -1324,28 +1324,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateRealtimeLogConfigResultTypeDef
+# CreateRealtimeLogConfigResult
 
 ### RealtimeLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateResponseHeadersPolicyRequestTypeDef
+# CreateResponseHeadersPolicyRequest
 
 ### ResponseHeadersPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigUnion'>
 - **Required**: Yes
 
 
-# CreateResponseHeadersPolicyResultTypeDef
+# CreateResponseHeadersPolicyResult
 
 ### ResponseHeadersPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicy'>
 - **Required**: Yes
 
 ### Location
@@ -1357,21 +1357,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStreamingDistributionRequestTypeDef
+# CreateStreamingDistributionRequest
 
 ### StreamingDistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnion'>
 - **Required**: Yes
 
 
-# CreateStreamingDistributionResultTypeDef
+# CreateStreamingDistributionResult
 
 ### StreamingDistribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistribution'>
 - **Required**: Yes
 
 ### Location
@@ -1383,21 +1383,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateStreamingDistributionWithTagsRequestTypeDef
+# CreateStreamingDistributionWithTagsRequest
 
 ### StreamingDistributionConfigWithTags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigWithTagsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigWithTags'>
 - **Required**: Yes
 
 
-# CreateStreamingDistributionWithTagsResultTypeDef
+# CreateStreamingDistributionWithTagsResult
 
 ### StreamingDistribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistribution'>
 - **Required**: Yes
 
 ### Location
@@ -1409,24 +1409,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateVpcOriginRequestTypeDef
+# CreateVpcOriginRequest
 
 ### VpcOriginEndpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigUnion'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnion]
 
 
-# CreateVpcOriginResultTypeDef
+# CreateVpcOriginResult
 
 ### VpcOrigin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOrigin'>
 - **Required**: Yes
 
 ### Location
@@ -1438,11 +1438,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomErrorResponseTypeDef
+# CustomErrorResponse
 
 ### ErrorCode
 - **Type**: <class 'int'>
@@ -1458,59 +1458,59 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomErrorResponsesOutputTypeDef
+# CustomErrorResponses
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponseTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponse]]
 
 
-# CustomErrorResponsesTypeDef
+# CustomErrorResponsesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponse]]
 
 
-# CustomErrorResponsesUnionTypeDef
+# CustomErrorResponsesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CustomHeadersOutputTypeDef
+# CustomHeaders
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginCustomHeaderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginCustomHeader]]
 
 
-# CustomHeadersTypeDef
+# CustomHeadersOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginCustomHeaderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginCustomHeader]]
 
 
-# CustomHeadersUnionTypeDef
+# CustomHeadersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CustomOriginConfigOutputTypeDef
+# CustomOriginConfig
 
 ### HTTPPort
 - **Type**: <class 'int'>
@@ -1525,7 +1525,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsUnion]
 
 ### OriginReadTimeout
 - **Type**: typing.Optional[int]
@@ -1534,7 +1534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomOriginConfigTypeDef
+# CustomOriginConfigOutput
 
 ### HTTPPort
 - **Type**: <class 'int'>
@@ -1549,7 +1549,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsOutput]
 
 ### OriginReadTimeout
 - **Type**: typing.Optional[int]
@@ -1558,13 +1558,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CustomOriginConfigUnionTypeDef
+# CustomOriginConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DefaultCacheBehaviorOutputTypeDef
+# DefaultCacheBehavior
 
 ### TargetOriginId
 - **Type**: <class 'str'>
@@ -1575,13 +1575,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedSigners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnion]
 
 ### TrustedKeyGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsUnion]
 
 ### AllowedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsUnion]
 
 ### SmoothStreaming
 - **Type**: typing.Optional[bool]
@@ -1590,10 +1590,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LambdaFunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsUnion]
 
 ### FunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsUnion]
 
 ### FieldLevelEncryptionId
 - **Type**: typing.Optional[str]
@@ -1611,10 +1611,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GrpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.GrpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ForwardedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesUnion]
 
 ### MinTTL
 - **Type**: typing.Optional[int]
@@ -1626,7 +1626,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DefaultCacheBehaviorTypeDef
+# DefaultCacheBehaviorOutput
 
 ### TargetOriginId
 - **Type**: <class 'str'>
@@ -1637,13 +1637,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### TrustedSigners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutput]
 
 ### TrustedKeyGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.TrustedKeyGroupsOutput]
 
 ### AllowedMethods
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AllowedMethodsOutput]
 
 ### SmoothStreaming
 - **Type**: typing.Optional[bool]
@@ -1652,10 +1652,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### LambdaFunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationsOutput]
 
 ### FunctionAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationsOutput]
 
 ### FieldLevelEncryptionId
 - **Type**: typing.Optional[str]
@@ -1673,10 +1673,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### GrpcConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.GrpcConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ForwardedValues
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ForwardedValuesOutput]
 
 ### MinTTL
 - **Type**: typing.Optional[int]
@@ -1688,13 +1688,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DefaultCacheBehaviorUnionTypeDef
+# DefaultCacheBehaviorUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteAnycastIpListRequestTypeDef
+# DeleteAnycastIpListRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1705,17 +1705,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCachePolicyRequestTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### IfMatch
-- **Type**: typing.Optional[str]
-
-
-# DeleteCloudFrontOriginAccessIdentityRequestTypeDef
+# DeleteCachePolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1725,7 +1715,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteContinuousDeploymentPolicyRequestTypeDef
+# DeleteCloudFrontOriginAccessIdentityRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1735,7 +1725,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteDistributionRequestTypeDef
+# DeleteContinuousDeploymentPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1745,7 +1735,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFieldLevelEncryptionConfigRequestTypeDef
+# DeleteDistributionRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1755,7 +1745,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFieldLevelEncryptionProfileRequestTypeDef
+# DeleteFieldLevelEncryptionConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1765,7 +1755,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteFunctionRequestTypeDef
+# DeleteFieldLevelEncryptionProfileRequest
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IfMatch
+- **Type**: typing.Optional[str]
+
+
+# DeleteFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1776,7 +1776,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteKeyGroupRequestTypeDef
+# DeleteKeyGroupRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1786,7 +1786,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteKeyValueStoreRequestTypeDef
+# DeleteKeyValueStoreRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1797,14 +1797,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteMonitoringSubscriptionRequestTypeDef
+# DeleteMonitoringSubscriptionRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteOriginAccessControlRequestTypeDef
+# DeleteOriginAccessControlRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1814,7 +1814,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteOriginRequestPolicyRequestTypeDef
+# DeleteOriginRequestPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1824,7 +1824,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePublicKeyRequestTypeDef
+# DeletePublicKeyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1834,7 +1834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteRealtimeLogConfigRequestTypeDef
+# DeleteRealtimeLogConfigRequest
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1843,7 +1843,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteResponseHeadersPolicyRequestTypeDef
+# DeleteResponseHeadersPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1853,7 +1853,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteStreamingDistributionRequestTypeDef
+# DeleteStreamingDistributionRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1863,7 +1863,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteVpcOriginRequestTypeDef
+# DeleteVpcOriginRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -1874,10 +1874,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteVpcOriginResultTypeDef
+# DeleteVpcOriginResult
 
 ### VpcOrigin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOrigin'>
 - **Required**: Yes
 
 ### ETag
@@ -1885,11 +1885,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFunctionRequestTypeDef
+# DescribeFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1899,10 +1899,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEVELOPMENT', 'LIVE']]
 
 
-# DescribeFunctionResultTypeDef
+# DescribeFunctionResult
 
 ### FunctionSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummary'>
 - **Required**: Yes
 
 ### ETag
@@ -1910,21 +1910,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeKeyValueStoreRequestTypeDef
+# DescribeKeyValueStoreRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeKeyValueStoreResultTypeDef
+# DescribeKeyValueStoreResult
 
 ### KeyValueStore
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStore'>
 - **Required**: Yes
 
 ### ETag
@@ -1932,302 +1932,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DistributionConfigOutputTypeDef
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Origins
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsOutputTypeDef'>
-- **Required**: Yes
-
-### DefaultCacheBehavior
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorOutputTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Aliases
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutputTypeDef]
-
-### DefaultRootObject
-- **Type**: typing.Optional[str]
-
-### OriginGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsOutputTypeDef]
-
-### CacheBehaviors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsOutputTypeDef]
-
-### CustomErrorResponses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesOutputTypeDef]
-
-### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LoggingConfigTypeDef]
-
-### PriceClass
-- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
-
-### ViewerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ViewerCertificateTypeDef]
-
-### Restrictions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsOutputTypeDef]
-
-### WebACLId
-- **Type**: typing.Optional[str]
-
-### HttpVersion
-- **Type**: typing.Optional[typing.Literal['http1.1', 'http2', 'http2and3', 'http3']]
-
-### IsIPV6Enabled
-- **Type**: typing.Optional[bool]
-
-### ContinuousDeploymentPolicyId
-- **Type**: typing.Optional[str]
-
-### Staging
-- **Type**: typing.Optional[bool]
-
-### AnycastIpListId
-- **Type**: typing.Optional[str]
-
-
-# DistributionConfigTypeDef
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Origins
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsUnionTypeDef'>
-- **Required**: Yes
-
-### DefaultCacheBehavior
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorUnionTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Aliases
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesUnionTypeDef]
-
-### DefaultRootObject
-- **Type**: typing.Optional[str]
-
-### OriginGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsUnionTypeDef]
-
-### CacheBehaviors
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsUnionTypeDef]
-
-### CustomErrorResponses
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesUnionTypeDef]
-
-### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LoggingConfigTypeDef]
-
-### PriceClass
-- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
-
-### ViewerCertificate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ViewerCertificateTypeDef]
-
-### Restrictions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsUnionTypeDef]
-
-### WebACLId
-- **Type**: typing.Optional[str]
-
-### HttpVersion
-- **Type**: typing.Optional[typing.Literal['http1.1', 'http2', 'http2and3', 'http3']]
-
-### IsIPV6Enabled
-- **Type**: typing.Optional[bool]
-
-### ContinuousDeploymentPolicyId
-- **Type**: typing.Optional[str]
-
-### Staging
-- **Type**: typing.Optional[bool]
-
-### AnycastIpListId
-- **Type**: typing.Optional[str]
-
-
-# DistributionConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# DistributionConfigWithTagsTypeDef
-
-### DistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnionTypeDef'>
-- **Required**: Yes
-
-### Tags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnionTypeDef'>
-- **Required**: Yes
-
-
-# DistributionIdListTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### IsTruncated
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# DistributionListTypeDef
-
-### Marker
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### IsTruncated
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.DistributionSummaryTypeDef]]
-
-
-# DistributionSummaryTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### DomainName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Aliases
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutputTypeDef'>
-- **Required**: Yes
-
-### Origins
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsOutputTypeDef'>
-- **Required**: Yes
-
-### DefaultCacheBehavior
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorOutputTypeDef'>
-- **Required**: Yes
-
-### CacheBehaviors
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsOutputTypeDef'>
-- **Required**: Yes
-
-### CustomErrorResponses
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesOutputTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PriceClass
-- **Type**: typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']
-- **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### ViewerCertificate
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ViewerCertificateTypeDef'>
-- **Required**: Yes
-
-### Restrictions
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsOutputTypeDef'>
-- **Required**: Yes
-
-### WebACLId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### HttpVersion
-- **Type**: typing.Literal['http1.1', 'http2', 'http2and3', 'http3']
-- **Required**: Yes
-
-### IsIPV6Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Staging
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### OriginGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsOutputTypeDef]
-
-### AliasICPRecordals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AliasICPRecordalTypeDef]]
-
-### AnycastIpListId
-- **Type**: typing.Optional[str]
-
-
-# DistributionTypeDef
+# Distribution
 
 ### Id
 - **Type**: <class 'str'>
@@ -2254,47 +1963,338 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigOutput'>
 - **Required**: Yes
 
 ### ActiveTrustedSigners
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ActiveTrustedSignersTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ActiveTrustedKeyGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ActiveTrustedKeyGroupsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### AliasICPRecordals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AliasICPRecordalTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AliasICPRecordal]]
 
 
-# EmptyResponseMetadataTypeDef
+# DistributionConfig
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Origins
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsUnion'>
+- **Required**: Yes
+
+### DefaultCacheBehavior
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorUnion'>
+- **Required**: Yes
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Aliases
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesUnion]
+
+### DefaultRootObject
+- **Type**: typing.Optional[str]
+
+### OriginGroups
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsUnion]
+
+### CacheBehaviors
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsUnion]
+
+### CustomErrorResponses
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesUnion]
+
+### Logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LoggingConfig]
+
+### PriceClass
+- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
+
+### ViewerCertificate
+- **Type**: <class 'NoneType'>
+
+### Restrictions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsUnion]
+
+### WebACLId
+- **Type**: typing.Optional[str]
+
+### HttpVersion
+- **Type**: typing.Optional[typing.Literal['http1.1', 'http2', 'http2and3', 'http3']]
+
+### IsIPV6Enabled
+- **Type**: typing.Optional[bool]
+
+### ContinuousDeploymentPolicyId
+- **Type**: typing.Optional[str]
+
+### Staging
+- **Type**: typing.Optional[bool]
+
+### AnycastIpListId
+- **Type**: typing.Optional[str]
+
+
+# DistributionConfigOutput
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Origins
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsOutput'>
+- **Required**: Yes
+
+### DefaultCacheBehavior
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorOutput'>
+- **Required**: Yes
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Aliases
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutput]
+
+### DefaultRootObject
+- **Type**: typing.Optional[str]
+
+### OriginGroups
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsOutput]
+
+### CacheBehaviors
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsOutput]
+
+### CustomErrorResponses
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesOutput]
+
+### Logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.LoggingConfig]
+
+### PriceClass
+- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
+
+### ViewerCertificate
+- **Type**: <class 'NoneType'>
+
+### Restrictions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsOutput]
+
+### WebACLId
+- **Type**: typing.Optional[str]
+
+### HttpVersion
+- **Type**: typing.Optional[typing.Literal['http1.1', 'http2', 'http2and3', 'http3']]
+
+### IsIPV6Enabled
+- **Type**: typing.Optional[bool]
+
+### ContinuousDeploymentPolicyId
+- **Type**: typing.Optional[str]
+
+### Staging
+- **Type**: typing.Optional[bool]
+
+### AnycastIpListId
+- **Type**: typing.Optional[str]
+
+
+# DistributionConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# DistributionConfigWithTags
+
+### DistributionConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnion'>
+- **Required**: Yes
+
+### Tags
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnion'>
+- **Required**: Yes
+
+
+# DistributionIdList
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### IsTruncated
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# DistributionList
+
+### Marker
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### IsTruncated
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.DistributionSummary]]
+
+
+# DistributionSummary
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### DomainName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Aliases
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutput'>
+- **Required**: Yes
+
+### Origins
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginsOutput'>
+- **Required**: Yes
+
+### DefaultCacheBehavior
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DefaultCacheBehaviorOutput'>
+- **Required**: Yes
+
+### CacheBehaviors
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CacheBehaviorsOutput'>
+- **Required**: Yes
+
+### CustomErrorResponses
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CustomErrorResponsesOutput'>
+- **Required**: Yes
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PriceClass
+- **Type**: typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### ViewerCertificate
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ViewerCertificate'>
+- **Required**: Yes
+
+### Restrictions
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RestrictionsOutput'>
+- **Required**: Yes
+
+### WebACLId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### HttpVersion
+- **Type**: typing.Literal['http1.1', 'http2', 'http2and3', 'http3']
+- **Required**: Yes
+
+### IsIPV6Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Staging
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### OriginGroups
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupsOutput]
+
+### AliasICPRecordals
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.AliasICPRecordal]]
+
+### AnycastIpListId
+- **Type**: typing.Optional[str]
+
+
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EncryptionEntitiesOutputTypeDef
+# EncryptionEntities
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntityOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntity]]
 
 
-# EncryptionEntitiesTypeDef
+# EncryptionEntitiesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntityTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntityOutput]]
 
 
-# EncryptionEntityOutputTypeDef
+# EncryptionEntity
 
 ### PublicKeyId
 - **Type**: <class 'str'>
@@ -2305,11 +2305,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FieldPatterns
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldPatternsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldPatterns'>
 - **Required**: Yes
 
 
-# EncryptionEntityTypeDef
+# EncryptionEntityOutput
 
 ### PublicKeyId
 - **Type**: <class 'str'>
@@ -2320,192 +2320,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FieldPatterns
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldPatternsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldPatternsOutput'>
 - **Required**: Yes
 
 
-# EndPointTypeDef
+# EndPoint
 
 ### StreamType
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### KinesisStreamConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KinesisStreamConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# FieldLevelEncryptionConfigOutputTypeDef
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-### QueryArgProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileConfigOutputTypeDef]
-
-### ContentTypeProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileConfigOutputTypeDef]
-
-
-# FieldLevelEncryptionConfigTypeDef
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-### QueryArgProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileConfigTypeDef]
-
-### ContentTypeProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileConfigTypeDef]
-
-
-# FieldLevelEncryptionConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FieldLevelEncryptionListTypeDef
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionSummaryTypeDef]]
-
-
-# FieldLevelEncryptionProfileConfigOutputTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EncryptionEntities
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntitiesOutputTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-
-# FieldLevelEncryptionProfileConfigTypeDef
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CallerReference
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EncryptionEntities
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntitiesTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-
-# FieldLevelEncryptionProfileConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FieldLevelEncryptionProfileListTypeDef
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileSummaryTypeDef]]
-
-
-# FieldLevelEncryptionProfileSummaryTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Name
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EncryptionEntities
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntitiesOutputTypeDef'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-
-# FieldLevelEncryptionProfileTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### FieldLevelEncryptionProfileConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# FieldLevelEncryptionSummaryTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### Comment
-- **Type**: typing.Optional[str]
-
-### QueryArgProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileConfigOutputTypeDef]
-
-### ContentTypeProfileConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileConfigOutputTypeDef]
-
-
-# FieldLevelEncryptionTypeDef
+# FieldLevelEncryption
 
 ### Id
 - **Type**: <class 'str'>
@@ -2516,142 +2345,49 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FieldLevelEncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigOutput'>
 - **Required**: Yes
 
 
-# FieldPatternsOutputTypeDef
+# FieldLevelEncryptionConfig
 
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# FieldPatternsTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# ForwardedValuesOutputTypeDef
-
-### QueryString
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Cookies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CookiePreferenceOutputTypeDef'>
-- **Required**: Yes
-
-### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutputTypeDef]
-
-### QueryStringCacheKeys
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringCacheKeysOutputTypeDef]
-
-
-# ForwardedValuesTypeDef
-
-### QueryString
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Cookies
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CookiePreferenceUnionTypeDef'>
-- **Required**: Yes
-
-### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersUnionTypeDef]
-
-### QueryStringCacheKeys
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringCacheKeysUnionTypeDef]
-
-
-# ForwardedValuesUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FunctionAssociationTypeDef
-
-### FunctionARN
+### CallerReference
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### EventType
-- **Type**: typing.Literal['origin-request', 'origin-response', 'viewer-request', 'viewer-response']
-- **Required**: Yes
-
-
-# FunctionAssociationsOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationTypeDef]]
-
-
-# FunctionAssociationsTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociationTypeDef]]
-
-
-# FunctionAssociationsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FunctionConfigOutputTypeDef
 
 ### Comment
+- **Type**: typing.Optional[str]
+
+### QueryArgProfileConfig
+- **Type**: <class 'NoneType'>
+
+### ContentTypeProfileConfig
+- **Type**: <class 'NoneType'>
+
+
+# FieldLevelEncryptionConfigOutput
+
+### CallerReference
 - **Type**: <class 'str'>
 - **Required**: Yes
-
-### Runtime
-- **Type**: typing.Literal['cloudfront-js-1.0', 'cloudfront-js-2.0']
-- **Required**: Yes
-
-### KeyValueStoreAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociationsOutputTypeDef]
-
-
-# FunctionConfigTypeDef
 
 ### Comment
-- **Type**: <class 'str'>
-- **Required**: Yes
+- **Type**: typing.Optional[str]
 
-### Runtime
-- **Type**: typing.Literal['cloudfront-js-1.0', 'cloudfront-js-2.0']
-- **Required**: Yes
+### QueryArgProfileConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileConfigOutput]
 
-### KeyValueStoreAssociations
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociationsTypeDef]
+### ContentTypeProfileConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileConfigOutput]
 
 
-# FunctionConfigUnionTypeDef
+# FieldLevelEncryptionConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# FunctionListTypeDef
+# FieldLevelEncryptionList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -2665,10 +2401,274 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionSummary]]
 
 
-# FunctionMetadataTypeDef
+# FieldLevelEncryptionProfile
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### FieldLevelEncryptionProfileConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigOutput'>
+- **Required**: Yes
+
+
+# FieldLevelEncryptionProfileConfig
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionEntities
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntities'>
+- **Required**: Yes
+
+### Comment
+- **Type**: typing.Optional[str]
+
+
+# FieldLevelEncryptionProfileConfigOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionEntities
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntitiesOutput'>
+- **Required**: Yes
+
+### Comment
+- **Type**: typing.Optional[str]
+
+
+# FieldLevelEncryptionProfileConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FieldLevelEncryptionProfileList
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileSummary]]
+
+
+# FieldLevelEncryptionProfileSummary
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EncryptionEntities
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.EncryptionEntitiesOutput'>
+- **Required**: Yes
+
+### Comment
+- **Type**: typing.Optional[str]
+
+
+# FieldLevelEncryptionSummary
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### Comment
+- **Type**: typing.Optional[str]
+
+### QueryArgProfileConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileConfigOutput]
+
+### ContentTypeProfileConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ContentTypeProfileConfigOutput]
+
+
+# FieldPatterns
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+
+# FieldPatternsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ForwardedValues
+
+### QueryString
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Cookies
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CookiePreferenceUnion'>
+- **Required**: Yes
+
+### Headers
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersUnion]
+
+### QueryStringCacheKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringCacheKeysUnion]
+
+
+# ForwardedValuesOutput
+
+### QueryString
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Cookies
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CookiePreferenceOutput'>
+- **Required**: Yes
+
+### Headers
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutput]
+
+### QueryStringCacheKeys
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringCacheKeysOutput]
+
+
+# ForwardedValuesUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FunctionAssociation
+
+### FunctionARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EventType
+- **Type**: typing.Literal['origin-request', 'origin-response', 'viewer-request', 'viewer-response']
+- **Required**: Yes
+
+
+# FunctionAssociations
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociation]]
+
+
+# FunctionAssociationsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionAssociation]]
+
+
+# FunctionAssociationsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FunctionConfig
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Runtime
+- **Type**: typing.Literal['cloudfront-js-1.0', 'cloudfront-js-2.0']
+- **Required**: Yes
+
+### KeyValueStoreAssociations
+- **Type**: <class 'NoneType'>
+
+
+# FunctionConfigOutput
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Runtime
+- **Type**: typing.Literal['cloudfront-js-1.0', 'cloudfront-js-2.0']
+- **Required**: Yes
+
+### KeyValueStoreAssociations
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociationsOutput]
+
+
+# FunctionConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# FunctionList
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummary]]
+
+
+# FunctionMetadata
 
 ### FunctionARN
 - **Type**: <class 'str'>
@@ -2685,39 +2685,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# FunctionSummaryTypeDef
+# FunctionSummary
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FunctionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigOutput'>
 - **Required**: Yes
 
 ### FunctionMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionMetadata'>
 - **Required**: Yes
 
 ### Status
 - **Type**: typing.Optional[str]
 
 
-# GeoRestrictionOutputTypeDef
-
-### RestrictionType
-- **Type**: typing.Literal['blacklist', 'none', 'whitelist']
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# GeoRestrictionTypeDef
+# GeoRestriction
 
 ### RestrictionType
 - **Type**: typing.Literal['blacklist', 'none', 'whitelist']
@@ -2731,23 +2717,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GeoRestrictionUnionTypeDef
+# GeoRestrictionOutput
+
+### RestrictionType
+- **Type**: typing.Literal['blacklist', 'none', 'whitelist']
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# GeoRestrictionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# GetAnycastIpListRequestTypeDef
+# GetAnycastIpListRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAnycastIpListResultTypeDef
+# GetAnycastIpListResult
 
 ### AnycastIpList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpList'>
 - **Required**: Yes
 
 ### ETag
@@ -2755,21 +2755,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCachePolicyConfigRequestTypeDef
+# GetCachePolicyConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCachePolicyConfigResultTypeDef
+# GetCachePolicyConfigResult
 
 ### CachePolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2777,21 +2777,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCachePolicyRequestTypeDef
+# GetCachePolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCachePolicyResultTypeDef
+# GetCachePolicyResult
 
 ### CachePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -2799,21 +2799,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCloudFrontOriginAccessIdentityConfigRequestTypeDef
+# GetCloudFrontOriginAccessIdentityConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCloudFrontOriginAccessIdentityConfigResultTypeDef
+# GetCloudFrontOriginAccessIdentityConfigResult
 
 ### CloudFrontOriginAccessIdentityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfig'>
 - **Required**: Yes
 
 ### ETag
@@ -2821,21 +2821,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCloudFrontOriginAccessIdentityRequestTypeDef
+# GetCloudFrontOriginAccessIdentityRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetCloudFrontOriginAccessIdentityResultTypeDef
+# GetCloudFrontOriginAccessIdentityResult
 
 ### CloudFrontOriginAccessIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentity'>
 - **Required**: Yes
 
 ### ETag
@@ -2843,21 +2843,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContinuousDeploymentPolicyConfigRequestTypeDef
+# GetContinuousDeploymentPolicyConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetContinuousDeploymentPolicyConfigResultTypeDef
+# GetContinuousDeploymentPolicyConfigResult
 
 ### ContinuousDeploymentPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2865,21 +2865,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetContinuousDeploymentPolicyRequestTypeDef
+# GetContinuousDeploymentPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetContinuousDeploymentPolicyResultTypeDef
+# GetContinuousDeploymentPolicyResult
 
 ### ContinuousDeploymentPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -2887,21 +2887,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDistributionConfigRequestTypeDef
+# GetDistributionConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDistributionConfigResultTypeDef
+# GetDistributionConfigResult
 
 ### DistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2909,31 +2909,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetDistributionRequestTypeDef
+# GetDistributionRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetDistributionRequestWaitTypeDef
+# GetDistributionRequestWait
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetDistributionResultTypeDef
+# GetDistributionResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### ETag
@@ -2941,21 +2941,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionConfigRequestTypeDef
+# GetFieldLevelEncryptionConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionConfigResultTypeDef
+# GetFieldLevelEncryptionConfigResult
 
 ### FieldLevelEncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2963,21 +2963,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionProfileConfigRequestTypeDef
+# GetFieldLevelEncryptionProfileConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionProfileConfigResultTypeDef
+# GetFieldLevelEncryptionProfileConfigResult
 
 ### FieldLevelEncryptionProfileConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -2985,21 +2985,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionProfileRequestTypeDef
+# GetFieldLevelEncryptionProfileRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionProfileResultTypeDef
+# GetFieldLevelEncryptionProfileResult
 
 ### FieldLevelEncryptionProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfile'>
 - **Required**: Yes
 
 ### ETag
@@ -3007,21 +3007,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionRequestTypeDef
+# GetFieldLevelEncryptionRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetFieldLevelEncryptionResultTypeDef
+# GetFieldLevelEncryptionResult
 
 ### FieldLevelEncryption
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryption'>
 - **Required**: Yes
 
 ### ETag
@@ -3029,11 +3029,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetFunctionRequestTypeDef
+# GetFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -3043,7 +3043,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEVELOPMENT', 'LIVE']]
 
 
-# GetFunctionResultTypeDef
+# GetFunctionResult
 
 ### FunctionCode
 - **Type**: <class 'botocore.response.StreamingBody'>
@@ -3058,11 +3058,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInvalidationRequestTypeDef
+# GetInvalidationRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
@@ -3073,7 +3073,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInvalidationRequestWaitTypeDef
+# GetInvalidationRequestWait
 
 ### DistributionId
 - **Type**: <class 'str'>
@@ -3084,31 +3084,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetInvalidationResultTypeDef
+# GetInvalidationResult
 
 ### Invalidation
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Invalidation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetKeyGroupConfigRequestTypeDef
+# GetKeyGroupConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetKeyGroupConfigResultTypeDef
+# GetKeyGroupConfigResult
 
 ### KeyGroupConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -3116,21 +3116,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetKeyGroupRequestTypeDef
+# GetKeyGroupRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetKeyGroupResultTypeDef
+# GetKeyGroupResult
 
 ### KeyGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroup'>
 - **Required**: Yes
 
 ### ETag
@@ -3138,39 +3138,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetMonitoringSubscriptionRequestTypeDef
+# GetMonitoringSubscriptionRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetMonitoringSubscriptionResultTypeDef
+# GetMonitoringSubscriptionResult
 
 ### MonitoringSubscription
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscriptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.MonitoringSubscription'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOriginAccessControlConfigRequestTypeDef
+# GetOriginAccessControlConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOriginAccessControlConfigResultTypeDef
+# GetOriginAccessControlConfigResult
 
 ### OriginAccessControlConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfig'>
 - **Required**: Yes
 
 ### ETag
@@ -3178,21 +3178,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOriginAccessControlRequestTypeDef
+# GetOriginAccessControlRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOriginAccessControlResultTypeDef
+# GetOriginAccessControlResult
 
 ### OriginAccessControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControl'>
 - **Required**: Yes
 
 ### ETag
@@ -3200,21 +3200,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOriginRequestPolicyConfigRequestTypeDef
+# GetOriginRequestPolicyConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOriginRequestPolicyConfigResultTypeDef
+# GetOriginRequestPolicyConfigResult
 
 ### OriginRequestPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -3222,21 +3222,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetOriginRequestPolicyRequestTypeDef
+# GetOriginRequestPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetOriginRequestPolicyResultTypeDef
+# GetOriginRequestPolicyResult
 
 ### OriginRequestPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -3244,21 +3244,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPublicKeyConfigRequestTypeDef
+# GetPublicKeyConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPublicKeyConfigResultTypeDef
+# GetPublicKeyConfigResult
 
 ### PublicKeyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfig'>
 - **Required**: Yes
 
 ### ETag
@@ -3266,21 +3266,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPublicKeyRequestTypeDef
+# GetPublicKeyRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetPublicKeyResultTypeDef
+# GetPublicKeyResult
 
 ### PublicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKey'>
 - **Required**: Yes
 
 ### ETag
@@ -3288,11 +3288,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRealtimeLogConfigRequestTypeDef
+# GetRealtimeLogConfigRequest
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -3301,28 +3301,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRealtimeLogConfigResultTypeDef
+# GetRealtimeLogConfigResult
 
 ### RealtimeLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResponseHeadersPolicyConfigRequestTypeDef
+# GetResponseHeadersPolicyConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResponseHeadersPolicyConfigResultTypeDef
+# GetResponseHeadersPolicyConfigResult
 
 ### ResponseHeadersPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -3330,21 +3330,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetResponseHeadersPolicyRequestTypeDef
+# GetResponseHeadersPolicyRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetResponseHeadersPolicyResultTypeDef
+# GetResponseHeadersPolicyResult
 
 ### ResponseHeadersPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -3352,21 +3352,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStreamingDistributionConfigRequestTypeDef
+# GetStreamingDistributionConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStreamingDistributionConfigResultTypeDef
+# GetStreamingDistributionConfigResult
 
 ### StreamingDistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigOutput'>
 - **Required**: Yes
 
 ### ETag
@@ -3374,31 +3374,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetStreamingDistributionRequestTypeDef
+# GetStreamingDistributionRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetStreamingDistributionRequestWaitTypeDef
+# GetStreamingDistributionRequestWait
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WaiterConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.WaiterConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# GetStreamingDistributionResultTypeDef
+# GetStreamingDistributionResult
 
 ### StreamingDistribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistribution'>
 - **Required**: Yes
 
 ### ETag
@@ -3406,21 +3406,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVpcOriginRequestTypeDef
+# GetVpcOriginRequest
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVpcOriginResultTypeDef
+# GetVpcOriginResult
 
 ### VpcOrigin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOrigin'>
 - **Required**: Yes
 
 ### ETag
@@ -3428,28 +3428,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GrpcConfigTypeDef
+# GrpcConfig
 
 ### Enabled
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# HeadersOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# HeadersTypeDef
+# Headers
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -3459,13 +3449,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# HeadersUnionTypeDef
+# HeadersOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# HeadersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImportSourceTypeDef
+# ImportSource
 
 ### SourceType
 - **Type**: typing.Literal['S3']
@@ -3476,10 +3476,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InvalidationBatchOutputTypeDef
+# Invalidation
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreateTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### InvalidationBatch
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationBatchOutput'>
+- **Required**: Yes
+
+
+# InvalidationBatch
 
 ### Paths
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PathsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Paths'>
 - **Required**: Yes
 
 ### CallerReference
@@ -3487,10 +3506,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InvalidationBatchTypeDef
+# InvalidationBatchOutput
 
 ### Paths
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PathsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PathsOutput'>
 - **Required**: Yes
 
 ### CallerReference
@@ -3498,13 +3517,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InvalidationBatchUnionTypeDef
+# InvalidationBatchUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# InvalidationListTypeDef
+# InvalidationList
 
 ### Marker
 - **Type**: <class 'str'>
@@ -3526,10 +3545,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationSummary]]
 
 
-# InvalidationSummaryTypeDef
+# InvalidationSummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -3544,49 +3563,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InvalidationTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreateTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### InvalidationBatch
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationBatchOutputTypeDef'>
-- **Required**: Yes
-
-
-# KGKeyPairIdsTypeDef
+# KGKeyPairIds
 
 ### KeyGroupId
 - **Type**: typing.Optional[str]
 
 ### KeyPairIds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KeyPairIdsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# KeyGroupConfigOutputTypeDef
+# KeyGroup
 
-### Name
+### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Items
-- **Type**: typing.List[str]
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
-### Comment
-- **Type**: typing.Optional[str]
+### KeyGroupConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigOutput'>
+- **Required**: Yes
 
 
-# KeyGroupConfigTypeDef
+# KeyGroupConfig
 
 ### Name
 - **Type**: <class 'str'>
@@ -3600,13 +3601,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KeyGroupConfigUnionTypeDef
+# KeyGroupConfigOutput
+
+### Name
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### Comment
+- **Type**: typing.Optional[str]
+
+
+# KeyGroupConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# KeyGroupListTypeDef
+# KeyGroupList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -3620,32 +3635,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupSummary]]
 
 
-# KeyGroupSummaryTypeDef
+# KeyGroupSummary
 
 ### KeyGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroup'>
 - **Required**: Yes
 
 
-# KeyGroupTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### KeyGroupConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# KeyPairIdsTypeDef
+# KeyPairIds
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -3655,51 +3655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# KeyValueStoreAssociationTypeDef
-
-### KeyValueStoreARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# KeyValueStoreAssociationsOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociationTypeDef]]
-
-
-# KeyValueStoreAssociationsTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociationTypeDef]]
-
-
-# KeyValueStoreListTypeDef
-
-### MaxItems
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### NextMarker
-- **Type**: typing.Optional[str]
-
-### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreTypeDef]]
-
-
-# KeyValueStoreTypeDef
+# KeyValueStore
 
 ### Name
 - **Type**: <class 'str'>
@@ -3725,7 +3681,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KinesisStreamConfigTypeDef
+# KeyValueStoreAssociation
+
+### KeyValueStoreARN
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# KeyValueStoreAssociations
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociation]]
+
+
+# KeyValueStoreAssociationsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreAssociation]]
+
+
+# KeyValueStoreList
+
+### MaxItems
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### NextMarker
+- **Type**: typing.Optional[str]
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStore]]
+
+
+# KinesisStreamConfig
 
 ### RoleARN
 - **Type**: <class 'str'>
@@ -3736,7 +3736,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LambdaFunctionAssociationTypeDef
+# LambdaFunctionAssociation
 
 ### LambdaFunctionARN
 - **Type**: <class 'str'>
@@ -3750,33 +3750,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# LambdaFunctionAssociationsOutputTypeDef
+# LambdaFunctionAssociations
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociation]]
 
 
-# LambdaFunctionAssociationsTypeDef
+# LambdaFunctionAssociationsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.LambdaFunctionAssociation]]
 
 
-# LambdaFunctionAssociationsUnionTypeDef
+# LambdaFunctionAssociationsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ListAnycastIpListsRequestTypeDef
+# ListAnycastIpListsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -3785,35 +3785,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListAnycastIpListsResultTypeDef
+# ListAnycastIpListsResult
 
 ### AnycastIpLists
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListCollectionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AnycastIpListCollection'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCachePoliciesResultTypeDef
+# ListCachePoliciesResult
 
 ### CachePolicyList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCloudFrontOriginAccessIdentitiesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
-
-
-# ListCloudFrontOriginAccessIdentitiesRequestTypeDef
+# ListCloudFrontOriginAccessIdentitiesRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -3822,18 +3816,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCloudFrontOriginAccessIdentitiesResultTypeDef
+# ListCloudFrontOriginAccessIdentitiesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
+
+
+# ListCloudFrontOriginAccessIdentitiesResult
 
 ### CloudFrontOriginAccessIdentityList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListConflictingAliasesRequestTypeDef
+# ListConflictingAliasesRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
@@ -3850,18 +3850,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListConflictingAliasesResultTypeDef
+# ListConflictingAliasesResult
 
 ### ConflictingAliasesList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ConflictingAliasesListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ConflictingAliasesList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListContinuousDeploymentPoliciesRequestTypeDef
+# ListContinuousDeploymentPoliciesRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -3870,18 +3870,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListContinuousDeploymentPoliciesResultTypeDef
+# ListContinuousDeploymentPoliciesResult
 
 ### ContinuousDeploymentPolicyList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByAnycastIpListIdRequestTypeDef
+# ListDistributionsByAnycastIpListIdRequest
 
 ### AnycastIpListId
 - **Type**: <class 'str'>
@@ -3894,18 +3894,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByAnycastIpListIdResultTypeDef
+# ListDistributionsByAnycastIpListIdResult
 
 ### DistributionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByCachePolicyIdRequestTypeDef
+# ListDistributionsByCachePolicyIdRequest
 
 ### CachePolicyId
 - **Type**: <class 'str'>
@@ -3918,18 +3918,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByCachePolicyIdResultTypeDef
+# ListDistributionsByCachePolicyIdResult
 
 ### DistributionIdList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByKeyGroupRequestTypeDef
+# ListDistributionsByKeyGroupRequest
 
 ### KeyGroupId
 - **Type**: <class 'str'>
@@ -3942,18 +3942,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByKeyGroupResultTypeDef
+# ListDistributionsByKeyGroupResult
 
 ### DistributionIdList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByOriginRequestPolicyIdRequestTypeDef
+# ListDistributionsByOriginRequestPolicyIdRequest
 
 ### OriginRequestPolicyId
 - **Type**: <class 'str'>
@@ -3966,18 +3966,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByOriginRequestPolicyIdResultTypeDef
+# ListDistributionsByOriginRequestPolicyIdResult
 
 ### DistributionIdList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByRealtimeLogConfigRequestTypeDef
+# ListDistributionsByRealtimeLogConfigRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -3992,18 +3992,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByRealtimeLogConfigResultTypeDef
+# ListDistributionsByRealtimeLogConfigResult
 
 ### DistributionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByResponseHeadersPolicyIdRequestTypeDef
+# ListDistributionsByResponseHeadersPolicyIdRequest
 
 ### ResponseHeadersPolicyId
 - **Type**: <class 'str'>
@@ -4016,18 +4016,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByResponseHeadersPolicyIdResultTypeDef
+# ListDistributionsByResponseHeadersPolicyIdResult
 
 ### DistributionIdList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByVpcOriginIdRequestTypeDef
+# ListDistributionsByVpcOriginIdRequest
 
 ### VpcOriginId
 - **Type**: <class 'str'>
@@ -4040,18 +4040,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByVpcOriginIdResultTypeDef
+# ListDistributionsByVpcOriginIdResult
 
 ### DistributionIdList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionIdList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsByWebACLIdRequestTypeDef
+# ListDistributionsByWebACLIdRequest
 
 ### WebACLId
 - **Type**: <class 'str'>
@@ -4064,44 +4064,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListDistributionsByWebACLIdResultTypeDef
+# ListDistributionsByWebACLIdResult
 
 ### DistributionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListDistributionsRequestPaginateTypeDef
+# ListDistributionsRequest
+
+### Marker
+- **Type**: typing.Optional[str]
+
+### MaxItems
+- **Type**: typing.Optional[str]
+
+
+# ListDistributionsRequestPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
 
 
-# ListDistributionsRequestTypeDef
-
-### Marker
-- **Type**: typing.Optional[str]
-
-### MaxItems
-- **Type**: typing.Optional[str]
-
-
-# ListDistributionsResultTypeDef
+# ListDistributionsResult
 
 ### DistributionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFieldLevelEncryptionConfigsRequestTypeDef
+# ListFieldLevelEncryptionConfigsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4110,18 +4110,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFieldLevelEncryptionConfigsResultTypeDef
+# ListFieldLevelEncryptionConfigsResult
 
 ### FieldLevelEncryptionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFieldLevelEncryptionProfilesRequestTypeDef
+# ListFieldLevelEncryptionProfilesRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4130,18 +4130,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFieldLevelEncryptionProfilesResultTypeDef
+# ListFieldLevelEncryptionProfilesResult
 
 ### FieldLevelEncryptionProfileList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListFunctionsRequestTypeDef
+# ListFunctionsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4153,28 +4153,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DEVELOPMENT', 'LIVE']]
 
 
-# ListFunctionsResultTypeDef
+# ListFunctionsResult
 
 ### FunctionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListInvalidationsRequestPaginateTypeDef
-
-### DistributionId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
-
-
-# ListInvalidationsRequestTypeDef
+# ListInvalidationsRequest
 
 ### DistributionId
 - **Type**: <class 'str'>
@@ -4187,18 +4177,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListInvalidationsResultTypeDef
+# ListInvalidationsRequestPaginate
+
+### DistributionId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
+
+
+# ListInvalidationsResult
 
 ### InvalidationList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.InvalidationList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListKeyGroupsRequestTypeDef
+# ListKeyGroupsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4207,27 +4207,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKeyGroupsResultTypeDef
+# ListKeyGroupsResult
 
 ### KeyGroupList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListKeyValueStoresRequestPaginateTypeDef
-
-### Status
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
-
-
-# ListKeyValueStoresRequestTypeDef
+# ListKeyValueStoresRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4239,18 +4230,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListKeyValueStoresResultTypeDef
+# ListKeyValueStoresRequestPaginate
+
+### Status
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
+
+
+# ListKeyValueStoresResult
 
 ### KeyValueStoreList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOriginAccessControlsRequestTypeDef
+# ListOriginAccessControlsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4259,35 +4259,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListOriginAccessControlsResultTypeDef
+# ListOriginAccessControlsResult
 
 ### OriginAccessControlList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListOriginRequestPoliciesResultTypeDef
+# ListOriginRequestPoliciesResult
 
 ### OriginRequestPolicyList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListPublicKeysRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
-
-
-# ListPublicKeysRequestTypeDef
+# ListPublicKeysRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4296,18 +4290,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListPublicKeysResultTypeDef
+# ListPublicKeysRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
+
+
+# ListPublicKeysResult
 
 ### PublicKeyList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRealtimeLogConfigsRequestTypeDef
+# ListRealtimeLogConfigsRequest
 
 ### MaxItems
 - **Type**: typing.Optional[str]
@@ -4316,35 +4316,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRealtimeLogConfigsResultTypeDef
+# ListRealtimeLogConfigsResult
 
 ### RealtimeLogConfigs
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigs'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListResponseHeadersPoliciesResultTypeDef
+# ListResponseHeadersPoliciesResult
 
 ### ResponseHeadersPolicyList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListStreamingDistributionsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfigTypeDef]
-
-
-# ListStreamingDistributionsRequestTypeDef
+# ListStreamingDistributionsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4353,36 +4347,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListStreamingDistributionsResultTypeDef
+# ListStreamingDistributionsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.PaginatorConfig]
+
+
+# ListStreamingDistributionsResult
 
 ### StreamingDistributionList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### Resource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResultTypeDef
+# ListTagsForResourceResult
 
 ### Tags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListVpcOriginsRequestTypeDef
+# ListVpcOriginsRequest
 
 ### Marker
 - **Type**: typing.Optional[str]
@@ -4391,18 +4391,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListVpcOriginsResultTypeDef
+# ListVpcOriginsResult
 
 ### VpcOriginList
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginListTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginList'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LoggingConfigTypeDef
+# LoggingConfig
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -4417,13 +4417,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MonitoringSubscriptionTypeDef
+# MonitoringSubscription
 
 ### RealtimeMetricsSubscriptionConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeMetricsSubscriptionConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# OriginAccessControlConfigTypeDef
+# Origin
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DomainName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OriginPath
+- **Type**: typing.Optional[str]
+
+### CustomHeaders
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomHeadersUnion]
+
+### S3OriginConfig
+- **Type**: <class 'NoneType'>
+
+### CustomOriginConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomOriginConfigUnion]
+
+### VpcOriginConfig
+- **Type**: <class 'NoneType'>
+
+### ConnectionAttempts
+- **Type**: typing.Optional[int]
+
+### ConnectionTimeout
+- **Type**: typing.Optional[int]
+
+### OriginShield
+- **Type**: <class 'NoneType'>
+
+### OriginAccessControlId
+- **Type**: typing.Optional[str]
+
+
+# OriginAccessControl
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### OriginAccessControlConfig
+- **Type**: <class 'NoneType'>
+
+
+# OriginAccessControlConfig
 
 ### Name
 - **Type**: <class 'str'>
@@ -4445,7 +4493,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OriginAccessControlListTypeDef
+# OriginAccessControlList
 
 ### Marker
 - **Type**: <class 'str'>
@@ -4467,10 +4515,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlSummary]]
 
 
-# OriginAccessControlSummaryTypeDef
+# OriginAccessControlSummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -4497,17 +4545,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OriginAccessControlTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OriginAccessControlConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfigTypeDef]
-
-
-# OriginCustomHeaderTypeDef
+# OriginCustomHeader
 
 ### HeaderName
 - **Type**: <class 'str'>
@@ -4518,130 +4556,130 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OriginGroupFailoverCriteriaOutputTypeDef
+# OriginGroup
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FailoverCriteria
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupFailoverCriteriaUnion'>
+- **Required**: Yes
+
+### Members
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMembersUnion'>
+- **Required**: Yes
+
+### SelectionCriteria
+- **Type**: typing.Optional[typing.Literal['default', 'media-quality-based']]
+
+
+# OriginGroupFailoverCriteria
 
 ### StatusCodes
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StatusCodesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StatusCodesUnion'>
 - **Required**: Yes
 
 
-# OriginGroupFailoverCriteriaTypeDef
+# OriginGroupFailoverCriteriaOutput
 
 ### StatusCodes
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StatusCodesUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StatusCodesOutput'>
 - **Required**: Yes
 
 
-# OriginGroupFailoverCriteriaUnionTypeDef
+# OriginGroupFailoverCriteriaUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginGroupMemberTypeDef
+# OriginGroupMember
 
 ### OriginId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# OriginGroupMembersOutputTypeDef
+# OriginGroupMembers
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMemberTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMember]
 - **Required**: Yes
 
 
-# OriginGroupMembersTypeDef
+# OriginGroupMembersOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMember]
 - **Required**: Yes
 
 
-# OriginGroupMembersUnionTypeDef
+# OriginGroupMembersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginGroupOutputTypeDef
+# OriginGroupOutput
 
 ### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FailoverCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupFailoverCriteriaOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupFailoverCriteriaOutput'>
 - **Required**: Yes
 
 ### Members
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMembersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMembersOutput'>
 - **Required**: Yes
 
 ### SelectionCriteria
 - **Type**: typing.Optional[typing.Literal['default', 'media-quality-based']]
 
 
-# OriginGroupTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FailoverCriteria
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupFailoverCriteriaUnionTypeDef'>
-- **Required**: Yes
-
-### Members
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupMembersUnionTypeDef'>
-- **Required**: Yes
-
-### SelectionCriteria
-- **Type**: typing.Optional[typing.Literal['default', 'media-quality-based']]
-
-
-# OriginGroupUnionTypeDef
+# OriginGroupUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginGroupsOutputTypeDef
+# OriginGroups
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupUnion]]
 
 
-# OriginGroupsTypeDef
+# OriginGroupsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginGroupOutput]]
 
 
-# OriginGroupsUnionTypeDef
+# OriginGroupsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginOutputTypeDef
+# OriginOutput
 
 ### Id
 - **Type**: <class 'str'>
@@ -4655,16 +4693,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CustomHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomHeadersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomHeadersOutput]
 
 ### S3OriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.S3OriginConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CustomOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomOriginConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomOriginConfigOutput]
 
 ### VpcOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginConfigTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ConnectionAttempts
 - **Type**: typing.Optional[int]
@@ -4673,103 +4711,118 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### OriginShield
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginShieldTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### OriginAccessControlId
 - **Type**: typing.Optional[str]
 
 
-# OriginRequestPolicyConfigOutputTypeDef
+# OriginRequestPolicy
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### OriginRequestPolicyConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigOutput'>
+- **Required**: Yes
+
+
+# OriginRequestPolicyConfig
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HeadersConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyHeadersConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyHeadersConfig'>
 - **Required**: Yes
 
 ### CookiesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyCookiesConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyCookiesConfig'>
 - **Required**: Yes
 
 ### QueryStringsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyQueryStringsConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyQueryStringsConfig'>
 - **Required**: Yes
 
 ### Comment
 - **Type**: typing.Optional[str]
 
 
-# OriginRequestPolicyConfigTypeDef
+# OriginRequestPolicyConfigOutput
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### HeadersConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyHeadersConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyHeadersConfigOutput'>
 - **Required**: Yes
 
 ### CookiesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyCookiesConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyCookiesConfigOutput'>
 - **Required**: Yes
 
 ### QueryStringsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyQueryStringsConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyQueryStringsConfigOutput'>
 - **Required**: Yes
 
 ### Comment
 - **Type**: typing.Optional[str]
 
 
-# OriginRequestPolicyConfigUnionTypeDef
+# OriginRequestPolicyConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginRequestPolicyCookiesConfigOutputTypeDef
+# OriginRequestPolicyCookiesConfig
 
 ### CookieBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### Cookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNames]
 
 
-# OriginRequestPolicyCookiesConfigTypeDef
+# OriginRequestPolicyCookiesConfigOutput
 
 ### CookieBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### Cookies
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CookieNamesOutput]
 
 
-# OriginRequestPolicyHeadersConfigOutputTypeDef
-
-### HeaderBehavior
-- **Type**: typing.Literal['allExcept', 'allViewer', 'allViewerAndWhitelistCloudFront', 'none', 'whitelist']
-- **Required**: Yes
-
-### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutputTypeDef]
-
-
-# OriginRequestPolicyHeadersConfigTypeDef
+# OriginRequestPolicyHeadersConfig
 
 ### HeaderBehavior
 - **Type**: typing.Literal['allExcept', 'allViewer', 'allViewerAndWhitelistCloudFront', 'none', 'whitelist']
 - **Required**: Yes
 
 ### Headers
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# OriginRequestPolicyListTypeDef
+# OriginRequestPolicyHeadersConfigOutput
+
+### HeaderBehavior
+- **Type**: typing.Literal['allExcept', 'allViewer', 'allViewerAndWhitelistCloudFront', 'none', 'whitelist']
+- **Required**: Yes
+
+### Headers
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.HeadersOutput]
+
+
+# OriginRequestPolicyList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -4783,51 +4836,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicySummary]]
 
 
-# OriginRequestPolicyQueryStringsConfigOutputTypeDef
-
-### QueryStringBehavior
-- **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
-- **Required**: Yes
-
-### QueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesOutputTypeDef]
-
-
-# OriginRequestPolicyQueryStringsConfigTypeDef
+# OriginRequestPolicyQueryStringsConfig
 
 ### QueryStringBehavior
 - **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
 - **Required**: Yes
 
 ### QueryStrings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNames]
 
 
-# OriginRequestPolicySummaryTypeDef
+# OriginRequestPolicyQueryStringsConfigOutput
+
+### QueryStringBehavior
+- **Type**: typing.Literal['all', 'allExcept', 'none', 'whitelist']
+- **Required**: Yes
+
+### QueryStrings
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryStringNamesOutput]
+
+
+# OriginRequestPolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OriginRequestPolicyTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### OriginRequestPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# OriginShieldTypeDef
+# OriginShield
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -4837,18 +4875,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OriginSslProtocolsOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.List[typing.Literal['SSLv3', 'TLSv1', 'TLSv1.1', 'TLSv1.2']]
-- **Required**: Yes
-
-
-# OriginSslProtocolsTypeDef
+# OriginSslProtocols
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -4859,85 +4886,58 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# OriginSslProtocolsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# OriginTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DomainName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### OriginPath
-- **Type**: typing.Optional[str]
-
-### CustomHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomHeadersUnionTypeDef]
-
-### S3OriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.S3OriginConfigTypeDef]
-
-### CustomOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.CustomOriginConfigUnionTypeDef]
-
-### VpcOriginConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginConfigTypeDef]
-
-### ConnectionAttempts
-- **Type**: typing.Optional[int]
-
-### ConnectionTimeout
-- **Type**: typing.Optional[int]
-
-### OriginShield
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginShieldTypeDef]
-
-### OriginAccessControlId
-- **Type**: typing.Optional[str]
-
-
-# OriginUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# OriginsOutputTypeDef
+# OriginSslProtocolsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginOutputTypeDef]
+- **Type**: typing.List[typing.Literal['SSLv3', 'TLSv1', 'TLSv1.1', 'TLSv1.2']]
 - **Required**: Yes
 
 
-# OriginsTypeDef
+# OriginSslProtocolsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# OriginUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# Origins
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.OriginUnion]
 - **Required**: Yes
 
 
-# OriginsUnionTypeDef
+# OriginsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.OriginOutput]
+- **Required**: Yes
+
+
+# OriginsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -4949,61 +4949,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ParametersInCacheKeyAndForwardedToOriginOutputTypeDef
+# ParametersInCacheKeyAndForwardedToOrigin
 
 ### EnableAcceptEncodingGzip
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### HeadersConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyHeadersConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyHeadersConfig'>
 - **Required**: Yes
 
 ### CookiesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyCookiesConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyCookiesConfig'>
 - **Required**: Yes
 
 ### QueryStringsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyQueryStringsConfigOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyQueryStringsConfig'>
 - **Required**: Yes
 
 ### EnableAcceptEncodingBrotli
 - **Type**: typing.Optional[bool]
 
 
-# ParametersInCacheKeyAndForwardedToOriginTypeDef
+# ParametersInCacheKeyAndForwardedToOriginOutput
 
 ### EnableAcceptEncodingGzip
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### HeadersConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyHeadersConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyHeadersConfigOutput'>
 - **Required**: Yes
 
 ### CookiesConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyCookiesConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyCookiesConfigOutput'>
 - **Required**: Yes
 
 ### QueryStringsConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyQueryStringsConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyQueryStringsConfigOutput'>
 - **Required**: Yes
 
 ### EnableAcceptEncodingBrotli
 - **Type**: typing.Optional[bool]
 
 
-# PathsOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# PathsTypeDef
+# Paths
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5013,7 +5003,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# PublicKeyConfigTypeDef
+# PathsOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# PublicKey
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### PublicKeyConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfig'>
+- **Required**: Yes
+
+
+# PublicKeyConfig
 
 ### CallerReference
 - **Type**: <class 'str'>
@@ -5031,7 +5046,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublicKeyListTypeDef
+# PublicKeyList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -5045,10 +5060,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeySummary]]
 
 
-# PublicKeySummaryTypeDef
+# PublicKeySummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -5070,22 +5085,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublicKeyTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### PublicKeyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfigTypeDef'>
-- **Required**: Yes
-
-
-# PublishFunctionRequestTypeDef
+# PublishFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -5096,38 +5096,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PublishFunctionResultTypeDef
+# PublishFunctionResult
 
 ### FunctionSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummary'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# QueryArgProfileConfigOutputTypeDef
-
-### ForwardWhenQueryArgProfileIsUnknown
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### QueryArgProfiles
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfilesOutputTypeDef]
-
-
-# QueryArgProfileConfigTypeDef
-
-### ForwardWhenQueryArgProfileIsUnknown
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### QueryArgProfiles
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfilesTypeDef]
-
-
-# QueryArgProfileTypeDef
+# QueryArgProfile
 
 ### QueryArg
 - **Type**: <class 'str'>
@@ -5138,37 +5118,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# QueryArgProfilesOutputTypeDef
+# QueryArgProfileConfig
+
+### ForwardWhenQueryArgProfileIsUnknown
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### QueryArgProfiles
+- **Type**: <class 'NoneType'>
+
+
+# QueryArgProfileConfigOutput
+
+### ForwardWhenQueryArgProfileIsUnknown
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### QueryArgProfiles
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfilesOutput]
+
+
+# QueryArgProfiles
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfile]]
 
 
-# QueryArgProfilesTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfileTypeDef]]
-
-
-# QueryStringCacheKeysOutputTypeDef
+# QueryArgProfilesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.QueryArgProfile]]
 
 
-# QueryStringCacheKeysTypeDef
+# QueryStringCacheKeys
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5178,23 +5168,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# QueryStringCacheKeysUnionTypeDef
+# QueryStringCacheKeysOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# QueryStringCacheKeysUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# QueryStringNamesOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# QueryStringNamesTypeDef
+# QueryStringNames
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5204,7 +5194,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# RealtimeLogConfigTypeDef
+# QueryStringNamesOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# RealtimeLogConfig
 
 ### ARN
 - **Type**: <class 'str'>
@@ -5219,7 +5219,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.EndPointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.EndPoint]
 - **Required**: Yes
 
 ### Fields
@@ -5227,7 +5227,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RealtimeLogConfigsTypeDef
+# RealtimeLogConfigs
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -5242,31 +5242,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfig]]
 
 ### NextMarker
 - **Type**: typing.Optional[str]
 
 
-# RealtimeMetricsSubscriptionConfigTypeDef
+# RealtimeMetricsSubscriptionConfig
 
 ### RealtimeMetricsSubscriptionStatus
 - **Type**: typing.Literal['Disabled', 'Enabled']
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef
+# ResponseHeadersPolicy
 
-### Quantity
-- **Type**: <class 'int'>
+### Id
+- **Type**: <class 'str'>
 - **Required**: Yes
 
-### Items
-- **Type**: typing.List[str]
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### ResponseHeadersPolicyConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigOutput'>
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowHeadersTypeDef
+# ResponseHeadersPolicyAccessControlAllowHeaders
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5277,18 +5281,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef
+# ResponseHeadersPolicyAccessControlAllowHeadersOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[typing.Literal['ALL', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
+- **Type**: typing.List[str]
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowMethodsTypeDef
+# ResponseHeadersPolicyAccessControlAllowMethods
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5299,18 +5303,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef
+# ResponseHeadersPolicyAccessControlAllowMethodsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[str]
+- **Type**: typing.List[typing.Literal['ALL', 'DELETE', 'GET', 'HEAD', 'OPTIONS', 'PATCH', 'POST', 'PUT']]
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlAllowOriginsTypeDef
+# ResponseHeadersPolicyAccessControlAllowOrigins
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5321,17 +5325,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef
+# ResponseHeadersPolicyAccessControlAllowOriginsOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[str]]
+- **Type**: typing.List[str]
+- **Required**: Yes
 
 
-# ResponseHeadersPolicyAccessControlExposeHeadersTypeDef
+# ResponseHeadersPolicyAccessControlExposeHeaders
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5341,7 +5346,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ResponseHeadersPolicyConfigOutputTypeDef
+# ResponseHeadersPolicyAccessControlExposeHeadersOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ResponseHeadersPolicyConfig
 
 ### Name
 - **Type**: <class 'str'>
@@ -5351,22 +5366,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCorsConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCorsConfig]
 
 ### SecurityHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySecurityHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySecurityHeadersConfig]
 
 ### ServerTimingHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyServerTimingHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyServerTimingHeadersConfig]
 
 ### CustomHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeadersConfig]
 
 ### RemoveHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeadersConfig]
 
 
-# ResponseHeadersPolicyConfigTypeDef
+# ResponseHeadersPolicyConfigOutput
 
 ### Name
 - **Type**: <class 'str'>
@@ -5376,28 +5391,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CorsConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCorsConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCorsConfigOutput]
 
 ### SecurityHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySecurityHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySecurityHeadersConfig]
 
 ### ServerTimingHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyServerTimingHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyServerTimingHeadersConfig]
 
 ### CustomHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeadersConfigOutput]
 
 ### RemoveHeadersConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeadersConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeadersConfigOutput]
 
 
-# ResponseHeadersPolicyConfigUnionTypeDef
+# ResponseHeadersPolicyConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseHeadersPolicyContentSecurityPolicyTypeDef
+# ResponseHeadersPolicyContentSecurityPolicy
 
 ### Override
 - **Type**: <class 'bool'>
@@ -5408,25 +5423,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyContentTypeOptionsTypeDef
+# ResponseHeadersPolicyContentTypeOptions
 
 ### Override
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyCorsConfigOutputTypeDef
+# ResponseHeadersPolicyCorsConfig
 
 ### AccessControlAllowOrigins
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowOriginsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowOrigins'>
 - **Required**: Yes
 
 ### AccessControlAllowHeaders
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowHeadersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowHeaders'>
 - **Required**: Yes
 
 ### AccessControlAllowMethods
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowMethodsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowMethods'>
 - **Required**: Yes
 
 ### AccessControlAllowCredentials
@@ -5438,24 +5453,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessControlExposeHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlExposeHeadersOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlExposeHeaders]
 
 ### AccessControlMaxAgeSec
 - **Type**: typing.Optional[int]
 
 
-# ResponseHeadersPolicyCorsConfigTypeDef
+# ResponseHeadersPolicyCorsConfigOutput
 
 ### AccessControlAllowOrigins
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowOriginsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowOriginsOutput'>
 - **Required**: Yes
 
 ### AccessControlAllowHeaders
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowHeadersTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowHeadersOutput'>
 - **Required**: Yes
 
 ### AccessControlAllowMethods
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowMethodsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlAllowMethodsOutput'>
 - **Required**: Yes
 
 ### AccessControlAllowCredentials
@@ -5467,13 +5482,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AccessControlExposeHeaders
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlExposeHeadersTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyAccessControlExposeHeadersOutput]
 
 ### AccessControlMaxAgeSec
 - **Type**: typing.Optional[int]
 
 
-# ResponseHeadersPolicyCustomHeaderTypeDef
+# ResponseHeadersPolicyCustomHeader
 
 ### Header
 - **Type**: <class 'str'>
@@ -5488,27 +5503,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyCustomHeadersConfigOutputTypeDef
+# ResponseHeadersPolicyCustomHeadersConfig
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeaderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeader]]
 
 
-# ResponseHeadersPolicyCustomHeadersConfigTypeDef
+# ResponseHeadersPolicyCustomHeadersConfigOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeaderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyCustomHeader]]
 
 
-# ResponseHeadersPolicyFrameOptionsTypeDef
+# ResponseHeadersPolicyFrameOptions
 
 ### Override
 - **Type**: <class 'bool'>
@@ -5519,7 +5534,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyListTypeDef
+# ResponseHeadersPolicyList
 
 ### MaxItems
 - **Type**: <class 'int'>
@@ -5533,10 +5548,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicySummary]]
 
 
-# ResponseHeadersPolicyReferrerPolicyTypeDef
+# ResponseHeadersPolicyReferrerPolicy
 
 ### Override
 - **Type**: <class 'bool'>
@@ -5547,55 +5562,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyRemoveHeaderTypeDef
+# ResponseHeadersPolicyRemoveHeader
 
 ### Header
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResponseHeadersPolicyRemoveHeadersConfigOutputTypeDef
+# ResponseHeadersPolicyRemoveHeadersConfig
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeaderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeader]]
 
 
-# ResponseHeadersPolicyRemoveHeadersConfigTypeDef
+# ResponseHeadersPolicyRemoveHeadersConfigOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeaderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyRemoveHeader]]
 
 
-# ResponseHeadersPolicySecurityHeadersConfigTypeDef
+# ResponseHeadersPolicySecurityHeadersConfig
 
 ### XSSProtection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyXSSProtectionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyXSSProtection]
 
 ### FrameOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyFrameOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyFrameOptions]
 
 ### ReferrerPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyReferrerPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyReferrerPolicy]
 
 ### ContentSecurityPolicy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyContentSecurityPolicyTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyContentSecurityPolicy]
 
 ### ContentTypeOptions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyContentTypeOptionsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyContentTypeOptions]
 
 ### StrictTransportSecurity
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyStrictTransportSecurityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyStrictTransportSecurity]
 
 
-# ResponseHeadersPolicyServerTimingHeadersConfigTypeDef
+# ResponseHeadersPolicyServerTimingHeadersConfig
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -5605,7 +5620,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ResponseHeadersPolicyStrictTransportSecurityTypeDef
+# ResponseHeadersPolicyStrictTransportSecurity
 
 ### Override
 - **Type**: <class 'bool'>
@@ -5622,28 +5637,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ResponseHeadersPolicySummaryTypeDef
+# ResponseHeadersPolicySummary
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseHeadersPolicyTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### ResponseHeadersPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# ResponseHeadersPolicyXSSProtectionTypeDef
+# ResponseHeadersPolicyXSSProtection
 
 ### Override
 - **Type**: <class 'bool'>
@@ -5660,7 +5660,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -5682,34 +5682,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestrictionsOutputTypeDef
+# Restrictions
 
 ### GeoRestriction
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.GeoRestrictionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.GeoRestrictionUnion'>
 - **Required**: Yes
 
 
-# RestrictionsTypeDef
+# RestrictionsOutput
 
 ### GeoRestriction
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.GeoRestrictionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.GeoRestrictionOutput'>
 - **Required**: Yes
 
 
-# RestrictionsUnionTypeDef
+# RestrictionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# S3OriginConfigTypeDef
-
-### OriginAccessIdentity
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-
-# S3OriginTypeDef
+# S3Origin
 
 ### DomainName
 - **Type**: <class 'str'>
@@ -5720,7 +5713,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SessionStickinessConfigTypeDef
+# S3OriginConfig
+
+### OriginAccessIdentity
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+
+# SessionStickinessConfig
 
 ### IdleTTL
 - **Type**: <class 'int'>
@@ -5731,26 +5731,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# SignerTypeDef
+# Signer
 
 ### AwsAccountNumber
 - **Type**: typing.Optional[str]
 
 ### KeyPairIds
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.KeyPairIdsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StagingDistributionDnsNamesOutputTypeDef
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# StagingDistributionDnsNamesTypeDef
+# StagingDistributionDnsNames
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5760,18 +5750,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# StatusCodesOutputTypeDef
+# StagingDistributionDnsNamesOutput
 
 ### Quantity
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### Items
-- **Type**: typing.List[int]
-- **Required**: Yes
+- **Type**: typing.Optional[typing.List[str]]
 
 
-# StatusCodesTypeDef
+# StatusCodes
 
 ### Quantity
 - **Type**: <class 'int'>
@@ -5782,94 +5771,135 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StatusCodesUnionTypeDef
+# StatusCodesOutput
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.List[int]
+- **Required**: Yes
+
+
+# StatusCodesUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# StreamingDistributionConfigOutputTypeDef
+# StreamingDistribution
 
-### CallerReference
+### Id
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### S3Origin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3OriginTypeDef'>
-- **Required**: Yes
-
-### Comment
+### ARN
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### TrustedSigners
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutputTypeDef'>
-- **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Aliases
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutputTypeDef]
-
-### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingLoggingConfigTypeDef]
-
-### PriceClass
-- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
-
-
-# StreamingDistributionConfigTypeDef
-
-### CallerReference
+### Status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### S3Origin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3OriginTypeDef'>
-- **Required**: Yes
-
-### Comment
+### DomainName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### TrustedSigners
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnionTypeDef'>
+### ActiveTrustedSigners
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ActiveTrustedSigners'>
 - **Required**: Yes
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Aliases
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesUnionTypeDef]
-
-### Logging
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingLoggingConfigTypeDef]
-
-### PriceClass
-- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
-
-
-# StreamingDistributionConfigUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# StreamingDistributionConfigWithTagsTypeDef
 
 ### StreamingDistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigOutput'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# StreamingDistributionConfig
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3Origin
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3Origin'>
+- **Required**: Yes
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TrustedSigners
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersUnion'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Aliases
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesUnion]
+
+### Logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingLoggingConfig]
+
+### PriceClass
+- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
+
+
+# StreamingDistributionConfigOutput
+
+### CallerReference
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3Origin
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3Origin'>
+- **Required**: Yes
+
+### Comment
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### TrustedSigners
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutput'>
+- **Required**: Yes
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Aliases
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutput]
+
+### Logging
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingLoggingConfig]
+
+### PriceClass
+- **Type**: typing.Optional[typing.Literal['PriceClass_100', 'PriceClass_200', 'PriceClass_All']]
+
+
+# StreamingDistributionConfigUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# StreamingDistributionConfigWithTags
+
+### StreamingDistributionConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnion'>
 - **Required**: Yes
 
 ### Tags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnion'>
 - **Required**: Yes
 
 
-# StreamingDistributionListTypeDef
+# StreamingDistributionList
 
 ### Marker
 - **Type**: <class 'str'>
@@ -5891,10 +5921,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionSummary]]
 
 
-# StreamingDistributionSummaryTypeDef
+# StreamingDistributionSummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -5917,15 +5947,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### S3Origin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3OriginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.S3Origin'>
 - **Required**: Yes
 
 ### Aliases
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.AliasesOutput'>
 - **Required**: Yes
 
 ### TrustedSigners
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TrustedSignersOutput'>
 - **Required**: Yes
 
 ### Comment
@@ -5941,37 +5971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# StreamingDistributionTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ARN
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DomainName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ActiveTrustedSigners
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ActiveTrustedSignersTypeDef'>
-- **Required**: Yes
-
-### StreamingDistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigOutputTypeDef'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# StreamingLoggingConfigTypeDef
+# StreamingLoggingConfig
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -5986,24 +5986,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TagKeysTypeDef
-
-### Items
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-
-# TagResourceRequestTypeDef
-
-### Resource
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnionTypeDef'>
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -6013,25 +5996,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagsOutputTypeDef
+# TagKeys
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TagsTypeDef
+# TagResourceRequest
+
+### Resource
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagsUnion'>
+- **Required**: Yes
+
+
+# Tags
 
 ### Items
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.Tag]]
 
 
-# TagsUnionTypeDef
+# TagsOutput
+
+### Items
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.Tag]]
+
+
+# TagsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TestFunctionRequestTypeDef
+# TestFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -6042,28 +6042,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EventObject
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Blob'>
 - **Required**: Yes
 
 ### Stage
 - **Type**: typing.Optional[typing.Literal['DEVELOPMENT', 'LIVE']]
 
 
-# TestFunctionResultTypeDef
+# TestFunctionResult
 
 ### TestResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TestResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TestResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# TestResultTypeDef
+# TestResult
 
 ### FunctionSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ComputeUtilization
 - **Type**: typing.Optional[str]
@@ -6078,27 +6078,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TrafficConfigTypeDef
+# TrafficConfig
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrustedKeyGroupsOutputTypeDef
-
-### Enabled
-- **Type**: <class 'bool'>
-- **Required**: Yes
-
-### Quantity
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### Items
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# TrustedKeyGroupsTypeDef
+# TrustedKeyGroups
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -6112,13 +6098,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TrustedKeyGroupsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# TrustedSignersOutputTypeDef
+# TrustedKeyGroupsOutput
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -6132,7 +6112,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# TrustedSignersTypeDef
+# TrustedKeyGroupsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# TrustedSigners
 
 ### Enabled
 - **Type**: <class 'bool'>
@@ -6146,27 +6132,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# TrustedSignersUnionTypeDef
+# TrustedSignersOutput
+
+### Enabled
+- **Type**: <class 'bool'>
+- **Required**: Yes
+
+### Quantity
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### Items
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# TrustedSignersUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### Resource
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TagKeys
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagKeysTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.TagKeys'>
 - **Required**: Yes
 
 
-# UpdateCachePolicyRequestTypeDef
+# UpdateCachePolicyRequest
 
 ### CachePolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6177,10 +6177,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCachePolicyResultTypeDef
+# UpdateCachePolicyResult
 
 ### CachePolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CachePolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -6188,14 +6188,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCloudFrontOriginAccessIdentityRequestTypeDef
+# UpdateCloudFrontOriginAccessIdentityRequest
 
 ### CloudFrontOriginAccessIdentityConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityConfig'>
 - **Required**: Yes
 
 ### Id
@@ -6206,10 +6206,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCloudFrontOriginAccessIdentityResultTypeDef
+# UpdateCloudFrontOriginAccessIdentityResult
 
 ### CloudFrontOriginAccessIdentity
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentityTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.CloudFrontOriginAccessIdentity'>
 - **Required**: Yes
 
 ### ETag
@@ -6217,14 +6217,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateContinuousDeploymentPolicyRequestTypeDef
+# UpdateContinuousDeploymentPolicyRequest
 
 ### ContinuousDeploymentPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6235,10 +6235,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateContinuousDeploymentPolicyResultTypeDef
+# UpdateContinuousDeploymentPolicyResult
 
 ### ContinuousDeploymentPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ContinuousDeploymentPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -6246,14 +6246,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDistributionRequestTypeDef
+# UpdateDistributionRequest
 
 ### DistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6264,10 +6264,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDistributionResultTypeDef
+# UpdateDistributionResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### ETag
@@ -6275,11 +6275,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateDistributionWithStagingConfigRequestTypeDef
+# UpdateDistributionWithStagingConfigRequest
 
 ### Id
 - **Type**: <class 'str'>
@@ -6292,10 +6292,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateDistributionWithStagingConfigResultTypeDef
+# UpdateDistributionWithStagingConfigResult
 
 ### Distribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.DistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Distribution'>
 - **Required**: Yes
 
 ### ETag
@@ -6303,14 +6303,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFieldLevelEncryptionConfigRequestTypeDef
+# UpdateFieldLevelEncryptionConfigRequest
 
 ### FieldLevelEncryptionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6321,10 +6321,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFieldLevelEncryptionConfigResultTypeDef
+# UpdateFieldLevelEncryptionConfigResult
 
 ### FieldLevelEncryption
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryption'>
 - **Required**: Yes
 
 ### ETag
@@ -6332,14 +6332,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFieldLevelEncryptionProfileRequestTypeDef
+# UpdateFieldLevelEncryptionProfileRequest
 
 ### FieldLevelEncryptionProfileConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6350,10 +6350,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateFieldLevelEncryptionProfileResultTypeDef
+# UpdateFieldLevelEncryptionProfileResult
 
 ### FieldLevelEncryptionProfile
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FieldLevelEncryptionProfile'>
 - **Required**: Yes
 
 ### ETag
@@ -6361,11 +6361,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFunctionRequestTypeDef
+# UpdateFunctionRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -6376,18 +6376,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FunctionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionConfigUnion'>
 - **Required**: Yes
 
 ### FunctionCode
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.Blob'>
 - **Required**: Yes
 
 
-# UpdateFunctionResultTypeDef
+# UpdateFunctionResult
 
 ### FunctionSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.FunctionSummary'>
 - **Required**: Yes
 
 ### ETag
@@ -6395,14 +6395,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateKeyGroupRequestTypeDef
+# UpdateKeyGroupRequest
 
 ### KeyGroupConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6413,10 +6413,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateKeyGroupResultTypeDef
+# UpdateKeyGroupResult
 
 ### KeyGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyGroup'>
 - **Required**: Yes
 
 ### ETag
@@ -6424,11 +6424,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateKeyValueStoreRequestTypeDef
+# UpdateKeyValueStoreRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -6443,10 +6443,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateKeyValueStoreResultTypeDef
+# UpdateKeyValueStoreResult
 
 ### KeyValueStore
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStoreTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.KeyValueStore'>
 - **Required**: Yes
 
 ### ETag
@@ -6454,14 +6454,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateOriginAccessControlRequestTypeDef
+# UpdateOriginAccessControlRequest
 
 ### OriginAccessControlConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlConfig'>
 - **Required**: Yes
 
 ### Id
@@ -6472,10 +6472,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateOriginAccessControlResultTypeDef
+# UpdateOriginAccessControlResult
 
 ### OriginAccessControl
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControlTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginAccessControl'>
 - **Required**: Yes
 
 ### ETag
@@ -6483,14 +6483,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateOriginRequestPolicyRequestTypeDef
+# UpdateOriginRequestPolicyRequest
 
 ### OriginRequestPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6501,10 +6501,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateOriginRequestPolicyResultTypeDef
+# UpdateOriginRequestPolicyResult
 
 ### OriginRequestPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.OriginRequestPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -6512,14 +6512,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePublicKeyRequestTypeDef
+# UpdatePublicKeyRequest
 
 ### PublicKeyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyConfig'>
 - **Required**: Yes
 
 ### Id
@@ -6530,10 +6530,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePublicKeyResultTypeDef
+# UpdatePublicKeyResult
 
 ### PublicKey
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKeyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.PublicKey'>
 - **Required**: Yes
 
 ### ETag
@@ -6541,14 +6541,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRealtimeLogConfigRequestTypeDef
+# UpdateRealtimeLogConfigRequest
 
 ### EndPoints
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EndPointTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cloudfront_classes.EndPoint]]
 
 ### Fields
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -6563,21 +6563,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateRealtimeLogConfigResultTypeDef
+# UpdateRealtimeLogConfigResult
 
 ### RealtimeLogConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfigTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.RealtimeLogConfig'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateResponseHeadersPolicyRequestTypeDef
+# UpdateResponseHeadersPolicyRequest
 
 ### ResponseHeadersPolicyConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6588,10 +6588,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateResponseHeadersPolicyResultTypeDef
+# UpdateResponseHeadersPolicyResult
 
 ### ResponseHeadersPolicy
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseHeadersPolicy'>
 - **Required**: Yes
 
 ### ETag
@@ -6599,14 +6599,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateStreamingDistributionRequestTypeDef
+# UpdateStreamingDistributionRequest
 
 ### StreamingDistributionConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6617,10 +6617,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateStreamingDistributionResultTypeDef
+# UpdateStreamingDistributionResult
 
 ### StreamingDistribution
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistributionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.StreamingDistribution'>
 - **Required**: Yes
 
 ### ETag
@@ -6628,14 +6628,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVpcOriginRequestTypeDef
+# UpdateVpcOriginRequest
 
 ### VpcOriginEndpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigUnion'>
 - **Required**: Yes
 
 ### Id
@@ -6647,10 +6647,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateVpcOriginResultTypeDef
+# UpdateVpcOriginResult
 
 ### VpcOrigin
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOrigin'>
 - **Required**: Yes
 
 ### ETag
@@ -6658,11 +6658,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ViewerCertificateTypeDef
+# ViewerCertificate
 
 ### CloudFrontDefaultCertificate
 - **Type**: typing.Optional[bool]
@@ -6686,7 +6686,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['acm', 'cloudfront', 'iam']]
 
 
-# VpcOriginConfigTypeDef
+# VpcOrigin
+
+### Id
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Arn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Status
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### CreatedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### LastModifiedTime
+- **Type**: <class 'datetime.datetime'>
+- **Required**: Yes
+
+### VpcOriginEndpointConfig
+- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigOutput'>
+- **Required**: Yes
+
+
+# VpcOriginConfig
 
 ### VpcOriginId
 - **Type**: <class 'str'>
@@ -6699,7 +6726,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# VpcOriginEndpointConfigOutputTypeDef
+# VpcOriginEndpointConfig
 
 ### Name
 - **Type**: <class 'str'>
@@ -6722,10 +6749,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsOutputTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# VpcOriginEndpointConfigTypeDef
+# VpcOriginEndpointConfigOutput
 
 ### Name
 - **Type**: <class 'str'>
@@ -6748,16 +6775,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### OriginSslProtocols
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cloudfront_classes.OriginSslProtocolsOutput]
 
 
-# VpcOriginEndpointConfigUnionTypeDef
+# VpcOriginEndpointConfigUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# VpcOriginListTypeDef
+# VpcOriginList
 
 ### Marker
 - **Type**: <class 'str'>
@@ -6779,10 +6806,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Items
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginSummary]]
 
 
-# VpcOriginSummaryTypeDef
+# VpcOriginSummary
 
 ### Id
 - **Type**: <class 'str'>
@@ -6813,34 +6840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VpcOriginTypeDef
-
-### Id
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Arn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Status
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### CreatedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### LastModifiedTime
-- **Type**: <class 'datetime.datetime'>
-- **Required**: Yes
-
-### VpcOriginEndpointConfig
-- **Type**: <class 'aws_resource_validator.pydantic_models.cloudfront_classes.VpcOriginEndpointConfigOutputTypeDef'>
-- **Required**: Yes
-
-
-# WaiterConfigTypeDef
+# WaiterConfig
 
 ### Delay
 - **Type**: typing.Optional[int]

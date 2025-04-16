@@ -1,27 +1,6 @@
 # Globalaccelerator Classes
 
-# AcceleratorAttributesTypeDef
-
-### FlowLogsEnabled
-- **Type**: typing.Optional[bool]
-
-### FlowLogsS3Bucket
-- **Type**: typing.Optional[str]
-
-### FlowLogsS3Prefix
-- **Type**: typing.Optional[str]
-
-
-# AcceleratorEventTypeDef
-
-### Message
-- **Type**: typing.Optional[str]
-
-### Timestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# AcceleratorTypeDef
+# Accelerator
 
 ### AcceleratorArn
 - **Type**: typing.Optional[str]
@@ -36,7 +15,7 @@
 - **Type**: typing.Optional[bool]
 
 ### IpSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.IpSetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.IpSet]]
 
 ### DnsName
 - **Type**: typing.Optional[str]
@@ -54,13 +33,34 @@
 - **Type**: typing.Optional[str]
 
 ### Events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorEventTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorEvent]]
 
 
-# AddCustomRoutingEndpointsRequestTypeDef
+# AcceleratorAttributes
+
+### FlowLogsEnabled
+- **Type**: typing.Optional[bool]
+
+### FlowLogsS3Bucket
+- **Type**: typing.Optional[str]
+
+### FlowLogsS3Prefix
+- **Type**: typing.Optional[str]
+
+
+# AcceleratorEvent
+
+### Message
+- **Type**: typing.Optional[str]
+
+### Timestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# AddCustomRoutingEndpointsRequest
 
 ### EndpointConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointConfiguration]
 - **Required**: Yes
 
 ### EndpointGroupArn
@@ -68,10 +68,10 @@
 - **Required**: Yes
 
 
-# AddCustomRoutingEndpointsResponseTypeDef
+# AddCustomRoutingEndpointsResponse
 
 ### EndpointDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointDescription]
 - **Required**: Yes
 
 ### EndpointGroupArn
@@ -79,14 +79,14 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddEndpointsRequestTypeDef
+# AddEndpointsRequest
 
 ### EndpointConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfiguration]
 - **Required**: Yes
 
 ### EndpointGroupArn
@@ -94,10 +94,10 @@
 - **Required**: Yes
 
 
-# AddEndpointsResponseTypeDef
+# AddEndpointsResponse
 
 ### EndpointDescriptions
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointDescription]
 - **Required**: Yes
 
 ### EndpointGroupArn
@@ -105,29 +105,29 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AdvertiseByoipCidrRequestTypeDef
+# AdvertiseByoipCidrRequest
 
 ### Cidr
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# AdvertiseByoipCidrResponseTypeDef
+# AdvertiseByoipCidrResponse
 
 ### ByoipCidr
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidr'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AllowCustomRoutingTrafficRequestTypeDef
+# AllowCustomRoutingTrafficRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -147,7 +147,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# AttachmentTypeDef
+# Attachment
 
 ### AttachmentArn
 - **Type**: typing.Optional[str]
@@ -159,7 +159,7 @@
 - **Type**: typing.Optional[typing.List[str]]
 
 ### Resources
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.Resource]]
 
 ### LastModifiedTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -174,16 +174,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ByoipCidrEventTypeDef
-
-### Message
-- **Type**: typing.Optional[str]
-
-### Timestamp
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# ByoipCidrTypeDef
+# ByoipCidr
 
 ### Cidr
 - **Type**: typing.Optional[str]
@@ -192,10 +183,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADVERTISING', 'DEPROVISIONED', 'FAILED_ADVERTISING', 'FAILED_DEPROVISION', 'FAILED_PROVISION', 'FAILED_WITHDRAW', 'PENDING_ADVERTISING', 'PENDING_DEPROVISIONING', 'PENDING_PROVISIONING', 'PENDING_WITHDRAWING', 'READY']]
 
 ### Events
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrEventTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrEvent]]
 
 
-# CidrAuthorizationContextTypeDef
+# ByoipCidrEvent
+
+### Message
+- **Type**: typing.Optional[str]
+
+### Timestamp
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# CidrAuthorizationContext
 
 ### Message
 - **Type**: <class 'str'>
@@ -206,7 +206,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateAcceleratorRequestTypeDef
+# CreateAcceleratorRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -226,21 +226,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Tag]]
 
 
-# CreateAcceleratorResponseTypeDef
+# CreateAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Accelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCrossAccountAttachmentRequestTypeDef
+# CreateCrossAccountAttachmentRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -254,24 +254,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Resources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.ResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Resource]]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Tag]]
 
 
-# CreateCrossAccountAttachmentResponseTypeDef
+# CreateCrossAccountAttachmentResponse
 
 ### CrossAccountAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomRoutingAcceleratorRequestTypeDef
+# CreateCustomRoutingAcceleratorRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -291,21 +291,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Tag]]
 
 
-# CreateCustomRoutingAcceleratorResponseTypeDef
+# CreateCustomRoutingAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAccelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomRoutingEndpointGroupRequestTypeDef
+# CreateCustomRoutingEndpointGroupRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -316,7 +316,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### DestinationConfigurations
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingDestinationConfigurationTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingDestinationConfiguration]
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -324,25 +324,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomRoutingEndpointGroupResponseTypeDef
+# CreateCustomRoutingEndpointGroupResponse
 
 ### EndpointGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateCustomRoutingListenerRequestTypeDef
+# CreateCustomRoutingListenerRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PortRanges
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRange]
 - **Required**: Yes
 
 ### IdempotencyToken
@@ -350,18 +350,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateCustomRoutingListenerResponseTypeDef
+# CreateCustomRoutingListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEndpointGroupRequestTypeDef
+# CreateEndpointGroupRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -376,7 +376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndpointConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfiguration]]
 
 ### TrafficDialPercentage
 - **Type**: typing.Optional[float]
@@ -397,32 +397,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PortOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverrideTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverride]]
 
 
-# CreateEndpointGroupResponseTypeDef
+# CreateEndpointGroupResponse
 
 ### EndpointGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateListenerResponseTypeDef
+# CreateListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Listener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CrossAccountResourceTypeDef
+# CrossAccountResource
 
 ### EndpointId
 - **Type**: typing.Optional[str]
@@ -434,19 +434,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomRoutingAcceleratorAttributesTypeDef
-
-### FlowLogsEnabled
-- **Type**: typing.Optional[bool]
-
-### FlowLogsS3Bucket
-- **Type**: typing.Optional[str]
-
-### FlowLogsS3Prefix
-- **Type**: typing.Optional[str]
-
-
-# CustomRoutingAcceleratorTypeDef
+# CustomRoutingAccelerator
 
 ### AcceleratorArn
 - **Type**: typing.Optional[str]
@@ -461,7 +449,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### IpSets
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.IpSetTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.IpSet]]
 
 ### DnsName
 - **Type**: typing.Optional[str]
@@ -476,7 +464,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CustomRoutingDestinationConfigurationTypeDef
+# CustomRoutingAcceleratorAttributes
+
+### FlowLogsEnabled
+- **Type**: typing.Optional[bool]
+
+### FlowLogsS3Bucket
+- **Type**: typing.Optional[str]
+
+### FlowLogsS3Prefix
+- **Type**: typing.Optional[str]
+
+
+# CustomRoutingDestinationConfiguration
 
 ### FromPort
 - **Type**: <class 'int'>
@@ -491,7 +491,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CustomRoutingDestinationDescriptionTypeDef
+# CustomRoutingDestinationDescription
 
 ### FromPort
 - **Type**: typing.Optional[int]
@@ -503,7 +503,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[typing.Literal['TCP', 'UDP']]]
 
 
-# CustomRoutingEndpointConfigurationTypeDef
+# CustomRoutingEndpointConfiguration
 
 ### EndpointId
 - **Type**: typing.Optional[str]
@@ -512,13 +512,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomRoutingEndpointDescriptionTypeDef
+# CustomRoutingEndpointDescription
 
 ### EndpointId
 - **Type**: typing.Optional[str]
 
 
-# CustomRoutingEndpointGroupTypeDef
+# CustomRoutingEndpointGroup
 
 ### EndpointGroupArn
 - **Type**: typing.Optional[str]
@@ -527,71 +527,71 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DestinationDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingDestinationDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingDestinationDescription]]
 
 ### EndpointDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointDescription]]
 
 
-# CustomRoutingListenerTypeDef
+# CustomRoutingListener
 
 ### ListenerArn
 - **Type**: typing.Optional[str]
 
 ### PortRanges
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRange]]
 
 
-# DeleteAcceleratorRequestTypeDef
+# DeleteAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCrossAccountAttachmentRequestTypeDef
+# DeleteCrossAccountAttachmentRequest
 
 ### AttachmentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingAcceleratorRequestTypeDef
+# DeleteCustomRoutingAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingEndpointGroupRequestTypeDef
+# DeleteCustomRoutingEndpointGroupRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteCustomRoutingListenerRequestTypeDef
+# DeleteCustomRoutingListenerRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEndpointGroupRequestTypeDef
+# DeleteEndpointGroupRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteListenerRequestTypeDef
+# DeleteListenerRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DenyCustomRoutingTrafficRequestTypeDef
+# DenyCustomRoutingTrafficRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
@@ -611,193 +611,193 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DeprovisionByoipCidrRequestTypeDef
+# DeprovisionByoipCidrRequest
 
 ### Cidr
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeprovisionByoipCidrResponseTypeDef
+# DeprovisionByoipCidrResponse
 
 ### ByoipCidr
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidr'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAcceleratorAttributesRequestTypeDef
+# DescribeAcceleratorAttributesRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAcceleratorAttributesResponseTypeDef
+# DescribeAcceleratorAttributesResponse
 
 ### AcceleratorAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeAcceleratorRequestTypeDef
+# DescribeAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAcceleratorResponseTypeDef
+# DescribeAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Accelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCrossAccountAttachmentRequestTypeDef
+# DescribeCrossAccountAttachmentRequest
 
 ### AttachmentArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCrossAccountAttachmentResponseTypeDef
+# DescribeCrossAccountAttachmentResponse
 
 ### CrossAccountAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorAttributesRequestTypeDef
+# DescribeCustomRoutingAcceleratorAttributesRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorAttributesResponseTypeDef
+# DescribeCustomRoutingAcceleratorAttributesResponse
 
 ### AcceleratorAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorRequestTypeDef
+# DescribeCustomRoutingAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingAcceleratorResponseTypeDef
+# DescribeCustomRoutingAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAccelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingEndpointGroupRequestTypeDef
+# DescribeCustomRoutingEndpointGroupRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingEndpointGroupResponseTypeDef
+# DescribeCustomRoutingEndpointGroupResponse
 
 ### EndpointGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingListenerRequestTypeDef
+# DescribeCustomRoutingListenerRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCustomRoutingListenerResponseTypeDef
+# DescribeCustomRoutingListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeEndpointGroupRequestTypeDef
+# DescribeEndpointGroupRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeEndpointGroupResponseTypeDef
+# DescribeEndpointGroupResponse
 
 ### EndpointGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeListenerRequestTypeDef
+# DescribeListenerRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeListenerResponseTypeDef
+# DescribeListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Listener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DestinationPortMappingTypeDef
+# DestinationPortMapping
 
 ### AcceleratorArn
 - **Type**: typing.Optional[str]
 
 ### AcceleratorSocketAddresses
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddressTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddress]]
 
 ### EndpointGroupArn
 - **Type**: typing.Optional[str]
@@ -809,7 +809,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DestinationSocketAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddress]
 
 ### IpAddressType
 - **Type**: typing.Optional[typing.Literal['DUAL_STACK', 'IPV4']]
@@ -818,14 +818,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointConfigurationTypeDef
+# EndpointConfiguration
 
 ### EndpointId
 - **Type**: typing.Optional[str]
@@ -840,7 +840,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointDescriptionTypeDef
+# EndpointDescription
 
 ### EndpointId
 - **Type**: typing.Optional[str]
@@ -858,7 +858,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# EndpointGroupTypeDef
+# EndpointGroup
 
 ### EndpointGroupArn
 - **Type**: typing.Optional[str]
@@ -867,7 +867,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EndpointDescriptions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointDescriptionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointDescription]]
 
 ### TrafficDialPercentage
 - **Type**: typing.Optional[float]
@@ -888,10 +888,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PortOverrides
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverrideTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverride]]
 
 
-# EndpointIdentifierTypeDef
+# EndpointIdentifier
 
 ### EndpointId
 - **Type**: <class 'str'>
@@ -901,7 +901,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# IpSetTypeDef
+# IpSet
 
 ### IpFamily
 - **Type**: typing.Optional[str]
@@ -913,13 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['IPv4', 'IPv6']]
 
 
-# ListAcceleratorsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListAcceleratorsRequestTypeDef
+# ListAcceleratorsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -928,27 +922,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListAcceleratorsResponseTypeDef
+# ListAcceleratorsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListAcceleratorsResponse
 
 ### Accelerators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.Accelerator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListByoipCidrsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListByoipCidrsRequestTypeDef
+# ListByoipCidrsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -957,27 +951,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListByoipCidrsResponseTypeDef
+# ListByoipCidrsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListByoipCidrsResponse
 
 ### ByoipCidrs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidr]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountAttachmentsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCrossAccountAttachmentsRequestTypeDef
+# ListCrossAccountAttachmentsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -986,45 +980,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountAttachmentsResponseTypeDef
+# ListCrossAccountAttachmentsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCrossAccountAttachmentsResponse
 
 ### CrossAccountAttachments
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.AttachmentTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.Attachment]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountResourceAccountsResponseTypeDef
+# ListCrossAccountResourceAccountsResponse
 
 ### ResourceOwnerAwsAccountIds
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListCrossAccountResourcesRequestPaginateTypeDef
-
-### ResourceOwnerAwsAccountId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### AcceleratorArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCrossAccountResourcesRequestTypeDef
+# ListCrossAccountResourcesRequest
 
 ### ResourceOwnerAwsAccountId
 - **Type**: <class 'str'>
@@ -1040,27 +1027,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCrossAccountResourcesResponseTypeDef
+# ListCrossAccountResourcesRequestPaginate
+
+### ResourceOwnerAwsAccountId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### AcceleratorArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCrossAccountResourcesResponse
 
 ### CrossAccountResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CrossAccountResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CrossAccountResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingAcceleratorsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomRoutingAcceleratorsRequestTypeDef
+# ListCustomRoutingAcceleratorsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -1069,31 +1063,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingAcceleratorsResponseTypeDef
+# ListCustomRoutingAcceleratorsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCustomRoutingAcceleratorsResponse
 
 ### Accelerators
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAccelerator]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingEndpointGroupsRequestPaginateTypeDef
-
-### ListenerArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomRoutingEndpointGroupsRequestTypeDef
+# ListCustomRoutingEndpointGroupsRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1106,31 +1096,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingEndpointGroupsResponseTypeDef
+# ListCustomRoutingEndpointGroupsRequestPaginate
+
+### ListenerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCustomRoutingEndpointGroupsResponse
 
 ### EndpointGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingEndpointGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingListenersRequestPaginateTypeDef
-
-### AcceleratorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomRoutingListenersRequestTypeDef
+# ListCustomRoutingListenersRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1143,35 +1133,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingListenersResponseTypeDef
+# ListCustomRoutingListenersRequestPaginate
+
+### AcceleratorArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCustomRoutingListenersResponse
 
 ### Listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListenerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListener]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsByDestinationRequestPaginateTypeDef
-
-### EndpointId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DestinationAddress
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomRoutingPortMappingsByDestinationRequestTypeDef
+# ListCustomRoutingPortMappingsByDestinationRequest
 
 ### EndpointId
 - **Type**: <class 'str'>
@@ -1188,34 +1174,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsByDestinationResponseTypeDef
+# ListCustomRoutingPortMappingsByDestinationRequestPaginate
+
+### EndpointId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationAddress
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCustomRoutingPortMappingsByDestinationResponse
 
 ### DestinationPortMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.DestinationPortMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.DestinationPortMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsRequestPaginateTypeDef
-
-### AcceleratorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointGroupArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListCustomRoutingPortMappingsRequestTypeDef
+# ListCustomRoutingPortMappingsRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1231,31 +1218,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCustomRoutingPortMappingsResponseTypeDef
+# ListCustomRoutingPortMappingsRequestPaginate
+
+### AcceleratorArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointGroupArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListCustomRoutingPortMappingsResponse
 
 ### PortMappings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortMappingTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortMapping]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointGroupsRequestPaginateTypeDef
-
-### ListenerArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListEndpointGroupsRequestTypeDef
+# ListEndpointGroupsRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
@@ -1268,31 +1258,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListEndpointGroupsResponseTypeDef
+# ListEndpointGroupsRequestPaginate
+
+### ListenerArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListEndpointGroupsResponse
 
 ### EndpointGroups
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroupTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroup]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListListenersRequestPaginateTypeDef
-
-### AcceleratorArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfigTypeDef]
-
-
-# ListListenersRequestTypeDef
+# ListListenersRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1305,45 +1295,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListListenersResponseTypeDef
+# ListListenersRequestPaginate
+
+### AcceleratorArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.PaginatorConfig]
+
+
+# ListListenersResponse
 
 ### Listeners
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.ListenerTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.Listener]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.globalaccelerator_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListenerTypeDef
+# Listener
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -1355,7 +1355,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PortMappingTypeDef
+# PortMapping
 
 ### AcceleratorPort
 - **Type**: typing.Optional[int]
@@ -1367,7 +1367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### DestinationSocketAddress
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddressTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.globalaccelerator_classes.SocketAddress]
 
 ### Protocols
 - **Type**: typing.Optional[typing.List[typing.Literal['TCP', 'UDP']]]
@@ -1376,7 +1376,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ALLOW', 'DENY']]
 
 
-# PortOverrideTypeDef
+# PortOverride
 
 ### ListenerPort
 - **Type**: typing.Optional[int]
@@ -1385,7 +1385,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PortRangeTypeDef
+# PortRange
 
 ### FromPort
 - **Type**: typing.Optional[int]
@@ -1394,29 +1394,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ProvisionByoipCidrRequestTypeDef
+# ProvisionByoipCidrRequest
 
 ### Cidr
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CidrAuthorizationContext
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CidrAuthorizationContextTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CidrAuthorizationContext'>
 - **Required**: Yes
 
 
-# ProvisionByoipCidrResponseTypeDef
+# ProvisionByoipCidrResponse
 
 ### ByoipCidr
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidr'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# RemoveCustomRoutingEndpointsRequestTypeDef
+# RemoveCustomRoutingEndpointsRequest
 
 ### EndpointIds
 - **Type**: typing.Sequence[str]
@@ -1427,10 +1427,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RemoveEndpointsRequestTypeDef
+# RemoveEndpointsRequest
 
 ### EndpointIdentifiers
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointIdentifierTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointIdentifier]
 - **Required**: Yes
 
 ### EndpointGroupArn
@@ -1438,7 +1438,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ResourceTypeDef
+# Resource
 
 ### EndpointId
 - **Type**: typing.Optional[str]
@@ -1450,7 +1450,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -1472,7 +1472,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SocketAddressTypeDef
+# SocketAddress
 
 ### IpAddress
 - **Type**: typing.Optional[str]
@@ -1481,18 +1481,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.TagTypeDef]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -1503,7 +1492,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Tag]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1514,7 +1514,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAcceleratorAttributesRequestTypeDef
+# UpdateAcceleratorAttributesRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1530,18 +1530,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateAcceleratorAttributesResponseTypeDef
+# UpdateAcceleratorAttributesResponse
 
 ### AcceleratorAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAcceleratorRequestTypeDef
+# UpdateAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1560,18 +1560,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateAcceleratorResponseTypeDef
+# UpdateAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Accelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCrossAccountAttachmentRequestTypeDef
+# UpdateCrossAccountAttachmentRequest
 
 ### AttachmentArn
 - **Type**: <class 'str'>
@@ -1587,24 +1587,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### AddResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.ResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Resource]]
 
 ### RemoveResources
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.ResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.Resource]]
 
 
-# UpdateCrossAccountAttachmentResponseTypeDef
+# UpdateCrossAccountAttachmentResponse
 
 ### CrossAccountAttachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.AttachmentTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Attachment'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCustomRoutingAcceleratorAttributesRequestTypeDef
+# UpdateCustomRoutingAcceleratorAttributesRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1620,18 +1620,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateCustomRoutingAcceleratorAttributesResponseTypeDef
+# UpdateCustomRoutingAcceleratorAttributesResponse
 
 ### AcceleratorAttributes
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorAttributesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorAttributes'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCustomRoutingAcceleratorRequestTypeDef
+# UpdateCustomRoutingAcceleratorRequest
 
 ### AcceleratorArn
 - **Type**: <class 'str'>
@@ -1650,47 +1650,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateCustomRoutingAcceleratorResponseTypeDef
+# UpdateCustomRoutingAcceleratorResponse
 
 ### Accelerator
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAcceleratorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingAccelerator'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCustomRoutingListenerRequestTypeDef
+# UpdateCustomRoutingListenerRequest
 
 ### ListenerArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### PortRanges
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRangeTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortRange]
 - **Required**: Yes
 
 
-# UpdateCustomRoutingListenerResponseTypeDef
+# UpdateCustomRoutingListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.CustomRoutingListener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEndpointGroupRequestTypeDef
+# UpdateEndpointGroupRequest
 
 ### EndpointGroupArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EndpointConfigurations
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfigurationTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointConfiguration]]
 
 ### TrafficDialPercentage
 - **Type**: typing.Optional[float]
@@ -1711,46 +1711,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### PortOverrides
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverrideTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.globalaccelerator_classes.PortOverride]]
 
 
-# UpdateEndpointGroupResponseTypeDef
+# UpdateEndpointGroupResponse
 
 ### EndpointGroup
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroupTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.EndpointGroup'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateListenerResponseTypeDef
+# UpdateListenerResponse
 
 ### Listener
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ListenerTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.Listener'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# WithdrawByoipCidrRequestTypeDef
+# WithdrawByoipCidrRequest
 
 ### Cidr
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# WithdrawByoipCidrResponseTypeDef
+# WithdrawByoipCidrResponse
 
 ### ByoipCidr
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidrTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ByoipCidr'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.globalaccelerator_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

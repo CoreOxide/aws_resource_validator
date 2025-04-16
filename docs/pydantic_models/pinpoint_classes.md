@@ -1,6 +1,6 @@
 # Pinpoint Classes
 
-# ADMChannelRequestTypeDef
+# ADMChannelRequest
 
 ### ClientId
 - **Type**: <class 'str'>
@@ -14,7 +14,7 @@
 - **Type**: typing.Optional[bool]
 
 
-# ADMChannelResponseTypeDef
+# ADMChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -48,7 +48,7 @@
 - **Type**: typing.Optional[int]
 
 
-# ADMMessageTypeDef
+# ADMMessage
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -99,7 +99,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSChannelRequestTypeDef
+# APNSChannelRequest
 
 ### BundleId
 - **Type**: typing.Optional[str]
@@ -126,7 +126,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSChannelResponseTypeDef
+# APNSChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -166,7 +166,7 @@
 - **Type**: typing.Optional[int]
 
 
-# APNSMessageTypeDef
+# APNSMessage
 
 ### APNSPushType
 - **Type**: typing.Optional[str]
@@ -223,7 +223,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSPushNotificationTemplateTypeDef
+# APNSPushNotificationTemplate
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -247,7 +247,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSSandboxChannelRequestTypeDef
+# APNSSandboxChannelRequest
 
 ### BundleId
 - **Type**: typing.Optional[str]
@@ -274,7 +274,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSSandboxChannelResponseTypeDef
+# APNSSandboxChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -314,7 +314,7 @@
 - **Type**: typing.Optional[int]
 
 
-# APNSVoipChannelRequestTypeDef
+# APNSVoipChannelRequest
 
 ### BundleId
 - **Type**: typing.Optional[str]
@@ -341,7 +341,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSVoipChannelResponseTypeDef
+# APNSVoipChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -381,7 +381,7 @@
 - **Type**: typing.Optional[int]
 
 
-# APNSVoipSandboxChannelRequestTypeDef
+# APNSVoipSandboxChannelRequest
 
 ### BundleId
 - **Type**: typing.Optional[str]
@@ -408,7 +408,7 @@
 - **Type**: typing.Optional[str]
 
 
-# APNSVoipSandboxChannelResponseTypeDef
+# APNSVoipSandboxChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -448,53 +448,89 @@
 - **Type**: typing.Optional[int]
 
 
-# ActivitiesResponseTypeDef
+# ActivitiesResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ActivityResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ActivityResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ActivityOutputTypeDef
+# Activity
 
 ### CUSTOM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomMessageActivityOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomMessageActivityUnion]
 
 ### ConditionalSplit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionalSplitActivityOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionalSplitActivityUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### EMAIL
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EmailMessageActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EmailMessageActivity]
 
 ### Holdout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.HoldoutActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.HoldoutActivity]
 
 ### MultiCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalSplitActivityOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalSplitActivityUnion]
 
 ### PUSH
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.PushMessageActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.PushMessageActivity]
 
 ### RandomSplit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitActivityOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitActivityUnion]
 
 ### SMS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SMSMessageActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SMSMessageActivity]
 
 ### Wait
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitActivity]
 
 ### ContactCenter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ContactCenterActivityTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ContactCenterActivity]
 
 
-# ActivityResponseTypeDef
+# ActivityOutput
+
+### CUSTOM
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomMessageActivityOutput]
+
+### ConditionalSplit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionalSplitActivityOutput]
+
+### Description
+- **Type**: typing.Optional[str]
+
+### EMAIL
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EmailMessageActivity]
+
+### Holdout
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.HoldoutActivity]
+
+### MultiCondition
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalSplitActivityOutput]
+
+### PUSH
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.PushMessageActivity]
+
+### RandomSplit
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitActivityOutput]
+
+### SMS
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SMSMessageActivity]
+
+### Wait
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitActivity]
+
+### ContactCenter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ContactCenterActivity]
+
+
+# ActivityResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -542,49 +578,13 @@
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 
-# ActivityTypeDef
-
-### CUSTOM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomMessageActivityUnionTypeDef]
-
-### ConditionalSplit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionalSplitActivityUnionTypeDef]
-
-### Description
-- **Type**: typing.Optional[str]
-
-### EMAIL
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EmailMessageActivityTypeDef]
-
-### Holdout
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.HoldoutActivityTypeDef]
-
-### MultiCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalSplitActivityUnionTypeDef]
-
-### PUSH
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.PushMessageActivityTypeDef]
-
-### RandomSplit
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitActivityUnionTypeDef]
-
-### SMS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SMSMessageActivityTypeDef]
-
-### Wait
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitActivityTypeDef]
-
-### ContactCenter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ContactCenterActivityTypeDef]
-
-
-# ActivityUnionTypeDef
+# ActivityUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AddressConfigurationTypeDef
+# AddressConfiguration
 
 ### BodyOverride
 - **Type**: typing.Optional[str]
@@ -605,7 +605,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# AndroidPushNotificationTemplateTypeDef
+# AndroidPushNotificationTemplate
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -635,7 +635,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ApplicationDateRangeKpiResponseTypeDef
+# ApplicationDateRangeKpiResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -650,7 +650,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KpiResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResult'>
 - **Required**: Yes
 
 ### StartTime
@@ -661,7 +661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ApplicationResponseTypeDef
+# ApplicationResponse
 
 ### Arn
 - **Type**: <class 'str'>
@@ -682,60 +682,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ApplicationSettingsJourneyLimitsTypeDef
+# ApplicationSettingsJourneyLimits
 
 ### DailyCap
 - **Type**: typing.Optional[int]
 
 ### TimeframeCap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyTimeframeCapTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyTimeframeCap]
 
 ### TotalCap
 - **Type**: typing.Optional[int]
 
 
-# ApplicationSettingsResourceTypeDef
+# ApplicationSettingsResource
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### CampaignHook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHookTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### LastModifiedDate
 - **Type**: typing.Optional[str]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimits]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### JourneyLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsJourneyLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsJourneyLimits]
 
 
-# ApplicationsResponseTypeDef
+# ApplicationsResponse
 
 ### Item
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponseTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponse]]
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# AttributeDimensionOutputTypeDef
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### AttributeType
-- **Type**: typing.Optional[typing.Literal['AFTER', 'BEFORE', 'BETWEEN', 'CONTAINS', 'EXCLUSIVE', 'INCLUSIVE', 'ON']]
-
-
-# AttributeDimensionTypeDef
+# AttributeDimension
 
 ### Values
 - **Type**: typing.Sequence[str]
@@ -745,13 +735,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['AFTER', 'BEFORE', 'BETWEEN', 'CONTAINS', 'EXCLUSIVE', 'INCLUSIVE', 'ON']]
 
 
-# AttributeDimensionUnionTypeDef
+# AttributeDimensionOutput
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### AttributeType
+- **Type**: typing.Optional[typing.Literal['AFTER', 'BEFORE', 'BETWEEN', 'CONTAINS', 'EXCLUSIVE', 'INCLUSIVE', 'ON']]
+
+
+# AttributeDimensionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# AttributesResourceTypeDef
+# AttributesResource
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -765,7 +765,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# BaiduChannelRequestTypeDef
+# BaiduChannelRequest
 
 ### ApiKey
 - **Type**: <class 'str'>
@@ -779,7 +779,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# BaiduChannelResponseTypeDef
+# BaiduChannelResponse
 
 ### Credential
 - **Type**: <class 'str'>
@@ -817,7 +817,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# BaiduMessageTypeDef
+# BaiduMessage
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -862,10 +862,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BaseKpiResultTypeDef
+# BaseKpiResult
 
 ### Rows
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRowTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRow]
 - **Required**: Yes
 
 
@@ -875,19 +875,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CampaignCustomMessageTypeDef
+# CampaignCustomMessage
 
 ### Data
 - **Type**: typing.Optional[str]
 
 
-# CampaignDateRangeKpiResponseTypeDef
+# CampaignDateRangeKpiResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -906,7 +906,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KpiResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResult'>
 - **Required**: Yes
 
 ### StartTime
@@ -917,7 +917,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CampaignEmailMessageOutputTypeDef
+# CampaignEmailMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -926,7 +926,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeaderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeader]]
 
 ### HtmlBody
 - **Type**: typing.Optional[str]
@@ -935,7 +935,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CampaignEmailMessageTypeDef
+# CampaignEmailMessageOutput
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -944,7 +944,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeaderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeader]]
 
 ### HtmlBody
 - **Type**: typing.Optional[str]
@@ -953,16 +953,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CampaignEmailMessageUnionTypeDef
+# CampaignEmailMessageUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CampaignEventFilterOutputTypeDef
+# CampaignEventFilter
 
 ### Dimensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnion'>
 - **Required**: Yes
 
 ### FilterType
@@ -970,10 +970,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CampaignEventFilterTypeDef
+# CampaignEventFilterOutput
 
 ### Dimensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutput'>
 - **Required**: Yes
 
 ### FilterType
@@ -981,13 +981,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CampaignEventFilterUnionTypeDef
+# CampaignEventFilterUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CampaignHookTypeDef
+# CampaignHook
 
 ### LambdaFunctionName
 - **Type**: typing.Optional[str]
@@ -999,28 +999,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CampaignInAppMessageOutputTypeDef
+# CampaignInAppMessage
 
 ### Body
 - **Type**: typing.Optional[str]
 
 ### Content
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContentTypeDef]]
-
-### CustomConfig
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### Layout
-- **Type**: typing.Optional[typing.Literal['BOTTOM_BANNER', 'CAROUSEL', 'MIDDLE_BANNER', 'MOBILE_FEED', 'OVERLAYS', 'TOP_BANNER']]
-
-
-# CampaignInAppMessageTypeDef
-
-### Body
-- **Type**: typing.Optional[str]
-
-### Content
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContentTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContent]]
 
 ### CustomConfig
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -1029,13 +1014,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['BOTTOM_BANNER', 'CAROUSEL', 'MIDDLE_BANNER', 'MOBILE_FEED', 'OVERLAYS', 'TOP_BANNER']]
 
 
-# CampaignInAppMessageUnionTypeDef
+# CampaignInAppMessageOutput
+
+### Body
+- **Type**: typing.Optional[str]
+
+### Content
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContent]]
+
+### CustomConfig
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Layout
+- **Type**: typing.Optional[typing.Literal['BOTTOM_BANNER', 'CAROUSEL', 'MIDDLE_BANNER', 'MOBILE_FEED', 'OVERLAYS', 'TOP_BANNER']]
+
+
+# CampaignInAppMessageUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CampaignLimitsTypeDef
+# CampaignLimits
 
 ### Daily
 - **Type**: typing.Optional[int]
@@ -1053,7 +1053,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CampaignResponseTypeDef
+# CampaignResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -1084,13 +1084,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdditionalTreatments
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TreatmentResourceTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TreatmentResource]]
 
 ### CustomDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationOutput]
 
 ### DefaultState
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignState]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -1099,31 +1099,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Hook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHookTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHook]
 
 ### IsPaused
 - **Type**: typing.Optional[bool]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimits]
 
 ### MessageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationOutput]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleOutput]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignState]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TreatmentDescription
 - **Type**: typing.Optional[str]
@@ -1138,7 +1138,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CampaignSmsMessageTypeDef
+# CampaignSmsMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -1159,23 +1159,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CampaignStateTypeDef
+# CampaignState
 
 ### CampaignStatus
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'DELETED', 'EXECUTING', 'INVALID', 'PAUSED', 'PENDING_NEXT_RUN', 'SCHEDULED']]
 
 
-# CampaignsResponseTypeDef
+# CampaignsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ChannelResponseTypeDef
+# ChannelResponse
 
 ### ApplicationId
 - **Type**: typing.Optional[str]
@@ -1205,32 +1205,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ChannelsResponseTypeDef
+# ChannelsResponse
 
 ### Channels
-- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ChannelResponseTypeDef]
+- **Type**: typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ChannelResponse]
 - **Required**: Yes
 
 
-# ClosedDaysOutputTypeDef
+# ClosedDays
 
 ### EMAIL
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
 
 ### SMS
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
 
 ### PUSH
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
 
 ### VOICE
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
 
 ### CUSTOM
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
 
 
-# ClosedDaysRuleTypeDef
+# ClosedDaysOutput
+
+### EMAIL
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
+
+### SMS
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
+
+### PUSH
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
+
+### VOICE
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
+
+### CUSTOM
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRule]]
+
+
+# ClosedDaysRule
 
 ### Name
 - **Type**: typing.Optional[str]
@@ -1242,61 +1260,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ClosedDaysTypeDef
-
-### EMAIL
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
-
-### SMS
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
-
-### PUSH
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
-
-### VOICE
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
-
-### CUSTOM
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysRuleTypeDef]]
-
-
-# ClosedDaysUnionTypeDef
+# ClosedDaysUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConditionOutputTypeDef
+# Condition
 
 ### Conditions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionUnion]]
 
 ### Operator
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY']]
 
 
-# ConditionTypeDef
+# ConditionOutput
 
 ### Conditions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionOutput]]
 
 ### Operator
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY']]
 
 
-# ConditionUnionTypeDef
+# ConditionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ConditionalSplitActivityOutputTypeDef
+# ConditionalSplitActivity
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionUnion]
 
 ### EvaluationWaitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTime]
 
 ### FalseActivity
 - **Type**: typing.Optional[str]
@@ -1305,13 +1305,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConditionalSplitActivityTypeDef
+# ConditionalSplitActivityOutput
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ConditionOutput]
 
 ### EvaluationWaitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTime]
 
 ### FalseActivity
 - **Type**: typing.Optional[str]
@@ -1320,37 +1320,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ConditionalSplitActivityUnionTypeDef
+# ConditionalSplitActivityUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ContactCenterActivityTypeDef
+# ContactCenterActivity
 
 ### NextActivity
 - **Type**: typing.Optional[str]
 
 
-# CreateAppRequestTypeDef
+# CreateAppRequest
 
 ### CreateApplicationRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateApplicationRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateApplicationRequest'>
 - **Required**: Yes
 
 
-# CreateAppResponseTypeDef
+# CreateAppResponse
 
 ### ApplicationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateApplicationRequestTypeDef
+# CreateApplicationRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -1360,32 +1360,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateCampaignRequestTypeDef
+# CreateCampaignRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WriteCampaignRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteCampaignRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteCampaignRequest'>
 - **Required**: Yes
 
 
-# CreateCampaignResponseTypeDef
+# CreateCampaignResponse
 
 ### CampaignResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateEmailTemplateRequestTypeDef
+# CreateEmailTemplateRequest
 
 ### EmailTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -1393,65 +1393,65 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateEmailTemplateResponseTypeDef
+# CreateEmailTemplateResponse
 
 ### CreateTemplateMessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateExportJobRequestTypeDef
+# CreateExportJobRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ExportJobRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobRequest'>
 - **Required**: Yes
 
 
-# CreateExportJobResponseTypeDef
+# CreateExportJobResponse
 
 ### ExportJobResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateImportJobRequestTypeDef
+# CreateImportJobRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ImportJobRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobRequest'>
 - **Required**: Yes
 
 
-# CreateImportJobResponseTypeDef
+# CreateImportJobResponse
 
 ### ImportJobResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateInAppTemplateRequestTypeDef
+# CreateInAppTemplateRequest
 
 ### InAppTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -1459,43 +1459,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateInAppTemplateResponseTypeDef
+# CreateInAppTemplateResponse
 
 ### TemplateCreateMessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateCreateMessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateCreateMessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateJourneyRequestTypeDef
+# CreateJourneyRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WriteJourneyRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteJourneyRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteJourneyRequest'>
 - **Required**: Yes
 
 
-# CreateJourneyResponseTypeDef
+# CreateJourneyResponse
 
 ### JourneyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreatePushTemplateRequestTypeDef
+# CreatePushTemplateRequest
 
 ### PushNotificationTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -1503,36 +1503,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreatePushTemplateResponseTypeDef
+# CreatePushTemplateResponse
 
 ### CreateTemplateMessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRecommenderConfigurationRequestTypeDef
-
-### CreateRecommenderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateRecommenderConfigurationTypeDef'>
-- **Required**: Yes
-
-
-# CreateRecommenderConfigurationResponseTypeDef
-
-### RecommenderConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponseTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# CreateRecommenderConfigurationTypeDef
+# CreateRecommenderConfiguration
 
 ### RecommendationProviderRoleArn
 - **Type**: <class 'str'>
@@ -1564,32 +1546,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# CreateSegmentRequestTypeDef
+# CreateRecommenderConfigurationRequest
+
+### CreateRecommenderConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateRecommenderConfiguration'>
+- **Required**: Yes
+
+
+# CreateRecommenderConfigurationResponse
+
+### RecommenderConfigurationResponse
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponse'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# CreateSegmentRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WriteSegmentRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteSegmentRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteSegmentRequest'>
 - **Required**: Yes
 
 
-# CreateSegmentResponseTypeDef
+# CreateSegmentResponse
 
 ### SegmentResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateSmsTemplateRequestTypeDef
+# CreateSmsTemplateRequest
 
 ### SMSTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -1597,18 +1597,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# CreateSmsTemplateResponseTypeDef
+# CreateSmsTemplateResponse
 
 ### CreateTemplateMessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateTemplateMessageBodyTypeDef
+# CreateTemplateMessageBody
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -1620,39 +1620,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateVoiceTemplateRequestTypeDef
+# CreateVoiceTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VoiceTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateRequest'>
 - **Required**: Yes
 
 
-# CreateVoiceTemplateResponseTypeDef
+# CreateVoiceTemplateResponse
 
 ### CreateTemplateMessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CreateTemplateMessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CustomDeliveryConfigurationOutputTypeDef
-
-### DeliveryUri
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
-
-
-# CustomDeliveryConfigurationTypeDef
+# CustomDeliveryConfiguration
 
 ### DeliveryUri
 - **Type**: <class 'str'>
@@ -1662,22 +1652,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
 
 
-# CustomDeliveryConfigurationUnionTypeDef
+# CustomDeliveryConfigurationOutput
+
+### DeliveryUri
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
+
+
+# CustomDeliveryConfigurationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CustomMessageActivityOutputTypeDef
+# CustomMessageActivity
 
 ### DeliveryUri
 - **Type**: typing.Optional[str]
 
 ### EndpointTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
+- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
 
 ### MessageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyCustomMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyCustomMessage]
 
 ### NextActivity
 - **Type**: typing.Optional[str]
@@ -1689,16 +1689,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomMessageActivityTypeDef
+# CustomMessageActivityOutput
 
 ### DeliveryUri
 - **Type**: typing.Optional[str]
 
 ### EndpointTypes
-- **Type**: typing.Optional[typing.Sequence[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
+- **Type**: typing.Optional[typing.List[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]]
 
 ### MessageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyCustomMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyCustomMessage]
 
 ### NextActivity
 - **Type**: typing.Optional[str]
@@ -1710,19 +1710,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CustomMessageActivityUnionTypeDef
+# CustomMessageActivityUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DefaultButtonConfigurationTypeDef
+# DefaultButtonConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DefaultMessageTypeDef
+# DefaultMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -1731,7 +1731,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# DefaultPushNotificationMessageTypeDef
+# DefaultPushNotificationMessage
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -1755,7 +1755,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DefaultPushNotificationTemplateTypeDef
+# DefaultPushNotificationTemplate
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -1773,133 +1773,133 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteAdmChannelRequestTypeDef
+# DeleteAdmChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAdmChannelResponseTypeDef
+# DeleteAdmChannelResponse
 
 ### ADMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApnsChannelRequestTypeDef
+# DeleteApnsChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApnsChannelResponseTypeDef
+# DeleteApnsChannelResponse
 
 ### APNSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApnsSandboxChannelRequestTypeDef
+# DeleteApnsSandboxChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApnsSandboxChannelResponseTypeDef
+# DeleteApnsSandboxChannelResponse
 
 ### APNSSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApnsVoipChannelRequestTypeDef
+# DeleteApnsVoipChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApnsVoipChannelResponseTypeDef
+# DeleteApnsVoipChannelResponse
 
 ### APNSVoipChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApnsVoipSandboxChannelRequestTypeDef
+# DeleteApnsVoipSandboxChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteApnsVoipSandboxChannelResponseTypeDef
+# DeleteApnsVoipSandboxChannelResponse
 
 ### APNSVoipSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteAppRequestTypeDef
+# DeleteAppRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteAppResponseTypeDef
+# DeleteAppResponse
 
 ### ApplicationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBaiduChannelRequestTypeDef
+# DeleteBaiduChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBaiduChannelResponseTypeDef
+# DeleteBaiduChannelResponse
 
 ### BaiduChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteCampaignRequestTypeDef
+# DeleteCampaignRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -1910,36 +1910,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteCampaignResponseTypeDef
+# DeleteCampaignResponse
 
 ### CampaignResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEmailChannelRequestTypeDef
+# DeleteEmailChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEmailChannelResponseTypeDef
+# DeleteEmailChannelResponse
 
 ### EmailChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEmailTemplateRequestTypeDef
+# DeleteEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -1949,18 +1949,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteEmailTemplateResponseTypeDef
+# DeleteEmailTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEndpointRequestTypeDef
+# DeleteEndpointRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -1971,54 +1971,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteEndpointResponseTypeDef
+# DeleteEndpointResponse
 
 ### EndpointResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteEventStreamRequestTypeDef
+# DeleteEventStreamRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteEventStreamResponseTypeDef
+# DeleteEventStreamResponse
 
 ### EventStream
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStreamTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStream'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteGcmChannelRequestTypeDef
+# DeleteGcmChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteGcmChannelResponseTypeDef
+# DeleteGcmChannelResponse
 
 ### GCMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteInAppTemplateRequestTypeDef
+# DeleteInAppTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -2028,18 +2028,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteInAppTemplateResponseTypeDef
+# DeleteInAppTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteJourneyRequestTypeDef
+# DeleteJourneyRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -2050,18 +2050,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteJourneyResponseTypeDef
+# DeleteJourneyResponse
 
 ### JourneyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeletePushTemplateRequestTypeDef
+# DeletePushTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -2071,36 +2071,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeletePushTemplateResponseTypeDef
+# DeletePushTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteRecommenderConfigurationRequestTypeDef
+# DeleteRecommenderConfigurationRequest
 
 ### RecommenderId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecommenderConfigurationResponseTypeDef
+# DeleteRecommenderConfigurationResponse
 
 ### RecommenderConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSegmentRequestTypeDef
+# DeleteSegmentRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -2111,36 +2111,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteSegmentResponseTypeDef
+# DeleteSegmentResponse
 
 ### SegmentResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSmsChannelRequestTypeDef
+# DeleteSmsChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteSmsChannelResponseTypeDef
+# DeleteSmsChannelResponse
 
 ### SMSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteSmsTemplateRequestTypeDef
+# DeleteSmsTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -2150,18 +2150,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteSmsTemplateResponseTypeDef
+# DeleteSmsTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteUserEndpointsRequestTypeDef
+# DeleteUserEndpointsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -2172,36 +2172,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteUserEndpointsResponseTypeDef
+# DeleteUserEndpointsResponse
 
 ### EndpointsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteVoiceChannelRequestTypeDef
+# DeleteVoiceChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteVoiceChannelResponseTypeDef
+# DeleteVoiceChannelResponse
 
 ### VoiceChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteVoiceTemplateRequestTypeDef
+# DeleteVoiceTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -2211,48 +2211,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteVoiceTemplateResponseTypeDef
+# DeleteVoiceTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DirectMessageConfigurationTypeDef
+# DirectMessageConfiguration
 
 ### ADMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ADMMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### APNSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.APNSMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### BaiduMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.BaiduMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DefaultMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### DefaultPushNotificationMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultPushNotificationMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EmailMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EmailMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### GCMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.GCMMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SMSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SMSMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### VoiceMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.VoiceMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EmailChannelRequestTypeDef
+# EmailChannelRequest
 
 ### FromAddress
 - **Type**: <class 'str'>
@@ -2275,7 +2275,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmailChannelResponseTypeDef
+# EmailChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -2327,22 +2327,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EmailMessageActivityTypeDef
-
-### MessageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyEmailMessageTypeDef]
-
-### NextActivity
-- **Type**: typing.Optional[str]
-
-### TemplateName
-- **Type**: typing.Optional[str]
-
-### TemplateVersion
-- **Type**: typing.Optional[str]
-
-
-# EmailMessageTypeDef
+# EmailMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -2354,19 +2339,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RawEmail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RawEmailTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### ReplyToAddresses
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### SimpleEmail
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Substitutions
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
 
 
-# EmailTemplateRequestTypeDef
+# EmailMessageActivity
+
+### MessageConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyEmailMessage]
+
+### NextActivity
+- **Type**: typing.Optional[str]
+
+### TemplateName
+- **Type**: typing.Optional[str]
+
+### TemplateVersion
+- **Type**: typing.Optional[str]
+
+
+# EmailTemplateRequest
 
 ### DefaultSubstitutions
 - **Type**: typing.Optional[str]
@@ -2381,7 +2381,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeaderTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeader]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -2393,7 +2393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmailTemplateResponseTypeDef
+# EmailTemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -2427,7 +2427,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Headers
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeaderTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeader]]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -2442,14 +2442,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EndpointBatchItemTypeDef
+# EndpointBatchItem
 
 ### Address
 - **Type**: typing.Optional[str]
@@ -2461,7 +2461,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographicTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographic]
 
 ### EffectiveDate
 - **Type**: typing.Optional[str]
@@ -2473,7 +2473,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocation]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Mapping[str, float]]
@@ -2485,17 +2485,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnion]
 
 
-# EndpointBatchRequestTypeDef
+# EndpointBatchRequest
 
 ### Item
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointBatchItemTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointBatchItem]
 - **Required**: Yes
 
 
-# EndpointDemographicTypeDef
+# EndpointDemographic
 
 ### AppVersion
 - **Type**: typing.Optional[str]
@@ -2522,7 +2522,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointItemResponseTypeDef
+# EndpointItemResponse
 
 ### Message
 - **Type**: typing.Optional[str]
@@ -2531,7 +2531,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# EndpointLocationTypeDef
+# EndpointLocation
 
 ### City
 - **Type**: typing.Optional[str]
@@ -2552,7 +2552,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointMessageResultTypeDef
+# EndpointMessageResult
 
 ### DeliveryStatus
 - **Type**: typing.Literal['DUPLICATE', 'OPT_OUT', 'PERMANENT_FAILURE', 'SUCCESSFUL', 'TEMPORARY_FAILURE', 'THROTTLED', 'UNKNOWN_FAILURE']
@@ -2575,7 +2575,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointRequestTypeDef
+# EndpointRequest
 
 ### Address
 - **Type**: typing.Optional[str]
@@ -2587,7 +2587,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographicTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographic]
 
 ### EffectiveDate
 - **Type**: typing.Optional[str]
@@ -2596,7 +2596,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocation]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Mapping[str, float]]
@@ -2608,10 +2608,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnion]
 
 
-# EndpointResponseTypeDef
+# EndpointResponse
 
 ### Address
 - **Type**: typing.Optional[str]
@@ -2632,7 +2632,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographicTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographic]
 
 ### EffectiveDate
 - **Type**: typing.Optional[str]
@@ -2644,7 +2644,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocation]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Dict[str, float]]
@@ -2656,10 +2656,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserOutput]
 
 
-# EndpointSendConfigurationTypeDef
+# EndpointSendConfiguration
 
 ### BodyOverride
 - **Type**: typing.Optional[str]
@@ -2677,16 +2677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointUserOutputTypeDef
-
-### UserAttributes
-- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
-
-### UserId
-- **Type**: typing.Optional[str]
-
-
-# EndpointUserTypeDef
+# EndpointUser
 
 ### UserAttributes
 - **Type**: typing.Optional[typing.Mapping[str, typing.Sequence[str]]]
@@ -2695,159 +2686,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EndpointUserUnionTypeDef
+# EndpointUserOutput
+
+### UserAttributes
+- **Type**: typing.Optional[typing.Dict[str, typing.List[str]]]
+
+### UserId
+- **Type**: typing.Optional[str]
+
+
+# EndpointUserUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EndpointsResponseTypeDef
+# EndpointsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponse]
 - **Required**: Yes
 
 
-# EventConditionOutputTypeDef
-
-### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutputTypeDef]
-
-### MessageActivity
-- **Type**: typing.Optional[str]
-
-
-# EventConditionTypeDef
-
-### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnionTypeDef]
-
-### MessageActivity
-- **Type**: typing.Optional[str]
-
-
-# EventConditionUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EventDimensionsOutputTypeDef
-
-### Attributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutputTypeDef]]
-
-### EventType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
-
-### Metrics
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimensionTypeDef]]
-
-
-# EventDimensionsTypeDef
-
-### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnionTypeDef]]
-
-### EventType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
-
-### Metrics
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimensionTypeDef]]
-
-
-# EventDimensionsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EventFilterOutputTypeDef
-
-### Dimensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutputTypeDef'>
-- **Required**: Yes
-
-### FilterType
-- **Type**: typing.Literal['ENDPOINT', 'SYSTEM']
-- **Required**: Yes
-
-
-# EventFilterTypeDef
-
-### Dimensions
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnionTypeDef'>
-- **Required**: Yes
-
-### FilterType
-- **Type**: typing.Literal['ENDPOINT', 'SYSTEM']
-- **Required**: Yes
-
-
-# EventFilterUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EventItemResponseTypeDef
-
-### Message
-- **Type**: typing.Optional[str]
-
-### StatusCode
-- **Type**: typing.Optional[int]
-
-
-# EventStartConditionOutputTypeDef
-
-### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventFilterOutputTypeDef]
-
-### SegmentId
-- **Type**: typing.Optional[str]
-
-
-# EventStartConditionTypeDef
-
-### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventFilterUnionTypeDef]
-
-### SegmentId
-- **Type**: typing.Optional[str]
-
-
-# EventStartConditionUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# EventStreamTypeDef
-
-### ApplicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### DestinationStreamArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ExternalId
-- **Type**: typing.Optional[str]
-
-### LastModifiedDate
-- **Type**: typing.Optional[str]
-
-### LastUpdatedBy
-- **Type**: typing.Optional[str]
-
-
-# EventTypeDef
+# Event
 
 ### EventType
 - **Type**: <class 'str'>
@@ -2879,84 +2740,223 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Session
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SessionTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# EventsBatchTypeDef
+# EventCondition
 
-### Endpoint
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PublicEndpointTypeDef'>
-- **Required**: Yes
+### Dimensions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnion]
 
-### Events
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EventTypeDef]
-- **Required**: Yes
-
-
-# EventsRequestTypeDef
-
-### BatchItem
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EventsBatchTypeDef]
-- **Required**: Yes
-
-
-# EventsResponseTypeDef
-
-### Results
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ItemResponseTypeDef]]
-
-
-# ExportJobRequestTypeDef
-
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3UrlPrefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SegmentId
+### MessageActivity
 - **Type**: typing.Optional[str]
 
-### SegmentVersion
-- **Type**: typing.Optional[int]
 
+# EventConditionOutput
 
-# ExportJobResourceTypeDef
+### Dimensions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutput]
 
-### RoleArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3UrlPrefix
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SegmentId
+### MessageActivity
 - **Type**: typing.Optional[str]
 
-### SegmentVersion
-- **Type**: typing.Optional[int]
 
-
-# ExportJobResponseTypeDef
+# EventConditionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ExportJobsResponseTypeDef
+# EventDimensions
+
+### Attributes
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnion]]
+
+### EventType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
+
+### Metrics
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimension]]
+
+
+# EventDimensionsOutput
+
+### Attributes
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutput]]
+
+### EventType
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
+
+### Metrics
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimension]]
+
+
+# EventDimensionsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EventFilter
+
+### Dimensions
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsUnion'>
+- **Required**: Yes
+
+### FilterType
+- **Type**: typing.Literal['ENDPOINT', 'SYSTEM']
+- **Required**: Yes
+
+
+# EventFilterOutput
+
+### Dimensions
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventDimensionsOutput'>
+- **Required**: Yes
+
+### FilterType
+- **Type**: typing.Literal['ENDPOINT', 'SYSTEM']
+- **Required**: Yes
+
+
+# EventFilterUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EventItemResponse
+
+### Message
+- **Type**: typing.Optional[str]
+
+### StatusCode
+- **Type**: typing.Optional[int]
+
+
+# EventStartCondition
+
+### EventFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventFilterUnion]
+
+### SegmentId
+- **Type**: typing.Optional[str]
+
+
+# EventStartConditionOutput
+
+### EventFilter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventFilterOutput]
+
+### SegmentId
+- **Type**: typing.Optional[str]
+
+
+# EventStartConditionUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# EventStream
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### DestinationStreamArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ExternalId
+- **Type**: typing.Optional[str]
+
+### LastModifiedDate
+- **Type**: typing.Optional[str]
+
+### LastUpdatedBy
+- **Type**: typing.Optional[str]
+
+
+# EventsBatch
+
+### Endpoint
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PublicEndpoint'>
+- **Required**: Yes
+
+### Events
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.Event]
+- **Required**: Yes
+
+
+# EventsRequest
+
+### BatchItem
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EventsBatch]
+- **Required**: Yes
+
+
+# EventsResponse
+
+### Results
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ItemResponse]]
+
+
+# ExportJobRequest
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3UrlPrefix
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SegmentId
+- **Type**: typing.Optional[str]
+
+### SegmentVersion
+- **Type**: typing.Optional[int]
+
+
+# ExportJobResource
+
+### RoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3UrlPrefix
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SegmentId
+- **Type**: typing.Optional[str]
+
+### SegmentVersion
+- **Type**: typing.Optional[int]
+
+
+# ExportJobResponse
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# ExportJobsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# GCMChannelRequestTypeDef
+# GCMChannelRequest
 
 ### ApiKey
 - **Type**: typing.Optional[str]
@@ -2971,7 +2971,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GCMChannelResponseTypeDef
+# GCMChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -3014,7 +3014,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GCMMessageTypeDef
+# GCMMessage
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -3071,7 +3071,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GPSCoordinatesTypeDef
+# GPSCoordinates
 
 ### Latitude
 - **Type**: <class 'float'>
@@ -3082,125 +3082,125 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GPSPointDimensionTypeDef
+# GPSPointDimension
 
 ### Coordinates
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GPSCoordinatesTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GPSCoordinates'>
 - **Required**: Yes
 
 ### RangeInKilometers
 - **Type**: typing.Optional[float]
 
 
-# GetAdmChannelRequestTypeDef
+# GetAdmChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAdmChannelResponseTypeDef
+# GetAdmChannelResponse
 
 ### ADMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApnsChannelRequestTypeDef
+# GetApnsChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApnsChannelResponseTypeDef
+# GetApnsChannelResponse
 
 ### APNSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApnsSandboxChannelRequestTypeDef
+# GetApnsSandboxChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApnsSandboxChannelResponseTypeDef
+# GetApnsSandboxChannelResponse
 
 ### APNSSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApnsVoipChannelRequestTypeDef
+# GetApnsVoipChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApnsVoipChannelResponseTypeDef
+# GetApnsVoipChannelResponse
 
 ### APNSVoipChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApnsVoipSandboxChannelRequestTypeDef
+# GetApnsVoipSandboxChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApnsVoipSandboxChannelResponseTypeDef
+# GetApnsVoipSandboxChannelResponse
 
 ### APNSVoipSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAppRequestTypeDef
+# GetAppRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetAppResponseTypeDef
+# GetAppResponse
 
 ### ApplicationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApplicationDateRangeKpiRequestTypeDef
+# GetApplicationDateRangeKpiRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3211,7 +3211,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3220,39 +3220,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 
-# GetApplicationDateRangeKpiResponseTypeDef
+# GetApplicationDateRangeKpiResponse
 
 ### ApplicationDateRangeKpiResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationDateRangeKpiResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationDateRangeKpiResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetApplicationSettingsRequestTypeDef
+# GetApplicationSettingsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetApplicationSettingsResponseTypeDef
+# GetApplicationSettingsResponse
 
 ### ApplicationSettingsResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetAppsRequestTypeDef
+# GetAppsRequest
 
 ### PageSize
 - **Type**: typing.Optional[str]
@@ -3261,36 +3261,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetAppsResponseTypeDef
+# GetAppsResponse
 
 ### ApplicationsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBaiduChannelRequestTypeDef
+# GetBaiduChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBaiduChannelResponseTypeDef
+# GetBaiduChannelResponse
 
 ### BaiduChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignActivitiesRequestTypeDef
+# GetCampaignActivitiesRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3307,18 +3307,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCampaignActivitiesResponseTypeDef
+# GetCampaignActivitiesResponse
 
 ### ActivitiesResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ActivitiesResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ActivitiesResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignDateRangeKpiRequestTypeDef
+# GetCampaignDateRangeKpiRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3333,7 +3333,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3342,21 +3342,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 
-# GetCampaignDateRangeKpiResponseTypeDef
+# GetCampaignDateRangeKpiResponse
 
 ### CampaignDateRangeKpiResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignDateRangeKpiResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignDateRangeKpiResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignRequestTypeDef
+# GetCampaignRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3367,18 +3367,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCampaignResponseTypeDef
+# GetCampaignResponse
 
 ### CampaignResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignVersionRequestTypeDef
+# GetCampaignVersionRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3393,18 +3393,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetCampaignVersionResponseTypeDef
+# GetCampaignVersionResponse
 
 ### CampaignResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignVersionsRequestTypeDef
+# GetCampaignVersionsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3421,18 +3421,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCampaignVersionsResponseTypeDef
+# GetCampaignVersionsResponse
 
 ### CampaignsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetCampaignsRequestTypeDef
+# GetCampaignsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3445,54 +3445,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetCampaignsResponseTypeDef
+# GetCampaignsResponse
 
 ### CampaignsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetChannelsRequestTypeDef
+# GetChannelsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetChannelsResponseTypeDef
+# GetChannelsResponse
 
 ### ChannelsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ChannelsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ChannelsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEmailChannelRequestTypeDef
+# GetEmailChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEmailChannelResponseTypeDef
+# GetEmailChannelResponse
 
 ### EmailChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEmailTemplateRequestTypeDef
+# GetEmailTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -3502,18 +3502,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetEmailTemplateResponseTypeDef
+# GetEmailTemplateResponse
 
 ### EmailTemplateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEndpointRequestTypeDef
+# GetEndpointRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3524,36 +3524,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetEndpointResponseTypeDef
+# GetEndpointResponse
 
 ### EndpointResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEventStreamRequestTypeDef
+# GetEventStreamRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEventStreamResponseTypeDef
+# GetEventStreamResponse
 
 ### EventStream
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStreamTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStream'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetExportJobRequestTypeDef
+# GetExportJobRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3564,18 +3564,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetExportJobResponseTypeDef
+# GetExportJobResponse
 
 ### ExportJobResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetExportJobsRequestTypeDef
+# GetExportJobsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3588,36 +3588,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetExportJobsResponseTypeDef
+# GetExportJobsResponse
 
 ### ExportJobsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetGcmChannelRequestTypeDef
+# GetGcmChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetGcmChannelResponseTypeDef
+# GetGcmChannelResponse
 
 ### GCMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImportJobRequestTypeDef
+# GetImportJobRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3628,18 +3628,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetImportJobResponseTypeDef
+# GetImportJobResponse
 
 ### ImportJobResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetImportJobsRequestTypeDef
+# GetImportJobsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3652,18 +3652,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetImportJobsResponseTypeDef
+# GetImportJobsResponse
 
 ### ImportJobsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInAppMessagesRequestTypeDef
+# GetInAppMessagesRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3674,18 +3674,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetInAppMessagesResponseTypeDef
+# GetInAppMessagesResponse
 
 ### InAppMessagesResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessagesResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessagesResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetInAppTemplateRequestTypeDef
+# GetInAppTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -3695,18 +3695,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetInAppTemplateResponseTypeDef
+# GetInAppTemplateResponse
 
 ### InAppTemplateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyDateRangeKpiRequestTypeDef
+# GetJourneyDateRangeKpiRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3721,7 +3721,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3730,21 +3730,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
 
 
-# GetJourneyDateRangeKpiResponseTypeDef
+# GetJourneyDateRangeKpiResponse
 
 ### JourneyDateRangeKpiResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyDateRangeKpiResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyDateRangeKpiResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyExecutionActivityMetricsRequestTypeDef
+# GetJourneyExecutionActivityMetricsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3765,18 +3765,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetJourneyExecutionActivityMetricsResponseTypeDef
+# GetJourneyExecutionActivityMetricsResponse
 
 ### JourneyExecutionActivityMetricsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyExecutionActivityMetricsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyExecutionActivityMetricsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyExecutionMetricsRequestTypeDef
+# GetJourneyExecutionMetricsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3793,18 +3793,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetJourneyExecutionMetricsResponseTypeDef
+# GetJourneyExecutionMetricsResponse
 
 ### JourneyExecutionMetricsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyExecutionMetricsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyExecutionMetricsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyRequestTypeDef
+# GetJourneyRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3815,18 +3815,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetJourneyResponseTypeDef
+# GetJourneyResponse
 
 ### JourneyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyRunExecutionActivityMetricsRequestTypeDef
+# GetJourneyRunExecutionActivityMetricsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3851,18 +3851,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetJourneyRunExecutionActivityMetricsResponseTypeDef
+# GetJourneyRunExecutionActivityMetricsResponse
 
 ### JourneyRunExecutionActivityMetricsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunExecutionActivityMetricsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunExecutionActivityMetricsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyRunExecutionMetricsRequestTypeDef
+# GetJourneyRunExecutionMetricsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3883,18 +3883,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetJourneyRunExecutionMetricsResponseTypeDef
+# GetJourneyRunExecutionMetricsResponse
 
 ### JourneyRunExecutionMetricsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunExecutionMetricsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunExecutionMetricsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetJourneyRunsRequestTypeDef
+# GetJourneyRunsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3911,18 +3911,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetJourneyRunsResponseTypeDef
+# GetJourneyRunsResponse
 
 ### JourneyRunsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetPushTemplateRequestTypeDef
+# GetPushTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -3932,36 +3932,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetPushTemplateResponseTypeDef
+# GetPushTemplateResponse
 
 ### PushNotificationTemplateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommenderConfigurationRequestTypeDef
+# GetRecommenderConfigurationRequest
 
 ### RecommenderId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRecommenderConfigurationResponseTypeDef
+# GetRecommenderConfigurationResponse
 
 ### RecommenderConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommenderConfigurationsRequestTypeDef
+# GetRecommenderConfigurationsRequest
 
 ### PageSize
 - **Type**: typing.Optional[str]
@@ -3970,18 +3970,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRecommenderConfigurationsResponseTypeDef
+# GetRecommenderConfigurationsResponse
 
 ### ListRecommenderConfigurationsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ListRecommenderConfigurationsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ListRecommenderConfigurationsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentExportJobsRequestTypeDef
+# GetSegmentExportJobsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -3998,18 +3998,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSegmentExportJobsResponseTypeDef
+# GetSegmentExportJobsResponse
 
 ### ExportJobsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ExportJobsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentImportJobsRequestTypeDef
+# GetSegmentImportJobsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4026,18 +4026,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSegmentImportJobsResponseTypeDef
+# GetSegmentImportJobsResponse
 
 ### ImportJobsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentRequestTypeDef
+# GetSegmentRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4048,18 +4048,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSegmentResponseTypeDef
+# GetSegmentResponse
 
 ### SegmentResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentVersionRequestTypeDef
+# GetSegmentVersionRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4074,18 +4074,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetSegmentVersionResponseTypeDef
+# GetSegmentVersionResponse
 
 ### SegmentResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentVersionsRequestTypeDef
+# GetSegmentVersionsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4102,18 +4102,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSegmentVersionsResponseTypeDef
+# GetSegmentVersionsResponse
 
 ### SegmentsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSegmentsRequestTypeDef
+# GetSegmentsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4126,36 +4126,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSegmentsResponseTypeDef
+# GetSegmentsResponse
 
 ### SegmentsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSmsChannelRequestTypeDef
+# GetSmsChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetSmsChannelResponseTypeDef
+# GetSmsChannelResponse
 
 ### SMSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSmsTemplateRequestTypeDef
+# GetSmsTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -4165,18 +4165,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetSmsTemplateResponseTypeDef
+# GetSmsTemplateResponse
 
 ### SMSTemplateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetUserEndpointsRequestTypeDef
+# GetUserEndpointsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4187,36 +4187,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetUserEndpointsResponseTypeDef
+# GetUserEndpointsResponse
 
 ### EndpointsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVoiceChannelRequestTypeDef
+# GetVoiceChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetVoiceChannelResponseTypeDef
+# GetVoiceChannelResponse
 
 ### VoiceChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetVoiceTemplateRequestTypeDef
+# GetVoiceTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -4226,18 +4226,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetVoiceTemplateResponseTypeDef
+# GetVoiceTemplateResponse
 
 ### VoiceTemplateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# HoldoutActivityTypeDef
+# HoldoutActivity
 
 ### Percentage
 - **Type**: <class 'int'>
@@ -4247,7 +4247,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportJobRequestTypeDef
+# ImportJobRequest
 
 ### Format
 - **Type**: typing.Literal['CSV', 'JSON']
@@ -4277,7 +4277,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportJobResourceTypeDef
+# ImportJobResource
 
 ### Format
 - **Type**: typing.Literal['CSV', 'JSON']
@@ -4307,35 +4307,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ImportJobResponseTypeDef
+# ImportJobResponse
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ImportJobsResponseTypeDef
+# ImportJobsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ImportJobResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# InAppCampaignScheduleTypeDef
+# InAppCampaignSchedule
 
 ### EndDate
 - **Type**: typing.Optional[str]
 
 ### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterOutput]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# InAppMessageBodyConfigTypeDef
+# InAppMessage
+
+### Content
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContent]]
+
+### CustomConfig
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+### Layout
+- **Type**: typing.Optional[typing.Literal['BOTTOM_BANNER', 'CAROUSEL', 'MIDDLE_BANNER', 'MOBILE_FEED', 'OVERLAYS', 'TOP_BANNER']]
+
+
+# InAppMessageBodyConfig
 
 ### Alignment
 - **Type**: typing.Literal['CENTER', 'LEFT', 'RIGHT']
@@ -4350,22 +4362,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InAppMessageButtonTypeDef
+# InAppMessageButton
 
 ### Android
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfiguration]
 
 ### DefaultConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultButtonConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultButtonConfiguration]
 
 ### IOS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfiguration]
 
 ### Web
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OverrideButtonConfiguration]
 
 
-# InAppMessageCampaignTypeDef
+# InAppMessageCampaign
 
 ### CampaignId
 - **Type**: typing.Optional[str]
@@ -4374,13 +4386,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### InAppMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Priority
 - **Type**: typing.Optional[int]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppCampaignScheduleTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppCampaignSchedule]
 
 ### SessionCap
 - **Type**: typing.Optional[int]
@@ -4392,28 +4404,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InAppMessageContentTypeDef
+# InAppMessageContent
 
 ### BackgroundColor
 - **Type**: typing.Optional[str]
 
 ### BodyConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageBodyConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageBodyConfig]
 
 ### HeaderConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageHeaderConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageHeaderConfig]
 
 ### ImageUrl
 - **Type**: typing.Optional[str]
 
 ### PrimaryBtn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageButtonTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageButton]
 
 ### SecondaryBtn
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageButtonTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageButton]
 
 
-# InAppMessageHeaderConfigTypeDef
+# InAppMessageHeaderConfig
 
 ### Alignment
 - **Type**: typing.Literal['CENTER', 'LEFT', 'RIGHT']
@@ -4428,28 +4440,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# InAppMessageTypeDef
-
-### Content
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContentTypeDef]]
-
-### CustomConfig
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-### Layout
-- **Type**: typing.Optional[typing.Literal['BOTTOM_BANNER', 'CAROUSEL', 'MIDDLE_BANNER', 'MOBILE_FEED', 'OVERLAYS', 'TOP_BANNER']]
-
-
-# InAppMessagesResponseTypeDef
+# InAppMessagesResponse
 
 ### InAppMessageCampaigns
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageCampaignTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageCampaign]]
 
 
-# InAppTemplateRequestTypeDef
+# InAppTemplateRequest
 
 ### Content
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContentTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContent]]
 
 ### CustomConfig
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -4464,7 +4464,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# InAppTemplateResponseTypeDef
+# InAppTemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -4486,7 +4486,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Content
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContentTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.InAppMessageContent]]
 
 ### CustomConfig
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -4504,16 +4504,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ItemResponseTypeDef
+# ItemResponse
 
 ### EndpointItemResponse
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointItemResponseTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EventsItemResponse
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EventItemResponseTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EventItemResponse]]
 
 
-# JourneyChannelSettingsTypeDef
+# JourneyChannelSettings
 
 ### ConnectCampaignArn
 - **Type**: typing.Optional[str]
@@ -4522,13 +4522,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JourneyCustomMessageTypeDef
+# JourneyCustomMessage
 
 ### Data
 - **Type**: typing.Optional[str]
 
 
-# JourneyDateRangeKpiResponseTypeDef
+# JourneyDateRangeKpiResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4547,7 +4547,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### KpiResult
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaseKpiResult'>
 - **Required**: Yes
 
 ### StartTime
@@ -4558,13 +4558,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JourneyEmailMessageTypeDef
+# JourneyEmailMessage
 
 ### FromAddress
 - **Type**: typing.Optional[str]
 
 
-# JourneyExecutionActivityMetricsResponseTypeDef
+# JourneyExecutionActivityMetricsResponse
 
 ### ActivityType
 - **Type**: <class 'str'>
@@ -4591,7 +4591,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JourneyExecutionMetricsResponseTypeDef
+# JourneyExecutionMetricsResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4610,7 +4610,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JourneyLimitsTypeDef
+# JourneyLimits
 
 ### DailyCap
 - **Type**: typing.Optional[int]
@@ -4625,19 +4625,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### TimeframeCap
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyTimeframeCapTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyTimeframeCap]
 
 ### TotalCap
 - **Type**: typing.Optional[int]
 
 
-# JourneyPushMessageTypeDef
+# JourneyPushMessage
 
 ### TimeToLive
 - **Type**: typing.Optional[str]
 
 
-# JourneyResponseTypeDef
+# JourneyResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4652,7 +4652,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Activities
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ActivityOutputTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.ActivityOutput]]
 
 ### CreationDate
 - **Type**: typing.Optional[str]
@@ -4661,25 +4661,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyLimits]
 
 ### LocalTime
 - **Type**: typing.Optional[bool]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RefreshFrequency
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyScheduleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyScheduleOutput]
 
 ### StartActivity
 - **Type**: typing.Optional[str]
 
 ### StartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.StartConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.StartConditionOutput]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CANCELLED', 'CLOSED', 'COMPLETED', 'DRAFT', 'PAUSED']]
@@ -4694,22 +4694,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### JourneyChannelSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyChannelSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SendingSchedule
 - **Type**: typing.Optional[bool]
 
 ### OpenHours
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursOutput]
 
 ### ClosedDays
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysOutput]
 
 ### TimezoneEstimationMethods
 - **Type**: typing.Optional[typing.List[typing.Literal['PHONE_NUMBER', 'POSTAL_CODE']]]
 
 
-# JourneyRunExecutionActivityMetricsResponseTypeDef
+# JourneyRunExecutionActivityMetricsResponse
 
 ### ActivityType
 - **Type**: <class 'str'>
@@ -4740,7 +4740,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JourneyRunExecutionMetricsResponseTypeDef
+# JourneyRunExecutionMetricsResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4763,7 +4763,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JourneyRunResponseTypeDef
+# JourneyRunResponse
 
 ### CreationTime
 - **Type**: <class 'str'>
@@ -4782,17 +4782,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# JourneyRunsResponseTypeDef
+# JourneyRunsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyRunResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# JourneySMSMessageTypeDef
+# JourneySMSMessage
 
 ### MessageType
 - **Type**: typing.Optional[typing.Literal['PROMOTIONAL', 'TRANSACTIONAL']]
@@ -4810,7 +4810,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JourneyScheduleOutputTypeDef
+# JourneySchedule
+
+### EndTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
+
+### StartTime
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Timestamp]
+
+### Timezone
+- **Type**: typing.Optional[str]
+
+
+# JourneyScheduleOutput
 
 ### EndTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -4822,31 +4834,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# JourneyScheduleTypeDef
-
-### EndTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
-
-### StartTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TimestampTypeDef]
-
-### Timezone
-- **Type**: typing.Optional[str]
-
-
-# JourneyScheduleUnionTypeDef
+# JourneyScheduleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# JourneyStateRequestTypeDef
+# JourneyStateRequest
 
 ### State
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CANCELLED', 'CLOSED', 'COMPLETED', 'DRAFT', 'PAUSED']]
 
 
-# JourneyTimeframeCapTypeDef
+# JourneyTimeframeCap
 
 ### Cap
 - **Type**: typing.Optional[int]
@@ -4855,17 +4855,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# JourneysResponseTypeDef
+# JourneysResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListJourneysRequestTypeDef
+# ListJourneysRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -4878,46 +4878,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListJourneysResponseTypeDef
+# ListJourneysResponse
 
 ### JourneysResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneysResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneysResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListRecommenderConfigurationsResponseTypeDef
+# ListRecommenderConfigurationsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### TagsModel
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TagsModelOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TagsModelOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTemplateVersionsRequestTypeDef
+# ListTemplateVersionsRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
@@ -4934,18 +4934,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplateVersionsResponseTypeDef
+# ListTemplateVersionsResponse
 
 ### TemplateVersionsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateVersionsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateVersionsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListTemplatesRequestTypeDef
+# ListTemplatesRequest
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -4960,160 +4960,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListTemplatesResponseTypeDef
+# ListTemplatesResponse
 
 ### TemplatesResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplatesResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplatesResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# MessageBodyTypeDef
-
-### Message
-- **Type**: typing.Optional[str]
-
-### RequestID
-- **Type**: typing.Optional[str]
-
-
-# MessageConfigurationOutputTypeDef
-
-### ADMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### APNSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### BaiduMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### CustomMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignCustomMessageTypeDef]
-
-### DefaultMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### EmailMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEmailMessageOutputTypeDef]
-
-### GCMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### SMSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignSmsMessageTypeDef]
-
-### InAppMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignInAppMessageOutputTypeDef]
-
-
-# MessageConfigurationTypeDef
-
-### ADMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### APNSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### BaiduMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### CustomMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignCustomMessageTypeDef]
-
-### DefaultMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### EmailMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEmailMessageUnionTypeDef]
-
-### GCMMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageTypeDef]
-
-### SMSMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignSmsMessageTypeDef]
-
-### InAppMessage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignInAppMessageUnionTypeDef]
-
-
-# MessageConfigurationUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# MessageHeaderTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Value
-- **Type**: typing.Optional[str]
-
-
-# MessageRequestTypeDef
-
-### MessageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.DirectMessageConfigurationTypeDef'>
-- **Required**: Yes
-
-### Addresses
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AddressConfigurationTypeDef]]
-
-### Context
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### Endpoints
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointSendConfigurationTypeDef]]
-
-### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
-
-### TraceId
-- **Type**: typing.Optional[str]
-
-
-# MessageResponseTypeDef
-
-### ApplicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### EndpointResult
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointMessageResultTypeDef]]
-
-### RequestId
-- **Type**: typing.Optional[str]
-
-### Result
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MessageResultTypeDef]]
-
-
-# MessageResultTypeDef
-
-### DeliveryStatus
-- **Type**: typing.Literal['DUPLICATE', 'OPT_OUT', 'PERMANENT_FAILURE', 'SUCCESSFUL', 'TEMPORARY_FAILURE', 'THROTTLED', 'UNKNOWN_FAILURE']
-- **Required**: Yes
-
-### StatusCode
-- **Type**: <class 'int'>
-- **Required**: Yes
-
-### MessageId
-- **Type**: typing.Optional[str]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-### UpdatedToken
-- **Type**: typing.Optional[str]
-
-
-# MessageTypeDef
+# Message
 
 ### Action
 - **Type**: typing.Optional[typing.Literal['DEEP_LINK', 'OPEN_APP', 'URL']]
@@ -5152,7 +5010,149 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# MetricDimensionTypeDef
+# MessageBody
+
+### Message
+- **Type**: typing.Optional[str]
+
+### RequestID
+- **Type**: typing.Optional[str]
+
+
+# MessageConfiguration
+
+### ADMMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### APNSMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### BaiduMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### CustomMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignCustomMessage]
+
+### DefaultMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### EmailMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEmailMessageUnion]
+
+### GCMMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### SMSMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignSmsMessage]
+
+### InAppMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignInAppMessageUnion]
+
+
+# MessageConfigurationOutput
+
+### ADMMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### APNSMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### BaiduMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### CustomMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignCustomMessage]
+
+### DefaultMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### EmailMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEmailMessageOutput]
+
+### GCMMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Message]
+
+### SMSMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignSmsMessage]
+
+### InAppMessage
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignInAppMessageOutput]
+
+
+# MessageConfigurationUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# MessageHeader
+
+### Name
+- **Type**: typing.Optional[str]
+
+### Value
+- **Type**: typing.Optional[str]
+
+
+# MessageRequest
+
+### MessageConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.DirectMessageConfiguration'>
+- **Required**: Yes
+
+### Addresses
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AddressConfiguration]]
+
+### Context
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### Endpoints
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointSendConfiguration]]
+
+### TemplateConfiguration
+- **Type**: <class 'NoneType'>
+
+### TraceId
+- **Type**: typing.Optional[str]
+
+
+# MessageResponse
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### EndpointResult
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointMessageResult]]
+
+### RequestId
+- **Type**: typing.Optional[str]
+
+### Result
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MessageResult]]
+
+
+# MessageResult
+
+### DeliveryStatus
+- **Type**: typing.Literal['DUPLICATE', 'OPT_OUT', 'PERMANENT_FAILURE', 'SUCCESSFUL', 'TEMPORARY_FAILURE', 'THROTTLED', 'UNKNOWN_FAILURE']
+- **Required**: Yes
+
+### StatusCode
+- **Type**: <class 'int'>
+- **Required**: Yes
+
+### MessageId
+- **Type**: typing.Optional[str]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+### UpdatedToken
+- **Type**: typing.Optional[str]
+
+
+# MetricDimension
 
 ### ComparisonOperator
 - **Type**: <class 'str'>
@@ -5163,61 +5163,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# MultiConditionalBranchOutputTypeDef
+# MultiConditionalBranch
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionUnion]
 
 ### NextActivity
 - **Type**: typing.Optional[str]
 
 
-# MultiConditionalBranchTypeDef
+# MultiConditionalBranchOutput
 
 ### Condition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleConditionOutput]
 
 ### NextActivity
 - **Type**: typing.Optional[str]
 
 
-# MultiConditionalBranchUnionTypeDef
+# MultiConditionalBranchUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# MultiConditionalSplitActivityOutputTypeDef
+# MultiConditionalSplitActivity
 
 ### Branches
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalBranchOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalBranchUnion]]
 
 ### DefaultActivity
 - **Type**: typing.Optional[str]
 
 ### EvaluationWaitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTime]
 
 
-# MultiConditionalSplitActivityTypeDef
+# MultiConditionalSplitActivityOutput
 
 ### Branches
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalBranchUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.MultiConditionalBranchOutput]]
 
 ### DefaultActivity
 - **Type**: typing.Optional[str]
 
 ### EvaluationWaitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTimeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTime]
 
 
-# MultiConditionalSplitActivityUnionTypeDef
+# MultiConditionalSplitActivityUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# NumberValidateRequestTypeDef
+# NumberValidateRequest
 
 ### IsoCountryCode
 - **Type**: typing.Optional[str]
@@ -5226,7 +5226,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# NumberValidateResponseTypeDef
+# NumberValidateResponse
 
 ### Carrier
 - **Type**: typing.Optional[str]
@@ -5271,25 +5271,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OpenHoursOutputTypeDef
+# OpenHours
 
 ### EMAIL
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
 
 ### SMS
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
 
 ### PUSH
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
 
 ### VOICE
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
 
 ### CUSTOM
-- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
 
 
-# OpenHoursRuleTypeDef
+# OpenHoursOutput
+
+### EMAIL
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
+
+### SMS
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
+
+### PUSH
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
+
+### VOICE
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
+
+### CUSTOM
+- **Type**: typing.Optional[typing.Dict[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRule]]]
+
+
+# OpenHoursRule
 
 ### StartTime
 - **Type**: typing.Optional[str]
@@ -5298,31 +5316,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OpenHoursTypeDef
-
-### EMAIL
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
-
-### SMS
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
-
-### PUSH
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
-
-### VOICE
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
-
-### CUSTOM
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['FRIDAY', 'MONDAY', 'SATURDAY', 'SUNDAY', 'THURSDAY', 'TUESDAY', 'WEDNESDAY'], typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursRuleTypeDef]]]
-
-
-# OpenHoursUnionTypeDef
+# OpenHoursUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# OverrideButtonConfigurationTypeDef
+# OverrideButtonConfiguration
 
 ### ButtonAction
 - **Type**: typing.Literal['CLOSE', 'DEEP_LINK', 'LINK']
@@ -5332,25 +5332,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PhoneNumberValidateRequestTypeDef
+# PhoneNumberValidateRequest
 
 ### NumberValidateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.NumberValidateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.NumberValidateRequest'>
 - **Required**: Yes
 
 
-# PhoneNumberValidateResponseTypeDef
+# PhoneNumberValidateResponse
 
 ### NumberValidateResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.NumberValidateResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.NumberValidateResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PublicEndpointTypeDef
+# PublicEndpoint
 
 ### Address
 - **Type**: typing.Optional[str]
@@ -5362,7 +5362,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ADM', 'APNS', 'APNS_SANDBOX', 'APNS_VOIP', 'APNS_VOIP_SANDBOX', 'BAIDU', 'CUSTOM', 'EMAIL', 'GCM', 'IN_APP', 'PUSH', 'SMS', 'VOICE']]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographicTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointDemographic]
 
 ### EffectiveDate
 - **Type**: typing.Optional[str]
@@ -5371,7 +5371,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointLocation]
 
 ### Metrics
 - **Type**: typing.Optional[typing.Mapping[str, float]]
@@ -5383,13 +5383,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### User
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EndpointUserUnion]
 
 
-# PushMessageActivityTypeDef
+# PushMessageActivity
 
 ### MessageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyPushMessageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyPushMessage]
 
 ### NextActivity
 - **Type**: typing.Optional[str]
@@ -5401,25 +5401,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PushNotificationTemplateRequestTypeDef
+# PushNotificationTemplateRequest
 
 ### ADM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### APNS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.APNSPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.APNSPushNotificationTemplate]
 
 ### Baidu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### Default
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultPushNotificationTemplate]
 
 ### DefaultSubstitutions
 - **Type**: typing.Optional[str]
 
 ### GCM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### RecommenderId
 - **Type**: typing.Optional[str]
@@ -5431,7 +5431,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PushNotificationTemplateResponseTypeDef
+# PushNotificationTemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -5450,25 +5450,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ADM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### APNS
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.APNSPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.APNSPushNotificationTemplate]
 
 ### Arn
 - **Type**: typing.Optional[str]
 
 ### Baidu
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### Default
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.DefaultPushNotificationTemplate]
 
 ### DefaultSubstitutions
 - **Type**: typing.Optional[str]
 
 ### GCM
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.AndroidPushNotificationTemplate]
 
 ### RecommenderId
 - **Type**: typing.Optional[str]
@@ -5483,51 +5483,51 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutEventStreamRequestTypeDef
+# PutEventStreamRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WriteEventStream
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteEventStreamTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteEventStream'>
 - **Required**: Yes
 
 
-# PutEventStreamResponseTypeDef
+# PutEventStreamResponse
 
 ### EventStream
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStreamTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventStream'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutEventsRequestTypeDef
+# PutEventsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EventsRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventsRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventsRequest'>
 - **Required**: Yes
 
 
-# PutEventsResponseTypeDef
+# PutEventsResponse
 
 ### EventsResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventsResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EventsResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# QuietTimeTypeDef
+# QuietTime
 
 ### End
 - **Type**: typing.Optional[str]
@@ -5536,25 +5536,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RandomSplitActivityOutputTypeDef
+# RandomSplitActivity
 
 ### Branches
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitEntryTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitEntry]]
 
 
-# RandomSplitActivityTypeDef
+# RandomSplitActivityOutput
 
 ### Branches
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitEntryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.RandomSplitEntry]]
 
 
-# RandomSplitActivityUnionTypeDef
+# RandomSplitActivityUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RandomSplitEntryTypeDef
+# RandomSplitEntry
 
 ### NextActivity
 - **Type**: typing.Optional[str]
@@ -5563,13 +5563,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RawEmailTypeDef
+# RawEmail
 
 ### Data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Blob]
 
 
-# RecencyDimensionTypeDef
+# RecencyDimension
 
 ### Duration
 - **Type**: typing.Literal['DAY_14', 'DAY_30', 'DAY_7', 'HR_24']
@@ -5580,7 +5580,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# RecommenderConfigurationResponseTypeDef
+# RecommenderConfigurationResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -5624,7 +5624,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RemoveAttributesRequestTypeDef
+# RemoveAttributesRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -5635,22 +5635,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### UpdateAttributesRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.UpdateAttributesRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.UpdateAttributesRequest'>
 - **Required**: Yes
 
 
-# RemoveAttributesResponseTypeDef
+# RemoveAttributesResponse
 
 ### AttributesResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.AttributesResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.AttributesResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -5672,24 +5672,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResultRowTypeDef
+# ResultRow
 
 ### GroupedBys
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRowValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRowValue]
 - **Required**: Yes
 
 ### Values
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRowValueTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.ResultRowValue]
 - **Required**: Yes
 
 
-# ResultRowValueTypeDef
+# ResultRowValue
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SMSChannelRequestTypeDef
+# SMSChannelRequest
 
 ### Enabled
 - **Type**: typing.Optional[bool]
@@ -5701,7 +5701,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSChannelResponseTypeDef
+# SMSChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -5747,22 +5747,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SMSMessageActivityTypeDef
-
-### MessageConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneySMSMessageTypeDef]
-
-### NextActivity
-- **Type**: typing.Optional[str]
-
-### TemplateName
-- **Type**: typing.Optional[str]
-
-### TemplateVersion
-- **Type**: typing.Optional[str]
-
-
-# SMSMessageTypeDef
+# SMSMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -5792,7 +5777,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSTemplateRequestTypeDef
+# SMSMessageActivity
+
+### MessageConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneySMSMessage]
+
+### NextActivity
+- **Type**: typing.Optional[str]
+
+### TemplateName
+- **Type**: typing.Optional[str]
+
+### TemplateVersion
+- **Type**: typing.Optional[str]
+
+
+# SMSTemplateRequest
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -5810,7 +5810,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SMSTemplateResponseTypeDef
+# SMSTemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -5850,7 +5850,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ScheduleOutputTypeDef
+# Schedule
 
 ### StartTime
 - **Type**: <class 'str'>
@@ -5860,7 +5860,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterUnion]
 
 ### Frequency
 - **Type**: typing.Optional[typing.Literal['DAILY', 'EVENT', 'HOURLY', 'IN_APP_EVENT', 'MONTHLY', 'ONCE', 'WEEKLY']]
@@ -5869,13 +5869,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Timezone
 - **Type**: typing.Optional[str]
 
 
-# ScheduleTypeDef
+# ScheduleOutput
 
 ### StartTime
 - **Type**: <class 'str'>
@@ -5885,7 +5885,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### EventFilter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignEventFilterOutput]
 
 ### Frequency
 - **Type**: typing.Optional[typing.Literal['DAILY', 'EVENT', 'HOURLY', 'IN_APP_EVENT', 'MONTHLY', 'ONCE', 'WEEKLY']]
@@ -5894,164 +5894,164 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Timezone
 - **Type**: typing.Optional[str]
 
 
-# ScheduleUnionTypeDef
+# ScheduleUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentBehaviorsTypeDef
+# SegmentBehaviors
 
 ### Recency
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RecencyDimensionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.RecencyDimension]
 
 
-# SegmentConditionTypeDef
+# SegmentCondition
 
 ### SegmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# SegmentDemographicsOutputTypeDef
+# SegmentDemographics
 
 ### AppVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### Channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### DeviceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### Make
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### Model
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### Platform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 
-# SegmentDemographicsTypeDef
+# SegmentDemographicsOutput
 
 ### AppVersion
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### Channel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### DeviceType
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### Make
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### Model
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### Platform
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 
-# SegmentDemographicsUnionTypeDef
+# SegmentDemographicsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentDimensionsOutputTypeDef
+# SegmentDimensions
 
 ### Attributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutputTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnion]]
 
 ### Behavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentBehaviorsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentBehaviors]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDemographicsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDemographicsUnion]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentLocationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentLocationUnion]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimensionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimension]]
 
 ### UserAttributes
-- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutputTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnion]]
 
 
-# SegmentDimensionsTypeDef
+# SegmentDimensionsOutput
 
 ### Attributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutput]]
 
 ### Behavior
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentBehaviorsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentBehaviors]
 
 ### Demographic
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDemographicsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDemographicsOutput]
 
 ### Location
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentLocationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentLocationOutput]
 
 ### Metrics
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimensionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.MetricDimension]]
 
 ### UserAttributes
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionUnionTypeDef]]
+- **Type**: typing.Optional[typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.AttributeDimensionOutput]]
 
 
-# SegmentDimensionsUnionTypeDef
+# SegmentDimensionsUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentGroupListOutputTypeDef
+# SegmentGroupList
 
 ### Groups
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupOutputTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupUnion]]
 
 ### Include
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
 
 
-# SegmentGroupListTypeDef
+# SegmentGroupListOutput
 
 ### Groups
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupOutput]]
 
 ### Include
 - **Type**: typing.Optional[typing.Literal['ALL', 'ANY', 'NONE']]
 
 
-# SegmentGroupListUnionTypeDef
+# SegmentGroupListUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentGroupOutputTypeDef
+# SegmentGroupOutput
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentGroupUnionTypeDef
+# SegmentGroupUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentImportResourceTypeDef
+# SegmentImportResource
 
 ### ExternalId
 - **Type**: <class 'str'>
@@ -6077,31 +6077,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Dict[str, int]]
 
 
-# SegmentLocationOutputTypeDef
+# SegmentLocation
 
 ### Country
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnion]
 
 ### GPSPoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.GPSPointDimensionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.GPSPointDimension]
 
 
-# SegmentLocationTypeDef
+# SegmentLocationOutput
 
 ### Country
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SetDimensionOutput]
 
 ### GPSPoint
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.GPSPointDimensionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.GPSPointDimension]
 
 
-# SegmentLocationUnionTypeDef
+# SegmentLocationUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SegmentReferenceTypeDef
+# SegmentReference
 
 ### Id
 - **Type**: <class 'str'>
@@ -6111,7 +6111,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SegmentResponseTypeDef
+# SegmentResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -6134,10 +6134,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsOutput]
 
 ### ImportDefinition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentImportResourceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentImportResource]
 
 ### LastModifiedDate
 - **Type**: typing.Optional[str]
@@ -6146,7 +6146,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### SegmentGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupListOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupListOutput]
 
 ### tags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -6155,39 +6155,50 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SegmentsResponseTypeDef
+# SegmentsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# SendMessagesRequestTypeDef
+# SendMessagesRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### MessageRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageRequest'>
 - **Required**: Yes
 
 
-# SendMessagesResponseTypeDef
+# SendMessagesResponse
 
 ### MessageResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendOTPMessageRequestParametersTypeDef
+# SendOTPMessageRequest
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### SendOTPMessageRequestParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendOTPMessageRequestParameters'>
+- **Required**: Yes
+
+
+# SendOTPMessageRequestParameters
 
 ### BrandName
 - **Type**: <class 'str'>
@@ -6228,49 +6239,38 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# SendOTPMessageRequestTypeDef
-
-### ApplicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### SendOTPMessageRequestParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendOTPMessageRequestParametersTypeDef'>
-- **Required**: Yes
-
-
-# SendOTPMessageResponseTypeDef
+# SendOTPMessageResponse
 
 ### MessageResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SendUsersMessageRequestTypeDef
+# SendUsersMessageRequest
 
 ### MessageConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.DirectMessageConfigurationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.DirectMessageConfiguration'>
 - **Required**: Yes
 
 ### Users
-- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointSendConfigurationTypeDef]
+- **Type**: typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointSendConfiguration]
 - **Required**: Yes
 
 ### Context
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TraceId
 - **Type**: typing.Optional[str]
 
 
-# SendUsersMessageResponseTypeDef
+# SendUsersMessageResponse
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -6280,32 +6280,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Result
-- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointMessageResultTypeDef]]]
+- **Type**: typing.Optional[typing.Dict[str, typing.Dict[str, aws_resource_validator.pydantic_models.pinpoint_classes.EndpointMessageResult]]]
 
 
-# SendUsersMessagesRequestTypeDef
+# SendUsersMessagesRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SendUsersMessageRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendUsersMessageRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendUsersMessageRequest'>
 - **Required**: Yes
 
 
-# SendUsersMessagesResponseTypeDef
+# SendUsersMessagesResponse
 
 ### SendUsersMessageResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendUsersMessageResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SendUsersMessageResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# SessionTypeDef
+# Session
 
 ### Id
 - **Type**: <class 'str'>
@@ -6322,17 +6322,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SetDimensionOutputTypeDef
-
-### Values
-- **Type**: typing.List[str]
-- **Required**: Yes
-
-### DimensionType
-- **Type**: typing.Optional[typing.Literal['EXCLUSIVE', 'INCLUSIVE']]
-
-
-# SetDimensionTypeDef
+# SetDimension
 
 ### Values
 - **Type**: typing.Sequence[str]
@@ -6342,43 +6332,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['EXCLUSIVE', 'INCLUSIVE']]
 
 
-# SetDimensionUnionTypeDef
+# SetDimensionOutput
+
+### Values
+- **Type**: typing.List[str]
+- **Required**: Yes
+
+### DimensionType
+- **Type**: typing.Optional[typing.Literal['EXCLUSIVE', 'INCLUSIVE']]
+
+
+# SetDimensionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SimpleConditionOutputTypeDef
+# SimpleCondition
 
 ### EventCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventConditionUnion]
 
 ### SegmentCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentConditionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SegmentDimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsUnion]
 
 
-# SimpleConditionTypeDef
+# SimpleConditionOutput
 
 ### EventCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventConditionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventConditionOutput]
 
 ### SegmentCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentConditionTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SegmentDimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsOutput]
 
 
-# SimpleConditionUnionTypeDef
+# SimpleConditionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SimpleEmailPartTypeDef
+# SimpleEmail
+
+### HtmlPart
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPart]
+
+### Subject
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPart]
+
+### TextPart
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPart]
+
+### Headers
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeader]]
+
+
+# SimpleEmailPart
 
 ### Charset
 - **Type**: typing.Optional[str]
@@ -6387,107 +6402,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SimpleEmailTypeDef
-
-### HtmlPart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPartTypeDef]
-
-### Subject
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPartTypeDef]
-
-### TextPart
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SimpleEmailPartTypeDef]
-
-### Headers
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.MessageHeaderTypeDef]]
-
-
-# StartConditionOutputTypeDef
+# StartCondition
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### EventStartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventStartConditionOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventStartConditionUnion]
 
 ### SegmentStartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentCondition]
 
 
-# StartConditionTypeDef
+# StartConditionOutput
 
 ### Description
 - **Type**: typing.Optional[str]
 
 ### EventStartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventStartConditionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.EventStartConditionOutput]
 
 ### SegmentStartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentConditionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentCondition]
 
 
-# StartConditionUnionTypeDef
+# StartConditionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### TagsModel
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TagsModelUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TagsModelUnion'>
 - **Required**: Yes
 
 
-# TagsModelOutputTypeDef
-
-### tags
-- **Type**: typing.Dict[str, str]
-- **Required**: Yes
-
-
-# TagsModelTypeDef
+# TagsModel
 
 ### tags
 - **Type**: typing.Mapping[str, str]
 - **Required**: Yes
 
 
-# TagsModelUnionTypeDef
+# TagsModelOutput
+
+### tags
+- **Type**: typing.Dict[str, str]
+- **Required**: Yes
+
+
+# TagsModelUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TemplateActiveVersionRequestTypeDef
+# Template
+
+### Name
+- **Type**: typing.Optional[str]
 
 ### Version
 - **Type**: typing.Optional[str]
 
 
-# TemplateConfigurationTypeDef
+# TemplateActiveVersionRequest
+
+### Version
+- **Type**: typing.Optional[str]
+
+
+# TemplateConfiguration
 
 ### EmailTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Template]
 
 ### PushTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Template]
 
 ### SMSTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Template]
 
 ### VoiceTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Template]
 
 ### InAppTemplate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.Template]
 
 
-# TemplateCreateMessageBodyTypeDef
+# TemplateCreateMessageBody
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -6499,7 +6508,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateResponseTypeDef
+# TemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -6533,16 +6542,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateTypeDef
-
-### Name
-- **Type**: typing.Optional[str]
-
-### Version
-- **Type**: typing.Optional[str]
-
-
-# TemplateVersionResponseTypeDef
+# TemplateVersionResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -6570,10 +6570,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplateVersionsResponseTypeDef
+# TemplateVersionsResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateVersionResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateVersionResponse]
 - **Required**: Yes
 
 ### Message
@@ -6586,23 +6586,23 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TemplatesResponseTypeDef
+# TemplatesResponse
 
 ### Item
-- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateResponseTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateResponse]
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TreatmentResourceTypeDef
+# TreatmentResource
 
 ### Id
 - **Type**: <class 'str'>
@@ -6613,19 +6613,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CustomDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationOutput]
 
 ### MessageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationOutput]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleOutput]
 
 ### State
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignStateTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignState]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TreatmentDescription
 - **Type**: typing.Optional[str]
@@ -6634,7 +6634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -6645,10 +6645,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAdmChannelRequestTypeDef
+# UpdateAdmChannelRequest
 
 ### ADMChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelRequest'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -6656,21 +6656,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateAdmChannelResponseTypeDef
+# UpdateAdmChannelResponse
 
 ### ADMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ADMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApnsChannelRequestTypeDef
+# UpdateApnsChannelRequest
 
 ### APNSChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelRequest'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -6678,21 +6678,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApnsChannelResponseTypeDef
+# UpdateApnsChannelResponse
 
 ### APNSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApnsSandboxChannelRequestTypeDef
+# UpdateApnsSandboxChannelRequest
 
 ### APNSSandboxChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelRequest'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -6700,21 +6700,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApnsSandboxChannelResponseTypeDef
+# UpdateApnsSandboxChannelResponse
 
 ### APNSSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApnsVoipChannelRequestTypeDef
+# UpdateApnsVoipChannelRequest
 
 ### APNSVoipChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelRequest'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -6722,21 +6722,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApnsVoipChannelResponseTypeDef
+# UpdateApnsVoipChannelResponse
 
 ### APNSVoipChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApnsVoipSandboxChannelRequestTypeDef
+# UpdateApnsVoipSandboxChannelRequest
 
 ### APNSVoipSandboxChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelRequest'>
 - **Required**: Yes
 
 ### ApplicationId
@@ -6744,68 +6744,68 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApnsVoipSandboxChannelResponseTypeDef
+# UpdateApnsVoipSandboxChannelResponse
 
 ### APNSVoipSandboxChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.APNSVoipSandboxChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateApplicationSettingsRequestTypeDef
+# UpdateApplicationSettingsRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### WriteApplicationSettingsRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteApplicationSettingsRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteApplicationSettingsRequest'>
 - **Required**: Yes
 
 
-# UpdateApplicationSettingsResponseTypeDef
+# UpdateApplicationSettingsResponse
 
 ### ApplicationSettingsResource
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsResourceTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsResource'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateAttributesRequestTypeDef
+# UpdateAttributesRequest
 
 ### Blacklist
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# UpdateBaiduChannelRequestTypeDef
+# UpdateBaiduChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BaiduChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelRequest'>
 - **Required**: Yes
 
 
-# UpdateBaiduChannelResponseTypeDef
+# UpdateBaiduChannelResponse
 
 ### BaiduChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.BaiduChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateCampaignRequestTypeDef
+# UpdateCampaignRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -6816,47 +6816,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WriteCampaignRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteCampaignRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteCampaignRequest'>
 - **Required**: Yes
 
 
-# UpdateCampaignResponseTypeDef
+# UpdateCampaignResponse
 
 ### CampaignResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.CampaignResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEmailChannelRequestTypeDef
+# UpdateEmailChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EmailChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelRequest'>
 - **Required**: Yes
 
 
-# UpdateEmailChannelResponseTypeDef
+# UpdateEmailChannelResponse
 
 ### EmailChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEmailTemplateRequestTypeDef
+# UpdateEmailTemplateRequest
 
 ### EmailTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EmailTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -6870,18 +6870,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEmailTemplateResponseTypeDef
+# UpdateEmailTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEndpointRequestTypeDef
+# UpdateEndpointRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -6892,69 +6892,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### EndpointRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointRequest'>
 - **Required**: Yes
 
 
-# UpdateEndpointResponseTypeDef
+# UpdateEndpointResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEndpointsBatchRequestTypeDef
+# UpdateEndpointsBatchRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### EndpointBatchRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointBatchRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.EndpointBatchRequest'>
 - **Required**: Yes
 
 
-# UpdateEndpointsBatchResponseTypeDef
+# UpdateEndpointsBatchResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGcmChannelRequestTypeDef
+# UpdateGcmChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### GCMChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelRequest'>
 - **Required**: Yes
 
 
-# UpdateGcmChannelResponseTypeDef
+# UpdateGcmChannelResponse
 
 ### GCMChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.GCMChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateInAppTemplateRequestTypeDef
+# UpdateInAppTemplateRequest
 
 ### InAppTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.InAppTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -6968,18 +6968,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateInAppTemplateResponseTypeDef
+# UpdateInAppTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateJourneyRequestTypeDef
+# UpdateJourneyRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -6990,22 +6990,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WriteJourneyRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteJourneyRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteJourneyRequest'>
 - **Required**: Yes
 
 
-# UpdateJourneyResponseTypeDef
+# UpdateJourneyResponse
 
 ### JourneyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateJourneyStateRequestTypeDef
+# UpdateJourneyStateRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -7016,25 +7016,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### JourneyStateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyStateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyStateRequest'>
 - **Required**: Yes
 
 
-# UpdateJourneyStateResponseTypeDef
+# UpdateJourneyStateResponse
 
 ### JourneyResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.JourneyResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePushTemplateRequestTypeDef
+# UpdatePushTemplateRequest
 
 ### PushNotificationTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.PushNotificationTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -7048,40 +7048,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdatePushTemplateResponseTypeDef
+# UpdatePushTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRecommenderConfigurationRequestTypeDef
-
-### RecommenderId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### UpdateRecommenderConfiguration
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.UpdateRecommenderConfigurationTypeDef'>
-- **Required**: Yes
-
-
-# UpdateRecommenderConfigurationResponseTypeDef
-
-### RecommenderConfigurationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponseTypeDef'>
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-
-# UpdateRecommenderConfigurationTypeDef
+# UpdateRecommenderConfiguration
 
 ### RecommendationProviderRoleArn
 - **Type**: <class 'str'>
@@ -7113,7 +7091,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateSegmentRequestTypeDef
+# UpdateRecommenderConfigurationRequest
+
+### RecommenderId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### UpdateRecommenderConfiguration
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.UpdateRecommenderConfiguration'>
+- **Required**: Yes
+
+
+# UpdateRecommenderConfigurationResponse
+
+### RecommenderConfigurationResponse
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.RecommenderConfigurationResponse'>
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
+- **Required**: Yes
+
+
+# UpdateSegmentRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
@@ -7124,47 +7124,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### WriteSegmentRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteSegmentRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.WriteSegmentRequest'>
 - **Required**: Yes
 
 
-# UpdateSegmentResponseTypeDef
+# UpdateSegmentResponse
 
 ### SegmentResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SegmentResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSmsChannelRequestTypeDef
+# UpdateSmsChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### SMSChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelRequest'>
 - **Required**: Yes
 
 
-# UpdateSmsChannelResponseTypeDef
+# UpdateSmsChannelResponse
 
 ### SMSChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateSmsTemplateRequestTypeDef
+# UpdateSmsTemplateRequest
 
 ### SMSTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.SMSTemplateRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -7178,21 +7178,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateSmsTemplateResponseTypeDef
+# UpdateSmsTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateTemplateActiveVersionRequestTypeDef
+# UpdateTemplateActiveVersionRequest
 
 ### TemplateActiveVersionRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateActiveVersionRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.TemplateActiveVersionRequest'>
 - **Required**: Yes
 
 ### TemplateName
@@ -7204,47 +7204,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateTemplateActiveVersionResponseTypeDef
+# UpdateTemplateActiveVersionResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVoiceChannelRequestTypeDef
+# UpdateVoiceChannelRequest
 
 ### ApplicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VoiceChannelRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelRequest'>
 - **Required**: Yes
 
 
-# UpdateVoiceChannelResponseTypeDef
+# UpdateVoiceChannelResponse
 
 ### VoiceChannelResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceChannelResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateVoiceTemplateRequestTypeDef
+# UpdateVoiceTemplateRequest
 
 ### TemplateName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### VoiceTemplateRequest
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateRequestTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VoiceTemplateRequest'>
 - **Required**: Yes
 
 ### CreateNewVersion
@@ -7254,24 +7254,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateVoiceTemplateResponseTypeDef
+# UpdateVoiceTemplateResponse
 
 ### MessageBody
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBodyTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.MessageBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VerificationResponseTypeDef
+# VerificationResponse
 
 ### Valid
 - **Type**: typing.Optional[bool]
 
 
-# VerifyOTPMessageRequestParametersTypeDef
+# VerifyOTPMessageRequest
+
+### ApplicationId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### VerifyOTPMessageRequestParameters
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VerifyOTPMessageRequestParameters'>
+- **Required**: Yes
+
+
+# VerifyOTPMessageRequestParameters
 
 ### DestinationIdentity
 - **Type**: <class 'str'>
@@ -7286,35 +7297,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# VerifyOTPMessageRequestTypeDef
-
-### ApplicationId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### VerifyOTPMessageRequestParameters
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VerifyOTPMessageRequestParametersTypeDef'>
-- **Required**: Yes
-
-
-# VerifyOTPMessageResponseTypeDef
+# VerifyOTPMessageResponse
 
 ### VerificationResponse
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VerificationResponseTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.VerificationResponse'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.pinpoint_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# VoiceChannelRequestTypeDef
+# VoiceChannelRequest
 
 ### Enabled
 - **Type**: typing.Optional[bool]
 
 
-# VoiceChannelResponseTypeDef
+# VoiceChannelResponse
 
 ### Platform
 - **Type**: <class 'str'>
@@ -7348,7 +7348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# VoiceMessageTypeDef
+# VoiceMessage
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -7366,7 +7366,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VoiceTemplateRequestTypeDef
+# VoiceTemplateRequest
 
 ### Body
 - **Type**: typing.Optional[str]
@@ -7387,7 +7387,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# VoiceTemplateResponseTypeDef
+# VoiceTemplateResponse
 
 ### CreationDate
 - **Type**: <class 'str'>
@@ -7430,16 +7430,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WaitActivityTypeDef
+# WaitActivity
 
 ### NextActivity
 - **Type**: typing.Optional[str]
 
 ### WaitTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.WaitTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# WaitTimeTypeDef
+# WaitTime
 
 ### WaitFor
 - **Type**: typing.Optional[str]
@@ -7448,10 +7448,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# WriteApplicationSettingsRequestTypeDef
+# WriteApplicationSettingsRequest
 
 ### CampaignHook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHookTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### CloudWatchMetricsEnabled
 - **Type**: typing.Optional[bool]
@@ -7460,22 +7460,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimits]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### JourneyLimits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsJourneyLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ApplicationSettingsJourneyLimits]
 
 
-# WriteCampaignRequestTypeDef
+# WriteCampaignRequest
 
 ### AdditionalTreatments
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.WriteTreatmentResourceTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.pinpoint_classes.WriteTreatmentResource]]
 
 ### CustomDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationUnion]
 
 ### Description
 - **Type**: typing.Optional[str]
@@ -7484,22 +7484,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Hook
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHookTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignHook]
 
 ### IsPaused
 - **Type**: typing.Optional[bool]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CampaignLimits]
 
 ### MessageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationUnion]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleUnion]
 
 ### SegmentId
 - **Type**: typing.Optional[str]
@@ -7511,7 +7511,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TreatmentDescription
 - **Type**: typing.Optional[str]
@@ -7523,7 +7523,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# WriteEventStreamTypeDef
+# WriteEventStream
 
 ### DestinationStreamArn
 - **Type**: <class 'str'>
@@ -7534,14 +7534,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# WriteJourneyRequestTypeDef
+# WriteJourneyRequest
 
 ### Name
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Activities
-- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.ActivityUnionTypeDef]]
+- **Type**: typing.Optional[typing.Mapping[str, aws_resource_validator.pydantic_models.pinpoint_classes.ActivityUnion]]
 
 ### CreationDate
 - **Type**: typing.Optional[str]
@@ -7550,25 +7550,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Limits
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyLimitsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyLimits]
 
 ### LocalTime
 - **Type**: typing.Optional[bool]
 
 ### QuietTime
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.QuietTimeTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RefreshFrequency
 - **Type**: typing.Optional[str]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyScheduleUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyScheduleUnion]
 
 ### StartActivity
 - **Type**: typing.Optional[str]
 
 ### StartCondition
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.StartConditionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.StartConditionUnion]
 
 ### State
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'CANCELLED', 'CLOSED', 'COMPLETED', 'DRAFT', 'PAUSED']]
@@ -7580,53 +7580,53 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### JourneyChannelSettings
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.JourneyChannelSettingsTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### SendingSchedule
 - **Type**: typing.Optional[bool]
 
 ### OpenHours
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.OpenHoursUnion]
 
 ### ClosedDays
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ClosedDaysUnion]
 
 ### TimezoneEstimationMethods
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['PHONE_NUMBER', 'POSTAL_CODE']]]
 
 
-# WriteSegmentRequestTypeDef
+# WriteSegmentRequest
 
 ### Dimensions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentDimensionsUnion]
 
 ### Name
 - **Type**: typing.Optional[str]
 
 ### SegmentGroups
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupListUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.SegmentGroupListUnion]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# WriteTreatmentResourceTypeDef
+# WriteTreatmentResource
 
 ### SizePercent
 - **Type**: <class 'int'>
 - **Required**: Yes
 
 ### CustomDeliveryConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.CustomDeliveryConfigurationUnion]
 
 ### MessageConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.MessageConfigurationUnion]
 
 ### Schedule
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.ScheduleUnion]
 
 ### TemplateConfiguration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.pinpoint_classes.TemplateConfigurationTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### TreatmentDescription
 - **Type**: typing.Optional[str]

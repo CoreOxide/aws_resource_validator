@@ -12,58 +12,58 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.stepfunctions_constants import *
 
-class ActivityFailedEventDetailsTypeDef(BaseValidatorModel):
+class ActivityFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class ActivityListItemTypeDef(BaseValidatorModel):
+class ActivityListItem(BaseValidatorModel):
     activityArn: str
     name: str
     creationDate: datetime
 
 
-class ActivityScheduleFailedEventDetailsTypeDef(BaseValidatorModel):
+class ActivityScheduleFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class HistoryEventExecutionDataDetailsTypeDef(BaseValidatorModel):
+class HistoryEventExecutionDataDetails(BaseValidatorModel):
     truncated: Optional[bool] = None
 
 
-class ActivityStartedEventDetailsTypeDef(BaseValidatorModel):
+class ActivityStartedEventDetails(BaseValidatorModel):
     workerName: Optional[str] = None
 
 
-class ActivityTimedOutEventDetailsTypeDef(BaseValidatorModel):
+class ActivityTimedOutEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class AssignedVariablesDetailsTypeDef(BaseValidatorModel):
+class AssignedVariablesDetails(BaseValidatorModel):
     truncated: Optional[bool] = None
 
 
-class BillingDetailsTypeDef(BaseValidatorModel):
+class BillingDetails(BaseValidatorModel):
     billedMemoryUsedInMB: Optional[int] = None
     billedDurationInMilliseconds: Optional[int] = None
 
 
-class CloudWatchEventsExecutionDataDetailsTypeDef(BaseValidatorModel):
+class CloudWatchEventsExecutionDataDetails(BaseValidatorModel):
     included: Optional[bool] = None
 
 
-class CloudWatchLogsLogGroupTypeDef(BaseValidatorModel):
+class CloudWatchLogsLogGroup(BaseValidatorModel):
     logGroupArn: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -71,45 +71,45 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class RoutingConfigurationListItemTypeDef(BaseValidatorModel):
+class RoutingConfigurationListItem(BaseValidatorModel):
     stateMachineVersionArn: str
     weight: int
 
 
-class TracingConfigurationTypeDef(BaseValidatorModel):
+class TracingConfiguration(BaseValidatorModel):
     enabled: Optional[bool] = None
 
 
-class DeleteActivityInputTypeDef(BaseValidatorModel):
+class DeleteActivityInput(BaseValidatorModel):
     activityArn: str
 
 
-class DeleteStateMachineAliasInputTypeDef(BaseValidatorModel):
+class DeleteStateMachineAliasInput(BaseValidatorModel):
     stateMachineAliasArn: str
 
 
-class DeleteStateMachineInputTypeDef(BaseValidatorModel):
+class DeleteStateMachineInput(BaseValidatorModel):
     stateMachineArn: str
 
 
-class DeleteStateMachineVersionInputTypeDef(BaseValidatorModel):
+class DeleteStateMachineVersionInput(BaseValidatorModel):
     stateMachineVersionArn: str
 
 
-class DescribeActivityInputTypeDef(BaseValidatorModel):
+class DescribeActivityInput(BaseValidatorModel):
     activityArn: str
 
 
-class DescribeExecutionInputTypeDef(BaseValidatorModel):
+class DescribeExecutionInput(BaseValidatorModel):
     executionArn: str
     includedData: Optional[IncludedDataType] = None
 
 
-class DescribeMapRunInputTypeDef(BaseValidatorModel):
+class DescribeMapRunInput(BaseValidatorModel):
     mapRunArn: str
 
 
-class MapRunExecutionCountsTypeDef(BaseValidatorModel):
+class MapRunExecutionCounts(BaseValidatorModel):
     pending: int
     running: int
     succeeded: int
@@ -122,7 +122,7 @@ class MapRunExecutionCountsTypeDef(BaseValidatorModel):
     pendingRedrive: Optional[int] = None
 
 
-class MapRunItemCountsTypeDef(BaseValidatorModel):
+class MapRunItemCounts(BaseValidatorModel):
     pending: int
     running: int
     succeeded: int
@@ -135,38 +135,38 @@ class MapRunItemCountsTypeDef(BaseValidatorModel):
     pendingRedrive: Optional[int] = None
 
 
-class DescribeStateMachineAliasInputTypeDef(BaseValidatorModel):
+class DescribeStateMachineAliasInput(BaseValidatorModel):
     stateMachineAliasArn: str
 
 
-class DescribeStateMachineForExecutionInputTypeDef(BaseValidatorModel):
+class DescribeStateMachineForExecutionInput(BaseValidatorModel):
     executionArn: str
     includedData: Optional[IncludedDataType] = None
 
 
-class DescribeStateMachineInputTypeDef(BaseValidatorModel):
+class DescribeStateMachineInput(BaseValidatorModel):
     stateMachineArn: str
     includedData: Optional[IncludedDataType] = None
 
 
-class EvaluationFailedEventDetailsTypeDef(BaseValidatorModel):
+class EvaluationFailedEventDetails(BaseValidatorModel):
     state: str
     error: Optional[str] = None
     cause: Optional[str] = None
     location: Optional[str] = None
 
 
-class ExecutionAbortedEventDetailsTypeDef(BaseValidatorModel):
+class ExecutionAbortedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class ExecutionFailedEventDetailsTypeDef(BaseValidatorModel):
+class ExecutionFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class ExecutionListItemTypeDef(BaseValidatorModel):
+class ExecutionListItem(BaseValidatorModel):
     executionArn: str
     stateMachineArn: str
     name: str
@@ -181,27 +181,27 @@ class ExecutionListItemTypeDef(BaseValidatorModel):
     redriveDate: Optional[datetime] = None
 
 
-class ExecutionRedrivenEventDetailsTypeDef(BaseValidatorModel):
+class ExecutionRedrivenEventDetails(BaseValidatorModel):
     redriveCount: Optional[int] = None
 
 
-class ExecutionTimedOutEventDetailsTypeDef(BaseValidatorModel):
+class ExecutionTimedOutEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class GetActivityTaskInputTypeDef(BaseValidatorModel):
+class GetActivityTaskInput(BaseValidatorModel):
     activityArn: str
     workerName: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetExecutionHistoryInputTypeDef(BaseValidatorModel):
+class GetExecutionHistoryInput(BaseValidatorModel):
     executionArn: str
     maxResults: Optional[int] = None
     reverseOrder: Optional[bool] = None
@@ -209,83 +209,83 @@ class GetExecutionHistoryInputTypeDef(BaseValidatorModel):
     includeExecutionData: Optional[bool] = None
 
 
-class LambdaFunctionFailedEventDetailsTypeDef(BaseValidatorModel):
+class LambdaFunctionFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class LambdaFunctionScheduleFailedEventDetailsTypeDef(BaseValidatorModel):
+class LambdaFunctionScheduleFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class LambdaFunctionStartFailedEventDetailsTypeDef(BaseValidatorModel):
+class LambdaFunctionStartFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class LambdaFunctionTimedOutEventDetailsTypeDef(BaseValidatorModel):
+class LambdaFunctionTimedOutEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class MapIterationEventDetailsTypeDef(BaseValidatorModel):
+class MapIterationEventDetails(BaseValidatorModel):
     name: Optional[str] = None
     index: Optional[int] = None
 
 
-class MapRunFailedEventDetailsTypeDef(BaseValidatorModel):
+class MapRunFailedEventDetails(BaseValidatorModel):
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class MapRunRedrivenEventDetailsTypeDef(BaseValidatorModel):
+class MapRunRedrivenEventDetails(BaseValidatorModel):
     mapRunArn: Optional[str] = None
     redriveCount: Optional[int] = None
 
 
-class MapRunStartedEventDetailsTypeDef(BaseValidatorModel):
+class MapRunStartedEventDetails(BaseValidatorModel):
     mapRunArn: Optional[str] = None
 
 
-class MapStateStartedEventDetailsTypeDef(BaseValidatorModel):
+class MapStateStartedEventDetails(BaseValidatorModel):
     length: Optional[int] = None
 
 
-class TaskFailedEventDetailsTypeDef(BaseValidatorModel):
+class TaskFailedEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class TaskStartFailedEventDetailsTypeDef(BaseValidatorModel):
+class TaskStartFailedEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class TaskStartedEventDetailsTypeDef(BaseValidatorModel):
+class TaskStartedEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
 
 
-class TaskSubmitFailedEventDetailsTypeDef(BaseValidatorModel):
-    resourceType: str
-    resource: str
-    error: Optional[str] = None
-    cause: Optional[str] = None
-
-
-class TaskTimedOutEventDetailsTypeDef(BaseValidatorModel):
+class TaskSubmitFailedEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class InspectionDataRequestTypeDef(BaseValidatorModel):
+class TaskTimedOutEventDetails(BaseValidatorModel):
+    resourceType: str
+    resource: str
+    error: Optional[str] = None
+    cause: Optional[str] = None
+
+
+class InspectionDataRequest(BaseValidatorModel):
     protocol: Optional[str] = None
     method: Optional[str] = None
     url: Optional[str] = None
@@ -293,7 +293,7 @@ class InspectionDataRequestTypeDef(BaseValidatorModel):
     body: Optional[str] = None
 
 
-class InspectionDataResponseTypeDef(BaseValidatorModel):
+class InspectionDataResponse(BaseValidatorModel):
     protocol: Optional[str] = None
     statusCode: Optional[str] = None
     statusMessage: Optional[str] = None
@@ -301,16 +301,16 @@ class InspectionDataResponseTypeDef(BaseValidatorModel):
     body: Optional[str] = None
 
 
-class TaskCredentialsTypeDef(BaseValidatorModel):
+class TaskCredentials(BaseValidatorModel):
     roleArn: Optional[str] = None
 
 
-class ListActivitiesInputTypeDef(BaseValidatorModel):
+class ListActivitiesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListExecutionsInputTypeDef(BaseValidatorModel):
+class ListExecutionsInput(BaseValidatorModel):
     stateMachineArn: Optional[str] = None
     statusFilter: Optional[ExecutionStatusType] = None
     maxResults: Optional[int] = None
@@ -319,13 +319,13 @@ class ListExecutionsInputTypeDef(BaseValidatorModel):
     redriveFilter: Optional[ExecutionRedriveFilterType] = None
 
 
-class ListMapRunsInputTypeDef(BaseValidatorModel):
+class ListMapRunsInput(BaseValidatorModel):
     executionArn: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class MapRunListItemTypeDef(BaseValidatorModel):
+class MapRunListItem(BaseValidatorModel):
     executionArn: str
     mapRunArn: str
     stateMachineArn: str
@@ -333,239 +333,239 @@ class MapRunListItemTypeDef(BaseValidatorModel):
     stopDate: Optional[datetime] = None
 
 
-class ListStateMachineAliasesInputTypeDef(BaseValidatorModel):
+class ListStateMachineAliasesInput(BaseValidatorModel):
     stateMachineArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class StateMachineAliasListItemTypeDef(BaseValidatorModel):
+class StateMachineAliasListItem(BaseValidatorModel):
     stateMachineAliasArn: str
     creationDate: datetime
 
 
-class ListStateMachineVersionsInputTypeDef(BaseValidatorModel):
+class ListStateMachineVersionsInput(BaseValidatorModel):
     stateMachineArn: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class StateMachineVersionListItemTypeDef(BaseValidatorModel):
+class StateMachineVersionListItem(BaseValidatorModel):
     stateMachineVersionArn: str
     creationDate: datetime
 
 
-class ListStateMachinesInputTypeDef(BaseValidatorModel):
+class ListStateMachinesInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class PublishStateMachineVersionInputTypeDef(BaseValidatorModel):
+class PublishStateMachineVersionInput(BaseValidatorModel):
     stateMachineArn: str
     revisionId: Optional[str] = None
     description: Optional[str] = None
 
 
-class RedriveExecutionInputTypeDef(BaseValidatorModel):
+class RedriveExecutionInput(BaseValidatorModel):
     executionArn: str
     clientToken: Optional[str] = None
 
 
-class SendTaskFailureInputTypeDef(BaseValidatorModel):
+class SendTaskFailureInput(BaseValidatorModel):
     taskToken: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class SendTaskHeartbeatInputTypeDef(BaseValidatorModel):
+class SendTaskHeartbeatInput(BaseValidatorModel):
     taskToken: str
 
 
-class SendTaskSuccessInputTypeDef(BaseValidatorModel):
+class SendTaskSuccessInput(BaseValidatorModel):
     taskToken: str
     output: str
 
 
-class StopExecutionInputTypeDef(BaseValidatorModel):
+class StopExecutionInput(BaseValidatorModel):
     executionArn: str
     error: Optional[str] = None
     cause: Optional[str] = None
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateMapRunInputTypeDef(BaseValidatorModel):
+class UpdateMapRunInput(BaseValidatorModel):
     mapRunArn: str
     maxConcurrency: Optional[int] = None
     toleratedFailurePercentage: Optional[float] = None
     toleratedFailureCount: Optional[int] = None
 
 
-class ValidateStateMachineDefinitionDiagnosticTypeDef(BaseValidatorModel):
+class ValidateStateMachineDefinitionDiagnostic(BaseValidatorModel):
     severity: ValidateStateMachineDefinitionSeverityType
     code: str
     message: str
     location: Optional[str] = None
 
 
-class ActivitySucceededEventDetailsTypeDef(BaseValidatorModel):
+class ActivitySucceededEventDetails(BaseValidatorModel):
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
 
 
-class ExecutionSucceededEventDetailsTypeDef(BaseValidatorModel):
+class ExecutionSucceededEventDetails(BaseValidatorModel):
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
 
 
-class LambdaFunctionSucceededEventDetailsTypeDef(BaseValidatorModel):
+class LambdaFunctionSucceededEventDetails(BaseValidatorModel):
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
 
 
-class TaskSubmittedEventDetailsTypeDef(BaseValidatorModel):
+class TaskSubmittedEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
 
 
-class TaskSucceededEventDetailsTypeDef(BaseValidatorModel):
+class TaskSucceededEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
 
 
-class StateExitedEventDetailsTypeDef(BaseValidatorModel):
+class StateExitedEventDetails(BaseValidatorModel):
     name: str
     output: Optional[str] = None
-    outputDetails: Optional[HistoryEventExecutionDataDetailsTypeDef] = None
+    outputDetails: Optional[HistoryEventExecutionDataDetails] = None
     assignedVariables: Optional[Dict[str, str]] = None
-    assignedVariablesDetails: Optional[AssignedVariablesDetailsTypeDef] = None
+    assignedVariablesDetails: Optional[AssignedVariablesDetails] = None
 
 
-class LogDestinationTypeDef(BaseValidatorModel):
-    cloudWatchLogsLogGroup: Optional[CloudWatchLogsLogGroupTypeDef] = None
+class LogDestination(BaseValidatorModel):
+    cloudWatchLogsLogGroup: Optional[CloudWatchLogsLogGroup] = None
 
 
-class EncryptionConfigurationTypeDef(BaseValidatorModel):
+class EncryptionConfiguration(BaseValidatorModel):
     pass
 
 
-class CreateActivityInputTypeDef(BaseValidatorModel):
+class CreateActivityInput(BaseValidatorModel):
     name: str
-    tags: Optional[Sequence[TagTypeDef]] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
+    tags: Optional[Sequence[Tag]] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class CreateActivityOutputTypeDef(BaseValidatorModel):
+class CreateActivityOutput(BaseValidatorModel):
     activityArn: str
     creationDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStateMachineAliasOutputTypeDef(BaseValidatorModel):
+class CreateStateMachineAliasOutput(BaseValidatorModel):
     stateMachineAliasArn: str
     creationDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStateMachineOutputTypeDef(BaseValidatorModel):
+class CreateStateMachineOutput(BaseValidatorModel):
     stateMachineArn: str
     creationDate: datetime
     stateMachineVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeActivityOutputTypeDef(BaseValidatorModel):
+class DescribeActivityOutput(BaseValidatorModel):
     activityArn: str
     name: str
     creationDate: datetime
-    encryptionConfiguration: EncryptionConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    encryptionConfiguration: EncryptionConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class ListActivitiesOutputTypeDef(BaseValidatorModel):
-    activities: List[ActivityListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListActivitiesOutput(BaseValidatorModel):
+    activities: List[ActivityListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceOutput(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class PublishStateMachineVersionOutputTypeDef(BaseValidatorModel):
+class PublishStateMachineVersionOutput(BaseValidatorModel):
     creationDate: datetime
     stateMachineVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RedriveExecutionOutputTypeDef(BaseValidatorModel):
+class RedriveExecutionOutput(BaseValidatorModel):
     redriveDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartExecutionOutputTypeDef(BaseValidatorModel):
+class StartExecutionOutput(BaseValidatorModel):
     executionArn: str
     startDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopExecutionOutputTypeDef(BaseValidatorModel):
+class StopExecutionOutput(BaseValidatorModel):
     stopDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStateMachineAliasOutputTypeDef(BaseValidatorModel):
+class UpdateStateMachineAliasOutput(BaseValidatorModel):
     updateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStateMachineOutputTypeDef(BaseValidatorModel):
+class UpdateStateMachineOutput(BaseValidatorModel):
     updateDate: datetime
     revisionId: str
     stateMachineVersionArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStateMachineAliasInputTypeDef(BaseValidatorModel):
+class CreateStateMachineAliasInput(BaseValidatorModel):
     name: str
-    routingConfiguration: Sequence[RoutingConfigurationListItemTypeDef]
+    routingConfiguration: Sequence[RoutingConfigurationListItem]
     description: Optional[str] = None
 
 
-class DescribeStateMachineAliasOutputTypeDef(BaseValidatorModel):
+class DescribeStateMachineAliasOutput(BaseValidatorModel):
     stateMachineAliasArn: str
     name: str
     description: str
-    routingConfiguration: List[RoutingConfigurationListItemTypeDef]
+    routingConfiguration: List[RoutingConfigurationListItem]
     creationDate: datetime
     updateDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStateMachineAliasInputTypeDef(BaseValidatorModel):
+class UpdateStateMachineAliasInput(BaseValidatorModel):
     stateMachineAliasArn: str
     description: Optional[str] = None
-    routingConfiguration: Optional[Sequence[RoutingConfigurationListItemTypeDef]] = None
+    routingConfiguration: Optional[Sequence[RoutingConfigurationListItem]] = None
 
 
-class DescribeMapRunOutputTypeDef(BaseValidatorModel):
+class DescribeMapRunOutput(BaseValidatorModel):
     mapRunArn: str
     executionArn: str
     status: MapRunStatusType
@@ -574,156 +574,156 @@ class DescribeMapRunOutputTypeDef(BaseValidatorModel):
     maxConcurrency: int
     toleratedFailurePercentage: float
     toleratedFailureCount: int
-    itemCounts: MapRunItemCountsTypeDef
-    executionCounts: MapRunExecutionCountsTypeDef
+    itemCounts: MapRunItemCounts
+    executionCounts: MapRunExecutionCounts
     redriveCount: int
     redriveDate: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListExecutionsOutputTypeDef(BaseValidatorModel):
-    executions: List[ExecutionListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExecutionsOutput(BaseValidatorModel):
+    executions: List[ExecutionListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetExecutionHistoryInputPaginateTypeDef(BaseValidatorModel):
+class GetExecutionHistoryInputPaginate(BaseValidatorModel):
     executionArn: str
     reverseOrder: Optional[bool] = None
     includeExecutionData: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListActivitiesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListActivitiesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListExecutionsInputPaginateTypeDef(BaseValidatorModel):
+class ListExecutionsInputPaginate(BaseValidatorModel):
     stateMachineArn: Optional[str] = None
     statusFilter: Optional[ExecutionStatusType] = None
     mapRunArn: Optional[str] = None
     redriveFilter: Optional[ExecutionRedriveFilterType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMapRunsInputPaginateTypeDef(BaseValidatorModel):
+class ListMapRunsInputPaginate(BaseValidatorModel):
     executionArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStateMachinesInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListStateMachinesInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TaskScheduledEventDetailsTypeDef(BaseValidatorModel):
+class TaskScheduledEventDetails(BaseValidatorModel):
     resourceType: str
     resource: str
     region: str
     parameters: str
     timeoutInSeconds: Optional[int] = None
     heartbeatInSeconds: Optional[int] = None
-    taskCredentials: Optional[TaskCredentialsTypeDef] = None
+    taskCredentials: Optional[TaskCredentials] = None
 
 
-class ListMapRunsOutputTypeDef(BaseValidatorModel):
-    mapRuns: List[MapRunListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMapRunsOutput(BaseValidatorModel):
+    mapRuns: List[MapRunListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListStateMachineAliasesOutputTypeDef(BaseValidatorModel):
-    stateMachineAliases: List[StateMachineAliasListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStateMachineAliasesOutput(BaseValidatorModel):
+    stateMachineAliases: List[StateMachineAliasListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListStateMachineVersionsOutputTypeDef(BaseValidatorModel):
-    stateMachineVersions: List[StateMachineVersionListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStateMachineVersionsOutput(BaseValidatorModel):
+    stateMachineVersions: List[StateMachineVersionListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StateMachineListItemTypeDef(BaseValidatorModel):
+class StateMachineListItem(BaseValidatorModel):
     pass
 
 
-class ListStateMachinesOutputTypeDef(BaseValidatorModel):
-    stateMachines: List[StateMachineListItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListStateMachinesOutput(BaseValidatorModel):
+    stateMachines: List[StateMachineListItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ValidateStateMachineDefinitionOutputTypeDef(BaseValidatorModel):
+class ValidateStateMachineDefinitionOutput(BaseValidatorModel):
     result: ValidateStateMachineDefinitionResultCodeType
-    diagnostics: List[ValidateStateMachineDefinitionDiagnosticTypeDef]
+    diagnostics: List[ValidateStateMachineDefinitionDiagnostic]
     truncated: bool
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LoggingConfigurationOutputTypeDef(BaseValidatorModel):
+class LoggingConfigurationOutput(BaseValidatorModel):
     level: Optional[LogLevelType] = None
     includeExecutionData: Optional[bool] = None
-    destinations: Optional[List[LogDestinationTypeDef]] = None
+    destinations: Optional[List[LogDestination]] = None
 
 
-class LoggingConfigurationTypeDef(BaseValidatorModel):
+class LoggingConfiguration(BaseValidatorModel):
     level: Optional[LogLevelType] = None
     includeExecutionData: Optional[bool] = None
-    destinations: Optional[Sequence[LogDestinationTypeDef]] = None
+    destinations: Optional[Sequence[LogDestination]] = None
 
 
-class InspectionDataTypeDef(BaseValidatorModel):
+class InspectionData(BaseValidatorModel):
     pass
 
 
-class TestStateOutputTypeDef(BaseValidatorModel):
+class TestStateOutput(BaseValidatorModel):
     output: str
     error: str
     cause: str
-    inspectionData: InspectionDataTypeDef
+    inspectionData: InspectionData
     nextState: str
     status: TestExecutionStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStateMachineForExecutionOutputTypeDef(BaseValidatorModel):
+class DescribeStateMachineForExecutionOutput(BaseValidatorModel):
     stateMachineArn: str
     name: str
     definition: str
     roleArn: str
     updateDate: datetime
-    loggingConfiguration: LoggingConfigurationOutputTypeDef
-    tracingConfiguration: TracingConfigurationTypeDef
+    loggingConfiguration: LoggingConfigurationOutput
+    tracingConfiguration: TracingConfiguration
     mapRunArn: str
     label: str
     revisionId: str
-    encryptionConfiguration: EncryptionConfigurationTypeDef
+    encryptionConfiguration: EncryptionConfiguration
     variableReferences: Dict[str, List[str]]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class HistoryEventTypeDef(BaseValidatorModel):
+class HistoryEvent(BaseValidatorModel):
     pass
 
 
-class GetExecutionHistoryOutputTypeDef(BaseValidatorModel):
-    events: List[HistoryEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetExecutionHistoryOutput(BaseValidatorModel):
+    events: List[HistoryEvent]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LoggingConfigurationUnionTypeDef(BaseValidatorModel):
+class LoggingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateStateMachineInputTypeDef(BaseValidatorModel):
+class UpdateStateMachineInput(BaseValidatorModel):
     stateMachineArn: str
     definition: Optional[str] = None
     roleArn: Optional[str] = None
-    loggingConfiguration: Optional[LoggingConfigurationUnionTypeDef] = None
-    tracingConfiguration: Optional[TracingConfigurationTypeDef] = None
+    loggingConfiguration: Optional[LoggingConfigurationUnion] = None
+    tracingConfiguration: Optional[TracingConfiguration] = None
     publish: Optional[bool] = None
     versionDescription: Optional[str] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
 
 

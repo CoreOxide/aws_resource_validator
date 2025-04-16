@@ -12,11 +12,11 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.neptune_graph_constants import *
 
-class CancelExportTaskInputTypeDef(BaseValidatorModel):
+class CancelExportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -24,52 +24,52 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelImportTaskInputTypeDef(BaseValidatorModel):
+class CancelImportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
 
-class CancelQueryInputTypeDef(BaseValidatorModel):
+class CancelQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
 
 
-class VectorSearchConfigurationTypeDef(BaseValidatorModel):
+class VectorSearchConfiguration(BaseValidatorModel):
     dimension: int
 
 
-class CreateGraphSnapshotInputTypeDef(BaseValidatorModel):
+class CreateGraphSnapshotInput(BaseValidatorModel):
     graphIdentifier: str
     snapshotName: str
     tags: Optional[Mapping[str, str]] = None
 
 
-class CreatePrivateGraphEndpointInputTypeDef(BaseValidatorModel):
+class CreatePrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: Optional[str] = None
     subnetIds: Optional[Sequence[str]] = None
     vpcSecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class DeleteGraphInputTypeDef(BaseValidatorModel):
+class DeleteGraphInput(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
 
-class DeleteGraphSnapshotInputTypeDef(BaseValidatorModel):
+class DeleteGraphSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
 
 
-class DeletePrivateGraphEndpointInputTypeDef(BaseValidatorModel):
+class DeletePrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
 
 
-class EdgeStructureTypeDef(BaseValidatorModel):
+class EdgeStructure(BaseValidatorModel):
     count: Optional[int] = None
     edgeProperties: Optional[List[str]] = None
 
 
-class ExecuteQueryInputTypeDef(BaseValidatorModel):
+class ExecuteQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryString: str
     language: Literal["OPEN_CYPHER"]
@@ -79,13 +79,13 @@ class ExecuteQueryInputTypeDef(BaseValidatorModel):
     queryTimeoutMilliseconds: Optional[int] = None
 
 
-class ExportFilterPropertyAttributesTypeDef(BaseValidatorModel):
+class ExportFilterPropertyAttributes(BaseValidatorModel):
     outputType: Optional[str] = None
     sourcePropertyName: Optional[str] = None
     multiValueHandling: Optional[MultiValueHandlingTypeType] = None
 
 
-class ExportTaskDetailsTypeDef(BaseValidatorModel):
+class ExportTaskDetails(BaseValidatorModel):
     startTime: datetime
     timeElapsedSeconds: int
     progressPercentage: int
@@ -93,33 +93,33 @@ class ExportTaskDetailsTypeDef(BaseValidatorModel):
     numEdgesWritten: Optional[int] = None
 
 
-class GetExportTaskInputTypeDef(BaseValidatorModel):
+class GetExportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class GetGraphInputTypeDef(BaseValidatorModel):
+class GetGraphInput(BaseValidatorModel):
     graphIdentifier: str
 
 
-class GetGraphSnapshotInputTypeDef(BaseValidatorModel):
+class GetGraphSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
 
 
-class GetGraphSummaryInputTypeDef(BaseValidatorModel):
+class GetGraphSummaryInput(BaseValidatorModel):
     graphIdentifier: str
     mode: Optional[GraphSummaryModeType] = None
 
 
-class GetImportTaskInputTypeDef(BaseValidatorModel):
+class GetImportTaskInput(BaseValidatorModel):
     taskIdentifier: str
 
 
-class ImportTaskDetailsTypeDef(BaseValidatorModel):
+class ImportTaskDetails(BaseValidatorModel):
     status: str
     startTime: datetime
     timeElapsedSeconds: int
@@ -130,86 +130,86 @@ class ImportTaskDetailsTypeDef(BaseValidatorModel):
     errorDetails: Optional[str] = None
 
 
-class GetPrivateGraphEndpointInputTypeDef(BaseValidatorModel):
+class GetPrivateGraphEndpointInput(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
 
 
-class GetQueryInputTypeDef(BaseValidatorModel):
+class GetQueryInput(BaseValidatorModel):
     graphIdentifier: str
     queryId: str
 
 
-class NodeStructureTypeDef(BaseValidatorModel):
+class NodeStructure(BaseValidatorModel):
     count: Optional[int] = None
     nodeProperties: Optional[List[str]] = None
     distinctOutgoingEdgeLabels: Optional[List[str]] = None
 
 
-class NeptuneImportOptionsTypeDef(BaseValidatorModel):
+class NeptuneImportOptions(BaseValidatorModel):
     s3ExportPath: str
     s3ExportKmsKeyId: str
     preserveDefaultVertexLabels: Optional[bool] = None
     preserveEdgeIds: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListExportTasksInputTypeDef(BaseValidatorModel):
+class ListExportTasksInput(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListGraphSnapshotsInputTypeDef(BaseValidatorModel):
+class ListGraphSnapshotsInput(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListGraphsInputTypeDef(BaseValidatorModel):
+class ListGraphsInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListImportTasksInputTypeDef(BaseValidatorModel):
+class ListImportTasksInput(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPrivateGraphEndpointsInputTypeDef(BaseValidatorModel):
+class ListPrivateGraphEndpointsInput(BaseValidatorModel):
     graphIdentifier: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class PrivateGraphEndpointSummaryTypeDef(BaseValidatorModel):
+class PrivateGraphEndpointSummary(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: Optional[str] = None
 
 
-class ListQueriesInputTypeDef(BaseValidatorModel):
+class ListQueriesInput(BaseValidatorModel):
     graphIdentifier: str
     maxResults: int
     state: Optional[QueryStateInputType] = None
 
 
-class ListTagsForResourceInputTypeDef(BaseValidatorModel):
+class ListTagsForResourceInput(BaseValidatorModel):
     resourceArn: str
 
 
-class ResetGraphInputTypeDef(BaseValidatorModel):
+class ResetGraphInput(BaseValidatorModel):
     graphIdentifier: str
     skipSnapshot: bool
 
 
-class RestoreGraphFromSnapshotInputTypeDef(BaseValidatorModel):
+class RestoreGraphFromSnapshotInput(BaseValidatorModel):
     snapshotIdentifier: str
     graphName: str
     provisionedMemory: Optional[int] = None
@@ -219,143 +219,143 @@ class RestoreGraphFromSnapshotInputTypeDef(BaseValidatorModel):
     publicConnectivity: Optional[bool] = None
 
 
-class TagResourceInputTypeDef(BaseValidatorModel):
+class TagResourceInput(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceInputTypeDef(BaseValidatorModel):
+class UntagResourceInput(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateGraphInputTypeDef(BaseValidatorModel):
+class UpdateGraphInput(BaseValidatorModel):
     graphIdentifier: str
     publicConnectivity: Optional[bool] = None
     provisionedMemory: Optional[int] = None
     deletionProtection: Optional[bool] = None
 
 
-class CreatePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
+class CreatePrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeletePrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
+class DeletePrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ExecuteQueryOutputTypeDef(BaseValidatorModel):
+class ExecuteQueryOutput(BaseValidatorModel):
     payload: StreamingBody
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPrivateGraphEndpointOutputTypeDef(BaseValidatorModel):
+class GetPrivateGraphEndpointOutput(BaseValidatorModel):
     vpcId: str
     subnetIds: List[str]
     status: PrivateGraphEndpointStatusType
     vpcEndpointId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceOutputTypeDef(BaseValidatorModel):
+class ListTagsForResourceOutput(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateGraphInputTypeDef(BaseValidatorModel):
+class CreateGraphInput(BaseValidatorModel):
     graphName: str
     provisionedMemory: int
     tags: Optional[Mapping[str, str]] = None
     publicConnectivity: Optional[bool] = None
     kmsKeyIdentifier: Optional[str] = None
-    vectorSearchConfiguration: Optional[VectorSearchConfigurationTypeDef] = None
+    vectorSearchConfiguration: Optional[VectorSearchConfiguration] = None
     replicaCount: Optional[int] = None
     deletionProtection: Optional[bool] = None
 
 
-class ExportFilterElementOutputTypeDef(BaseValidatorModel):
-    properties: Optional[Dict[str, ExportFilterPropertyAttributesTypeDef]] = None
+class ExportFilterElementOutput(BaseValidatorModel):
+    properties: Optional[Dict[str, ExportFilterPropertyAttributes]] = None
 
 
-class ExportFilterElementTypeDef(BaseValidatorModel):
-    properties: Optional[Mapping[str, ExportFilterPropertyAttributesTypeDef]] = None
+class ExportFilterElement(BaseValidatorModel):
+    properties: Optional[Mapping[str, ExportFilterPropertyAttributes]] = None
 
 
-class ExportTaskSummaryTypeDef(BaseValidatorModel):
+class ExportTaskSummary(BaseValidatorModel):
     pass
 
 
-class ListExportTasksOutputTypeDef(BaseValidatorModel):
-    tasks: List[ExportTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListExportTasksOutput(BaseValidatorModel):
+    tasks: List[ExportTaskSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetExportTaskInputWaitExtraTypeDef(BaseValidatorModel):
+class GetExportTaskInputWaitExtra(BaseValidatorModel):
     taskIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetExportTaskInputWaitTypeDef(BaseValidatorModel):
+class GetExportTaskInputWait(BaseValidatorModel):
     taskIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetGraphInputWaitExtraTypeDef(BaseValidatorModel):
+class GetGraphInputWaitExtra(BaseValidatorModel):
     graphIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetGraphInputWaitTypeDef(BaseValidatorModel):
+class GetGraphInputWait(BaseValidatorModel):
     graphIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetGraphSnapshotInputWaitExtraTypeDef(BaseValidatorModel):
+class GetGraphSnapshotInputWaitExtra(BaseValidatorModel):
     snapshotIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetGraphSnapshotInputWaitTypeDef(BaseValidatorModel):
+class GetGraphSnapshotInputWait(BaseValidatorModel):
     snapshotIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetImportTaskInputWaitExtraTypeDef(BaseValidatorModel):
+class GetImportTaskInputWaitExtra(BaseValidatorModel):
     taskIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetImportTaskInputWaitTypeDef(BaseValidatorModel):
+class GetImportTaskInputWait(BaseValidatorModel):
     taskIdentifier: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetPrivateGraphEndpointInputWaitExtraTypeDef(BaseValidatorModel):
+class GetPrivateGraphEndpointInputWaitExtra(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GetPrivateGraphEndpointInputWaitTypeDef(BaseValidatorModel):
+class GetPrivateGraphEndpointInputWait(BaseValidatorModel):
     graphIdentifier: str
     vpcId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class GraphDataSummaryTypeDef(BaseValidatorModel):
+class GraphDataSummary(BaseValidatorModel):
     numNodes: Optional[int] = None
     numEdges: Optional[int] = None
     numNodeLabels: Optional[int] = None
@@ -368,96 +368,96 @@ class GraphDataSummaryTypeDef(BaseValidatorModel):
     edgeProperties: Optional[List[Dict[str, int]]] = None
     totalNodePropertyValues: Optional[int] = None
     totalEdgePropertyValues: Optional[int] = None
-    nodeStructures: Optional[List[NodeStructureTypeDef]] = None
-    edgeStructures: Optional[List[EdgeStructureTypeDef]] = None
+    nodeStructures: Optional[List[NodeStructure]] = None
+    edgeStructures: Optional[List[EdgeStructure]] = None
 
 
-class GraphSnapshotSummaryTypeDef(BaseValidatorModel):
+class GraphSnapshotSummary(BaseValidatorModel):
     pass
 
 
-class ListGraphSnapshotsOutputTypeDef(BaseValidatorModel):
-    graphSnapshots: List[GraphSnapshotSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGraphSnapshotsOutput(BaseValidatorModel):
+    graphSnapshots: List[GraphSnapshotSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GraphSummaryTypeDef(BaseValidatorModel):
+class GraphSummary(BaseValidatorModel):
     pass
 
 
-class ListGraphsOutputTypeDef(BaseValidatorModel):
-    graphs: List[GraphSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGraphsOutput(BaseValidatorModel):
+    graphs: List[GraphSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ImportOptionsTypeDef(BaseValidatorModel):
-    neptune: Optional[NeptuneImportOptionsTypeDef] = None
+class ImportOptions(BaseValidatorModel):
+    neptune: Optional[NeptuneImportOptions] = None
 
 
-class ImportTaskSummaryTypeDef(BaseValidatorModel):
+class ImportTaskSummary(BaseValidatorModel):
     pass
 
 
-class ListImportTasksOutputTypeDef(BaseValidatorModel):
-    tasks: List[ImportTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListImportTasksOutput(BaseValidatorModel):
+    tasks: List[ImportTaskSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListExportTasksInputPaginateTypeDef(BaseValidatorModel):
+class ListExportTasksInputPaginate(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGraphSnapshotsInputPaginateTypeDef(BaseValidatorModel):
+class ListGraphSnapshotsInputPaginate(BaseValidatorModel):
     graphIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGraphsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListGraphsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListImportTasksInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListImportTasksInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrivateGraphEndpointsInputPaginateTypeDef(BaseValidatorModel):
+class ListPrivateGraphEndpointsInputPaginate(BaseValidatorModel):
     graphIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPrivateGraphEndpointsOutputTypeDef(BaseValidatorModel):
-    privateGraphEndpoints: List[PrivateGraphEndpointSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPrivateGraphEndpointsOutput(BaseValidatorModel):
+    privateGraphEndpoints: List[PrivateGraphEndpointSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class QuerySummaryTypeDef(BaseValidatorModel):
+class QuerySummary(BaseValidatorModel):
     pass
 
 
-class ListQueriesOutputTypeDef(BaseValidatorModel):
-    queries: List[QuerySummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListQueriesOutput(BaseValidatorModel):
+    queries: List[QuerySummary]
+    ResponseMetadata: ResponseMetadata
 
 
-class ExportFilterOutputTypeDef(BaseValidatorModel):
-    vertexFilter: Optional[Dict[str, ExportFilterElementOutputTypeDef]] = None
-    edgeFilter: Optional[Dict[str, ExportFilterElementOutputTypeDef]] = None
+class ExportFilterOutput(BaseValidatorModel):
+    vertexFilter: Optional[Dict[str, ExportFilterElementOutput]] = None
+    edgeFilter: Optional[Dict[str, ExportFilterElementOutput]] = None
 
 
-class ExportFilterTypeDef(BaseValidatorModel):
-    vertexFilter: Optional[Mapping[str, ExportFilterElementTypeDef]] = None
-    edgeFilter: Optional[Mapping[str, ExportFilterElementTypeDef]] = None
+class ExportFilter(BaseValidatorModel):
+    vertexFilter: Optional[Mapping[str, ExportFilterElement]] = None
+    edgeFilter: Optional[Mapping[str, ExportFilterElement]] = None
 
 
-class GetGraphSummaryOutputTypeDef(BaseValidatorModel):
+class GetGraphSummaryOutput(BaseValidatorModel):
     version: str
     lastStatisticsComputationTime: datetime
-    graphSummary: GraphDataSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    graphSummary: GraphDataSummary
+    ResponseMetadata: ResponseMetadata
 
 

@@ -12,15 +12,15 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mediastore_data_constants import *
 
-class DeleteObjectRequestTypeDef(BaseValidatorModel):
+class DeleteObjectRequest(BaseValidatorModel):
     Path: str
 
 
-class DescribeObjectRequestTypeDef(BaseValidatorModel):
+class DescribeObjectRequest(BaseValidatorModel):
     Path: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,29 +28,29 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetObjectRequestTypeDef(BaseValidatorModel):
+class GetObjectRequest(BaseValidatorModel):
     Path: str
     Range: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListItemsRequestTypeDef(BaseValidatorModel):
+class ListItemsRequest(BaseValidatorModel):
     Path: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PutObjectRequestTypeDef(BaseValidatorModel):
-    Body: BlobTypeDef
+class PutObjectRequest(BaseValidatorModel):
+    Body: Blob
     Path: str
     ContentType: Optional[str] = None
     CacheControl: Optional[str] = None
@@ -58,16 +58,16 @@ class PutObjectRequestTypeDef(BaseValidatorModel):
     UploadAvailability: Optional[UploadAvailabilityType] = None
 
 
-class DescribeObjectResponseTypeDef(BaseValidatorModel):
+class DescribeObjectResponse(BaseValidatorModel):
     ETag: str
     ContentType: str
     ContentLength: int
     CacheControl: str
     LastModified: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetObjectResponseTypeDef(BaseValidatorModel):
+class GetObjectResponse(BaseValidatorModel):
     Body: StreamingBody
     CacheControl: str
     ContentRange: str
@@ -76,28 +76,28 @@ class GetObjectResponseTypeDef(BaseValidatorModel):
     ETag: str
     LastModified: datetime
     StatusCode: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutObjectResponseTypeDef(BaseValidatorModel):
+class PutObjectResponse(BaseValidatorModel):
     ContentSHA256: str
     ETag: str
     StorageClass: Literal["TEMPORAL"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ItemTypeDef(BaseValidatorModel):
+class Item(BaseValidatorModel):
     pass
 
 
-class ListItemsResponseTypeDef(BaseValidatorModel):
-    Items: List[ItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListItemsResponse(BaseValidatorModel):
+    Items: List[Item]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListItemsRequestPaginateTypeDef(BaseValidatorModel):
+class ListItemsRequestPaginate(BaseValidatorModel):
     Path: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 

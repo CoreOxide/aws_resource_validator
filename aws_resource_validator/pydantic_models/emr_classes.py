@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.emr_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,95 +20,95 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ApplicationOutputTypeDef(BaseValidatorModel):
+class ApplicationOutput(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
     Args: Optional[List[str]] = None
     AdditionalInfo: Optional[Dict[str, str]] = None
 
 
-class ApplicationTypeDef(BaseValidatorModel):
+class Application(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
     Args: Optional[Sequence[str]] = None
     AdditionalInfo: Optional[Mapping[str, str]] = None
 
 
-class ScalingConstraintsTypeDef(BaseValidatorModel):
+class ScalingConstraints(BaseValidatorModel):
     MinCapacity: int
     MaxCapacity: int
 
 
-class AutoScalingPolicyStateChangeReasonTypeDef(BaseValidatorModel):
+class AutoScalingPolicyStateChangeReason(BaseValidatorModel):
     Code: Optional[AutoScalingPolicyStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class AutoTerminationPolicyTypeDef(BaseValidatorModel):
+class AutoTerminationPolicy(BaseValidatorModel):
     IdleTimeout: Optional[int] = None
 
 
-class BlockPublicAccessConfigurationMetadataTypeDef(BaseValidatorModel):
+class BlockPublicAccessConfigurationMetadata(BaseValidatorModel):
     CreationDateTime: datetime
     CreatedByArn: str
 
 
-class PortRangeTypeDef(BaseValidatorModel):
+class PortRange(BaseValidatorModel):
     MinRange: int
     MaxRange: Optional[int] = None
 
 
-class ScriptBootstrapActionConfigOutputTypeDef(BaseValidatorModel):
+class ScriptBootstrapActionConfigOutput(BaseValidatorModel):
     Path: str
     Args: Optional[List[str]] = None
 
 
-class CancelStepsInfoTypeDef(BaseValidatorModel):
+class CancelStepsInfo(BaseValidatorModel):
     StepId: Optional[str] = None
     Status: Optional[CancelStepsRequestStatusType] = None
     Reason: Optional[str] = None
 
 
-class CancelStepsInputTypeDef(BaseValidatorModel):
+class CancelStepsInput(BaseValidatorModel):
     ClusterId: str
     StepIds: Sequence[str]
     StepCancellationOption: Optional[StepCancellationOptionType] = None
 
 
-class MetricDimensionTypeDef(BaseValidatorModel):
+class MetricDimension(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class ClusterStateChangeReasonTypeDef(BaseValidatorModel):
+class ClusterStateChangeReason(BaseValidatorModel):
     Code: Optional[ClusterStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class ClusterTimelineTypeDef(BaseValidatorModel):
+class ClusterTimeline(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
 
-class ErrorDetailTypeDef(BaseValidatorModel):
+class ErrorDetail(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorData: Optional[List[Dict[str, str]]] = None
     ErrorMessage: Optional[str] = None
 
 
-class ConfigurationOutputTypeDef(BaseValidatorModel):
+class ConfigurationOutput(BaseValidatorModel):
     Classification: Optional[str] = None
     Configurations: Optional[List[Dict[str, Any]]] = None
     Properties: Optional[Dict[str, str]] = None
 
 
-class Ec2InstanceAttributesTypeDef(BaseValidatorModel):
+class Ec2InstanceAttributes(BaseValidatorModel):
     Ec2KeyName: Optional[str] = None
     Ec2SubnetId: Optional[str] = None
     RequestedEc2SubnetIds: Optional[List[str]] = None
@@ -122,7 +122,7 @@ class Ec2InstanceAttributesTypeDef(BaseValidatorModel):
     AdditionalSlaveSecurityGroups: Optional[List[str]] = None
 
 
-class KerberosAttributesTypeDef(BaseValidatorModel):
+class KerberosAttributes(BaseValidatorModel):
     Realm: str
     KdcAdminPassword: str
     CrossRealmTrustPrincipalPassword: Optional[str] = None
@@ -130,35 +130,35 @@ class KerberosAttributesTypeDef(BaseValidatorModel):
     ADDomainJoinPassword: Optional[str] = None
 
 
-class PlacementGroupConfigTypeDef(BaseValidatorModel):
+class PlacementGroupConfig(BaseValidatorModel):
     InstanceRole: InstanceRoleTypeType
     PlacementStrategy: Optional[PlacementGroupStrategyType] = None
 
 
-class CommandTypeDef(BaseValidatorModel):
+class Command(BaseValidatorModel):
     Name: Optional[str] = None
     ScriptPath: Optional[str] = None
     Args: Optional[List[str]] = None
 
 
-class ConfigurationPaginatorTypeDef(BaseValidatorModel):
+class ConfigurationPaginator(BaseValidatorModel):
     Classification: Optional[str] = None
     Configurations: Optional[List[Dict[str, Any]]] = None
     Properties: Optional[Dict[str, str]] = None
 
 
-class ConfigurationTypeDef(BaseValidatorModel):
+class Configuration(BaseValidatorModel):
     Classification: Optional[str] = None
     Configurations: Optional[Sequence[Mapping[str, Any]]] = None
     Properties: Optional[Mapping[str, str]] = None
 
 
-class CreateSecurityConfigurationInputTypeDef(BaseValidatorModel):
+class CreateSecurityConfigurationInput(BaseValidatorModel):
     Name: str
     SecurityConfiguration: str
 
 
-class CreateStudioSessionMappingInputTypeDef(BaseValidatorModel):
+class CreateStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
     SessionPolicyArn: str
@@ -166,106 +166,106 @@ class CreateStudioSessionMappingInputTypeDef(BaseValidatorModel):
     IdentityName: Optional[str] = None
 
 
-class UsernamePasswordTypeDef(BaseValidatorModel):
+class UsernamePassword(BaseValidatorModel):
     Username: Optional[str] = None
     Password: Optional[str] = None
 
 
-class DeleteSecurityConfigurationInputTypeDef(BaseValidatorModel):
+class DeleteSecurityConfigurationInput(BaseValidatorModel):
     Name: str
 
 
-class DeleteStudioInputTypeDef(BaseValidatorModel):
+class DeleteStudioInput(BaseValidatorModel):
     StudioId: str
 
 
-class DeleteStudioSessionMappingInputTypeDef(BaseValidatorModel):
+class DeleteStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
     IdentityId: Optional[str] = None
     IdentityName: Optional[str] = None
 
 
-class DescribeClusterInputTypeDef(BaseValidatorModel):
+class DescribeClusterInput(BaseValidatorModel):
     ClusterId: str
 
 
-class WaiterConfigTypeDef(BaseValidatorModel):
+class WaiterConfig(BaseValidatorModel):
     Delay: Optional[int] = None
     MaxAttempts: Optional[int] = None
 
 
-class DescribeNotebookExecutionInputTypeDef(BaseValidatorModel):
+class DescribeNotebookExecutionInput(BaseValidatorModel):
     NotebookExecutionId: str
 
 
-class DescribeReleaseLabelInputTypeDef(BaseValidatorModel):
+class DescribeReleaseLabelInput(BaseValidatorModel):
     ReleaseLabel: Optional[str] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OSReleaseTypeDef(BaseValidatorModel):
+class OSRelease(BaseValidatorModel):
     Label: Optional[str] = None
 
 
-class SimplifiedApplicationTypeDef(BaseValidatorModel):
+class SimplifiedApplication(BaseValidatorModel):
     Name: Optional[str] = None
     Version: Optional[str] = None
 
 
-class DescribeSecurityConfigurationInputTypeDef(BaseValidatorModel):
+class DescribeSecurityConfigurationInput(BaseValidatorModel):
     Name: str
 
 
-class DescribeStepInputTypeDef(BaseValidatorModel):
+class DescribeStepInput(BaseValidatorModel):
     ClusterId: str
     StepId: str
 
 
-class DescribeStudioInputTypeDef(BaseValidatorModel):
+class DescribeStudioInput(BaseValidatorModel):
     StudioId: str
 
 
-class VolumeSpecificationTypeDef(BaseValidatorModel):
+class VolumeSpecification(BaseValidatorModel):
     VolumeType: str
     SizeInGB: int
     Iops: Optional[int] = None
     Throughput: Optional[int] = None
 
 
-class EbsVolumeTypeDef(BaseValidatorModel):
+class EbsVolume(BaseValidatorModel):
     Device: Optional[str] = None
     VolumeId: Optional[str] = None
 
 
-class FailureDetailsTypeDef(BaseValidatorModel):
+class FailureDetails(BaseValidatorModel):
     Reason: Optional[str] = None
     Message: Optional[str] = None
     LogFile: Optional[str] = None
 
 
-class GetAutoTerminationPolicyInputTypeDef(BaseValidatorModel):
+class GetAutoTerminationPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
-class GetClusterSessionCredentialsInputTypeDef(BaseValidatorModel):
+class GetClusterSessionCredentialsInput(BaseValidatorModel):
     ClusterId: str
     ExecutionRoleArn: Optional[str] = None
 
 
-class GetManagedScalingPolicyInputTypeDef(BaseValidatorModel):
+class GetManagedScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
-class GetStudioSessionMappingInputTypeDef(BaseValidatorModel):
+class GetStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
     IdentityId: Optional[str] = None
     IdentityName: Optional[str] = None
 
 
-class SessionMappingDetailTypeDef(BaseValidatorModel):
+class SessionMappingDetail(BaseValidatorModel):
     StudioId: Optional[str] = None
     IdentityId: Optional[str] = None
     IdentityName: Optional[str] = None
@@ -275,42 +275,42 @@ class SessionMappingDetailTypeDef(BaseValidatorModel):
     LastModifiedTime: Optional[datetime] = None
 
 
-class KeyValueTypeDef(BaseValidatorModel):
+class KeyValue(BaseValidatorModel):
     Key: Optional[str] = None
     Value: Optional[str] = None
 
 
-class HadoopStepConfigTypeDef(BaseValidatorModel):
+class HadoopStepConfig(BaseValidatorModel):
     Jar: Optional[str] = None
     Properties: Optional[Dict[str, str]] = None
     MainClass: Optional[str] = None
     Args: Optional[List[str]] = None
 
 
-class SpotProvisioningSpecificationTypeDef(BaseValidatorModel):
+class SpotProvisioningSpecification(BaseValidatorModel):
     TimeoutDurationMinutes: int
     TimeoutAction: SpotProvisioningTimeoutActionType
     BlockDurationMinutes: Optional[int] = None
     AllocationStrategy: Optional[SpotProvisioningAllocationStrategyType] = None
 
 
-class SpotResizingSpecificationTypeDef(BaseValidatorModel):
+class SpotResizingSpecification(BaseValidatorModel):
     TimeoutDurationMinutes: Optional[int] = None
     AllocationStrategy: Optional[SpotProvisioningAllocationStrategyType] = None
 
 
-class InstanceFleetStateChangeReasonTypeDef(BaseValidatorModel):
+class InstanceFleetStateChangeReason(BaseValidatorModel):
     Code: Optional[InstanceFleetStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class InstanceFleetTimelineTypeDef(BaseValidatorModel):
+class InstanceFleetTimeline(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
 
-class InstanceGroupDetailTypeDef(BaseValidatorModel):
+class InstanceGroupDetail(BaseValidatorModel):
     Market: MarketTypeType
     InstanceRole: InstanceRoleTypeType
     InstanceType: str
@@ -328,41 +328,41 @@ class InstanceGroupDetailTypeDef(BaseValidatorModel):
     CustomAmiId: Optional[str] = None
 
 
-class InstanceGroupStateChangeReasonTypeDef(BaseValidatorModel):
+class InstanceGroupStateChangeReason(BaseValidatorModel):
     Code: Optional[InstanceGroupStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class InstanceGroupTimelineTypeDef(BaseValidatorModel):
+class InstanceGroupTimeline(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
 
-class InstanceResizePolicyOutputTypeDef(BaseValidatorModel):
+class InstanceResizePolicyOutput(BaseValidatorModel):
     InstancesToTerminate: Optional[List[str]] = None
     InstancesToProtect: Optional[List[str]] = None
     InstanceTerminationTimeout: Optional[int] = None
 
 
-class InstanceResizePolicyTypeDef(BaseValidatorModel):
+class InstanceResizePolicy(BaseValidatorModel):
     InstancesToTerminate: Optional[Sequence[str]] = None
     InstancesToProtect: Optional[Sequence[str]] = None
     InstanceTerminationTimeout: Optional[int] = None
 
 
-class InstanceStateChangeReasonTypeDef(BaseValidatorModel):
+class InstanceStateChangeReason(BaseValidatorModel):
     Code: Optional[InstanceStateChangeReasonCodeType] = None
     Message: Optional[str] = None
 
 
-class InstanceTimelineTypeDef(BaseValidatorModel):
+class InstanceTimeline(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
     ReadyDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
 
-class JobFlowExecutionStatusDetailTypeDef(BaseValidatorModel):
+class JobFlowExecutionStatusDetail(BaseValidatorModel):
     State: JobFlowExecutionStateType
     CreationDateTime: datetime
     StartDateTime: Optional[datetime] = None
@@ -371,33 +371,33 @@ class JobFlowExecutionStatusDetailTypeDef(BaseValidatorModel):
     LastStateChangeReason: Optional[str] = None
 
 
-class PlacementTypeOutputTypeDef(BaseValidatorModel):
+class PlacementTypeOutput(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     AvailabilityZones: Optional[List[str]] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListBootstrapActionsInputTypeDef(BaseValidatorModel):
+class ListBootstrapActionsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
-class ListInstanceFleetsInputTypeDef(BaseValidatorModel):
+class ListInstanceFleetsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
-class ListInstanceGroupsInputTypeDef(BaseValidatorModel):
+class ListInstanceGroupsInput(BaseValidatorModel):
     ClusterId: str
     Marker: Optional[str] = None
 
 
-class ListInstancesInputTypeDef(BaseValidatorModel):
+class ListInstancesInput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: Optional[str] = None
     InstanceGroupTypes: Optional[Sequence[InstanceGroupTypeType]] = None
@@ -407,34 +407,34 @@ class ListInstancesInputTypeDef(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
-class ReleaseLabelFilterTypeDef(BaseValidatorModel):
+class ReleaseLabelFilter(BaseValidatorModel):
     Prefix: Optional[str] = None
     Application: Optional[str] = None
 
 
-class ListSecurityConfigurationsInputTypeDef(BaseValidatorModel):
+class ListSecurityConfigurationsInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
-class SecurityConfigurationSummaryTypeDef(BaseValidatorModel):
+class SecurityConfigurationSummary(BaseValidatorModel):
     Name: Optional[str] = None
     CreationDateTime: Optional[datetime] = None
 
 
-class ListStepsInputTypeDef(BaseValidatorModel):
+class ListStepsInput(BaseValidatorModel):
     ClusterId: str
     StepStates: Optional[Sequence[StepStateType]] = None
     StepIds: Optional[Sequence[str]] = None
     Marker: Optional[str] = None
 
 
-class ListStudioSessionMappingsInputTypeDef(BaseValidatorModel):
+class ListStudioSessionMappingsInput(BaseValidatorModel):
     StudioId: Optional[str] = None
     IdentityType: Optional[IdentityTypeType] = None
     Marker: Optional[str] = None
 
 
-class SessionMappingSummaryTypeDef(BaseValidatorModel):
+class SessionMappingSummary(BaseValidatorModel):
     StudioId: Optional[str] = None
     IdentityId: Optional[str] = None
     IdentityName: Optional[str] = None
@@ -443,11 +443,11 @@ class SessionMappingSummaryTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
-class ListStudiosInputTypeDef(BaseValidatorModel):
+class ListStudiosInput(BaseValidatorModel):
     Marker: Optional[str] = None
 
 
-class StudioSummaryTypeDef(BaseValidatorModel):
+class StudioSummary(BaseValidatorModel):
     StudioId: Optional[str] = None
     Name: Optional[str] = None
     VpcId: Optional[str] = None
@@ -457,102 +457,102 @@ class StudioSummaryTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
 
 
-class ListSupportedInstanceTypesInputTypeDef(BaseValidatorModel):
+class ListSupportedInstanceTypesInput(BaseValidatorModel):
     ReleaseLabel: str
     Marker: Optional[str] = None
 
 
-class ModifyClusterInputTypeDef(BaseValidatorModel):
+class ModifyClusterInput(BaseValidatorModel):
     ClusterId: str
     StepConcurrencyLevel: Optional[int] = None
 
 
-class NotebookS3LocationForOutputTypeDef(BaseValidatorModel):
+class NotebookS3LocationForOutput(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
 
-class OutputNotebookS3LocationForOutputTypeDef(BaseValidatorModel):
+class OutputNotebookS3LocationForOutput(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
 
-class NotebookS3LocationFromInputTypeDef(BaseValidatorModel):
+class NotebookS3LocationFromInput(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
 
-class OnDemandCapacityReservationOptionsTypeDef(BaseValidatorModel):
+class OnDemandCapacityReservationOptions(BaseValidatorModel):
     UsageStrategy: Optional[Literal["use-capacity-reservations-first"]] = None
     CapacityReservationPreference: Optional[OnDemandCapacityReservationPreferenceType] = None
     CapacityReservationResourceGroupArn: Optional[str] = None
 
 
-class OutputNotebookS3LocationFromInputTypeDef(BaseValidatorModel):
+class OutputNotebookS3LocationFromInput(BaseValidatorModel):
     Bucket: Optional[str] = None
     Key: Optional[str] = None
 
 
-class PlacementTypeTypeDef(BaseValidatorModel):
+class PlacementType(BaseValidatorModel):
     AvailabilityZone: Optional[str] = None
     AvailabilityZones: Optional[Sequence[str]] = None
 
 
-class RemoveAutoScalingPolicyInputTypeDef(BaseValidatorModel):
+class RemoveAutoScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: str
 
 
-class RemoveAutoTerminationPolicyInputTypeDef(BaseValidatorModel):
+class RemoveAutoTerminationPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
-class RemoveManagedScalingPolicyInputTypeDef(BaseValidatorModel):
+class RemoveManagedScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
 
 
-class RemoveTagsInputTypeDef(BaseValidatorModel):
+class RemoveTagsInput(BaseValidatorModel):
     ResourceId: str
     TagKeys: Sequence[str]
 
 
-class SupportedProductConfigTypeDef(BaseValidatorModel):
+class SupportedProductConfig(BaseValidatorModel):
     Name: Optional[str] = None
     Args: Optional[Sequence[str]] = None
 
 
-class SimpleScalingPolicyConfigurationTypeDef(BaseValidatorModel):
+class SimpleScalingPolicyConfiguration(BaseValidatorModel):
     ScalingAdjustment: int
     AdjustmentType: Optional[AdjustmentTypeType] = None
     CoolDown: Optional[int] = None
 
 
-class ScriptBootstrapActionConfigTypeDef(BaseValidatorModel):
+class ScriptBootstrapActionConfig(BaseValidatorModel):
     Path: str
     Args: Optional[Sequence[str]] = None
 
 
-class SetKeepJobFlowAliveWhenNoStepsInputTypeDef(BaseValidatorModel):
+class SetKeepJobFlowAliveWhenNoStepsInput(BaseValidatorModel):
     JobFlowIds: Sequence[str]
     KeepJobFlowAliveWhenNoSteps: bool
 
 
-class SetTerminationProtectionInputTypeDef(BaseValidatorModel):
+class SetTerminationProtectionInput(BaseValidatorModel):
     JobFlowIds: Sequence[str]
     TerminationProtected: bool
 
 
-class SetUnhealthyNodeReplacementInputTypeDef(BaseValidatorModel):
+class SetUnhealthyNodeReplacementInput(BaseValidatorModel):
     JobFlowIds: Sequence[str]
     UnhealthyNodeReplacement: bool
 
 
-class SetVisibleToAllUsersInputTypeDef(BaseValidatorModel):
+class SetVisibleToAllUsersInput(BaseValidatorModel):
     JobFlowIds: Sequence[str]
     VisibleToAllUsers: bool
 
 
-class StepExecutionStatusDetailTypeDef(BaseValidatorModel):
+class StepExecutionStatusDetail(BaseValidatorModel):
     State: StepExecutionStateType
     CreationDateTime: datetime
     StartDateTime: Optional[datetime] = None
@@ -560,26 +560,26 @@ class StepExecutionStatusDetailTypeDef(BaseValidatorModel):
     LastStateChangeReason: Optional[str] = None
 
 
-class StepStateChangeReasonTypeDef(BaseValidatorModel):
+class StepStateChangeReason(BaseValidatorModel):
     Code: Optional[Literal["NONE"]] = None
     Message: Optional[str] = None
 
 
-class StepTimelineTypeDef(BaseValidatorModel):
+class StepTimeline(BaseValidatorModel):
     CreationDateTime: Optional[datetime] = None
     StartDateTime: Optional[datetime] = None
     EndDateTime: Optional[datetime] = None
 
 
-class StopNotebookExecutionInputTypeDef(BaseValidatorModel):
+class StopNotebookExecutionInput(BaseValidatorModel):
     NotebookExecutionId: str
 
 
-class TerminateJobFlowsInputTypeDef(BaseValidatorModel):
+class TerminateJobFlowsInput(BaseValidatorModel):
     JobFlowIds: Sequence[str]
 
 
-class UpdateStudioInputTypeDef(BaseValidatorModel):
+class UpdateStudioInput(BaseValidatorModel):
     StudioId: str
     Name: Optional[str] = None
     Description: Optional[str] = None
@@ -588,7 +588,7 @@ class UpdateStudioInputTypeDef(BaseValidatorModel):
     EncryptionKeyArn: Optional[str] = None
 
 
-class UpdateStudioSessionMappingInputTypeDef(BaseValidatorModel):
+class UpdateStudioSessionMappingInput(BaseValidatorModel):
     StudioId: str
     IdentityType: IdentityTypeType
     SessionPolicyArn: str
@@ -596,76 +596,76 @@ class UpdateStudioSessionMappingInputTypeDef(BaseValidatorModel):
     IdentityName: Optional[str] = None
 
 
-class AddInstanceFleetOutputTypeDef(BaseValidatorModel):
+class AddInstanceFleetOutput(BaseValidatorModel):
     ClusterId: str
     InstanceFleetId: str
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddInstanceGroupsOutputTypeDef(BaseValidatorModel):
+class AddInstanceGroupsOutput(BaseValidatorModel):
     JobFlowId: str
     InstanceGroupIds: List[str]
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddJobFlowStepsOutputTypeDef(BaseValidatorModel):
+class AddJobFlowStepsOutput(BaseValidatorModel):
     StepIds: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSecurityConfigurationOutputTypeDef(BaseValidatorModel):
+class CreateSecurityConfigurationOutput(BaseValidatorModel):
     Name: str
     CreationDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateStudioOutputTypeDef(BaseValidatorModel):
+class CreateStudioOutput(BaseValidatorModel):
     StudioId: str
     Url: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeSecurityConfigurationOutputTypeDef(BaseValidatorModel):
+class DescribeSecurityConfigurationOutput(BaseValidatorModel):
     Name: str
     SecurityConfiguration: str
     CreationDateTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListReleaseLabelsOutputTypeDef(BaseValidatorModel):
+class ListReleaseLabelsOutput(BaseValidatorModel):
     ReleaseLabels: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ModifyClusterOutputTypeDef(BaseValidatorModel):
+class ModifyClusterOutput(BaseValidatorModel):
     StepConcurrencyLevel: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RunJobFlowOutputTypeDef(BaseValidatorModel):
+class RunJobFlowOutput(BaseValidatorModel):
     JobFlowId: str
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartNotebookExecutionOutputTypeDef(BaseValidatorModel):
+class StartNotebookExecutionOutput(BaseValidatorModel):
     NotebookExecutionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddTagsInputTypeDef(BaseValidatorModel):
+class AddTagsInput(BaseValidatorModel):
     ResourceId: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateStudioInputTypeDef(BaseValidatorModel):
+class CreateStudioInput(BaseValidatorModel):
     Name: str
     AuthMode: AuthModeType
     VpcId: str
@@ -678,14 +678,14 @@ class CreateStudioInputTypeDef(BaseValidatorModel):
     UserRole: Optional[str] = None
     IdpAuthUrl: Optional[str] = None
     IdpRelayStateParameterName: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     TrustedIdentityPropagationEnabled: Optional[bool] = None
     IdcUserAssignment: Optional[IdcUserAssignmentType] = None
     IdcInstanceArn: Optional[str] = None
     EncryptionKeyArn: Optional[str] = None
 
 
-class StudioTypeDef(BaseValidatorModel):
+class Studio(BaseValidatorModel):
     StudioId: Optional[str] = None
     StudioArn: Optional[str] = None
     Name: Optional[str] = None
@@ -702,49 +702,49 @@ class StudioTypeDef(BaseValidatorModel):
     DefaultS3Location: Optional[str] = None
     IdpAuthUrl: Optional[str] = None
     IdpRelayStateParameterName: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
     IdcInstanceArn: Optional[str] = None
     TrustedIdentityPropagationEnabled: Optional[bool] = None
     IdcUserAssignment: Optional[IdcUserAssignmentType] = None
     EncryptionKeyArn: Optional[str] = None
 
 
-class AutoScalingPolicyStatusTypeDef(BaseValidatorModel):
+class AutoScalingPolicyStatus(BaseValidatorModel):
     State: Optional[AutoScalingPolicyStateType] = None
-    StateChangeReason: Optional[AutoScalingPolicyStateChangeReasonTypeDef] = None
+    StateChangeReason: Optional[AutoScalingPolicyStateChangeReason] = None
 
 
-class GetAutoTerminationPolicyOutputTypeDef(BaseValidatorModel):
-    AutoTerminationPolicy: AutoTerminationPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetAutoTerminationPolicyOutput(BaseValidatorModel):
+    AutoTerminationPolicy: AutoTerminationPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class PutAutoTerminationPolicyInputTypeDef(BaseValidatorModel):
+class PutAutoTerminationPolicyInput(BaseValidatorModel):
     ClusterId: str
-    AutoTerminationPolicy: Optional[AutoTerminationPolicyTypeDef] = None
+    AutoTerminationPolicy: Optional[AutoTerminationPolicy] = None
 
 
-class BlockPublicAccessConfigurationOutputTypeDef(BaseValidatorModel):
+class BlockPublicAccessConfigurationOutput(BaseValidatorModel):
     BlockPublicSecurityGroupRules: bool
-    PermittedPublicSecurityGroupRuleRanges: Optional[List[PortRangeTypeDef]] = None
+    PermittedPublicSecurityGroupRuleRanges: Optional[List[PortRange]] = None
 
 
-class BlockPublicAccessConfigurationTypeDef(BaseValidatorModel):
+class BlockPublicAccessConfiguration(BaseValidatorModel):
     BlockPublicSecurityGroupRules: bool
-    PermittedPublicSecurityGroupRuleRanges: Optional[Sequence[PortRangeTypeDef]] = None
+    PermittedPublicSecurityGroupRuleRanges: Optional[Sequence[PortRange]] = None
 
 
-class BootstrapActionConfigOutputTypeDef(BaseValidatorModel):
+class BootstrapActionConfigOutput(BaseValidatorModel):
     Name: str
-    ScriptBootstrapAction: ScriptBootstrapActionConfigOutputTypeDef
+    ScriptBootstrapAction: ScriptBootstrapActionConfigOutput
 
 
-class CancelStepsOutputTypeDef(BaseValidatorModel):
-    CancelStepsInfoList: List[CancelStepsInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class CancelStepsOutput(BaseValidatorModel):
+    CancelStepsInfoList: List[CancelStepsInfo]
+    ResponseMetadata: ResponseMetadata
 
 
-class CloudWatchAlarmDefinitionOutputTypeDef(BaseValidatorModel):
+class CloudWatchAlarmDefinitionOutput(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     MetricName: str
     Period: int
@@ -753,10 +753,10 @@ class CloudWatchAlarmDefinitionOutputTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     Statistic: Optional[StatisticType] = None
     Unit: Optional[UnitType] = None
-    Dimensions: Optional[List[MetricDimensionTypeDef]] = None
+    Dimensions: Optional[List[MetricDimension]] = None
 
 
-class CloudWatchAlarmDefinitionTypeDef(BaseValidatorModel):
+class CloudWatchAlarmDefinition(BaseValidatorModel):
     ComparisonOperator: ComparisonOperatorType
     MetricName: str
     Period: int
@@ -765,271 +765,271 @@ class CloudWatchAlarmDefinitionTypeDef(BaseValidatorModel):
     Namespace: Optional[str] = None
     Statistic: Optional[StatisticType] = None
     Unit: Optional[UnitType] = None
-    Dimensions: Optional[Sequence[MetricDimensionTypeDef]] = None
+    Dimensions: Optional[Sequence[MetricDimension]] = None
 
 
-class ClusterStatusTypeDef(BaseValidatorModel):
+class ClusterStatus(BaseValidatorModel):
     State: Optional[ClusterStateType] = None
-    StateChangeReason: Optional[ClusterStateChangeReasonTypeDef] = None
-    Timeline: Optional[ClusterTimelineTypeDef] = None
-    ErrorDetails: Optional[List[ErrorDetailTypeDef]] = None
+    StateChangeReason: Optional[ClusterStateChangeReason] = None
+    Timeline: Optional[ClusterTimeline] = None
+    ErrorDetails: Optional[List[ErrorDetail]] = None
 
 
-class ListBootstrapActionsOutputTypeDef(BaseValidatorModel):
-    BootstrapActions: List[CommandTypeDef]
+class ListBootstrapActionsOutput(BaseValidatorModel):
+    BootstrapActions: List[Command]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ComputeLimitsTypeDef(BaseValidatorModel):
+class ComputeLimits(BaseValidatorModel):
     pass
 
 
-class ManagedScalingPolicyTypeDef(BaseValidatorModel):
-    ComputeLimits: Optional[ComputeLimitsTypeDef] = None
+class ManagedScalingPolicy(BaseValidatorModel):
+    ComputeLimits: Optional[ComputeLimits] = None
     UtilizationPerformanceIndex: Optional[int] = None
     ScalingStrategy: Optional[ScalingStrategyType] = None
 
 
-class CredentialsTypeDef(BaseValidatorModel):
-    UsernamePassword: Optional[UsernamePasswordTypeDef] = None
+class Credentials(BaseValidatorModel):
+    UsernamePassword: Optional[UsernamePassword] = None
 
 
-class DescribeClusterInputWaitExtraTypeDef(BaseValidatorModel):
+class DescribeClusterInputWaitExtra(BaseValidatorModel):
     ClusterId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeClusterInputWaitTypeDef(BaseValidatorModel):
+class DescribeClusterInputWait(BaseValidatorModel):
     ClusterId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class DescribeStepInputWaitTypeDef(BaseValidatorModel):
+class DescribeStepInputWait(BaseValidatorModel):
     ClusterId: str
     StepId: str
-    WaiterConfig: Optional[WaiterConfigTypeDef] = None
+    WaiterConfig: Optional[WaiterConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DescribeJobFlowsInputTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class DescribeJobFlowsInput(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     JobFlowIds: Optional[Sequence[str]] = None
     JobFlowStates: Optional[Sequence[JobFlowExecutionStateType]] = None
 
 
-class ListClustersInputTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListClustersInput(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     ClusterStates: Optional[Sequence[ClusterStateType]] = None
     Marker: Optional[str] = None
 
 
-class ListNotebookExecutionsInputTypeDef(BaseValidatorModel):
+class ListNotebookExecutionsInput(BaseValidatorModel):
     EditorId: Optional[str] = None
     Status: Optional[NotebookExecutionStatusType] = None
-    From: Optional[TimestampTypeDef] = None
-    To: Optional[TimestampTypeDef] = None
+    From: Optional[Timestamp] = None
+    To: Optional[Timestamp] = None
     Marker: Optional[str] = None
     ExecutionEngineId: Optional[str] = None
 
 
-class DescribeReleaseLabelOutputTypeDef(BaseValidatorModel):
+class DescribeReleaseLabelOutput(BaseValidatorModel):
     ReleaseLabel: str
-    Applications: List[SimplifiedApplicationTypeDef]
-    AvailableOSReleases: List[OSReleaseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    Applications: List[SimplifiedApplication]
+    AvailableOSReleases: List[OSRelease]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class EbsBlockDeviceConfigTypeDef(BaseValidatorModel):
-    VolumeSpecification: VolumeSpecificationTypeDef
+class EbsBlockDeviceConfig(BaseValidatorModel):
+    VolumeSpecification: VolumeSpecification
     VolumesPerInstance: Optional[int] = None
 
 
-class EbsBlockDeviceTypeDef(BaseValidatorModel):
-    VolumeSpecification: Optional[VolumeSpecificationTypeDef] = None
+class EbsBlockDevice(BaseValidatorModel):
+    VolumeSpecification: Optional[VolumeSpecification] = None
     Device: Optional[str] = None
 
 
-class GetStudioSessionMappingOutputTypeDef(BaseValidatorModel):
-    SessionMapping: SessionMappingDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetStudioSessionMappingOutput(BaseValidatorModel):
+    SessionMapping: SessionMappingDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class HadoopJarStepConfigOutputTypeDef(BaseValidatorModel):
+class HadoopJarStepConfigOutput(BaseValidatorModel):
     Jar: str
-    Properties: Optional[List[KeyValueTypeDef]] = None
+    Properties: Optional[List[KeyValue]] = None
     MainClass: Optional[str] = None
     Args: Optional[List[str]] = None
 
 
-class HadoopJarStepConfigTypeDef(BaseValidatorModel):
+class HadoopJarStepConfig(BaseValidatorModel):
     Jar: str
-    Properties: Optional[Sequence[KeyValueTypeDef]] = None
+    Properties: Optional[Sequence[KeyValue]] = None
     MainClass: Optional[str] = None
     Args: Optional[Sequence[str]] = None
 
 
-class InstanceFleetStatusTypeDef(BaseValidatorModel):
+class InstanceFleetStatus(BaseValidatorModel):
     State: Optional[InstanceFleetStateType] = None
-    StateChangeReason: Optional[InstanceFleetStateChangeReasonTypeDef] = None
-    Timeline: Optional[InstanceFleetTimelineTypeDef] = None
+    StateChangeReason: Optional[InstanceFleetStateChangeReason] = None
+    Timeline: Optional[InstanceFleetTimeline] = None
 
 
-class InstanceGroupStatusTypeDef(BaseValidatorModel):
+class InstanceGroupStatus(BaseValidatorModel):
     State: Optional[InstanceGroupStateType] = None
-    StateChangeReason: Optional[InstanceGroupStateChangeReasonTypeDef] = None
-    Timeline: Optional[InstanceGroupTimelineTypeDef] = None
+    StateChangeReason: Optional[InstanceGroupStateChangeReason] = None
+    Timeline: Optional[InstanceGroupTimeline] = None
 
 
-class ShrinkPolicyOutputTypeDef(BaseValidatorModel):
+class ShrinkPolicyOutput(BaseValidatorModel):
     DecommissionTimeout: Optional[int] = None
-    InstanceResizePolicy: Optional[InstanceResizePolicyOutputTypeDef] = None
+    InstanceResizePolicy: Optional[InstanceResizePolicyOutput] = None
 
 
-class InstanceStatusTypeDef(BaseValidatorModel):
+class InstanceStatus(BaseValidatorModel):
     State: Optional[InstanceStateType] = None
-    StateChangeReason: Optional[InstanceStateChangeReasonTypeDef] = None
-    Timeline: Optional[InstanceTimelineTypeDef] = None
+    StateChangeReason: Optional[InstanceStateChangeReason] = None
+    Timeline: Optional[InstanceTimeline] = None
 
 
-class JobFlowInstancesDetailTypeDef(BaseValidatorModel):
+class JobFlowInstancesDetail(BaseValidatorModel):
     MasterInstanceType: str
     SlaveInstanceType: str
     InstanceCount: int
     MasterPublicDnsName: Optional[str] = None
     MasterInstanceId: Optional[str] = None
-    InstanceGroups: Optional[List[InstanceGroupDetailTypeDef]] = None
+    InstanceGroups: Optional[List[InstanceGroupDetail]] = None
     NormalizedInstanceHours: Optional[int] = None
     Ec2KeyName: Optional[str] = None
     Ec2SubnetId: Optional[str] = None
-    Placement: Optional[PlacementTypeOutputTypeDef] = None
+    Placement: Optional[PlacementTypeOutput] = None
     KeepJobFlowAliveWhenNoSteps: Optional[bool] = None
     TerminationProtected: Optional[bool] = None
     UnhealthyNodeReplacement: Optional[bool] = None
     HadoopVersion: Optional[str] = None
 
 
-class ListBootstrapActionsInputPaginateTypeDef(BaseValidatorModel):
+class ListBootstrapActionsInputPaginate(BaseValidatorModel):
     ClusterId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersInputPaginateTypeDef(BaseValidatorModel):
-    CreatedAfter: Optional[TimestampTypeDef] = None
-    CreatedBefore: Optional[TimestampTypeDef] = None
+class ListClustersInputPaginate(BaseValidatorModel):
+    CreatedAfter: Optional[Timestamp] = None
+    CreatedBefore: Optional[Timestamp] = None
     ClusterStates: Optional[Sequence[ClusterStateType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstanceFleetsInputPaginateTypeDef(BaseValidatorModel):
+class ListInstanceFleetsInputPaginate(BaseValidatorModel):
     ClusterId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstanceGroupsInputPaginateTypeDef(BaseValidatorModel):
+class ListInstanceGroupsInputPaginate(BaseValidatorModel):
     ClusterId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListInstancesInputPaginateTypeDef(BaseValidatorModel):
+class ListInstancesInputPaginate(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: Optional[str] = None
     InstanceGroupTypes: Optional[Sequence[InstanceGroupTypeType]] = None
     InstanceFleetId: Optional[str] = None
     InstanceFleetType: Optional[InstanceFleetTypeType] = None
     InstanceStates: Optional[Sequence[InstanceStateType]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNotebookExecutionsInputPaginateTypeDef(BaseValidatorModel):
+class ListNotebookExecutionsInputPaginate(BaseValidatorModel):
     EditorId: Optional[str] = None
     Status: Optional[NotebookExecutionStatusType] = None
-    From: Optional[TimestampTypeDef] = None
-    To: Optional[TimestampTypeDef] = None
+    From: Optional[Timestamp] = None
+    To: Optional[Timestamp] = None
     ExecutionEngineId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSecurityConfigurationsInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSecurityConfigurationsInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStepsInputPaginateTypeDef(BaseValidatorModel):
+class ListStepsInputPaginate(BaseValidatorModel):
     ClusterId: str
     StepStates: Optional[Sequence[StepStateType]] = None
     StepIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStudioSessionMappingsInputPaginateTypeDef(BaseValidatorModel):
+class ListStudioSessionMappingsInputPaginate(BaseValidatorModel):
     StudioId: Optional[str] = None
     IdentityType: Optional[IdentityTypeType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListStudiosInputPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListStudiosInputPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListReleaseLabelsInputTypeDef(BaseValidatorModel):
-    Filters: Optional[ReleaseLabelFilterTypeDef] = None
+class ListReleaseLabelsInput(BaseValidatorModel):
+    Filters: Optional[ReleaseLabelFilter] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListSecurityConfigurationsOutputTypeDef(BaseValidatorModel):
-    SecurityConfigurations: List[SecurityConfigurationSummaryTypeDef]
+class ListSecurityConfigurationsOutput(BaseValidatorModel):
+    SecurityConfigurations: List[SecurityConfigurationSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListStudioSessionMappingsOutputTypeDef(BaseValidatorModel):
-    SessionMappings: List[SessionMappingSummaryTypeDef]
+class ListStudioSessionMappingsOutput(BaseValidatorModel):
+    SessionMappings: List[SessionMappingSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListStudiosOutputTypeDef(BaseValidatorModel):
-    Studios: List[StudioSummaryTypeDef]
+class ListStudiosOutput(BaseValidatorModel):
+    Studios: List[StudioSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SupportedInstanceTypeTypeDef(BaseValidatorModel):
+class SupportedInstanceType(BaseValidatorModel):
     pass
 
 
-class ListSupportedInstanceTypesOutputTypeDef(BaseValidatorModel):
-    SupportedInstanceTypes: List[SupportedInstanceTypeTypeDef]
+class ListSupportedInstanceTypesOutput(BaseValidatorModel):
+    SupportedInstanceTypes: List[SupportedInstanceType]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class NotebookExecutionSummaryTypeDef(BaseValidatorModel):
+class NotebookExecutionSummary(BaseValidatorModel):
     NotebookExecutionId: Optional[str] = None
     EditorId: Optional[str] = None
     NotebookExecutionName: Optional[str] = None
     Status: Optional[NotebookExecutionStatusType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    NotebookS3Location: Optional[NotebookS3LocationForOutputTypeDef] = None
+    NotebookS3Location: Optional[NotebookS3LocationForOutput] = None
     ExecutionEngineId: Optional[str] = None
 
 
-class ExecutionEngineConfigTypeDef(BaseValidatorModel):
+class ExecutionEngineConfig(BaseValidatorModel):
     pass
 
 
-class NotebookExecutionTypeDef(BaseValidatorModel):
+class NotebookExecution(BaseValidatorModel):
     NotebookExecutionId: Optional[str] = None
     EditorId: Optional[str] = None
-    ExecutionEngine: Optional[ExecutionEngineConfigTypeDef] = None
+    ExecutionEngine: Optional[ExecutionEngineConfig] = None
     NotebookExecutionName: Optional[str] = None
     NotebookParams: Optional[str] = None
     Status: Optional[NotebookExecutionStatusType] = None
@@ -1039,84 +1039,84 @@ class NotebookExecutionTypeDef(BaseValidatorModel):
     OutputNotebookURI: Optional[str] = None
     LastStateChangeReason: Optional[str] = None
     NotebookInstanceSecurityGroupId: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
-    NotebookS3Location: Optional[NotebookS3LocationForOutputTypeDef] = None
-    OutputNotebookS3Location: Optional[OutputNotebookS3LocationForOutputTypeDef] = None
+    Tags: Optional[List[Tag]] = None
+    NotebookS3Location: Optional[NotebookS3LocationForOutput] = None
+    OutputNotebookS3Location: Optional[OutputNotebookS3LocationForOutput] = None
     OutputNotebookFormat: Optional[Literal["HTML"]] = None
     EnvironmentVariables: Optional[Dict[str, str]] = None
 
 
-class OnDemandProvisioningSpecificationTypeDef(BaseValidatorModel):
+class OnDemandProvisioningSpecification(BaseValidatorModel):
     AllocationStrategy: OnDemandProvisioningAllocationStrategyType
-    CapacityReservationOptions: Optional[OnDemandCapacityReservationOptionsTypeDef] = None
+    CapacityReservationOptions: Optional[OnDemandCapacityReservationOptions] = None
 
 
-class OnDemandResizingSpecificationTypeDef(BaseValidatorModel):
+class OnDemandResizingSpecification(BaseValidatorModel):
     TimeoutDurationMinutes: Optional[int] = None
     AllocationStrategy: Optional[OnDemandProvisioningAllocationStrategyType] = None
-    CapacityReservationOptions: Optional[OnDemandCapacityReservationOptionsTypeDef] = None
+    CapacityReservationOptions: Optional[OnDemandCapacityReservationOptions] = None
 
 
-class StartNotebookExecutionInputTypeDef(BaseValidatorModel):
-    ExecutionEngine: ExecutionEngineConfigTypeDef
+class StartNotebookExecutionInput(BaseValidatorModel):
+    ExecutionEngine: ExecutionEngineConfig
     ServiceRole: str
     EditorId: Optional[str] = None
     RelativePath: Optional[str] = None
     NotebookExecutionName: Optional[str] = None
     NotebookParams: Optional[str] = None
     NotebookInstanceSecurityGroupId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
-    NotebookS3Location: Optional[NotebookS3LocationFromInputTypeDef] = None
-    OutputNotebookS3Location: Optional[OutputNotebookS3LocationFromInputTypeDef] = None
+    Tags: Optional[Sequence[Tag]] = None
+    NotebookS3Location: Optional[NotebookS3LocationFromInput] = None
+    OutputNotebookS3Location: Optional[OutputNotebookS3LocationFromInput] = None
     OutputNotebookFormat: Optional[Literal["HTML"]] = None
     EnvironmentVariables: Optional[Mapping[str, str]] = None
 
 
-class ScalingActionTypeDef(BaseValidatorModel):
-    SimpleScalingPolicyConfiguration: SimpleScalingPolicyConfigurationTypeDef
+class ScalingAction(BaseValidatorModel):
+    SimpleScalingPolicyConfiguration: SimpleScalingPolicyConfiguration
     Market: Optional[MarketTypeType] = None
 
 
-class StepStatusTypeDef(BaseValidatorModel):
+class StepStatus(BaseValidatorModel):
     State: Optional[StepStateType] = None
-    StateChangeReason: Optional[StepStateChangeReasonTypeDef] = None
-    FailureDetails: Optional[FailureDetailsTypeDef] = None
-    Timeline: Optional[StepTimelineTypeDef] = None
+    StateChangeReason: Optional[StepStateChangeReason] = None
+    FailureDetails: Optional[FailureDetails] = None
+    Timeline: Optional[StepTimeline] = None
 
 
-class DescribeStudioOutputTypeDef(BaseValidatorModel):
-    Studio: StudioTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStudioOutput(BaseValidatorModel):
+    Studio: Studio
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBlockPublicAccessConfigurationOutputTypeDef(BaseValidatorModel):
-    BlockPublicAccessConfiguration: BlockPublicAccessConfigurationOutputTypeDef
-    BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetBlockPublicAccessConfigurationOutput(BaseValidatorModel):
+    BlockPublicAccessConfiguration: BlockPublicAccessConfigurationOutput
+    BlockPublicAccessConfigurationMetadata: BlockPublicAccessConfigurationMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class BootstrapActionDetailTypeDef(BaseValidatorModel):
-    BootstrapActionConfig: Optional[BootstrapActionConfigOutputTypeDef] = None
+class BootstrapActionDetail(BaseValidatorModel):
+    BootstrapActionConfig: Optional[BootstrapActionConfigOutput] = None
 
 
-class ScalingTriggerOutputTypeDef(BaseValidatorModel):
-    CloudWatchAlarmDefinition: CloudWatchAlarmDefinitionOutputTypeDef
+class ScalingTriggerOutput(BaseValidatorModel):
+    CloudWatchAlarmDefinition: CloudWatchAlarmDefinitionOutput
 
 
-class ClusterSummaryTypeDef(BaseValidatorModel):
+class ClusterSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Status: Optional[ClusterStatusTypeDef] = None
+    Status: Optional[ClusterStatus] = None
     NormalizedInstanceHours: Optional[int] = None
     ClusterArn: Optional[str] = None
     OutpostArn: Optional[str] = None
 
 
-class ClusterTypeDef(BaseValidatorModel):
+class Cluster(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Status: Optional[ClusterStatusTypeDef] = None
-    Ec2InstanceAttributes: Optional[Ec2InstanceAttributesTypeDef] = None
+    Status: Optional[ClusterStatus] = None
+    Ec2InstanceAttributes: Optional[Ec2InstanceAttributes] = None
     InstanceCollectionType: Optional[InstanceCollectionTypeType] = None
     LogUri: Optional[str] = None
     LogEncryptionKmsKeyId: Optional[str] = None
@@ -1127,297 +1127,297 @@ class ClusterTypeDef(BaseValidatorModel):
     TerminationProtected: Optional[bool] = None
     UnhealthyNodeReplacement: Optional[bool] = None
     VisibleToAllUsers: Optional[bool] = None
-    Applications: Optional[List[ApplicationOutputTypeDef]] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Applications: Optional[List[ApplicationOutput]] = None
+    Tags: Optional[List[Tag]] = None
     ServiceRole: Optional[str] = None
     NormalizedInstanceHours: Optional[int] = None
     MasterPublicDnsName: Optional[str] = None
-    Configurations: Optional[List[ConfigurationOutputTypeDef]] = None
+    Configurations: Optional[List[ConfigurationOutput]] = None
     SecurityConfiguration: Optional[str] = None
     AutoScalingRole: Optional[str] = None
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
     CustomAmiId: Optional[str] = None
     EbsRootVolumeSize: Optional[int] = None
     RepoUpgradeOnBoot: Optional[RepoUpgradeOnBootType] = None
-    KerberosAttributes: Optional[KerberosAttributesTypeDef] = None
+    KerberosAttributes: Optional[KerberosAttributes] = None
     ClusterArn: Optional[str] = None
     OutpostArn: Optional[str] = None
     StepConcurrencyLevel: Optional[int] = None
-    PlacementGroups: Optional[List[PlacementGroupConfigTypeDef]] = None
+    PlacementGroups: Optional[List[PlacementGroupConfig]] = None
     OSReleaseLabel: Optional[str] = None
     EbsRootVolumeIops: Optional[int] = None
     EbsRootVolumeThroughput: Optional[int] = None
 
 
-class GetManagedScalingPolicyOutputTypeDef(BaseValidatorModel):
-    ManagedScalingPolicy: ManagedScalingPolicyTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetManagedScalingPolicyOutput(BaseValidatorModel):
+    ManagedScalingPolicy: ManagedScalingPolicy
+    ResponseMetadata: ResponseMetadata
 
 
-class PutManagedScalingPolicyInputTypeDef(BaseValidatorModel):
+class PutManagedScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
-    ManagedScalingPolicy: ManagedScalingPolicyTypeDef
+    ManagedScalingPolicy: ManagedScalingPolicy
 
 
-class GetClusterSessionCredentialsOutputTypeDef(BaseValidatorModel):
-    Credentials: CredentialsTypeDef
+class GetClusterSessionCredentialsOutput(BaseValidatorModel):
+    Credentials: Credentials
     ExpiresAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EbsConfigurationTypeDef(BaseValidatorModel):
-    EbsBlockDeviceConfigs: Optional[Sequence[EbsBlockDeviceConfigTypeDef]] = None
+class EbsConfiguration(BaseValidatorModel):
+    EbsBlockDeviceConfigs: Optional[Sequence[EbsBlockDeviceConfig]] = None
     EbsOptimized: Optional[bool] = None
 
 
-class InstanceTypeSpecificationPaginatorTypeDef(BaseValidatorModel):
+class InstanceTypeSpecificationPaginator(BaseValidatorModel):
     InstanceType: Optional[str] = None
     WeightedCapacity: Optional[int] = None
     BidPrice: Optional[str] = None
     BidPriceAsPercentageOfOnDemandPrice: Optional[float] = None
-    Configurations: Optional[List[ConfigurationPaginatorTypeDef]] = None
-    EbsBlockDevices: Optional[List[EbsBlockDeviceTypeDef]] = None
+    Configurations: Optional[List[ConfigurationPaginator]] = None
+    EbsBlockDevices: Optional[List[EbsBlockDevice]] = None
     EbsOptimized: Optional[bool] = None
     CustomAmiId: Optional[str] = None
     Priority: Optional[float] = None
 
 
-class InstanceTypeSpecificationTypeDef(BaseValidatorModel):
+class InstanceTypeSpecification(BaseValidatorModel):
     InstanceType: Optional[str] = None
     WeightedCapacity: Optional[int] = None
     BidPrice: Optional[str] = None
     BidPriceAsPercentageOfOnDemandPrice: Optional[float] = None
-    Configurations: Optional[List[ConfigurationOutputTypeDef]] = None
-    EbsBlockDevices: Optional[List[EbsBlockDeviceTypeDef]] = None
+    Configurations: Optional[List[ConfigurationOutput]] = None
+    EbsBlockDevices: Optional[List[EbsBlockDevice]] = None
     EbsOptimized: Optional[bool] = None
     CustomAmiId: Optional[str] = None
     Priority: Optional[float] = None
 
 
-class StepConfigOutputTypeDef(BaseValidatorModel):
+class StepConfigOutput(BaseValidatorModel):
     Name: str
-    HadoopJarStep: HadoopJarStepConfigOutputTypeDef
+    HadoopJarStep: HadoopJarStepConfigOutput
     ActionOnFailure: Optional[ActionOnFailureType] = None
 
 
-class InstanceResizePolicyUnionTypeDef(BaseValidatorModel):
+class InstanceResizePolicyUnion(BaseValidatorModel):
     pass
 
 
-class ShrinkPolicyTypeDef(BaseValidatorModel):
+class ShrinkPolicy(BaseValidatorModel):
     DecommissionTimeout: Optional[int] = None
-    InstanceResizePolicy: Optional[InstanceResizePolicyUnionTypeDef] = None
+    InstanceResizePolicy: Optional[InstanceResizePolicyUnion] = None
 
 
-class InstanceTypeDef(BaseValidatorModel):
+class Instance(BaseValidatorModel):
     Id: Optional[str] = None
     Ec2InstanceId: Optional[str] = None
     PublicDnsName: Optional[str] = None
     PublicIpAddress: Optional[str] = None
     PrivateDnsName: Optional[str] = None
     PrivateIpAddress: Optional[str] = None
-    Status: Optional[InstanceStatusTypeDef] = None
+    Status: Optional[InstanceStatus] = None
     InstanceGroupId: Optional[str] = None
     InstanceFleetId: Optional[str] = None
     Market: Optional[MarketTypeType] = None
     InstanceType: Optional[str] = None
-    EbsVolumes: Optional[List[EbsVolumeTypeDef]] = None
+    EbsVolumes: Optional[List[EbsVolume]] = None
 
 
-class ListNotebookExecutionsOutputTypeDef(BaseValidatorModel):
-    NotebookExecutions: List[NotebookExecutionSummaryTypeDef]
+class ListNotebookExecutionsOutput(BaseValidatorModel):
+    NotebookExecutions: List[NotebookExecutionSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeNotebookExecutionOutputTypeDef(BaseValidatorModel):
-    NotebookExecution: NotebookExecutionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeNotebookExecutionOutput(BaseValidatorModel):
+    NotebookExecution: NotebookExecution
+    ResponseMetadata: ResponseMetadata
 
 
-class InstanceFleetProvisioningSpecificationsTypeDef(BaseValidatorModel):
-    SpotSpecification: Optional[SpotProvisioningSpecificationTypeDef] = None
-    OnDemandSpecification: Optional[OnDemandProvisioningSpecificationTypeDef] = None
+class InstanceFleetProvisioningSpecifications(BaseValidatorModel):
+    SpotSpecification: Optional[SpotProvisioningSpecification] = None
+    OnDemandSpecification: Optional[OnDemandProvisioningSpecification] = None
 
 
-class InstanceFleetResizingSpecificationsTypeDef(BaseValidatorModel):
-    SpotResizeSpecification: Optional[SpotResizingSpecificationTypeDef] = None
-    OnDemandResizeSpecification: Optional[OnDemandResizingSpecificationTypeDef] = None
+class InstanceFleetResizingSpecifications(BaseValidatorModel):
+    SpotResizeSpecification: Optional[SpotResizingSpecification] = None
+    OnDemandResizeSpecification: Optional[OnDemandResizingSpecification] = None
 
 
-class ScriptBootstrapActionConfigUnionTypeDef(BaseValidatorModel):
+class ScriptBootstrapActionConfigUnion(BaseValidatorModel):
     pass
 
 
-class BootstrapActionConfigTypeDef(BaseValidatorModel):
+class BootstrapActionConfig(BaseValidatorModel):
     Name: str
-    ScriptBootstrapAction: ScriptBootstrapActionConfigUnionTypeDef
+    ScriptBootstrapAction: ScriptBootstrapActionConfigUnion
 
 
-class StepSummaryTypeDef(BaseValidatorModel):
+class StepSummary(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Config: Optional[HadoopStepConfigTypeDef] = None
+    Config: Optional[HadoopStepConfig] = None
     ActionOnFailure: Optional[ActionOnFailureType] = None
-    Status: Optional[StepStatusTypeDef] = None
+    Status: Optional[StepStatus] = None
 
 
-class StepTypeDef(BaseValidatorModel):
+class Step(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Config: Optional[HadoopStepConfigTypeDef] = None
+    Config: Optional[HadoopStepConfig] = None
     ActionOnFailure: Optional[ActionOnFailureType] = None
-    Status: Optional[StepStatusTypeDef] = None
+    Status: Optional[StepStatus] = None
     ExecutionRoleArn: Optional[str] = None
 
 
-class BlockPublicAccessConfigurationUnionTypeDef(BaseValidatorModel):
+class BlockPublicAccessConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutBlockPublicAccessConfigurationInputTypeDef(BaseValidatorModel):
-    BlockPublicAccessConfiguration: BlockPublicAccessConfigurationUnionTypeDef
+class PutBlockPublicAccessConfigurationInput(BaseValidatorModel):
+    BlockPublicAccessConfiguration: BlockPublicAccessConfigurationUnion
 
 
-class ScalingRuleOutputTypeDef(BaseValidatorModel):
+class ScalingRuleOutput(BaseValidatorModel):
     Name: str
-    Action: ScalingActionTypeDef
-    Trigger: ScalingTriggerOutputTypeDef
+    Action: ScalingAction
+    Trigger: ScalingTriggerOutput
     Description: Optional[str] = None
 
 
-class CloudWatchAlarmDefinitionUnionTypeDef(BaseValidatorModel):
+class CloudWatchAlarmDefinitionUnion(BaseValidatorModel):
     pass
 
 
-class ScalingTriggerTypeDef(BaseValidatorModel):
-    CloudWatchAlarmDefinition: CloudWatchAlarmDefinitionUnionTypeDef
+class ScalingTrigger(BaseValidatorModel):
+    CloudWatchAlarmDefinition: CloudWatchAlarmDefinitionUnion
 
 
-class ListClustersOutputTypeDef(BaseValidatorModel):
-    Clusters: List[ClusterSummaryTypeDef]
+class ListClustersOutput(BaseValidatorModel):
+    Clusters: List[ClusterSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeClusterOutputTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterOutput(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class ConfigurationUnionTypeDef(BaseValidatorModel):
+class ConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class InstanceTypeConfigTypeDef(BaseValidatorModel):
+class InstanceTypeConfig(BaseValidatorModel):
     InstanceType: str
     WeightedCapacity: Optional[int] = None
     BidPrice: Optional[str] = None
     BidPriceAsPercentageOfOnDemandPrice: Optional[float] = None
-    EbsConfiguration: Optional[EbsConfigurationTypeDef] = None
-    Configurations: Optional[Sequence[ConfigurationUnionTypeDef]] = None
+    EbsConfiguration: Optional[EbsConfiguration] = None
+    Configurations: Optional[Sequence[ConfigurationUnion]] = None
     CustomAmiId: Optional[str] = None
     Priority: Optional[float] = None
 
 
-class StepDetailTypeDef(BaseValidatorModel):
-    StepConfig: StepConfigOutputTypeDef
-    ExecutionStatusDetail: StepExecutionStatusDetailTypeDef
+class StepDetail(BaseValidatorModel):
+    StepConfig: StepConfigOutput
+    ExecutionStatusDetail: StepExecutionStatusDetail
 
 
-class HadoopJarStepConfigUnionTypeDef(BaseValidatorModel):
+class HadoopJarStepConfigUnion(BaseValidatorModel):
     pass
 
 
-class StepConfigTypeDef(BaseValidatorModel):
+class StepConfig(BaseValidatorModel):
     Name: str
-    HadoopJarStep: HadoopJarStepConfigUnionTypeDef
+    HadoopJarStep: HadoopJarStepConfigUnion
     ActionOnFailure: Optional[ActionOnFailureType] = None
 
 
-class ListInstancesOutputTypeDef(BaseValidatorModel):
-    Instances: List[InstanceTypeDef]
+class ListInstancesOutput(BaseValidatorModel):
+    Instances: List[Instance]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InstanceFleetPaginatorTypeDef(BaseValidatorModel):
+class InstanceFleetPaginator(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Status: Optional[InstanceFleetStatusTypeDef] = None
+    Status: Optional[InstanceFleetStatus] = None
     InstanceFleetType: Optional[InstanceFleetTypeType] = None
     TargetOnDemandCapacity: Optional[int] = None
     TargetSpotCapacity: Optional[int] = None
     ProvisionedOnDemandCapacity: Optional[int] = None
     ProvisionedSpotCapacity: Optional[int] = None
-    InstanceTypeSpecifications: Optional[List[InstanceTypeSpecificationPaginatorTypeDef]] = None
-    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecificationsTypeDef] = None
-    ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
+    InstanceTypeSpecifications: Optional[List[InstanceTypeSpecificationPaginator]] = None
+    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecifications] = None
+    ResizeSpecifications: Optional[InstanceFleetResizingSpecifications] = None
     Context: Optional[str] = None
 
 
-class InstanceFleetTypeDef(BaseValidatorModel):
+class InstanceFleet(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
-    Status: Optional[InstanceFleetStatusTypeDef] = None
+    Status: Optional[InstanceFleetStatus] = None
     InstanceFleetType: Optional[InstanceFleetTypeType] = None
     TargetOnDemandCapacity: Optional[int] = None
     TargetSpotCapacity: Optional[int] = None
     ProvisionedOnDemandCapacity: Optional[int] = None
     ProvisionedSpotCapacity: Optional[int] = None
-    InstanceTypeSpecifications: Optional[List[InstanceTypeSpecificationTypeDef]] = None
-    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecificationsTypeDef] = None
-    ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
+    InstanceTypeSpecifications: Optional[List[InstanceTypeSpecification]] = None
+    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecifications] = None
+    ResizeSpecifications: Optional[InstanceFleetResizingSpecifications] = None
     Context: Optional[str] = None
 
 
-class ListStepsOutputTypeDef(BaseValidatorModel):
-    Steps: List[StepSummaryTypeDef]
+class ListStepsOutput(BaseValidatorModel):
+    Steps: List[StepSummary]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeStepOutputTypeDef(BaseValidatorModel):
-    Step: StepTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeStepOutput(BaseValidatorModel):
+    Step: Step
+    ResponseMetadata: ResponseMetadata
 
 
-class AutoScalingPolicyDescriptionTypeDef(BaseValidatorModel):
-    Status: Optional[AutoScalingPolicyStatusTypeDef] = None
-    Constraints: Optional[ScalingConstraintsTypeDef] = None
-    Rules: Optional[List[ScalingRuleOutputTypeDef]] = None
+class AutoScalingPolicyDescription(BaseValidatorModel):
+    Status: Optional[AutoScalingPolicyStatus] = None
+    Constraints: Optional[ScalingConstraints] = None
+    Rules: Optional[List[ScalingRuleOutput]] = None
 
 
-class InstanceFleetConfigTypeDef(BaseValidatorModel):
+class InstanceFleetConfig(BaseValidatorModel):
     InstanceFleetType: InstanceFleetTypeType
     Name: Optional[str] = None
     TargetOnDemandCapacity: Optional[int] = None
     TargetSpotCapacity: Optional[int] = None
-    InstanceTypeConfigs: Optional[Sequence[InstanceTypeConfigTypeDef]] = None
-    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecificationsTypeDef] = None
-    ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
+    InstanceTypeConfigs: Optional[Sequence[InstanceTypeConfig]] = None
+    LaunchSpecifications: Optional[InstanceFleetProvisioningSpecifications] = None
+    ResizeSpecifications: Optional[InstanceFleetResizingSpecifications] = None
     Context: Optional[str] = None
 
 
-class InstanceFleetModifyConfigTypeDef(BaseValidatorModel):
+class InstanceFleetModifyConfig(BaseValidatorModel):
     InstanceFleetId: str
     TargetOnDemandCapacity: Optional[int] = None
     TargetSpotCapacity: Optional[int] = None
-    ResizeSpecifications: Optional[InstanceFleetResizingSpecificationsTypeDef] = None
-    InstanceTypeConfigs: Optional[Sequence[InstanceTypeConfigTypeDef]] = None
+    ResizeSpecifications: Optional[InstanceFleetResizingSpecifications] = None
+    InstanceTypeConfigs: Optional[Sequence[InstanceTypeConfig]] = None
     Context: Optional[str] = None
 
 
-class JobFlowDetailTypeDef(BaseValidatorModel):
+class JobFlowDetail(BaseValidatorModel):
     JobFlowId: str
     Name: str
-    ExecutionStatusDetail: JobFlowExecutionStatusDetailTypeDef
-    Instances: JobFlowInstancesDetailTypeDef
+    ExecutionStatusDetail: JobFlowExecutionStatusDetail
+    Instances: JobFlowInstancesDetail
     LogUri: Optional[str] = None
     LogEncryptionKmsKeyId: Optional[str] = None
     AmiVersion: Optional[str] = None
-    Steps: Optional[List[StepDetailTypeDef]] = None
-    BootstrapActions: Optional[List[BootstrapActionDetailTypeDef]] = None
+    Steps: Optional[List[StepDetail]] = None
+    BootstrapActions: Optional[List[BootstrapActionDetail]] = None
     SupportedProducts: Optional[List[str]] = None
     VisibleToAllUsers: Optional[bool] = None
     JobFlowRole: Optional[str] = None
@@ -1426,32 +1426,32 @@ class JobFlowDetailTypeDef(BaseValidatorModel):
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
 
 
-class ShrinkPolicyUnionTypeDef(BaseValidatorModel):
+class ShrinkPolicyUnion(BaseValidatorModel):
     pass
 
 
-class InstanceGroupModifyConfigTypeDef(BaseValidatorModel):
+class InstanceGroupModifyConfig(BaseValidatorModel):
     InstanceGroupId: str
     InstanceCount: Optional[int] = None
     EC2InstanceIdsToTerminate: Optional[Sequence[str]] = None
-    ShrinkPolicy: Optional[ShrinkPolicyUnionTypeDef] = None
+    ShrinkPolicy: Optional[ShrinkPolicyUnion] = None
     ReconfigurationType: Optional[ReconfigurationTypeType] = None
-    Configurations: Optional[Sequence[ConfigurationUnionTypeDef]] = None
+    Configurations: Optional[Sequence[ConfigurationUnion]] = None
 
 
-class ListInstanceFleetsOutputPaginatorTypeDef(BaseValidatorModel):
-    InstanceFleets: List[InstanceFleetPaginatorTypeDef]
+class ListInstanceFleetsOutputPaginator(BaseValidatorModel):
+    InstanceFleets: List[InstanceFleetPaginator]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInstanceFleetsOutputTypeDef(BaseValidatorModel):
-    InstanceFleets: List[InstanceFleetTypeDef]
+class ListInstanceFleetsOutput(BaseValidatorModel):
+    InstanceFleets: List[InstanceFleet]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InstanceGroupPaginatorTypeDef(BaseValidatorModel):
+class InstanceGroupPaginator(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Market: Optional[MarketTypeType] = None
@@ -1460,19 +1460,19 @@ class InstanceGroupPaginatorTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
     RequestedInstanceCount: Optional[int] = None
     RunningInstanceCount: Optional[int] = None
-    Status: Optional[InstanceGroupStatusTypeDef] = None
-    Configurations: Optional[List[ConfigurationPaginatorTypeDef]] = None
+    Status: Optional[InstanceGroupStatus] = None
+    Configurations: Optional[List[ConfigurationPaginator]] = None
     ConfigurationsVersion: Optional[int] = None
-    LastSuccessfullyAppliedConfigurations: Optional[List[ConfigurationPaginatorTypeDef]] = None
+    LastSuccessfullyAppliedConfigurations: Optional[List[ConfigurationPaginator]] = None
     LastSuccessfullyAppliedConfigurationsVersion: Optional[int] = None
-    EbsBlockDevices: Optional[List[EbsBlockDeviceTypeDef]] = None
+    EbsBlockDevices: Optional[List[EbsBlockDevice]] = None
     EbsOptimized: Optional[bool] = None
-    ShrinkPolicy: Optional[ShrinkPolicyOutputTypeDef] = None
-    AutoScalingPolicy: Optional[AutoScalingPolicyDescriptionTypeDef] = None
+    ShrinkPolicy: Optional[ShrinkPolicyOutput] = None
+    AutoScalingPolicy: Optional[AutoScalingPolicyDescription] = None
     CustomAmiId: Optional[str] = None
 
 
-class InstanceGroupTypeDef(BaseValidatorModel):
+class InstanceGroup(BaseValidatorModel):
     Id: Optional[str] = None
     Name: Optional[str] = None
     Market: Optional[MarketTypeType] = None
@@ -1481,124 +1481,124 @@ class InstanceGroupTypeDef(BaseValidatorModel):
     InstanceType: Optional[str] = None
     RequestedInstanceCount: Optional[int] = None
     RunningInstanceCount: Optional[int] = None
-    Status: Optional[InstanceGroupStatusTypeDef] = None
-    Configurations: Optional[List[ConfigurationOutputTypeDef]] = None
+    Status: Optional[InstanceGroupStatus] = None
+    Configurations: Optional[List[ConfigurationOutput]] = None
     ConfigurationsVersion: Optional[int] = None
-    LastSuccessfullyAppliedConfigurations: Optional[List[ConfigurationOutputTypeDef]] = None
+    LastSuccessfullyAppliedConfigurations: Optional[List[ConfigurationOutput]] = None
     LastSuccessfullyAppliedConfigurationsVersion: Optional[int] = None
-    EbsBlockDevices: Optional[List[EbsBlockDeviceTypeDef]] = None
+    EbsBlockDevices: Optional[List[EbsBlockDevice]] = None
     EbsOptimized: Optional[bool] = None
-    ShrinkPolicy: Optional[ShrinkPolicyOutputTypeDef] = None
-    AutoScalingPolicy: Optional[AutoScalingPolicyDescriptionTypeDef] = None
+    ShrinkPolicy: Optional[ShrinkPolicyOutput] = None
+    AutoScalingPolicy: Optional[AutoScalingPolicyDescription] = None
     CustomAmiId: Optional[str] = None
 
 
-class PutAutoScalingPolicyOutputTypeDef(BaseValidatorModel):
+class PutAutoScalingPolicyOutput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: str
-    AutoScalingPolicy: AutoScalingPolicyDescriptionTypeDef
+    AutoScalingPolicy: AutoScalingPolicyDescription
     ClusterArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ScalingTriggerUnionTypeDef(BaseValidatorModel):
+class ScalingTriggerUnion(BaseValidatorModel):
     pass
 
 
-class ScalingRuleTypeDef(BaseValidatorModel):
+class ScalingRule(BaseValidatorModel):
     Name: str
-    Action: ScalingActionTypeDef
-    Trigger: ScalingTriggerUnionTypeDef
+    Action: ScalingAction
+    Trigger: ScalingTriggerUnion
     Description: Optional[str] = None
 
 
-class AddInstanceFleetInputTypeDef(BaseValidatorModel):
+class AddInstanceFleetInput(BaseValidatorModel):
     ClusterId: str
-    InstanceFleet: InstanceFleetConfigTypeDef
+    InstanceFleet: InstanceFleetConfig
 
 
-class ModifyInstanceFleetInputTypeDef(BaseValidatorModel):
+class ModifyInstanceFleetInput(BaseValidatorModel):
     ClusterId: str
-    InstanceFleet: InstanceFleetModifyConfigTypeDef
+    InstanceFleet: InstanceFleetModifyConfig
 
 
-class DescribeJobFlowsOutputTypeDef(BaseValidatorModel):
-    JobFlows: List[JobFlowDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeJobFlowsOutput(BaseValidatorModel):
+    JobFlows: List[JobFlowDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class StepConfigUnionTypeDef(BaseValidatorModel):
+class StepConfigUnion(BaseValidatorModel):
     pass
 
 
-class AddJobFlowStepsInputTypeDef(BaseValidatorModel):
+class AddJobFlowStepsInput(BaseValidatorModel):
     JobFlowId: str
-    Steps: Sequence[StepConfigUnionTypeDef]
+    Steps: Sequence[StepConfigUnion]
     ExecutionRoleArn: Optional[str] = None
 
 
-class ModifyInstanceGroupsInputTypeDef(BaseValidatorModel):
+class ModifyInstanceGroupsInput(BaseValidatorModel):
     ClusterId: Optional[str] = None
-    InstanceGroups: Optional[Sequence[InstanceGroupModifyConfigTypeDef]] = None
+    InstanceGroups: Optional[Sequence[InstanceGroupModifyConfig]] = None
 
 
-class ListInstanceGroupsOutputPaginatorTypeDef(BaseValidatorModel):
-    InstanceGroups: List[InstanceGroupPaginatorTypeDef]
+class ListInstanceGroupsOutputPaginator(BaseValidatorModel):
+    InstanceGroups: List[InstanceGroupPaginator]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListInstanceGroupsOutputTypeDef(BaseValidatorModel):
-    InstanceGroups: List[InstanceGroupTypeDef]
+class ListInstanceGroupsOutput(BaseValidatorModel):
+    InstanceGroups: List[InstanceGroup]
     Marker: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ScalingRuleUnionTypeDef(BaseValidatorModel):
+class ScalingRuleUnion(BaseValidatorModel):
     pass
 
 
-class AutoScalingPolicyTypeDef(BaseValidatorModel):
-    Constraints: ScalingConstraintsTypeDef
-    Rules: Sequence[ScalingRuleUnionTypeDef]
+class AutoScalingPolicy(BaseValidatorModel):
+    Constraints: ScalingConstraints
+    Rules: Sequence[ScalingRuleUnion]
 
 
-class InstanceGroupConfigTypeDef(BaseValidatorModel):
+class InstanceGroupConfig(BaseValidatorModel):
     InstanceRole: InstanceRoleTypeType
     InstanceType: str
     InstanceCount: int
     Name: Optional[str] = None
     Market: Optional[MarketTypeType] = None
     BidPrice: Optional[str] = None
-    Configurations: Optional[Sequence[ConfigurationUnionTypeDef]] = None
-    EbsConfiguration: Optional[EbsConfigurationTypeDef] = None
-    AutoScalingPolicy: Optional[AutoScalingPolicyTypeDef] = None
+    Configurations: Optional[Sequence[ConfigurationUnion]] = None
+    EbsConfiguration: Optional[EbsConfiguration] = None
+    AutoScalingPolicy: Optional[AutoScalingPolicy] = None
     CustomAmiId: Optional[str] = None
 
 
-class PutAutoScalingPolicyInputTypeDef(BaseValidatorModel):
+class PutAutoScalingPolicyInput(BaseValidatorModel):
     ClusterId: str
     InstanceGroupId: str
-    AutoScalingPolicy: AutoScalingPolicyTypeDef
+    AutoScalingPolicy: AutoScalingPolicy
 
 
-class AddInstanceGroupsInputTypeDef(BaseValidatorModel):
-    InstanceGroups: Sequence[InstanceGroupConfigTypeDef]
+class AddInstanceGroupsInput(BaseValidatorModel):
+    InstanceGroups: Sequence[InstanceGroupConfig]
     JobFlowId: str
 
 
-class PlacementTypeUnionTypeDef(BaseValidatorModel):
+class PlacementTypeUnion(BaseValidatorModel):
     pass
 
 
-class JobFlowInstancesConfigTypeDef(BaseValidatorModel):
+class JobFlowInstancesConfig(BaseValidatorModel):
     MasterInstanceType: Optional[str] = None
     SlaveInstanceType: Optional[str] = None
     InstanceCount: Optional[int] = None
-    InstanceGroups: Optional[Sequence[InstanceGroupConfigTypeDef]] = None
-    InstanceFleets: Optional[Sequence[InstanceFleetConfigTypeDef]] = None
+    InstanceGroups: Optional[Sequence[InstanceGroupConfig]] = None
+    InstanceFleets: Optional[Sequence[InstanceFleetConfig]] = None
     Ec2KeyName: Optional[str] = None
-    Placement: Optional[PlacementTypeUnionTypeDef] = None
+    Placement: Optional[PlacementTypeUnion] = None
     KeepJobFlowAliveWhenNoSteps: Optional[bool] = None
     TerminationProtected: Optional[bool] = None
     UnhealthyNodeReplacement: Optional[bool] = None
@@ -1612,43 +1612,43 @@ class JobFlowInstancesConfigTypeDef(BaseValidatorModel):
     AdditionalSlaveSecurityGroups: Optional[Sequence[str]] = None
 
 
-class ApplicationUnionTypeDef(BaseValidatorModel):
+class ApplicationUnion(BaseValidatorModel):
     pass
 
 
-class BootstrapActionConfigUnionTypeDef(BaseValidatorModel):
+class BootstrapActionConfigUnion(BaseValidatorModel):
     pass
 
 
-class RunJobFlowInputTypeDef(BaseValidatorModel):
+class RunJobFlowInput(BaseValidatorModel):
     Name: str
-    Instances: JobFlowInstancesConfigTypeDef
+    Instances: JobFlowInstancesConfig
     LogUri: Optional[str] = None
     LogEncryptionKmsKeyId: Optional[str] = None
     AdditionalInfo: Optional[str] = None
     AmiVersion: Optional[str] = None
     ReleaseLabel: Optional[str] = None
-    Steps: Optional[Sequence[StepConfigUnionTypeDef]] = None
-    BootstrapActions: Optional[Sequence[BootstrapActionConfigUnionTypeDef]] = None
+    Steps: Optional[Sequence[StepConfigUnion]] = None
+    BootstrapActions: Optional[Sequence[BootstrapActionConfigUnion]] = None
     SupportedProducts: Optional[Sequence[str]] = None
-    NewSupportedProducts: Optional[Sequence[SupportedProductConfigTypeDef]] = None
-    Applications: Optional[Sequence[ApplicationUnionTypeDef]] = None
-    Configurations: Optional[Sequence[ConfigurationUnionTypeDef]] = None
+    NewSupportedProducts: Optional[Sequence[SupportedProductConfig]] = None
+    Applications: Optional[Sequence[ApplicationUnion]] = None
+    Configurations: Optional[Sequence[ConfigurationUnion]] = None
     VisibleToAllUsers: Optional[bool] = None
     JobFlowRole: Optional[str] = None
     ServiceRole: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     SecurityConfiguration: Optional[str] = None
     AutoScalingRole: Optional[str] = None
     ScaleDownBehavior: Optional[ScaleDownBehaviorType] = None
     CustomAmiId: Optional[str] = None
     EbsRootVolumeSize: Optional[int] = None
     RepoUpgradeOnBoot: Optional[RepoUpgradeOnBootType] = None
-    KerberosAttributes: Optional[KerberosAttributesTypeDef] = None
+    KerberosAttributes: Optional[KerberosAttributes] = None
     StepConcurrencyLevel: Optional[int] = None
-    ManagedScalingPolicy: Optional[ManagedScalingPolicyTypeDef] = None
-    PlacementGroupConfigs: Optional[Sequence[PlacementGroupConfigTypeDef]] = None
-    AutoTerminationPolicy: Optional[AutoTerminationPolicyTypeDef] = None
+    ManagedScalingPolicy: Optional[ManagedScalingPolicy] = None
+    PlacementGroupConfigs: Optional[Sequence[PlacementGroupConfig]] = None
+    AutoTerminationPolicy: Optional[AutoTerminationPolicy] = None
     OSReleaseLabel: Optional[str] = None
     EbsRootVolumeIops: Optional[int] = None
     EbsRootVolumeThroughput: Optional[int] = None

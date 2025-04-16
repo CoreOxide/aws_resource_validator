@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.trustedadvisor_constants import *
 
-class AccountRecommendationLifecycleSummaryTypeDef(BaseValidatorModel):
+class AccountRecommendationLifecycleSummary(BaseValidatorModel):
     accountId: Optional[str] = None
     accountRecommendationArn: Optional[str] = None
     lastUpdatedAt: Optional[datetime] = None
@@ -23,12 +23,12 @@ class AccountRecommendationLifecycleSummaryTypeDef(BaseValidatorModel):
     updatedOnBehalfOfJobTitle: Optional[str] = None
 
 
-class RecommendationResourceExclusionTypeDef(BaseValidatorModel):
+class RecommendationResourceExclusion(BaseValidatorModel):
     arn: str
     isExcluded: bool
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -36,27 +36,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class UpdateRecommendationResourceExclusionErrorTypeDef(BaseValidatorModel):
+class UpdateRecommendationResourceExclusionError(BaseValidatorModel):
     arn: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class GetOrganizationRecommendationRequestTypeDef(BaseValidatorModel):
+class GetOrganizationRecommendationRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
 
 
-class GetRecommendationRequestTypeDef(BaseValidatorModel):
+class GetRecommendationRequest(BaseValidatorModel):
     recommendationIdentifier: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChecksRequestTypeDef(BaseValidatorModel):
+class ListChecksRequest(BaseValidatorModel):
     awsService: Optional[str] = None
     language: Optional[RecommendationLanguageType] = None
     maxResults: Optional[int] = None
@@ -65,14 +65,14 @@ class ListChecksRequestTypeDef(BaseValidatorModel):
     source: Optional[RecommendationSourceType] = None
 
 
-class ListOrganizationRecommendationAccountsRequestTypeDef(BaseValidatorModel):
+class ListOrganizationRecommendationAccountsRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListOrganizationRecommendationResourcesRequestTypeDef(BaseValidatorModel):
+class ListOrganizationRecommendationResourcesRequest(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
@@ -82,7 +82,7 @@ class ListOrganizationRecommendationResourcesRequestTypeDef(BaseValidatorModel):
     status: Optional[ResourceStatusType] = None
 
 
-class ListRecommendationResourcesRequestTypeDef(BaseValidatorModel):
+class ListRecommendationResourcesRequest(BaseValidatorModel):
     recommendationIdentifier: str
     exclusionStatus: Optional[ExclusionStatusType] = None
     maxResults: Optional[int] = None
@@ -91,150 +91,150 @@ class ListRecommendationResourcesRequestTypeDef(BaseValidatorModel):
     status: Optional[ResourceStatusType] = None
 
 
-class RecommendationResourcesAggregatesTypeDef(BaseValidatorModel):
+class RecommendationResourcesAggregates(BaseValidatorModel):
     errorCount: int
     okCount: int
     warningCount: int
 
 
-class RecommendationCostOptimizingAggregatesTypeDef(BaseValidatorModel):
+class RecommendationCostOptimizingAggregates(BaseValidatorModel):
     estimatedMonthlySavings: float
     estimatedPercentMonthlySavings: float
 
 
-class UpdateOrganizationRecommendationLifecycleRequestTypeDef(BaseValidatorModel):
+class UpdateOrganizationRecommendationLifecycleRequest(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     organizationRecommendationIdentifier: str
     updateReason: Optional[str] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
-class UpdateRecommendationLifecycleRequestTypeDef(BaseValidatorModel):
+class UpdateRecommendationLifecycleRequest(BaseValidatorModel):
     lifecycleStage: UpdateRecommendationLifecycleStageType
     recommendationIdentifier: str
     updateReason: Optional[str] = None
     updateReasonCode: Optional[UpdateRecommendationLifecycleStageReasonCodeType] = None
 
 
-class BatchUpdateRecommendationResourceExclusionRequestTypeDef(BaseValidatorModel):
-    recommendationResourceExclusions: Sequence[RecommendationResourceExclusionTypeDef]
+class BatchUpdateRecommendationResourceExclusionRequest(BaseValidatorModel):
+    recommendationResourceExclusions: Sequence[RecommendationResourceExclusion]
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class ListOrganizationRecommendationAccountsResponseTypeDef(BaseValidatorModel):
-    accountRecommendationLifecycleSummaries: List[AccountRecommendationLifecycleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationRecommendationAccountsResponse(BaseValidatorModel):
+    accountRecommendationLifecycleSummaries: List[AccountRecommendationLifecycleSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchUpdateRecommendationResourceExclusionResponseTypeDef(BaseValidatorModel):
-    batchUpdateRecommendationResourceExclusionErrors: List[ UpdateRecommendationResourceExclusionErrorTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchUpdateRecommendationResourceExclusionResponse(BaseValidatorModel):
+    batchUpdateRecommendationResourceExclusionErrors: List[ UpdateRecommendationResourceExclusionError ]
+    ResponseMetadata: ResponseMetadata
 
 
-class CheckSummaryTypeDef(BaseValidatorModel):
+class CheckSummary(BaseValidatorModel):
     pass
 
 
-class ListChecksResponseTypeDef(BaseValidatorModel):
-    checkSummaries: List[CheckSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChecksResponse(BaseValidatorModel):
+    checkSummaries: List[CheckSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListChecksRequestPaginateTypeDef(BaseValidatorModel):
+class ListChecksRequestPaginate(BaseValidatorModel):
     awsService: Optional[str] = None
     language: Optional[RecommendationLanguageType] = None
     pillar: Optional[RecommendationPillarType] = None
     source: Optional[RecommendationSourceType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationRecommendationAccountsRequestPaginateTypeDef(BaseValidatorModel):
+class ListOrganizationRecommendationAccountsRequestPaginate(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOrganizationRecommendationResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListOrganizationRecommendationResourcesRequestPaginate(BaseValidatorModel):
     organizationRecommendationIdentifier: str
     affectedAccountId: Optional[str] = None
     exclusionStatus: Optional[ExclusionStatusType] = None
     regionCode: Optional[str] = None
     status: Optional[ResourceStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRecommendationResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListRecommendationResourcesRequestPaginate(BaseValidatorModel):
     recommendationIdentifier: str
     exclusionStatus: Optional[ExclusionStatusType] = None
     regionCode: Optional[str] = None
     status: Optional[ResourceStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class OrganizationRecommendationResourceSummaryTypeDef(BaseValidatorModel):
+class OrganizationRecommendationResourceSummary(BaseValidatorModel):
     pass
 
 
-class ListOrganizationRecommendationResourcesResponseTypeDef(BaseValidatorModel):
-    organizationRecommendationResourceSummaries: List[ OrganizationRecommendationResourceSummaryTypeDef ]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationRecommendationResourcesResponse(BaseValidatorModel):
+    organizationRecommendationResourceSummaries: List[ OrganizationRecommendationResourceSummary ]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommendationResourceSummaryTypeDef(BaseValidatorModel):
+class RecommendationResourceSummary(BaseValidatorModel):
     pass
 
 
-class ListRecommendationResourcesResponseTypeDef(BaseValidatorModel):
-    recommendationResourceSummaries: List[RecommendationResourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendationResourcesResponse(BaseValidatorModel):
+    recommendationResourceSummaries: List[RecommendationResourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommendationPillarSpecificAggregatesTypeDef(BaseValidatorModel):
-    costOptimizing: Optional[RecommendationCostOptimizingAggregatesTypeDef] = None
+class RecommendationPillarSpecificAggregates(BaseValidatorModel):
+    costOptimizing: Optional[RecommendationCostOptimizingAggregates] = None
 
 
-class OrganizationRecommendationSummaryTypeDef(BaseValidatorModel):
+class OrganizationRecommendationSummary(BaseValidatorModel):
     pass
 
 
-class ListOrganizationRecommendationsResponseTypeDef(BaseValidatorModel):
-    organizationRecommendationSummaries: List[OrganizationRecommendationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOrganizationRecommendationsResponse(BaseValidatorModel):
+    organizationRecommendationSummaries: List[OrganizationRecommendationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class OrganizationRecommendationTypeDef(BaseValidatorModel):
+class OrganizationRecommendation(BaseValidatorModel):
     pass
 
 
-class GetOrganizationRecommendationResponseTypeDef(BaseValidatorModel):
-    organizationRecommendation: OrganizationRecommendationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetOrganizationRecommendationResponse(BaseValidatorModel):
+    organizationRecommendation: OrganizationRecommendation
+    ResponseMetadata: ResponseMetadata
 
 
-class RecommendationSummaryTypeDef(BaseValidatorModel):
+class RecommendationSummary(BaseValidatorModel):
     pass
 
 
-class ListRecommendationsResponseTypeDef(BaseValidatorModel):
-    recommendationSummaries: List[RecommendationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRecommendationsResponse(BaseValidatorModel):
+    recommendationSummaries: List[RecommendationSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RecommendationTypeDef(BaseValidatorModel):
+class Recommendation(BaseValidatorModel):
     pass
 
 
-class GetRecommendationResponseTypeDef(BaseValidatorModel):
-    recommendation: RecommendationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetRecommendationResponse(BaseValidatorModel):
+    recommendation: Recommendation
+    ResponseMetadata: ResponseMetadata
 
 

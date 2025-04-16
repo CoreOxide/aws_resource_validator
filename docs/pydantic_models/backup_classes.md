@@ -1,15 +1,6 @@
 # Backup Classes
 
-# AdvancedBackupSettingOutputTypeDef
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### BackupOptions
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# AdvancedBackupSettingTypeDef
+# AdvancedBackupSetting
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -18,40 +9,22 @@
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# AdvancedBackupSettingUnionTypeDef
+# AdvancedBackupSettingOutput
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### BackupOptions
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# AdvancedBackupSettingUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BackupJobSummaryTypeDef
-
-### Region
-- **Type**: typing.Optional[str]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'AGGREGATE_ALL', 'ANY', 'COMPLETED', 'CREATED', 'EXPIRED', 'FAILED', 'PARTIAL', 'PENDING', 'RUNNING']]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### MessageCategory
-- **Type**: typing.Optional[str]
-
-### Count
-- **Type**: typing.Optional[int]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# BackupJobTypeDef
+# BackupJob
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -93,7 +66,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreator]
 
 ### ExpectedCompletionDate
 - **Type**: typing.Optional[datetime.datetime]
@@ -129,21 +102,62 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BackupPlanInputTypeDef
+# BackupJobSummary
+
+### Region
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'AGGREGATE_ALL', 'ANY', 'COMPLETED', 'CREATED', 'EXPIRED', 'FAILED', 'PARTIAL', 'PENDING', 'RUNNING']]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### MessageCategory
+- **Type**: typing.Optional[str]
+
+### Count
+- **Type**: typing.Optional[int]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# BackupPlan
 
 ### BackupPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Rules
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.BackupRuleInputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupRule]
 - **Required**: Yes
 
 ### AdvancedBackupSettings
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingUnionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutput]]
 
 
-# BackupPlanTemplatesListMemberTypeDef
+# BackupPlanInput
+
+### BackupPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Rules
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.BackupRuleInput]
+- **Required**: Yes
+
+### AdvancedBackupSettings
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingUnion]]
+
+
+# BackupPlanTemplatesListMember
 
 ### BackupPlanTemplateId
 - **Type**: typing.Optional[str]
@@ -152,21 +166,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BackupPlanTypeDef
-
-### BackupPlanName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Rules
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupRuleTypeDef]
-- **Required**: Yes
-
-### AdvancedBackupSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutputTypeDef]]
-
-
-# BackupPlansListMemberTypeDef
+# BackupPlansListMember
 
 ### BackupPlanArn
 - **Type**: typing.Optional[str]
@@ -193,48 +193,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### AdvancedBackupSettings
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutput]]
 
 
-# BackupRuleInputTypeDef
-
-### RuleName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### TargetBackupVaultName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ScheduleExpression
-- **Type**: typing.Optional[str]
-
-### StartWindowMinutes
-- **Type**: typing.Optional[int]
-
-### CompletionWindowMinutes
-- **Type**: typing.Optional[int]
-
-### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
-
-### RecoveryPointTags
-- **Type**: typing.Optional[typing.Mapping[str, str]]
-
-### CopyActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.CopyActionTypeDef]]
-
-### EnableContinuousBackup
-- **Type**: typing.Optional[bool]
-
-### ScheduleExpressionTimezone
-- **Type**: typing.Optional[str]
-
-### IndexActions
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.IndexActionUnionTypeDef]]
-
-
-# BackupRuleTypeDef
+# BackupRule
 
 ### RuleName
 - **Type**: <class 'str'>
@@ -254,7 +216,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RecoveryPointTags
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -263,7 +225,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CopyActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyActionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyAction]]
 
 ### EnableContinuousBackup
 - **Type**: typing.Optional[bool]
@@ -272,33 +234,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### IndexActions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.IndexActionOutputTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.IndexActionOutput]]
 
 
-# BackupSelectionOutputTypeDef
+# BackupRuleInput
 
-### SelectionName
+### RuleName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### IamRoleArn
+### TargetBackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
-### Resources
-- **Type**: typing.Optional[typing.List[str]]
+### ScheduleExpression
+- **Type**: typing.Optional[str]
 
-### ListOfTags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionTypeDef]]
+### StartWindowMinutes
+- **Type**: typing.Optional[int]
 
-### NotResources
-- **Type**: typing.Optional[typing.List[str]]
+### CompletionWindowMinutes
+- **Type**: typing.Optional[int]
 
-### Conditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ConditionsOutputTypeDef]
+### Lifecycle
+- **Type**: <class 'NoneType'>
+
+### RecoveryPointTags
+- **Type**: typing.Optional[typing.Mapping[str, str]]
+
+### CopyActions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.CopyAction]]
+
+### EnableContinuousBackup
+- **Type**: typing.Optional[bool]
+
+### ScheduleExpressionTimezone
+- **Type**: typing.Optional[str]
+
+### IndexActions
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.IndexActionUnion]]
 
 
-# BackupSelectionTypeDef
+# BackupSelection
 
 ### SelectionName
 - **Type**: <class 'str'>
@@ -312,22 +289,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ListOfTags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.Condition]]
 
 ### NotResources
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### Conditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ConditionsTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# BackupSelectionUnionTypeDef
+# BackupSelectionOutput
+
+### SelectionName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### IamRoleArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Resources
+- **Type**: typing.Optional[typing.List[str]]
+
+### ListOfTags
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.Condition]]
+
+### NotResources
+- **Type**: typing.Optional[typing.List[str]]
+
+### Conditions
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ConditionsOutput]
+
+
+# BackupSelectionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BackupSelectionsListMemberTypeDef
+# BackupSelectionsListMember
 
 ### SelectionId
 - **Type**: typing.Optional[str]
@@ -348,7 +348,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BackupVaultListMemberTypeDef
+# BackupVaultListMember
 
 ### BackupVaultName
 - **Type**: typing.Optional[str]
@@ -393,7 +393,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CalculatedLifecycleTypeDef
+# CalculatedLifecycle
 
 ### MoveToColdStorageAt
 - **Type**: typing.Optional[datetime.datetime]
@@ -402,7 +402,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# CancelLegalHoldInputTypeDef
+# CancelLegalHoldInput
 
 ### LegalHoldId
 - **Type**: <class 'str'>
@@ -416,16 +416,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ConditionParameterTypeDef
-
-### ConditionKey
-- **Type**: typing.Optional[str]
-
-### ConditionValue
-- **Type**: typing.Optional[str]
-
-
-# ConditionTypeDef
+# Condition
 
 ### ConditionType
 - **Type**: typing.Literal['STRINGEQUALS']
@@ -440,37 +431,46 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ConditionsOutputTypeDef
+# ConditionParameter
+
+### ConditionKey
+- **Type**: typing.Optional[str]
+
+### ConditionValue
+- **Type**: typing.Optional[str]
+
+
+# Conditions
 
 ### StringEquals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringNotEquals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringLike
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringNotLike
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 
-# ConditionsTypeDef
+# ConditionsOutput
 
 ### StringEquals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringNotEquals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringLike
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 ### StringNotLike
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ConditionParameterTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ConditionParameter]]
 
 
-# ControlInputParameterTypeDef
+# ControlInputParameter
 
 ### ParameterName
 - **Type**: typing.Optional[str]
@@ -479,19 +479,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ControlScopeOutputTypeDef
-
-### ComplianceResourceIds
-- **Type**: typing.Optional[typing.List[str]]
-
-### ComplianceResourceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-### Tags
-- **Type**: typing.Optional[typing.Dict[str, str]]
-
-
-# ControlScopeTypeDef
+# ControlScope
 
 ### ComplianceResourceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -503,50 +491,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# ControlScopeUnionTypeDef
+# ControlScopeOutput
+
+### ComplianceResourceIds
+- **Type**: typing.Optional[typing.List[str]]
+
+### ComplianceResourceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+### Tags
+- **Type**: typing.Optional[typing.Dict[str, str]]
+
+
+# ControlScopeUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CopyActionTypeDef
+# CopyAction
 
 ### DestinationBackupVaultArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# CopyJobSummaryTypeDef
-
-### Region
-- **Type**: typing.Optional[str]
-
-### AccountId
-- **Type**: typing.Optional[str]
-
-### State
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'AGGREGATE_ALL', 'ANY', 'COMPLETED', 'COMPLETING', 'CREATED', 'FAILED', 'FAILING', 'PARTIAL', 'RUNNING']]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### MessageCategory
-- **Type**: typing.Optional[str]
-
-### Count
-- **Type**: typing.Optional[int]
-
-### StartTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### EndTime
-- **Type**: typing.Optional[datetime.datetime]
-
-
-# CopyJobTypeDef
+# CopyJob
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -588,7 +561,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreator]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -615,10 +588,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBackupPlanInputTypeDef
+# CopyJobSummary
+
+### Region
+- **Type**: typing.Optional[str]
+
+### AccountId
+- **Type**: typing.Optional[str]
+
+### State
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'AGGREGATE_ALL', 'ANY', 'COMPLETED', 'COMPLETING', 'CREATED', 'FAILED', 'FAILING', 'PARTIAL', 'RUNNING']]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### MessageCategory
+- **Type**: typing.Optional[str]
+
+### Count
+- **Type**: typing.Optional[int]
+
+### StartTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### EndTime
+- **Type**: typing.Optional[datetime.datetime]
+
+
+# CreateBackupPlanInput
 
 ### BackupPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanInput'>
 - **Required**: Yes
 
 ### BackupPlanTags
@@ -628,7 +628,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBackupPlanOutputTypeDef
+# CreateBackupPlanOutput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -647,29 +647,29 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedBackupSettings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBackupSelectionInputTypeDef
+# CreateBackupSelectionInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BackupSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupSelectionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupSelectionUnion'>
 - **Required**: Yes
 
 ### CreatorRequestId
 - **Type**: typing.Optional[str]
 
 
-# CreateBackupSelectionOutputTypeDef
+# CreateBackupSelectionOutput
 
 ### SelectionId
 - **Type**: <class 'str'>
@@ -684,11 +684,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateBackupVaultInputTypeDef
+# CreateBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -704,7 +704,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateBackupVaultOutputTypeDef
+# CreateBackupVaultOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -719,18 +719,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateFrameworkInputTypeDef
+# CreateFrameworkInput
 
 ### FrameworkName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### FrameworkControls
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlUnion]
 - **Required**: Yes
 
 ### FrameworkDescription
@@ -743,7 +743,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateFrameworkOutputTypeDef
+# CreateFrameworkOutput
 
 ### FrameworkName
 - **Type**: <class 'str'>
@@ -754,11 +754,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLegalHoldInputTypeDef
+# CreateLegalHoldInput
 
 ### Title
 - **Type**: <class 'str'>
@@ -772,13 +772,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### RecoveryPointSelection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionUnion]
 
 ### Tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLegalHoldOutputTypeDef
+# CreateLegalHoldOutput
 
 ### Title
 - **Type**: <class 'str'>
@@ -805,15 +805,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RecoveryPointSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateLogicallyAirGappedBackupVaultInputTypeDef
+# CreateLogicallyAirGappedBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -834,7 +834,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateLogicallyAirGappedBackupVaultOutputTypeDef
+# CreateLogicallyAirGappedBackupVaultOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -853,22 +853,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateReportPlanInputTypeDef
+# CreateReportPlanInput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ReportDeliveryChannel
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelUnion'>
 - **Required**: Yes
 
 ### ReportSetting
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportSettingUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportSettingUnion'>
 - **Required**: Yes
 
 ### ReportPlanDescription
@@ -881,7 +881,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateReportPlanOutputTypeDef
+# CreateReportPlanOutput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
@@ -896,14 +896,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRestoreTestingPlanInputTypeDef
+# CreateRestoreTestingPlanInput
 
 ### RestoreTestingPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForCreateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForCreate'>
 - **Required**: Yes
 
 ### CreatorRequestId
@@ -913,7 +913,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateRestoreTestingPlanOutputTypeDef
+# CreateRestoreTestingPlanOutput
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -928,25 +928,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# CreateRestoreTestingSelectionInputTypeDef
+# CreateRestoreTestingSelectionInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RestoreTestingSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForCreateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForCreate'>
 - **Required**: Yes
 
 ### CreatorRequestId
 - **Type**: typing.Optional[str]
 
 
-# CreateRestoreTestingSelectionOutputTypeDef
+# CreateRestoreTestingSelectionOutput
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -965,11 +965,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DateRangeOutputTypeDef
+# DateRange
+
+### FromDate
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.Timestamp'>
+- **Required**: Yes
+
+### ToDate
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.Timestamp'>
+- **Required**: Yes
+
+
+# DateRangeOutput
 
 ### FromDate
 - **Type**: <class 'datetime.datetime'>
@@ -980,25 +991,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DateRangeTypeDef
-
-### FromDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-### ToDate
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef'>
-- **Required**: Yes
-
-
-# DeleteBackupPlanInputTypeDef
+# DeleteBackupPlanInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBackupPlanOutputTypeDef
+# DeleteBackupPlanOutput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -1017,11 +1017,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteBackupSelectionInputTypeDef
+# DeleteBackupSelectionInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -1032,42 +1032,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteBackupVaultAccessPolicyInputTypeDef
+# DeleteBackupVaultAccessPolicyInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBackupVaultInputTypeDef
+# DeleteBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBackupVaultLockConfigurationInputTypeDef
+# DeleteBackupVaultLockConfigurationInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteBackupVaultNotificationsInputTypeDef
+# DeleteBackupVaultNotificationsInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteFrameworkInputTypeDef
+# DeleteFrameworkInput
 
 ### FrameworkName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRecoveryPointInputTypeDef
+# DeleteRecoveryPointInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1078,21 +1078,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DeleteReportPlanInputTypeDef
+# DeleteReportPlanInput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRestoreTestingPlanInputTypeDef
+# DeleteRestoreTestingPlanInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteRestoreTestingSelectionInputTypeDef
+# DeleteRestoreTestingSelectionInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
@@ -1103,14 +1103,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeBackupJobInputTypeDef
+# DescribeBackupJobInput
 
 ### BackupJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeBackupJobOutputTypeDef
+# DescribeBackupJobOutput
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1165,7 +1165,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreator'>
 - **Required**: Yes
 
 ### ResourceType
@@ -1221,11 +1221,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeBackupVaultInputTypeDef
+# DescribeBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1235,7 +1235,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeBackupVaultOutputTypeDef
+# DescribeBackupVaultOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1286,36 +1286,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCopyJobInputTypeDef
+# DescribeCopyJobInput
 
 ### CopyJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeCopyJobOutputTypeDef
+# DescribeCopyJobOutput
 
 ### CopyJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CopyJobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CopyJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeFrameworkInputTypeDef
+# DescribeFrameworkInput
 
 ### FrameworkName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeFrameworkOutputTypeDef
+# DescribeFrameworkOutput
 
 ### FrameworkName
 - **Type**: <class 'str'>
@@ -1330,7 +1330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### FrameworkControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlOutput]
 - **Required**: Yes
 
 ### CreationTime
@@ -1350,11 +1350,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeGlobalSettingsOutputTypeDef
+# DescribeGlobalSettingsOutput
 
 ### GlobalSettings
 - **Type**: typing.Dict[str, str]
@@ -1365,18 +1365,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeProtectedResourceInputTypeDef
+# DescribeProtectedResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeProtectedResourceOutputTypeDef
+# DescribeProtectedResourceOutput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -1415,11 +1415,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRecoveryPointInputTypeDef
+# DescribeRecoveryPointInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1433,7 +1433,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeRecoveryPointOutputTypeDef
+# DescribeRecoveryPointOutput
 
 ### RecoveryPointArn
 - **Type**: <class 'str'>
@@ -1460,7 +1460,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreator'>
 - **Required**: Yes
 
 ### IamRoleArn
@@ -1488,11 +1488,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CalculatedLifecycle
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CalculatedLifecycleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CalculatedLifecycle'>
 - **Required**: Yes
 
 ### Lifecycle
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.Lifecycle'>
 - **Required**: Yes
 
 ### EncryptionKeyArn
@@ -1540,11 +1540,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRegionSettingsOutputTypeDef
+# DescribeRegionSettingsOutput
 
 ### ResourceTypeOptInPreference
 - **Type**: typing.Dict[str, bool]
@@ -1555,54 +1555,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReportJobInputTypeDef
+# DescribeReportJobInput
 
 ### ReportJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeReportJobOutputTypeDef
+# DescribeReportJobOutput
 
 ### ReportJob
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportJobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportJob'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeReportPlanInputTypeDef
+# DescribeReportPlanInput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeReportPlanOutputTypeDef
+# DescribeReportPlanOutput
 
 ### ReportPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportPlanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ReportPlan'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeRestoreJobInputTypeDef
+# DescribeRestoreJobInput
 
 ### RestoreJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeRestoreJobOutputTypeDef
+# DescribeRestoreJobOutput
 
 ### AccountId
 - **Type**: <class 'str'>
@@ -1661,7 +1661,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### CreatedBy
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreJobCreatorTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreJobCreator'>
 - **Required**: Yes
 
 ### ValidationStatus
@@ -1681,11 +1681,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateRecoveryPointFromParentInputTypeDef
+# DisassociateRecoveryPointFromParentInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1696,7 +1696,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateRecoveryPointInputTypeDef
+# DisassociateRecoveryPointInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1707,64 +1707,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ExportBackupPlanTemplateInputTypeDef
+# ExportBackupPlanTemplateInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ExportBackupPlanTemplateOutputTypeDef
+# ExportBackupPlanTemplateOutput
 
 ### BackupPlanTemplateJson
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# FrameworkControlOutputTypeDef
-
-### ControlName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ControlInputParameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ControlInputParameterTypeDef]]
-
-### ControlScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ControlScopeOutputTypeDef]
-
-
-# FrameworkControlTypeDef
-
-### ControlName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ControlInputParameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ControlInputParameterTypeDef]]
-
-### ControlScope
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ControlScopeUnionTypeDef]
-
-
-# FrameworkControlUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# FrameworkTypeDef
+# Framework
 
 ### FrameworkName
 - **Type**: typing.Optional[str]
@@ -1785,43 +1753,75 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBackupPlanFromJSONInputTypeDef
+# FrameworkControl
+
+### ControlName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ControlInputParameters
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.ControlInputParameter]]
+
+### ControlScope
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ControlScopeUnion]
+
+
+# FrameworkControlOutput
+
+### ControlName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ControlInputParameters
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.ControlInputParameter]]
+
+### ControlScope
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ControlScopeOutput]
+
+
+# FrameworkControlUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# GetBackupPlanFromJSONInput
 
 ### BackupPlanTemplateJson
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBackupPlanFromJSONOutputTypeDef
+# GetBackupPlanFromJSONOutput
 
 ### BackupPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlan'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackupPlanFromTemplateInputTypeDef
+# GetBackupPlanFromTemplateInput
 
 ### BackupPlanTemplateId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBackupPlanFromTemplateOutputTypeDef
+# GetBackupPlanFromTemplateOutput
 
 ### BackupPlanDocument
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlan'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackupPlanInputTypeDef
+# GetBackupPlanInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -1831,10 +1831,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetBackupPlanOutputTypeDef
+# GetBackupPlanOutput
 
 ### BackupPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlan'>
 - **Required**: Yes
 
 ### BackupPlanId
@@ -1866,15 +1866,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedBackupSettings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackupSelectionInputTypeDef
+# GetBackupSelectionInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -1885,10 +1885,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetBackupSelectionOutputTypeDef
+# GetBackupSelectionOutput
 
 ### BackupSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupSelectionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupSelectionOutput'>
 - **Required**: Yes
 
 ### SelectionId
@@ -1908,18 +1908,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackupVaultAccessPolicyInputTypeDef
+# GetBackupVaultAccessPolicyInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBackupVaultAccessPolicyOutputTypeDef
+# GetBackupVaultAccessPolicyOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1934,18 +1934,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBackupVaultNotificationsInputTypeDef
+# GetBackupVaultNotificationsInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBackupVaultNotificationsOutputTypeDef
+# GetBackupVaultNotificationsOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -1964,18 +1964,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLegalHoldInputTypeDef
+# GetLegalHoldInput
 
 ### LegalHoldId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLegalHoldOutputTypeDef
+# GetLegalHoldOutput
 
 ### Title
 - **Type**: <class 'str'>
@@ -2014,15 +2014,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### RecoveryPointSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RecoveryPointSelectionOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecoveryPointIndexDetailsInputTypeDef
+# GetRecoveryPointIndexDetailsInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2033,7 +2033,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRecoveryPointIndexDetailsOutputTypeDef
+# GetRecoveryPointIndexDetailsOutput
 
 ### RecoveryPointArn
 - **Type**: <class 'str'>
@@ -2072,11 +2072,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecoveryPointRestoreMetadataInputTypeDef
+# GetRecoveryPointRestoreMetadataInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2090,7 +2090,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRecoveryPointRestoreMetadataOutputTypeDef
+# GetRecoveryPointRestoreMetadataOutput
 
 ### BackupVaultArn
 - **Type**: <class 'str'>
@@ -2109,18 +2109,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRestoreJobMetadataInputTypeDef
+# GetRestoreJobMetadataInput
 
 ### RestoreJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRestoreJobMetadataOutputTypeDef
+# GetRestoreJobMetadataOutput
 
 ### RestoreJobId
 - **Type**: <class 'str'>
@@ -2131,11 +2131,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRestoreTestingInferredMetadataInputTypeDef
+# GetRestoreTestingInferredMetadataInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2149,36 +2149,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetRestoreTestingInferredMetadataOutputTypeDef
+# GetRestoreTestingInferredMetadataOutput
 
 ### InferredMetadata
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRestoreTestingPlanInputTypeDef
+# GetRestoreTestingPlanInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRestoreTestingPlanOutputTypeDef
+# GetRestoreTestingPlanOutput
 
 ### RestoreTestingPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForGetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForGet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRestoreTestingSelectionInputTypeDef
+# GetRestoreTestingSelectionInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
@@ -2189,47 +2189,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# GetRestoreTestingSelectionOutputTypeDef
+# GetRestoreTestingSelectionOutput
 
 ### RestoreTestingSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForGetTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForGet'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetSupportedResourceTypesOutputTypeDef
+# GetSupportedResourceTypesOutput
 
 ### ResourceTypes
 - **Type**: typing.List[str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# IndexActionOutputTypeDef
-
-### ResourceTypes
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# IndexActionTypeDef
+# IndexAction
 
 ### ResourceTypes
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# IndexActionUnionTypeDef
+# IndexActionOutput
+
+### ResourceTypes
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# IndexActionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# IndexedRecoveryPointTypeDef
+# IndexedRecoveryPoint
 
 ### RecoveryPointArn
 - **Type**: typing.Optional[str]
@@ -2259,7 +2259,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# KeyValueTypeDef
+# KeyValue
 
 ### Key
 - **Type**: <class 'str'>
@@ -2270,7 +2270,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# LegalHoldTypeDef
+# LegalHold
 
 ### Title
 - **Type**: typing.Optional[str]
@@ -2294,7 +2294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# LifecycleTypeDef
+# Lifecycle
 
 ### MoveToColdStorageAfterDays
 - **Type**: typing.Optional[int]
@@ -2306,7 +2306,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListBackupJobSummariesInputTypeDef
+# ListBackupJobSummariesInput
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -2330,10 +2330,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBackupJobSummariesOutputTypeDef
+# ListBackupJobSummariesOutput
 
 ### BackupJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupJobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupJobSummary]
 - **Required**: Yes
 
 ### AggregationPeriod
@@ -2341,53 +2341,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupJobsInputPaginateTypeDef
-
-### ByResourceArn
-- **Type**: typing.Optional[str]
-
-### ByState
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'COMPLETED', 'CREATED', 'EXPIRED', 'FAILED', 'PARTIAL', 'PENDING', 'RUNNING']]
-
-### ByBackupVaultName
-- **Type**: typing.Optional[str]
-
-### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByResourceType
-- **Type**: typing.Optional[str]
-
-### ByAccountId
-- **Type**: typing.Optional[str]
-
-### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByParentJobId
-- **Type**: typing.Optional[str]
-
-### ByMessageCategory
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupJobsInputTypeDef
+# ListBackupJobsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2405,10 +2366,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByResourceType
 - **Type**: typing.Optional[str]
@@ -2417,10 +2378,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByParentJobId
 - **Type**: typing.Optional[str]
@@ -2429,27 +2390,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBackupJobsOutputTypeDef
+# ListBackupJobsInputPaginate
+
+### ByResourceArn
+- **Type**: typing.Optional[str]
+
+### ByState
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'ABORTING', 'COMPLETED', 'CREATED', 'EXPIRED', 'FAILED', 'PARTIAL', 'PENDING', 'RUNNING']]
+
+### ByBackupVaultName
+- **Type**: typing.Optional[str]
+
+### ByCreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByResourceType
+- **Type**: typing.Optional[str]
+
+### ByAccountId
+- **Type**: typing.Optional[str]
+
+### ByCompleteAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCompleteBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByParentJobId
+- **Type**: typing.Optional[str]
+
+### ByMessageCategory
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupJobsOutput
 
 ### BackupJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupPlanTemplatesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupPlanTemplatesInputTypeDef
+# ListBackupPlanTemplatesInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2458,31 +2452,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBackupPlanTemplatesOutputTypeDef
+# ListBackupPlanTemplatesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupPlanTemplatesOutput
 
 ### BackupPlanTemplatesList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlanTemplatesListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlanTemplatesListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupPlanVersionsInputPaginateTypeDef
-
-### BackupPlanId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupPlanVersionsInputTypeDef
+# ListBackupPlanVersionsInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -2495,30 +2485,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBackupPlanVersionsOutputTypeDef
+# ListBackupPlanVersionsInputPaginate
+
+### BackupPlanId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupPlanVersionsOutput
 
 ### BackupPlanVersionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlansListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlansListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupPlansInputPaginateTypeDef
-
-### IncludeDeleted
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupPlansInputTypeDef
+# ListBackupPlansInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2530,31 +2521,30 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListBackupPlansOutputTypeDef
+# ListBackupPlansInputPaginate
+
+### IncludeDeleted
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupPlansOutput
 
 ### BackupPlansList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlansListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupPlansListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupSelectionsInputPaginateTypeDef
-
-### BackupPlanId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupSelectionsInputTypeDef
+# ListBackupSelectionsInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -2567,33 +2557,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBackupSelectionsOutputTypeDef
+# ListBackupSelectionsInputPaginate
+
+### BackupPlanId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupSelectionsOutput
 
 ### BackupSelectionsList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupSelectionsListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupSelectionsListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListBackupVaultsInputPaginateTypeDef
-
-### ByVaultType
-- **Type**: typing.Optional[typing.Literal['BACKUP_VAULT', 'LOGICALLY_AIR_GAPPED_BACKUP_VAULT']]
-
-### ByShared
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListBackupVaultsInputTypeDef
+# ListBackupVaultsInput
 
 ### ByVaultType
 - **Type**: typing.Optional[typing.Literal['BACKUP_VAULT', 'LOGICALLY_AIR_GAPPED_BACKUP_VAULT']]
@@ -2608,21 +2596,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListBackupVaultsOutputTypeDef
+# ListBackupVaultsInputPaginate
+
+### ByVaultType
+- **Type**: typing.Optional[typing.Literal['BACKUP_VAULT', 'LOGICALLY_AIR_GAPPED_BACKUP_VAULT']]
+
+### ByShared
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListBackupVaultsOutput
 
 ### BackupVaultList
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupVaultListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.BackupVaultListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCopyJobSummariesInputTypeDef
+# ListCopyJobSummariesInput
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -2646,10 +2646,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCopyJobSummariesOutputTypeDef
+# ListCopyJobSummariesOutput
 
 ### CopyJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyJobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyJobSummary]
 - **Required**: Yes
 
 ### AggregationPeriod
@@ -2657,53 +2657,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListCopyJobsInputPaginateTypeDef
-
-### ByResourceArn
-- **Type**: typing.Optional[str]
-
-### ByState
-- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATED', 'FAILED', 'PARTIAL', 'RUNNING']]
-
-### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByResourceType
-- **Type**: typing.Optional[str]
-
-### ByDestinationVaultArn
-- **Type**: typing.Optional[str]
-
-### ByAccountId
-- **Type**: typing.Optional[str]
-
-### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByParentJobId
-- **Type**: typing.Optional[str]
-
-### ByMessageCategory
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListCopyJobsInputTypeDef
+# ListCopyJobsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2718,10 +2679,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATED', 'FAILED', 'PARTIAL', 'RUNNING']]
 
 ### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByResourceType
 - **Type**: typing.Optional[str]
@@ -2733,10 +2694,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByParentJobId
 - **Type**: typing.Optional[str]
@@ -2745,21 +2706,60 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListCopyJobsOutputTypeDef
+# ListCopyJobsInputPaginate
+
+### ByResourceArn
+- **Type**: typing.Optional[str]
+
+### ByState
+- **Type**: typing.Optional[typing.Literal['COMPLETED', 'CREATED', 'FAILED', 'PARTIAL', 'RUNNING']]
+
+### ByCreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByResourceType
+- **Type**: typing.Optional[str]
+
+### ByDestinationVaultArn
+- **Type**: typing.Optional[str]
+
+### ByAccountId
+- **Type**: typing.Optional[str]
+
+### ByCompleteBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCompleteAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByParentJobId
+- **Type**: typing.Optional[str]
+
+### ByMessageCategory
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListCopyJobsOutput
 
 ### CopyJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.CopyJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListFrameworksInputTypeDef
+# ListFrameworksInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -2768,42 +2768,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListFrameworksOutputTypeDef
+# ListFrameworksOutput
 
 ### Frameworks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.FrameworkTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.Framework]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListIndexedRecoveryPointsInputPaginateTypeDef
-
-### SourceResourceArn
-- **Type**: typing.Optional[str]
-
-### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### IndexStatus
-- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListIndexedRecoveryPointsInputTypeDef
+# ListIndexedRecoveryPointsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2815,10 +2794,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### CreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ResourceType
 - **Type**: typing.Optional[str]
@@ -2827,27 +2806,42 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
 
 
-# ListIndexedRecoveryPointsOutputTypeDef
+# ListIndexedRecoveryPointsInputPaginate
+
+### SourceResourceArn
+- **Type**: typing.Optional[str]
+
+### CreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### CreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### IndexStatus
+- **Type**: typing.Optional[typing.Literal['ACTIVE', 'DELETING', 'FAILED', 'PENDING']]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListIndexedRecoveryPointsOutput
 
 ### IndexedRecoveryPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.IndexedRecoveryPointTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.IndexedRecoveryPoint]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLegalHoldsInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListLegalHoldsInputTypeDef
+# ListLegalHoldsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -2856,34 +2850,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListLegalHoldsOutputTypeDef
+# ListLegalHoldsInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListLegalHoldsOutput
 
 ### LegalHolds
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.LegalHoldTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.LegalHold]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProtectedResourcesByBackupVaultInputPaginateTypeDef
-
-### BackupVaultName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### BackupVaultAccountId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListProtectedResourcesByBackupVaultInputTypeDef
+# ListProtectedResourcesByBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2899,50 +2886,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListProtectedResourcesByBackupVaultOutputTypeDef
-
-### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListProtectedResourcesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListProtectedResourcesInputTypeDef
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-### MaxResults
-- **Type**: typing.Optional[int]
-
-
-# ListProtectedResourcesOutputTypeDef
-
-### Results
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceTypeDef]
-- **Required**: Yes
-
-### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
-- **Required**: Yes
-
-### NextToken
-- **Type**: typing.Optional[str]
-
-
-# ListRecoveryPointsByBackupVaultInputPaginateTypeDef
+# ListProtectedResourcesByBackupVaultInputPaginate
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2951,29 +2895,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 ### BackupVaultAccountId
 - **Type**: typing.Optional[str]
 
-### ByResourceArn
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListProtectedResourcesByBackupVaultOutput
+
+### Results
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ProtectedResource]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
 - **Type**: typing.Optional[str]
 
-### ByResourceType
+
+# ListProtectedResourcesInput
+
+### NextToken
 - **Type**: typing.Optional[str]
 
-### ByBackupPlanId
-- **Type**: typing.Optional[str]
+### MaxResults
+- **Type**: typing.Optional[int]
 
-### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
 
-### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByParentRecoveryPointArn
-- **Type**: typing.Optional[str]
+# ListProtectedResourcesInputPaginate
 
 ### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
 
 
-# ListRecoveryPointsByBackupVaultInputTypeDef
+# ListProtectedResourcesOutput
+
+### Results
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ProtectedResource]
+- **Required**: Yes
+
+### ResponseMetadata
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
+- **Required**: Yes
+
+### NextToken
+- **Type**: typing.Optional[str]
+
+
+# ListRecoveryPointsByBackupVaultInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -2998,40 +2967,61 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByParentRecoveryPointArn
 - **Type**: typing.Optional[str]
 
 
-# ListRecoveryPointsByBackupVaultOutputTypeDef
+# ListRecoveryPointsByBackupVaultInputPaginate
+
+### BackupVaultName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### BackupVaultAccountId
+- **Type**: typing.Optional[str]
+
+### ByResourceArn
+- **Type**: typing.Optional[str]
+
+### ByResourceType
+- **Type**: typing.Optional[str]
+
+### ByBackupPlanId
+- **Type**: typing.Optional[str]
+
+### ByCreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByParentRecoveryPointArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRecoveryPointsByBackupVaultOutput
 
 ### RecoveryPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointByBackupVaultTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointByBackupVault]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecoveryPointsByLegalHoldInputPaginateTypeDef
-
-### LegalHoldId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRecoveryPointsByLegalHoldInputTypeDef
+# ListRecoveryPointsByLegalHoldInput
 
 ### LegalHoldId
 - **Type**: <class 'str'>
@@ -3044,34 +3034,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRecoveryPointsByLegalHoldOutputTypeDef
+# ListRecoveryPointsByLegalHoldInputPaginate
+
+### LegalHoldId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRecoveryPointsByLegalHoldOutput
 
 ### RecoveryPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecoveryPointsByResourceInputPaginateTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ManagedByAWSBackupOnly
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRecoveryPointsByResourceInputTypeDef
+# ListRecoveryPointsByResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3087,30 +3074,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# ListRecoveryPointsByResourceOutputTypeDef
+# ListRecoveryPointsByResourceInputPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ManagedByAWSBackupOnly
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRecoveryPointsByResourceOutput
 
 ### RecoveryPoints
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointByResourceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointByResource]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReportJobsInputTypeDef
+# ListReportJobsInput
 
 ### ByReportPlanName
 - **Type**: typing.Optional[str]
 
 ### ByCreationBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCreationAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByStatus
 - **Type**: typing.Optional[str]
@@ -3122,21 +3122,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReportJobsOutputTypeDef
+# ListReportJobsOutput
 
 ### ReportJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ReportJobTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ReportJob]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListReportPlansInputTypeDef
+# ListReportPlansInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -3145,21 +3145,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListReportPlansOutputTypeDef
+# ListReportPlansOutput
 
 ### ReportPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ReportPlanTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.ReportPlan]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreJobSummariesInputTypeDef
+# ListRestoreJobSummariesInput
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -3180,10 +3180,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreJobSummariesOutputTypeDef
+# ListRestoreJobSummariesOutput
 
 ### RestoreJobSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobSummary]
 - **Required**: Yes
 
 ### AggregationPeriod
@@ -3191,14 +3191,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreJobsByProtectedResourceInputPaginateTypeDef
+# ListRestoreJobsByProtectedResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3208,29 +3208,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
 
 ### ByRecoveryPointCreationDateAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByRecoveryPointCreationDateBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRestoreJobsByProtectedResourceInputTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ByStatus
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
-
-### ByRecoveryPointCreationDateAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByRecoveryPointCreationDateBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3239,51 +3220,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRestoreJobsByProtectedResourceOutputTypeDef
+# ListRestoreJobsByProtectedResourceInputPaginate
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ByStatus
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
+
+### ByRecoveryPointCreationDateAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByRecoveryPointCreationDateBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRestoreJobsByProtectedResourceOutput
 
 ### RestoreJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobsListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobsListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreJobsInputPaginateTypeDef
-
-### ByAccountId
-- **Type**: typing.Optional[str]
-
-### ByResourceType
-- **Type**: typing.Optional[str]
-
-### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByStatus
-- **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
-
-### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
-
-### ByRestoreTestingPlanArn
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRestoreJobsInputTypeDef
+# ListRestoreJobsInput
 
 ### NextToken
 - **Type**: typing.Optional[str]
@@ -3298,45 +3268,69 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ByCreatedBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCreatedAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByStatus
 - **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
 
 ### ByCompleteBefore
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByCompleteAfter
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
 
 ### ByRestoreTestingPlanArn
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreJobsOutputTypeDef
+# ListRestoreJobsInputPaginate
+
+### ByAccountId
+- **Type**: typing.Optional[str]
+
+### ByResourceType
+- **Type**: typing.Optional[str]
+
+### ByCreatedBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCreatedAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByStatus
+- **Type**: typing.Optional[typing.Literal['ABORTED', 'COMPLETED', 'FAILED', 'PENDING', 'RUNNING']]
+
+### ByCompleteBefore
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByCompleteAfter
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.Timestamp]
+
+### ByRestoreTestingPlanArn
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRestoreJobsOutput
 
 ### RestoreJobs
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobsListMemberTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreJobsListMember]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreTestingPlansInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRestoreTestingPlansInputTypeDef
+# ListRestoreTestingPlansInput
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -3345,31 +3339,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreTestingPlansOutputTypeDef
+# ListRestoreTestingPlansInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRestoreTestingPlansOutput
 
 ### RestoreTestingPlans
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForListTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreTestingSelectionsInputPaginateTypeDef
-
-### RestoreTestingPlanName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfigTypeDef]
-
-
-# ListRestoreTestingSelectionsInputTypeDef
+# ListRestoreTestingSelectionsInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
@@ -3382,21 +3372,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListRestoreTestingSelectionsOutputTypeDef
+# ListRestoreTestingSelectionsInputPaginate
+
+### RestoreTestingPlanName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.PaginatorConfig]
+
+
+# ListRestoreTestingSelectionsOutput
 
 ### RestoreTestingSelections
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForListTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForList]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsInputTypeDef
+# ListTagsInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -3409,21 +3409,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListTagsOutputTypeDef
+# ListTagsOutput
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -3435,31 +3435,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProtectedResourceConditionsOutputTypeDef
-
-### StringEquals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.KeyValueTypeDef]]
-
-### StringNotEquals
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.KeyValueTypeDef]]
-
-
-# ProtectedResourceConditionsTypeDef
-
-### StringEquals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.KeyValueTypeDef]]
-
-### StringNotEquals
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.KeyValueTypeDef]]
-
-
-# ProtectedResourceConditionsUnionTypeDef
-
-Oops! This Pydantic model is currently empty. Stay tuned!
-
-<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
-
-# ProtectedResourceTypeDef
+# ProtectedResource
 
 ### ResourceArn
 - **Type**: typing.Optional[str]
@@ -3480,7 +3456,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutBackupVaultAccessPolicyInputTypeDef
+# ProtectedResourceConditions
+
+### StringEquals
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.KeyValue]]
+
+### StringNotEquals
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.KeyValue]]
+
+
+# ProtectedResourceConditionsOutput
+
+### StringEquals
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.KeyValue]]
+
+### StringNotEquals
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.backup_classes.KeyValue]]
+
+
+# ProtectedResourceConditionsUnion
+
+Oops! This Pydantic model is currently empty. Stay tuned!
+
+<img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
+
+# PutBackupVaultAccessPolicyInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -3490,7 +3490,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PutBackupVaultLockConfigurationInputTypeDef
+# PutBackupVaultLockConfigurationInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -3506,7 +3506,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# PutBackupVaultNotificationsInputTypeDef
+# PutBackupVaultNotificationsInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -3521,7 +3521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# PutRestoreValidationResultInputTypeDef
+# PutRestoreValidationResultInput
 
 ### RestoreJobId
 - **Type**: <class 'str'>
@@ -3535,7 +3535,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecoveryPointByBackupVaultTypeDef
+# RecoveryPointByBackupVault
 
 ### RecoveryPointArn
 - **Type**: typing.Optional[str]
@@ -3556,7 +3556,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RecoveryPointCreator]
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -3577,10 +3577,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### CalculatedLifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.CalculatedLifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### EncryptionKeyArn
 - **Type**: typing.Optional[str]
@@ -3613,7 +3613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecoveryPointByResourceTypeDef
+# RecoveryPointByResource
 
 ### RecoveryPointArn
 - **Type**: typing.Optional[str]
@@ -3655,7 +3655,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecoveryPointCreatorTypeDef
+# RecoveryPointCreator
 
 ### BackupPlanId
 - **Type**: typing.Optional[str]
@@ -3670,7 +3670,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecoveryPointMemberTypeDef
+# RecoveryPointMember
 
 ### RecoveryPointArn
 - **Type**: typing.Optional[str]
@@ -3685,19 +3685,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecoveryPointSelectionOutputTypeDef
-
-### VaultNames
-- **Type**: typing.Optional[typing.List[str]]
-
-### ResourceIdentifiers
-- **Type**: typing.Optional[typing.List[str]]
-
-### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.DateRangeOutputTypeDef]
-
-
-# RecoveryPointSelectionTypeDef
+# RecoveryPointSelection
 
 ### VaultNames
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -3706,29 +3694,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### DateRange
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.DateRangeTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# RecoveryPointSelectionUnionTypeDef
+# RecoveryPointSelectionOutput
+
+### VaultNames
+- **Type**: typing.Optional[typing.List[str]]
+
+### ResourceIdentifiers
+- **Type**: typing.Optional[typing.List[str]]
+
+### DateRange
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.DateRangeOutput]
+
+
+# RecoveryPointSelectionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ReportDeliveryChannelOutputTypeDef
-
-### S3BucketName
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### S3KeyPrefix
-- **Type**: typing.Optional[str]
-
-### Formats
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ReportDeliveryChannelTypeDef
+# ReportDeliveryChannel
 
 ### S3BucketName
 - **Type**: <class 'str'>
@@ -3741,13 +3728,26 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ReportDeliveryChannelUnionTypeDef
+# ReportDeliveryChannelOutput
+
+### S3BucketName
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### S3KeyPrefix
+- **Type**: typing.Optional[str]
+
+### Formats
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ReportDeliveryChannelUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ReportDestinationTypeDef
+# ReportDestination
 
 ### S3BucketName
 - **Type**: typing.Optional[str]
@@ -3756,7 +3756,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 
-# ReportJobTypeDef
+# ReportJob
 
 ### ReportJobId
 - **Type**: typing.Optional[str]
@@ -3780,10 +3780,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReportDestination
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportDestinationTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# ReportPlanTypeDef
+# ReportPlan
 
 ### ReportPlanArn
 - **Type**: typing.Optional[str]
@@ -3795,10 +3795,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReportSetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportSettingOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportSettingOutput]
 
 ### ReportDeliveryChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelOutput]
 
 ### DeploymentStatus
 - **Type**: typing.Optional[str]
@@ -3813,29 +3813,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# ReportSettingOutputTypeDef
-
-### ReportTemplate
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### FrameworkArns
-- **Type**: typing.Optional[typing.List[str]]
-
-### NumberOfFrameworks
-- **Type**: typing.Optional[int]
-
-### Accounts
-- **Type**: typing.Optional[typing.List[str]]
-
-### OrganizationUnits
-- **Type**: typing.Optional[typing.List[str]]
-
-### Regions
-- **Type**: typing.Optional[typing.List[str]]
-
-
-# ReportSettingTypeDef
+# ReportSetting
 
 ### ReportTemplate
 - **Type**: <class 'str'>
@@ -3857,13 +3835,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ReportSettingUnionTypeDef
+# ReportSettingOutput
+
+### ReportTemplate
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### FrameworkArns
+- **Type**: typing.Optional[typing.List[str]]
+
+### NumberOfFrameworks
+- **Type**: typing.Optional[int]
+
+### Accounts
+- **Type**: typing.Optional[typing.List[str]]
+
+### OrganizationUnits
+- **Type**: typing.Optional[typing.List[str]]
+
+### Regions
+- **Type**: typing.Optional[typing.List[str]]
+
+
+# ReportSettingUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -3885,13 +3885,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreJobCreatorTypeDef
+# RestoreJobCreator
 
 ### RestoreTestingPlanArn
 - **Type**: typing.Optional[str]
 
 
-# RestoreJobSummaryTypeDef
+# RestoreJobSummary
 
 ### Region
 - **Type**: typing.Optional[str]
@@ -3915,7 +3915,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# RestoreJobsListMemberTypeDef
+# RestoreJobsListMember
 
 ### AccountId
 - **Type**: typing.Optional[str]
@@ -3960,7 +3960,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[datetime.datetime]
 
 ### CreatedBy
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RestoreJobCreatorTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RestoreJobCreator]
 
 ### ValidationStatus
 - **Type**: typing.Optional[typing.Literal['FAILED', 'SUCCESSFUL', 'TIMED_OUT', 'VALIDATING']]
@@ -3975,10 +3975,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RestoreTestingPlanForCreateTypeDef
+# RestoreTestingPlanForCreate
 
 ### RecoveryPointSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionUnionTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionUnion'>
 - **Required**: Yes
 
 ### RestoreTestingPlanName
@@ -3996,14 +3996,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingPlanForGetTypeDef
+# RestoreTestingPlanForGet
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
 - **Required**: Yes
 
 ### RecoveryPointSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionOutput'>
 - **Required**: Yes
 
 ### RestoreTestingPlanArn
@@ -4034,7 +4034,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingPlanForListTypeDef
+# RestoreTestingPlanForList
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -4065,10 +4065,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingPlanForUpdateTypeDef
+# RestoreTestingPlanForUpdate
 
 ### RecoveryPointSelection
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.RestoreTestingRecoveryPointSelectionUnion]
 
 ### ScheduleExpression
 - **Type**: typing.Optional[str]
@@ -4080,25 +4080,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingRecoveryPointSelectionOutputTypeDef
-
-### Algorithm
-- **Type**: typing.Optional[typing.Literal['LATEST_WITHIN_WINDOW', 'RANDOM_WITHIN_WINDOW']]
-
-### ExcludeVaults
-- **Type**: typing.Optional[typing.List[str]]
-
-### IncludeVaults
-- **Type**: typing.Optional[typing.List[str]]
-
-### RecoveryPointTypes
-- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUOUS', 'SNAPSHOT']]]
-
-### SelectionWindowDays
-- **Type**: typing.Optional[int]
-
-
-# RestoreTestingRecoveryPointSelectionTypeDef
+# RestoreTestingRecoveryPointSelection
 
 ### Algorithm
 - **Type**: typing.Optional[typing.Literal['LATEST_WITHIN_WINDOW', 'RANDOM_WITHIN_WINDOW']]
@@ -4116,13 +4098,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingRecoveryPointSelectionUnionTypeDef
+# RestoreTestingRecoveryPointSelectionOutput
+
+### Algorithm
+- **Type**: typing.Optional[typing.Literal['LATEST_WITHIN_WINDOW', 'RANDOM_WITHIN_WINDOW']]
+
+### ExcludeVaults
+- **Type**: typing.Optional[typing.List[str]]
+
+### IncludeVaults
+- **Type**: typing.Optional[typing.List[str]]
+
+### RecoveryPointTypes
+- **Type**: typing.Optional[typing.List[typing.Literal['CONTINUOUS', 'SNAPSHOT']]]
+
+### SelectionWindowDays
+- **Type**: typing.Optional[int]
+
+
+# RestoreTestingRecoveryPointSelectionUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# RestoreTestingSelectionForCreateTypeDef
+# RestoreTestingSelectionForCreate
 
 ### IamRoleArn
 - **Type**: <class 'str'>
@@ -4140,7 +4140,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ProtectedResourceConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsUnion]
 
 ### RestoreMetadataOverrides
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -4149,7 +4149,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingSelectionForGetTypeDef
+# RestoreTestingSelectionForGet
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -4178,7 +4178,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.List[str]]
 
 ### ProtectedResourceConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsOutputTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsOutput]
 
 ### RestoreMetadataOverrides
 - **Type**: typing.Optional[typing.Dict[str, str]]
@@ -4187,7 +4187,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingSelectionForListTypeDef
+# RestoreTestingSelectionForList
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -4213,7 +4213,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# RestoreTestingSelectionForUpdateTypeDef
+# RestoreTestingSelectionForUpdate
 
 ### IamRoleArn
 - **Type**: typing.Optional[str]
@@ -4222,7 +4222,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 ### ProtectedResourceConditions
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ProtectedResourceConditionsUnion]
 
 ### RestoreMetadataOverrides
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -4231,7 +4231,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# StartBackupJobInputTypeDef
+# StartBackupJobInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -4255,7 +4255,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 ### RecoveryPointTags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
@@ -4267,7 +4267,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['DISABLED', 'ENABLED']]
 
 
-# StartBackupJobOutputTypeDef
+# StartBackupJobOutput
 
 ### BackupJobId
 - **Type**: <class 'str'>
@@ -4286,11 +4286,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartCopyJobInputTypeDef
+# StartCopyJobInput
 
 ### RecoveryPointArn
 - **Type**: <class 'str'>
@@ -4312,10 +4312,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# StartCopyJobOutputTypeDef
+# StartCopyJobOutput
 
 ### CopyJobId
 - **Type**: <class 'str'>
@@ -4330,11 +4330,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartReportJobInputTypeDef
+# StartReportJobInput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
@@ -4344,18 +4344,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# StartReportJobOutputTypeDef
+# StartReportJobOutput
 
 ### ReportJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StartRestoreJobInputTypeDef
+# StartRestoreJobInput
 
 ### RecoveryPointArn
 - **Type**: <class 'str'>
@@ -4378,25 +4378,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# StartRestoreJobOutputTypeDef
+# StartRestoreJobOutput
 
 ### RestoreJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# StopBackupJobInputTypeDef
+# StopBackupJobInput
 
 ### BackupJobId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4407,13 +4407,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -4424,18 +4424,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateBackupPlanInputTypeDef
+# UpdateBackupPlanInput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### BackupPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.BackupPlanInput'>
 - **Required**: Yes
 
 
-# UpdateBackupPlanOutputTypeDef
+# UpdateBackupPlanOutput
 
 ### BackupPlanId
 - **Type**: <class 'str'>
@@ -4454,15 +4454,15 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### AdvancedBackupSettings
-- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutputTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.backup_classes.AdvancedBackupSettingOutput]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateFrameworkInputTypeDef
+# UpdateFrameworkInput
 
 ### FrameworkName
 - **Type**: <class 'str'>
@@ -4472,13 +4472,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### FrameworkControls
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlUnionTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.backup_classes.FrameworkControlUnion]]
 
 ### IdempotencyToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateFrameworkOutputTypeDef
+# UpdateFrameworkOutput
 
 ### FrameworkName
 - **Type**: <class 'str'>
@@ -4493,17 +4493,17 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateGlobalSettingsInputTypeDef
+# UpdateGlobalSettingsInput
 
 ### GlobalSettings
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# UpdateRecoveryPointIndexSettingsInputTypeDef
+# UpdateRecoveryPointIndexSettingsInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -4521,7 +4521,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateRecoveryPointIndexSettingsOutputTypeDef
+# UpdateRecoveryPointIndexSettingsOutput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -4540,11 +4540,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRecoveryPointLifecycleInputTypeDef
+# UpdateRecoveryPointLifecycleInput
 
 ### BackupVaultName
 - **Type**: <class 'str'>
@@ -4555,10 +4555,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Lifecycle
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef]
+- **Type**: <class 'NoneType'>
 
 
-# UpdateRecoveryPointLifecycleOutputTypeDef
+# UpdateRecoveryPointLifecycleOutput
 
 ### BackupVaultArn
 - **Type**: <class 'str'>
@@ -4569,19 +4569,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Lifecycle
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.LifecycleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.Lifecycle'>
 - **Required**: Yes
 
 ### CalculatedLifecycle
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CalculatedLifecycleTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.CalculatedLifecycle'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRegionSettingsInputTypeDef
+# UpdateRegionSettingsInput
 
 ### ResourceTypeOptInPreference
 - **Type**: typing.Optional[typing.Mapping[str, bool]]
@@ -4590,7 +4590,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, bool]]
 
 
-# UpdateReportPlanInputTypeDef
+# UpdateReportPlanInput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
@@ -4600,16 +4600,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### ReportDeliveryChannel
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportDeliveryChannelUnion]
 
 ### ReportSetting
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportSettingUnionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.backup_classes.ReportSettingUnion]
 
 ### IdempotencyToken
 - **Type**: typing.Optional[str]
 
 
-# UpdateReportPlanOutputTypeDef
+# UpdateReportPlanOutput
 
 ### ReportPlanName
 - **Type**: <class 'str'>
@@ -4624,14 +4624,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRestoreTestingPlanInputTypeDef
+# UpdateRestoreTestingPlanInput
 
 ### RestoreTestingPlan
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingPlanForUpdate'>
 - **Required**: Yes
 
 ### RestoreTestingPlanName
@@ -4639,7 +4639,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRestoreTestingPlanOutputTypeDef
+# UpdateRestoreTestingPlanOutput
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -4658,18 +4658,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateRestoreTestingSelectionInputTypeDef
+# UpdateRestoreTestingSelectionInput
 
 ### RestoreTestingPlanName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### RestoreTestingSelection
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForUpdateTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.RestoreTestingSelectionForUpdate'>
 - **Required**: Yes
 
 ### RestoreTestingSelectionName
@@ -4677,7 +4677,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateRestoreTestingSelectionOutputTypeDef
+# UpdateRestoreTestingSelectionOutput
 
 ### CreationTime
 - **Type**: <class 'datetime.datetime'>
@@ -4700,7 +4700,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.backup_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

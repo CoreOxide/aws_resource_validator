@@ -12,22 +12,22 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.budgets_constants import *
 
-class ActionThresholdTypeDef(BaseValidatorModel):
+class ActionThreshold(BaseValidatorModel):
     ActionThresholdValue: float
     ActionThresholdType: ThresholdTypeType
 
 
-class SubscriberTypeDef(BaseValidatorModel):
+class Subscriber(BaseValidatorModel):
     SubscriptionType: SubscriptionTypeType
     Address: str
 
 
-class HistoricalOptionsTypeDef(BaseValidatorModel):
+class HistoricalOptions(BaseValidatorModel):
     BudgetAdjustmentPeriod: int
     LookBackAvailablePeriods: Optional[int] = None
 
 
-class NotificationTypeDef(BaseValidatorModel):
+class Notification(BaseValidatorModel):
     NotificationType: NotificationTypeType
     ComparisonOperator: ComparisonOperatorType
     Threshold: float
@@ -35,7 +35,7 @@ class NotificationTypeDef(BaseValidatorModel):
     NotificationState: Optional[NotificationStateType] = None
 
 
-class CostTypesTypeDef(BaseValidatorModel):
+class CostTypes(BaseValidatorModel):
     IncludeTax: Optional[bool] = None
     IncludeSubscription: Optional[bool] = None
     UseBlended: Optional[bool] = None
@@ -49,22 +49,22 @@ class CostTypesTypeDef(BaseValidatorModel):
     UseAmortized: Optional[bool] = None
 
 
-class SpendTypeDef(BaseValidatorModel):
+class Spend(BaseValidatorModel):
     Amount: str
     Unit: str
 
 
-class TimePeriodOutputTypeDef(BaseValidatorModel):
+class TimePeriodOutput(BaseValidatorModel):
     Start: Optional[datetime] = None
     End: Optional[datetime] = None
 
 
-class ResourceTagTypeDef(BaseValidatorModel):
+class ResourceTag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -72,496 +72,496 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class IamActionDefinitionOutputTypeDef(BaseValidatorModel):
+class IamActionDefinitionOutput(BaseValidatorModel):
     PolicyArn: str
     Roles: Optional[List[str]] = None
     Groups: Optional[List[str]] = None
     Users: Optional[List[str]] = None
 
 
-class ScpActionDefinitionOutputTypeDef(BaseValidatorModel):
+class ScpActionDefinitionOutput(BaseValidatorModel):
     PolicyId: str
     TargetIds: List[str]
 
 
-class SsmActionDefinitionOutputTypeDef(BaseValidatorModel):
+class SsmActionDefinitionOutput(BaseValidatorModel):
     ActionSubType: ActionSubTypeType
     Region: str
     InstanceIds: List[str]
 
 
-class IamActionDefinitionTypeDef(BaseValidatorModel):
+class IamActionDefinition(BaseValidatorModel):
     PolicyArn: str
     Roles: Optional[Sequence[str]] = None
     Groups: Optional[Sequence[str]] = None
     Users: Optional[Sequence[str]] = None
 
 
-class ScpActionDefinitionTypeDef(BaseValidatorModel):
+class ScpActionDefinition(BaseValidatorModel):
     PolicyId: str
     TargetIds: Sequence[str]
 
 
-class SsmActionDefinitionTypeDef(BaseValidatorModel):
+class SsmActionDefinition(BaseValidatorModel):
     ActionSubType: ActionSubTypeType
     Region: str
     InstanceIds: Sequence[str]
 
 
-class DeleteBudgetActionRequestTypeDef(BaseValidatorModel):
+class DeleteBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
 
 
-class DeleteBudgetRequestTypeDef(BaseValidatorModel):
+class DeleteBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeBudgetActionRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
 
 
-class DescribeBudgetActionsForAccountRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetActionsForAccountRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetActionsForBudgetRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetActionsForBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetNotificationsForAccountRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetNotificationsForAccountRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
 
 
-class DescribeBudgetsRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetsRequest(BaseValidatorModel):
     AccountId: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeNotificationsForBudgetRequestTypeDef(BaseValidatorModel):
+class DescribeNotificationsForBudgetRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ExecuteBudgetActionRequestTypeDef(BaseValidatorModel):
+class ExecuteBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
     ExecutionType: ExecutionTypeType
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     ResourceTagKeys: Sequence[str]
 
 
-class AutoAdjustDataOutputTypeDef(BaseValidatorModel):
+class AutoAdjustDataOutput(BaseValidatorModel):
     AutoAdjustType: AutoAdjustTypeType
-    HistoricalOptions: Optional[HistoricalOptionsTypeDef] = None
+    HistoricalOptions: Optional[HistoricalOptions] = None
     LastAutoAdjustTime: Optional[datetime] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class AutoAdjustDataTypeDef(BaseValidatorModel):
+class AutoAdjustData(BaseValidatorModel):
     AutoAdjustType: AutoAdjustTypeType
-    HistoricalOptions: Optional[HistoricalOptionsTypeDef] = None
-    LastAutoAdjustTime: Optional[TimestampTypeDef] = None
+    HistoricalOptions: Optional[HistoricalOptions] = None
+    LastAutoAdjustTime: Optional[Timestamp] = None
 
 
-class TimePeriodTypeDef(BaseValidatorModel):
-    Start: Optional[TimestampTypeDef] = None
-    End: Optional[TimestampTypeDef] = None
+class TimePeriod(BaseValidatorModel):
+    Start: Optional[Timestamp] = None
+    End: Optional[Timestamp] = None
 
 
-class BudgetNotificationsForAccountTypeDef(BaseValidatorModel):
-    Notifications: Optional[List[NotificationTypeDef]] = None
+class BudgetNotificationsForAccount(BaseValidatorModel):
+    Notifications: Optional[List[Notification]] = None
     BudgetName: Optional[str] = None
 
 
-class CreateNotificationRequestTypeDef(BaseValidatorModel):
+class CreateNotificationRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
-    Subscribers: Sequence[SubscriberTypeDef]
+    Notification: Notification
+    Subscribers: Sequence[Subscriber]
 
 
-class CreateSubscriberRequestTypeDef(BaseValidatorModel):
+class CreateSubscriberRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
-    Subscriber: SubscriberTypeDef
+    Notification: Notification
+    Subscriber: Subscriber
 
 
-class DeleteNotificationRequestTypeDef(BaseValidatorModel):
+class DeleteNotificationRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
+    Notification: Notification
 
 
-class DeleteSubscriberRequestTypeDef(BaseValidatorModel):
+class DeleteSubscriberRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
-    Subscriber: SubscriberTypeDef
+    Notification: Notification
+    Subscriber: Subscriber
 
 
-class DescribeSubscribersForNotificationRequestTypeDef(BaseValidatorModel):
+class DescribeSubscribersForNotificationRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
+    Notification: Notification
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class NotificationWithSubscribersTypeDef(BaseValidatorModel):
-    Notification: NotificationTypeDef
-    Subscribers: Sequence[SubscriberTypeDef]
+class NotificationWithSubscribers(BaseValidatorModel):
+    Notification: Notification
+    Subscribers: Sequence[Subscriber]
 
 
-class UpdateNotificationRequestTypeDef(BaseValidatorModel):
+class UpdateNotificationRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    OldNotification: NotificationTypeDef
-    NewNotification: NotificationTypeDef
+    OldNotification: Notification
+    NewNotification: Notification
 
 
-class UpdateSubscriberRequestTypeDef(BaseValidatorModel):
+class UpdateSubscriberRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
-    OldSubscriber: SubscriberTypeDef
-    NewSubscriber: SubscriberTypeDef
+    Notification: Notification
+    OldSubscriber: Subscriber
+    NewSubscriber: Subscriber
 
 
-class CalculatedSpendTypeDef(BaseValidatorModel):
-    ActualSpend: SpendTypeDef
-    ForecastedSpend: Optional[SpendTypeDef] = None
+class CalculatedSpend(BaseValidatorModel):
+    ActualSpend: Spend
+    ForecastedSpend: Optional[Spend] = None
 
 
-class BudgetedAndActualAmountsTypeDef(BaseValidatorModel):
-    BudgetedAmount: Optional[SpendTypeDef] = None
-    ActualAmount: Optional[SpendTypeDef] = None
-    TimePeriod: Optional[TimePeriodOutputTypeDef] = None
+class BudgetedAndActualAmounts(BaseValidatorModel):
+    BudgetedAmount: Optional[Spend] = None
+    ActualAmount: Optional[Spend] = None
+    TimePeriod: Optional[TimePeriodOutput] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    ResourceTags: Sequence[ResourceTagTypeDef]
+    ResourceTags: Sequence[ResourceTag]
 
 
-class CreateBudgetActionResponseTypeDef(BaseValidatorModel):
+class CreateBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeNotificationsForBudgetResponseTypeDef(BaseValidatorModel):
-    Notifications: List[NotificationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeNotificationsForBudgetResponse(BaseValidatorModel):
+    Notifications: List[Notification]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeSubscribersForNotificationResponseTypeDef(BaseValidatorModel):
-    Subscribers: List[SubscriberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSubscribersForNotificationResponse(BaseValidatorModel):
+    Subscribers: List[Subscriber]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ExecuteBudgetActionResponseTypeDef(BaseValidatorModel):
+class ExecuteBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
     ExecutionType: ExecutionTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    ResourceTags: List[ResourceTagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    ResourceTags: List[ResourceTag]
+    ResponseMetadata: ResponseMetadata
 
 
-class DefinitionOutputTypeDef(BaseValidatorModel):
-    IamActionDefinition: Optional[IamActionDefinitionOutputTypeDef] = None
-    ScpActionDefinition: Optional[ScpActionDefinitionOutputTypeDef] = None
-    SsmActionDefinition: Optional[SsmActionDefinitionOutputTypeDef] = None
+class DefinitionOutput(BaseValidatorModel):
+    IamActionDefinition: Optional[IamActionDefinitionOutput] = None
+    ScpActionDefinition: Optional[ScpActionDefinitionOutput] = None
+    SsmActionDefinition: Optional[SsmActionDefinitionOutput] = None
 
 
-class DefinitionTypeDef(BaseValidatorModel):
-    IamActionDefinition: Optional[IamActionDefinitionTypeDef] = None
-    ScpActionDefinition: Optional[ScpActionDefinitionTypeDef] = None
-    SsmActionDefinition: Optional[SsmActionDefinitionTypeDef] = None
+class Definition(BaseValidatorModel):
+    IamActionDefinition: Optional[IamActionDefinition] = None
+    ScpActionDefinition: Optional[ScpActionDefinition] = None
+    SsmActionDefinition: Optional[SsmActionDefinition] = None
 
 
-class DescribeBudgetActionsForAccountRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBudgetActionsForAccountRequestPaginate(BaseValidatorModel):
     AccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeBudgetActionsForBudgetRequestPaginateTypeDef(BaseValidatorModel):
-    AccountId: str
-    BudgetName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class DescribeBudgetNotificationsForAccountRequestPaginateTypeDef(BaseValidatorModel):
-    AccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class DescribeBudgetsRequestPaginateTypeDef(BaseValidatorModel):
-    AccountId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
-
-
-class DescribeNotificationsForBudgetRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBudgetActionsForBudgetRequestPaginate(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeSubscribersForNotificationRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBudgetNotificationsForAccountRequestPaginate(BaseValidatorModel):
+    AccountId: str
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class DescribeBudgetsRequestPaginate(BaseValidatorModel):
+    AccountId: str
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class DescribeNotificationsForBudgetRequestPaginate(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Notification: NotificationTypeDef
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeBudgetNotificationsForAccountResponseTypeDef(BaseValidatorModel):
-    BudgetNotificationsForAccount: List[BudgetNotificationsForAccountTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeSubscribersForNotificationRequestPaginate(BaseValidatorModel):
+    AccountId: str
+    BudgetName: str
+    Notification: Notification
+    PaginationConfig: Optional[PaginatorConfig] = None
+
+
+class DescribeBudgetNotificationsForAccountResponse(BaseValidatorModel):
+    BudgetNotificationsForAccount: List[BudgetNotificationsForAccount]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class BudgetOutputTypeDef(BaseValidatorModel):
+class BudgetOutput(BaseValidatorModel):
     BudgetName: str
     TimeUnit: TimeUnitType
     BudgetType: BudgetTypeType
-    BudgetLimit: Optional[SpendTypeDef] = None
-    PlannedBudgetLimits: Optional[Dict[str, SpendTypeDef]] = None
+    BudgetLimit: Optional[Spend] = None
+    PlannedBudgetLimits: Optional[Dict[str, Spend]] = None
     CostFilters: Optional[Dict[str, List[str]]] = None
-    CostTypes: Optional[CostTypesTypeDef] = None
-    TimePeriod: Optional[TimePeriodOutputTypeDef] = None
-    CalculatedSpend: Optional[CalculatedSpendTypeDef] = None
+    CostTypes: Optional[CostTypes] = None
+    TimePeriod: Optional[TimePeriodOutput] = None
+    CalculatedSpend: Optional[CalculatedSpend] = None
     LastUpdatedTime: Optional[datetime] = None
-    AutoAdjustData: Optional[AutoAdjustDataOutputTypeDef] = None
+    AutoAdjustData: Optional[AutoAdjustDataOutput] = None
 
 
-class BudgetTypeDef(BaseValidatorModel):
+class Budget(BaseValidatorModel):
     BudgetName: str
     TimeUnit: TimeUnitType
     BudgetType: BudgetTypeType
-    BudgetLimit: Optional[SpendTypeDef] = None
-    PlannedBudgetLimits: Optional[Mapping[str, SpendTypeDef]] = None
+    BudgetLimit: Optional[Spend] = None
+    PlannedBudgetLimits: Optional[Mapping[str, Spend]] = None
     CostFilters: Optional[Mapping[str, Sequence[str]]] = None
-    CostTypes: Optional[CostTypesTypeDef] = None
-    TimePeriod: Optional[TimePeriodTypeDef] = None
-    CalculatedSpend: Optional[CalculatedSpendTypeDef] = None
-    LastUpdatedTime: Optional[TimestampTypeDef] = None
-    AutoAdjustData: Optional[AutoAdjustDataTypeDef] = None
+    CostTypes: Optional[CostTypes] = None
+    TimePeriod: Optional[TimePeriod] = None
+    CalculatedSpend: Optional[CalculatedSpend] = None
+    LastUpdatedTime: Optional[Timestamp] = None
+    AutoAdjustData: Optional[AutoAdjustData] = None
 
 
-class BudgetPerformanceHistoryTypeDef(BaseValidatorModel):
+class BudgetPerformanceHistory(BaseValidatorModel):
     BudgetName: Optional[str] = None
     BudgetType: Optional[BudgetTypeType] = None
     CostFilters: Optional[Dict[str, List[str]]] = None
-    CostTypes: Optional[CostTypesTypeDef] = None
+    CostTypes: Optional[CostTypes] = None
     TimeUnit: Optional[TimeUnitType] = None
-    BudgetedAndActualAmountsList: Optional[List[BudgetedAndActualAmountsTypeDef]] = None
+    BudgetedAndActualAmountsList: Optional[List[BudgetedAndActualAmounts]] = None
 
 
-class ActionTypeDef(BaseValidatorModel):
+class Action(BaseValidatorModel):
     ActionId: str
     BudgetName: str
     NotificationType: NotificationTypeType
     ActionType: ActionTypeType
-    ActionThreshold: ActionThresholdTypeDef
-    Definition: DefinitionOutputTypeDef
+    ActionThreshold: ActionThreshold
+    Definition: DefinitionOutput
     ExecutionRoleArn: str
     ApprovalModel: ApprovalModelType
     Status: ActionStatusType
-    Subscribers: List[SubscriberTypeDef]
+    Subscribers: List[Subscriber]
 
 
-class TimePeriodUnionTypeDef(BaseValidatorModel):
+class TimePeriodUnion(BaseValidatorModel):
     pass
 
 
-class DescribeBudgetActionHistoriesRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBudgetActionHistoriesRequestPaginate(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
-    TimePeriod: Optional[TimePeriodUnionTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    TimePeriod: Optional[TimePeriodUnion] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeBudgetActionHistoriesRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetActionHistoriesRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
-    TimePeriod: Optional[TimePeriodUnionTypeDef] = None
+    TimePeriod: Optional[TimePeriodUnion] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetPerformanceHistoryRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBudgetPerformanceHistoryRequestPaginate(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    TimePeriod: Optional[TimePeriodUnionTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    TimePeriod: Optional[TimePeriodUnion] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeBudgetPerformanceHistoryRequestTypeDef(BaseValidatorModel):
+class DescribeBudgetPerformanceHistoryRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    TimePeriod: Optional[TimePeriodUnionTypeDef] = None
+    TimePeriod: Optional[TimePeriodUnion] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetResponseTypeDef(BaseValidatorModel):
-    Budget: BudgetOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetResponse(BaseValidatorModel):
+    Budget: BudgetOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBudgetsResponseTypeDef(BaseValidatorModel):
-    Budgets: List[BudgetOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetsResponse(BaseValidatorModel):
+    Budgets: List[BudgetOutput]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetPerformanceHistoryResponseTypeDef(BaseValidatorModel):
-    BudgetPerformanceHistory: BudgetPerformanceHistoryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetPerformanceHistoryResponse(BaseValidatorModel):
+    BudgetPerformanceHistory: BudgetPerformanceHistory
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ActionHistoryDetailsTypeDef(BaseValidatorModel):
+class ActionHistoryDetails(BaseValidatorModel):
     Message: str
-    Action: ActionTypeDef
+    Action: Action
 
 
-class DeleteBudgetActionResponseTypeDef(BaseValidatorModel):
+class DeleteBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Action: ActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Action: Action
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBudgetActionResponseTypeDef(BaseValidatorModel):
+class DescribeBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    Action: ActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Action: Action
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBudgetActionsForAccountResponseTypeDef(BaseValidatorModel):
-    Actions: List[ActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetActionsForAccountResponse(BaseValidatorModel):
+    Actions: List[Action]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeBudgetActionsForBudgetResponseTypeDef(BaseValidatorModel):
-    Actions: List[ActionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetActionsForBudgetResponse(BaseValidatorModel):
+    Actions: List[Action]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateBudgetActionResponseTypeDef(BaseValidatorModel):
+class UpdateBudgetActionResponse(BaseValidatorModel):
     AccountId: str
     BudgetName: str
-    OldAction: ActionTypeDef
-    NewAction: ActionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    OldAction: Action
+    NewAction: Action
+    ResponseMetadata: ResponseMetadata
 
 
-class DefinitionUnionTypeDef(BaseValidatorModel):
+class DefinitionUnion(BaseValidatorModel):
     pass
 
 
-class CreateBudgetActionRequestTypeDef(BaseValidatorModel):
+class CreateBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     NotificationType: NotificationTypeType
     ActionType: ActionTypeType
-    ActionThreshold: ActionThresholdTypeDef
-    Definition: DefinitionUnionTypeDef
+    ActionThreshold: ActionThreshold
+    Definition: DefinitionUnion
     ExecutionRoleArn: str
     ApprovalModel: ApprovalModelType
-    Subscribers: Sequence[SubscriberTypeDef]
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    Subscribers: Sequence[Subscriber]
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class UpdateBudgetActionRequestTypeDef(BaseValidatorModel):
+class UpdateBudgetActionRequest(BaseValidatorModel):
     AccountId: str
     BudgetName: str
     ActionId: str
     NotificationType: Optional[NotificationTypeType] = None
-    ActionThreshold: Optional[ActionThresholdTypeDef] = None
-    Definition: Optional[DefinitionUnionTypeDef] = None
+    ActionThreshold: Optional[ActionThreshold] = None
+    Definition: Optional[DefinitionUnion] = None
     ExecutionRoleArn: Optional[str] = None
     ApprovalModel: Optional[ApprovalModelType] = None
-    Subscribers: Optional[Sequence[SubscriberTypeDef]] = None
+    Subscribers: Optional[Sequence[Subscriber]] = None
 
 
-class BudgetUnionTypeDef(BaseValidatorModel):
+class BudgetUnion(BaseValidatorModel):
     pass
 
 
-class CreateBudgetRequestTypeDef(BaseValidatorModel):
+class CreateBudgetRequest(BaseValidatorModel):
     AccountId: str
-    Budget: BudgetUnionTypeDef
-    NotificationsWithSubscribers: Optional[Sequence[NotificationWithSubscribersTypeDef]] = None
-    ResourceTags: Optional[Sequence[ResourceTagTypeDef]] = None
+    Budget: BudgetUnion
+    NotificationsWithSubscribers: Optional[Sequence[NotificationWithSubscribers]] = None
+    ResourceTags: Optional[Sequence[ResourceTag]] = None
 
 
-class UpdateBudgetRequestTypeDef(BaseValidatorModel):
+class UpdateBudgetRequest(BaseValidatorModel):
     AccountId: str
-    NewBudget: BudgetUnionTypeDef
+    NewBudget: BudgetUnion
 
 
-class ActionHistoryTypeDef(BaseValidatorModel):
+class ActionHistory(BaseValidatorModel):
     Timestamp: datetime
     Status: ActionStatusType
     EventType: EventTypeType
-    ActionHistoryDetails: ActionHistoryDetailsTypeDef
+    ActionHistoryDetails: ActionHistoryDetails
 
 
-class DescribeBudgetActionHistoriesResponseTypeDef(BaseValidatorModel):
-    ActionHistories: List[ActionHistoryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBudgetActionHistoriesResponse(BaseValidatorModel):
+    ActionHistories: List[ActionHistory]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

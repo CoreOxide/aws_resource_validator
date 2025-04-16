@@ -12,19 +12,19 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.lookoutvision_constants import *
 
-class PixelAnomalyTypeDef(BaseValidatorModel):
+class PixelAnomaly(BaseValidatorModel):
     TotalPercentageArea: Optional[float] = None
     Color: Optional[str] = None
 
 
-class DatasetMetadataTypeDef(BaseValidatorModel):
+class DatasetMetadata(BaseValidatorModel):
     DatasetType: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     Status: Optional[DatasetStatusType] = None
     StatusMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,101 +32,101 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CreateProjectRequestTypeDef(BaseValidatorModel):
+class CreateProjectRequest(BaseValidatorModel):
     ProjectName: str
     ClientToken: Optional[str] = None
 
 
-class ProjectMetadataTypeDef(BaseValidatorModel):
+class ProjectMetadata(BaseValidatorModel):
     ProjectArn: Optional[str] = None
     ProjectName: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
 
 
-class DatasetImageStatsTypeDef(BaseValidatorModel):
+class DatasetImageStats(BaseValidatorModel):
     Total: Optional[int] = None
     Labeled: Optional[int] = None
     Normal: Optional[int] = None
     Anomaly: Optional[int] = None
 
 
-class InputS3ObjectTypeDef(BaseValidatorModel):
+class InputS3Object(BaseValidatorModel):
     Bucket: str
     Key: str
     VersionId: Optional[str] = None
 
 
-class DeleteDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
     ClientToken: Optional[str] = None
 
 
-class DeleteModelRequestTypeDef(BaseValidatorModel):
+class DeleteModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
     ClientToken: Optional[str] = None
 
 
-class DeleteProjectRequestTypeDef(BaseValidatorModel):
+class DeleteProjectRequest(BaseValidatorModel):
     ProjectName: str
     ClientToken: Optional[str] = None
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
 
 
-class DescribeModelPackagingJobRequestTypeDef(BaseValidatorModel):
+class DescribeModelPackagingJobRequest(BaseValidatorModel):
     ProjectName: str
     JobName: str
 
 
-class DescribeModelRequestTypeDef(BaseValidatorModel):
+class DescribeModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
 
 
-class DescribeProjectRequestTypeDef(BaseValidatorModel):
+class DescribeProjectRequest(BaseValidatorModel):
     ProjectName: str
 
 
-class S3LocationTypeDef(BaseValidatorModel):
+class S3Location(BaseValidatorModel):
     Bucket: str
     Prefix: Optional[str] = None
 
 
-class TargetPlatformTypeDef(BaseValidatorModel):
+class TargetPlatform(BaseValidatorModel):
     Os: Literal["LINUX"]
     Arch: TargetPlatformArchType
     Accelerator: Optional[Literal["NVIDIA"]] = None
 
 
-class GreengrassOutputDetailsTypeDef(BaseValidatorModel):
+class GreengrassOutputDetails(BaseValidatorModel):
     ComponentVersionArn: Optional[str] = None
     ComponentName: Optional[str] = None
     ComponentVersion: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListModelPackagingJobsRequestTypeDef(BaseValidatorModel):
+class ListModelPackagingJobsRequest(BaseValidatorModel):
     ProjectName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ModelPackagingJobMetadataTypeDef(BaseValidatorModel):
+class ModelPackagingJobMetadata(BaseValidatorModel):
     JobName: Optional[str] = None
     ProjectName: Optional[str] = None
     ModelVersion: Optional[str] = None
@@ -138,33 +138,33 @@ class ModelPackagingJobMetadataTypeDef(BaseValidatorModel):
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
-class ListModelsRequestTypeDef(BaseValidatorModel):
+class ListModelsRequest(BaseValidatorModel):
     ProjectName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListProjectsRequestTypeDef(BaseValidatorModel):
+class ListProjectsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ModelPerformanceTypeDef(BaseValidatorModel):
+class ModelPerformance(BaseValidatorModel):
     F1Score: Optional[float] = None
     Recall: Optional[float] = None
     Precision: Optional[float] = None
 
 
-class OutputS3ObjectTypeDef(BaseValidatorModel):
+class OutputS3Object(BaseValidatorModel):
     Bucket: str
     Key: str
 
 
-class StartModelRequestTypeDef(BaseValidatorModel):
+class StartModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
     MinInferenceUnits: int
@@ -172,325 +172,325 @@ class StartModelRequestTypeDef(BaseValidatorModel):
     MaxInferenceUnits: Optional[int] = None
 
 
-class StopModelRequestTypeDef(BaseValidatorModel):
+class StopModelRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
     ClientToken: Optional[str] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class AnomalyTypeDef(BaseValidatorModel):
+class Anomaly(BaseValidatorModel):
     Name: Optional[str] = None
-    PixelAnomaly: Optional[PixelAnomalyTypeDef] = None
+    PixelAnomaly: Optional[PixelAnomaly] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DetectAnomaliesRequestTypeDef(BaseValidatorModel):
+class DetectAnomaliesRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
-    Body: BlobTypeDef
+    Body: Blob
     ContentType: str
 
 
-class UpdateDatasetEntriesRequestTypeDef(BaseValidatorModel):
+class UpdateDatasetEntriesRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
-    Changes: BlobTypeDef
+    Changes: Blob
     ClientToken: Optional[str] = None
 
 
-class ProjectDescriptionTypeDef(BaseValidatorModel):
+class ProjectDescription(BaseValidatorModel):
     ProjectArn: Optional[str] = None
     ProjectName: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
-    Datasets: Optional[List[DatasetMetadataTypeDef]] = None
+    Datasets: Optional[List[DatasetMetadata]] = None
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetMetadata: DatasetMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateDatasetResponse(BaseValidatorModel):
+    DatasetMetadata: DatasetMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteModelResponseTypeDef(BaseValidatorModel):
+class DeleteModelResponse(BaseValidatorModel):
     ModelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProjectResponseTypeDef(BaseValidatorModel):
+class DeleteProjectResponse(BaseValidatorModel):
     ProjectArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDatasetEntriesResponseTypeDef(BaseValidatorModel):
+class ListDatasetEntriesResponse(BaseValidatorModel):
     DatasetEntries: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class StartModelPackagingJobResponseTypeDef(BaseValidatorModel):
+class StartModelPackagingJobResponse(BaseValidatorModel):
     JobName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartModelResponseTypeDef(BaseValidatorModel):
+class StartModelResponse(BaseValidatorModel):
     Status: ModelHostingStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopModelResponseTypeDef(BaseValidatorModel):
+class StopModelResponse(BaseValidatorModel):
     Status: ModelHostingStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateDatasetEntriesResponseTypeDef(BaseValidatorModel):
+class UpdateDatasetEntriesResponse(BaseValidatorModel):
     Status: DatasetStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CreateProjectResponseTypeDef(BaseValidatorModel):
-    ProjectMetadata: ProjectMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateProjectResponse(BaseValidatorModel):
+    ProjectMetadata: ProjectMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class ListProjectsResponseTypeDef(BaseValidatorModel):
-    Projects: List[ProjectMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsResponse(BaseValidatorModel):
+    Projects: List[ProjectMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DatasetDescriptionTypeDef(BaseValidatorModel):
+class DatasetDescription(BaseValidatorModel):
     ProjectName: Optional[str] = None
     DatasetType: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     Status: Optional[DatasetStatusType] = None
     StatusMessage: Optional[str] = None
-    ImageStats: Optional[DatasetImageStatsTypeDef] = None
+    ImageStats: Optional[DatasetImageStats] = None
 
 
-class DatasetGroundTruthManifestTypeDef(BaseValidatorModel):
-    S3Object: Optional[InputS3ObjectTypeDef] = None
+class DatasetGroundTruthManifest(BaseValidatorModel):
+    S3Object: Optional[InputS3Object] = None
 
 
-class OutputConfigTypeDef(BaseValidatorModel):
-    S3Location: S3LocationTypeDef
+class OutputConfig(BaseValidatorModel):
+    S3Location: S3Location
 
 
-class GreengrassConfigurationOutputTypeDef(BaseValidatorModel):
-    S3OutputLocation: S3LocationTypeDef
+class GreengrassConfigurationOutput(BaseValidatorModel):
+    S3OutputLocation: S3Location
     ComponentName: str
     CompilerOptions: Optional[str] = None
     TargetDevice: Optional[Literal["jetson_xavier"]] = None
-    TargetPlatform: Optional[TargetPlatformTypeDef] = None
+    TargetPlatform: Optional[TargetPlatform] = None
     ComponentVersion: Optional[str] = None
     ComponentDescription: Optional[str] = None
-    Tags: Optional[List[TagTypeDef]] = None
+    Tags: Optional[List[Tag]] = None
 
 
-class GreengrassConfigurationTypeDef(BaseValidatorModel):
-    S3OutputLocation: S3LocationTypeDef
+class GreengrassConfiguration(BaseValidatorModel):
+    S3OutputLocation: S3Location
     ComponentName: str
     CompilerOptions: Optional[str] = None
     TargetDevice: Optional[Literal["jetson_xavier"]] = None
-    TargetPlatform: Optional[TargetPlatformTypeDef] = None
+    TargetPlatform: Optional[TargetPlatform] = None
     ComponentVersion: Optional[str] = None
     ComponentDescription: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModelPackagingOutputDetailsTypeDef(BaseValidatorModel):
-    Greengrass: Optional[GreengrassOutputDetailsTypeDef] = None
+class ModelPackagingOutputDetails(BaseValidatorModel):
+    Greengrass: Optional[GreengrassOutputDetails] = None
 
 
-class ListModelPackagingJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelPackagingJobsRequestPaginate(BaseValidatorModel):
     ProjectName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListModelsRequestPaginateTypeDef(BaseValidatorModel):
+class ListModelsRequestPaginate(BaseValidatorModel):
     ProjectName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListProjectsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListDatasetEntriesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetEntriesRequestPaginate(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
     Labeled: Optional[bool] = None
     AnomalyClass: Optional[str] = None
-    BeforeCreationDate: Optional[TimestampTypeDef] = None
-    AfterCreationDate: Optional[TimestampTypeDef] = None
+    BeforeCreationDate: Optional[Timestamp] = None
+    AfterCreationDate: Optional[Timestamp] = None
     SourceRefContains: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetEntriesRequestTypeDef(BaseValidatorModel):
+class ListDatasetEntriesRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
     Labeled: Optional[bool] = None
     AnomalyClass: Optional[str] = None
-    BeforeCreationDate: Optional[TimestampTypeDef] = None
-    AfterCreationDate: Optional[TimestampTypeDef] = None
+    BeforeCreationDate: Optional[Timestamp] = None
+    AfterCreationDate: Optional[Timestamp] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     SourceRefContains: Optional[str] = None
 
 
-class ListModelPackagingJobsResponseTypeDef(BaseValidatorModel):
-    ModelPackagingJobs: List[ModelPackagingJobMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelPackagingJobsResponse(BaseValidatorModel):
+    ModelPackagingJobs: List[ModelPackagingJobMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ModelMetadataTypeDef(BaseValidatorModel):
+class ModelMetadata(BaseValidatorModel):
     CreationTimestamp: Optional[datetime] = None
     ModelVersion: Optional[str] = None
     ModelArn: Optional[str] = None
     Description: Optional[str] = None
     Status: Optional[ModelStatusType] = None
     StatusMessage: Optional[str] = None
-    Performance: Optional[ModelPerformanceTypeDef] = None
+    Performance: Optional[ModelPerformance] = None
 
 
-class ImageSourceTypeDef(BaseValidatorModel):
+class ImageSource(BaseValidatorModel):
     pass
 
 
-class DetectAnomalyResultTypeDef(BaseValidatorModel):
-    Source: Optional[ImageSourceTypeDef] = None
+class DetectAnomalyResult(BaseValidatorModel):
+    Source: Optional[ImageSource] = None
     IsAnomalous: Optional[bool] = None
     Confidence: Optional[float] = None
-    Anomalies: Optional[List[AnomalyTypeDef]] = None
+    Anomalies: Optional[List[Anomaly]] = None
     AnomalyMask: Optional[bytes] = None
 
 
-class DescribeProjectResponseTypeDef(BaseValidatorModel):
-    ProjectDescription: ProjectDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeProjectResponse(BaseValidatorModel):
+    ProjectDescription: ProjectDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    DatasetDescription: DatasetDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetResponse(BaseValidatorModel):
+    DatasetDescription: DatasetDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class DatasetSourceTypeDef(BaseValidatorModel):
-    GroundTruthManifest: Optional[DatasetGroundTruthManifestTypeDef] = None
+class DatasetSource(BaseValidatorModel):
+    GroundTruthManifest: Optional[DatasetGroundTruthManifest] = None
 
 
-class CreateModelRequestTypeDef(BaseValidatorModel):
+class CreateModelRequest(BaseValidatorModel):
     ProjectName: str
-    OutputConfig: OutputConfigTypeDef
+    OutputConfig: OutputConfig
     Description: Optional[str] = None
     ClientToken: Optional[str] = None
     KmsKeyId: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class ModelDescriptionTypeDef(BaseValidatorModel):
+class ModelDescription(BaseValidatorModel):
     ModelVersion: Optional[str] = None
     ModelArn: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     Description: Optional[str] = None
     Status: Optional[ModelStatusType] = None
     StatusMessage: Optional[str] = None
-    Performance: Optional[ModelPerformanceTypeDef] = None
-    OutputConfig: Optional[OutputConfigTypeDef] = None
-    EvaluationManifest: Optional[OutputS3ObjectTypeDef] = None
-    EvaluationResult: Optional[OutputS3ObjectTypeDef] = None
+    Performance: Optional[ModelPerformance] = None
+    OutputConfig: Optional[OutputConfig] = None
+    EvaluationManifest: Optional[OutputS3Object] = None
+    EvaluationResult: Optional[OutputS3Object] = None
     EvaluationEndTimestamp: Optional[datetime] = None
     KmsKeyId: Optional[str] = None
     MinInferenceUnits: Optional[int] = None
     MaxInferenceUnits: Optional[int] = None
 
 
-class ModelPackagingConfigurationOutputTypeDef(BaseValidatorModel):
-    Greengrass: GreengrassConfigurationOutputTypeDef
+class ModelPackagingConfigurationOutput(BaseValidatorModel):
+    Greengrass: GreengrassConfigurationOutput
 
 
-class ModelPackagingConfigurationTypeDef(BaseValidatorModel):
-    Greengrass: GreengrassConfigurationTypeDef
+class ModelPackagingConfiguration(BaseValidatorModel):
+    Greengrass: GreengrassConfiguration
 
 
-class CreateModelResponseTypeDef(BaseValidatorModel):
-    ModelMetadata: ModelMetadataTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateModelResponse(BaseValidatorModel):
+    ModelMetadata: ModelMetadata
+    ResponseMetadata: ResponseMetadata
 
 
-class ListModelsResponseTypeDef(BaseValidatorModel):
-    Models: List[ModelMetadataTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListModelsResponse(BaseValidatorModel):
+    Models: List[ModelMetadata]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DetectAnomaliesResponseTypeDef(BaseValidatorModel):
-    DetectAnomalyResult: DetectAnomalyResultTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DetectAnomaliesResponse(BaseValidatorModel):
+    DetectAnomalyResult: DetectAnomalyResult
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     ProjectName: str
     DatasetType: str
-    DatasetSource: Optional[DatasetSourceTypeDef] = None
+    DatasetSource: Optional[DatasetSource] = None
     ClientToken: Optional[str] = None
 
 
-class DescribeModelResponseTypeDef(BaseValidatorModel):
-    ModelDescription: ModelDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeModelResponse(BaseValidatorModel):
+    ModelDescription: ModelDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelPackagingDescriptionTypeDef(BaseValidatorModel):
+class ModelPackagingDescription(BaseValidatorModel):
     JobName: Optional[str] = None
     ProjectName: Optional[str] = None
     ModelVersion: Optional[str] = None
-    ModelPackagingConfiguration: Optional[ModelPackagingConfigurationOutputTypeDef] = None
+    ModelPackagingConfiguration: Optional[ModelPackagingConfigurationOutput] = None
     ModelPackagingJobDescription: Optional[str] = None
     ModelPackagingMethod: Optional[str] = None
-    ModelPackagingOutputDetails: Optional[ModelPackagingOutputDetailsTypeDef] = None
+    ModelPackagingOutputDetails: Optional[ModelPackagingOutputDetails] = None
     Status: Optional[ModelPackagingJobStatusType] = None
     StatusMessage: Optional[str] = None
     CreationTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
-class DescribeModelPackagingJobResponseTypeDef(BaseValidatorModel):
-    ModelPackagingDescription: ModelPackagingDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeModelPackagingJobResponse(BaseValidatorModel):
+    ModelPackagingDescription: ModelPackagingDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class ModelPackagingConfigurationUnionTypeDef(BaseValidatorModel):
+class ModelPackagingConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class StartModelPackagingJobRequestTypeDef(BaseValidatorModel):
+class StartModelPackagingJobRequest(BaseValidatorModel):
     ProjectName: str
     ModelVersion: str
-    Configuration: ModelPackagingConfigurationUnionTypeDef
+    Configuration: ModelPackagingConfigurationUnion
     JobName: Optional[str] = None
     Description: Optional[str] = None
     ClientToken: Optional[str] = None

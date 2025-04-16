@@ -12,16 +12,16 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kafka_constants import *
 
-class AmazonMskClusterTypeDef(BaseValidatorModel):
+class AmazonMskCluster(BaseValidatorModel):
     MskClusterArn: str
 
 
-class BatchAssociateScramSecretRequestTypeDef(BaseValidatorModel):
+class BatchAssociateScramSecretRequest(BaseValidatorModel):
     ClusterArn: str
     SecretArnList: Sequence[str]
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -29,59 +29,59 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class UnprocessedScramSecretTypeDef(BaseValidatorModel):
+class UnprocessedScramSecret(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorMessage: Optional[str] = None
     SecretArn: Optional[str] = None
 
 
-class BatchDisassociateScramSecretRequestTypeDef(BaseValidatorModel):
+class BatchDisassociateScramSecretRequest(BaseValidatorModel):
     ClusterArn: str
     SecretArnList: Sequence[str]
 
 
-class BrokerCountUpdateInfoTypeDef(BaseValidatorModel):
+class BrokerCountUpdateInfo(BaseValidatorModel):
     CreatedBrokerIds: Optional[List[float]] = None
     DeletedBrokerIds: Optional[List[float]] = None
 
 
-class ProvisionedThroughputTypeDef(BaseValidatorModel):
+class ProvisionedThroughput(BaseValidatorModel):
     Enabled: Optional[bool] = None
     VolumeThroughput: Optional[int] = None
 
 
-class CloudWatchLogsTypeDef(BaseValidatorModel):
+class CloudWatchLogs(BaseValidatorModel):
     Enabled: bool
     LogGroup: Optional[str] = None
 
 
-class FirehoseTypeDef(BaseValidatorModel):
+class Firehose(BaseValidatorModel):
     Enabled: bool
     DeliveryStream: Optional[str] = None
 
 
-class S3TypeDef(BaseValidatorModel):
+class S3(BaseValidatorModel):
     Enabled: bool
     Bucket: Optional[str] = None
     Prefix: Optional[str] = None
 
 
-class BrokerSoftwareInfoTypeDef(BaseValidatorModel):
+class BrokerSoftwareInfo(BaseValidatorModel):
     ConfigurationArn: Optional[str] = None
     ConfigurationRevision: Optional[int] = None
     KafkaVersion: Optional[str] = None
 
 
-class TlsOutputTypeDef(BaseValidatorModel):
+class TlsOutput(BaseValidatorModel):
     CertificateAuthorityArnList: Optional[List[str]] = None
     Enabled: Optional[bool] = None
 
 
-class UnauthenticatedTypeDef(BaseValidatorModel):
+class Unauthenticated(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class ClientVpcConnectionTypeDef(BaseValidatorModel):
+class ClientVpcConnection(BaseValidatorModel):
     VpcConnectionArn: str
     Authentication: Optional[str] = None
     CreationTime: Optional[datetime] = None
@@ -89,21 +89,21 @@ class ClientVpcConnectionTypeDef(BaseValidatorModel):
     Owner: Optional[str] = None
 
 
-class StateInfoTypeDef(BaseValidatorModel):
+class StateInfo(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class ErrorInfoTypeDef(BaseValidatorModel):
+class ErrorInfo(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     ErrorString: Optional[str] = None
 
 
-class ClusterOperationStepInfoTypeDef(BaseValidatorModel):
+class ClusterOperationStepInfo(BaseValidatorModel):
     StepStatus: Optional[str] = None
 
 
-class ClusterOperationV2SummaryTypeDef(BaseValidatorModel):
+class ClusterOperationV2Summary(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     ClusterType: Optional[ClusterTypeType] = None
     StartTime: Optional[datetime] = None
@@ -113,48 +113,48 @@ class ClusterOperationV2SummaryTypeDef(BaseValidatorModel):
     OperationType: Optional[str] = None
 
 
-class CompatibleKafkaVersionTypeDef(BaseValidatorModel):
+class CompatibleKafkaVersion(BaseValidatorModel):
     SourceVersion: Optional[str] = None
     TargetVersions: Optional[List[str]] = None
 
 
-class ConfigurationInfoTypeDef(BaseValidatorModel):
+class ConfigurationInfo(BaseValidatorModel):
     Arn: str
     Revision: int
 
 
-class ConfigurationRevisionTypeDef(BaseValidatorModel):
+class ConfigurationRevision(BaseValidatorModel):
     CreationTime: datetime
     Revision: int
     Description: Optional[str] = None
 
 
-class ConsumerGroupReplicationOutputTypeDef(BaseValidatorModel):
+class ConsumerGroupReplicationOutput(BaseValidatorModel):
     ConsumerGroupsToReplicate: List[str]
     ConsumerGroupsToExclude: Optional[List[str]] = None
     DetectAndCopyNewConsumerGroups: Optional[bool] = None
     SynchroniseConsumerGroupOffsets: Optional[bool] = None
 
 
-class ConsumerGroupReplicationTypeDef(BaseValidatorModel):
+class ConsumerGroupReplication(BaseValidatorModel):
     ConsumerGroupsToReplicate: Sequence[str]
     ConsumerGroupsToExclude: Optional[Sequence[str]] = None
     DetectAndCopyNewConsumerGroups: Optional[bool] = None
     SynchroniseConsumerGroupOffsets: Optional[bool] = None
 
 
-class ConsumerGroupReplicationUpdateTypeDef(BaseValidatorModel):
+class ConsumerGroupReplicationUpdate(BaseValidatorModel):
     ConsumerGroupsToExclude: Sequence[str]
     ConsumerGroupsToReplicate: Sequence[str]
     DetectAndCopyNewConsumerGroups: bool
     SynchroniseConsumerGroupOffsets: bool
 
 
-class ControllerNodeInfoTypeDef(BaseValidatorModel):
+class ControllerNodeInfo(BaseValidatorModel):
     Endpoints: Optional[List[str]] = None
 
 
-class CreateVpcConnectionRequestTypeDef(BaseValidatorModel):
+class CreateVpcConnectionRequest(BaseValidatorModel):
     TargetClusterArn: str
     Authentication: str
     VpcId: str
@@ -163,195 +163,195 @@ class CreateVpcConnectionRequestTypeDef(BaseValidatorModel):
     Tags: Optional[Mapping[str, str]] = None
 
 
-class DeleteClusterPolicyRequestTypeDef(BaseValidatorModel):
+class DeleteClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
 
 
-class DeleteClusterRequestTypeDef(BaseValidatorModel):
+class DeleteClusterRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: Optional[str] = None
 
 
-class DeleteConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteConfigurationRequest(BaseValidatorModel):
     Arn: str
 
 
-class DeleteReplicatorRequestTypeDef(BaseValidatorModel):
+class DeleteReplicatorRequest(BaseValidatorModel):
     ReplicatorArn: str
     CurrentVersion: Optional[str] = None
 
 
-class DeleteVpcConnectionRequestTypeDef(BaseValidatorModel):
+class DeleteVpcConnectionRequest(BaseValidatorModel):
     Arn: str
 
 
-class DescribeClusterOperationRequestTypeDef(BaseValidatorModel):
+class DescribeClusterOperationRequest(BaseValidatorModel):
     ClusterOperationArn: str
 
 
-class DescribeClusterOperationV2RequestTypeDef(BaseValidatorModel):
+class DescribeClusterOperationV2Request(BaseValidatorModel):
     ClusterOperationArn: str
 
 
-class DescribeClusterRequestTypeDef(BaseValidatorModel):
+class DescribeClusterRequest(BaseValidatorModel):
     ClusterArn: str
 
 
-class DescribeClusterV2RequestTypeDef(BaseValidatorModel):
+class DescribeClusterV2Request(BaseValidatorModel):
     ClusterArn: str
 
 
-class DescribeConfigurationRequestTypeDef(BaseValidatorModel):
+class DescribeConfigurationRequest(BaseValidatorModel):
     Arn: str
 
 
-class DescribeConfigurationRevisionRequestTypeDef(BaseValidatorModel):
+class DescribeConfigurationRevisionRequest(BaseValidatorModel):
     Arn: str
     Revision: int
 
 
-class DescribeReplicatorRequestTypeDef(BaseValidatorModel):
+class DescribeReplicatorRequest(BaseValidatorModel):
     ReplicatorArn: str
 
 
-class ReplicationStateInfoTypeDef(BaseValidatorModel):
+class ReplicationStateInfo(BaseValidatorModel):
     Code: Optional[str] = None
     Message: Optional[str] = None
 
 
-class DescribeVpcConnectionRequestTypeDef(BaseValidatorModel):
+class DescribeVpcConnectionRequest(BaseValidatorModel):
     Arn: str
 
 
-class EncryptionAtRestTypeDef(BaseValidatorModel):
+class EncryptionAtRest(BaseValidatorModel):
     DataVolumeKMSKeyId: str
 
 
-class EncryptionInTransitTypeDef(BaseValidatorModel):
+class EncryptionInTransit(BaseValidatorModel):
     ClientBroker: Optional[ClientBrokerType] = None
     InCluster: Optional[bool] = None
 
 
-class GetBootstrapBrokersRequestTypeDef(BaseValidatorModel):
+class GetBootstrapBrokersRequest(BaseValidatorModel):
     ClusterArn: str
 
 
-class GetClusterPolicyRequestTypeDef(BaseValidatorModel):
+class GetClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
 
 
-class GetCompatibleKafkaVersionsRequestTypeDef(BaseValidatorModel):
+class GetCompatibleKafkaVersionsRequest(BaseValidatorModel):
     ClusterArn: Optional[str] = None
 
 
-class IamTypeDef(BaseValidatorModel):
+class Iam(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class JmxExporterInfoTypeDef(BaseValidatorModel):
+class JmxExporterInfo(BaseValidatorModel):
     EnabledInBroker: bool
 
 
-class JmxExporterTypeDef(BaseValidatorModel):
+class JmxExporter(BaseValidatorModel):
     EnabledInBroker: bool
 
 
-class KafkaClusterClientVpcConfigOutputTypeDef(BaseValidatorModel):
+class KafkaClusterClientVpcConfigOutput(BaseValidatorModel):
     SubnetIds: List[str]
     SecurityGroupIds: Optional[List[str]] = None
 
 
-class KafkaClusterClientVpcConfigTypeDef(BaseValidatorModel):
+class KafkaClusterClientVpcConfig(BaseValidatorModel):
     SubnetIds: Sequence[str]
     SecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class KafkaVersionTypeDef(BaseValidatorModel):
+class KafkaVersion(BaseValidatorModel):
     Version: Optional[str] = None
     Status: Optional[KafkaVersionStatusType] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListClientVpcConnectionsRequestTypeDef(BaseValidatorModel):
+class ListClientVpcConnectionsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListClusterOperationsRequestTypeDef(BaseValidatorModel):
+class ListClusterOperationsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListClusterOperationsV2RequestTypeDef(BaseValidatorModel):
+class ListClusterOperationsV2Request(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListClustersRequestTypeDef(BaseValidatorModel):
+class ListClustersRequest(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListClustersV2RequestTypeDef(BaseValidatorModel):
+class ListClustersV2Request(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
     ClusterTypeFilter: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListConfigurationRevisionsRequestTypeDef(BaseValidatorModel):
+class ListConfigurationRevisionsRequest(BaseValidatorModel):
     Arn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListConfigurationsRequestTypeDef(BaseValidatorModel):
+class ListConfigurationsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListKafkaVersionsRequestTypeDef(BaseValidatorModel):
+class ListKafkaVersionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListNodesRequestTypeDef(BaseValidatorModel):
+class ListNodesRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListReplicatorsRequestTypeDef(BaseValidatorModel):
+class ListReplicatorsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     ReplicatorNameFilter: Optional[str] = None
 
 
-class ListScramSecretsRequestTypeDef(BaseValidatorModel):
+class ListScramSecretsRequest(BaseValidatorModel):
     ClusterArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceArn: str
 
 
-class ListVpcConnectionsRequestTypeDef(BaseValidatorModel):
+class ListVpcConnectionsRequest(BaseValidatorModel):
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class VpcConnectionTypeDef(BaseValidatorModel):
+class VpcConnection(BaseValidatorModel):
     VpcConnectionArn: str
     TargetClusterArn: str
     CreationTime: Optional[datetime] = None
@@ -360,15 +360,15 @@ class VpcConnectionTypeDef(BaseValidatorModel):
     State: Optional[VpcConnectionStateType] = None
 
 
-class NodeExporterInfoTypeDef(BaseValidatorModel):
+class NodeExporterInfo(BaseValidatorModel):
     EnabledInBroker: bool
 
 
-class NodeExporterTypeDef(BaseValidatorModel):
+class NodeExporter(BaseValidatorModel):
     EnabledInBroker: bool
 
 
-class ZookeeperNodeInfoTypeDef(BaseValidatorModel):
+class ZookeeperNodeInfo(BaseValidatorModel):
     AttachedENIId: Optional[str] = None
     ClientVpcIpAddress: Optional[str] = None
     Endpoints: Optional[List[str]] = None
@@ -376,47 +376,47 @@ class ZookeeperNodeInfoTypeDef(BaseValidatorModel):
     ZookeeperVersion: Optional[str] = None
 
 
-class PutClusterPolicyRequestTypeDef(BaseValidatorModel):
+class PutClusterPolicyRequest(BaseValidatorModel):
     ClusterArn: str
     Policy: str
     CurrentVersion: Optional[str] = None
 
 
-class RebootBrokerRequestTypeDef(BaseValidatorModel):
+class RebootBrokerRequest(BaseValidatorModel):
     BrokerIds: Sequence[str]
     ClusterArn: str
 
 
-class RejectClientVpcConnectionRequestTypeDef(BaseValidatorModel):
+class RejectClientVpcConnectionRequest(BaseValidatorModel):
     ClusterArn: str
     VpcConnectionArn: str
 
 
-class ReplicationInfoSummaryTypeDef(BaseValidatorModel):
+class ReplicationInfoSummary(BaseValidatorModel):
     SourceKafkaClusterAlias: Optional[str] = None
     TargetKafkaClusterAlias: Optional[str] = None
 
 
-class ScramTypeDef(BaseValidatorModel):
+class Scram(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class VpcConfigOutputTypeDef(BaseValidatorModel):
+class VpcConfigOutput(BaseValidatorModel):
     SubnetIds: List[str]
     SecurityGroupIds: Optional[List[str]] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     Tags: Mapping[str, str]
 
 
-class TlsTypeDef(BaseValidatorModel):
+class Tls(BaseValidatorModel):
     CertificateAuthorityArnList: Optional[Sequence[str]] = None
     Enabled: Optional[bool] = None
 
 
-class TopicReplicationUpdateTypeDef(BaseValidatorModel):
+class TopicReplicationUpdate(BaseValidatorModel):
     CopyAccessControlListsForTopics: bool
     CopyTopicConfigurations: bool
     DetectAndCopyNewTopics: bool
@@ -424,68 +424,68 @@ class TopicReplicationUpdateTypeDef(BaseValidatorModel):
     TopicsToReplicate: Sequence[str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceArn: str
     TagKeys: Sequence[str]
 
 
-class UpdateBrokerCountRequestTypeDef(BaseValidatorModel):
+class UpdateBrokerCountRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
     TargetNumberOfBrokerNodes: int
 
 
-class UpdateBrokerTypeRequestTypeDef(BaseValidatorModel):
+class UpdateBrokerTypeRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
     TargetInstanceType: str
 
 
-class VpcConfigTypeDef(BaseValidatorModel):
+class VpcConfig(BaseValidatorModel):
     SubnetIds: Sequence[str]
     SecurityGroupIds: Optional[Sequence[str]] = None
 
 
-class VpcConnectivityTlsTypeDef(BaseValidatorModel):
+class VpcConnectivityTls(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class VpcConnectivityIamTypeDef(BaseValidatorModel):
+class VpcConnectivityIam(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class VpcConnectivityScramTypeDef(BaseValidatorModel):
+class VpcConnectivityScram(BaseValidatorModel):
     Enabled: Optional[bool] = None
 
 
-class KafkaClusterSummaryTypeDef(BaseValidatorModel):
-    AmazonMskCluster: Optional[AmazonMskClusterTypeDef] = None
+class KafkaClusterSummary(BaseValidatorModel):
+    AmazonMskCluster: Optional[AmazonMskCluster] = None
     KafkaClusterAlias: Optional[str] = None
 
 
-class CreateClusterResponseTypeDef(BaseValidatorModel):
+class CreateClusterResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
     State: ClusterStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterV2ResponseTypeDef(BaseValidatorModel):
+class CreateClusterV2Response(BaseValidatorModel):
     ClusterArn: str
     ClusterName: str
     State: ClusterStateType
     ClusterType: ClusterTypeType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateReplicatorResponseTypeDef(BaseValidatorModel):
+class CreateReplicatorResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorName: str
     ReplicatorState: ReplicatorStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateVpcConnectionResponseTypeDef(BaseValidatorModel):
+class CreateVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     State: VpcConnectionStateType
     Authentication: str
@@ -494,43 +494,43 @@ class CreateVpcConnectionResponseTypeDef(BaseValidatorModel):
     SecurityGroups: List[str]
     CreationTime: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterResponseTypeDef(BaseValidatorModel):
+class DeleteClusterResponse(BaseValidatorModel):
     ClusterArn: str
     State: ClusterStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteConfigurationResponse(BaseValidatorModel):
     Arn: str
     State: ConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteReplicatorResponseTypeDef(BaseValidatorModel):
+class DeleteReplicatorResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorState: ReplicatorStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteVpcConnectionResponseTypeDef(BaseValidatorModel):
+class DeleteVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     State: VpcConnectionStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConfigurationRevisionResponseTypeDef(BaseValidatorModel):
+class DescribeConfigurationRevisionResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     Description: str
     Revision: int
     ServerProperties: bytes
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeVpcConnectionResponseTypeDef(BaseValidatorModel):
+class DescribeVpcConnectionResponse(BaseValidatorModel):
     VpcConnectionArn: str
     TargetClusterArn: str
     State: VpcConnectionStateType
@@ -540,14 +540,14 @@ class DescribeVpcConnectionResponseTypeDef(BaseValidatorModel):
     SecurityGroups: List[str]
     CreationTime: datetime
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetBootstrapBrokersResponseTypeDef(BaseValidatorModel):
+class GetBootstrapBrokersResponse(BaseValidatorModel):
     BootstrapBrokerString: str
     BootstrapBrokerStringTls: str
     BootstrapBrokerStringSaslScram: str
@@ -558,651 +558,651 @@ class GetBootstrapBrokersResponseTypeDef(BaseValidatorModel):
     BootstrapBrokerStringVpcConnectivityTls: str
     BootstrapBrokerStringVpcConnectivitySaslScram: str
     BootstrapBrokerStringVpcConnectivitySaslIam: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetClusterPolicyResponseTypeDef(BaseValidatorModel):
+class GetClusterPolicyResponse(BaseValidatorModel):
     CurrentVersion: str
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListScramSecretsResponseTypeDef(BaseValidatorModel):
+class ListScramSecretsResponse(BaseValidatorModel):
     SecretArnList: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutClusterPolicyResponseTypeDef(BaseValidatorModel):
+class PutClusterPolicyResponse(BaseValidatorModel):
     CurrentVersion: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RebootBrokerResponseTypeDef(BaseValidatorModel):
+class RebootBrokerResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrokerCountResponseTypeDef(BaseValidatorModel):
+class UpdateBrokerCountResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrokerStorageResponseTypeDef(BaseValidatorModel):
+class UpdateBrokerStorageResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateBrokerTypeResponseTypeDef(BaseValidatorModel):
+class UpdateBrokerTypeResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateClusterConfigurationResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterKafkaVersionResponseTypeDef(BaseValidatorModel):
+class UpdateClusterKafkaVersionResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateConnectivityResponseTypeDef(BaseValidatorModel):
+class UpdateConnectivityResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateMonitoringResponseTypeDef(BaseValidatorModel):
+class UpdateMonitoringResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateReplicationInfoResponseTypeDef(BaseValidatorModel):
+class UpdateReplicationInfoResponse(BaseValidatorModel):
     ReplicatorArn: str
     ReplicatorState: ReplicatorStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSecurityResponseTypeDef(BaseValidatorModel):
+class UpdateSecurityResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateStorageResponseTypeDef(BaseValidatorModel):
+class UpdateStorageResponse(BaseValidatorModel):
     ClusterArn: str
     ClusterOperationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchAssociateScramSecretResponseTypeDef(BaseValidatorModel):
+class BatchAssociateScramSecretResponse(BaseValidatorModel):
     ClusterArn: str
-    UnprocessedScramSecrets: List[UnprocessedScramSecretTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    UnprocessedScramSecrets: List[UnprocessedScramSecret]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchDisassociateScramSecretResponseTypeDef(BaseValidatorModel):
+class BatchDisassociateScramSecretResponse(BaseValidatorModel):
     ClusterArn: str
-    UnprocessedScramSecrets: List[UnprocessedScramSecretTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    UnprocessedScramSecrets: List[UnprocessedScramSecret]
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CreateConfigurationRequestTypeDef(BaseValidatorModel):
+class CreateConfigurationRequest(BaseValidatorModel):
     Name: str
-    ServerProperties: BlobTypeDef
+    ServerProperties: Blob
     Description: Optional[str] = None
     KafkaVersions: Optional[Sequence[str]] = None
 
 
-class UpdateConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateConfigurationRequest(BaseValidatorModel):
     Arn: str
-    ServerProperties: BlobTypeDef
+    ServerProperties: Blob
     Description: Optional[str] = None
 
 
-class BrokerEBSVolumeInfoTypeDef(BaseValidatorModel):
+class BrokerEBSVolumeInfo(BaseValidatorModel):
     KafkaBrokerNodeId: str
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
     VolumeSizeGB: Optional[int] = None
 
 
-class EBSStorageInfoTypeDef(BaseValidatorModel):
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
+class EBSStorageInfo(BaseValidatorModel):
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
     VolumeSize: Optional[int] = None
 
 
-class UpdateStorageRequestTypeDef(BaseValidatorModel):
+class UpdateStorageRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
-    ProvisionedThroughput: Optional[ProvisionedThroughputTypeDef] = None
+    ProvisionedThroughput: Optional[ProvisionedThroughput] = None
     StorageMode: Optional[StorageModeType] = None
     VolumeSizeGB: Optional[int] = None
 
 
-class BrokerLogsTypeDef(BaseValidatorModel):
-    CloudWatchLogs: Optional[CloudWatchLogsTypeDef] = None
-    Firehose: Optional[FirehoseTypeDef] = None
-    S3: Optional[S3TypeDef] = None
+class BrokerLogs(BaseValidatorModel):
+    CloudWatchLogs: Optional[CloudWatchLogs] = None
+    Firehose: Optional[Firehose] = None
+    S3: Optional[S3] = None
 
 
-class BrokerNodeInfoTypeDef(BaseValidatorModel):
+class BrokerNodeInfo(BaseValidatorModel):
     AttachedENIId: Optional[str] = None
     BrokerId: Optional[float] = None
     ClientSubnet: Optional[str] = None
     ClientVpcIpAddress: Optional[str] = None
-    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfoTypeDef] = None
+    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfo] = None
     Endpoints: Optional[List[str]] = None
 
 
-class ListClientVpcConnectionsResponseTypeDef(BaseValidatorModel):
-    ClientVpcConnections: List[ClientVpcConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClientVpcConnectionsResponse(BaseValidatorModel):
+    ClientVpcConnections: List[ClientVpcConnection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClusterOperationStepTypeDef(BaseValidatorModel):
-    StepInfo: Optional[ClusterOperationStepInfoTypeDef] = None
+class ClusterOperationStep(BaseValidatorModel):
+    StepInfo: Optional[ClusterOperationStepInfo] = None
     StepName: Optional[str] = None
 
 
-class ListClusterOperationsV2ResponseTypeDef(BaseValidatorModel):
-    ClusterOperationInfoList: List[ClusterOperationV2SummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClusterOperationsV2Response(BaseValidatorModel):
+    ClusterOperationInfoList: List[ClusterOperationV2Summary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetCompatibleKafkaVersionsResponseTypeDef(BaseValidatorModel):
-    CompatibleKafkaVersions: List[CompatibleKafkaVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCompatibleKafkaVersionsResponse(BaseValidatorModel):
+    CompatibleKafkaVersions: List[CompatibleKafkaVersion]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateClusterConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateClusterConfigurationRequest(BaseValidatorModel):
     ClusterArn: str
-    ConfigurationInfo: ConfigurationInfoTypeDef
+    ConfigurationInfo: ConfigurationInfo
     CurrentVersion: str
 
 
-class UpdateClusterKafkaVersionRequestTypeDef(BaseValidatorModel):
+class UpdateClusterKafkaVersionRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
     TargetKafkaVersion: str
-    ConfigurationInfo: Optional[ConfigurationInfoTypeDef] = None
+    ConfigurationInfo: Optional[ConfigurationInfo] = None
 
 
-class ConfigurationTypeDef(BaseValidatorModel):
+class Configuration(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     Description: str
     KafkaVersions: List[str]
-    LatestRevision: ConfigurationRevisionTypeDef
+    LatestRevision: ConfigurationRevision
     Name: str
     State: ConfigurationStateType
 
 
-class CreateConfigurationResponseTypeDef(BaseValidatorModel):
+class CreateConfigurationResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
-    LatestRevision: ConfigurationRevisionTypeDef
+    LatestRevision: ConfigurationRevision
     Name: str
     State: ConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeConfigurationResponseTypeDef(BaseValidatorModel):
+class DescribeConfigurationResponse(BaseValidatorModel):
     Arn: str
     CreationTime: datetime
     Description: str
     KafkaVersions: List[str]
-    LatestRevision: ConfigurationRevisionTypeDef
+    LatestRevision: ConfigurationRevision
     Name: str
     State: ConfigurationStateType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListConfigurationRevisionsResponseTypeDef(BaseValidatorModel):
-    Revisions: List[ConfigurationRevisionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationRevisionsResponse(BaseValidatorModel):
+    Revisions: List[ConfigurationRevision]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class UpdateConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateConfigurationResponse(BaseValidatorModel):
     Arn: str
-    LatestRevision: ConfigurationRevisionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    LatestRevision: ConfigurationRevision
+    ResponseMetadata: ResponseMetadata
 
 
-class EncryptionInfoTypeDef(BaseValidatorModel):
-    EncryptionAtRest: Optional[EncryptionAtRestTypeDef] = None
-    EncryptionInTransit: Optional[EncryptionInTransitTypeDef] = None
+class EncryptionInfo(BaseValidatorModel):
+    EncryptionAtRest: Optional[EncryptionAtRest] = None
+    EncryptionInTransit: Optional[EncryptionInTransit] = None
 
 
-class ServerlessSaslTypeDef(BaseValidatorModel):
-    Iam: Optional[IamTypeDef] = None
+class ServerlessSasl(BaseValidatorModel):
+    Iam: Optional[Iam] = None
 
 
-class KafkaClusterDescriptionTypeDef(BaseValidatorModel):
-    AmazonMskCluster: Optional[AmazonMskClusterTypeDef] = None
+class KafkaClusterDescription(BaseValidatorModel):
+    AmazonMskCluster: Optional[AmazonMskCluster] = None
     KafkaClusterAlias: Optional[str] = None
-    VpcConfig: Optional[KafkaClusterClientVpcConfigOutputTypeDef] = None
+    VpcConfig: Optional[KafkaClusterClientVpcConfigOutput] = None
 
 
-class ListKafkaVersionsResponseTypeDef(BaseValidatorModel):
-    KafkaVersions: List[KafkaVersionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListKafkaVersionsResponse(BaseValidatorModel):
+    KafkaVersions: List[KafkaVersion]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListClientVpcConnectionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListClientVpcConnectionsRequestPaginate(BaseValidatorModel):
     ClusterArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClusterOperationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListClusterOperationsRequestPaginate(BaseValidatorModel):
     ClusterArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClusterOperationsV2RequestPaginateTypeDef(BaseValidatorModel):
+class ListClusterOperationsV2RequestPaginate(BaseValidatorModel):
     ClusterArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersRequestPaginateTypeDef(BaseValidatorModel):
+class ListClustersRequestPaginate(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListClustersV2RequestPaginateTypeDef(BaseValidatorModel):
+class ListClustersV2RequestPaginate(BaseValidatorModel):
     ClusterNameFilter: Optional[str] = None
     ClusterTypeFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationRevisionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConfigurationRevisionsRequestPaginate(BaseValidatorModel):
     Arn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConfigurationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListConfigurationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListKafkaVersionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListKafkaVersionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListNodesRequestPaginateTypeDef(BaseValidatorModel):
+class ListNodesRequestPaginate(BaseValidatorModel):
     ClusterArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListReplicatorsRequestPaginateTypeDef(BaseValidatorModel):
+class ListReplicatorsRequestPaginate(BaseValidatorModel):
     ReplicatorNameFilter: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListScramSecretsRequestPaginateTypeDef(BaseValidatorModel):
+class ListScramSecretsRequestPaginate(BaseValidatorModel):
     ClusterArn: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListVpcConnectionsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListVpcConnectionsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListVpcConnectionsResponseTypeDef(BaseValidatorModel):
-    VpcConnections: List[VpcConnectionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListVpcConnectionsResponse(BaseValidatorModel):
+    VpcConnections: List[VpcConnection]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PrometheusInfoTypeDef(BaseValidatorModel):
-    JmxExporter: Optional[JmxExporterInfoTypeDef] = None
-    NodeExporter: Optional[NodeExporterInfoTypeDef] = None
+class PrometheusInfo(BaseValidatorModel):
+    JmxExporter: Optional[JmxExporterInfo] = None
+    NodeExporter: Optional[NodeExporterInfo] = None
 
 
-class PrometheusTypeDef(BaseValidatorModel):
-    JmxExporter: Optional[JmxExporterTypeDef] = None
-    NodeExporter: Optional[NodeExporterTypeDef] = None
+class Prometheus(BaseValidatorModel):
+    JmxExporter: Optional[JmxExporter] = None
+    NodeExporter: Optional[NodeExporter] = None
 
 
-class ReplicationStartingPositionTypeDef(BaseValidatorModel):
+class ReplicationStartingPosition(BaseValidatorModel):
     pass
 
 
-class ReplicationTopicNameConfigurationTypeDef(BaseValidatorModel):
+class ReplicationTopicNameConfiguration(BaseValidatorModel):
     pass
 
 
-class TopicReplicationOutputTypeDef(BaseValidatorModel):
+class TopicReplicationOutput(BaseValidatorModel):
     TopicsToReplicate: List[str]
     CopyAccessControlListsForTopics: Optional[bool] = None
     CopyTopicConfigurations: Optional[bool] = None
     DetectAndCopyNewTopics: Optional[bool] = None
-    StartingPosition: Optional[ReplicationStartingPositionTypeDef] = None
-    TopicNameConfiguration: Optional[ReplicationTopicNameConfigurationTypeDef] = None
+    StartingPosition: Optional[ReplicationStartingPosition] = None
+    TopicNameConfiguration: Optional[ReplicationTopicNameConfiguration] = None
     TopicsToExclude: Optional[List[str]] = None
 
 
-class TopicReplicationTypeDef(BaseValidatorModel):
+class TopicReplication(BaseValidatorModel):
     TopicsToReplicate: Sequence[str]
     CopyAccessControlListsForTopics: Optional[bool] = None
     CopyTopicConfigurations: Optional[bool] = None
     DetectAndCopyNewTopics: Optional[bool] = None
-    StartingPosition: Optional[ReplicationStartingPositionTypeDef] = None
-    TopicNameConfiguration: Optional[ReplicationTopicNameConfigurationTypeDef] = None
+    StartingPosition: Optional[ReplicationStartingPosition] = None
+    TopicNameConfiguration: Optional[ReplicationTopicNameConfiguration] = None
     TopicsToExclude: Optional[Sequence[str]] = None
 
 
-class SaslTypeDef(BaseValidatorModel):
-    Scram: Optional[ScramTypeDef] = None
-    Iam: Optional[IamTypeDef] = None
+class Sasl(BaseValidatorModel):
+    Scram: Optional[Scram] = None
+    Iam: Optional[Iam] = None
 
 
-class UpdateReplicationInfoRequestTypeDef(BaseValidatorModel):
+class UpdateReplicationInfoRequest(BaseValidatorModel):
     CurrentVersion: str
     ReplicatorArn: str
     SourceKafkaClusterArn: str
     TargetKafkaClusterArn: str
-    ConsumerGroupReplication: Optional[ConsumerGroupReplicationUpdateTypeDef] = None
-    TopicReplication: Optional[TopicReplicationUpdateTypeDef] = None
+    ConsumerGroupReplication: Optional[ConsumerGroupReplicationUpdate] = None
+    TopicReplication: Optional[TopicReplicationUpdate] = None
 
 
-class UserIdentityTypeDef(BaseValidatorModel):
+class UserIdentity(BaseValidatorModel):
     pass
 
 
-class VpcConnectionInfoServerlessTypeDef(BaseValidatorModel):
+class VpcConnectionInfoServerless(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     Owner: Optional[str] = None
-    UserIdentity: Optional[UserIdentityTypeDef] = None
+    UserIdentity: Optional[UserIdentity] = None
     VpcConnectionArn: Optional[str] = None
 
 
-class VpcConnectionInfoTypeDef(BaseValidatorModel):
+class VpcConnectionInfo(BaseValidatorModel):
     VpcConnectionArn: Optional[str] = None
     Owner: Optional[str] = None
-    UserIdentity: Optional[UserIdentityTypeDef] = None
+    UserIdentity: Optional[UserIdentity] = None
     CreationTime: Optional[datetime] = None
 
 
-class VpcConnectivitySaslTypeDef(BaseValidatorModel):
-    Scram: Optional[VpcConnectivityScramTypeDef] = None
-    Iam: Optional[VpcConnectivityIamTypeDef] = None
+class VpcConnectivitySasl(BaseValidatorModel):
+    Scram: Optional[VpcConnectivityScram] = None
+    Iam: Optional[VpcConnectivityIam] = None
 
 
-class ReplicatorSummaryTypeDef(BaseValidatorModel):
+class ReplicatorSummary(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     CurrentVersion: Optional[str] = None
     IsReplicatorReference: Optional[bool] = None
-    KafkaClustersSummary: Optional[List[KafkaClusterSummaryTypeDef]] = None
-    ReplicationInfoSummaryList: Optional[List[ReplicationInfoSummaryTypeDef]] = None
+    KafkaClustersSummary: Optional[List[KafkaClusterSummary]] = None
+    ReplicationInfoSummaryList: Optional[List[ReplicationInfoSummary]] = None
     ReplicatorArn: Optional[str] = None
     ReplicatorName: Optional[str] = None
     ReplicatorResourceArn: Optional[str] = None
     ReplicatorState: Optional[ReplicatorStateType] = None
 
 
-class UpdateBrokerStorageRequestTypeDef(BaseValidatorModel):
+class UpdateBrokerStorageRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
-    TargetBrokerEBSVolumeInfo: Sequence[BrokerEBSVolumeInfoTypeDef]
+    TargetBrokerEBSVolumeInfo: Sequence[BrokerEBSVolumeInfo]
 
 
-class StorageInfoTypeDef(BaseValidatorModel):
-    EbsStorageInfo: Optional[EBSStorageInfoTypeDef] = None
+class StorageInfo(BaseValidatorModel):
+    EbsStorageInfo: Optional[EBSStorageInfo] = None
 
 
-class LoggingInfoTypeDef(BaseValidatorModel):
-    BrokerLogs: BrokerLogsTypeDef
+class LoggingInfo(BaseValidatorModel):
+    BrokerLogs: BrokerLogs
 
 
-class NodeInfoTypeDef(BaseValidatorModel):
+class NodeInfo(BaseValidatorModel):
     AddedToClusterTime: Optional[str] = None
-    BrokerNodeInfo: Optional[BrokerNodeInfoTypeDef] = None
-    ControllerNodeInfo: Optional[ControllerNodeInfoTypeDef] = None
+    BrokerNodeInfo: Optional[BrokerNodeInfo] = None
+    ControllerNodeInfo: Optional[ControllerNodeInfo] = None
     InstanceType: Optional[str] = None
     NodeARN: Optional[str] = None
     NodeType: Optional[Literal["BROKER"]] = None
-    ZookeeperNodeInfo: Optional[ZookeeperNodeInfoTypeDef] = None
+    ZookeeperNodeInfo: Optional[ZookeeperNodeInfo] = None
 
 
-class ListConfigurationsResponseTypeDef(BaseValidatorModel):
-    Configurations: List[ConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConfigurationsResponse(BaseValidatorModel):
+    Configurations: List[Configuration]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ServerlessClientAuthenticationTypeDef(BaseValidatorModel):
-    Sasl: Optional[ServerlessSaslTypeDef] = None
+class ServerlessClientAuthentication(BaseValidatorModel):
+    Sasl: Optional[ServerlessSasl] = None
 
 
-class KafkaClusterClientVpcConfigUnionTypeDef(BaseValidatorModel):
+class KafkaClusterClientVpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class KafkaClusterTypeDef(BaseValidatorModel):
-    AmazonMskCluster: AmazonMskClusterTypeDef
-    VpcConfig: KafkaClusterClientVpcConfigUnionTypeDef
+class KafkaCluster(BaseValidatorModel):
+    AmazonMskCluster: AmazonMskCluster
+    VpcConfig: KafkaClusterClientVpcConfigUnion
 
 
-class OpenMonitoringInfoTypeDef(BaseValidatorModel):
-    Prometheus: PrometheusInfoTypeDef
+class OpenMonitoringInfo(BaseValidatorModel):
+    Prometheus: PrometheusInfo
 
 
-class OpenMonitoringTypeDef(BaseValidatorModel):
-    Prometheus: PrometheusTypeDef
+class OpenMonitoring(BaseValidatorModel):
+    Prometheus: Prometheus
 
 
-class ReplicationInfoDescriptionTypeDef(BaseValidatorModel):
-    ConsumerGroupReplication: Optional[ConsumerGroupReplicationOutputTypeDef] = None
+class ReplicationInfoDescription(BaseValidatorModel):
+    ConsumerGroupReplication: Optional[ConsumerGroupReplicationOutput] = None
     SourceKafkaClusterAlias: Optional[str] = None
     TargetCompressionType: Optional[TargetCompressionTypeType] = None
     TargetKafkaClusterAlias: Optional[str] = None
-    TopicReplication: Optional[TopicReplicationOutputTypeDef] = None
+    TopicReplication: Optional[TopicReplicationOutput] = None
 
 
-class ClientAuthenticationOutputTypeDef(BaseValidatorModel):
-    Sasl: Optional[SaslTypeDef] = None
-    Tls: Optional[TlsOutputTypeDef] = None
-    Unauthenticated: Optional[UnauthenticatedTypeDef] = None
+class ClientAuthenticationOutput(BaseValidatorModel):
+    Sasl: Optional[Sasl] = None
+    Tls: Optional[TlsOutput] = None
+    Unauthenticated: Optional[Unauthenticated] = None
 
 
-class TlsUnionTypeDef(BaseValidatorModel):
+class TlsUnion(BaseValidatorModel):
     pass
 
 
-class ClientAuthenticationTypeDef(BaseValidatorModel):
-    Sasl: Optional[SaslTypeDef] = None
-    Tls: Optional[TlsUnionTypeDef] = None
-    Unauthenticated: Optional[UnauthenticatedTypeDef] = None
+class ClientAuthentication(BaseValidatorModel):
+    Sasl: Optional[Sasl] = None
+    Tls: Optional[TlsUnion] = None
+    Unauthenticated: Optional[Unauthenticated] = None
 
 
-class ClusterOperationV2ServerlessTypeDef(BaseValidatorModel):
-    VpcConnectionInfo: Optional[VpcConnectionInfoServerlessTypeDef] = None
+class ClusterOperationV2Serverless(BaseValidatorModel):
+    VpcConnectionInfo: Optional[VpcConnectionInfoServerless] = None
 
 
-class VpcConnectivityClientAuthenticationTypeDef(BaseValidatorModel):
-    Sasl: Optional[VpcConnectivitySaslTypeDef] = None
-    Tls: Optional[VpcConnectivityTlsTypeDef] = None
+class VpcConnectivityClientAuthentication(BaseValidatorModel):
+    Sasl: Optional[VpcConnectivitySasl] = None
+    Tls: Optional[VpcConnectivityTls] = None
 
 
-class ListReplicatorsResponseTypeDef(BaseValidatorModel):
-    Replicators: List[ReplicatorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListReplicatorsResponse(BaseValidatorModel):
+    Replicators: List[ReplicatorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListNodesResponseTypeDef(BaseValidatorModel):
-    NodeInfoList: List[NodeInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNodesResponse(BaseValidatorModel):
+    NodeInfoList: List[NodeInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class VpcConfigUnionTypeDef(BaseValidatorModel):
+class VpcConfigUnion(BaseValidatorModel):
     pass
 
 
-class ServerlessRequestTypeDef(BaseValidatorModel):
-    VpcConfigs: Sequence[VpcConfigUnionTypeDef]
-    ClientAuthentication: Optional[ServerlessClientAuthenticationTypeDef] = None
+class ServerlessRequest(BaseValidatorModel):
+    VpcConfigs: Sequence[VpcConfigUnion]
+    ClientAuthentication: Optional[ServerlessClientAuthentication] = None
 
 
-class ServerlessTypeDef(BaseValidatorModel):
-    VpcConfigs: List[VpcConfigOutputTypeDef]
-    ClientAuthentication: Optional[ServerlessClientAuthenticationTypeDef] = None
+class Serverless(BaseValidatorModel):
+    VpcConfigs: List[VpcConfigOutput]
+    ClientAuthentication: Optional[ServerlessClientAuthentication] = None
 
 
-class UpdateMonitoringRequestTypeDef(BaseValidatorModel):
+class UpdateMonitoringRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringInfoTypeDef] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoringInfo] = None
+    LoggingInfo: Optional[LoggingInfo] = None
 
 
-class DescribeReplicatorResponseTypeDef(BaseValidatorModel):
+class DescribeReplicatorResponse(BaseValidatorModel):
     CreationTime: datetime
     CurrentVersion: str
     IsReplicatorReference: bool
-    KafkaClusters: List[KafkaClusterDescriptionTypeDef]
-    ReplicationInfoList: List[ReplicationInfoDescriptionTypeDef]
+    KafkaClusters: List[KafkaClusterDescription]
+    ReplicationInfoList: List[ReplicationInfoDescription]
     ReplicatorArn: str
     ReplicatorDescription: str
     ReplicatorName: str
     ReplicatorResourceArn: str
     ReplicatorState: ReplicatorStateType
     ServiceExecutionRoleArn: str
-    StateInfo: ReplicationStateInfoTypeDef
+    StateInfo: ReplicationStateInfo
     Tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class TopicReplicationUnionTypeDef(BaseValidatorModel):
+class TopicReplicationUnion(BaseValidatorModel):
     pass
 
 
-class ConsumerGroupReplicationUnionTypeDef(BaseValidatorModel):
+class ConsumerGroupReplicationUnion(BaseValidatorModel):
     pass
 
 
-class ReplicationInfoTypeDef(BaseValidatorModel):
-    ConsumerGroupReplication: ConsumerGroupReplicationUnionTypeDef
+class ReplicationInfo(BaseValidatorModel):
+    ConsumerGroupReplication: ConsumerGroupReplicationUnion
     SourceKafkaClusterArn: str
     TargetCompressionType: TargetCompressionTypeType
     TargetKafkaClusterArn: str
-    TopicReplication: TopicReplicationUnionTypeDef
+    TopicReplication: TopicReplicationUnion
 
 
-class VpcConnectivityTypeDef(BaseValidatorModel):
-    ClientAuthentication: Optional[VpcConnectivityClientAuthenticationTypeDef] = None
+class VpcConnectivity(BaseValidatorModel):
+    ClientAuthentication: Optional[VpcConnectivityClientAuthentication] = None
 
 
-class CreateReplicatorRequestTypeDef(BaseValidatorModel):
-    KafkaClusters: Sequence[KafkaClusterTypeDef]
-    ReplicationInfoList: Sequence[ReplicationInfoTypeDef]
+class CreateReplicatorRequest(BaseValidatorModel):
+    KafkaClusters: Sequence[KafkaCluster]
+    ReplicationInfoList: Sequence[ReplicationInfo]
     ReplicatorName: str
     ServiceExecutionRoleArn: str
     Description: Optional[str] = None
     Tags: Optional[Mapping[str, str]] = None
 
 
-class ClientAuthenticationUnionTypeDef(BaseValidatorModel):
+class ClientAuthenticationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateSecurityRequestTypeDef(BaseValidatorModel):
+class UpdateSecurityRequest(BaseValidatorModel):
     ClusterArn: str
     CurrentVersion: str
-    ClientAuthentication: Optional[ClientAuthenticationUnionTypeDef] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
+    ClientAuthentication: Optional[ClientAuthenticationUnion] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
 
 
-class PublicAccessTypeDef(BaseValidatorModel):
+class PublicAccess(BaseValidatorModel):
     pass
 
 
-class ConnectivityInfoTypeDef(BaseValidatorModel):
-    PublicAccess: Optional[PublicAccessTypeDef] = None
-    VpcConnectivity: Optional[VpcConnectivityTypeDef] = None
+class ConnectivityInfo(BaseValidatorModel):
+    PublicAccess: Optional[PublicAccess] = None
+    VpcConnectivity: Optional[VpcConnectivity] = None
 
 
-class BrokerNodeGroupInfoOutputTypeDef(BaseValidatorModel):
+class BrokerNodeGroupInfoOutput(BaseValidatorModel):
     ClientSubnets: List[str]
     InstanceType: str
     BrokerAZDistribution: Optional[Literal["DEFAULT"]] = None
     SecurityGroups: Optional[List[str]] = None
-    StorageInfo: Optional[StorageInfoTypeDef] = None
-    ConnectivityInfo: Optional[ConnectivityInfoTypeDef] = None
+    StorageInfo: Optional[StorageInfo] = None
+    ConnectivityInfo: Optional[ConnectivityInfo] = None
     ZoneIds: Optional[List[str]] = None
 
 
-class BrokerNodeGroupInfoTypeDef(BaseValidatorModel):
+class BrokerNodeGroupInfo(BaseValidatorModel):
     ClientSubnets: Sequence[str]
     InstanceType: str
     BrokerAZDistribution: Optional[Literal["DEFAULT"]] = None
     SecurityGroups: Optional[Sequence[str]] = None
-    StorageInfo: Optional[StorageInfoTypeDef] = None
-    ConnectivityInfo: Optional[ConnectivityInfoTypeDef] = None
+    StorageInfo: Optional[StorageInfo] = None
+    ConnectivityInfo: Optional[ConnectivityInfo] = None
     ZoneIds: Optional[Sequence[str]] = None
 
 
-class MutableClusterInfoTypeDef(BaseValidatorModel):
-    BrokerEBSVolumeInfo: Optional[List[BrokerEBSVolumeInfoTypeDef]] = None
-    ConfigurationInfo: Optional[ConfigurationInfoTypeDef] = None
+class MutableClusterInfo(BaseValidatorModel):
+    BrokerEBSVolumeInfo: Optional[List[BrokerEBSVolumeInfo]] = None
+    ConfigurationInfo: Optional[ConfigurationInfo] = None
     NumberOfBrokerNodes: Optional[int] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoring] = None
     KafkaVersion: Optional[str] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     InstanceType: Optional[str] = None
-    ClientAuthentication: Optional[ClientAuthenticationOutputTypeDef] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
-    ConnectivityInfo: Optional[ConnectivityInfoTypeDef] = None
+    ClientAuthentication: Optional[ClientAuthenticationOutput] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
+    ConnectivityInfo: Optional[ConnectivityInfo] = None
     StorageMode: Optional[StorageModeType] = None
-    BrokerCountUpdateInfo: Optional[BrokerCountUpdateInfoTypeDef] = None
+    BrokerCountUpdateInfo: Optional[BrokerCountUpdateInfo] = None
 
 
-class UpdateConnectivityRequestTypeDef(BaseValidatorModel):
+class UpdateConnectivityRequest(BaseValidatorModel):
     ClusterArn: str
-    ConnectivityInfo: ConnectivityInfoTypeDef
+    ConnectivityInfo: ConnectivityInfo
     CurrentVersion: str
 
 
-class ClusterInfoTypeDef(BaseValidatorModel):
+class ClusterInfo(BaseValidatorModel):
     ActiveOperationArn: Optional[str] = None
-    BrokerNodeGroupInfo: Optional[BrokerNodeGroupInfoOutputTypeDef] = None
-    ClientAuthentication: Optional[ClientAuthenticationOutputTypeDef] = None
+    BrokerNodeGroupInfo: Optional[BrokerNodeGroupInfoOutput] = None
+    ClientAuthentication: Optional[ClientAuthenticationOutput] = None
     ClusterArn: Optional[str] = None
     ClusterName: Optional[str] = None
     CreationTime: Optional[datetime] = None
-    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfoTypeDef] = None
+    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfo] = None
     CurrentVersion: Optional[str] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringTypeDef] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoring] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     NumberOfBrokerNodes: Optional[int] = None
     State: Optional[ClusterStateType] = None
-    StateInfo: Optional[StateInfoTypeDef] = None
+    StateInfo: Optional[StateInfo] = None
     Tags: Optional[Dict[str, str]] = None
     ZookeeperConnectString: Optional[str] = None
     ZookeeperConnectStringTls: Optional[str] = None
@@ -1210,55 +1210,55 @@ class ClusterInfoTypeDef(BaseValidatorModel):
     CustomerActionStatus: Optional[CustomerActionStatusType] = None
 
 
-class ProvisionedTypeDef(BaseValidatorModel):
-    BrokerNodeGroupInfo: BrokerNodeGroupInfoOutputTypeDef
+class Provisioned(BaseValidatorModel):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoOutput
     NumberOfBrokerNodes: int
-    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfoTypeDef] = None
-    ClientAuthentication: Optional[ClientAuthenticationOutputTypeDef] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
+    CurrentBrokerSoftwareInfo: Optional[BrokerSoftwareInfo] = None
+    ClientAuthentication: Optional[ClientAuthenticationOutput] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringInfoTypeDef] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoringInfo] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     ZookeeperConnectString: Optional[str] = None
     ZookeeperConnectStringTls: Optional[str] = None
     StorageMode: Optional[StorageModeType] = None
     CustomerActionStatus: Optional[CustomerActionStatusType] = None
 
 
-class ClusterOperationInfoTypeDef(BaseValidatorModel):
+class ClusterOperationInfo(BaseValidatorModel):
     ClientRequestId: Optional[str] = None
     ClusterArn: Optional[str] = None
     CreationTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    ErrorInfo: Optional[ErrorInfoTypeDef] = None
+    ErrorInfo: Optional[ErrorInfo] = None
     OperationArn: Optional[str] = None
     OperationState: Optional[str] = None
-    OperationSteps: Optional[List[ClusterOperationStepTypeDef]] = None
+    OperationSteps: Optional[List[ClusterOperationStep]] = None
     OperationType: Optional[str] = None
-    SourceClusterInfo: Optional[MutableClusterInfoTypeDef] = None
-    TargetClusterInfo: Optional[MutableClusterInfoTypeDef] = None
-    VpcConnectionInfo: Optional[VpcConnectionInfoTypeDef] = None
+    SourceClusterInfo: Optional[MutableClusterInfo] = None
+    TargetClusterInfo: Optional[MutableClusterInfo] = None
+    VpcConnectionInfo: Optional[VpcConnectionInfo] = None
 
 
-class ClusterOperationV2ProvisionedTypeDef(BaseValidatorModel):
-    OperationSteps: Optional[List[ClusterOperationStepTypeDef]] = None
-    SourceClusterInfo: Optional[MutableClusterInfoTypeDef] = None
-    TargetClusterInfo: Optional[MutableClusterInfoTypeDef] = None
-    VpcConnectionInfo: Optional[VpcConnectionInfoTypeDef] = None
+class ClusterOperationV2Provisioned(BaseValidatorModel):
+    OperationSteps: Optional[List[ClusterOperationStep]] = None
+    SourceClusterInfo: Optional[MutableClusterInfo] = None
+    TargetClusterInfo: Optional[MutableClusterInfo] = None
+    VpcConnectionInfo: Optional[VpcConnectionInfo] = None
 
 
-class DescribeClusterResponseTypeDef(BaseValidatorModel):
-    ClusterInfo: ClusterInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterResponse(BaseValidatorModel):
+    ClusterInfo: ClusterInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClustersResponseTypeDef(BaseValidatorModel):
-    ClusterInfoList: List[ClusterInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClustersResponse(BaseValidatorModel):
+    ClusterInfoList: List[ClusterInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClusterTypeDef(BaseValidatorModel):
+class Cluster(BaseValidatorModel):
     ActiveOperationArn: Optional[str] = None
     ClusterType: Optional[ClusterTypeType] = None
     ClusterArn: Optional[str] = None
@@ -1266,88 +1266,88 @@ class ClusterTypeDef(BaseValidatorModel):
     CreationTime: Optional[datetime] = None
     CurrentVersion: Optional[str] = None
     State: Optional[ClusterStateType] = None
-    StateInfo: Optional[StateInfoTypeDef] = None
+    StateInfo: Optional[StateInfo] = None
     Tags: Optional[Dict[str, str]] = None
-    Provisioned: Optional[ProvisionedTypeDef] = None
-    Serverless: Optional[ServerlessTypeDef] = None
+    Provisioned: Optional[Provisioned] = None
+    Serverless: Optional[Serverless] = None
 
 
-class BrokerNodeGroupInfoUnionTypeDef(BaseValidatorModel):
+class BrokerNodeGroupInfoUnion(BaseValidatorModel):
     pass
 
 
-class CreateClusterRequestTypeDef(BaseValidatorModel):
-    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnionTypeDef
+class CreateClusterRequest(BaseValidatorModel):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnion
     ClusterName: str
     KafkaVersion: str
     NumberOfBrokerNodes: int
-    ClientAuthentication: Optional[ClientAuthenticationUnionTypeDef] = None
-    ConfigurationInfo: Optional[ConfigurationInfoTypeDef] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
+    ClientAuthentication: Optional[ClientAuthenticationUnion] = None
+    ConfigurationInfo: Optional[ConfigurationInfo] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringInfoTypeDef] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoringInfo] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     Tags: Optional[Mapping[str, str]] = None
     StorageMode: Optional[StorageModeType] = None
 
 
-class ProvisionedRequestTypeDef(BaseValidatorModel):
-    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnionTypeDef
+class ProvisionedRequest(BaseValidatorModel):
+    BrokerNodeGroupInfo: BrokerNodeGroupInfoUnion
     KafkaVersion: str
     NumberOfBrokerNodes: int
-    ClientAuthentication: Optional[ClientAuthenticationUnionTypeDef] = None
-    ConfigurationInfo: Optional[ConfigurationInfoTypeDef] = None
-    EncryptionInfo: Optional[EncryptionInfoTypeDef] = None
+    ClientAuthentication: Optional[ClientAuthenticationUnion] = None
+    ConfigurationInfo: Optional[ConfigurationInfo] = None
+    EncryptionInfo: Optional[EncryptionInfo] = None
     EnhancedMonitoring: Optional[EnhancedMonitoringType] = None
-    OpenMonitoring: Optional[OpenMonitoringInfoTypeDef] = None
-    LoggingInfo: Optional[LoggingInfoTypeDef] = None
+    OpenMonitoring: Optional[OpenMonitoringInfo] = None
+    LoggingInfo: Optional[LoggingInfo] = None
     StorageMode: Optional[StorageModeType] = None
 
 
-class DescribeClusterOperationResponseTypeDef(BaseValidatorModel):
-    ClusterOperationInfo: ClusterOperationInfoTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterOperationResponse(BaseValidatorModel):
+    ClusterOperationInfo: ClusterOperationInfo
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClusterOperationsResponseTypeDef(BaseValidatorModel):
-    ClusterOperationInfoList: List[ClusterOperationInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClusterOperationsResponse(BaseValidatorModel):
+    ClusterOperationInfoList: List[ClusterOperationInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ClusterOperationV2TypeDef(BaseValidatorModel):
+class ClusterOperationV2(BaseValidatorModel):
     ClusterArn: Optional[str] = None
     ClusterType: Optional[ClusterTypeType] = None
     StartTime: Optional[datetime] = None
     EndTime: Optional[datetime] = None
-    ErrorInfo: Optional[ErrorInfoTypeDef] = None
+    ErrorInfo: Optional[ErrorInfo] = None
     OperationArn: Optional[str] = None
     OperationState: Optional[str] = None
     OperationType: Optional[str] = None
-    Provisioned: Optional[ClusterOperationV2ProvisionedTypeDef] = None
-    Serverless: Optional[ClusterOperationV2ServerlessTypeDef] = None
+    Provisioned: Optional[ClusterOperationV2Provisioned] = None
+    Serverless: Optional[ClusterOperationV2Serverless] = None
 
 
-class DescribeClusterV2ResponseTypeDef(BaseValidatorModel):
-    ClusterInfo: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterV2Response(BaseValidatorModel):
+    ClusterInfo: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class ListClustersV2ResponseTypeDef(BaseValidatorModel):
-    ClusterInfoList: List[ClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListClustersV2Response(BaseValidatorModel):
+    ClusterInfoList: List[Cluster]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CreateClusterV2RequestTypeDef(BaseValidatorModel):
+class CreateClusterV2Request(BaseValidatorModel):
     ClusterName: str
     Tags: Optional[Mapping[str, str]] = None
-    Provisioned: Optional[ProvisionedRequestTypeDef] = None
-    Serverless: Optional[ServerlessRequestTypeDef] = None
+    Provisioned: Optional[ProvisionedRequest] = None
+    Serverless: Optional[ServerlessRequest] = None
 
 
-class DescribeClusterOperationV2ResponseTypeDef(BaseValidatorModel):
-    ClusterOperationInfo: ClusterOperationV2TypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClusterOperationV2Response(BaseValidatorModel):
+    ClusterOperationInfo: ClusterOperationV2
+    ResponseMetadata: ResponseMetadata
 
 

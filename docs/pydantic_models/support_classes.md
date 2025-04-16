@@ -1,16 +1,16 @@
 # Support Classes
 
-# AddAttachmentsToSetRequestTypeDef
+# AddAttachmentsToSetRequest
 
 ### attachments
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.support_classes.AttachmentUnionTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.support_classes.AttachmentUnion]
 - **Required**: Yes
 
 ### attachmentSetId
 - **Type**: typing.Optional[str]
 
 
-# AddAttachmentsToSetResponseTypeDef
+# AddAttachmentsToSetResponse
 
 ### attachmentSetId
 - **Type**: <class 'str'>
@@ -21,11 +21,11 @@
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AddCommunicationToCaseRequestTypeDef
+# AddCommunicationToCaseRequest
 
 ### communicationBody
 - **Type**: <class 'str'>
@@ -41,18 +41,27 @@
 - **Type**: typing.Optional[str]
 
 
-# AddCommunicationToCaseResponseTypeDef
+# AddCommunicationToCaseResponse
 
 ### result
 - **Type**: <class 'bool'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AttachmentDetailsTypeDef
+# Attachment
+
+### fileName
+- **Type**: typing.Optional[str]
+
+### data
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.Blob]
+
+
+# AttachmentDetails
 
 ### attachmentId
 - **Type**: typing.Optional[str]
@@ -61,7 +70,7 @@
 - **Type**: typing.Optional[str]
 
 
-# AttachmentOutputTypeDef
+# AttachmentOutput
 
 ### fileName
 - **Type**: typing.Optional[str]
@@ -70,16 +79,7 @@
 - **Type**: typing.Optional[bytes]
 
 
-# AttachmentTypeDef
-
-### fileName
-- **Type**: typing.Optional[str]
-
-### data
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.BlobTypeDef]
-
-
-# AttachmentUnionTypeDef
+# AttachmentUnion
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
@@ -91,13 +91,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CaseDetailsTypeDef
+# CaseDetails
 
 ### caseId
 - **Type**: typing.Optional[str]
@@ -127,7 +127,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### recentCommunications
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.RecentCaseCommunicationsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.RecentCaseCommunications]
 
 ### ccEmailAddresses
 - **Type**: typing.Optional[typing.List[str]]
@@ -136,7 +136,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CategoryTypeDef
+# Category
 
 ### code
 - **Type**: typing.Optional[str]
@@ -145,7 +145,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CommunicationTypeDef
+# Communication
 
 ### caseId
 - **Type**: typing.Optional[str]
@@ -160,16 +160,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### attachmentSet
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.AttachmentDetailsTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.AttachmentDetails]]
 
 
-# CommunicationTypeOptionsTypeDef
+# CommunicationTypeOptions
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateCaseRequestTypeDef
+# CreateCaseRequest
 
 ### subject
 - **Type**: <class 'str'>
@@ -201,18 +201,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# CreateCaseResponseTypeDef
+# CreateCaseResponse
 
 ### caseId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DateIntervalTypeDef
+# DateInterval
 
 ### startDateTime
 - **Type**: typing.Optional[str]
@@ -221,52 +221,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeAttachmentRequestTypeDef
+# DescribeAttachmentRequest
 
 ### attachmentId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeAttachmentResponseTypeDef
+# DescribeAttachmentResponse
 
 ### attachment
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.AttachmentOutputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.AttachmentOutput'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeCasesRequestPaginateTypeDef
-
-### caseIdList
-- **Type**: typing.Optional[typing.Sequence[str]]
-
-### displayId
-- **Type**: typing.Optional[str]
-
-### afterTime
-- **Type**: typing.Optional[str]
-
-### beforeTime
-- **Type**: typing.Optional[str]
-
-### includeResolvedCases
-- **Type**: typing.Optional[bool]
-
-### language
-- **Type**: typing.Optional[str]
-
-### includeCommunications
-- **Type**: typing.Optional[bool]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfigTypeDef]
-
-
-# DescribeCasesRequestTypeDef
+# DescribeCasesRequest
 
 ### caseIdList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -296,37 +269,48 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# DescribeCasesResponseTypeDef
+# DescribeCasesRequestPaginate
+
+### caseIdList
+- **Type**: typing.Optional[typing.Sequence[str]]
+
+### displayId
+- **Type**: typing.Optional[str]
+
+### afterTime
+- **Type**: typing.Optional[str]
+
+### beforeTime
+- **Type**: typing.Optional[str]
+
+### includeResolvedCases
+- **Type**: typing.Optional[bool]
+
+### language
+- **Type**: typing.Optional[str]
+
+### includeCommunications
+- **Type**: typing.Optional[bool]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfig]
+
+
+# DescribeCasesResponse
 
 ### cases
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CaseDetailsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CaseDetails]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeCommunicationsRequestPaginateTypeDef
-
-### caseId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### beforeTime
-- **Type**: typing.Optional[str]
-
-### afterTime
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfigTypeDef]
-
-
-# DescribeCommunicationsRequestTypeDef
+# DescribeCommunicationsRequest
 
 ### caseId
 - **Type**: <class 'str'>
@@ -345,21 +329,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# DescribeCommunicationsResponseTypeDef
+# DescribeCommunicationsRequestPaginate
+
+### caseId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### beforeTime
+- **Type**: typing.Optional[str]
+
+### afterTime
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.PaginatorConfig]
+
+
+# DescribeCommunicationsResponse
 
 ### communications
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CommunicationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.Communication]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# DescribeCreateCaseOptionsRequestTypeDef
+# DescribeCreateCaseOptionsRequest
 
 ### issueType
 - **Type**: <class 'str'>
@@ -378,22 +378,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeCreateCaseOptionsResponseTypeDef
+# DescribeCreateCaseOptionsResponse
 
 ### languageAvailability
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### communicationTypes
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CommunicationTypeOptionsTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.CommunicationTypeOptions]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeServicesRequestTypeDef
+# DescribeServicesRequest
 
 ### serviceCodeList
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -402,35 +402,35 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeServicesResponseTypeDef
+# DescribeServicesResponse
 
 ### services
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.ServiceTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.Service]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSeverityLevelsRequestTypeDef
+# DescribeSeverityLevelsRequest
 
 ### language
 - **Type**: typing.Optional[str]
 
 
-# DescribeSeverityLevelsResponseTypeDef
+# DescribeSeverityLevelsResponse
 
 ### severityLevels
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.SeverityLevelTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.SeverityLevel]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeSupportedLanguagesRequestTypeDef
+# DescribeSupportedLanguagesRequest
 
 ### issueType
 - **Type**: <class 'str'>
@@ -445,36 +445,36 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DescribeSupportedLanguagesResponseTypeDef
+# DescribeSupportedLanguagesResponse
 
 ### supportedLanguages
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.SupportedLanguageTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.SupportedLanguage]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckRefreshStatusesRequestTypeDef
+# DescribeTrustedAdvisorCheckRefreshStatusesRequest
 
 ### checkIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef
+# DescribeTrustedAdvisorCheckRefreshStatusesResponse
 
 ### statuses
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckRefreshStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckRefreshStatus]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckResultRequestTypeDef
+# DescribeTrustedAdvisorCheckResultRequest
 
 ### checkId
 - **Type**: <class 'str'>
@@ -484,54 +484,54 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeTrustedAdvisorCheckResultResponseTypeDef
+# DescribeTrustedAdvisorCheckResultResponse
 
 ### result
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckSummariesRequestTypeDef
+# DescribeTrustedAdvisorCheckSummariesRequest
 
 ### checkIds
 - **Type**: typing.Sequence[str]
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorCheckSummariesResponseTypeDef
+# DescribeTrustedAdvisorCheckSummariesResponse
 
 ### summaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorChecksRequestTypeDef
+# DescribeTrustedAdvisorChecksRequest
 
 ### language
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeTrustedAdvisorChecksResponseTypeDef
+# DescribeTrustedAdvisorChecksResponse
 
 ### checks
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckDescriptionTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckDescription]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -543,40 +543,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RecentCaseCommunicationsTypeDef
+# RecentCaseCommunications
 
 ### communications
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.CommunicationTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.Communication]]
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# RefreshTrustedAdvisorCheckRequestTypeDef
+# RefreshTrustedAdvisorCheckRequest
 
 ### checkId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# RefreshTrustedAdvisorCheckResponseTypeDef
+# RefreshTrustedAdvisorCheckResponse
 
 ### status
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckRefreshStatusTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCheckRefreshStatus'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResolveCaseRequestTypeDef
+# ResolveCaseRequest
 
 ### caseId
 - **Type**: typing.Optional[str]
 
 
-# ResolveCaseResponseTypeDef
+# ResolveCaseResponse
 
 ### initialCaseStatus
 - **Type**: <class 'str'>
@@ -587,11 +587,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -613,7 +613,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ServiceTypeDef
+# Service
 
 ### code
 - **Type**: typing.Optional[str]
@@ -622,10 +622,10 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### categories
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.CategoryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.support_classes.Category]]
 
 
-# SeverityLevelTypeDef
+# SeverityLevel
 
 ### code
 - **Type**: typing.Optional[str]
@@ -634,7 +634,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SupportedHourTypeDef
+# SupportedHour
 
 ### startTime
 - **Type**: typing.Optional[str]
@@ -643,7 +643,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SupportedLanguageTypeDef
+# SupportedLanguage
 
 ### code
 - **Type**: typing.Optional[str]
@@ -655,19 +655,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TrustedAdvisorCategorySpecificSummaryTypeDef
+# TrustedAdvisorCategorySpecificSummary
 
 ### costOptimizing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCostOptimizingSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCostOptimizingSummary]
 
 
-# TrustedAdvisorCheckDescriptionTypeDef
+# TrustedAdvisorCheckDescription
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# TrustedAdvisorCheckRefreshStatusTypeDef
+# TrustedAdvisorCheckRefreshStatus
 
 ### checkId
 - **Type**: <class 'str'>
@@ -682,7 +682,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrustedAdvisorCheckResultTypeDef
+# TrustedAdvisorCheckResult
 
 ### checkId
 - **Type**: <class 'str'>
@@ -697,19 +697,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourcesSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourcesSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourcesSummary'>
 - **Required**: Yes
 
 ### categorySpecificSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCategorySpecificSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCategorySpecificSummary'>
 - **Required**: Yes
 
 ### flaggedResources
-- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourceDetailTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourceDetail]
 - **Required**: Yes
 
 
-# TrustedAdvisorCheckSummaryTypeDef
+# TrustedAdvisorCheckSummary
 
 ### checkId
 - **Type**: <class 'str'>
@@ -724,18 +724,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### resourcesSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourcesSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorResourcesSummary'>
 - **Required**: Yes
 
 ### categorySpecificSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCategorySpecificSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.support_classes.TrustedAdvisorCategorySpecificSummary'>
 - **Required**: Yes
 
 ### hasFlaggedResources
 - **Type**: typing.Optional[bool]
 
 
-# TrustedAdvisorCostOptimizingSummaryTypeDef
+# TrustedAdvisorCostOptimizingSummary
 
 ### estimatedMonthlySavings
 - **Type**: <class 'float'>
@@ -746,7 +746,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# TrustedAdvisorResourceDetailTypeDef
+# TrustedAdvisorResourceDetail
 
 ### status
 - **Type**: <class 'str'>
@@ -767,7 +767,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# TrustedAdvisorResourcesSummaryTypeDef
+# TrustedAdvisorResourcesSummary
 
 ### resourcesProcessed
 - **Type**: <class 'int'>

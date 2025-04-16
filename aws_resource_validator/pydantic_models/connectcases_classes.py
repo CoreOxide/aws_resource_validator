@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.connectcases_constants import *
 
-class AuditEventFieldValueUnionTypeDef(BaseValidatorModel):
+class AuditEventFieldValueUnion(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     emptyValue: Optional[Dict[str, Any]] = None
@@ -20,11 +20,11 @@ class AuditEventFieldValueUnionTypeDef(BaseValidatorModel):
     userArnValue: Optional[str] = None
 
 
-class UserUnionTypeDef(BaseValidatorModel):
+class UserUnion(BaseValidatorModel):
     userArn: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -32,37 +32,37 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class FieldOptionTypeDef(BaseValidatorModel):
+class FieldOption(BaseValidatorModel):
     active: bool
     name: str
     value: str
 
 
-class FieldOptionErrorTypeDef(BaseValidatorModel):
+class FieldOptionError(BaseValidatorModel):
     errorCode: str
     message: str
     value: str
 
 
-class OperandOneTypeDef(BaseValidatorModel):
+class OperandOne(BaseValidatorModel):
     fieldId: Optional[str] = None
 
 
-class OperandTwoOutputTypeDef(BaseValidatorModel):
+class OperandTwoOutput(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     emptyValue: Optional[Dict[str, Any]] = None
     stringValue: Optional[str] = None
 
 
-class OperandTwoTypeDef(BaseValidatorModel):
+class OperandTwo(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     emptyValue: Optional[Mapping[str, Any]] = None
     stringValue: Optional[str] = None
 
 
-class CaseRuleSummaryTypeDef(BaseValidatorModel):
+class CaseRuleSummary(BaseValidatorModel):
     caseRuleArn: str
     caseRuleId: str
     name: str
@@ -70,83 +70,83 @@ class CaseRuleSummaryTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class CaseSummaryTypeDef(BaseValidatorModel):
+class CaseSummary(BaseValidatorModel):
     caseId: str
     templateId: str
 
 
-class CommentContentTypeDef(BaseValidatorModel):
+class CommentContent(BaseValidatorModel):
     body: str
     contentType: Literal["Text/Plain"]
 
 
-class ContactContentTypeDef(BaseValidatorModel):
+class ContactContent(BaseValidatorModel):
     channel: str
     connectedToSystemTime: datetime
     contactArn: str
 
 
-class ContactFilterTypeDef(BaseValidatorModel):
+class ContactFilter(BaseValidatorModel):
     channel: Optional[Sequence[str]] = None
     contactArn: Optional[str] = None
 
 
-class ContactTypeDef(BaseValidatorModel):
+class Contact(BaseValidatorModel):
     contactArn: str
 
 
-class CreateDomainRequestTypeDef(BaseValidatorModel):
+class CreateDomainRequest(BaseValidatorModel):
     name: str
 
 
-class LayoutConfigurationTypeDef(BaseValidatorModel):
+class LayoutConfiguration(BaseValidatorModel):
     defaultLayout: Optional[str] = None
 
 
-class RequiredFieldTypeDef(BaseValidatorModel):
+class RequiredField(BaseValidatorModel):
     fieldId: str
 
 
-class TemplateRuleTypeDef(BaseValidatorModel):
+class TemplateRule(BaseValidatorModel):
     caseRuleId: str
     fieldId: str
 
 
-class DeleteCaseRuleRequestTypeDef(BaseValidatorModel):
+class DeleteCaseRuleRequest(BaseValidatorModel):
     caseRuleId: str
     domainId: str
 
 
-class DeleteDomainRequestTypeDef(BaseValidatorModel):
+class DeleteDomainRequest(BaseValidatorModel):
     domainId: str
 
 
-class DeleteFieldRequestTypeDef(BaseValidatorModel):
+class DeleteFieldRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
 
 
-class DeleteLayoutRequestTypeDef(BaseValidatorModel):
+class DeleteLayoutRequest(BaseValidatorModel):
     domainId: str
     layoutId: str
 
 
-class DeleteTemplateRequestTypeDef(BaseValidatorModel):
+class DeleteTemplateRequest(BaseValidatorModel):
     domainId: str
     templateId: str
 
 
-class DomainSummaryTypeDef(BaseValidatorModel):
+class DomainSummary(BaseValidatorModel):
     domainArn: str
     domainId: str
     name: str
 
 
-class RelatedItemEventIncludedDataTypeDef(BaseValidatorModel):
+class RelatedItemEventIncludedData(BaseValidatorModel):
     includeContent: bool
 
 
-class FieldValueUnionOutputTypeDef(BaseValidatorModel):
+class FieldValueUnionOutput(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     emptyValue: Optional[Dict[str, Any]] = None
@@ -154,7 +154,7 @@ class FieldValueUnionOutputTypeDef(BaseValidatorModel):
     userArnValue: Optional[str] = None
 
 
-class FieldValueUnionTypeDef(BaseValidatorModel):
+class FieldValueUnion(BaseValidatorModel):
     booleanValue: Optional[bool] = None
     doubleValue: Optional[float] = None
     emptyValue: Optional[Mapping[str, Any]] = None
@@ -162,70 +162,70 @@ class FieldValueUnionTypeDef(BaseValidatorModel):
     userArnValue: Optional[str] = None
 
 
-class FileContentTypeDef(BaseValidatorModel):
+class FileContent(BaseValidatorModel):
     fileArn: str
 
 
-class FileFilterTypeDef(BaseValidatorModel):
+class FileFilter(BaseValidatorModel):
     fileArn: Optional[str] = None
 
 
-class GetCaseAuditEventsRequestTypeDef(BaseValidatorModel):
+class GetCaseAuditEventsRequest(BaseValidatorModel):
     caseId: str
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class GetCaseEventConfigurationRequestTypeDef(BaseValidatorModel):
+class GetCaseEventConfigurationRequest(BaseValidatorModel):
     domainId: str
 
 
-class GetDomainRequestTypeDef(BaseValidatorModel):
+class GetDomainRequest(BaseValidatorModel):
     domainId: str
 
 
-class GetLayoutRequestTypeDef(BaseValidatorModel):
+class GetLayoutRequest(BaseValidatorModel):
     domainId: str
     layoutId: str
 
 
-class GetTemplateRequestTypeDef(BaseValidatorModel):
+class GetTemplateRequest(BaseValidatorModel):
     domainId: str
     templateId: str
 
 
-class LayoutSummaryTypeDef(BaseValidatorModel):
+class LayoutSummary(BaseValidatorModel):
     layoutArn: str
     layoutId: str
     name: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListCaseRulesRequestTypeDef(BaseValidatorModel):
+class ListCaseRulesRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListCasesForContactRequestTypeDef(BaseValidatorModel):
+class ListCasesForContactRequest(BaseValidatorModel):
     contactArn: str
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDomainsRequestTypeDef(BaseValidatorModel):
+class ListDomainsRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListFieldOptionsRequestTypeDef(BaseValidatorModel):
+class ListFieldOptionsRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
     maxResults: Optional[int] = None
@@ -233,502 +233,502 @@ class ListFieldOptionsRequestTypeDef(BaseValidatorModel):
     values: Optional[Sequence[str]] = None
 
 
-class ListFieldsRequestTypeDef(BaseValidatorModel):
+class ListFieldsRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListLayoutsRequestTypeDef(BaseValidatorModel):
+class ListLayoutsRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     arn: str
 
 
-class ListTemplatesRequestTypeDef(BaseValidatorModel):
+class ListTemplatesRequest(BaseValidatorModel):
     domainId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[Sequence[TemplateStatusType]] = None
 
 
-class TemplateSummaryTypeDef(BaseValidatorModel):
+class TemplateSummary(BaseValidatorModel):
     name: str
     status: TemplateStatusType
     templateArn: str
     templateId: str
 
 
-class SortTypeDef(BaseValidatorModel):
+class Sort(BaseValidatorModel):
     fieldId: str
     sortOrder: OrderType
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     arn: str
     tags: Mapping[str, str]
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     arn: str
     tagKeys: Sequence[str]
 
 
-class UpdateFieldRequestTypeDef(BaseValidatorModel):
+class UpdateFieldRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class AuditEventFieldTypeDef(BaseValidatorModel):
+class AuditEventField(BaseValidatorModel):
     eventFieldId: str
-    newValue: AuditEventFieldValueUnionTypeDef
-    oldValue: Optional[AuditEventFieldValueUnionTypeDef] = None
+    newValue: AuditEventFieldValueUnion
+    oldValue: Optional[AuditEventFieldValueUnion] = None
 
 
-class AuditEventPerformedByTypeDef(BaseValidatorModel):
+class AuditEventPerformedBy(BaseValidatorModel):
     iamPrincipalArn: str
-    user: Optional[UserUnionTypeDef] = None
+    user: Optional[UserUnion] = None
 
 
-class CaseRuleIdentifierTypeDef(BaseValidatorModel):
+class CaseRuleIdentifier(BaseValidatorModel):
     pass
 
 
-class BatchGetCaseRuleRequestTypeDef(BaseValidatorModel):
-    caseRules: Sequence[CaseRuleIdentifierTypeDef]
+class BatchGetCaseRuleRequest(BaseValidatorModel):
+    caseRules: Sequence[CaseRuleIdentifier]
     domainId: str
 
 
-class CreateCaseResponseTypeDef(BaseValidatorModel):
+class CreateCaseResponse(BaseValidatorModel):
     caseArn: str
     caseId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateCaseRuleResponseTypeDef(BaseValidatorModel):
+class CreateCaseRuleResponse(BaseValidatorModel):
     caseRuleArn: str
     caseRuleId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDomainResponseTypeDef(BaseValidatorModel):
+class CreateDomainResponse(BaseValidatorModel):
     domainArn: str
     domainId: str
     domainStatus: DomainStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFieldResponseTypeDef(BaseValidatorModel):
+class CreateFieldResponse(BaseValidatorModel):
     fieldArn: str
     fieldId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateLayoutResponseTypeDef(BaseValidatorModel):
+class CreateLayoutResponse(BaseValidatorModel):
     layoutArn: str
     layoutId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRelatedItemResponseTypeDef(BaseValidatorModel):
+class CreateRelatedItemResponse(BaseValidatorModel):
     relatedItemArn: str
     relatedItemId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateTemplateResponseTypeDef(BaseValidatorModel):
+class CreateTemplateResponse(BaseValidatorModel):
     templateArn: str
     templateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetDomainResponseTypeDef(BaseValidatorModel):
+class GetDomainResponse(BaseValidatorModel):
     createdTime: datetime
     domainArn: str
     domainId: str
     domainStatus: DomainStatusType
     name: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class FieldIdentifierTypeDef(BaseValidatorModel):
+class FieldIdentifier(BaseValidatorModel):
     pass
 
 
-class BatchGetFieldRequestTypeDef(BaseValidatorModel):
+class BatchGetFieldRequest(BaseValidatorModel):
     domainId: str
-    fields: Sequence[FieldIdentifierTypeDef]
+    fields: Sequence[FieldIdentifier]
 
 
-class CaseEventIncludedDataOutputTypeDef(BaseValidatorModel):
-    fields: List[FieldIdentifierTypeDef]
+class CaseEventIncludedDataOutput(BaseValidatorModel):
+    fields: List[FieldIdentifier]
 
 
-class CaseEventIncludedDataTypeDef(BaseValidatorModel):
-    fields: Sequence[FieldIdentifierTypeDef]
+class CaseEventIncludedData(BaseValidatorModel):
+    fields: Sequence[FieldIdentifier]
 
 
-class GetCaseRequestTypeDef(BaseValidatorModel):
+class GetCaseRequest(BaseValidatorModel):
     caseId: str
     domainId: str
-    fields: Sequence[FieldIdentifierTypeDef]
+    fields: Sequence[FieldIdentifier]
     nextToken: Optional[str] = None
 
 
-class FieldErrorTypeDef(BaseValidatorModel):
+class FieldError(BaseValidatorModel):
     pass
 
 
-class GetFieldResponseTypeDef(BaseValidatorModel):
+class GetFieldResponse(BaseValidatorModel):
     pass
 
 
-class BatchGetFieldResponseTypeDef(BaseValidatorModel):
-    errors: List[FieldErrorTypeDef]
-    fields: List[GetFieldResponseTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetFieldResponse(BaseValidatorModel):
+    errors: List[FieldError]
+    fields: List[GetFieldResponse]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutFieldOptionsRequestTypeDef(BaseValidatorModel):
+class BatchPutFieldOptionsRequest(BaseValidatorModel):
     domainId: str
     fieldId: str
-    options: Sequence[FieldOptionTypeDef]
+    options: Sequence[FieldOption]
 
 
-class ListFieldOptionsResponseTypeDef(BaseValidatorModel):
-    options: List[FieldOptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFieldOptionsResponse(BaseValidatorModel):
+    options: List[FieldOption]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class BatchPutFieldOptionsResponseTypeDef(BaseValidatorModel):
-    errors: List[FieldOptionErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutFieldOptionsResponse(BaseValidatorModel):
+    errors: List[FieldOptionError]
+    ResponseMetadata: ResponseMetadata
 
 
-class BooleanOperandsOutputTypeDef(BaseValidatorModel):
-    operandOne: OperandOneTypeDef
-    operandTwo: OperandTwoOutputTypeDef
+class BooleanOperandsOutput(BaseValidatorModel):
+    operandOne: OperandOne
+    operandTwo: OperandTwoOutput
     result: bool
 
 
-class BooleanOperandsTypeDef(BaseValidatorModel):
-    operandOne: OperandOneTypeDef
-    operandTwo: OperandTwoTypeDef
+class BooleanOperands(BaseValidatorModel):
+    operandOne: OperandOne
+    operandTwo: OperandTwo
     result: bool
 
 
-class ListCaseRulesResponseTypeDef(BaseValidatorModel):
-    caseRules: List[CaseRuleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCaseRulesResponse(BaseValidatorModel):
+    caseRules: List[CaseRuleSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCasesForContactResponseTypeDef(BaseValidatorModel):
-    cases: List[CaseSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCasesForContactResponse(BaseValidatorModel):
+    cases: List[CaseSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateTemplateRequestTypeDef(BaseValidatorModel):
+class CreateTemplateRequest(BaseValidatorModel):
     domainId: str
     name: str
     description: Optional[str] = None
-    layoutConfiguration: Optional[LayoutConfigurationTypeDef] = None
-    requiredFields: Optional[Sequence[RequiredFieldTypeDef]] = None
-    rules: Optional[Sequence[TemplateRuleTypeDef]] = None
+    layoutConfiguration: Optional[LayoutConfiguration] = None
+    requiredFields: Optional[Sequence[RequiredField]] = None
+    rules: Optional[Sequence[TemplateRule]] = None
     status: Optional[TemplateStatusType] = None
 
 
-class GetTemplateResponseTypeDef(BaseValidatorModel):
+class GetTemplateResponse(BaseValidatorModel):
     createdTime: datetime
     deleted: bool
     description: str
     lastModifiedTime: datetime
-    layoutConfiguration: LayoutConfigurationTypeDef
+    layoutConfiguration: LayoutConfiguration
     name: str
-    requiredFields: List[RequiredFieldTypeDef]
-    rules: List[TemplateRuleTypeDef]
+    requiredFields: List[RequiredField]
+    rules: List[TemplateRule]
     status: TemplateStatusType
     tags: Dict[str, str]
     templateArn: str
     templateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateTemplateRequestTypeDef(BaseValidatorModel):
+class UpdateTemplateRequest(BaseValidatorModel):
     domainId: str
     templateId: str
     description: Optional[str] = None
-    layoutConfiguration: Optional[LayoutConfigurationTypeDef] = None
+    layoutConfiguration: Optional[LayoutConfiguration] = None
     name: Optional[str] = None
-    requiredFields: Optional[Sequence[RequiredFieldTypeDef]] = None
-    rules: Optional[Sequence[TemplateRuleTypeDef]] = None
+    requiredFields: Optional[Sequence[RequiredField]] = None
+    rules: Optional[Sequence[TemplateRule]] = None
     status: Optional[TemplateStatusType] = None
 
 
-class ListDomainsResponseTypeDef(BaseValidatorModel):
-    domains: List[DomainSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsResponse(BaseValidatorModel):
+    domains: List[DomainSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FieldItemTypeDef(BaseValidatorModel):
+class FieldItem(BaseValidatorModel):
     pass
 
 
-class FieldGroupOutputTypeDef(BaseValidatorModel):
-    fields: List[FieldItemTypeDef]
+class FieldGroupOutput(BaseValidatorModel):
+    fields: List[FieldItem]
     name: Optional[str] = None
 
 
-class FieldGroupTypeDef(BaseValidatorModel):
-    fields: Sequence[FieldItemTypeDef]
+class FieldGroup(BaseValidatorModel):
+    fields: Sequence[FieldItem]
     name: Optional[str] = None
 
 
-class FieldSummaryTypeDef(BaseValidatorModel):
+class FieldSummary(BaseValidatorModel):
     pass
 
 
-class ListFieldsResponseTypeDef(BaseValidatorModel):
-    fields: List[FieldSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListFieldsResponse(BaseValidatorModel):
+    fields: List[FieldSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RelatedItemContentTypeDef(BaseValidatorModel):
-    comment: Optional[CommentContentTypeDef] = None
-    contact: Optional[ContactContentTypeDef] = None
-    file: Optional[FileContentTypeDef] = None
+class RelatedItemContent(BaseValidatorModel):
+    comment: Optional[CommentContent] = None
+    contact: Optional[ContactContent] = None
+    file: Optional[FileContent] = None
 
 
-class RelatedItemInputContentTypeDef(BaseValidatorModel):
-    comment: Optional[CommentContentTypeDef] = None
-    contact: Optional[ContactTypeDef] = None
-    file: Optional[FileContentTypeDef] = None
+class RelatedItemInputContent(BaseValidatorModel):
+    comment: Optional[CommentContent] = None
+    contact: Optional[Contact] = None
+    file: Optional[FileContent] = None
 
 
-class RelatedItemTypeFilterTypeDef(BaseValidatorModel):
+class RelatedItemTypeFilter(BaseValidatorModel):
     comment: Optional[Mapping[str, Any]] = None
-    contact: Optional[ContactFilterTypeDef] = None
-    file: Optional[FileFilterTypeDef] = None
+    contact: Optional[ContactFilter] = None
+    file: Optional[FileFilter] = None
 
 
-class ListLayoutsResponseTypeDef(BaseValidatorModel):
-    layouts: List[LayoutSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLayoutsResponse(BaseValidatorModel):
+    layouts: List[LayoutSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListCaseRulesRequestPaginateTypeDef(BaseValidatorModel):
+class ListCaseRulesRequestPaginate(BaseValidatorModel):
     domainId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTemplatesResponseTypeDef(BaseValidatorModel):
-    templates: List[TemplateSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTemplatesResponse(BaseValidatorModel):
+    templates: List[TemplateSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EventIncludedDataOutputTypeDef(BaseValidatorModel):
-    caseData: Optional[CaseEventIncludedDataOutputTypeDef] = None
-    relatedItemData: Optional[RelatedItemEventIncludedDataTypeDef] = None
+class EventIncludedDataOutput(BaseValidatorModel):
+    caseData: Optional[CaseEventIncludedDataOutput] = None
+    relatedItemData: Optional[RelatedItemEventIncludedData] = None
 
 
-class EventIncludedDataTypeDef(BaseValidatorModel):
-    caseData: Optional[CaseEventIncludedDataTypeDef] = None
-    relatedItemData: Optional[RelatedItemEventIncludedDataTypeDef] = None
+class EventIncludedData(BaseValidatorModel):
+    caseData: Optional[CaseEventIncludedData] = None
+    relatedItemData: Optional[RelatedItemEventIncludedData] = None
 
 
-class BooleanConditionOutputTypeDef(BaseValidatorModel):
-    equalTo: Optional[BooleanOperandsOutputTypeDef] = None
-    notEqualTo: Optional[BooleanOperandsOutputTypeDef] = None
+class BooleanConditionOutput(BaseValidatorModel):
+    equalTo: Optional[BooleanOperandsOutput] = None
+    notEqualTo: Optional[BooleanOperandsOutput] = None
 
 
-class BooleanConditionTypeDef(BaseValidatorModel):
-    equalTo: Optional[BooleanOperandsTypeDef] = None
-    notEqualTo: Optional[BooleanOperandsTypeDef] = None
+class BooleanCondition(BaseValidatorModel):
+    equalTo: Optional[BooleanOperands] = None
+    notEqualTo: Optional[BooleanOperands] = None
 
 
-class SectionOutputTypeDef(BaseValidatorModel):
-    fieldGroup: Optional[FieldGroupOutputTypeDef] = None
+class SectionOutput(BaseValidatorModel):
+    fieldGroup: Optional[FieldGroupOutput] = None
 
 
-class SectionTypeDef(BaseValidatorModel):
-    fieldGroup: Optional[FieldGroupTypeDef] = None
+class Section(BaseValidatorModel):
+    fieldGroup: Optional[FieldGroup] = None
 
 
-class FieldValueOutputTypeDef(BaseValidatorModel):
+class FieldValueOutput(BaseValidatorModel):
     pass
 
 
-class GetCaseResponseTypeDef(BaseValidatorModel):
-    fields: List[FieldValueOutputTypeDef]
+class GetCaseResponse(BaseValidatorModel):
+    fields: List[FieldValueOutput]
     tags: Dict[str, str]
     templateId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchCasesResponseItemTypeDef(BaseValidatorModel):
+class SearchCasesResponseItem(BaseValidatorModel):
     caseId: str
-    fields: List[FieldValueOutputTypeDef]
+    fields: List[FieldValueOutput]
     templateId: str
     tags: Optional[Dict[str, str]] = None
 
 
-class SearchRelatedItemsRequestPaginateTypeDef(BaseValidatorModel):
+class SearchRelatedItemsRequestPaginate(BaseValidatorModel):
     caseId: str
     domainId: str
-    filters: Optional[Sequence[RelatedItemTypeFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[RelatedItemTypeFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchRelatedItemsRequestTypeDef(BaseValidatorModel):
+class SearchRelatedItemsRequest(BaseValidatorModel):
     caseId: str
     domainId: str
-    filters: Optional[Sequence[RelatedItemTypeFilterTypeDef]] = None
+    filters: Optional[Sequence[RelatedItemTypeFilter]] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class AuditEventTypeDef(BaseValidatorModel):
+class AuditEvent(BaseValidatorModel):
     pass
 
 
-class GetCaseAuditEventsResponseTypeDef(BaseValidatorModel):
-    auditEvents: List[AuditEventTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCaseAuditEventsResponse(BaseValidatorModel):
+    auditEvents: List[AuditEvent]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EventBridgeConfigurationOutputTypeDef(BaseValidatorModel):
+class EventBridgeConfigurationOutput(BaseValidatorModel):
     enabled: bool
-    includedData: Optional[EventIncludedDataOutputTypeDef] = None
+    includedData: Optional[EventIncludedDataOutput] = None
 
 
-class EventBridgeConfigurationTypeDef(BaseValidatorModel):
+class EventBridgeConfiguration(BaseValidatorModel):
     enabled: bool
-    includedData: Optional[EventIncludedDataTypeDef] = None
+    includedData: Optional[EventIncludedData] = None
 
 
-class RequiredCaseRuleOutputTypeDef(BaseValidatorModel):
-    conditions: List[BooleanConditionOutputTypeDef]
+class RequiredCaseRuleOutput(BaseValidatorModel):
+    conditions: List[BooleanConditionOutput]
     defaultValue: bool
 
 
-class RequiredCaseRuleTypeDef(BaseValidatorModel):
-    conditions: Sequence[BooleanConditionTypeDef]
+class RequiredCaseRule(BaseValidatorModel):
+    conditions: Sequence[BooleanCondition]
     defaultValue: bool
 
 
-class LayoutSectionsOutputTypeDef(BaseValidatorModel):
-    sections: Optional[List[SectionOutputTypeDef]] = None
+class LayoutSectionsOutput(BaseValidatorModel):
+    sections: Optional[List[SectionOutput]] = None
 
 
-class LayoutSectionsTypeDef(BaseValidatorModel):
-    sections: Optional[Sequence[SectionTypeDef]] = None
+class LayoutSections(BaseValidatorModel):
+    sections: Optional[Sequence[Section]] = None
 
 
-class SearchCasesResponseTypeDef(BaseValidatorModel):
-    cases: List[SearchCasesResponseItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchCasesResponse(BaseValidatorModel):
+    cases: List[SearchCasesResponseItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchRelatedItemsResponseItemTypeDef(BaseValidatorModel):
+class SearchRelatedItemsResponseItem(BaseValidatorModel):
     pass
 
 
-class SearchRelatedItemsResponseTypeDef(BaseValidatorModel):
-    relatedItems: List[SearchRelatedItemsResponseItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchRelatedItemsResponse(BaseValidatorModel):
+    relatedItems: List[SearchRelatedItemsResponseItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetCaseEventConfigurationResponseTypeDef(BaseValidatorModel):
-    eventBridge: EventBridgeConfigurationOutputTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetCaseEventConfigurationResponse(BaseValidatorModel):
+    eventBridge: EventBridgeConfigurationOutput
+    ResponseMetadata: ResponseMetadata
 
 
-class CaseRuleDetailsOutputTypeDef(BaseValidatorModel):
-    required: Optional[RequiredCaseRuleOutputTypeDef] = None
+class CaseRuleDetailsOutput(BaseValidatorModel):
+    required: Optional[RequiredCaseRuleOutput] = None
 
 
-class CaseRuleDetailsTypeDef(BaseValidatorModel):
-    required: Optional[RequiredCaseRuleTypeDef] = None
+class CaseRuleDetails(BaseValidatorModel):
+    required: Optional[RequiredCaseRule] = None
 
 
-class BasicLayoutOutputTypeDef(BaseValidatorModel):
-    moreInfo: Optional[LayoutSectionsOutputTypeDef] = None
-    topPanel: Optional[LayoutSectionsOutputTypeDef] = None
+class BasicLayoutOutput(BaseValidatorModel):
+    moreInfo: Optional[LayoutSectionsOutput] = None
+    topPanel: Optional[LayoutSectionsOutput] = None
 
 
-class BasicLayoutTypeDef(BaseValidatorModel):
-    moreInfo: Optional[LayoutSectionsTypeDef] = None
-    topPanel: Optional[LayoutSectionsTypeDef] = None
+class BasicLayout(BaseValidatorModel):
+    moreInfo: Optional[LayoutSections] = None
+    topPanel: Optional[LayoutSections] = None
 
 
-class FieldValueUnionExtraTypeDef(BaseValidatorModel):
+class FieldValueUnionExtra(BaseValidatorModel):
     pass
 
 
-class CreateCaseRequestTypeDef(BaseValidatorModel):
+class CreateCaseRequest(BaseValidatorModel):
     domainId: str
-    fields: Sequence[FieldValueUnionExtraTypeDef]
+    fields: Sequence[FieldValueUnionExtra]
     templateId: str
     clientToken: Optional[str] = None
-    performedBy: Optional[UserUnionTypeDef] = None
+    performedBy: Optional[UserUnion] = None
 
 
-class FieldFilterTypeDef(BaseValidatorModel):
-    contains: Optional[FieldValueUnionExtraTypeDef] = None
-    equalTo: Optional[FieldValueUnionExtraTypeDef] = None
-    greaterThan: Optional[FieldValueUnionExtraTypeDef] = None
-    greaterThanOrEqualTo: Optional[FieldValueUnionExtraTypeDef] = None
-    lessThan: Optional[FieldValueUnionExtraTypeDef] = None
-    lessThanOrEqualTo: Optional[FieldValueUnionExtraTypeDef] = None
+class FieldFilter(BaseValidatorModel):
+    contains: Optional[FieldValueUnionExtra] = None
+    equalTo: Optional[FieldValueUnionExtra] = None
+    greaterThan: Optional[FieldValueUnionExtra] = None
+    greaterThanOrEqualTo: Optional[FieldValueUnionExtra] = None
+    lessThan: Optional[FieldValueUnionExtra] = None
+    lessThanOrEqualTo: Optional[FieldValueUnionExtra] = None
 
 
-class UpdateCaseRequestTypeDef(BaseValidatorModel):
+class UpdateCaseRequest(BaseValidatorModel):
     caseId: str
     domainId: str
-    fields: Sequence[FieldValueUnionExtraTypeDef]
-    performedBy: Optional[UserUnionTypeDef] = None
+    fields: Sequence[FieldValueUnionExtra]
+    performedBy: Optional[UserUnion] = None
 
 
-class EventBridgeConfigurationUnionTypeDef(BaseValidatorModel):
+class EventBridgeConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutCaseEventConfigurationRequestTypeDef(BaseValidatorModel):
+class PutCaseEventConfigurationRequest(BaseValidatorModel):
     domainId: str
-    eventBridge: EventBridgeConfigurationUnionTypeDef
+    eventBridge: EventBridgeConfigurationUnion
 
 
-class GetCaseRuleResponseTypeDef(BaseValidatorModel):
+class GetCaseRuleResponse(BaseValidatorModel):
     caseRuleArn: str
     caseRuleId: str
     name: str
-    rule: CaseRuleDetailsOutputTypeDef
+    rule: CaseRuleDetailsOutput
     createdTime: Optional[datetime] = None
     deleted: Optional[bool] = None
     description: Optional[str] = None
@@ -736,45 +736,45 @@ class GetCaseRuleResponseTypeDef(BaseValidatorModel):
     tags: Optional[Dict[str, str]] = None
 
 
-class LayoutContentOutputTypeDef(BaseValidatorModel):
-    basic: Optional[BasicLayoutOutputTypeDef] = None
+class LayoutContentOutput(BaseValidatorModel):
+    basic: Optional[BasicLayoutOutput] = None
 
 
-class LayoutContentTypeDef(BaseValidatorModel):
-    basic: Optional[BasicLayoutTypeDef] = None
+class LayoutContent(BaseValidatorModel):
+    basic: Optional[BasicLayout] = None
 
 
-class CaseRuleErrorTypeDef(BaseValidatorModel):
+class CaseRuleError(BaseValidatorModel):
     pass
 
 
-class BatchGetCaseRuleResponseTypeDef(BaseValidatorModel):
-    caseRules: List[GetCaseRuleResponseTypeDef]
-    errors: List[CaseRuleErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetCaseRuleResponse(BaseValidatorModel):
+    caseRules: List[GetCaseRuleResponse]
+    errors: List[CaseRuleError]
+    ResponseMetadata: ResponseMetadata
 
 
-class CaseRuleDetailsUnionTypeDef(BaseValidatorModel):
+class CaseRuleDetailsUnion(BaseValidatorModel):
     pass
 
 
-class CreateCaseRuleRequestTypeDef(BaseValidatorModel):
+class CreateCaseRuleRequest(BaseValidatorModel):
     domainId: str
     name: str
-    rule: CaseRuleDetailsUnionTypeDef
+    rule: CaseRuleDetailsUnion
     description: Optional[str] = None
 
 
-class UpdateCaseRuleRequestTypeDef(BaseValidatorModel):
+class UpdateCaseRuleRequest(BaseValidatorModel):
     caseRuleId: str
     domainId: str
     description: Optional[str] = None
     name: Optional[str] = None
-    rule: Optional[CaseRuleDetailsUnionTypeDef] = None
+    rule: Optional[CaseRuleDetailsUnion] = None
 
 
-class GetLayoutResponseTypeDef(BaseValidatorModel):
-    content: LayoutContentOutputTypeDef
+class GetLayoutResponse(BaseValidatorModel):
+    content: LayoutContentOutput
     createdTime: datetime
     deleted: bool
     lastModifiedTime: datetime
@@ -782,23 +782,23 @@ class GetLayoutResponseTypeDef(BaseValidatorModel):
     layoutId: str
     name: str
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LayoutContentUnionTypeDef(BaseValidatorModel):
+class LayoutContentUnion(BaseValidatorModel):
     pass
 
 
-class CreateLayoutRequestTypeDef(BaseValidatorModel):
-    content: LayoutContentUnionTypeDef
+class CreateLayoutRequest(BaseValidatorModel):
+    content: LayoutContentUnion
     domainId: str
     name: str
 
 
-class UpdateLayoutRequestTypeDef(BaseValidatorModel):
+class UpdateLayoutRequest(BaseValidatorModel):
     domainId: str
     layoutId: str
-    content: Optional[LayoutContentUnionTypeDef] = None
+    content: Optional[LayoutContentUnion] = None
     name: Optional[str] = None
 
 

@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BaselineOperationTypeDef
+# BaselineOperation
 
 ### endTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -27,7 +27,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# BaselineSummaryTypeDef
+# BaselineSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -41,7 +41,37 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ControlOperationFilterTypeDef
+# ControlOperation
+
+### controlIdentifier
+- **Type**: typing.Optional[str]
+
+### enabledControlIdentifier
+- **Type**: typing.Optional[str]
+
+### endTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### operationIdentifier
+- **Type**: typing.Optional[str]
+
+### operationType
+- **Type**: typing.Optional[typing.Literal['DISABLE_CONTROL', 'ENABLE_CONTROL', 'RESET_ENABLED_CONTROL', 'UPDATE_ENABLED_CONTROL']]
+
+### startTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### status
+- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]
+
+### statusMessage
+- **Type**: typing.Optional[str]
+
+### targetIdentifier
+- **Type**: typing.Optional[str]
+
+
+# ControlOperationFilter
 
 ### controlIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -59,7 +89,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# ControlOperationSummaryTypeDef
+# ControlOperationSummary
 
 ### controlIdentifier
 - **Type**: typing.Optional[str]
@@ -89,37 +119,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ControlOperationTypeDef
-
-### controlIdentifier
-- **Type**: typing.Optional[str]
-
-### enabledControlIdentifier
-- **Type**: typing.Optional[str]
-
-### endTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### operationIdentifier
-- **Type**: typing.Optional[str]
-
-### operationType
-- **Type**: typing.Optional[typing.Literal['DISABLE_CONTROL', 'ENABLE_CONTROL', 'RESET_ENABLED_CONTROL', 'UPDATE_ENABLED_CONTROL']]
-
-### startTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### status
-- **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]
-
-### statusMessage
-- **Type**: typing.Optional[str]
-
-### targetIdentifier
-- **Type**: typing.Optional[str]
-
-
-# CreateLandingZoneInputTypeDef
+# CreateLandingZoneInput
 
 ### manifest
 - **Type**: typing.Mapping[str, typing.Any]
@@ -133,7 +133,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateLandingZoneOutputTypeDef
+# CreateLandingZoneOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -144,47 +144,47 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteLandingZoneInputTypeDef
+# DeleteLandingZoneInput
 
 ### landingZoneIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteLandingZoneOutputTypeDef
+# DeleteLandingZoneOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisableBaselineInputTypeDef
+# DisableBaselineInput
 
 ### enabledBaselineIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DisableBaselineOutputTypeDef
+# DisableBaselineOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisableControlInputTypeDef
+# DisableControlInput
 
 ### controlIdentifier
 - **Type**: <class 'str'>
@@ -195,24 +195,24 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisableControlOutputTypeDef
+# DisableControlOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DriftStatusSummaryTypeDef
+# DriftStatusSummary
 
 ### driftStatus
 - **Type**: typing.Optional[typing.Literal['DRIFTED', 'IN_SYNC', 'NOT_CHECKING', 'UNKNOWN']]
 
 
-# EnableBaselineInputTypeDef
+# EnableBaselineInput
 
 ### baselineIdentifier
 - **Type**: <class 'str'>
@@ -227,13 +227,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameter]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# EnableBaselineOutputTypeDef
+# EnableBaselineOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -244,11 +244,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnableControlInputTypeDef
+# EnableControlInput
 
 ### controlIdentifier
 - **Type**: <class 'str'>
@@ -259,13 +259,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameter]]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# EnableControlOutputTypeDef
+# EnableControlOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -276,11 +276,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EnabledBaselineDetailsTypeDef
+# EnabledBaselineDetails
 
 ### arn
 - **Type**: <class 'str'>
@@ -291,7 +291,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummary'>
 - **Required**: Yes
 
 ### targetIdentifier
@@ -302,13 +302,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameterSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameterSummary]]
 
 ### parentIdentifier
 - **Type**: typing.Optional[str]
 
 
-# EnabledBaselineFilterTypeDef
+# EnabledBaselineFilter
 
 ### baselineIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -320,18 +320,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# EnabledBaselineParameterSummaryTypeDef
-
-### key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: typing.Dict[str, typing.Any]
-- **Required**: Yes
-
-
-# EnabledBaselineParameterTypeDef
+# EnabledBaselineParameter
 
 ### key
 - **Type**: <class 'str'>
@@ -342,7 +331,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnabledBaselineSummaryTypeDef
+# EnabledBaselineParameterSummary
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+
+# EnabledBaselineSummary
 
 ### arn
 - **Type**: <class 'str'>
@@ -353,7 +353,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### statusSummary
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummaryTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummary'>
 - **Required**: Yes
 
 ### targetIdentifier
@@ -367,7 +367,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# EnabledControlDetailsTypeDef
+# EnabledControlDetails
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -376,22 +376,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### driftStatusSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.DriftStatusSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.DriftStatusSummary]
 
 ### parameters
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameterSummaryTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameterSummary]]
 
 ### statusSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummary]
 
 ### targetIdentifier
 - **Type**: typing.Optional[str]
 
 ### targetRegions
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.RegionTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.controltower_classes.Region]]
 
 
-# EnabledControlFilterTypeDef
+# EnabledControlFilter
 
 ### controlIdentifiers
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -403,18 +403,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['FAILED', 'SUCCEEDED', 'UNDER_CHANGE']]]
 
 
-# EnabledControlParameterSummaryTypeDef
-
-### key
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### value
-- **Type**: typing.Dict[str, typing.Any]
-- **Required**: Yes
-
-
-# EnabledControlParameterTypeDef
+# EnabledControlParameter
 
 ### key
 - **Type**: <class 'str'>
@@ -425,7 +414,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# EnabledControlSummaryTypeDef
+# EnabledControlParameterSummary
+
+### key
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### value
+- **Type**: typing.Dict[str, typing.Any]
+- **Required**: Yes
+
+
+# EnabledControlSummary
 
 ### arn
 - **Type**: typing.Optional[str]
@@ -434,16 +434,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### driftStatusSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.DriftStatusSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.DriftStatusSummary]
 
 ### statusSummary
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.EnablementStatusSummary]
 
 ### targetIdentifier
 - **Type**: typing.Optional[str]
 
 
-# EnablementStatusSummaryTypeDef
+# EnablementStatusSummary
 
 ### lastOperationIdentifier
 - **Type**: typing.Optional[str]
@@ -452,32 +452,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'SUCCEEDED', 'UNDER_CHANGE']]
 
 
-# GetBaselineInputTypeDef
+# GetBaselineInput
 
 ### baselineIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBaselineOperationInputTypeDef
+# GetBaselineOperationInput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetBaselineOperationOutputTypeDef
+# GetBaselineOperationOutput
 
 ### baselineOperation
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.BaselineOperationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.BaselineOperation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetBaselineOutputTypeDef
+# GetBaselineOutput
 
 ### arn
 - **Type**: <class 'str'>
@@ -492,101 +492,101 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetControlOperationInputTypeDef
+# GetControlOperationInput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetControlOperationOutputTypeDef
+# GetControlOperationOutput
 
 ### controlOperation
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ControlOperationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ControlOperation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnabledBaselineInputTypeDef
+# GetEnabledBaselineInput
 
 ### enabledBaselineIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEnabledBaselineOutputTypeDef
+# GetEnabledBaselineOutput
 
 ### enabledBaselineDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetEnabledControlInputTypeDef
+# GetEnabledControlInput
 
 ### enabledControlIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetEnabledControlOutputTypeDef
+# GetEnabledControlOutput
 
 ### enabledControlDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnabledControlDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.EnabledControlDetails'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLandingZoneInputTypeDef
+# GetLandingZoneInput
 
 ### landingZoneIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLandingZoneOperationInputTypeDef
+# GetLandingZoneOperationInput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetLandingZoneOperationOutputTypeDef
+# GetLandingZoneOperationOutput
 
 ### operationDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.LandingZoneOperationDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.LandingZoneOperationDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetLandingZoneOutputTypeDef
+# GetLandingZoneOutput
 
 ### landingZone
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.LandingZoneDetailTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.LandingZoneDetail'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# LandingZoneDetailTypeDef
+# LandingZoneDetail
 
 ### manifest
 - **Type**: typing.Dict[str, typing.Any]
@@ -600,7 +600,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### driftStatus
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneDriftStatusSummaryTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneDriftStatusSummary]
 
 ### latestAvailableVersion
 - **Type**: typing.Optional[str]
@@ -609,13 +609,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ACTIVE', 'FAILED', 'PROCESSING']]
 
 
-# LandingZoneDriftStatusSummaryTypeDef
+# LandingZoneDriftStatusSummary
 
 ### status
 - **Type**: typing.Optional[typing.Literal['DRIFTED', 'IN_SYNC']]
 
 
-# LandingZoneOperationDetailTypeDef
+# LandingZoneOperationDetail
 
 ### endTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -636,7 +636,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# LandingZoneOperationSummaryTypeDef
+# LandingZoneOperationSummary
 
 ### operationIdentifier
 - **Type**: typing.Optional[str]
@@ -648,19 +648,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['FAILED', 'IN_PROGRESS', 'SUCCEEDED']]
 
 
-# LandingZoneSummaryTypeDef
+# LandingZoneSummary
 
 ### arn
 - **Type**: typing.Optional[str]
 
 
-# ListBaselinesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.PaginatorConfigTypeDef]
-
-
-# ListBaselinesInputTypeDef
+# ListBaselinesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -669,83 +663,83 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListBaselinesOutputTypeDef
+# ListBaselinesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.PaginatorConfig]
+
+
+# ListBaselinesOutput
 
 ### baselines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.BaselineSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.BaselineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListControlOperationsOutputTypeDef
+# ListControlOperationsOutput
 
 ### controlOperations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.ControlOperationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.ControlOperationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnabledBaselinesOutputTypeDef
+# ListEnabledBaselinesOutput
 
 ### enabledBaselines
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListEnabledControlsOutputTypeDef
+# ListEnabledControlsOutput
 
 ### enabledControls
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLandingZoneOperationsOutputTypeDef
+# ListLandingZoneOperationsOutput
 
 ### landingZoneOperations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneOperationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneOperationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListLandingZonesInputPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.PaginatorConfigTypeDef]
-
-
-# ListLandingZonesInputTypeDef
+# ListLandingZonesInput
 
 ### maxResults
 - **Type**: typing.Optional[int]
@@ -754,39 +748,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListLandingZonesOutputTypeDef
+# ListLandingZonesInputPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.controltower_classes.PaginatorConfig]
+
+
+# ListLandingZonesOutput
 
 ### landingZones
-- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.controltower_classes.LandingZoneSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceInputTypeDef
+# ListTagsForResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceOutputTypeDef
+# ListTagsForResourceOutput
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -798,67 +798,67 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RegionTypeDef
+# Region
 
 ### name
 - **Type**: typing.Optional[str]
 
 
-# ResetEnabledBaselineInputTypeDef
+# ResetEnabledBaselineInput
 
 ### enabledBaselineIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResetEnabledBaselineOutputTypeDef
+# ResetEnabledBaselineOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResetEnabledControlInputTypeDef
+# ResetEnabledControlInput
 
 ### enabledControlIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResetEnabledControlOutputTypeDef
+# ResetEnabledControlOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResetLandingZoneInputTypeDef
+# ResetLandingZoneInput
 
 ### landingZoneIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ResetLandingZoneOutputTypeDef
+# ResetLandingZoneOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -880,7 +880,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceInputTypeDef
+# TagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -891,7 +891,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceInputTypeDef
+# UntagResourceInput
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -902,7 +902,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateEnabledBaselineInputTypeDef
+# UpdateEnabledBaselineInput
 
 ### baselineVersion
 - **Type**: <class 'str'>
@@ -913,43 +913,43 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameterTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledBaselineParameter]]
 
 
-# UpdateEnabledBaselineOutputTypeDef
+# UpdateEnabledBaselineOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateEnabledControlInputTypeDef
+# UpdateEnabledControlInput
 
 ### enabledControlIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### parameters
-- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameterTypeDef]
+- **Type**: typing.Sequence[aws_resource_validator.pydantic_models.controltower_classes.EnabledControlParameter]
 - **Required**: Yes
 
 
-# UpdateEnabledControlOutputTypeDef
+# UpdateEnabledControlOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdateLandingZoneInputTypeDef
+# UpdateLandingZoneInput
 
 ### landingZoneIdentifier
 - **Type**: <class 'str'>
@@ -964,14 +964,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateLandingZoneOutputTypeDef
+# UpdateLandingZoneOutput
 
 ### operationIdentifier
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.controltower_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

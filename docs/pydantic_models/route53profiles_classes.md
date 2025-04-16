@@ -1,6 +1,6 @@
 # Route53Profiles Classes
 
-# AssociateProfileRequestTypeDef
+# AssociateProfileRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -15,21 +15,21 @@
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53profiles_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53profiles_classes.Tag]]
 
 
-# AssociateProfileResponseTypeDef
+# AssociateProfileResponse
 
 ### ProfileAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# AssociateResourceToProfileRequestTypeDef
+# AssociateResourceToProfileRequest
 
 ### Name
 - **Type**: <class 'str'>
@@ -47,14 +47,14 @@
 - **Type**: typing.Optional[str]
 
 
-# AssociateResourceToProfileResponseTypeDef
+# AssociateResourceToProfileResponse
 
 ### ProfileResourceAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
@@ -64,7 +64,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateProfileRequestTypeDef
+# CreateProfileRequest
 
 ### ClientToken
 - **Type**: <class 'str'>
@@ -75,39 +75,39 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### Tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53profiles_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.route53profiles_classes.Tag]]
 
 
-# CreateProfileResponseTypeDef
+# CreateProfileResponse
 
 ### Profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.Profile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteProfileRequestTypeDef
+# DeleteProfileRequest
 
 ### ProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DeleteProfileResponseTypeDef
+# DeleteProfileResponse
 
 ### Profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.Profile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateProfileRequestTypeDef
+# DisassociateProfileRequest
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -118,18 +118,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateProfileResponseTypeDef
+# DisassociateProfileResponse
 
 ### ProfileAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DisassociateResourceFromProfileRequestTypeDef
+# DisassociateResourceFromProfileRequest
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -140,84 +140,72 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# DisassociateResourceFromProfileResponseTypeDef
+# DisassociateResourceFromProfileResponse
 
 ### ProfileResourceAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileAssociationRequestTypeDef
+# GetProfileAssociationRequest
 
 ### ProfileAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProfileAssociationResponseTypeDef
+# GetProfileAssociationResponse
 
 ### ProfileAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileRequestTypeDef
+# GetProfileRequest
 
 ### ProfileId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProfileResourceAssociationRequestTypeDef
+# GetProfileResourceAssociationRequest
 
 ### ProfileResourceAssociationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetProfileResourceAssociationResponseTypeDef
+# GetProfileResourceAssociationResponse
 
 ### ProfileResourceAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetProfileResponseTypeDef
+# GetProfileResponse
 
 ### Profile
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.Profile'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListProfileAssociationsRequestPaginateTypeDef
-
-### ProfileId
-- **Type**: typing.Optional[str]
-
-### ResourceId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
-
-
-# ListProfileAssociationsRequestTypeDef
+# ListProfileAssociationsRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -232,34 +220,33 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfileAssociationsResponseTypeDef
+# ListProfileAssociationsRequestPaginate
+
+### ProfileId
+- **Type**: typing.Optional[str]
+
+### ResourceId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfig]
+
+
+# ListProfileAssociationsResponse
 
 ### ProfileAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfileResourceAssociationsRequestPaginateTypeDef
-
-### ProfileId
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### ResourceType
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
-
-
-# ListProfileResourceAssociationsRequestTypeDef
+# ListProfileResourceAssociationsRequest
 
 ### ProfileId
 - **Type**: <class 'str'>
@@ -275,27 +262,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfileResourceAssociationsResponseTypeDef
+# ListProfileResourceAssociationsRequestPaginate
+
+### ProfileId
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### ResourceType
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfig]
+
+
+# ListProfileResourceAssociationsResponse
 
 ### ProfileResourceAssociations
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListProfilesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfigTypeDef]
-
-
-# ListProfilesRequestTypeDef
+# ListProfilesRequest
 
 ### MaxResults
 - **Type**: typing.Optional[int]
@@ -304,39 +298,45 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ListProfilesResponseTypeDef
+# ListProfilesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.route53profiles_classes.PaginatorConfig]
+
+
+# ListProfilesResponse
 
 ### ProfileSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.route53profiles_classes.ProfileSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### Tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -348,7 +348,40 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProfileAssociationTypeDef
+# Profile
+
+### Arn
+- **Type**: typing.Optional[str]
+
+### ClientToken
+- **Type**: typing.Optional[str]
+
+### CreationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Id
+- **Type**: typing.Optional[str]
+
+### ModificationTime
+- **Type**: typing.Optional[datetime.datetime]
+
+### Name
+- **Type**: typing.Optional[str]
+
+### OwnerId
+- **Type**: typing.Optional[str]
+
+### ShareStatus
+- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
+
+### Status
+- **Type**: typing.Optional[typing.Literal['COMPLETE', 'CREATING', 'DELETED', 'DELETING', 'FAILED', 'UPDATING']]
+
+### StatusMessage
+- **Type**: typing.Optional[str]
+
+
+# ProfileAssociation
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -378,7 +411,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProfileResourceAssociationTypeDef
+# ProfileResourceAssociation
 
 ### CreationTime
 - **Type**: typing.Optional[datetime.datetime]
@@ -414,7 +447,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ProfileSummaryTypeDef
+# ProfileSummary
 
 ### Arn
 - **Type**: typing.Optional[str]
@@ -429,40 +462,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
 
 
-# ProfileTypeDef
-
-### Arn
-- **Type**: typing.Optional[str]
-
-### ClientToken
-- **Type**: typing.Optional[str]
-
-### CreationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Id
-- **Type**: typing.Optional[str]
-
-### ModificationTime
-- **Type**: typing.Optional[datetime.datetime]
-
-### Name
-- **Type**: typing.Optional[str]
-
-### OwnerId
-- **Type**: typing.Optional[str]
-
-### ShareStatus
-- **Type**: typing.Optional[typing.Literal['NOT_SHARED', 'SHARED_BY_ME', 'SHARED_WITH_ME']]
-
-### Status
-- **Type**: typing.Optional[typing.Literal['COMPLETE', 'CREATING', 'DELETED', 'DELETING', 'FAILED', 'UPDATING']]
-
-### StatusMessage
-- **Type**: typing.Optional[str]
-
-
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -484,18 +484,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
-
-### ResourceArn
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Tags
-- **Type**: typing.Mapping[str, str]
-- **Required**: Yes
-
-
-# TagTypeDef
+# Tag
 
 ### Key
 - **Type**: <class 'str'>
@@ -506,7 +495,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# TagResourceRequest
+
+### ResourceArn
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Tags
+- **Type**: typing.Mapping[str, str]
+- **Required**: Yes
+
+
+# UntagResourceRequest
 
 ### ResourceArn
 - **Type**: <class 'str'>
@@ -517,7 +517,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateProfileResourceAssociationRequestTypeDef
+# UpdateProfileResourceAssociationRequest
 
 ### ProfileResourceAssociationId
 - **Type**: <class 'str'>
@@ -530,14 +530,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateProfileResourceAssociationResponseTypeDef
+# UpdateProfileResourceAssociationResponse
 
 ### ProfileResourceAssociation
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociationTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ProfileResourceAssociation'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.route53profiles_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

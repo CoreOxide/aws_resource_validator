@@ -1,6 +1,6 @@
 # Cost Optimization Hub Classes
 
-# AccountEnrollmentStatusTypeDef
+# AccountEnrollmentStatus
 
 ### accountId
 - **Type**: typing.Optional[str]
@@ -21,7 +21,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlockStoragePerformanceConfigurationTypeDef
+# BlockStoragePerformanceConfiguration
 
 ### iops
 - **Type**: typing.Optional[float]
@@ -30,7 +30,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ComputeConfigurationTypeDef
+# ComputeConfiguration
 
 ### vCpu
 - **Type**: typing.Optional[float]
@@ -45,7 +45,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ComputeSavingsPlansConfigurationTypeDef
+# ComputeSavingsPlans
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeSavingsPlansConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculation]
+
+
+# ComputeSavingsPlansConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -60,64 +69,73 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ComputeSavingsPlansTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeSavingsPlansConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculationTypeDef]
-
-
-# DbInstanceConfigurationTypeDef
+# DbInstanceConfiguration
 
 ### dbInstanceClass
 - **Type**: typing.Optional[str]
 
 
-# EbsVolumeConfigurationTypeDef
+# EbsVolume
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EbsVolumeConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
+
+
+# EbsVolumeConfiguration
 
 ### storage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.StorageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.StorageConfiguration]
 
 ### performance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.BlockStoragePerformanceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.BlockStoragePerformanceConfiguration]
 
 ### attachmentState
 - **Type**: typing.Optional[str]
 
 
-# EbsVolumeTypeDef
+# Ec2AutoScalingGroup
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EbsVolumeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2AutoScalingGroupConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
 
 
-# Ec2AutoScalingGroupConfigurationTypeDef
+# Ec2AutoScalingGroupConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# Ec2AutoScalingGroupTypeDef
+# Ec2Instance
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2AutoScalingGroupConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
 
 
-# Ec2InstanceConfigurationTypeDef
+# Ec2InstanceConfiguration
 
 ### instance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.InstanceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.InstanceConfiguration]
 
 
-# Ec2InstanceSavingsPlansConfigurationTypeDef
+# Ec2InstanceSavingsPlans
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceSavingsPlansConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculation]
+
+
+# Ec2InstanceSavingsPlansConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -138,25 +156,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Ec2InstanceSavingsPlansTypeDef
+# Ec2ReservedInstances
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceSavingsPlansConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2ReservedInstancesConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculation]
 
 
-# Ec2InstanceTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
-
-
-# Ec2ReservedInstancesConfigurationTypeDef
+# Ec2ReservedInstancesConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -207,31 +216,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# Ec2ReservedInstancesTypeDef
+# EcsService
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2ReservedInstancesConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EcsServiceConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
 
 
-# EcsServiceConfigurationTypeDef
+# EcsServiceConfiguration
 
 ### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeConfiguration]
 
 
-# EcsServiceTypeDef
+# ElastiCacheReservedInstances
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EcsServiceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ElastiCacheReservedInstancesConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculation]
 
 
-# ElastiCacheReservedInstancesConfigurationTypeDef
+# ElastiCacheReservedInstancesConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -273,16 +282,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ElastiCacheReservedInstancesTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ElastiCacheReservedInstancesConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculationTypeDef]
-
-
-# EstimatedDiscountsTypeDef
+# EstimatedDiscounts
 
 ### savingsPlansDiscount
 - **Type**: typing.Optional[float]
@@ -294,7 +294,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# FilterTypeDef
+# Filter
 
 ### restartNeeded
 - **Type**: typing.Optional[bool]
@@ -318,7 +318,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[typing.Literal['Delete', 'MigrateToGraviton', 'PurchaseReservedInstances', 'PurchaseSavingsPlans', 'Rightsize', 'ScaleIn', 'Stop', 'Upgrade']]]
 
 ### tags
-- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.Sequence[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Tag]]
 
 ### resourceIds
 - **Type**: typing.Optional[typing.Sequence[str]]
@@ -330,7 +330,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Sequence[str]]
 
 
-# GetPreferencesResponseTypeDef
+# GetPreferencesResponse
 
 ### savingsEstimationMode
 - **Type**: typing.Literal['AfterDiscounts', 'BeforeDiscounts']
@@ -341,18 +341,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRecommendationRequestTypeDef
+# GetRecommendationRequest
 
 ### recommendationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRecommendationResponseTypeDef
+# GetRecommendationResponse
 
 ### recommendationId
 - **Type**: <class 'str'>
@@ -435,56 +435,44 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### currentResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceDetails'>
 - **Required**: Yes
 
 ### recommendedResourceDetails
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceDetailsTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceDetails'>
 - **Required**: Yes
 
 ### tags
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.TagTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Tag]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# InstanceConfigurationTypeDef
+# InstanceConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# LambdaFunctionConfigurationTypeDef
-
-### compute
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeConfigurationTypeDef]
-
-
-# LambdaFunctionTypeDef
+# LambdaFunction
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.LambdaFunctionConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.LambdaFunctionConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
 
 
-# ListEnrollmentStatusesRequestPaginateTypeDef
+# LambdaFunctionConfiguration
 
-### includeOrganizationInfo
-- **Type**: typing.Optional[bool]
-
-### accountId
-- **Type**: typing.Optional[str]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.PaginatorConfigTypeDef]
+### compute
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeConfiguration]
 
 
-# ListEnrollmentStatusesRequestTypeDef
+# ListEnrollmentStatusesRequest
 
 ### includeOrganizationInfo
 - **Type**: typing.Optional[bool]
@@ -499,10 +487,22 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListEnrollmentStatusesResponseTypeDef
+# ListEnrollmentStatusesRequestPaginate
+
+### includeOrganizationInfo
+- **Type**: typing.Optional[bool]
+
+### accountId
+- **Type**: typing.Optional[str]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.PaginatorConfig]
+
+
+# ListEnrollmentStatusesResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.AccountEnrollmentStatusTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.AccountEnrollmentStatus]
 - **Required**: Yes
 
 ### includeMemberAccounts
@@ -510,21 +510,21 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationSummariesResponseTypeDef
+# ListRecommendationSummariesResponse
 
 ### estimatedTotalDedupedSavings
 - **Type**: <class 'float'>
 - **Required**: Yes
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RecommendationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RecommendationSummary]
 - **Required**: Yes
 
 ### groupBy
@@ -536,32 +536,41 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### metrics
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SummaryMetricsResultTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SummaryMetricsResult'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRecommendationsResponseTypeDef
+# ListRecommendationsResponse
 
 ### items
-- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RecommendationTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Recommendation]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# OpenSearchReservedInstancesConfigurationTypeDef
+# OpenSearchReservedInstances
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.OpenSearchReservedInstancesConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculation]
+
+
+# OpenSearchReservedInstancesConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -600,16 +609,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# OpenSearchReservedInstancesTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.OpenSearchReservedInstancesConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculationTypeDef]
-
-
-# OrderByTypeDef
+# OrderBy
 
 ### dimension
 - **Type**: typing.Optional[str]
@@ -618,7 +618,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['Asc', 'Desc']]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -630,13 +630,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RdsDbInstanceConfigurationTypeDef
+# RdsDbInstance
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
+
+
+# RdsDbInstanceConfiguration
 
 ### instance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.DbInstanceConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.DbInstanceConfiguration]
 
 
-# RdsDbInstanceStorageConfigurationTypeDef
+# RdsDbInstanceStorage
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceStorageConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculation]
+
+
+# RdsDbInstanceStorageConfiguration
 
 ### storageType
 - **Type**: typing.Optional[str]
@@ -651,25 +669,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# RdsDbInstanceStorageTypeDef
+# RdsReservedInstances
 
 ### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceStorageConfigurationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsReservedInstancesConfiguration]
 
 ### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculation]
 
 
-# RdsDbInstanceTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourceCostCalculationTypeDef]
-
-
-# RdsReservedInstancesConfigurationTypeDef
+# RdsReservedInstancesConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -723,28 +732,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RdsReservedInstancesTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsReservedInstancesConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculationTypeDef]
-
-
-# RecommendationSummaryTypeDef
-
-### group
-- **Type**: typing.Optional[str]
-
-### estimatedMonthlySavings
-- **Type**: typing.Optional[float]
-
-### recommendationCount
-- **Type**: typing.Optional[int]
-
-
-# RecommendationTypeDef
+# Recommendation
 
 ### recommendationId
 - **Type**: typing.Optional[str]
@@ -807,10 +795,31 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['ComputeOptimizer', 'CostExplorer']]
 
 ### tags
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.TagTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Tag]]
 
 
-# RedshiftReservedInstancesConfigurationTypeDef
+# RecommendationSummary
+
+### group
+- **Type**: typing.Optional[str]
+
+### estimatedMonthlySavings
+- **Type**: typing.Optional[float]
+
+### recommendationCount
+- **Type**: typing.Optional[int]
+
+
+# RedshiftReservedInstances
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RedshiftReservedInstancesConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculation]
+
+
+# RedshiftReservedInstancesConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -852,22 +861,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RedshiftReservedInstancesTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RedshiftReservedInstancesConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesCostCalculationTypeDef]
-
-
-# ReservedInstancesCostCalculationTypeDef
+# ReservedInstancesCostCalculation
 
 ### pricing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesPricingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ReservedInstancesPricing]
 
 
-# ReservedInstancesPricingTypeDef
+# ReservedInstancesPricing
 
 ### estimatedOnDemandCost
 - **Type**: typing.Optional[float]
@@ -882,64 +882,64 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# ResourceCostCalculationTypeDef
+# ResourceCostCalculation
 
 ### usages
-- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.UsageTypeDef]]
+- **Type**: typing.Optional[typing.List[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Usage]]
 
 ### pricing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourcePricingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResourcePricing]
 
 
-# ResourceDetailsTypeDef
+# ResourceDetails
 
 ### lambdaFunction
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.LambdaFunctionTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.LambdaFunction]
 
 ### ecsService
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EcsServiceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EcsService]
 
 ### ec2Instance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2Instance]
 
 ### ebsVolume
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EbsVolumeTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EbsVolume]
 
 ### ec2AutoScalingGroup
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2AutoScalingGroupTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2AutoScalingGroup]
 
 ### ec2ReservedInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2ReservedInstancesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2ReservedInstances]
 
 ### rdsReservedInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsReservedInstancesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsReservedInstances]
 
 ### elastiCacheReservedInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ElastiCacheReservedInstancesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ElastiCacheReservedInstances]
 
 ### openSearchReservedInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.OpenSearchReservedInstancesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.OpenSearchReservedInstances]
 
 ### redshiftReservedInstances
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RedshiftReservedInstancesTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RedshiftReservedInstances]
 
 ### ec2InstanceSavingsPlans
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceSavingsPlansTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.Ec2InstanceSavingsPlans]
 
 ### computeSavingsPlans
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeSavingsPlansTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ComputeSavingsPlans]
 
 ### sageMakerSavingsPlans
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SageMakerSavingsPlansTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SageMakerSavingsPlans]
 
 ### rdsDbInstance
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstance]
 
 ### rdsDbInstanceStorage
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceStorageTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.RdsDbInstanceStorage]
 
 
-# ResourcePricingTypeDef
+# ResourcePricing
 
 ### estimatedCostBeforeDiscounts
 - **Type**: typing.Optional[float]
@@ -948,13 +948,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 ### estimatedDiscounts
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EstimatedDiscountsTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.EstimatedDiscounts]
 
 ### estimatedCostAfterDiscounts
 - **Type**: typing.Optional[float]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -976,7 +976,16 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SageMakerSavingsPlansConfigurationTypeDef
+# SageMakerSavingsPlans
+
+### configuration
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SageMakerSavingsPlansConfiguration]
+
+### costCalculation
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculation]
+
+
+# SageMakerSavingsPlansConfiguration
 
 ### accountScope
 - **Type**: typing.Optional[str]
@@ -991,22 +1000,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# SageMakerSavingsPlansTypeDef
-
-### configuration
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SageMakerSavingsPlansConfigurationTypeDef]
-
-### costCalculation
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansCostCalculationTypeDef]
-
-
-# SavingsPlansCostCalculationTypeDef
+# SavingsPlansCostCalculation
 
 ### pricing
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansPricingTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.cost_optimization_hub_classes.SavingsPlansPricing]
 
 
-# SavingsPlansPricingTypeDef
+# SavingsPlansPricing
 
 ### monthlySavingsPlansEligibleCost
 - **Type**: typing.Optional[float]
@@ -1021,19 +1021,19 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[float]
 
 
-# StorageConfigurationTypeDef
+# StorageConfiguration
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# SummaryMetricsResultTypeDef
+# SummaryMetricsResult
 
 ### savingsPercentage
 - **Type**: typing.Optional[str]
 
 
-# TagTypeDef
+# Tag
 
 ### key
 - **Type**: typing.Optional[str]
@@ -1042,7 +1042,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# UpdateEnrollmentStatusRequestTypeDef
+# UpdateEnrollmentStatusRequest
 
 ### status
 - **Type**: typing.Literal['Active', 'Inactive']
@@ -1052,18 +1052,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 
-# UpdateEnrollmentStatusResponseTypeDef
+# UpdateEnrollmentStatusResponse
 
 ### status
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UpdatePreferencesRequestTypeDef
+# UpdatePreferencesRequest
 
 ### savingsEstimationMode
 - **Type**: typing.Optional[typing.Literal['AfterDiscounts', 'BeforeDiscounts']]
@@ -1072,7 +1072,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Literal['All', 'None']]
 
 
-# UpdatePreferencesResponseTypeDef
+# UpdatePreferencesResponse
 
 ### savingsEstimationMode
 - **Type**: typing.Literal['AfterDiscounts', 'BeforeDiscounts']
@@ -1083,11 +1083,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.cost_optimization_hub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# UsageTypeDef
+# Usage
 
 ### usageType
 - **Type**: typing.Optional[str]

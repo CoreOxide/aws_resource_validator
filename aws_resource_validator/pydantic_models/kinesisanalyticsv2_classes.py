@@ -12,17 +12,17 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.kinesisanalyticsv2_constants import *
 
-class CloudWatchLoggingOptionTypeDef(BaseValidatorModel):
+class CloudWatchLoggingOption(BaseValidatorModel):
     LogStreamARN: str
 
 
-class CloudWatchLoggingOptionDescriptionTypeDef(BaseValidatorModel):
+class CloudWatchLoggingOptionDescription(BaseValidatorModel):
     LogStreamARN: str
     CloudWatchLoggingOptionId: Optional[str] = None
     RoleARN: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -30,63 +30,63 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class VpcConfigurationTypeDef(BaseValidatorModel):
+class VpcConfiguration(BaseValidatorModel):
     SubnetIds: Sequence[str]
     SecurityGroupIds: Sequence[str]
 
 
-class VpcConfigurationDescriptionTypeDef(BaseValidatorModel):
+class VpcConfigurationDescription(BaseValidatorModel):
     VpcConfigurationId: str
     VpcId: str
     SubnetIds: List[str]
     SecurityGroupIds: List[str]
 
 
-class ApplicationSnapshotConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ApplicationSnapshotConfigurationDescription(BaseValidatorModel):
     SnapshotsEnabled: bool
 
 
-class ApplicationSystemRollbackConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ApplicationSystemRollbackConfigurationDescription(BaseValidatorModel):
     RollbackEnabled: bool
 
 
-class ApplicationSnapshotConfigurationTypeDef(BaseValidatorModel):
+class ApplicationSnapshotConfiguration(BaseValidatorModel):
     SnapshotsEnabled: bool
 
 
-class ApplicationSystemRollbackConfigurationTypeDef(BaseValidatorModel):
+class ApplicationSystemRollbackConfiguration(BaseValidatorModel):
     RollbackEnabled: bool
 
 
-class ApplicationSnapshotConfigurationUpdateTypeDef(BaseValidatorModel):
+class ApplicationSnapshotConfigurationUpdate(BaseValidatorModel):
     SnapshotsEnabledUpdate: bool
 
 
-class ApplicationSystemRollbackConfigurationUpdateTypeDef(BaseValidatorModel):
+class ApplicationSystemRollbackConfigurationUpdate(BaseValidatorModel):
     RollbackEnabledUpdate: bool
 
 
-class VpcConfigurationUpdateTypeDef(BaseValidatorModel):
+class VpcConfigurationUpdate(BaseValidatorModel):
     VpcConfigurationId: str
     SubnetIdUpdates: Optional[Sequence[str]] = None
     SecurityGroupIdUpdates: Optional[Sequence[str]] = None
 
 
-class ApplicationMaintenanceConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ApplicationMaintenanceConfigurationDescription(BaseValidatorModel):
     ApplicationMaintenanceWindowStartTime: str
     ApplicationMaintenanceWindowEndTime: str
 
 
-class ApplicationMaintenanceConfigurationUpdateTypeDef(BaseValidatorModel):
+class ApplicationMaintenanceConfigurationUpdate(BaseValidatorModel):
     ApplicationMaintenanceWindowStartTimeUpdate: str
 
 
-class ApplicationVersionChangeDetailsTypeDef(BaseValidatorModel):
+class ApplicationVersionChangeDetails(BaseValidatorModel):
     ApplicationVersionUpdatedFrom: int
     ApplicationVersionUpdatedTo: int
 
 
-class ApplicationOperationInfoTypeDef(BaseValidatorModel):
+class ApplicationOperationInfo(BaseValidatorModel):
     Operation: Optional[str] = None
     OperationId: Optional[str] = None
     StartTime: Optional[datetime] = None
@@ -94,12 +94,12 @@ class ApplicationOperationInfoTypeDef(BaseValidatorModel):
     OperationStatus: Optional[OperationStatusType] = None
 
 
-class ApplicationRestoreConfigurationTypeDef(BaseValidatorModel):
+class ApplicationRestoreConfiguration(BaseValidatorModel):
     ApplicationRestoreType: ApplicationRestoreTypeType
     SnapshotName: Optional[str] = None
 
 
-class ApplicationSummaryTypeDef(BaseValidatorModel):
+class ApplicationSummary(BaseValidatorModel):
     ApplicationName: str
     ApplicationARN: str
     ApplicationStatus: ApplicationStatusType
@@ -108,157 +108,157 @@ class ApplicationSummaryTypeDef(BaseValidatorModel):
     ApplicationMode: Optional[ApplicationModeType] = None
 
 
-class ApplicationVersionSummaryTypeDef(BaseValidatorModel):
+class ApplicationVersionSummary(BaseValidatorModel):
     ApplicationVersionId: int
     ApplicationStatus: ApplicationStatusType
 
 
-class CSVMappingParametersTypeDef(BaseValidatorModel):
+class CSVMappingParameters(BaseValidatorModel):
     RecordRowDelimiter: str
     RecordColumnDelimiter: str
 
 
-class GlueDataCatalogConfigurationDescriptionTypeDef(BaseValidatorModel):
+class GlueDataCatalogConfigurationDescription(BaseValidatorModel):
     DatabaseARN: str
 
 
-class GlueDataCatalogConfigurationTypeDef(BaseValidatorModel):
+class GlueDataCatalogConfiguration(BaseValidatorModel):
     DatabaseARN: str
 
 
-class GlueDataCatalogConfigurationUpdateTypeDef(BaseValidatorModel):
+class GlueDataCatalogConfigurationUpdate(BaseValidatorModel):
     DatabaseARNUpdate: str
 
 
-class CheckpointConfigurationDescriptionTypeDef(BaseValidatorModel):
+class CheckpointConfigurationDescription(BaseValidatorModel):
     ConfigurationType: Optional[ConfigurationTypeType] = None
     CheckpointingEnabled: Optional[bool] = None
     CheckpointInterval: Optional[int] = None
     MinPauseBetweenCheckpoints: Optional[int] = None
 
 
-class CheckpointConfigurationTypeDef(BaseValidatorModel):
+class CheckpointConfiguration(BaseValidatorModel):
     ConfigurationType: ConfigurationTypeType
     CheckpointingEnabled: Optional[bool] = None
     CheckpointInterval: Optional[int] = None
     MinPauseBetweenCheckpoints: Optional[int] = None
 
 
-class CheckpointConfigurationUpdateTypeDef(BaseValidatorModel):
+class CheckpointConfigurationUpdate(BaseValidatorModel):
     ConfigurationTypeUpdate: Optional[ConfigurationTypeType] = None
     CheckpointingEnabledUpdate: Optional[bool] = None
     CheckpointIntervalUpdate: Optional[int] = None
     MinPauseBetweenCheckpointsUpdate: Optional[int] = None
 
 
-class CloudWatchLoggingOptionUpdateTypeDef(BaseValidatorModel):
+class CloudWatchLoggingOptionUpdate(BaseValidatorModel):
     CloudWatchLoggingOptionId: str
     LogStreamARNUpdate: Optional[str] = None
 
 
-class S3ApplicationCodeLocationDescriptionTypeDef(BaseValidatorModel):
+class S3ApplicationCodeLocationDescription(BaseValidatorModel):
     BucketARN: str
     FileKey: str
     ObjectVersion: Optional[str] = None
 
 
-class S3ContentLocationTypeDef(BaseValidatorModel):
+class S3ContentLocation(BaseValidatorModel):
     BucketARN: str
     FileKey: str
     ObjectVersion: Optional[str] = None
 
 
-class S3ContentLocationUpdateTypeDef(BaseValidatorModel):
+class S3ContentLocationUpdate(BaseValidatorModel):
     BucketARNUpdate: Optional[str] = None
     FileKeyUpdate: Optional[str] = None
     ObjectVersionUpdate: Optional[str] = None
 
 
-class CreateApplicationPresignedUrlRequestTypeDef(BaseValidatorModel):
+class CreateApplicationPresignedUrlRequest(BaseValidatorModel):
     ApplicationName: str
     UrlType: UrlTypeType
     SessionExpirationDurationInSeconds: Optional[int] = None
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: Optional[str] = None
 
 
-class CreateApplicationSnapshotRequestTypeDef(BaseValidatorModel):
+class CreateApplicationSnapshotRequest(BaseValidatorModel):
     ApplicationName: str
     SnapshotName: str
 
 
-class MavenReferenceTypeDef(BaseValidatorModel):
+class MavenReference(BaseValidatorModel):
     GroupId: str
     ArtifactId: str
     Version: str
 
 
-class DeleteApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ApplicationName: str
     CloudWatchLoggingOptionId: str
     CurrentApplicationVersionId: Optional[int] = None
     ConditionalToken: Optional[str] = None
 
 
-class DeleteApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     InputId: str
 
 
-class DeleteApplicationOutputRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationOutputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     OutputId: str
 
 
-class DeleteApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationReferenceDataSourceRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     ReferenceId: str
 
 
-class DeleteApplicationVpcConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationVpcConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     VpcConfigurationId: str
     CurrentApplicationVersionId: Optional[int] = None
     ConditionalToken: Optional[str] = None
 
 
-class S3ContentBaseLocationDescriptionTypeDef(BaseValidatorModel):
+class S3ContentBaseLocationDescription(BaseValidatorModel):
     BucketARN: str
     BasePath: Optional[str] = None
 
 
-class S3ContentBaseLocationTypeDef(BaseValidatorModel):
+class S3ContentBaseLocation(BaseValidatorModel):
     BucketARN: str
     BasePath: Optional[str] = None
 
 
-class S3ContentBaseLocationUpdateTypeDef(BaseValidatorModel):
+class S3ContentBaseLocationUpdate(BaseValidatorModel):
     BucketARNUpdate: Optional[str] = None
     BasePathUpdate: Optional[str] = None
 
 
-class DescribeApplicationOperationRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationOperationRequest(BaseValidatorModel):
     ApplicationName: str
     OperationId: str
 
 
-class DescribeApplicationRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     IncludeAdditionalDetails: Optional[bool] = None
 
 
-class DescribeApplicationSnapshotRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationSnapshotRequest(BaseValidatorModel):
     ApplicationName: str
     SnapshotName: str
 
 
-class SnapshotDetailsTypeDef(BaseValidatorModel):
+class SnapshotDetails(BaseValidatorModel):
     SnapshotName: str
     SnapshotStatus: SnapshotStatusType
     ApplicationVersionId: int
@@ -266,40 +266,40 @@ class SnapshotDetailsTypeDef(BaseValidatorModel):
     RuntimeEnvironment: Optional[RuntimeEnvironmentType] = None
 
 
-class DescribeApplicationVersionRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationVersionRequest(BaseValidatorModel):
     ApplicationName: str
     ApplicationVersionId: int
 
 
-class DestinationSchemaTypeDef(BaseValidatorModel):
+class DestinationSchema(BaseValidatorModel):
     RecordFormatType: RecordFormatTypeType
 
 
-class InputStartingPositionConfigurationTypeDef(BaseValidatorModel):
+class InputStartingPositionConfiguration(BaseValidatorModel):
     InputStartingPosition: Optional[InputStartingPositionType] = None
 
 
-class S3ConfigurationTypeDef(BaseValidatorModel):
+class S3Configuration(BaseValidatorModel):
     BucketARN: str
     FileKey: str
 
 
-class PropertyGroupOutputTypeDef(BaseValidatorModel):
+class PropertyGroupOutput(BaseValidatorModel):
     PropertyGroupId: str
     PropertyMap: Dict[str, str]
 
 
-class ErrorInfoTypeDef(BaseValidatorModel):
+class ErrorInfo(BaseValidatorModel):
     ErrorString: Optional[str] = None
 
 
-class MonitoringConfigurationDescriptionTypeDef(BaseValidatorModel):
+class MonitoringConfigurationDescription(BaseValidatorModel):
     ConfigurationType: Optional[ConfigurationTypeType] = None
     MetricsLevel: Optional[MetricsLevelType] = None
     LogLevel: Optional[LogLevelType] = None
 
 
-class ParallelismConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ParallelismConfigurationDescription(BaseValidatorModel):
     ConfigurationType: Optional[ConfigurationTypeType] = None
     Parallelism: Optional[int] = None
     ParallelismPerKPU: Optional[int] = None
@@ -307,133 +307,133 @@ class ParallelismConfigurationDescriptionTypeDef(BaseValidatorModel):
     AutoScalingEnabled: Optional[bool] = None
 
 
-class MonitoringConfigurationTypeDef(BaseValidatorModel):
+class MonitoringConfiguration(BaseValidatorModel):
     ConfigurationType: ConfigurationTypeType
     MetricsLevel: Optional[MetricsLevelType] = None
     LogLevel: Optional[LogLevelType] = None
 
 
-class ParallelismConfigurationTypeDef(BaseValidatorModel):
+class ParallelismConfiguration(BaseValidatorModel):
     ConfigurationType: ConfigurationTypeType
     Parallelism: Optional[int] = None
     ParallelismPerKPU: Optional[int] = None
     AutoScalingEnabled: Optional[bool] = None
 
 
-class MonitoringConfigurationUpdateTypeDef(BaseValidatorModel):
+class MonitoringConfigurationUpdate(BaseValidatorModel):
     ConfigurationTypeUpdate: Optional[ConfigurationTypeType] = None
     MetricsLevelUpdate: Optional[MetricsLevelType] = None
     LogLevelUpdate: Optional[LogLevelType] = None
 
 
-class ParallelismConfigurationUpdateTypeDef(BaseValidatorModel):
+class ParallelismConfigurationUpdate(BaseValidatorModel):
     ConfigurationTypeUpdate: Optional[ConfigurationTypeType] = None
     ParallelismUpdate: Optional[int] = None
     ParallelismPerKPUUpdate: Optional[int] = None
     AutoScalingEnabledUpdate: Optional[bool] = None
 
 
-class FlinkRunConfigurationTypeDef(BaseValidatorModel):
+class FlinkRunConfiguration(BaseValidatorModel):
     AllowNonRestoredState: Optional[bool] = None
 
 
-class InputParallelismTypeDef(BaseValidatorModel):
+class InputParallelism(BaseValidatorModel):
     Count: Optional[int] = None
 
 
-class KinesisFirehoseInputDescriptionTypeDef(BaseValidatorModel):
+class KinesisFirehoseInputDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class KinesisStreamsInputDescriptionTypeDef(BaseValidatorModel):
+class KinesisStreamsInputDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class InputLambdaProcessorDescriptionTypeDef(BaseValidatorModel):
+class InputLambdaProcessorDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class InputLambdaProcessorTypeDef(BaseValidatorModel):
+class InputLambdaProcessor(BaseValidatorModel):
     ResourceARN: str
 
 
-class InputLambdaProcessorUpdateTypeDef(BaseValidatorModel):
+class InputLambdaProcessorUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class InputParallelismUpdateTypeDef(BaseValidatorModel):
+class InputParallelismUpdate(BaseValidatorModel):
     CountUpdate: int
 
 
-class KinesisFirehoseInputTypeDef(BaseValidatorModel):
+class KinesisFirehoseInput(BaseValidatorModel):
     ResourceARN: str
 
 
-class KinesisStreamsInputTypeDef(BaseValidatorModel):
+class KinesisStreamsInput(BaseValidatorModel):
     ResourceARN: str
 
 
-class KinesisFirehoseInputUpdateTypeDef(BaseValidatorModel):
+class KinesisFirehoseInputUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class KinesisStreamsInputUpdateTypeDef(BaseValidatorModel):
+class KinesisStreamsInputUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class JSONMappingParametersTypeDef(BaseValidatorModel):
+class JSONMappingParameters(BaseValidatorModel):
     RecordRowPath: str
 
 
-class KinesisFirehoseOutputDescriptionTypeDef(BaseValidatorModel):
+class KinesisFirehoseOutputDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class KinesisFirehoseOutputTypeDef(BaseValidatorModel):
+class KinesisFirehoseOutput(BaseValidatorModel):
     ResourceARN: str
 
 
-class KinesisFirehoseOutputUpdateTypeDef(BaseValidatorModel):
+class KinesisFirehoseOutputUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class KinesisStreamsOutputDescriptionTypeDef(BaseValidatorModel):
+class KinesisStreamsOutputDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class KinesisStreamsOutputTypeDef(BaseValidatorModel):
+class KinesisStreamsOutput(BaseValidatorModel):
     ResourceARN: str
 
 
-class KinesisStreamsOutputUpdateTypeDef(BaseValidatorModel):
+class KinesisStreamsOutputUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class LambdaOutputDescriptionTypeDef(BaseValidatorModel):
+class LambdaOutputDescription(BaseValidatorModel):
     ResourceARN: str
     RoleARN: Optional[str] = None
 
 
-class LambdaOutputTypeDef(BaseValidatorModel):
+class LambdaOutput(BaseValidatorModel):
     ResourceARN: str
 
 
-class LambdaOutputUpdateTypeDef(BaseValidatorModel):
+class LambdaOutputUpdate(BaseValidatorModel):
     ResourceARNUpdate: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationOperationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationOperationsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
@@ -441,640 +441,640 @@ class ListApplicationOperationsRequestTypeDef(BaseValidatorModel):
     OperationStatus: Optional[OperationStatusType] = None
 
 
-class ListApplicationSnapshotsRequestTypeDef(BaseValidatorModel):
+class ListApplicationSnapshotsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListApplicationVersionsRequestTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequest(BaseValidatorModel):
     ApplicationName: str
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     Limit: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class PropertyGroupTypeDef(BaseValidatorModel):
+class PropertyGroup(BaseValidatorModel):
     PropertyGroupId: str
     PropertyMap: Mapping[str, str]
 
 
-class S3ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
+class S3ReferenceDataSourceDescription(BaseValidatorModel):
     BucketARN: str
     FileKey: str
     ReferenceRoleARN: Optional[str] = None
 
 
-class S3ReferenceDataSourceTypeDef(BaseValidatorModel):
+class S3ReferenceDataSource(BaseValidatorModel):
     BucketARN: Optional[str] = None
     FileKey: Optional[str] = None
 
 
-class S3ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
+class S3ReferenceDataSourceUpdate(BaseValidatorModel):
     BucketARNUpdate: Optional[str] = None
     FileKeyUpdate: Optional[str] = None
 
 
-class RollbackApplicationRequestTypeDef(BaseValidatorModel):
+class RollbackApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
 
 
-class StopApplicationRequestTypeDef(BaseValidatorModel):
+class StopApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     Force: Optional[bool] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class ZeppelinMonitoringConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ZeppelinMonitoringConfigurationDescription(BaseValidatorModel):
     LogLevel: Optional[LogLevelType] = None
 
 
-class ZeppelinMonitoringConfigurationTypeDef(BaseValidatorModel):
+class ZeppelinMonitoringConfiguration(BaseValidatorModel):
     LogLevel: LogLevelType
 
 
-class ZeppelinMonitoringConfigurationUpdateTypeDef(BaseValidatorModel):
+class ZeppelinMonitoringConfigurationUpdate(BaseValidatorModel):
     LogLevelUpdate: LogLevelType
 
 
-class AddApplicationCloudWatchLoggingOptionRequestTypeDef(BaseValidatorModel):
+class AddApplicationCloudWatchLoggingOptionRequest(BaseValidatorModel):
     ApplicationName: str
-    CloudWatchLoggingOption: CloudWatchLoggingOptionTypeDef
+    CloudWatchLoggingOption: CloudWatchLoggingOption
     CurrentApplicationVersionId: Optional[int] = None
     ConditionalToken: Optional[str] = None
 
 
-class AddApplicationCloudWatchLoggingOptionResponseTypeDef(BaseValidatorModel):
+class AddApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescriptionTypeDef]
+    CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescription]
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationPresignedUrlResponseTypeDef(BaseValidatorModel):
+class CreateApplicationPresignedUrlResponse(BaseValidatorModel):
     AuthorizedUrl: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteApplicationCloudWatchLoggingOptionResponseTypeDef(BaseValidatorModel):
+class DeleteApplicationCloudWatchLoggingOptionResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescriptionTypeDef]
+    CloudWatchLoggingOptionDescriptions: List[CloudWatchLoggingOptionDescription]
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteApplicationInputProcessingConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteApplicationInputProcessingConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteApplicationOutputResponseTypeDef(BaseValidatorModel):
+class DeleteApplicationOutputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteApplicationReferenceDataSourceResponseTypeDef(BaseValidatorModel):
+class DeleteApplicationReferenceDataSourceResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteApplicationVpcConfigurationResponseTypeDef(BaseValidatorModel):
+class DeleteApplicationVpcConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartApplicationResponseTypeDef(BaseValidatorModel):
+class StartApplicationResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StopApplicationResponseTypeDef(BaseValidatorModel):
+class StopApplicationResponse(BaseValidatorModel):
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AddApplicationVpcConfigurationRequestTypeDef(BaseValidatorModel):
+class AddApplicationVpcConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
-    VpcConfiguration: VpcConfigurationTypeDef
+    VpcConfiguration: VpcConfiguration
     CurrentApplicationVersionId: Optional[int] = None
     ConditionalToken: Optional[str] = None
 
 
-class AddApplicationVpcConfigurationResponseTypeDef(BaseValidatorModel):
+class AddApplicationVpcConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    VpcConfigurationDescription: VpcConfigurationDescriptionTypeDef
+    VpcConfigurationDescription: VpcConfigurationDescription
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationMaintenanceConfigurationResponseTypeDef(BaseValidatorModel):
+class UpdateApplicationMaintenanceConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
-    ApplicationMaintenanceConfigurationDescription: ( ApplicationMaintenanceConfigurationDescriptionTypeDef )
-    ResponseMetadata: ResponseMetadataTypeDef
+    ApplicationMaintenanceConfigurationDescription: ( ApplicationMaintenanceConfigurationDescription )
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationMaintenanceConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationMaintenanceConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
-    ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdateTypeDef
+    ApplicationMaintenanceConfigurationUpdate: ApplicationMaintenanceConfigurationUpdate
 
 
-class ListApplicationOperationsResponseTypeDef(BaseValidatorModel):
-    ApplicationOperationInfoList: List[ApplicationOperationInfoTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationOperationsResponse(BaseValidatorModel):
+    ApplicationOperationInfoList: List[ApplicationOperationInfo]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    ApplicationSummaries: List[ApplicationSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    ApplicationSummaries: List[ApplicationSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationVersionsResponseTypeDef(BaseValidatorModel):
-    ApplicationVersionSummaries: List[ApplicationVersionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationVersionsResponse(BaseValidatorModel):
+    ApplicationVersionSummaries: List[ApplicationVersionSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class CatalogConfigurationDescriptionTypeDef(BaseValidatorModel):
-    GlueDataCatalogConfigurationDescription: GlueDataCatalogConfigurationDescriptionTypeDef
+class CatalogConfigurationDescription(BaseValidatorModel):
+    GlueDataCatalogConfigurationDescription: GlueDataCatalogConfigurationDescription
 
 
-class CatalogConfigurationTypeDef(BaseValidatorModel):
-    GlueDataCatalogConfiguration: GlueDataCatalogConfigurationTypeDef
+class CatalogConfiguration(BaseValidatorModel):
+    GlueDataCatalogConfiguration: GlueDataCatalogConfiguration
 
 
-class CatalogConfigurationUpdateTypeDef(BaseValidatorModel):
-    GlueDataCatalogConfigurationUpdate: GlueDataCatalogConfigurationUpdateTypeDef
+class CatalogConfigurationUpdate(BaseValidatorModel):
+    GlueDataCatalogConfigurationUpdate: GlueDataCatalogConfigurationUpdate
 
 
-class CodeContentDescriptionTypeDef(BaseValidatorModel):
+class CodeContentDescription(BaseValidatorModel):
     TextContent: Optional[str] = None
     CodeMD5: Optional[str] = None
     CodeSize: Optional[int] = None
-    S3ApplicationCodeLocationDescription: Optional[S3ApplicationCodeLocationDescriptionTypeDef] = None
+    S3ApplicationCodeLocationDescription: Optional[S3ApplicationCodeLocationDescription] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class CodeContentTypeDef(BaseValidatorModel):
+class CodeContent(BaseValidatorModel):
     TextContent: Optional[str] = None
-    ZipFileContent: Optional[BlobTypeDef] = None
-    S3ContentLocation: Optional[S3ContentLocationTypeDef] = None
+    ZipFileContent: Optional[Blob] = None
+    S3ContentLocation: Optional[S3ContentLocation] = None
 
 
-class CodeContentUpdateTypeDef(BaseValidatorModel):
+class CodeContentUpdate(BaseValidatorModel):
     TextContentUpdate: Optional[str] = None
-    ZipFileContentUpdate: Optional[BlobTypeDef] = None
-    S3ContentLocationUpdate: Optional[S3ContentLocationUpdateTypeDef] = None
+    ZipFileContentUpdate: Optional[Blob] = None
+    S3ContentLocationUpdate: Optional[S3ContentLocationUpdate] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class CustomArtifactConfigurationDescriptionTypeDef(BaseValidatorModel):
+class CustomArtifactConfigurationDescription(BaseValidatorModel):
     ArtifactType: Optional[ArtifactTypeType] = None
-    S3ContentLocationDescription: Optional[S3ContentLocationTypeDef] = None
-    MavenReferenceDescription: Optional[MavenReferenceTypeDef] = None
+    S3ContentLocationDescription: Optional[S3ContentLocation] = None
+    MavenReferenceDescription: Optional[MavenReference] = None
 
 
-class CustomArtifactConfigurationTypeDef(BaseValidatorModel):
+class CustomArtifactConfiguration(BaseValidatorModel):
     ArtifactType: ArtifactTypeType
-    S3ContentLocation: Optional[S3ContentLocationTypeDef] = None
-    MavenReference: Optional[MavenReferenceTypeDef] = None
+    S3ContentLocation: Optional[S3ContentLocation] = None
+    MavenReference: Optional[MavenReference] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     ApplicationName: str
-    CreateTimestamp: TimestampTypeDef
+    CreateTimestamp: Timestamp
 
 
-class DeleteApplicationSnapshotRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationSnapshotRequest(BaseValidatorModel):
     ApplicationName: str
     SnapshotName: str
-    SnapshotCreationTimestamp: TimestampTypeDef
+    SnapshotCreationTimestamp: Timestamp
 
 
-class DeployAsApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    S3ContentLocationDescription: S3ContentBaseLocationDescriptionTypeDef
+class DeployAsApplicationConfigurationDescription(BaseValidatorModel):
+    S3ContentLocationDescription: S3ContentBaseLocationDescription
 
 
-class DeployAsApplicationConfigurationTypeDef(BaseValidatorModel):
-    S3ContentLocation: S3ContentBaseLocationTypeDef
+class DeployAsApplicationConfiguration(BaseValidatorModel):
+    S3ContentLocation: S3ContentBaseLocation
 
 
-class DeployAsApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
-    S3ContentLocationUpdate: Optional[S3ContentBaseLocationUpdateTypeDef] = None
+class DeployAsApplicationConfigurationUpdate(BaseValidatorModel):
+    S3ContentLocationUpdate: Optional[S3ContentBaseLocationUpdate] = None
 
 
-class DescribeApplicationSnapshotResponseTypeDef(BaseValidatorModel):
-    SnapshotDetails: SnapshotDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationSnapshotResponse(BaseValidatorModel):
+    SnapshotDetails: SnapshotDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationSnapshotsResponseTypeDef(BaseValidatorModel):
-    SnapshotSummaries: List[SnapshotDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationSnapshotsResponse(BaseValidatorModel):
+    SnapshotSummaries: List[SnapshotDetails]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SqlRunConfigurationTypeDef(BaseValidatorModel):
+class SqlRunConfiguration(BaseValidatorModel):
     InputId: str
-    InputStartingPositionConfiguration: InputStartingPositionConfigurationTypeDef
+    InputStartingPositionConfiguration: InputStartingPositionConfiguration
 
 
-class EnvironmentPropertyDescriptionsTypeDef(BaseValidatorModel):
-    PropertyGroupDescriptions: Optional[List[PropertyGroupOutputTypeDef]] = None
+class EnvironmentPropertyDescriptions(BaseValidatorModel):
+    PropertyGroupDescriptions: Optional[List[PropertyGroupOutput]] = None
 
 
-class OperationFailureDetailsTypeDef(BaseValidatorModel):
+class OperationFailureDetails(BaseValidatorModel):
     RollbackOperationId: Optional[str] = None
-    ErrorInfo: Optional[ErrorInfoTypeDef] = None
+    ErrorInfo: Optional[ErrorInfo] = None
 
 
-class FlinkApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    CheckpointConfigurationDescription: Optional[CheckpointConfigurationDescriptionTypeDef] = None
-    MonitoringConfigurationDescription: Optional[MonitoringConfigurationDescriptionTypeDef] = None
-    ParallelismConfigurationDescription: Optional[ParallelismConfigurationDescriptionTypeDef] = None
+class FlinkApplicationConfigurationDescription(BaseValidatorModel):
+    CheckpointConfigurationDescription: Optional[CheckpointConfigurationDescription] = None
+    MonitoringConfigurationDescription: Optional[MonitoringConfigurationDescription] = None
+    ParallelismConfigurationDescription: Optional[ParallelismConfigurationDescription] = None
     JobPlanDescription: Optional[str] = None
 
 
-class FlinkApplicationConfigurationTypeDef(BaseValidatorModel):
-    CheckpointConfiguration: Optional[CheckpointConfigurationTypeDef] = None
-    MonitoringConfiguration: Optional[MonitoringConfigurationTypeDef] = None
-    ParallelismConfiguration: Optional[ParallelismConfigurationTypeDef] = None
+class FlinkApplicationConfiguration(BaseValidatorModel):
+    CheckpointConfiguration: Optional[CheckpointConfiguration] = None
+    MonitoringConfiguration: Optional[MonitoringConfiguration] = None
+    ParallelismConfiguration: Optional[ParallelismConfiguration] = None
 
 
-class FlinkApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
-    CheckpointConfigurationUpdate: Optional[CheckpointConfigurationUpdateTypeDef] = None
-    MonitoringConfigurationUpdate: Optional[MonitoringConfigurationUpdateTypeDef] = None
-    ParallelismConfigurationUpdate: Optional[ParallelismConfigurationUpdateTypeDef] = None
+class FlinkApplicationConfigurationUpdate(BaseValidatorModel):
+    CheckpointConfigurationUpdate: Optional[CheckpointConfigurationUpdate] = None
+    MonitoringConfigurationUpdate: Optional[MonitoringConfigurationUpdate] = None
+    ParallelismConfigurationUpdate: Optional[ParallelismConfigurationUpdate] = None
 
 
-class RunConfigurationDescriptionTypeDef(BaseValidatorModel):
-    ApplicationRestoreConfigurationDescription: Optional[ApplicationRestoreConfigurationTypeDef] = None
-    FlinkRunConfigurationDescription: Optional[FlinkRunConfigurationTypeDef] = None
+class RunConfigurationDescription(BaseValidatorModel):
+    ApplicationRestoreConfigurationDescription: Optional[ApplicationRestoreConfiguration] = None
+    FlinkRunConfigurationDescription: Optional[FlinkRunConfiguration] = None
 
 
-class RunConfigurationUpdateTypeDef(BaseValidatorModel):
-    FlinkRunConfiguration: Optional[FlinkRunConfigurationTypeDef] = None
-    ApplicationRestoreConfiguration: Optional[ApplicationRestoreConfigurationTypeDef] = None
+class RunConfigurationUpdate(BaseValidatorModel):
+    FlinkRunConfiguration: Optional[FlinkRunConfiguration] = None
+    ApplicationRestoreConfiguration: Optional[ApplicationRestoreConfiguration] = None
 
 
-class InputProcessingConfigurationDescriptionTypeDef(BaseValidatorModel):
-    InputLambdaProcessorDescription: Optional[InputLambdaProcessorDescriptionTypeDef] = None
+class InputProcessingConfigurationDescription(BaseValidatorModel):
+    InputLambdaProcessorDescription: Optional[InputLambdaProcessorDescription] = None
 
 
-class InputProcessingConfigurationTypeDef(BaseValidatorModel):
-    InputLambdaProcessor: InputLambdaProcessorTypeDef
+class InputProcessingConfiguration(BaseValidatorModel):
+    InputLambdaProcessor: InputLambdaProcessor
 
 
-class InputProcessingConfigurationUpdateTypeDef(BaseValidatorModel):
-    InputLambdaProcessorUpdate: InputLambdaProcessorUpdateTypeDef
+class InputProcessingConfigurationUpdate(BaseValidatorModel):
+    InputLambdaProcessorUpdate: InputLambdaProcessorUpdate
 
 
-class MappingParametersTypeDef(BaseValidatorModel):
-    JSONMappingParameters: Optional[JSONMappingParametersTypeDef] = None
-    CSVMappingParameters: Optional[CSVMappingParametersTypeDef] = None
+class MappingParameters(BaseValidatorModel):
+    JSONMappingParameters: Optional[JSONMappingParameters] = None
+    CSVMappingParameters: Optional[CSVMappingParameters] = None
 
 
-class OutputDescriptionTypeDef(BaseValidatorModel):
+class OutputDescription(BaseValidatorModel):
     OutputId: Optional[str] = None
     Name: Optional[str] = None
-    KinesisStreamsOutputDescription: Optional[KinesisStreamsOutputDescriptionTypeDef] = None
-    KinesisFirehoseOutputDescription: Optional[KinesisFirehoseOutputDescriptionTypeDef] = None
-    LambdaOutputDescription: Optional[LambdaOutputDescriptionTypeDef] = None
-    DestinationSchema: Optional[DestinationSchemaTypeDef] = None
+    KinesisStreamsOutputDescription: Optional[KinesisStreamsOutputDescription] = None
+    KinesisFirehoseOutputDescription: Optional[KinesisFirehoseOutputDescription] = None
+    LambdaOutputDescription: Optional[LambdaOutputDescription] = None
+    DestinationSchema: Optional[DestinationSchema] = None
 
 
-class OutputTypeDef(BaseValidatorModel):
+class Output(BaseValidatorModel):
     Name: str
-    DestinationSchema: DestinationSchemaTypeDef
-    KinesisStreamsOutput: Optional[KinesisStreamsOutputTypeDef] = None
-    KinesisFirehoseOutput: Optional[KinesisFirehoseOutputTypeDef] = None
-    LambdaOutput: Optional[LambdaOutputTypeDef] = None
+    DestinationSchema: DestinationSchema
+    KinesisStreamsOutput: Optional[KinesisStreamsOutput] = None
+    KinesisFirehoseOutput: Optional[KinesisFirehoseOutput] = None
+    LambdaOutput: Optional[LambdaOutput] = None
 
 
-class OutputUpdateTypeDef(BaseValidatorModel):
+class OutputUpdate(BaseValidatorModel):
     OutputId: str
     NameUpdate: Optional[str] = None
-    KinesisStreamsOutputUpdate: Optional[KinesisStreamsOutputUpdateTypeDef] = None
-    KinesisFirehoseOutputUpdate: Optional[KinesisFirehoseOutputUpdateTypeDef] = None
-    LambdaOutputUpdate: Optional[LambdaOutputUpdateTypeDef] = None
-    DestinationSchemaUpdate: Optional[DestinationSchemaTypeDef] = None
+    KinesisStreamsOutputUpdate: Optional[KinesisStreamsOutputUpdate] = None
+    KinesisFirehoseOutputUpdate: Optional[KinesisFirehoseOutputUpdate] = None
+    LambdaOutputUpdate: Optional[LambdaOutputUpdate] = None
+    DestinationSchemaUpdate: Optional[DestinationSchema] = None
 
 
-class ListApplicationOperationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationOperationsRequestPaginate(BaseValidatorModel):
     ApplicationName: str
     Operation: Optional[str] = None
     OperationStatus: Optional[OperationStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationSnapshotsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationSnapshotsRequestPaginate(BaseValidatorModel):
     ApplicationName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationVersionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationVersionsRequestPaginate(BaseValidatorModel):
     ApplicationName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ApplicationCodeConfigurationDescriptionTypeDef(BaseValidatorModel):
+class ApplicationCodeConfigurationDescription(BaseValidatorModel):
     CodeContentType: CodeContentTypeType
-    CodeContentDescription: Optional[CodeContentDescriptionTypeDef] = None
+    CodeContentDescription: Optional[CodeContentDescription] = None
 
 
-class ApplicationCodeConfigurationTypeDef(BaseValidatorModel):
+class ApplicationCodeConfiguration(BaseValidatorModel):
     CodeContentType: CodeContentTypeType
-    CodeContent: Optional[CodeContentTypeDef] = None
+    CodeContent: Optional[CodeContent] = None
 
 
-class ApplicationCodeConfigurationUpdateTypeDef(BaseValidatorModel):
+class ApplicationCodeConfigurationUpdate(BaseValidatorModel):
     CodeContentTypeUpdate: Optional[CodeContentTypeType] = None
-    CodeContentUpdate: Optional[CodeContentUpdateTypeDef] = None
+    CodeContentUpdate: Optional[CodeContentUpdate] = None
 
 
-class ZeppelinApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    MonitoringConfigurationDescription: ZeppelinMonitoringConfigurationDescriptionTypeDef
-    CatalogConfigurationDescription: Optional[CatalogConfigurationDescriptionTypeDef] = None
-    DeployAsApplicationConfigurationDescription: Optional[ DeployAsApplicationConfigurationDescriptionTypeDef ] = None
-    CustomArtifactsConfigurationDescription: Optional[ List[CustomArtifactConfigurationDescriptionTypeDef] ] = None
+class ZeppelinApplicationConfigurationDescription(BaseValidatorModel):
+    MonitoringConfigurationDescription: ZeppelinMonitoringConfigurationDescription
+    CatalogConfigurationDescription: Optional[CatalogConfigurationDescription] = None
+    DeployAsApplicationConfigurationDescription: Optional[ DeployAsApplicationConfigurationDescription ] = None
+    CustomArtifactsConfigurationDescription: Optional[ List[CustomArtifactConfigurationDescription] ] = None
 
 
-class ZeppelinApplicationConfigurationTypeDef(BaseValidatorModel):
-    MonitoringConfiguration: Optional[ZeppelinMonitoringConfigurationTypeDef] = None
-    CatalogConfiguration: Optional[CatalogConfigurationTypeDef] = None
-    DeployAsApplicationConfiguration: Optional[DeployAsApplicationConfigurationTypeDef] = None
-    CustomArtifactsConfiguration: Optional[Sequence[CustomArtifactConfigurationTypeDef]] = None
+class ZeppelinApplicationConfiguration(BaseValidatorModel):
+    MonitoringConfiguration: Optional[ZeppelinMonitoringConfiguration] = None
+    CatalogConfiguration: Optional[CatalogConfiguration] = None
+    DeployAsApplicationConfiguration: Optional[DeployAsApplicationConfiguration] = None
+    CustomArtifactsConfiguration: Optional[Sequence[CustomArtifactConfiguration]] = None
 
 
-class ZeppelinApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
-    MonitoringConfigurationUpdate: Optional[ZeppelinMonitoringConfigurationUpdateTypeDef] = None
-    CatalogConfigurationUpdate: Optional[CatalogConfigurationUpdateTypeDef] = None
-    DeployAsApplicationConfigurationUpdate: Optional[ DeployAsApplicationConfigurationUpdateTypeDef ] = None
-    CustomArtifactsConfigurationUpdate: Optional[Sequence[CustomArtifactConfigurationTypeDef]] = None
+class ZeppelinApplicationConfigurationUpdate(BaseValidatorModel):
+    MonitoringConfigurationUpdate: Optional[ZeppelinMonitoringConfigurationUpdate] = None
+    CatalogConfigurationUpdate: Optional[CatalogConfigurationUpdate] = None
+    DeployAsApplicationConfigurationUpdate: Optional[ DeployAsApplicationConfigurationUpdate ] = None
+    CustomArtifactsConfigurationUpdate: Optional[Sequence[CustomArtifactConfiguration]] = None
 
 
-class RunConfigurationTypeDef(BaseValidatorModel):
-    FlinkRunConfiguration: Optional[FlinkRunConfigurationTypeDef] = None
-    SqlRunConfigurations: Optional[Sequence[SqlRunConfigurationTypeDef]] = None
-    ApplicationRestoreConfiguration: Optional[ApplicationRestoreConfigurationTypeDef] = None
+class RunConfiguration(BaseValidatorModel):
+    FlinkRunConfiguration: Optional[FlinkRunConfiguration] = None
+    SqlRunConfigurations: Optional[Sequence[SqlRunConfiguration]] = None
+    ApplicationRestoreConfiguration: Optional[ApplicationRestoreConfiguration] = None
 
 
-class ApplicationOperationInfoDetailsTypeDef(BaseValidatorModel):
+class ApplicationOperationInfoDetails(BaseValidatorModel):
     Operation: str
     StartTime: datetime
     EndTime: datetime
     OperationStatus: OperationStatusType
-    ApplicationVersionChangeDetails: Optional[ApplicationVersionChangeDetailsTypeDef] = None
-    OperationFailureDetails: Optional[OperationFailureDetailsTypeDef] = None
+    ApplicationVersionChangeDetails: Optional[ApplicationVersionChangeDetails] = None
+    OperationFailureDetails: Optional[OperationFailureDetails] = None
 
 
-class AddApplicationInputProcessingConfigurationResponseTypeDef(BaseValidatorModel):
+class AddApplicationInputProcessingConfigurationResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
     InputId: str
-    InputProcessingConfigurationDescription: InputProcessingConfigurationDescriptionTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    InputProcessingConfigurationDescription: InputProcessingConfigurationDescription
+    ResponseMetadata: ResponseMetadata
 
 
-class AddApplicationInputProcessingConfigurationRequestTypeDef(BaseValidatorModel):
+class AddApplicationInputProcessingConfigurationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
     InputId: str
-    InputProcessingConfiguration: InputProcessingConfigurationTypeDef
+    InputProcessingConfiguration: InputProcessingConfiguration
 
 
-class DiscoverInputSchemaRequestTypeDef(BaseValidatorModel):
+class DiscoverInputSchemaRequest(BaseValidatorModel):
     ServiceExecutionRole: str
     ResourceARN: Optional[str] = None
-    InputStartingPositionConfiguration: Optional[InputStartingPositionConfigurationTypeDef] = None
-    S3Configuration: Optional[S3ConfigurationTypeDef] = None
-    InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
+    InputStartingPositionConfiguration: Optional[InputStartingPositionConfiguration] = None
+    S3Configuration: Optional[S3Configuration] = None
+    InputProcessingConfiguration: Optional[InputProcessingConfiguration] = None
 
 
-class RecordFormatTypeDef(BaseValidatorModel):
+class RecordFormat(BaseValidatorModel):
     RecordFormatType: RecordFormatTypeType
-    MappingParameters: Optional[MappingParametersTypeDef] = None
+    MappingParameters: Optional[MappingParameters] = None
 
 
-class AddApplicationOutputResponseTypeDef(BaseValidatorModel):
+class AddApplicationOutputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    OutputDescriptions: List[OutputDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    OutputDescriptions: List[OutputDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class AddApplicationOutputRequestTypeDef(BaseValidatorModel):
+class AddApplicationOutputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
-    Output: OutputTypeDef
+    Output: Output
 
 
-class PropertyGroupUnionTypeDef(BaseValidatorModel):
+class PropertyGroupUnion(BaseValidatorModel):
     pass
 
 
-class EnvironmentPropertiesTypeDef(BaseValidatorModel):
-    PropertyGroups: Sequence[PropertyGroupUnionTypeDef]
+class EnvironmentProperties(BaseValidatorModel):
+    PropertyGroups: Sequence[PropertyGroupUnion]
 
 
-class EnvironmentPropertyUpdatesTypeDef(BaseValidatorModel):
-    PropertyGroups: Sequence[PropertyGroupUnionTypeDef]
+class EnvironmentPropertyUpdates(BaseValidatorModel):
+    PropertyGroups: Sequence[PropertyGroupUnion]
 
 
-class StartApplicationRequestTypeDef(BaseValidatorModel):
+class StartApplicationRequest(BaseValidatorModel):
     ApplicationName: str
-    RunConfiguration: Optional[RunConfigurationTypeDef] = None
+    RunConfiguration: Optional[RunConfiguration] = None
 
 
-class DescribeApplicationOperationResponseTypeDef(BaseValidatorModel):
-    ApplicationOperationInfoDetails: ApplicationOperationInfoDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationOperationResponse(BaseValidatorModel):
+    ApplicationOperationInfoDetails: ApplicationOperationInfoDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class RecordColumnTypeDef(BaseValidatorModel):
+class RecordColumn(BaseValidatorModel):
     pass
 
 
-class InputSchemaUpdateTypeDef(BaseValidatorModel):
-    RecordFormatUpdate: Optional[RecordFormatTypeDef] = None
+class InputSchemaUpdate(BaseValidatorModel):
+    RecordFormatUpdate: Optional[RecordFormat] = None
     RecordEncodingUpdate: Optional[str] = None
-    RecordColumnUpdates: Optional[Sequence[RecordColumnTypeDef]] = None
+    RecordColumnUpdates: Optional[Sequence[RecordColumn]] = None
 
 
-class SourceSchemaOutputTypeDef(BaseValidatorModel):
-    RecordFormat: RecordFormatTypeDef
-    RecordColumns: List[RecordColumnTypeDef]
+class SourceSchemaOutput(BaseValidatorModel):
+    RecordFormat: RecordFormat
+    RecordColumns: List[RecordColumn]
     RecordEncoding: Optional[str] = None
 
 
-class SourceSchemaTypeDef(BaseValidatorModel):
-    RecordFormat: RecordFormatTypeDef
-    RecordColumns: Sequence[RecordColumnTypeDef]
+class SourceSchema(BaseValidatorModel):
+    RecordFormat: RecordFormat
+    RecordColumns: Sequence[RecordColumn]
     RecordEncoding: Optional[str] = None
 
 
-class InputUpdateTypeDef(BaseValidatorModel):
+class InputUpdate(BaseValidatorModel):
     InputId: str
     NamePrefixUpdate: Optional[str] = None
-    InputProcessingConfigurationUpdate: Optional[InputProcessingConfigurationUpdateTypeDef] = None
-    KinesisStreamsInputUpdate: Optional[KinesisStreamsInputUpdateTypeDef] = None
-    KinesisFirehoseInputUpdate: Optional[KinesisFirehoseInputUpdateTypeDef] = None
-    InputSchemaUpdate: Optional[InputSchemaUpdateTypeDef] = None
-    InputParallelismUpdate: Optional[InputParallelismUpdateTypeDef] = None
+    InputProcessingConfigurationUpdate: Optional[InputProcessingConfigurationUpdate] = None
+    KinesisStreamsInputUpdate: Optional[KinesisStreamsInputUpdate] = None
+    KinesisFirehoseInputUpdate: Optional[KinesisFirehoseInputUpdate] = None
+    InputSchemaUpdate: Optional[InputSchemaUpdate] = None
+    InputParallelismUpdate: Optional[InputParallelismUpdate] = None
 
 
-class DiscoverInputSchemaResponseTypeDef(BaseValidatorModel):
-    InputSchema: SourceSchemaOutputTypeDef
+class DiscoverInputSchemaResponse(BaseValidatorModel):
+    InputSchema: SourceSchemaOutput
     ParsedInputRecords: List[List[str]]
     ProcessedInputRecords: List[str]
     RawInputRecords: List[str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InputDescriptionTypeDef(BaseValidatorModel):
+class InputDescription(BaseValidatorModel):
     InputId: Optional[str] = None
     NamePrefix: Optional[str] = None
     InAppStreamNames: Optional[List[str]] = None
-    InputProcessingConfigurationDescription: Optional[ InputProcessingConfigurationDescriptionTypeDef ] = None
-    KinesisStreamsInputDescription: Optional[KinesisStreamsInputDescriptionTypeDef] = None
-    KinesisFirehoseInputDescription: Optional[KinesisFirehoseInputDescriptionTypeDef] = None
-    InputSchema: Optional[SourceSchemaOutputTypeDef] = None
-    InputParallelism: Optional[InputParallelismTypeDef] = None
-    InputStartingPositionConfiguration: Optional[InputStartingPositionConfigurationTypeDef] = None
+    InputProcessingConfigurationDescription: Optional[ InputProcessingConfigurationDescription ] = None
+    KinesisStreamsInputDescription: Optional[KinesisStreamsInputDescription] = None
+    KinesisFirehoseInputDescription: Optional[KinesisFirehoseInputDescription] = None
+    InputSchema: Optional[SourceSchemaOutput] = None
+    InputParallelism: Optional[InputParallelism] = None
+    InputStartingPositionConfiguration: Optional[InputStartingPositionConfiguration] = None
 
 
-class ReferenceDataSourceDescriptionTypeDef(BaseValidatorModel):
+class ReferenceDataSourceDescription(BaseValidatorModel):
     ReferenceId: str
     TableName: str
-    S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescriptionTypeDef
-    ReferenceSchema: Optional[SourceSchemaOutputTypeDef] = None
+    S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription
+    ReferenceSchema: Optional[SourceSchemaOutput] = None
 
 
-class AddApplicationInputResponseTypeDef(BaseValidatorModel):
+class AddApplicationInputResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    InputDescriptions: List[InputDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    InputDescriptions: List[InputDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class AddApplicationReferenceDataSourceResponseTypeDef(BaseValidatorModel):
+class AddApplicationReferenceDataSourceResponse(BaseValidatorModel):
     ApplicationARN: str
     ApplicationVersionId: int
-    ReferenceDataSourceDescriptions: List[ReferenceDataSourceDescriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ReferenceDataSourceDescriptions: List[ReferenceDataSourceDescription]
+    ResponseMetadata: ResponseMetadata
 
 
-class SqlApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    InputDescriptions: Optional[List[InputDescriptionTypeDef]] = None
-    OutputDescriptions: Optional[List[OutputDescriptionTypeDef]] = None
-    ReferenceDataSourceDescriptions: Optional[List[ReferenceDataSourceDescriptionTypeDef]] = None
+class SqlApplicationConfigurationDescription(BaseValidatorModel):
+    InputDescriptions: Optional[List[InputDescription]] = None
+    OutputDescriptions: Optional[List[OutputDescription]] = None
+    ReferenceDataSourceDescriptions: Optional[List[ReferenceDataSourceDescription]] = None
 
 
-class SourceSchemaUnionTypeDef(BaseValidatorModel):
+class SourceSchemaUnion(BaseValidatorModel):
     pass
 
 
-class InputTypeDef(BaseValidatorModel):
+class Input(BaseValidatorModel):
     NamePrefix: str
-    InputSchema: SourceSchemaUnionTypeDef
-    InputProcessingConfiguration: Optional[InputProcessingConfigurationTypeDef] = None
-    KinesisStreamsInput: Optional[KinesisStreamsInputTypeDef] = None
-    KinesisFirehoseInput: Optional[KinesisFirehoseInputTypeDef] = None
-    InputParallelism: Optional[InputParallelismTypeDef] = None
+    InputSchema: SourceSchemaUnion
+    InputProcessingConfiguration: Optional[InputProcessingConfiguration] = None
+    KinesisStreamsInput: Optional[KinesisStreamsInput] = None
+    KinesisFirehoseInput: Optional[KinesisFirehoseInput] = None
+    InputParallelism: Optional[InputParallelism] = None
 
 
-class ReferenceDataSourceTypeDef(BaseValidatorModel):
+class ReferenceDataSource(BaseValidatorModel):
     TableName: str
-    ReferenceSchema: SourceSchemaUnionTypeDef
-    S3ReferenceDataSource: Optional[S3ReferenceDataSourceTypeDef] = None
+    ReferenceSchema: SourceSchemaUnion
+    S3ReferenceDataSource: Optional[S3ReferenceDataSource] = None
 
 
-class ReferenceDataSourceUpdateTypeDef(BaseValidatorModel):
+class ReferenceDataSourceUpdate(BaseValidatorModel):
     ReferenceId: str
     TableNameUpdate: Optional[str] = None
-    S3ReferenceDataSourceUpdate: Optional[S3ReferenceDataSourceUpdateTypeDef] = None
-    ReferenceSchemaUpdate: Optional[SourceSchemaUnionTypeDef] = None
+    S3ReferenceDataSourceUpdate: Optional[S3ReferenceDataSourceUpdate] = None
+    ReferenceSchemaUpdate: Optional[SourceSchemaUnion] = None
 
 
-class ApplicationConfigurationDescriptionTypeDef(BaseValidatorModel):
-    SqlApplicationConfigurationDescription: Optional[ SqlApplicationConfigurationDescriptionTypeDef ] = None
-    ApplicationCodeConfigurationDescription: Optional[ ApplicationCodeConfigurationDescriptionTypeDef ] = None
-    RunConfigurationDescription: Optional[RunConfigurationDescriptionTypeDef] = None
-    FlinkApplicationConfigurationDescription: Optional[ FlinkApplicationConfigurationDescriptionTypeDef ] = None
-    EnvironmentPropertyDescriptions: Optional[EnvironmentPropertyDescriptionsTypeDef] = None
-    ApplicationSnapshotConfigurationDescription: Optional[ ApplicationSnapshotConfigurationDescriptionTypeDef ] = None
-    ApplicationSystemRollbackConfigurationDescription: Optional[ ApplicationSystemRollbackConfigurationDescriptionTypeDef ] = None
-    VpcConfigurationDescriptions: Optional[List[VpcConfigurationDescriptionTypeDef]] = None
-    ZeppelinApplicationConfigurationDescription: Optional[ ZeppelinApplicationConfigurationDescriptionTypeDef ] = None
+class ApplicationConfigurationDescription(BaseValidatorModel):
+    SqlApplicationConfigurationDescription: Optional[ SqlApplicationConfigurationDescription ] = None
+    ApplicationCodeConfigurationDescription: Optional[ ApplicationCodeConfigurationDescription ] = None
+    RunConfigurationDescription: Optional[RunConfigurationDescription] = None
+    FlinkApplicationConfigurationDescription: Optional[ FlinkApplicationConfigurationDescription ] = None
+    EnvironmentPropertyDescriptions: Optional[EnvironmentPropertyDescriptions] = None
+    ApplicationSnapshotConfigurationDescription: Optional[ ApplicationSnapshotConfigurationDescription ] = None
+    ApplicationSystemRollbackConfigurationDescription: Optional[ ApplicationSystemRollbackConfigurationDescription ] = None
+    VpcConfigurationDescriptions: Optional[List[VpcConfigurationDescription]] = None
+    ZeppelinApplicationConfigurationDescription: Optional[ ZeppelinApplicationConfigurationDescription ] = None
 
 
-class AddApplicationInputRequestTypeDef(BaseValidatorModel):
+class AddApplicationInputRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
-    Input: InputTypeDef
+    Input: Input
 
 
-class AddApplicationReferenceDataSourceRequestTypeDef(BaseValidatorModel):
+class AddApplicationReferenceDataSourceRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: int
-    ReferenceDataSource: ReferenceDataSourceTypeDef
+    ReferenceDataSource: ReferenceDataSource
 
 
-class SqlApplicationConfigurationTypeDef(BaseValidatorModel):
-    Inputs: Optional[Sequence[InputTypeDef]] = None
-    Outputs: Optional[Sequence[OutputTypeDef]] = None
-    ReferenceDataSources: Optional[Sequence[ReferenceDataSourceTypeDef]] = None
+class SqlApplicationConfiguration(BaseValidatorModel):
+    Inputs: Optional[Sequence[Input]] = None
+    Outputs: Optional[Sequence[Output]] = None
+    ReferenceDataSources: Optional[Sequence[ReferenceDataSource]] = None
 
 
-class SqlApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
-    InputUpdates: Optional[Sequence[InputUpdateTypeDef]] = None
-    OutputUpdates: Optional[Sequence[OutputUpdateTypeDef]] = None
-    ReferenceDataSourceUpdates: Optional[Sequence[ReferenceDataSourceUpdateTypeDef]] = None
+class SqlApplicationConfigurationUpdate(BaseValidatorModel):
+    InputUpdates: Optional[Sequence[InputUpdate]] = None
+    OutputUpdates: Optional[Sequence[OutputUpdate]] = None
+    ReferenceDataSourceUpdates: Optional[Sequence[ReferenceDataSourceUpdate]] = None
 
 
-class ApplicationDetailTypeDef(BaseValidatorModel):
+class ApplicationDetail(BaseValidatorModel):
     ApplicationARN: str
     ApplicationName: str
     RuntimeEnvironment: RuntimeEnvironmentType
@@ -1084,9 +1084,9 @@ class ApplicationDetailTypeDef(BaseValidatorModel):
     ServiceExecutionRole: Optional[str] = None
     CreateTimestamp: Optional[datetime] = None
     LastUpdateTimestamp: Optional[datetime] = None
-    ApplicationConfigurationDescription: Optional[ApplicationConfigurationDescriptionTypeDef] = None
-    CloudWatchLoggingOptionDescriptions: Optional[ List[CloudWatchLoggingOptionDescriptionTypeDef] ] = None
-    ApplicationMaintenanceConfigurationDescription: Optional[ ApplicationMaintenanceConfigurationDescriptionTypeDef ] = None
+    ApplicationConfigurationDescription: Optional[ApplicationConfigurationDescription] = None
+    CloudWatchLoggingOptionDescriptions: Optional[ List[CloudWatchLoggingOptionDescription] ] = None
+    ApplicationMaintenanceConfigurationDescription: Optional[ ApplicationMaintenanceConfigurationDescription ] = None
     ApplicationVersionUpdatedFrom: Optional[int] = None
     ApplicationVersionRolledBackFrom: Optional[int] = None
     ApplicationVersionCreateTimestamp: Optional[datetime] = None
@@ -1095,73 +1095,73 @@ class ApplicationDetailTypeDef(BaseValidatorModel):
     ApplicationMode: Optional[ApplicationModeType] = None
 
 
-class ApplicationConfigurationTypeDef(BaseValidatorModel):
-    SqlApplicationConfiguration: Optional[SqlApplicationConfigurationTypeDef] = None
-    FlinkApplicationConfiguration: Optional[FlinkApplicationConfigurationTypeDef] = None
-    EnvironmentProperties: Optional[EnvironmentPropertiesTypeDef] = None
-    ApplicationCodeConfiguration: Optional[ApplicationCodeConfigurationTypeDef] = None
-    ApplicationSnapshotConfiguration: Optional[ApplicationSnapshotConfigurationTypeDef] = None
-    ApplicationSystemRollbackConfiguration: Optional[ ApplicationSystemRollbackConfigurationTypeDef ] = None
-    VpcConfigurations: Optional[Sequence[VpcConfigurationTypeDef]] = None
-    ZeppelinApplicationConfiguration: Optional[ZeppelinApplicationConfigurationTypeDef] = None
+class ApplicationConfiguration(BaseValidatorModel):
+    SqlApplicationConfiguration: Optional[SqlApplicationConfiguration] = None
+    FlinkApplicationConfiguration: Optional[FlinkApplicationConfiguration] = None
+    EnvironmentProperties: Optional[EnvironmentProperties] = None
+    ApplicationCodeConfiguration: Optional[ApplicationCodeConfiguration] = None
+    ApplicationSnapshotConfiguration: Optional[ApplicationSnapshotConfiguration] = None
+    ApplicationSystemRollbackConfiguration: Optional[ ApplicationSystemRollbackConfiguration ] = None
+    VpcConfigurations: Optional[Sequence[VpcConfiguration]] = None
+    ZeppelinApplicationConfiguration: Optional[ZeppelinApplicationConfiguration] = None
 
 
-class ApplicationConfigurationUpdateTypeDef(BaseValidatorModel):
-    SqlApplicationConfigurationUpdate: Optional[SqlApplicationConfigurationUpdateTypeDef] = None
-    ApplicationCodeConfigurationUpdate: Optional[ApplicationCodeConfigurationUpdateTypeDef] = None
-    FlinkApplicationConfigurationUpdate: Optional[FlinkApplicationConfigurationUpdateTypeDef] = None
-    EnvironmentPropertyUpdates: Optional[EnvironmentPropertyUpdatesTypeDef] = None
-    ApplicationSnapshotConfigurationUpdate: Optional[ ApplicationSnapshotConfigurationUpdateTypeDef ] = None
-    ApplicationSystemRollbackConfigurationUpdate: Optional[ ApplicationSystemRollbackConfigurationUpdateTypeDef ] = None
-    VpcConfigurationUpdates: Optional[Sequence[VpcConfigurationUpdateTypeDef]] = None
-    ZeppelinApplicationConfigurationUpdate: Optional[ ZeppelinApplicationConfigurationUpdateTypeDef ] = None
+class ApplicationConfigurationUpdate(BaseValidatorModel):
+    SqlApplicationConfigurationUpdate: Optional[SqlApplicationConfigurationUpdate] = None
+    ApplicationCodeConfigurationUpdate: Optional[ApplicationCodeConfigurationUpdate] = None
+    FlinkApplicationConfigurationUpdate: Optional[FlinkApplicationConfigurationUpdate] = None
+    EnvironmentPropertyUpdates: Optional[EnvironmentPropertyUpdates] = None
+    ApplicationSnapshotConfigurationUpdate: Optional[ ApplicationSnapshotConfigurationUpdate ] = None
+    ApplicationSystemRollbackConfigurationUpdate: Optional[ ApplicationSystemRollbackConfigurationUpdate ] = None
+    VpcConfigurationUpdates: Optional[Sequence[VpcConfigurationUpdate]] = None
+    ZeppelinApplicationConfigurationUpdate: Optional[ ZeppelinApplicationConfigurationUpdate ] = None
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationDetail: ApplicationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateApplicationResponse(BaseValidatorModel):
+    ApplicationDetail: ApplicationDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationDetail: ApplicationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationResponse(BaseValidatorModel):
+    ApplicationDetail: ApplicationDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeApplicationVersionResponseTypeDef(BaseValidatorModel):
-    ApplicationVersionDetail: ApplicationDetailTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeApplicationVersionResponse(BaseValidatorModel):
+    ApplicationVersionDetail: ApplicationDetail
+    ResponseMetadata: ResponseMetadata
 
 
-class RollbackApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationDetail: ApplicationDetailTypeDef
+class RollbackApplicationResponse(BaseValidatorModel):
+    ApplicationDetail: ApplicationDetail
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationResponseTypeDef(BaseValidatorModel):
-    ApplicationDetail: ApplicationDetailTypeDef
+class UpdateApplicationResponse(BaseValidatorModel):
+    ApplicationDetail: ApplicationDetail
     OperationId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     RuntimeEnvironment: RuntimeEnvironmentType
     ServiceExecutionRole: str
     ApplicationDescription: Optional[str] = None
-    ApplicationConfiguration: Optional[ApplicationConfigurationTypeDef] = None
-    CloudWatchLoggingOptions: Optional[Sequence[CloudWatchLoggingOptionTypeDef]] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    ApplicationConfiguration: Optional[ApplicationConfiguration] = None
+    CloudWatchLoggingOptions: Optional[Sequence[CloudWatchLoggingOption]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ApplicationMode: Optional[ApplicationModeType] = None
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     ApplicationName: str
     CurrentApplicationVersionId: Optional[int] = None
-    ApplicationConfigurationUpdate: Optional[ApplicationConfigurationUpdateTypeDef] = None
+    ApplicationConfigurationUpdate: Optional[ApplicationConfigurationUpdate] = None
     ServiceExecutionRoleUpdate: Optional[str] = None
-    RunConfigurationUpdate: Optional[RunConfigurationUpdateTypeDef] = None
-    CloudWatchLoggingOptionUpdates: Optional[Sequence[CloudWatchLoggingOptionUpdateTypeDef]] = None
+    RunConfigurationUpdate: Optional[RunConfigurationUpdate] = None
+    CloudWatchLoggingOptionUpdates: Optional[Sequence[CloudWatchLoggingOptionUpdate]] = None
     ConditionalToken: Optional[str] = None
     RuntimeEnvironmentUpdate: Optional[RuntimeEnvironmentType] = None
 

@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.cloudhsmv2_constants import *
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CertificatesTypeDef(BaseValidatorModel):
+class Certificates(BaseValidatorModel):
     ClusterCsr: Optional[str] = None
     HsmCertificate: Optional[str] = None
     AwsHardwareCertificate: Optional[str] = None
@@ -25,7 +25,7 @@ class CertificatesTypeDef(BaseValidatorModel):
     ClusterCertificate: Optional[str] = None
 
 
-class HsmTypeDef(BaseValidatorModel):
+class Hsm(BaseValidatorModel):
     HsmId: str
     AvailabilityZone: Optional[str] = None
     ClusterId: Optional[str] = None
@@ -38,14 +38,14 @@ class HsmTypeDef(BaseValidatorModel):
     StateMessage: Optional[str] = None
 
 
-class DestinationBackupTypeDef(BaseValidatorModel):
+class DestinationBackup(BaseValidatorModel):
     CreateTimestamp: Optional[datetime] = None
     SourceRegion: Optional[str] = None
     SourceBackup: Optional[str] = None
     SourceCluster: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -53,38 +53,38 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CreateHsmRequestTypeDef(BaseValidatorModel):
+class CreateHsmRequest(BaseValidatorModel):
     ClusterId: str
     AvailabilityZone: str
     IpAddress: Optional[str] = None
 
 
-class DeleteBackupRequestTypeDef(BaseValidatorModel):
+class DeleteBackupRequest(BaseValidatorModel):
     BackupId: str
 
 
-class DeleteClusterRequestTypeDef(BaseValidatorModel):
+class DeleteClusterRequest(BaseValidatorModel):
     ClusterId: str
 
 
-class DeleteHsmRequestTypeDef(BaseValidatorModel):
+class DeleteHsmRequest(BaseValidatorModel):
     ClusterId: str
     HsmId: Optional[str] = None
     EniId: Optional[str] = None
     EniIp: Optional[str] = None
 
 
-class DeleteResourcePolicyRequestTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class DescribeBackupsRequestTypeDef(BaseValidatorModel):
+class DescribeBackupsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     Filters: Optional[Mapping[str, Sequence[str]]] = None
@@ -92,58 +92,58 @@ class DescribeBackupsRequestTypeDef(BaseValidatorModel):
     SortAscending: Optional[bool] = None
 
 
-class DescribeClustersRequestTypeDef(BaseValidatorModel):
+class DescribeClustersRequest(BaseValidatorModel):
     Filters: Optional[Mapping[str, Sequence[str]]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class GetResourcePolicyRequestTypeDef(BaseValidatorModel):
+class GetResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: Optional[str] = None
 
 
-class InitializeClusterRequestTypeDef(BaseValidatorModel):
+class InitializeClusterRequest(BaseValidatorModel):
     ClusterId: str
     SignedCert: str
     TrustAnchor: str
 
 
-class ListTagsRequestTypeDef(BaseValidatorModel):
+class ListTagsRequest(BaseValidatorModel):
     ResourceId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ModifyBackupAttributesRequestTypeDef(BaseValidatorModel):
+class ModifyBackupAttributesRequest(BaseValidatorModel):
     BackupId: str
     NeverExpires: bool
 
 
-class PutResourcePolicyRequestTypeDef(BaseValidatorModel):
+class PutResourcePolicyRequest(BaseValidatorModel):
     ResourceArn: Optional[str] = None
     Policy: Optional[str] = None
 
 
-class RestoreBackupRequestTypeDef(BaseValidatorModel):
+class RestoreBackupRequest(BaseValidatorModel):
     BackupId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceId: str
     TagKeyList: Sequence[str]
 
 
-class BackupRetentionPolicyTypeDef(BaseValidatorModel):
+class BackupRetentionPolicy(BaseValidatorModel):
     pass
 
 
-class ModifyClusterRequestTypeDef(BaseValidatorModel):
+class ModifyClusterRequest(BaseValidatorModel):
     ClusterId: str
     HsmType: Optional[str] = None
-    BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
+    BackupRetentionPolicy: Optional[BackupRetentionPolicy] = None
 
 
-class BackupTypeDef(BaseValidatorModel):
+class Backup(BaseValidatorModel):
     BackupId: str
     BackupArn: Optional[str] = None
     BackupState: Optional[BackupStateType] = None
@@ -155,38 +155,38 @@ class BackupTypeDef(BaseValidatorModel):
     SourceBackup: Optional[str] = None
     SourceCluster: Optional[str] = None
     DeleteTimestamp: Optional[datetime] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    TagList: Optional[List[Tag]] = None
     HsmType: Optional[str] = None
     Mode: Optional[ClusterModeType] = None
 
 
-class CopyBackupToRegionRequestTypeDef(BaseValidatorModel):
+class CopyBackupToRegionRequest(BaseValidatorModel):
     DestinationRegion: str
     BackupId: str
-    TagList: Optional[Sequence[TagTypeDef]] = None
+    TagList: Optional[Sequence[Tag]] = None
 
 
-class CreateClusterRequestTypeDef(BaseValidatorModel):
+class CreateClusterRequest(BaseValidatorModel):
     HsmType: str
     SubnetIds: Sequence[str]
-    BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
+    BackupRetentionPolicy: Optional[BackupRetentionPolicy] = None
     SourceBackupId: Optional[str] = None
     NetworkType: Optional[NetworkTypeType] = None
-    TagList: Optional[Sequence[TagTypeDef]] = None
+    TagList: Optional[Sequence[Tag]] = None
     Mode: Optional[ClusterModeType] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceId: str
-    TagList: Sequence[TagTypeDef]
+    TagList: Sequence[Tag]
 
 
-class ClusterTypeDef(BaseValidatorModel):
+class Cluster(BaseValidatorModel):
     BackupPolicy: Optional[Literal["DEFAULT"]] = None
-    BackupRetentionPolicy: Optional[BackupRetentionPolicyTypeDef] = None
+    BackupRetentionPolicy: Optional[BackupRetentionPolicy] = None
     ClusterId: Optional[str] = None
     CreateTimestamp: Optional[datetime] = None
-    Hsms: Optional[List[HsmTypeDef]] = None
+    Hsms: Optional[List[Hsm]] = None
     HsmType: Optional[str] = None
     HsmTypeRollbackExpiration: Optional[datetime] = None
     PreCoPassword: Optional[str] = None
@@ -197,111 +197,111 @@ class ClusterTypeDef(BaseValidatorModel):
     SubnetMapping: Optional[Dict[str, str]] = None
     VpcId: Optional[str] = None
     NetworkType: Optional[NetworkTypeType] = None
-    Certificates: Optional[CertificatesTypeDef] = None
-    TagList: Optional[List[TagTypeDef]] = None
+    Certificates: Optional[Certificates] = None
+    TagList: Optional[List[Tag]] = None
     Mode: Optional[ClusterModeType] = None
 
 
-class CopyBackupToRegionResponseTypeDef(BaseValidatorModel):
-    DestinationBackup: DestinationBackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CopyBackupToRegionResponse(BaseValidatorModel):
+    DestinationBackup: DestinationBackup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateHsmResponseTypeDef(BaseValidatorModel):
-    Hsm: HsmTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateHsmResponse(BaseValidatorModel):
+    Hsm: Hsm
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteHsmResponseTypeDef(BaseValidatorModel):
+class DeleteHsmResponse(BaseValidatorModel):
     HsmId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteResourcePolicyResponseTypeDef(BaseValidatorModel):
+class DeleteResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetResourcePolicyResponseTypeDef(BaseValidatorModel):
+class GetResourcePolicyResponse(BaseValidatorModel):
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class InitializeClusterResponseTypeDef(BaseValidatorModel):
+class InitializeClusterResponse(BaseValidatorModel):
     State: ClusterStateType
     StateMessage: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsResponseTypeDef(BaseValidatorModel):
-    TagList: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsResponse(BaseValidatorModel):
+    TagList: List[Tag]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class PutResourcePolicyResponseTypeDef(BaseValidatorModel):
+class PutResourcePolicyResponse(BaseValidatorModel):
     ResourceArn: str
     Policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBackupsRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeBackupsRequestPaginate(BaseValidatorModel):
     Filters: Optional[Mapping[str, Sequence[str]]] = None
     Shared: Optional[bool] = None
     SortAscending: Optional[bool] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DescribeClustersRequestPaginateTypeDef(BaseValidatorModel):
+class DescribeClustersRequestPaginate(BaseValidatorModel):
     Filters: Optional[Mapping[str, Sequence[str]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTagsRequestPaginateTypeDef(BaseValidatorModel):
+class ListTagsRequestPaginate(BaseValidatorModel):
     ResourceId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class DeleteBackupResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteBackupResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeBackupsResponseTypeDef(BaseValidatorModel):
-    Backups: List[BackupTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeBackupsResponse(BaseValidatorModel):
+    Backups: List[Backup]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ModifyBackupAttributesResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyBackupAttributesResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class RestoreBackupResponseTypeDef(BaseValidatorModel):
-    Backup: BackupTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class RestoreBackupResponse(BaseValidatorModel):
+    Backup: Backup
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class CreateClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DeleteClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeClustersResponseTypeDef(BaseValidatorModel):
-    Clusters: List[ClusterTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeClustersResponse(BaseValidatorModel):
+    Clusters: List[Cluster]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ModifyClusterResponseTypeDef(BaseValidatorModel):
-    Cluster: ClusterTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class ModifyClusterResponse(BaseValidatorModel):
+    Cluster: Cluster
+    ResponseMetadata: ResponseMetadata
 
 

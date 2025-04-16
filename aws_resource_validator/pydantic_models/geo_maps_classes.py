@@ -12,12 +12,12 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.geo_maps_constants import *
 
-class GetGlyphsRequestTypeDef(BaseValidatorModel):
+class GetGlyphsRequest(BaseValidatorModel):
     FontStack: str
     FontUnicodeRange: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -25,14 +25,14 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class GetSpritesRequestTypeDef(BaseValidatorModel):
+class GetSpritesRequest(BaseValidatorModel):
     FileName: str
     Style: MapStyleType
     ColorScheme: ColorSchemeType
     Variant: Literal["Default"]
 
 
-class GetStaticMapRequestTypeDef(BaseValidatorModel):
+class GetStaticMapRequest(BaseValidatorModel):
     Height: int
     FileName: str
     Width: int
@@ -49,14 +49,14 @@ class GetStaticMapRequestTypeDef(BaseValidatorModel):
     Zoom: Optional[float] = None
 
 
-class GetStyleDescriptorRequestTypeDef(BaseValidatorModel):
+class GetStyleDescriptorRequest(BaseValidatorModel):
     Style: MapStyleType
     ColorScheme: Optional[ColorSchemeType] = None
     PoliticalView: Optional[str] = None
     Key: Optional[str] = None
 
 
-class GetTileRequestTypeDef(BaseValidatorModel):
+class GetTileRequest(BaseValidatorModel):
     Tileset: str
     Z: str
     X: str
@@ -64,45 +64,45 @@ class GetTileRequestTypeDef(BaseValidatorModel):
     Key: Optional[str] = None
 
 
-class GetGlyphsResponseTypeDef(BaseValidatorModel):
+class GetGlyphsResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSpritesResponseTypeDef(BaseValidatorModel):
+class GetSpritesResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetStaticMapResponseTypeDef(BaseValidatorModel):
-    Blob: StreamingBody
-    ContentType: str
-    CacheControl: str
-    ETag: str
-    PricingBucket: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class GetStyleDescriptorResponseTypeDef(BaseValidatorModel):
-    Blob: StreamingBody
-    ContentType: str
-    CacheControl: str
-    ETag: str
-    ResponseMetadata: ResponseMetadataTypeDef
-
-
-class GetTileResponseTypeDef(BaseValidatorModel):
+class GetStaticMapResponse(BaseValidatorModel):
     Blob: StreamingBody
     ContentType: str
     CacheControl: str
     ETag: str
     PricingBucket: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
+
+
+class GetStyleDescriptorResponse(BaseValidatorModel):
+    Blob: StreamingBody
+    ContentType: str
+    CacheControl: str
+    ETag: str
+    ResponseMetadata: ResponseMetadata
+
+
+class GetTileResponse(BaseValidatorModel):
+    Blob: StreamingBody
+    ContentType: str
+    CacheControl: str
+    ETag: str
+    PricingBucket: str
+    ResponseMetadata: ResponseMetadata
 
 

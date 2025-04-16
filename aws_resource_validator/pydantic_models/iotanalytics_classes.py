@@ -12,13 +12,13 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.iotanalytics_constants import *
 
-class BatchPutMessageErrorEntryTypeDef(BaseValidatorModel):
+class BatchPutMessageErrorEntry(BaseValidatorModel):
     messageId: Optional[str] = None
     errorCode: Optional[str] = None
     errorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -26,791 +26,791 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class CancelPipelineReprocessingRequestTypeDef(BaseValidatorModel):
+class CancelPipelineReprocessingRequest(BaseValidatorModel):
     pipelineName: str
     reprocessingId: str
 
 
-class ChannelMessagesTypeDef(BaseValidatorModel):
+class ChannelMessages(BaseValidatorModel):
     s3Paths: Optional[Sequence[str]] = None
 
 
-class EstimatedResourceSizeTypeDef(BaseValidatorModel):
+class EstimatedResourceSize(BaseValidatorModel):
     estimatedSizeInBytes: Optional[float] = None
     estimatedOn: Optional[datetime] = None
 
 
-class CustomerManagedChannelS3StorageTypeDef(BaseValidatorModel):
+class CustomerManagedChannelS3Storage(BaseValidatorModel):
     bucket: str
     roleArn: str
     keyPrefix: Optional[str] = None
 
 
-class CustomerManagedChannelS3StorageSummaryTypeDef(BaseValidatorModel):
+class CustomerManagedChannelS3StorageSummary(BaseValidatorModel):
     bucket: Optional[str] = None
     keyPrefix: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class RetentionPeriodTypeDef(BaseValidatorModel):
+class RetentionPeriod(BaseValidatorModel):
     unlimited: Optional[bool] = None
     numberOfDays: Optional[int] = None
 
 
-class ResourceConfigurationTypeDef(BaseValidatorModel):
+class ResourceConfiguration(BaseValidatorModel):
     computeType: ComputeTypeType
     volumeSizeInGB: int
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class CreateDatasetContentRequestTypeDef(BaseValidatorModel):
+class CreateDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
 
 
-class VersioningConfigurationTypeDef(BaseValidatorModel):
+class VersioningConfiguration(BaseValidatorModel):
     unlimited: Optional[bool] = None
     maxVersions: Optional[int] = None
 
 
-class CustomerManagedDatastoreS3StorageSummaryTypeDef(BaseValidatorModel):
+class CustomerManagedDatastoreS3StorageSummary(BaseValidatorModel):
     bucket: Optional[str] = None
     keyPrefix: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class CustomerManagedDatastoreS3StorageTypeDef(BaseValidatorModel):
+class CustomerManagedDatastoreS3Storage(BaseValidatorModel):
     bucket: str
     roleArn: str
     keyPrefix: Optional[str] = None
 
 
-class DatasetActionSummaryTypeDef(BaseValidatorModel):
+class DatasetActionSummary(BaseValidatorModel):
     actionName: Optional[str] = None
     actionType: Optional[DatasetActionTypeType] = None
 
 
-class IotEventsDestinationConfigurationTypeDef(BaseValidatorModel):
+class IotEventsDestinationConfiguration(BaseValidatorModel):
     inputName: str
     roleArn: str
 
 
-class DatasetContentStatusTypeDef(BaseValidatorModel):
+class DatasetContentStatus(BaseValidatorModel):
     state: Optional[DatasetContentStateType] = None
     reason: Optional[str] = None
 
 
-class DatasetContentVersionValueTypeDef(BaseValidatorModel):
+class DatasetContentVersionValue(BaseValidatorModel):
     datasetName: str
 
 
-class DatasetEntryTypeDef(BaseValidatorModel):
+class DatasetEntry(BaseValidatorModel):
     entryName: Optional[str] = None
     dataURI: Optional[str] = None
 
 
-class ScheduleTypeDef(BaseValidatorModel):
+class Schedule(BaseValidatorModel):
     expression: Optional[str] = None
 
 
-class TriggeringDatasetTypeDef(BaseValidatorModel):
+class TriggeringDataset(BaseValidatorModel):
     name: str
 
 
-class DatastoreActivityTypeDef(BaseValidatorModel):
+class DatastoreActivity(BaseValidatorModel):
     name: str
     datastoreName: str
 
 
-class IotSiteWiseCustomerManagedDatastoreS3StorageSummaryTypeDef(BaseValidatorModel):
+class IotSiteWiseCustomerManagedDatastoreS3StorageSummary(BaseValidatorModel):
     bucket: Optional[str] = None
     keyPrefix: Optional[str] = None
 
 
-class IotSiteWiseCustomerManagedDatastoreS3StorageTypeDef(BaseValidatorModel):
+class IotSiteWiseCustomerManagedDatastoreS3Storage(BaseValidatorModel):
     bucket: str
     keyPrefix: Optional[str] = None
 
 
-class PartitionTypeDef(BaseValidatorModel):
+class Partition(BaseValidatorModel):
     attributeName: str
 
 
-class TimestampPartitionTypeDef(BaseValidatorModel):
+class TimestampPartition(BaseValidatorModel):
     attributeName: str
     timestampFormat: Optional[str] = None
 
 
-class DeleteChannelRequestTypeDef(BaseValidatorModel):
+class DeleteChannelRequest(BaseValidatorModel):
     channelName: str
 
 
-class DeleteDatasetContentRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
 
 
-class DeleteDatasetRequestTypeDef(BaseValidatorModel):
+class DeleteDatasetRequest(BaseValidatorModel):
     datasetName: str
 
 
-class DeleteDatastoreRequestTypeDef(BaseValidatorModel):
+class DeleteDatastoreRequest(BaseValidatorModel):
     datastoreName: str
 
 
-class DeletePipelineRequestTypeDef(BaseValidatorModel):
+class DeletePipelineRequest(BaseValidatorModel):
     pipelineName: str
 
 
-class DeltaTimeSessionWindowConfigurationTypeDef(BaseValidatorModel):
+class DeltaTimeSessionWindowConfiguration(BaseValidatorModel):
     timeoutInMinutes: int
 
 
-class DeltaTimeTypeDef(BaseValidatorModel):
+class DeltaTime(BaseValidatorModel):
     offsetSeconds: int
     timeExpression: str
 
 
-class DescribeChannelRequestTypeDef(BaseValidatorModel):
+class DescribeChannelRequest(BaseValidatorModel):
     channelName: str
     includeStatistics: Optional[bool] = None
 
 
-class DescribeDatasetRequestTypeDef(BaseValidatorModel):
+class DescribeDatasetRequest(BaseValidatorModel):
     datasetName: str
 
 
-class DescribeDatastoreRequestTypeDef(BaseValidatorModel):
+class DescribeDatastoreRequest(BaseValidatorModel):
     datastoreName: str
     includeStatistics: Optional[bool] = None
 
 
-class LoggingOptionsTypeDef(BaseValidatorModel):
+class LoggingOptions(BaseValidatorModel):
     roleArn: str
     level: Literal["ERROR"]
     enabled: bool
 
 
-class DescribePipelineRequestTypeDef(BaseValidatorModel):
+class DescribePipelineRequest(BaseValidatorModel):
     pipelineName: str
 
 
-class GetDatasetContentRequestTypeDef(BaseValidatorModel):
+class GetDatasetContentRequest(BaseValidatorModel):
     datasetName: str
     versionId: Optional[str] = None
 
 
-class GlueConfigurationTypeDef(BaseValidatorModel):
+class GlueConfiguration(BaseValidatorModel):
     tableName: str
     databaseName: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatasetsRequestTypeDef(BaseValidatorModel):
+class ListDatasetsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDatastoresRequestTypeDef(BaseValidatorModel):
+class ListDatastoresRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPipelinesRequestTypeDef(BaseValidatorModel):
+class ListPipelinesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class OutputFileUriValueTypeDef(BaseValidatorModel):
+class OutputFileUriValue(BaseValidatorModel):
     fileName: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class BatchPutMessageResponseTypeDef(BaseValidatorModel):
-    batchPutMessageErrorEntries: List[BatchPutMessageErrorEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutMessageResponse(BaseValidatorModel):
+    batchPutMessageErrorEntries: List[BatchPutMessageErrorEntry]
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetContentResponseTypeDef(BaseValidatorModel):
+class CreateDatasetContentResponse(BaseValidatorModel):
     versionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePipelineResponseTypeDef(BaseValidatorModel):
+class CreatePipelineResponse(BaseValidatorModel):
     pipelineName: str
     pipelineArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class RunPipelineActivityResponseTypeDef(BaseValidatorModel):
+class RunPipelineActivityResponse(BaseValidatorModel):
     payloads: List[bytes]
     logResult: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class SampleChannelDataResponseTypeDef(BaseValidatorModel):
+class SampleChannelDataResponse(BaseValidatorModel):
     payloads: List[bytes]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class StartPipelineReprocessingResponseTypeDef(BaseValidatorModel):
+class StartPipelineReprocessingResponse(BaseValidatorModel):
     reprocessingId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class MessageTypeDef(BaseValidatorModel):
+class Message(BaseValidatorModel):
     messageId: str
-    payload: BlobTypeDef
+    payload: Blob
 
 
-class ChannelStatisticsTypeDef(BaseValidatorModel):
-    size: Optional[EstimatedResourceSizeTypeDef] = None
+class ChannelStatistics(BaseValidatorModel):
+    size: Optional[EstimatedResourceSize] = None
 
 
-class DatastoreStatisticsTypeDef(BaseValidatorModel):
-    size: Optional[EstimatedResourceSizeTypeDef] = None
+class DatastoreStatistics(BaseValidatorModel):
+    size: Optional[EstimatedResourceSize] = None
 
 
-class ChannelStorageOutputTypeDef(BaseValidatorModel):
+class ChannelStorageOutput(BaseValidatorModel):
     serviceManagedS3: Optional[Dict[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedChannelS3StorageTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedChannelS3Storage] = None
 
 
-class ChannelStorageTypeDef(BaseValidatorModel):
+class ChannelStorage(BaseValidatorModel):
     serviceManagedS3: Optional[Mapping[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedChannelS3StorageTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedChannelS3Storage] = None
 
 
-class ChannelStorageSummaryTypeDef(BaseValidatorModel):
+class ChannelStorageSummary(BaseValidatorModel):
     serviceManagedS3: Optional[Dict[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedChannelS3StorageSummaryTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedChannelS3StorageSummary] = None
 
 
-class CreateChannelResponseTypeDef(BaseValidatorModel):
+class CreateChannelResponse(BaseValidatorModel):
     channelName: str
     channelArn: str
-    retentionPeriod: RetentionPeriodTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    retentionPeriod: RetentionPeriod
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatasetResponseTypeDef(BaseValidatorModel):
+class CreateDatasetResponse(BaseValidatorModel):
     datasetName: str
     datasetArn: str
-    retentionPeriod: RetentionPeriodTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    retentionPeriod: RetentionPeriod
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDatastoreResponseTypeDef(BaseValidatorModel):
+class CreateDatastoreResponse(BaseValidatorModel):
     datastoreName: str
     datastoreArn: str
-    retentionPeriod: RetentionPeriodTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    retentionPeriod: RetentionPeriod
+    ResponseMetadata: ResponseMetadata
 
 
-class ColumnTypeDef(BaseValidatorModel):
+class Column(BaseValidatorModel):
     pass
 
 
-class SchemaDefinitionOutputTypeDef(BaseValidatorModel):
-    columns: Optional[List[ColumnTypeDef]] = None
+class SchemaDefinitionOutput(BaseValidatorModel):
+    columns: Optional[List[Column]] = None
 
 
-class SchemaDefinitionTypeDef(BaseValidatorModel):
-    columns: Optional[Sequence[ColumnTypeDef]] = None
+class SchemaDefinition(BaseValidatorModel):
+    columns: Optional[Sequence[Column]] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class DatasetContentSummaryTypeDef(BaseValidatorModel):
+class DatasetContentSummary(BaseValidatorModel):
     version: Optional[str] = None
-    status: Optional[DatasetContentStatusTypeDef] = None
+    status: Optional[DatasetContentStatus] = None
     creationTime: Optional[datetime] = None
     scheduleTime: Optional[datetime] = None
     completionTime: Optional[datetime] = None
 
 
-class GetDatasetContentResponseTypeDef(BaseValidatorModel):
-    entries: List[DatasetEntryTypeDef]
+class GetDatasetContentResponse(BaseValidatorModel):
+    entries: List[DatasetEntry]
     timestamp: datetime
-    status: DatasetContentStatusTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    status: DatasetContentStatus
+    ResponseMetadata: ResponseMetadata
 
 
-class DatasetTriggerTypeDef(BaseValidatorModel):
-    schedule: Optional[ScheduleTypeDef] = None
-    dataset: Optional[TriggeringDatasetTypeDef] = None
+class DatasetTrigger(BaseValidatorModel):
+    schedule: Optional[Schedule] = None
+    dataset: Optional[TriggeringDataset] = None
 
 
-class DatastoreIotSiteWiseMultiLayerStorageSummaryTypeDef(BaseValidatorModel):
-    customerManagedS3Storage: Optional[ IotSiteWiseCustomerManagedDatastoreS3StorageSummaryTypeDef ] = None
+class DatastoreIotSiteWiseMultiLayerStorageSummary(BaseValidatorModel):
+    customerManagedS3Storage: Optional[ IotSiteWiseCustomerManagedDatastoreS3StorageSummary ] = None
 
 
-class DatastoreIotSiteWiseMultiLayerStorageTypeDef(BaseValidatorModel):
-    customerManagedS3Storage: IotSiteWiseCustomerManagedDatastoreS3StorageTypeDef
+class DatastoreIotSiteWiseMultiLayerStorage(BaseValidatorModel):
+    customerManagedS3Storage: IotSiteWiseCustomerManagedDatastoreS3Storage
 
 
-class DatastorePartitionTypeDef(BaseValidatorModel):
-    attributePartition: Optional[PartitionTypeDef] = None
-    timestampPartition: Optional[TimestampPartitionTypeDef] = None
+class DatastorePartition(BaseValidatorModel):
+    attributePartition: Optional[Partition] = None
+    timestampPartition: Optional[TimestampPartition] = None
 
 
-class LateDataRuleConfigurationTypeDef(BaseValidatorModel):
-    deltaTimeSessionWindowConfiguration: Optional[DeltaTimeSessionWindowConfigurationTypeDef] = None
+class LateDataRuleConfiguration(BaseValidatorModel):
+    deltaTimeSessionWindowConfiguration: Optional[DeltaTimeSessionWindowConfiguration] = None
 
 
-class QueryFilterTypeDef(BaseValidatorModel):
-    deltaTime: Optional[DeltaTimeTypeDef] = None
+class QueryFilter(BaseValidatorModel):
+    deltaTime: Optional[DeltaTime] = None
 
 
-class DescribeLoggingOptionsResponseTypeDef(BaseValidatorModel):
-    loggingOptions: LoggingOptionsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeLoggingOptionsResponse(BaseValidatorModel):
+    loggingOptions: LoggingOptions
+    ResponseMetadata: ResponseMetadata
 
 
-class PutLoggingOptionsRequestTypeDef(BaseValidatorModel):
-    loggingOptions: LoggingOptionsTypeDef
+class PutLoggingOptionsRequest(BaseValidatorModel):
+    loggingOptions: LoggingOptions
 
 
-class S3DestinationConfigurationTypeDef(BaseValidatorModel):
+class S3DestinationConfiguration(BaseValidatorModel):
     bucket: str
     key: str
     roleArn: str
-    glueConfiguration: Optional[GlueConfigurationTypeDef] = None
+    glueConfiguration: Optional[GlueConfiguration] = None
 
 
-class ListChannelsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListChannelsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDatasetsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatastoresRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListDatastoresRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPipelinesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPipelinesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListDatasetContentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDatasetContentsRequestPaginate(BaseValidatorModel):
     datasetName: str
-    scheduledOnOrAfter: Optional[TimestampTypeDef] = None
-    scheduledBefore: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    scheduledOnOrAfter: Optional[Timestamp] = None
+    scheduledBefore: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDatasetContentsRequestTypeDef(BaseValidatorModel):
+class ListDatasetContentsRequest(BaseValidatorModel):
     datasetName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    scheduledOnOrAfter: Optional[TimestampTypeDef] = None
-    scheduledBefore: Optional[TimestampTypeDef] = None
+    scheduledOnOrAfter: Optional[Timestamp] = None
+    scheduledBefore: Optional[Timestamp] = None
 
 
-class SampleChannelDataRequestTypeDef(BaseValidatorModel):
+class SampleChannelDataRequest(BaseValidatorModel):
     channelName: str
     maxMessages: Optional[int] = None
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
 
 
-class StartPipelineReprocessingRequestTypeDef(BaseValidatorModel):
+class StartPipelineReprocessingRequest(BaseValidatorModel):
     pipelineName: str
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
-    channelMessages: Optional[ChannelMessagesTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
+    channelMessages: Optional[ChannelMessages] = None
 
 
-class VariableTypeDef(BaseValidatorModel):
+class Variable(BaseValidatorModel):
     name: str
     stringValue: Optional[str] = None
     doubleValue: Optional[float] = None
-    datasetContentVersionValue: Optional[DatasetContentVersionValueTypeDef] = None
-    outputFileUriValue: Optional[OutputFileUriValueTypeDef] = None
+    datasetContentVersionValue: Optional[DatasetContentVersionValue] = None
+    outputFileUriValue: Optional[OutputFileUriValue] = None
 
 
-class ReprocessingSummaryTypeDef(BaseValidatorModel):
+class ReprocessingSummary(BaseValidatorModel):
     pass
 
 
-class PipelineSummaryTypeDef(BaseValidatorModel):
+class PipelineSummary(BaseValidatorModel):
     pipelineName: Optional[str] = None
-    reprocessingSummaries: Optional[List[ReprocessingSummaryTypeDef]] = None
+    reprocessingSummaries: Optional[List[ReprocessingSummary]] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
-class BatchPutMessageRequestTypeDef(BaseValidatorModel):
+class BatchPutMessageRequest(BaseValidatorModel):
     channelName: str
-    messages: Sequence[MessageTypeDef]
+    messages: Sequence[Message]
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     name: Optional[str] = None
-    storage: Optional[ChannelStorageOutputTypeDef] = None
+    storage: Optional[ChannelStorageOutput] = None
     arn: Optional[str] = None
     status: Optional[ChannelStatusType] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     lastMessageArrivalTime: Optional[datetime] = None
 
 
-class ChannelSummaryTypeDef(BaseValidatorModel):
+class ChannelSummary(BaseValidatorModel):
     channelName: Optional[str] = None
-    channelStorage: Optional[ChannelStorageSummaryTypeDef] = None
+    channelStorage: Optional[ChannelStorageSummary] = None
     status: Optional[ChannelStatusType] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     lastMessageArrivalTime: Optional[datetime] = None
 
 
-class ParquetConfigurationOutputTypeDef(BaseValidatorModel):
-    schemaDefinition: Optional[SchemaDefinitionOutputTypeDef] = None
+class ParquetConfigurationOutput(BaseValidatorModel):
+    schemaDefinition: Optional[SchemaDefinitionOutput] = None
 
 
-class ParquetConfigurationTypeDef(BaseValidatorModel):
-    schemaDefinition: Optional[SchemaDefinitionTypeDef] = None
+class ParquetConfiguration(BaseValidatorModel):
+    schemaDefinition: Optional[SchemaDefinition] = None
 
 
-class ListDatasetContentsResponseTypeDef(BaseValidatorModel):
-    datasetContentSummaries: List[DatasetContentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetContentsResponse(BaseValidatorModel):
+    datasetContentSummaries: List[DatasetContentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DatasetSummaryTypeDef(BaseValidatorModel):
+class DatasetSummary(BaseValidatorModel):
     datasetName: Optional[str] = None
     status: Optional[DatasetStatusType] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
-    triggers: Optional[List[DatasetTriggerTypeDef]] = None
-    actions: Optional[List[DatasetActionSummaryTypeDef]] = None
+    triggers: Optional[List[DatasetTrigger]] = None
+    actions: Optional[List[DatasetActionSummary]] = None
 
 
-class DatastoreStorageSummaryTypeDef(BaseValidatorModel):
+class DatastoreStorageSummary(BaseValidatorModel):
     serviceManagedS3: Optional[Dict[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedDatastoreS3StorageSummaryTypeDef] = None
-    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorageSummaryTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedDatastoreS3StorageSummary] = None
+    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorageSummary] = None
 
 
-class DatastoreStorageOutputTypeDef(BaseValidatorModel):
+class DatastoreStorageOutput(BaseValidatorModel):
     serviceManagedS3: Optional[Dict[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedDatastoreS3StorageTypeDef] = None
-    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorageTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedDatastoreS3Storage] = None
+    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorage] = None
 
 
-class DatastoreStorageTypeDef(BaseValidatorModel):
+class DatastoreStorage(BaseValidatorModel):
     serviceManagedS3: Optional[Mapping[str, Any]] = None
-    customerManagedS3: Optional[CustomerManagedDatastoreS3StorageTypeDef] = None
-    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorageTypeDef] = None
+    customerManagedS3: Optional[CustomerManagedDatastoreS3Storage] = None
+    iotSiteWiseMultiLayerStorage: Optional[DatastoreIotSiteWiseMultiLayerStorage] = None
 
 
-class DatastorePartitionsOutputTypeDef(BaseValidatorModel):
-    partitions: Optional[List[DatastorePartitionTypeDef]] = None
+class DatastorePartitionsOutput(BaseValidatorModel):
+    partitions: Optional[List[DatastorePartition]] = None
 
 
-class DatastorePartitionsTypeDef(BaseValidatorModel):
-    partitions: Optional[Sequence[DatastorePartitionTypeDef]] = None
+class DatastorePartitions(BaseValidatorModel):
+    partitions: Optional[Sequence[DatastorePartition]] = None
 
 
-class LateDataRuleTypeDef(BaseValidatorModel):
-    ruleConfiguration: LateDataRuleConfigurationTypeDef
+class LateDataRule(BaseValidatorModel):
+    ruleConfiguration: LateDataRuleConfiguration
     ruleName: Optional[str] = None
 
 
-class SqlQueryDatasetActionOutputTypeDef(BaseValidatorModel):
+class SqlQueryDatasetActionOutput(BaseValidatorModel):
     sqlQuery: str
-    filters: Optional[List[QueryFilterTypeDef]] = None
+    filters: Optional[List[QueryFilter]] = None
 
 
-class SqlQueryDatasetActionTypeDef(BaseValidatorModel):
+class SqlQueryDatasetAction(BaseValidatorModel):
     sqlQuery: str
-    filters: Optional[Sequence[QueryFilterTypeDef]] = None
+    filters: Optional[Sequence[QueryFilter]] = None
 
 
-class DatasetContentDeliveryDestinationTypeDef(BaseValidatorModel):
-    iotEventsDestinationConfiguration: Optional[IotEventsDestinationConfigurationTypeDef] = None
-    s3DestinationConfiguration: Optional[S3DestinationConfigurationTypeDef] = None
+class DatasetContentDeliveryDestination(BaseValidatorModel):
+    iotEventsDestinationConfiguration: Optional[IotEventsDestinationConfiguration] = None
+    s3DestinationConfiguration: Optional[S3DestinationConfiguration] = None
 
 
-class ContainerDatasetActionOutputTypeDef(BaseValidatorModel):
+class ContainerDatasetActionOutput(BaseValidatorModel):
     image: str
     executionRoleArn: str
-    resourceConfiguration: ResourceConfigurationTypeDef
-    variables: Optional[List[VariableTypeDef]] = None
+    resourceConfiguration: ResourceConfiguration
+    variables: Optional[List[Variable]] = None
 
 
-class ContainerDatasetActionTypeDef(BaseValidatorModel):
+class ContainerDatasetAction(BaseValidatorModel):
     image: str
     executionRoleArn: str
-    resourceConfiguration: ResourceConfigurationTypeDef
-    variables: Optional[Sequence[VariableTypeDef]] = None
+    resourceConfiguration: ResourceConfiguration
+    variables: Optional[Sequence[Variable]] = None
 
 
-class PipelineActivityOutputTypeDef(BaseValidatorModel):
+class PipelineActivityOutput(BaseValidatorModel):
     pass
 
 
-class PipelineTypeDef(BaseValidatorModel):
+class Pipeline(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
-    activities: Optional[List[PipelineActivityOutputTypeDef]] = None
-    reprocessingSummaries: Optional[List[ReprocessingSummaryTypeDef]] = None
+    activities: Optional[List[PipelineActivityOutput]] = None
+    reprocessingSummaries: Optional[List[ReprocessingSummary]] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
 
 
-class ListPipelinesResponseTypeDef(BaseValidatorModel):
-    pipelineSummaries: List[PipelineSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPipelinesResponse(BaseValidatorModel):
+    pipelineSummaries: List[PipelineSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DescribeChannelResponseTypeDef(BaseValidatorModel):
-    channel: ChannelTypeDef
-    statistics: ChannelStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelResponse(BaseValidatorModel):
+    channel: Channel
+    statistics: ChannelStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class ChannelStorageUnionTypeDef(BaseValidatorModel):
+class ChannelStorageUnion(BaseValidatorModel):
     pass
 
 
-class CreateChannelRequestTypeDef(BaseValidatorModel):
+class CreateChannelRequest(BaseValidatorModel):
     channelName: str
-    channelStorage: Optional[ChannelStorageUnionTypeDef] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    channelStorage: Optional[ChannelStorageUnion] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateChannelRequestTypeDef(BaseValidatorModel):
+class UpdateChannelRequest(BaseValidatorModel):
     channelName: str
-    channelStorage: Optional[ChannelStorageUnionTypeDef] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    channelStorage: Optional[ChannelStorageUnion] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    channelSummaries: List[ChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsResponse(BaseValidatorModel):
+    channelSummaries: List[ChannelSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FileFormatConfigurationOutputTypeDef(BaseValidatorModel):
+class FileFormatConfigurationOutput(BaseValidatorModel):
     jsonConfiguration: Optional[Dict[str, Any]] = None
-    parquetConfiguration: Optional[ParquetConfigurationOutputTypeDef] = None
+    parquetConfiguration: Optional[ParquetConfigurationOutput] = None
 
 
-class FileFormatConfigurationTypeDef(BaseValidatorModel):
+class FileFormatConfiguration(BaseValidatorModel):
     jsonConfiguration: Optional[Mapping[str, Any]] = None
-    parquetConfiguration: Optional[ParquetConfigurationTypeDef] = None
+    parquetConfiguration: Optional[ParquetConfiguration] = None
 
 
-class ListDatasetsResponseTypeDef(BaseValidatorModel):
-    datasetSummaries: List[DatasetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatasetsResponse(BaseValidatorModel):
+    datasetSummaries: List[DatasetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DatastoreSummaryTypeDef(BaseValidatorModel):
+class DatastoreSummary(BaseValidatorModel):
     datastoreName: Optional[str] = None
-    datastoreStorage: Optional[DatastoreStorageSummaryTypeDef] = None
+    datastoreStorage: Optional[DatastoreStorageSummary] = None
     status: Optional[DatastoreStatusType] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     lastMessageArrivalTime: Optional[datetime] = None
     fileFormatType: Optional[FileFormatTypeType] = None
-    datastorePartitions: Optional[DatastorePartitionsOutputTypeDef] = None
+    datastorePartitions: Optional[DatastorePartitionsOutput] = None
 
 
-class DatasetContentDeliveryRuleTypeDef(BaseValidatorModel):
-    destination: DatasetContentDeliveryDestinationTypeDef
+class DatasetContentDeliveryRule(BaseValidatorModel):
+    destination: DatasetContentDeliveryDestination
     entryName: Optional[str] = None
 
 
-class DatasetActionOutputTypeDef(BaseValidatorModel):
+class DatasetActionOutput(BaseValidatorModel):
     actionName: Optional[str] = None
-    queryAction: Optional[SqlQueryDatasetActionOutputTypeDef] = None
-    containerAction: Optional[ContainerDatasetActionOutputTypeDef] = None
+    queryAction: Optional[SqlQueryDatasetActionOutput] = None
+    containerAction: Optional[ContainerDatasetActionOutput] = None
 
 
-class DescribePipelineResponseTypeDef(BaseValidatorModel):
-    pipeline: PipelineTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribePipelineResponse(BaseValidatorModel):
+    pipeline: Pipeline
+    ResponseMetadata: ResponseMetadata
 
 
-class DatastoreTypeDef(BaseValidatorModel):
+class Datastore(BaseValidatorModel):
     name: Optional[str] = None
-    storage: Optional[DatastoreStorageOutputTypeDef] = None
+    storage: Optional[DatastoreStorageOutput] = None
     arn: Optional[str] = None
     status: Optional[DatastoreStatusType] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
     lastMessageArrivalTime: Optional[datetime] = None
-    fileFormatConfiguration: Optional[FileFormatConfigurationOutputTypeDef] = None
-    datastorePartitions: Optional[DatastorePartitionsOutputTypeDef] = None
+    fileFormatConfiguration: Optional[FileFormatConfigurationOutput] = None
+    datastorePartitions: Optional[DatastorePartitionsOutput] = None
 
 
-class ListDatastoresResponseTypeDef(BaseValidatorModel):
-    datastoreSummaries: List[DatastoreSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDatastoresResponse(BaseValidatorModel):
+    datastoreSummaries: List[DatastoreSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DatasetTypeDef(BaseValidatorModel):
+class Dataset(BaseValidatorModel):
     name: Optional[str] = None
     arn: Optional[str] = None
-    actions: Optional[List[DatasetActionOutputTypeDef]] = None
-    triggers: Optional[List[DatasetTriggerTypeDef]] = None
-    contentDeliveryRules: Optional[List[DatasetContentDeliveryRuleTypeDef]] = None
+    actions: Optional[List[DatasetActionOutput]] = None
+    triggers: Optional[List[DatasetTrigger]] = None
+    contentDeliveryRules: Optional[List[DatasetContentDeliveryRule]] = None
     status: Optional[DatasetStatusType] = None
     creationTime: Optional[datetime] = None
     lastUpdateTime: Optional[datetime] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    versioningConfiguration: Optional[VersioningConfigurationTypeDef] = None
-    lateDataRules: Optional[List[LateDataRuleTypeDef]] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    versioningConfiguration: Optional[VersioningConfiguration] = None
+    lateDataRules: Optional[List[LateDataRule]] = None
 
 
-class SqlQueryDatasetActionUnionTypeDef(BaseValidatorModel):
+class SqlQueryDatasetActionUnion(BaseValidatorModel):
     pass
 
 
-class ContainerDatasetActionUnionTypeDef(BaseValidatorModel):
+class ContainerDatasetActionUnion(BaseValidatorModel):
     pass
 
 
-class DatasetActionTypeDef(BaseValidatorModel):
+class DatasetAction(BaseValidatorModel):
     actionName: Optional[str] = None
-    queryAction: Optional[SqlQueryDatasetActionUnionTypeDef] = None
-    containerAction: Optional[ContainerDatasetActionUnionTypeDef] = None
+    queryAction: Optional[SqlQueryDatasetActionUnion] = None
+    containerAction: Optional[ContainerDatasetActionUnion] = None
 
 
-class PipelineActivityUnionTypeDef(BaseValidatorModel):
+class PipelineActivityUnion(BaseValidatorModel):
     pass
 
 
-class CreatePipelineRequestTypeDef(BaseValidatorModel):
+class CreatePipelineRequest(BaseValidatorModel):
     pipelineName: str
-    pipelineActivities: Sequence[PipelineActivityUnionTypeDef]
-    tags: Optional[Sequence[TagTypeDef]] = None
+    pipelineActivities: Sequence[PipelineActivityUnion]
+    tags: Optional[Sequence[Tag]] = None
 
 
-class RunPipelineActivityRequestTypeDef(BaseValidatorModel):
-    pipelineActivity: PipelineActivityUnionTypeDef
-    payloads: Sequence[BlobTypeDef]
+class RunPipelineActivityRequest(BaseValidatorModel):
+    pipelineActivity: PipelineActivityUnion
+    payloads: Sequence[Blob]
 
 
-class UpdatePipelineRequestTypeDef(BaseValidatorModel):
+class UpdatePipelineRequest(BaseValidatorModel):
     pipelineName: str
-    pipelineActivities: Sequence[PipelineActivityUnionTypeDef]
+    pipelineActivities: Sequence[PipelineActivityUnion]
 
 
-class DescribeDatastoreResponseTypeDef(BaseValidatorModel):
-    datastore: DatastoreTypeDef
-    statistics: DatastoreStatisticsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatastoreResponse(BaseValidatorModel):
+    datastore: Datastore
+    statistics: DatastoreStatistics
+    ResponseMetadata: ResponseMetadata
 
 
-class FileFormatConfigurationUnionTypeDef(BaseValidatorModel):
+class FileFormatConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DatastorePartitionsUnionTypeDef(BaseValidatorModel):
+class DatastorePartitionsUnion(BaseValidatorModel):
     pass
 
 
-class DatastoreStorageUnionTypeDef(BaseValidatorModel):
+class DatastoreStorageUnion(BaseValidatorModel):
     pass
 
 
-class CreateDatastoreRequestTypeDef(BaseValidatorModel):
+class CreateDatastoreRequest(BaseValidatorModel):
     datastoreName: str
-    datastoreStorage: Optional[DatastoreStorageUnionTypeDef] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    fileFormatConfiguration: Optional[FileFormatConfigurationUnionTypeDef] = None
-    datastorePartitions: Optional[DatastorePartitionsUnionTypeDef] = None
+    datastoreStorage: Optional[DatastoreStorageUnion] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    tags: Optional[Sequence[Tag]] = None
+    fileFormatConfiguration: Optional[FileFormatConfigurationUnion] = None
+    datastorePartitions: Optional[DatastorePartitionsUnion] = None
 
 
-class UpdateDatastoreRequestTypeDef(BaseValidatorModel):
+class UpdateDatastoreRequest(BaseValidatorModel):
     datastoreName: str
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    datastoreStorage: Optional[DatastoreStorageUnionTypeDef] = None
-    fileFormatConfiguration: Optional[FileFormatConfigurationUnionTypeDef] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    datastoreStorage: Optional[DatastoreStorageUnion] = None
+    fileFormatConfiguration: Optional[FileFormatConfigurationUnion] = None
 
 
-class DescribeDatasetResponseTypeDef(BaseValidatorModel):
-    dataset: DatasetTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeDatasetResponse(BaseValidatorModel):
+    dataset: Dataset
+    ResponseMetadata: ResponseMetadata
 
 
-class DatasetActionUnionTypeDef(BaseValidatorModel):
+class DatasetActionUnion(BaseValidatorModel):
     pass
 
 
-class CreateDatasetRequestTypeDef(BaseValidatorModel):
+class CreateDatasetRequest(BaseValidatorModel):
     datasetName: str
-    actions: Sequence[DatasetActionUnionTypeDef]
-    triggers: Optional[Sequence[DatasetTriggerTypeDef]] = None
-    contentDeliveryRules: Optional[Sequence[DatasetContentDeliveryRuleTypeDef]] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    versioningConfiguration: Optional[VersioningConfigurationTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
-    lateDataRules: Optional[Sequence[LateDataRuleTypeDef]] = None
+    actions: Sequence[DatasetActionUnion]
+    triggers: Optional[Sequence[DatasetTrigger]] = None
+    contentDeliveryRules: Optional[Sequence[DatasetContentDeliveryRule]] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    versioningConfiguration: Optional[VersioningConfiguration] = None
+    tags: Optional[Sequence[Tag]] = None
+    lateDataRules: Optional[Sequence[LateDataRule]] = None
 
 
-class UpdateDatasetRequestTypeDef(BaseValidatorModel):
+class UpdateDatasetRequest(BaseValidatorModel):
     datasetName: str
-    actions: Sequence[DatasetActionUnionTypeDef]
-    triggers: Optional[Sequence[DatasetTriggerTypeDef]] = None
-    contentDeliveryRules: Optional[Sequence[DatasetContentDeliveryRuleTypeDef]] = None
-    retentionPeriod: Optional[RetentionPeriodTypeDef] = None
-    versioningConfiguration: Optional[VersioningConfigurationTypeDef] = None
-    lateDataRules: Optional[Sequence[LateDataRuleTypeDef]] = None
+    actions: Sequence[DatasetActionUnion]
+    triggers: Optional[Sequence[DatasetTrigger]] = None
+    contentDeliveryRules: Optional[Sequence[DatasetContentDeliveryRule]] = None
+    retentionPeriod: Optional[RetentionPeriod] = None
+    versioningConfiguration: Optional[VersioningConfiguration] = None
+    lateDataRules: Optional[Sequence[LateDataRule]] = None
 
 

@@ -12,43 +12,43 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.mgh_constants import *
 
-class ApplicationStateTypeDef(BaseValidatorModel):
+class ApplicationState(BaseValidatorModel):
     ApplicationId: Optional[str] = None
     ApplicationStatus: Optional[ApplicationStatusType] = None
     LastUpdatedTime: Optional[datetime] = None
 
 
-class CreatedArtifactTypeDef(BaseValidatorModel):
+class CreatedArtifact(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
 
 
-class DiscoveredResourceTypeDef(BaseValidatorModel):
+class DiscoveredResource(BaseValidatorModel):
     ConfigurationId: str
     Description: Optional[str] = None
 
 
-class SourceResourceTypeDef(BaseValidatorModel):
+class SourceResource(BaseValidatorModel):
     Name: str
     Description: Optional[str] = None
     StatusDetail: Optional[str] = None
 
 
-class CreateProgressUpdateStreamRequestTypeDef(BaseValidatorModel):
+class CreateProgressUpdateStreamRequest(BaseValidatorModel):
     ProgressUpdateStreamName: str
     DryRun: Optional[bool] = None
 
 
-class DeleteProgressUpdateStreamRequestTypeDef(BaseValidatorModel):
+class DeleteProgressUpdateStreamRequest(BaseValidatorModel):
     ProgressUpdateStreamName: str
     DryRun: Optional[bool] = None
 
 
-class DescribeApplicationStateRequestTypeDef(BaseValidatorModel):
+class DescribeApplicationStateRequest(BaseValidatorModel):
     ApplicationId: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -56,78 +56,78 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DescribeMigrationTaskRequestTypeDef(BaseValidatorModel):
+class DescribeMigrationTaskRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
 
 
-class DisassociateCreatedArtifactRequestTypeDef(BaseValidatorModel):
+class DisassociateCreatedArtifactRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     CreatedArtifactName: str
     DryRun: Optional[bool] = None
 
 
-class DisassociateDiscoveredResourceRequestTypeDef(BaseValidatorModel):
+class DisassociateDiscoveredResourceRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     ConfigurationId: str
     DryRun: Optional[bool] = None
 
 
-class DisassociateSourceResourceRequestTypeDef(BaseValidatorModel):
+class DisassociateSourceResourceRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     SourceResourceName: str
     DryRun: Optional[bool] = None
 
 
-class ImportMigrationTaskRequestTypeDef(BaseValidatorModel):
+class ImportMigrationTaskRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     DryRun: Optional[bool] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListApplicationStatesRequestTypeDef(BaseValidatorModel):
+class ListApplicationStatesRequest(BaseValidatorModel):
     ApplicationIds: Optional[Sequence[str]] = None
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListCreatedArtifactsRequestTypeDef(BaseValidatorModel):
+class ListCreatedArtifactsRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListDiscoveredResourcesRequestTypeDef(BaseValidatorModel):
+class ListDiscoveredResourcesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListMigrationTaskUpdatesRequestTypeDef(BaseValidatorModel):
+class ListMigrationTaskUpdatesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListMigrationTasksRequestTypeDef(BaseValidatorModel):
+class ListMigrationTasksRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
     ResourceName: Optional[str] = None
 
 
-class MigrationTaskSummaryTypeDef(BaseValidatorModel):
+class MigrationTaskSummary(BaseValidatorModel):
     ProgressUpdateStream: Optional[str] = None
     MigrationTaskName: Optional[str] = None
     Status: Optional[StatusType] = None
@@ -136,182 +136,182 @@ class MigrationTaskSummaryTypeDef(BaseValidatorModel):
     UpdateDateTime: Optional[datetime] = None
 
 
-class ListProgressUpdateStreamsRequestTypeDef(BaseValidatorModel):
+class ListProgressUpdateStreamsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ProgressUpdateStreamSummaryTypeDef(BaseValidatorModel):
+class ProgressUpdateStreamSummary(BaseValidatorModel):
     ProgressUpdateStreamName: Optional[str] = None
 
 
-class ListSourceResourcesRequestTypeDef(BaseValidatorModel):
+class ListSourceResourcesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class TaskTypeDef(BaseValidatorModel):
+class Task(BaseValidatorModel):
     Status: StatusType
     StatusDetail: Optional[str] = None
     ProgressPercent: Optional[int] = None
 
 
-class AssociateCreatedArtifactRequestTypeDef(BaseValidatorModel):
+class AssociateCreatedArtifactRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    CreatedArtifact: CreatedArtifactTypeDef
+    CreatedArtifact: CreatedArtifact
     DryRun: Optional[bool] = None
 
 
-class AssociateDiscoveredResourceRequestTypeDef(BaseValidatorModel):
+class AssociateDiscoveredResourceRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    DiscoveredResource: DiscoveredResourceTypeDef
+    DiscoveredResource: DiscoveredResource
     DryRun: Optional[bool] = None
 
 
-class AssociateSourceResourceRequestTypeDef(BaseValidatorModel):
+class AssociateSourceResourceRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    SourceResource: SourceResourceTypeDef
+    SourceResource: SourceResource
     DryRun: Optional[bool] = None
 
 
-class DescribeApplicationStateResultTypeDef(BaseValidatorModel):
+class DescribeApplicationStateResult(BaseValidatorModel):
     ApplicationStatus: ApplicationStatusType
     LastUpdatedTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListApplicationStatesResultTypeDef(BaseValidatorModel):
-    ApplicationStateList: List[ApplicationStateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationStatesResult(BaseValidatorModel):
+    ApplicationStateList: List[ApplicationState]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListCreatedArtifactsResultTypeDef(BaseValidatorModel):
-    CreatedArtifactList: List[CreatedArtifactTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListCreatedArtifactsResult(BaseValidatorModel):
+    CreatedArtifactList: List[CreatedArtifact]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListDiscoveredResourcesResultTypeDef(BaseValidatorModel):
-    DiscoveredResourceList: List[DiscoveredResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDiscoveredResourcesResult(BaseValidatorModel):
+    DiscoveredResourceList: List[DiscoveredResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSourceResourcesResultTypeDef(BaseValidatorModel):
-    SourceResourceList: List[SourceResourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceResourcesResult(BaseValidatorModel):
+    SourceResourceList: List[SourceResource]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListApplicationStatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListApplicationStatesRequestPaginate(BaseValidatorModel):
     ApplicationIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListCreatedArtifactsRequestPaginateTypeDef(BaseValidatorModel):
+class ListCreatedArtifactsRequestPaginate(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDiscoveredResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDiscoveredResourcesRequestPaginate(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMigrationTaskUpdatesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMigrationTaskUpdatesRequestPaginate(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMigrationTasksRequestPaginateTypeDef(BaseValidatorModel):
+class ListMigrationTasksRequestPaginate(BaseValidatorModel):
     ResourceName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProgressUpdateStreamsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListProgressUpdateStreamsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceResourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceResourcesRequestPaginate(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMigrationTasksResultTypeDef(BaseValidatorModel):
-    MigrationTaskSummaryList: List[MigrationTaskSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMigrationTasksResult(BaseValidatorModel):
+    MigrationTaskSummaryList: List[MigrationTaskSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListProgressUpdateStreamsResultTypeDef(BaseValidatorModel):
-    ProgressUpdateStreamSummaryList: List[ProgressUpdateStreamSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProgressUpdateStreamsResult(BaseValidatorModel):
+    ProgressUpdateStreamSummaryList: List[ProgressUpdateStreamSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ResourceAttributeTypeDef(BaseValidatorModel):
+class ResourceAttribute(BaseValidatorModel):
     pass
 
 
-class PutResourceAttributesRequestTypeDef(BaseValidatorModel):
+class PutResourceAttributesRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    ResourceAttributeList: Sequence[ResourceAttributeTypeDef]
+    ResourceAttributeList: Sequence[ResourceAttribute]
     DryRun: Optional[bool] = None
 
 
-class MigrationTaskTypeDef(BaseValidatorModel):
+class MigrationTask(BaseValidatorModel):
     ProgressUpdateStream: Optional[str] = None
     MigrationTaskName: Optional[str] = None
-    Task: Optional[TaskTypeDef] = None
+    Task: Optional[Task] = None
     UpdateDateTime: Optional[datetime] = None
-    ResourceAttributeList: Optional[List[ResourceAttributeTypeDef]] = None
+    ResourceAttributeList: Optional[List[ResourceAttribute]] = None
 
 
-class MigrationTaskUpdateTypeDef(BaseValidatorModel):
+class MigrationTaskUpdate(BaseValidatorModel):
     UpdateDateTime: Optional[datetime] = None
     UpdateType: Optional[Literal["MIGRATION_TASK_STATE_UPDATED"]] = None
-    MigrationTaskState: Optional[TaskTypeDef] = None
+    MigrationTaskState: Optional[Task] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class NotifyApplicationStateRequestTypeDef(BaseValidatorModel):
+class NotifyApplicationStateRequest(BaseValidatorModel):
     ApplicationId: str
     Status: ApplicationStatusType
-    UpdateDateTime: Optional[TimestampTypeDef] = None
+    UpdateDateTime: Optional[Timestamp] = None
     DryRun: Optional[bool] = None
 
 
-class NotifyMigrationTaskStateRequestTypeDef(BaseValidatorModel):
+class NotifyMigrationTaskStateRequest(BaseValidatorModel):
     ProgressUpdateStream: str
     MigrationTaskName: str
-    Task: TaskTypeDef
-    UpdateDateTime: TimestampTypeDef
+    Task: Task
+    UpdateDateTime: Timestamp
     NextUpdateSeconds: int
     DryRun: Optional[bool] = None
 
 
-class DescribeMigrationTaskResultTypeDef(BaseValidatorModel):
-    MigrationTask: MigrationTaskTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeMigrationTaskResult(BaseValidatorModel):
+    MigrationTask: MigrationTask
+    ResponseMetadata: ResponseMetadata
 
 
-class ListMigrationTaskUpdatesResultTypeDef(BaseValidatorModel):
-    MigrationTaskUpdateList: List[MigrationTaskUpdateTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMigrationTaskUpdatesResult(BaseValidatorModel):
+    MigrationTaskUpdateList: List[MigrationTaskUpdate]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeploymentParameterInputTypeDef
+# DeploymentParameterInput
 
 ### name
 - **Type**: <class 'str'>
@@ -17,25 +17,25 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PutDeploymentParameterRequestTypeDef
+# PutDeploymentParameterRequest
 
 ### agreementId
 - **Type**: <class 'str'>
@@ -46,7 +46,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### deploymentParameter
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.DeploymentParameterInputTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.DeploymentParameterInput'>
 - **Required**: Yes
 
 ### productId
@@ -57,13 +57,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### expirationDate
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_deployment_classes.TimestampTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_deployment_classes.Timestamp]
 
 ### tags
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# PutDeploymentParameterResponseTypeDef
+# PutDeploymentParameterResponse
 
 ### agreementId
 - **Type**: <class 'str'>
@@ -82,11 +82,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_deployment_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -108,7 +108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -118,13 +118,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# TimestampTypeDef
+# Timestamp
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>

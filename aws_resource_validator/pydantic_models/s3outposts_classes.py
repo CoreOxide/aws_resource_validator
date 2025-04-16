@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.s3outposts_constants import *
 
-class CreateEndpointRequestTypeDef(BaseValidatorModel):
+class CreateEndpointRequest(BaseValidatorModel):
     OutpostId: str
     SubnetId: str
     SecurityGroupId: str
@@ -20,7 +20,7 @@ class CreateEndpointRequestTypeDef(BaseValidatorModel):
     CustomerOwnedIpv4Pool: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -28,37 +28,37 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class DeleteEndpointRequestTypeDef(BaseValidatorModel):
+class DeleteEndpointRequest(BaseValidatorModel):
     EndpointId: str
     OutpostId: str
 
 
-class FailedReasonTypeDef(BaseValidatorModel):
+class FailedReason(BaseValidatorModel):
     ErrorCode: Optional[str] = None
     Message: Optional[str] = None
 
 
-class NetworkInterfaceTypeDef(BaseValidatorModel):
+class NetworkInterface(BaseValidatorModel):
     NetworkInterfaceId: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListEndpointsRequestTypeDef(BaseValidatorModel):
+class ListEndpointsRequest(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class ListOutpostsWithS3RequestTypeDef(BaseValidatorModel):
+class ListOutpostsWithS3Request(BaseValidatorModel):
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class OutpostTypeDef(BaseValidatorModel):
+class Outpost(BaseValidatorModel):
     OutpostArn: Optional[str] = None
     S3OutpostArn: Optional[str] = None
     OutpostId: Optional[str] = None
@@ -66,64 +66,64 @@ class OutpostTypeDef(BaseValidatorModel):
     CapacityInBytes: Optional[int] = None
 
 
-class ListSharedEndpointsRequestTypeDef(BaseValidatorModel):
+class ListSharedEndpointsRequest(BaseValidatorModel):
     OutpostId: str
     NextToken: Optional[str] = None
     MaxResults: Optional[int] = None
 
 
-class CreateEndpointResultTypeDef(BaseValidatorModel):
+class CreateEndpointResult(BaseValidatorModel):
     EndpointArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class EndpointTypeDef(BaseValidatorModel):
+class Endpoint(BaseValidatorModel):
     EndpointArn: Optional[str] = None
     OutpostsId: Optional[str] = None
     CidrBlock: Optional[str] = None
     Status: Optional[EndpointStatusType] = None
     CreationTime: Optional[datetime] = None
-    NetworkInterfaces: Optional[List[NetworkInterfaceTypeDef]] = None
+    NetworkInterfaces: Optional[List[NetworkInterface]] = None
     VpcId: Optional[str] = None
     SubnetId: Optional[str] = None
     SecurityGroupId: Optional[str] = None
     AccessType: Optional[EndpointAccessTypeType] = None
     CustomerOwnedIpv4Pool: Optional[str] = None
-    FailedReason: Optional[FailedReasonTypeDef] = None
+    FailedReason: Optional[FailedReason] = None
 
 
-class ListEndpointsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListEndpointsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOutpostsWithS3RequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListOutpostsWithS3RequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSharedEndpointsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSharedEndpointsRequestPaginate(BaseValidatorModel):
     OutpostId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListOutpostsWithS3ResultTypeDef(BaseValidatorModel):
-    Outposts: List[OutpostTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListOutpostsWithS3Result(BaseValidatorModel):
+    Outposts: List[Outpost]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListEndpointsResultTypeDef(BaseValidatorModel):
-    Endpoints: List[EndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEndpointsResult(BaseValidatorModel):
+    Endpoints: List[Endpoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ListSharedEndpointsResultTypeDef(BaseValidatorModel):
-    Endpoints: List[EndpointTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSharedEndpointsResult(BaseValidatorModel):
+    Endpoints: List[Endpoint]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 

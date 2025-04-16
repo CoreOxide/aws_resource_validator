@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.sagemaker_metrics_constants import *
 
-class MetricQueryTypeDef(BaseValidatorModel):
+class MetricQuery(BaseValidatorModel):
     MetricName: str
     ResourceArn: str
     MetricStat: MetricStatisticType
@@ -22,14 +22,14 @@ class MetricQueryTypeDef(BaseValidatorModel):
     End: Optional[int] = None
 
 
-class MetricQueryResultTypeDef(BaseValidatorModel):
+class MetricQueryResult(BaseValidatorModel):
     Status: MetricQueryResultStatusType
     XAxisValues: List[int]
     MetricValues: List[float]
     Message: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,38 +37,38 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class BatchPutMetricsErrorTypeDef(BaseValidatorModel):
+class BatchPutMetricsError(BaseValidatorModel):
     Code: Optional[PutMetricsErrorCodeType] = None
     MetricIndex: Optional[int] = None
 
 
-class BatchGetMetricsRequestTypeDef(BaseValidatorModel):
-    MetricQueries: Sequence[MetricQueryTypeDef]
+class BatchGetMetricsRequest(BaseValidatorModel):
+    MetricQueries: Sequence[MetricQuery]
 
 
-class BatchGetMetricsResponseTypeDef(BaseValidatorModel):
-    MetricQueryResults: List[MetricQueryResultTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchGetMetricsResponse(BaseValidatorModel):
+    MetricQueryResults: List[MetricQueryResult]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutMetricsResponseTypeDef(BaseValidatorModel):
-    Errors: List[BatchPutMetricsErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutMetricsResponse(BaseValidatorModel):
+    Errors: List[BatchPutMetricsError]
+    ResponseMetadata: ResponseMetadata
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class RawMetricDataTypeDef(BaseValidatorModel):
+class RawMetricData(BaseValidatorModel):
     MetricName: str
-    Timestamp: TimestampTypeDef
+    Timestamp: Timestamp
     Value: float
     Step: Optional[int] = None
 
 
-class BatchPutMetricsRequestTypeDef(BaseValidatorModel):
+class BatchPutMetricsRequest(BaseValidatorModel):
     TrialComponentName: str
-    MetricData: Sequence[RawMetricDataTypeDef]
+    MetricData: Sequence[RawMetricData]
 
 

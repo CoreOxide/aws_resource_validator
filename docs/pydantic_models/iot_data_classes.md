@@ -6,13 +6,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# BlobTypeDef
+# Blob
 
 Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# DeleteThingShadowRequestTypeDef
+# DeleteThingShadowRequest
 
 ### thingName
 - **Type**: <class 'str'>
@@ -22,32 +22,32 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DeleteThingShadowResponseTypeDef
+# DeleteThingShadowResponse
 
 ### payload
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# EmptyResponseMetadataTypeDef
+# EmptyResponseMetadata
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetRetainedMessageRequestTypeDef
+# GetRetainedMessageRequest
 
 ### topic
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# GetRetainedMessageResponseTypeDef
+# GetRetainedMessageResponse
 
 ### topic
 - **Type**: <class 'str'>
@@ -70,11 +70,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# GetThingShadowRequestTypeDef
+# GetThingShadowRequest
 
 ### thingName
 - **Type**: <class 'str'>
@@ -84,18 +84,18 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetThingShadowResponseTypeDef
+# GetThingShadowResponse
 
 ### payload
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListNamedShadowsForThingRequestTypeDef
+# ListNamedShadowsForThingRequest
 
 ### thingName
 - **Type**: <class 'str'>
@@ -108,7 +108,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListNamedShadowsForThingResponseTypeDef
+# ListNamedShadowsForThingResponse
 
 ### results
 - **Type**: typing.List[str]
@@ -119,20 +119,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListRetainedMessagesRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.PaginatorConfigTypeDef]
-
-
-# ListRetainedMessagesRequestTypeDef
+# ListRetainedMessagesRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
@@ -141,21 +135,27 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ListRetainedMessagesResponseTypeDef
+# ListRetainedMessagesRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.PaginatorConfig]
+
+
+# ListRetainedMessagesResponse
 
 ### retainedTopics
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_data_classes.RetainedMessageSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iot_data_classes.RetainedMessageSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -167,7 +167,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# PublishRequestTypeDef
+# PublishRequest
 
 ### topic
 - **Type**: <class 'str'>
@@ -180,7 +180,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[bool]
 
 ### payload
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.BlobTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iot_data_classes.Blob]
 
 ### userProperties
 - **Type**: typing.Optional[str]
@@ -201,7 +201,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -223,7 +223,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# RetainedMessageSummaryTypeDef
+# RetainedMessageSummary
 
 ### topic
 - **Type**: typing.Optional[str]
@@ -238,28 +238,28 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# UpdateThingShadowRequestTypeDef
+# UpdateThingShadowRequest
 
 ### thingName
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 ### payload
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.BlobTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.Blob'>
 - **Required**: Yes
 
 ### shadowName
 - **Type**: typing.Optional[str]
 
 
-# UpdateThingShadowResponseTypeDef
+# UpdateThingShadowResponse
 
 ### payload
 - **Type**: <class 'botocore.response.StreamingBody'>
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iot_data_classes.ResponseMetadata'>
 - **Required**: Yes
 
 

@@ -12,55 +12,55 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.qbusiness_constants import *
 
-class S3TypeDef(BaseValidatorModel):
+class S3(BaseValidatorModel):
     bucket: str
     key: str
 
 
-class ActionExecutionPayloadFieldOutputTypeDef(BaseValidatorModel):
+class ActionExecutionPayloadFieldOutput(BaseValidatorModel):
     value: Dict[str, Any]
 
 
-class ActionExecutionPayloadFieldTypeDef(BaseValidatorModel):
+class ActionExecutionPayloadField(BaseValidatorModel):
     value: Mapping[str, Any]
 
 
-class ActionReviewPayloadFieldAllowedValueTypeDef(BaseValidatorModel):
+class ActionReviewPayloadFieldAllowedValue(BaseValidatorModel):
     value: Optional[Dict[str, Any]] = None
     displayValue: Optional[Dict[str, Any]] = None
 
 
-class ActionSummaryTypeDef(BaseValidatorModel):
+class ActionSummary(BaseValidatorModel):
     actionIdentifier: Optional[str] = None
     displayName: Optional[str] = None
     instructionExample: Optional[str] = None
     description: Optional[str] = None
 
 
-class QuickSightConfigurationTypeDef(BaseValidatorModel):
+class QuickSightConfiguration(BaseValidatorModel):
     clientNamespace: str
 
 
-class AppliedAttachmentsConfigurationTypeDef(BaseValidatorModel):
+class AppliedAttachmentsConfiguration(BaseValidatorModel):
     attachmentsControlMode: Optional[AttachmentsControlModeType] = None
 
 
-class AppliedCreatorModeConfigurationTypeDef(BaseValidatorModel):
+class AppliedCreatorModeConfiguration(BaseValidatorModel):
     creatorModeControl: CreatorModeControlType
 
 
-class AppliedOrchestrationConfigurationTypeDef(BaseValidatorModel):
+class AppliedOrchestrationConfiguration(BaseValidatorModel):
     control: OrchestrationControlType
 
 
-class AssociatePermissionRequestTypeDef(BaseValidatorModel):
+class AssociatePermissionRequest(BaseValidatorModel):
     applicationId: str
     statementId: str
     actions: Sequence[str]
     principal: str
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -68,20 +68,20 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ErrorDetailTypeDef(BaseValidatorModel):
+class ErrorDetail(BaseValidatorModel):
     errorMessage: Optional[str] = None
     errorCode: Optional[ErrorCodeType] = None
 
 
-class AttachmentsConfigurationTypeDef(BaseValidatorModel):
+class AttachmentsConfiguration(BaseValidatorModel):
     attachmentsControlMode: AttachmentsControlModeType
 
 
-class AudioExtractionConfigurationTypeDef(BaseValidatorModel):
+class AudioExtractionConfiguration(BaseValidatorModel):
     audioExtractionStatus: AudioExtractionStatusType
 
 
-class AudioSourceDetailsTypeDef(BaseValidatorModel):
+class AudioSourceDetails(BaseValidatorModel):
     mediaId: Optional[str] = None
     mediaMimeType: Optional[str] = None
     startTimeMilliseconds: Optional[int] = None
@@ -89,143 +89,143 @@ class AudioSourceDetailsTypeDef(BaseValidatorModel):
     audioExtractionType: Optional[AudioExtractionTypeType] = None
 
 
-class AuthChallengeRequestEventTypeDef(BaseValidatorModel):
+class AuthChallengeRequestEvent(BaseValidatorModel):
     authorizationUrl: str
 
 
-class AuthChallengeRequestTypeDef(BaseValidatorModel):
+class AuthChallengeRequest(BaseValidatorModel):
     authorizationUrl: str
 
 
-class AuthChallengeResponseEventTypeDef(BaseValidatorModel):
+class AuthChallengeResponseEvent(BaseValidatorModel):
     responseMap: Mapping[str, str]
 
 
-class AuthChallengeResponseTypeDef(BaseValidatorModel):
+class AuthChallengeResponse(BaseValidatorModel):
     responseMap: Mapping[str, str]
 
 
-class AutoSubscriptionConfigurationTypeDef(BaseValidatorModel):
+class AutoSubscriptionConfiguration(BaseValidatorModel):
     autoSubscribe: AutoSubscriptionStatusType
     defaultSubscriptionType: Optional[SubscriptionTypeType] = None
 
 
-class BasicAuthConfigurationTypeDef(BaseValidatorModel):
+class BasicAuthConfiguration(BaseValidatorModel):
     secretArn: str
     roleArn: str
 
 
-class DeleteDocumentTypeDef(BaseValidatorModel):
+class DeleteDocument(BaseValidatorModel):
     documentId: str
 
 
-class BlockedPhrasesConfigurationTypeDef(BaseValidatorModel):
+class BlockedPhrasesConfiguration(BaseValidatorModel):
     blockedPhrases: Optional[List[str]] = None
     systemMessageOverride: Optional[str] = None
 
 
-class BlockedPhrasesConfigurationUpdateTypeDef(BaseValidatorModel):
+class BlockedPhrasesConfigurationUpdate(BaseValidatorModel):
     blockedPhrasesToCreateOrUpdate: Optional[Sequence[str]] = None
     blockedPhrasesToDelete: Optional[Sequence[str]] = None
     systemMessageOverride: Optional[str] = None
 
 
-class BrowserExtensionConfigurationOutputTypeDef(BaseValidatorModel):
+class BrowserExtensionConfigurationOutput(BaseValidatorModel):
     enabledBrowserExtensions: List[BrowserExtensionType]
 
 
-class BrowserExtensionConfigurationTypeDef(BaseValidatorModel):
+class BrowserExtensionConfiguration(BaseValidatorModel):
     enabledBrowserExtensions: Sequence[BrowserExtensionType]
 
 
-class CancelSubscriptionRequestTypeDef(BaseValidatorModel):
+class CancelSubscriptionRequest(BaseValidatorModel):
     applicationId: str
     subscriptionId: str
 
 
-class TextInputEventTypeDef(BaseValidatorModel):
+class TextInputEvent(BaseValidatorModel):
     userMessage: str
 
 
-class PluginConfigurationTypeDef(BaseValidatorModel):
+class PluginConfiguration(BaseValidatorModel):
     pluginId: str
 
 
-class TextOutputEventTypeDef(BaseValidatorModel):
+class TextOutputEvent(BaseValidatorModel):
     conversationId: Optional[str] = None
     userMessageId: Optional[str] = None
     systemMessageId: Optional[str] = None
     systemMessage: Optional[str] = None
 
 
-class ContentBlockerRuleTypeDef(BaseValidatorModel):
+class ContentBlockerRule(BaseValidatorModel):
     systemMessageOverride: Optional[str] = None
 
 
-class EligibleDataSourceTypeDef(BaseValidatorModel):
+class EligibleDataSource(BaseValidatorModel):
     indexId: Optional[str] = None
     dataSourceId: Optional[str] = None
 
 
-class RetrieverContentSourceTypeDef(BaseValidatorModel):
+class RetrieverContentSource(BaseValidatorModel):
     retrieverId: str
 
 
-class ConversationSourceTypeDef(BaseValidatorModel):
+class ConversationSource(BaseValidatorModel):
     conversationId: str
     attachmentId: str
 
 
-class ConversationTypeDef(BaseValidatorModel):
+class Conversation(BaseValidatorModel):
     conversationId: Optional[str] = None
     title: Optional[str] = None
     startTime: Optional[datetime] = None
 
 
-class EncryptionConfigurationTypeDef(BaseValidatorModel):
+class EncryptionConfiguration(BaseValidatorModel):
     kmsKeyId: Optional[str] = None
 
 
-class PersonalizationConfigurationTypeDef(BaseValidatorModel):
+class PersonalizationConfiguration(BaseValidatorModel):
     personalizationControlMode: PersonalizationControlModeType
 
 
-class QAppsConfigurationTypeDef(BaseValidatorModel):
+class QAppsConfiguration(BaseValidatorModel):
     qAppsControlMode: QAppsControlModeType
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     key: str
     value: str
 
 
-class IndexCapacityConfigurationTypeDef(BaseValidatorModel):
+class IndexCapacityConfiguration(BaseValidatorModel):
     units: Optional[int] = None
 
 
-class SubscriptionPrincipalTypeDef(BaseValidatorModel):
+class SubscriptionPrincipal(BaseValidatorModel):
     user: Optional[str] = None
     group: Optional[str] = None
 
 
-class UserAliasTypeDef(BaseValidatorModel):
+class UserAlias(BaseValidatorModel):
     userId: str
     indexId: Optional[str] = None
     dataSourceId: Optional[str] = None
 
 
-class CustomizationConfigurationTypeDef(BaseValidatorModel):
+class CustomizationConfiguration(BaseValidatorModel):
     customCSSUrl: Optional[str] = None
     logoUrl: Optional[str] = None
     fontUrl: Optional[str] = None
     faviconUrl: Optional[str] = None
 
 
-class CreatorModeConfigurationTypeDef(BaseValidatorModel):
+class CreatorModeConfiguration(BaseValidatorModel):
     creatorModeControl: CreatorModeControlType
 
 
-class DataAccessorTypeDef(BaseValidatorModel):
+class DataAccessor(BaseValidatorModel):
     displayName: Optional[str] = None
     dataAccessorId: Optional[str] = None
     dataAccessorArn: Optional[str] = None
@@ -235,7 +235,7 @@ class DataAccessorTypeDef(BaseValidatorModel):
     updatedAt: Optional[datetime] = None
 
 
-class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
+class DataSourceSyncJobMetrics(BaseValidatorModel):
     documentsAdded: Optional[str] = None
     documentsModified: Optional[str] = None
     documentsDeleted: Optional[str] = None
@@ -243,219 +243,219 @@ class DataSourceSyncJobMetricsTypeDef(BaseValidatorModel):
     documentsScanned: Optional[str] = None
 
 
-class DataSourceVpcConfigurationOutputTypeDef(BaseValidatorModel):
+class DataSourceVpcConfigurationOutput(BaseValidatorModel):
     subnetIds: List[str]
     securityGroupIds: List[str]
 
 
-class DataSourceVpcConfigurationTypeDef(BaseValidatorModel):
+class DataSourceVpcConfiguration(BaseValidatorModel):
     subnetIds: Sequence[str]
     securityGroupIds: Sequence[str]
 
 
-class DateAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
+class DateAttributeBoostingConfiguration(BaseValidatorModel):
     boostingLevel: DocumentAttributeBoostingLevelType
     boostingDurationInSeconds: Optional[int] = None
 
 
-class DeleteApplicationRequestTypeDef(BaseValidatorModel):
+class DeleteApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class DeleteAttachmentRequestTypeDef(BaseValidatorModel):
+class DeleteAttachmentRequest(BaseValidatorModel):
     applicationId: str
     conversationId: str
     attachmentId: str
     userId: Optional[str] = None
 
 
-class DeleteChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
+class DeleteChatControlsConfigurationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class DeleteConversationRequestTypeDef(BaseValidatorModel):
+class DeleteConversationRequest(BaseValidatorModel):
     conversationId: str
     applicationId: str
     userId: Optional[str] = None
 
 
-class DeleteDataAccessorRequestTypeDef(BaseValidatorModel):
+class DeleteDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     dataAccessorId: str
 
 
-class DeleteDataSourceRequestTypeDef(BaseValidatorModel):
+class DeleteDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceId: str
 
 
-class DeleteGroupRequestTypeDef(BaseValidatorModel):
+class DeleteGroupRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     groupName: str
     dataSourceId: Optional[str] = None
 
 
-class DeleteIndexRequestTypeDef(BaseValidatorModel):
+class DeleteIndexRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
 
 
-class DeletePluginRequestTypeDef(BaseValidatorModel):
+class DeletePluginRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
 
 
-class DeleteRetrieverRequestTypeDef(BaseValidatorModel):
+class DeleteRetrieverRequest(BaseValidatorModel):
     applicationId: str
     retrieverId: str
 
 
-class DeleteUserRequestTypeDef(BaseValidatorModel):
+class DeleteUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
 
 
-class DeleteWebExperienceRequestTypeDef(BaseValidatorModel):
+class DeleteWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
 
 
-class DisassociatePermissionRequestTypeDef(BaseValidatorModel):
+class DisassociatePermissionRequest(BaseValidatorModel):
     applicationId: str
     statementId: str
 
 
-class NumberAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
+class NumberAttributeBoostingConfiguration(BaseValidatorModel):
     boostingLevel: DocumentAttributeBoostingLevelType
     boostingType: Optional[NumberAttributeBoostingTypeType] = None
 
 
-class StringAttributeBoostingConfigurationOutputTypeDef(BaseValidatorModel):
+class StringAttributeBoostingConfigurationOutput(BaseValidatorModel):
     boostingLevel: DocumentAttributeBoostingLevelType
     attributeValueBoosting: Optional[Dict[str, StringAttributeValueBoostingLevelType]] = None
 
 
-class StringListAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
+class StringListAttributeBoostingConfiguration(BaseValidatorModel):
     boostingLevel: DocumentAttributeBoostingLevelType
 
 
-class StringAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
+class StringAttributeBoostingConfiguration(BaseValidatorModel):
     boostingLevel: DocumentAttributeBoostingLevelType
     attributeValueBoosting: Optional[Mapping[str, StringAttributeValueBoostingLevelType]] = None
 
 
-class DocumentAttributeValueOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeValueOutput(BaseValidatorModel):
     stringValue: Optional[str] = None
     stringListValue: Optional[List[str]] = None
     longValue: Optional[int] = None
     dateValue: Optional[datetime] = None
 
 
-class GetApplicationRequestTypeDef(BaseValidatorModel):
+class GetApplicationRequest(BaseValidatorModel):
     applicationId: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class GetChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
+class GetChatControlsConfigurationRequest(BaseValidatorModel):
     applicationId: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class GetDataAccessorRequestTypeDef(BaseValidatorModel):
+class GetDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     dataAccessorId: str
 
 
-class GetDataSourceRequestTypeDef(BaseValidatorModel):
+class GetDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceId: str
 
 
-class GetGroupRequestTypeDef(BaseValidatorModel):
+class GetGroupRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     groupName: str
     dataSourceId: Optional[str] = None
 
 
-class GetIndexRequestTypeDef(BaseValidatorModel):
+class GetIndexRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
 
 
-class GetMediaRequestTypeDef(BaseValidatorModel):
+class GetMediaRequest(BaseValidatorModel):
     applicationId: str
     conversationId: str
     messageId: str
     mediaId: str
 
 
-class GetPluginRequestTypeDef(BaseValidatorModel):
+class GetPluginRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
 
 
-class GetPolicyRequestTypeDef(BaseValidatorModel):
+class GetPolicyRequest(BaseValidatorModel):
     applicationId: str
 
 
-class GetRetrieverRequestTypeDef(BaseValidatorModel):
+class GetRetrieverRequest(BaseValidatorModel):
     applicationId: str
     retrieverId: str
 
 
-class GetUserRequestTypeDef(BaseValidatorModel):
+class GetUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
 
 
-class GetWebExperienceRequestTypeDef(BaseValidatorModel):
+class GetWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
 
 
-class GroupSummaryTypeDef(BaseValidatorModel):
+class GroupSummary(BaseValidatorModel):
     groupName: Optional[str] = None
 
 
-class IdcAuthConfigurationTypeDef(BaseValidatorModel):
+class IdcAuthConfiguration(BaseValidatorModel):
     idcApplicationArn: str
     roleArn: str
 
 
-class OpenIDConnectProviderConfigurationTypeDef(BaseValidatorModel):
+class OpenIDConnectProviderConfiguration(BaseValidatorModel):
     secretsArn: str
     secretsRole: str
 
 
-class SamlProviderConfigurationTypeDef(BaseValidatorModel):
+class SamlProviderConfiguration(BaseValidatorModel):
     authenticationUrl: str
 
 
-class ImageExtractionConfigurationTypeDef(BaseValidatorModel):
+class ImageExtractionConfiguration(BaseValidatorModel):
     imageExtractionStatus: ImageExtractionStatusType
 
 
-class ImageSourceDetailsTypeDef(BaseValidatorModel):
+class ImageSourceDetails(BaseValidatorModel):
     mediaId: Optional[str] = None
     mediaMimeType: Optional[str] = None
 
 
-class TextDocumentStatisticsTypeDef(BaseValidatorModel):
+class TextDocumentStatistics(BaseValidatorModel):
     indexedTextBytes: Optional[int] = None
     indexedTextDocumentCount: Optional[int] = None
 
 
-class IndexTypeDef(BaseValidatorModel):
+class Index(BaseValidatorModel):
     displayName: Optional[str] = None
     indexId: Optional[str] = None
     createdAt: Optional[datetime] = None
@@ -463,16 +463,16 @@ class IndexTypeDef(BaseValidatorModel):
     status: Optional[IndexStatusType] = None
 
 
-class KendraIndexConfigurationTypeDef(BaseValidatorModel):
+class KendraIndexConfiguration(BaseValidatorModel):
     indexId: str
 
 
-class ListApplicationsRequestTypeDef(BaseValidatorModel):
+class ListApplicationsRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAttachmentsRequestTypeDef(BaseValidatorModel):
+class ListAttachmentsRequest(BaseValidatorModel):
     applicationId: str
     conversationId: Optional[str] = None
     userId: Optional[str] = None
@@ -480,27 +480,27 @@ class ListAttachmentsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListConversationsRequestTypeDef(BaseValidatorModel):
+class ListConversationsRequest(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDataAccessorsRequestTypeDef(BaseValidatorModel):
+class ListDataAccessorsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDataSourcesRequestTypeDef(BaseValidatorModel):
+class ListDataSourcesRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListDocumentsRequestTypeDef(BaseValidatorModel):
+class ListDocumentsRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceIds: Optional[Sequence[str]] = None
@@ -508,13 +508,13 @@ class ListDocumentsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListIndicesRequestTypeDef(BaseValidatorModel):
+class ListIndicesRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListMessagesRequestTypeDef(BaseValidatorModel):
+class ListMessagesRequest(BaseValidatorModel):
     conversationId: str
     applicationId: str
     userId: Optional[str] = None
@@ -522,53 +522,53 @@ class ListMessagesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListPluginActionsRequestTypeDef(BaseValidatorModel):
+class ListPluginActionsRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPluginTypeActionsRequestTypeDef(BaseValidatorModel):
+class ListPluginTypeActionsRequest(BaseValidatorModel):
     pluginType: PluginTypeType
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPluginTypeMetadataRequestTypeDef(BaseValidatorModel):
+class ListPluginTypeMetadataRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListPluginsRequestTypeDef(BaseValidatorModel):
+class ListPluginsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListRetrieversRequestTypeDef(BaseValidatorModel):
+class ListRetrieversRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSubscriptionsRequestTypeDef(BaseValidatorModel):
+class ListSubscriptionsRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceARN: str
 
 
-class ListWebExperiencesRequestTypeDef(BaseValidatorModel):
+class ListWebExperiencesRequest(BaseValidatorModel):
     applicationId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class WebExperienceTypeDef(BaseValidatorModel):
+class WebExperience(BaseValidatorModel):
     webExperienceId: Optional[str] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
@@ -576,48 +576,48 @@ class WebExperienceTypeDef(BaseValidatorModel):
     status: Optional[WebExperienceStatusType] = None
 
 
-class VideoExtractionConfigurationTypeDef(BaseValidatorModel):
+class VideoExtractionConfiguration(BaseValidatorModel):
     videoExtractionStatus: VideoExtractionStatusType
 
 
-class OAuth2ClientCredentialConfigurationTypeDef(BaseValidatorModel):
+class OAuth2ClientCredentialConfiguration(BaseValidatorModel):
     secretArn: str
     roleArn: str
     authorizationUrl: Optional[str] = None
     tokenUrl: Optional[str] = None
 
 
-class OrchestrationConfigurationTypeDef(BaseValidatorModel):
+class OrchestrationConfiguration(BaseValidatorModel):
     control: OrchestrationControlType
 
 
-class PrincipalGroupTypeDef(BaseValidatorModel):
+class PrincipalGroup(BaseValidatorModel):
     access: ReadAccessTypeType
     name: Optional[str] = None
     membershipType: Optional[MembershipTypeType] = None
 
 
-class ScoreAttributesTypeDef(BaseValidatorModel):
+class ScoreAttributes(BaseValidatorModel):
     scoreConfidence: Optional[ScoreConfidenceType] = None
 
 
-class UsersAndGroupsOutputTypeDef(BaseValidatorModel):
+class UsersAndGroupsOutput(BaseValidatorModel):
     userIds: Optional[List[str]] = None
     userGroups: Optional[List[str]] = None
 
 
-class SamlConfigurationTypeDef(BaseValidatorModel):
+class SamlConfiguration(BaseValidatorModel):
     metadataXML: str
     roleArn: str
     userIdAttribute: str
     userGroupAttribute: Optional[str] = None
 
 
-class SnippetExcerptTypeDef(BaseValidatorModel):
+class SnippetExcerpt(BaseValidatorModel):
     text: Optional[str] = None
 
 
-class VideoSourceDetailsTypeDef(BaseValidatorModel):
+class VideoSourceDetails(BaseValidatorModel):
     mediaId: Optional[str] = None
     mediaMimeType: Optional[str] = None
     startTimeMilliseconds: Optional[int] = None
@@ -625,227 +625,227 @@ class VideoSourceDetailsTypeDef(BaseValidatorModel):
     videoExtractionType: Optional[VideoExtractionTypeType] = None
 
 
-class StartDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
+class StartDataSourceSyncJobRequest(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
     indexId: str
 
 
-class StopDataSourceSyncJobRequestTypeDef(BaseValidatorModel):
+class StopDataSourceSyncJobRequest(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
     indexId: str
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceARN: str
     tagKeys: Sequence[str]
 
 
-class UsersAndGroupsTypeDef(BaseValidatorModel):
+class UsersAndGroups(BaseValidatorModel):
     userIds: Optional[Sequence[str]] = None
     userGroups: Optional[Sequence[str]] = None
 
 
-class APISchemaTypeDef(BaseValidatorModel):
+class APISchema(BaseValidatorModel):
     payload: Optional[str] = None
-    s3: Optional[S3TypeDef] = None
+    s3: Optional[S3] = None
 
 
-class ActionExecutionOutputTypeDef(BaseValidatorModel):
+class ActionExecutionOutput(BaseValidatorModel):
     pluginId: str
-    payload: Dict[str, ActionExecutionPayloadFieldOutputTypeDef]
+    payload: Dict[str, ActionExecutionPayloadFieldOutput]
     payloadFieldNameSeparator: str
 
 
-class ActionExecutionTypeDef(BaseValidatorModel):
+class ActionExecution(BaseValidatorModel):
     pluginId: str
-    payload: Mapping[str, ActionExecutionPayloadFieldTypeDef]
+    payload: Mapping[str, ActionExecutionPayloadField]
     payloadFieldNameSeparator: str
 
 
-class ApplicationTypeDef(BaseValidatorModel):
+class Application(BaseValidatorModel):
     displayName: Optional[str] = None
     applicationId: Optional[str] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
     status: Optional[ApplicationStatusType] = None
     identityType: Optional[IdentityTypeType] = None
-    quickSightConfiguration: Optional[QuickSightConfigurationTypeDef] = None
+    quickSightConfiguration: Optional[QuickSightConfiguration] = None
 
 
-class AssociatePermissionResponseTypeDef(BaseValidatorModel):
+class AssociatePermissionResponse(BaseValidatorModel):
     statement: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateApplicationResponseTypeDef(BaseValidatorModel):
+class CreateApplicationResponse(BaseValidatorModel):
     applicationId: str
     applicationArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataAccessorResponseTypeDef(BaseValidatorModel):
+class CreateDataAccessorResponse(BaseValidatorModel):
     dataAccessorId: str
     idcApplicationArn: str
     dataAccessorArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDataSourceResponseTypeDef(BaseValidatorModel):
+class CreateDataSourceResponse(BaseValidatorModel):
     dataSourceId: str
     dataSourceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateIndexResponseTypeDef(BaseValidatorModel):
+class CreateIndexResponse(BaseValidatorModel):
     indexId: str
     indexArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreatePluginResponseTypeDef(BaseValidatorModel):
+class CreatePluginResponse(BaseValidatorModel):
     pluginId: str
     pluginArn: str
     buildStatus: PluginBuildStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateRetrieverResponseTypeDef(BaseValidatorModel):
+class CreateRetrieverResponse(BaseValidatorModel):
     retrieverId: str
     retrieverArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateWebExperienceResponseTypeDef(BaseValidatorModel):
+class CreateWebExperienceResponse(BaseValidatorModel):
     webExperienceId: str
     webExperienceArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMediaResponseTypeDef(BaseValidatorModel):
+class GetMediaResponse(BaseValidatorModel):
     mediaBytes: bytes
     mediaMimeType: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetPolicyResponseTypeDef(BaseValidatorModel):
+class GetPolicyResponse(BaseValidatorModel):
     policy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListPluginActionsResponseTypeDef(BaseValidatorModel):
-    items: List[ActionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPluginActionsResponse(BaseValidatorModel):
+    items: List[ActionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListPluginTypeActionsResponseTypeDef(BaseValidatorModel):
-    items: List[ActionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPluginTypeActionsResponse(BaseValidatorModel):
+    items: List[ActionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class StartDataSourceSyncJobResponseTypeDef(BaseValidatorModel):
+class StartDataSourceSyncJobResponse(BaseValidatorModel):
     executionId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class DocumentContentTypeDef(BaseValidatorModel):
-    blob: Optional[BlobTypeDef] = None
-    s3: Optional[S3TypeDef] = None
+class DocumentContent(BaseValidatorModel):
+    blob: Optional[Blob] = None
+    s3: Optional[S3] = None
 
 
-class AttachmentOutputTypeDef(BaseValidatorModel):
+class AttachmentOutput(BaseValidatorModel):
     name: Optional[str] = None
     status: Optional[AttachmentStatusType] = None
-    error: Optional[ErrorDetailTypeDef] = None
+    error: Optional[ErrorDetail] = None
     attachmentId: Optional[str] = None
     conversationId: Optional[str] = None
 
 
-class DocumentDetailsTypeDef(BaseValidatorModel):
+class DocumentDetails(BaseValidatorModel):
     documentId: Optional[str] = None
     status: Optional[DocumentStatusType] = None
-    error: Optional[ErrorDetailTypeDef] = None
+    error: Optional[ErrorDetail] = None
     createdAt: Optional[datetime] = None
     updatedAt: Optional[datetime] = None
 
 
-class GroupStatusDetailTypeDef(BaseValidatorModel):
+class GroupStatusDetail(BaseValidatorModel):
     status: Optional[GroupStatusType] = None
     lastUpdatedAt: Optional[datetime] = None
-    errorDetail: Optional[ErrorDetailTypeDef] = None
+    errorDetail: Optional[ErrorDetail] = None
 
 
-class BatchDeleteDocumentRequestTypeDef(BaseValidatorModel):
+class BatchDeleteDocumentRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
-    documents: Sequence[DeleteDocumentTypeDef]
+    documents: Sequence[DeleteDocument]
     dataSourceSyncId: Optional[str] = None
 
 
-class SubscriptionDetailsTypeDef(BaseValidatorModel):
+class SubscriptionDetails(BaseValidatorModel):
     pass
 
 
-class CancelSubscriptionResponseTypeDef(BaseValidatorModel):
+class CancelSubscriptionResponse(BaseValidatorModel):
     subscriptionArn: str
-    currentSubscription: SubscriptionDetailsTypeDef
-    nextSubscription: SubscriptionDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    currentSubscription: SubscriptionDetails
+    nextSubscription: SubscriptionDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSubscriptionResponseTypeDef(BaseValidatorModel):
+class CreateSubscriptionResponse(BaseValidatorModel):
     subscriptionId: str
     subscriptionArn: str
-    currentSubscription: SubscriptionDetailsTypeDef
-    nextSubscription: SubscriptionDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    currentSubscription: SubscriptionDetails
+    nextSubscription: SubscriptionDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSubscriptionResponseTypeDef(BaseValidatorModel):
+class UpdateSubscriptionResponse(BaseValidatorModel):
     subscriptionArn: str
-    currentSubscription: SubscriptionDetailsTypeDef
-    nextSubscription: SubscriptionDetailsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    currentSubscription: SubscriptionDetails
+    nextSubscription: SubscriptionDetails
+    ResponseMetadata: ResponseMetadata
 
 
-class ChatModeConfigurationTypeDef(BaseValidatorModel):
-    pluginConfiguration: Optional[PluginConfigurationTypeDef] = None
+class ChatModeConfiguration(BaseValidatorModel):
+    pluginConfiguration: Optional[PluginConfiguration] = None
 
 
-class ContentRetrievalRuleOutputTypeDef(BaseValidatorModel):
-    eligibleDataSources: Optional[List[EligibleDataSourceTypeDef]] = None
+class ContentRetrievalRuleOutput(BaseValidatorModel):
+    eligibleDataSources: Optional[List[EligibleDataSource]] = None
 
 
-class ContentRetrievalRuleTypeDef(BaseValidatorModel):
-    eligibleDataSources: Optional[Sequence[EligibleDataSourceTypeDef]] = None
+class ContentRetrievalRule(BaseValidatorModel):
+    eligibleDataSources: Optional[Sequence[EligibleDataSource]] = None
 
 
-class ContentSourceTypeDef(BaseValidatorModel):
-    retriever: Optional[RetrieverContentSourceTypeDef] = None
+class ContentSource(BaseValidatorModel):
+    retriever: Optional[RetrieverContentSource] = None
 
 
-class CopyFromSourceTypeDef(BaseValidatorModel):
-    conversation: Optional[ConversationSourceTypeDef] = None
+class CopyFromSource(BaseValidatorModel):
+    conversation: Optional[ConversationSource] = None
 
 
-class ListConversationsResponseTypeDef(BaseValidatorModel):
-    conversations: List[ConversationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConversationsResponse(BaseValidatorModel):
+    conversations: List[Conversation]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetApplicationResponseTypeDef(BaseValidatorModel):
+class GetApplicationResponse(BaseValidatorModel):
     displayName: str
     applicationId: str
     applicationArn: str
@@ -855,32 +855,32 @@ class GetApplicationResponseTypeDef(BaseValidatorModel):
     roleArn: str
     status: ApplicationStatusType
     description: str
-    encryptionConfiguration: EncryptionConfigurationTypeDef
+    encryptionConfiguration: EncryptionConfiguration
     createdAt: datetime
     updatedAt: datetime
-    error: ErrorDetailTypeDef
-    attachmentsConfiguration: AppliedAttachmentsConfigurationTypeDef
-    qAppsConfiguration: QAppsConfigurationTypeDef
-    personalizationConfiguration: PersonalizationConfigurationTypeDef
-    autoSubscriptionConfiguration: AutoSubscriptionConfigurationTypeDef
+    error: ErrorDetail
+    attachmentsConfiguration: AppliedAttachmentsConfiguration
+    qAppsConfiguration: QAppsConfiguration
+    personalizationConfiguration: PersonalizationConfiguration
+    autoSubscriptionConfiguration: AutoSubscriptionConfiguration
     clientIdsForOIDC: List[str]
-    quickSightConfiguration: QuickSightConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    quickSightConfiguration: QuickSightConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateApplicationRequestTypeDef(BaseValidatorModel):
+class UpdateApplicationRequest(BaseValidatorModel):
     applicationId: str
     identityCenterInstanceArn: Optional[str] = None
     displayName: Optional[str] = None
     description: Optional[str] = None
     roleArn: Optional[str] = None
-    attachmentsConfiguration: Optional[AttachmentsConfigurationTypeDef] = None
-    qAppsConfiguration: Optional[QAppsConfigurationTypeDef] = None
-    personalizationConfiguration: Optional[PersonalizationConfigurationTypeDef] = None
-    autoSubscriptionConfiguration: Optional[AutoSubscriptionConfigurationTypeDef] = None
+    attachmentsConfiguration: Optional[AttachmentsConfiguration] = None
+    qAppsConfiguration: Optional[QAppsConfiguration] = None
+    personalizationConfiguration: Optional[PersonalizationConfiguration] = None
+    autoSubscriptionConfiguration: Optional[AutoSubscriptionConfiguration] = None
 
 
-class CreateApplicationRequestTypeDef(BaseValidatorModel):
+class CreateApplicationRequest(BaseValidatorModel):
     displayName: str
     roleArn: Optional[str] = None
     identityType: Optional[IdentityTypeType] = None
@@ -888,551 +888,551 @@ class CreateApplicationRequestTypeDef(BaseValidatorModel):
     identityCenterInstanceArn: Optional[str] = None
     clientIdsForOIDC: Optional[Sequence[str]] = None
     description: Optional[str] = None
-    encryptionConfiguration: Optional[EncryptionConfigurationTypeDef] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    encryptionConfiguration: Optional[EncryptionConfiguration] = None
+    tags: Optional[Sequence[Tag]] = None
     clientToken: Optional[str] = None
-    attachmentsConfiguration: Optional[AttachmentsConfigurationTypeDef] = None
-    qAppsConfiguration: Optional[QAppsConfigurationTypeDef] = None
-    personalizationConfiguration: Optional[PersonalizationConfigurationTypeDef] = None
-    quickSightConfiguration: Optional[QuickSightConfigurationTypeDef] = None
+    attachmentsConfiguration: Optional[AttachmentsConfiguration] = None
+    qAppsConfiguration: Optional[QAppsConfiguration] = None
+    personalizationConfiguration: Optional[PersonalizationConfiguration] = None
+    quickSightConfiguration: Optional[QuickSightConfiguration] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceARN: str
-    tags: Sequence[TagTypeDef]
+    tags: Sequence[Tag]
 
 
-class SubscriptionTypeDef(BaseValidatorModel):
+class Subscription(BaseValidatorModel):
     subscriptionId: Optional[str] = None
     subscriptionArn: Optional[str] = None
-    principal: Optional[SubscriptionPrincipalTypeDef] = None
-    currentSubscription: Optional[SubscriptionDetailsTypeDef] = None
-    nextSubscription: Optional[SubscriptionDetailsTypeDef] = None
+    principal: Optional[SubscriptionPrincipal] = None
+    currentSubscription: Optional[SubscriptionDetails] = None
+    nextSubscription: Optional[SubscriptionDetails] = None
 
 
-class CreateUserRequestTypeDef(BaseValidatorModel):
+class CreateUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
-    userAliases: Optional[Sequence[UserAliasTypeDef]] = None
+    userAliases: Optional[Sequence[UserAlias]] = None
     clientToken: Optional[str] = None
 
 
-class GetUserResponseTypeDef(BaseValidatorModel):
-    userAliases: List[UserAliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetUserResponse(BaseValidatorModel):
+    userAliases: List[UserAlias]
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateUserRequestTypeDef(BaseValidatorModel):
+class UpdateUserRequest(BaseValidatorModel):
     applicationId: str
     userId: str
-    userAliasesToUpdate: Optional[Sequence[UserAliasTypeDef]] = None
-    userAliasesToDelete: Optional[Sequence[UserAliasTypeDef]] = None
+    userAliasesToUpdate: Optional[Sequence[UserAlias]] = None
+    userAliasesToDelete: Optional[Sequence[UserAlias]] = None
 
 
-class UpdateUserResponseTypeDef(BaseValidatorModel):
-    userAliasesAdded: List[UserAliasTypeDef]
-    userAliasesUpdated: List[UserAliasTypeDef]
-    userAliasesDeleted: List[UserAliasTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class UpdateUserResponse(BaseValidatorModel):
+    userAliasesAdded: List[UserAlias]
+    userAliasesUpdated: List[UserAlias]
+    userAliasesDeleted: List[UserAlias]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDataAccessorsResponseTypeDef(BaseValidatorModel):
-    dataAccessors: List[DataAccessorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataAccessorsResponse(BaseValidatorModel):
+    dataAccessors: List[DataAccessor]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataSourceSyncJobTypeDef(BaseValidatorModel):
+class DataSourceSyncJob(BaseValidatorModel):
     executionId: Optional[str] = None
     startTime: Optional[datetime] = None
     endTime: Optional[datetime] = None
     status: Optional[DataSourceSyncJobStatusType] = None
-    error: Optional[ErrorDetailTypeDef] = None
+    error: Optional[ErrorDetail] = None
     dataSourceErrorCode: Optional[str] = None
-    metrics: Optional[DataSourceSyncJobMetricsTypeDef] = None
+    metrics: Optional[DataSourceSyncJobMetrics] = None
 
 
-class DataSourceTypeDef(BaseValidatorModel):
+class DataSource(BaseValidatorModel):
     pass
 
 
-class ListDataSourcesResponseTypeDef(BaseValidatorModel):
-    dataSources: List[DataSourceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesResponse(BaseValidatorModel):
+    dataSources: List[DataSource]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DocumentAttributeBoostingConfigurationOutputTypeDef(BaseValidatorModel):
-    numberConfiguration: Optional[NumberAttributeBoostingConfigurationTypeDef] = None
-    stringConfiguration: Optional[StringAttributeBoostingConfigurationOutputTypeDef] = None
-    dateConfiguration: Optional[DateAttributeBoostingConfigurationTypeDef] = None
-    stringListConfiguration: Optional[StringListAttributeBoostingConfigurationTypeDef] = None
+class DocumentAttributeBoostingConfigurationOutput(BaseValidatorModel):
+    numberConfiguration: Optional[NumberAttributeBoostingConfiguration] = None
+    stringConfiguration: Optional[StringAttributeBoostingConfigurationOutput] = None
+    dateConfiguration: Optional[DateAttributeBoostingConfiguration] = None
+    stringListConfiguration: Optional[StringListAttributeBoostingConfiguration] = None
 
 
-class DocumentAttributeBoostingConfigurationTypeDef(BaseValidatorModel):
-    numberConfiguration: Optional[NumberAttributeBoostingConfigurationTypeDef] = None
-    stringConfiguration: Optional[StringAttributeBoostingConfigurationTypeDef] = None
-    dateConfiguration: Optional[DateAttributeBoostingConfigurationTypeDef] = None
-    stringListConfiguration: Optional[StringListAttributeBoostingConfigurationTypeDef] = None
+class DocumentAttributeBoostingConfiguration(BaseValidatorModel):
+    numberConfiguration: Optional[NumberAttributeBoostingConfiguration] = None
+    stringConfiguration: Optional[StringAttributeBoostingConfiguration] = None
+    dateConfiguration: Optional[DateAttributeBoostingConfiguration] = None
+    stringListConfiguration: Optional[StringListAttributeBoostingConfiguration] = None
 
 
-class DocumentAttributeOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeOutput(BaseValidatorModel):
     name: str
-    value: DocumentAttributeValueOutputTypeDef
+    value: DocumentAttributeValueOutput
 
 
-class DocumentAttributeTargetOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeTargetOutput(BaseValidatorModel):
     key: str
-    value: Optional[DocumentAttributeValueOutputTypeDef] = None
+    value: Optional[DocumentAttributeValueOutput] = None
     attributeValueOperator: Optional[Literal["DELETE"]] = None
 
 
-class DocumentAttributeConfigurationTypeDef(BaseValidatorModel):
+class DocumentAttributeConfiguration(BaseValidatorModel):
     pass
 
 
-class UpdateIndexRequestTypeDef(BaseValidatorModel):
+class UpdateIndexRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     displayName: Optional[str] = None
     description: Optional[str] = None
-    capacityConfiguration: Optional[IndexCapacityConfigurationTypeDef] = None
-    documentAttributeConfigurations: Optional[Sequence[DocumentAttributeConfigurationTypeDef]] = None
+    capacityConfiguration: Optional[IndexCapacityConfiguration] = None
+    documentAttributeConfigurations: Optional[Sequence[DocumentAttributeConfiguration]] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class DocumentAttributeValueTypeDef(BaseValidatorModel):
+class DocumentAttributeValue(BaseValidatorModel):
     stringValue: Optional[str] = None
     stringListValue: Optional[Sequence[str]] = None
     longValue: Optional[int] = None
-    dateValue: Optional[TimestampTypeDef] = None
+    dateValue: Optional[Timestamp] = None
 
 
-class ListDataSourceSyncJobsRequestTypeDef(BaseValidatorModel):
+class ListDataSourceSyncJobsRequest(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
     indexId: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     statusFilter: Optional[DataSourceSyncJobStatusType] = None
 
 
-class ListGroupsRequestTypeDef(BaseValidatorModel):
+class ListGroupsRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
-    updatedEarlierThan: TimestampTypeDef
+    updatedEarlierThan: Timestamp
     dataSourceId: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class MessageUsefulnessFeedbackTypeDef(BaseValidatorModel):
+class MessageUsefulnessFeedback(BaseValidatorModel):
     usefulness: MessageUsefulnessType
-    submittedAt: TimestampTypeDef
+    submittedAt: Timestamp
     reason: Optional[MessageUsefulnessReasonType] = None
     comment: Optional[str] = None
 
 
-class GetChatControlsConfigurationRequestPaginateTypeDef(BaseValidatorModel):
+class GetChatControlsConfigurationRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListApplicationsRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListApplicationsRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAttachmentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListAttachmentsRequestPaginate(BaseValidatorModel):
     applicationId: str
     conversationId: Optional[str] = None
     userId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListConversationsRequestPaginateTypeDef(BaseValidatorModel):
+class ListConversationsRequestPaginate(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataAccessorsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataAccessorsRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourceSyncJobsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSourceSyncJobsRequestPaginate(BaseValidatorModel):
     dataSourceId: str
     applicationId: str
     indexId: str
-    startTime: Optional[TimestampTypeDef] = None
-    endTime: Optional[TimestampTypeDef] = None
+    startTime: Optional[Timestamp] = None
+    endTime: Optional[Timestamp] = None
     statusFilter: Optional[DataSourceSyncJobStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourcesRequestPaginateTypeDef(BaseValidatorModel):
+class ListDataSourcesRequestPaginate(BaseValidatorModel):
     applicationId: str
     indexId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDocumentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDocumentsRequestPaginate(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceIds: Optional[Sequence[str]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListGroupsRequestPaginateTypeDef(BaseValidatorModel):
+class ListGroupsRequestPaginate(BaseValidatorModel):
     applicationId: str
     indexId: str
-    updatedEarlierThan: TimestampTypeDef
+    updatedEarlierThan: Timestamp
     dataSourceId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListIndicesRequestPaginateTypeDef(BaseValidatorModel):
+class ListIndicesRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListMessagesRequestPaginateTypeDef(BaseValidatorModel):
+class ListMessagesRequestPaginate(BaseValidatorModel):
     conversationId: str
     applicationId: str
     userId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPluginActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPluginActionsRequestPaginate(BaseValidatorModel):
     applicationId: str
     pluginId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPluginTypeActionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPluginTypeActionsRequestPaginate(BaseValidatorModel):
     pluginType: PluginTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPluginTypeMetadataRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListPluginTypeMetadataRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPluginsRequestPaginateTypeDef(BaseValidatorModel):
+class ListPluginsRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRetrieversRequestPaginateTypeDef(BaseValidatorModel):
+class ListRetrieversRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscriptionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListSubscriptionsRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWebExperiencesRequestPaginateTypeDef(BaseValidatorModel):
+class ListWebExperiencesRequestPaginate(BaseValidatorModel):
     applicationId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class MemberUserTypeDef(BaseValidatorModel):
+class MemberUser(BaseValidatorModel):
     pass
 
 
-class MemberGroupTypeDef(BaseValidatorModel):
+class MemberGroup(BaseValidatorModel):
     pass
 
 
-class GroupMembersTypeDef(BaseValidatorModel):
-    memberGroups: Optional[Sequence[MemberGroupTypeDef]] = None
-    memberUsers: Optional[Sequence[MemberUserTypeDef]] = None
-    s3PathForGroupMembers: Optional[S3TypeDef] = None
+class GroupMembers(BaseValidatorModel):
+    memberGroups: Optional[Sequence[MemberGroup]] = None
+    memberUsers: Optional[Sequence[MemberUser]] = None
+    s3PathForGroupMembers: Optional[S3] = None
 
 
-class ListGroupsResponseTypeDef(BaseValidatorModel):
-    items: List[GroupSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListGroupsResponse(BaseValidatorModel):
+    items: List[GroupSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class IdentityProviderConfigurationTypeDef(BaseValidatorModel):
-    samlConfiguration: Optional[SamlProviderConfigurationTypeDef] = None
-    openIDConnectConfiguration: Optional[OpenIDConnectProviderConfigurationTypeDef] = None
+class IdentityProviderConfiguration(BaseValidatorModel):
+    samlConfiguration: Optional[SamlProviderConfiguration] = None
+    openIDConnectConfiguration: Optional[OpenIDConnectProviderConfiguration] = None
 
 
-class IndexStatisticsTypeDef(BaseValidatorModel):
-    textDocumentStatistics: Optional[TextDocumentStatisticsTypeDef] = None
+class IndexStatistics(BaseValidatorModel):
+    textDocumentStatistics: Optional[TextDocumentStatistics] = None
 
 
-class ListIndicesResponseTypeDef(BaseValidatorModel):
-    indices: List[IndexTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListIndicesResponse(BaseValidatorModel):
+    indices: List[Index]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PluginTypeMetadataSummaryTypeDef(BaseValidatorModel):
+class PluginTypeMetadataSummary(BaseValidatorModel):
     pass
 
 
-class ListPluginTypeMetadataResponseTypeDef(BaseValidatorModel):
-    items: List[PluginTypeMetadataSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPluginTypeMetadataResponse(BaseValidatorModel):
+    items: List[PluginTypeMetadataSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PluginTypeDef(BaseValidatorModel):
+class Plugin(BaseValidatorModel):
     pass
 
 
-class ListPluginsResponseTypeDef(BaseValidatorModel):
-    plugins: List[PluginTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPluginsResponse(BaseValidatorModel):
+    plugins: List[Plugin]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RetrieverTypeDef(BaseValidatorModel):
+class Retriever(BaseValidatorModel):
     pass
 
 
-class ListRetrieversResponseTypeDef(BaseValidatorModel):
-    retrievers: List[RetrieverTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRetrieversResponse(BaseValidatorModel):
+    retrievers: List[Retriever]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListWebExperiencesResponseTypeDef(BaseValidatorModel):
-    webExperiences: List[WebExperienceTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWebExperiencesResponse(BaseValidatorModel):
+    webExperiences: List[WebExperience]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MediaExtractionConfigurationTypeDef(BaseValidatorModel):
-    imageExtractionConfiguration: Optional[ImageExtractionConfigurationTypeDef] = None
-    audioExtractionConfiguration: Optional[AudioExtractionConfigurationTypeDef] = None
-    videoExtractionConfiguration: Optional[VideoExtractionConfigurationTypeDef] = None
+class MediaExtractionConfiguration(BaseValidatorModel):
+    imageExtractionConfiguration: Optional[ImageExtractionConfiguration] = None
+    audioExtractionConfiguration: Optional[AudioExtractionConfiguration] = None
+    videoExtractionConfiguration: Optional[VideoExtractionConfiguration] = None
 
 
-class PluginAuthConfigurationOutputTypeDef(BaseValidatorModel):
-    basicAuthConfiguration: Optional[BasicAuthConfigurationTypeDef] = None
-    oAuth2ClientCredentialConfiguration: Optional[OAuth2ClientCredentialConfigurationTypeDef] = None
+class PluginAuthConfigurationOutput(BaseValidatorModel):
+    basicAuthConfiguration: Optional[BasicAuthConfiguration] = None
+    oAuth2ClientCredentialConfiguration: Optional[OAuth2ClientCredentialConfiguration] = None
     noAuthConfiguration: Optional[Dict[str, Any]] = None
-    idcAuthConfiguration: Optional[IdcAuthConfigurationTypeDef] = None
+    idcAuthConfiguration: Optional[IdcAuthConfiguration] = None
 
 
-class PluginAuthConfigurationTypeDef(BaseValidatorModel):
-    basicAuthConfiguration: Optional[BasicAuthConfigurationTypeDef] = None
-    oAuth2ClientCredentialConfiguration: Optional[OAuth2ClientCredentialConfigurationTypeDef] = None
+class PluginAuthConfiguration(BaseValidatorModel):
+    basicAuthConfiguration: Optional[BasicAuthConfiguration] = None
+    oAuth2ClientCredentialConfiguration: Optional[OAuth2ClientCredentialConfiguration] = None
     noAuthConfiguration: Optional[Mapping[str, Any]] = None
-    idcAuthConfiguration: Optional[IdcAuthConfigurationTypeDef] = None
+    idcAuthConfiguration: Optional[IdcAuthConfiguration] = None
 
 
-class PrincipalUserTypeDef(BaseValidatorModel):
+class PrincipalUser(BaseValidatorModel):
     pass
 
 
-class PrincipalTypeDef(BaseValidatorModel):
-    user: Optional[PrincipalUserTypeDef] = None
-    group: Optional[PrincipalGroupTypeDef] = None
+class Principal(BaseValidatorModel):
+    user: Optional[PrincipalUser] = None
+    group: Optional[PrincipalGroup] = None
 
 
-class WebExperienceAuthConfigurationTypeDef(BaseValidatorModel):
-    samlConfiguration: Optional[SamlConfigurationTypeDef] = None
+class WebExperienceAuthConfiguration(BaseValidatorModel):
+    samlConfiguration: Optional[SamlConfiguration] = None
 
 
-class SourceDetailsTypeDef(BaseValidatorModel):
-    imageSourceDetails: Optional[ImageSourceDetailsTypeDef] = None
-    audioSourceDetails: Optional[AudioSourceDetailsTypeDef] = None
-    videoSourceDetails: Optional[VideoSourceDetailsTypeDef] = None
+class SourceDetails(BaseValidatorModel):
+    imageSourceDetails: Optional[ImageSourceDetails] = None
+    audioSourceDetails: Optional[AudioSourceDetails] = None
+    videoSourceDetails: Optional[VideoSourceDetails] = None
 
 
-class CustomPluginConfigurationTypeDef(BaseValidatorModel):
+class CustomPluginConfiguration(BaseValidatorModel):
     description: str
     apiSchemaType: Literal["OPEN_API_V3"]
-    apiSchema: APISchemaTypeDef
+    apiSchema: APISchema
 
 
-class ActionExecutionPayloadFieldUnionTypeDef(BaseValidatorModel):
+class ActionExecutionPayloadFieldUnion(BaseValidatorModel):
     pass
 
 
-class ActionExecutionEventTypeDef(BaseValidatorModel):
+class ActionExecutionEvent(BaseValidatorModel):
     pluginId: str
-    payload: Mapping[str, ActionExecutionPayloadFieldUnionTypeDef]
+    payload: Mapping[str, ActionExecutionPayloadFieldUnion]
     payloadFieldNameSeparator: str
 
 
-class ActionReviewPayloadFieldTypeDef(BaseValidatorModel):
+class ActionReviewPayloadField(BaseValidatorModel):
     pass
 
 
-class ActionReviewEventTypeDef(BaseValidatorModel):
+class ActionReviewEvent(BaseValidatorModel):
     conversationId: Optional[str] = None
     userMessageId: Optional[str] = None
     systemMessageId: Optional[str] = None
     pluginId: Optional[str] = None
     pluginType: Optional[PluginTypeType] = None
-    payload: Optional[Dict[str, ActionReviewPayloadFieldTypeDef]] = None
+    payload: Optional[Dict[str, ActionReviewPayloadField]] = None
     payloadFieldNameSeparator: Optional[str] = None
 
 
-class ActionReviewTypeDef(BaseValidatorModel):
+class ActionReview(BaseValidatorModel):
     pluginId: Optional[str] = None
     pluginType: Optional[PluginTypeType] = None
-    payload: Optional[Dict[str, ActionReviewPayloadFieldTypeDef]] = None
+    payload: Optional[Dict[str, ActionReviewPayloadField]] = None
     payloadFieldNameSeparator: Optional[str] = None
 
 
-class ListApplicationsResponseTypeDef(BaseValidatorModel):
-    applications: List[ApplicationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListApplicationsResponse(BaseValidatorModel):
+    applications: List[Application]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FailedAttachmentEventTypeDef(BaseValidatorModel):
+class FailedAttachmentEvent(BaseValidatorModel):
     conversationId: Optional[str] = None
     userMessageId: Optional[str] = None
     systemMessageId: Optional[str] = None
-    attachment: Optional[AttachmentOutputTypeDef] = None
+    attachment: Optional[AttachmentOutput] = None
 
 
-class ListDocumentsResponseTypeDef(BaseValidatorModel):
-    documentDetailList: List[DocumentDetailsTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDocumentsResponse(BaseValidatorModel):
+    documentDetailList: List[DocumentDetails]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class FailedDocumentTypeDef(BaseValidatorModel):
+class FailedDocument(BaseValidatorModel):
     pass
 
 
-class BatchDeleteDocumentResponseTypeDef(BaseValidatorModel):
-    failedDocuments: List[FailedDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchDeleteDocumentResponse(BaseValidatorModel):
+    failedDocuments: List[FailedDocument]
+    ResponseMetadata: ResponseMetadata
 
 
-class BatchPutDocumentResponseTypeDef(BaseValidatorModel):
-    failedDocuments: List[FailedDocumentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchPutDocumentResponse(BaseValidatorModel):
+    failedDocuments: List[FailedDocument]
+    ResponseMetadata: ResponseMetadata
 
 
-class GetGroupResponseTypeDef(BaseValidatorModel):
-    status: GroupStatusDetailTypeDef
-    statusHistory: List[GroupStatusDetailTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetGroupResponse(BaseValidatorModel):
+    status: GroupStatusDetail
+    statusHistory: List[GroupStatusDetail]
+    ResponseMetadata: ResponseMetadata
 
 
-class RuleConfigurationOutputTypeDef(BaseValidatorModel):
-    contentBlockerRule: Optional[ContentBlockerRuleTypeDef] = None
-    contentRetrievalRule: Optional[ContentRetrievalRuleOutputTypeDef] = None
+class RuleConfigurationOutput(BaseValidatorModel):
+    contentBlockerRule: Optional[ContentBlockerRule] = None
+    contentRetrievalRule: Optional[ContentRetrievalRuleOutput] = None
 
 
-class AttachmentInputTypeDef(BaseValidatorModel):
-    data: Optional[BlobTypeDef] = None
+class AttachmentInput(BaseValidatorModel):
+    data: Optional[Blob] = None
     name: Optional[str] = None
-    copyFrom: Optional[CopyFromSourceTypeDef] = None
+    copyFrom: Optional[CopyFromSource] = None
 
 
-class AttachmentTypeDef(BaseValidatorModel):
+class Attachment(BaseValidatorModel):
     attachmentId: Optional[str] = None
     conversationId: Optional[str] = None
     name: Optional[str] = None
-    copyFrom: Optional[CopyFromSourceTypeDef] = None
+    copyFrom: Optional[CopyFromSource] = None
     fileType: Optional[str] = None
     fileSize: Optional[int] = None
     md5chksum: Optional[str] = None
     createdAt: Optional[datetime] = None
     status: Optional[AttachmentStatusType] = None
-    error: Optional[ErrorDetailTypeDef] = None
+    error: Optional[ErrorDetail] = None
 
 
-class ListSubscriptionsResponseTypeDef(BaseValidatorModel):
-    subscriptions: List[SubscriptionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscriptionsResponse(BaseValidatorModel):
+    subscriptions: List[Subscription]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListDataSourceSyncJobsResponseTypeDef(BaseValidatorModel):
-    history: List[DataSourceSyncJobTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourceSyncJobsResponse(BaseValidatorModel):
+    history: List[DataSourceSyncJob]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class NativeIndexConfigurationOutputTypeDef(BaseValidatorModel):
+class NativeIndexConfigurationOutput(BaseValidatorModel):
     indexId: str
-    boostingOverride: Optional[Dict[str, DocumentAttributeBoostingConfigurationOutputTypeDef]] = None
+    boostingOverride: Optional[Dict[str, DocumentAttributeBoostingConfigurationOutput]] = None
 
 
-class NativeIndexConfigurationTypeDef(BaseValidatorModel):
+class NativeIndexConfiguration(BaseValidatorModel):
     indexId: str
-    boostingOverride: Optional[Mapping[str, DocumentAttributeBoostingConfigurationTypeDef]] = None
+    boostingOverride: Optional[Mapping[str, DocumentAttributeBoostingConfiguration]] = None
 
 
-class DocumentAttributeConditionOutputTypeDef(BaseValidatorModel):
+class DocumentAttributeConditionOutput(BaseValidatorModel):
     pass
 
 
-class HookConfigurationOutputTypeDef(BaseValidatorModel):
-    invocationCondition: Optional[DocumentAttributeConditionOutputTypeDef] = None
+class HookConfigurationOutput(BaseValidatorModel):
+    invocationCondition: Optional[DocumentAttributeConditionOutput] = None
     lambdaArn: Optional[str] = None
     s3BucketName: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class AttributeFilterOutputTypeDef(BaseValidatorModel):
+class AttributeFilterOutput(BaseValidatorModel):
     andAllFilters: Optional[List[Dict[str, Any]]] = None
     orAllFilters: Optional[List[Dict[str, Any]]] = None
     notFilter: Optional[Dict[str, Any]] = None
-    equalsTo: Optional[DocumentAttributeOutputTypeDef] = None
-    containsAll: Optional[DocumentAttributeOutputTypeDef] = None
-    containsAny: Optional[DocumentAttributeOutputTypeDef] = None
-    greaterThan: Optional[DocumentAttributeOutputTypeDef] = None
-    greaterThanOrEquals: Optional[DocumentAttributeOutputTypeDef] = None
-    lessThan: Optional[DocumentAttributeOutputTypeDef] = None
-    lessThanOrEquals: Optional[DocumentAttributeOutputTypeDef] = None
+    equalsTo: Optional[DocumentAttributeOutput] = None
+    containsAll: Optional[DocumentAttributeOutput] = None
+    containsAny: Optional[DocumentAttributeOutput] = None
+    greaterThan: Optional[DocumentAttributeOutput] = None
+    greaterThanOrEquals: Optional[DocumentAttributeOutput] = None
+    lessThan: Optional[DocumentAttributeOutput] = None
+    lessThanOrEquals: Optional[DocumentAttributeOutput] = None
 
 
-class RelevantContentTypeDef(BaseValidatorModel):
+class RelevantContent(BaseValidatorModel):
     content: Optional[str] = None
     documentId: Optional[str] = None
     documentTitle: Optional[str] = None
     documentUri: Optional[str] = None
-    documentAttributes: Optional[List[DocumentAttributeOutputTypeDef]] = None
-    scoreAttributes: Optional[ScoreAttributesTypeDef] = None
+    documentAttributes: Optional[List[DocumentAttributeOutput]] = None
+    scoreAttributes: Optional[ScoreAttributes] = None
 
 
-class InlineDocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
-    condition: Optional[DocumentAttributeConditionOutputTypeDef] = None
-    target: Optional[DocumentAttributeTargetOutputTypeDef] = None
+class InlineDocumentEnrichmentConfigurationOutput(BaseValidatorModel):
+    condition: Optional[DocumentAttributeConditionOutput] = None
+    target: Optional[DocumentAttributeTargetOutput] = None
     documentContentOperator: Optional[Literal["DELETE"]] = None
 
 
-class PutFeedbackRequestTypeDef(BaseValidatorModel):
+class PutFeedbackRequest(BaseValidatorModel):
     applicationId: str
     conversationId: str
     messageId: str
     userId: Optional[str] = None
-    messageCopiedAt: Optional[TimestampTypeDef] = None
-    messageUsefulness: Optional[MessageUsefulnessFeedbackTypeDef] = None
+    messageCopiedAt: Optional[Timestamp] = None
+    messageUsefulness: Optional[MessageUsefulnessFeedback] = None
 
 
-class BrowserExtensionConfigurationUnionTypeDef(BaseValidatorModel):
+class BrowserExtensionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateWebExperienceRequestTypeDef(BaseValidatorModel):
+class CreateWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     title: Optional[str] = None
     subtitle: Optional[str] = None
@@ -1440,19 +1440,19 @@ class CreateWebExperienceRequestTypeDef(BaseValidatorModel):
     samplePromptsControlMode: Optional[WebExperienceSamplePromptsControlModeType] = None
     origins: Optional[Sequence[str]] = None
     roleArn: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
     clientToken: Optional[str] = None
-    identityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
-    browserExtensionConfiguration: Optional[BrowserExtensionConfigurationUnionTypeDef] = None
-    customizationConfiguration: Optional[CustomizationConfigurationTypeDef] = None
+    identityProviderConfiguration: Optional[IdentityProviderConfiguration] = None
+    browserExtensionConfiguration: Optional[BrowserExtensionConfigurationUnion] = None
+    customizationConfiguration: Optional[CustomizationConfiguration] = None
 
 
-class AccessControlTypeDef(BaseValidatorModel):
-    principals: Sequence[PrincipalTypeDef]
+class AccessControl(BaseValidatorModel):
+    principals: Sequence[Principal]
     memberRelation: Optional[MemberRelationType] = None
 
 
-class GetWebExperienceResponseTypeDef(BaseValidatorModel):
+class GetWebExperienceResponse(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
     webExperienceArn: str
@@ -1466,474 +1466,474 @@ class GetWebExperienceResponseTypeDef(BaseValidatorModel):
     samplePromptsControlMode: WebExperienceSamplePromptsControlModeType
     origins: List[str]
     roleArn: str
-    identityProviderConfiguration: IdentityProviderConfigurationTypeDef
-    authenticationConfiguration: WebExperienceAuthConfigurationTypeDef
-    error: ErrorDetailTypeDef
-    browserExtensionConfiguration: BrowserExtensionConfigurationOutputTypeDef
-    customizationConfiguration: CustomizationConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    identityProviderConfiguration: IdentityProviderConfiguration
+    authenticationConfiguration: WebExperienceAuthConfiguration
+    error: ErrorDetail
+    browserExtensionConfiguration: BrowserExtensionConfigurationOutput
+    customizationConfiguration: CustomizationConfiguration
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateWebExperienceRequestTypeDef(BaseValidatorModel):
+class UpdateWebExperienceRequest(BaseValidatorModel):
     applicationId: str
     webExperienceId: str
     roleArn: Optional[str] = None
-    authenticationConfiguration: Optional[WebExperienceAuthConfigurationTypeDef] = None
+    authenticationConfiguration: Optional[WebExperienceAuthConfiguration] = None
     title: Optional[str] = None
     subtitle: Optional[str] = None
     welcomeMessage: Optional[str] = None
     samplePromptsControlMode: Optional[WebExperienceSamplePromptsControlModeType] = None
-    identityProviderConfiguration: Optional[IdentityProviderConfigurationTypeDef] = None
+    identityProviderConfiguration: Optional[IdentityProviderConfiguration] = None
     origins: Optional[Sequence[str]] = None
-    browserExtensionConfiguration: Optional[BrowserExtensionConfigurationUnionTypeDef] = None
-    customizationConfiguration: Optional[CustomizationConfigurationTypeDef] = None
+    browserExtensionConfiguration: Optional[BrowserExtensionConfigurationUnion] = None
+    customizationConfiguration: Optional[CustomizationConfiguration] = None
 
 
-class TextSegmentTypeDef(BaseValidatorModel):
+class TextSegment(BaseValidatorModel):
     beginOffset: Optional[int] = None
     endOffset: Optional[int] = None
-    snippetExcerpt: Optional[SnippetExcerptTypeDef] = None
+    snippetExcerpt: Optional[SnippetExcerpt] = None
     mediaId: Optional[str] = None
     mediaMimeType: Optional[str] = None
-    sourceDetails: Optional[SourceDetailsTypeDef] = None
+    sourceDetails: Optional[SourceDetails] = None
 
 
-class RuleOutputTypeDef(BaseValidatorModel):
+class RuleOutput(BaseValidatorModel):
     ruleType: RuleTypeType
-    includedUsersAndGroups: Optional[UsersAndGroupsOutputTypeDef] = None
-    excludedUsersAndGroups: Optional[UsersAndGroupsOutputTypeDef] = None
-    ruleConfiguration: Optional[RuleConfigurationOutputTypeDef] = None
+    includedUsersAndGroups: Optional[UsersAndGroupsOutput] = None
+    excludedUsersAndGroups: Optional[UsersAndGroupsOutput] = None
+    ruleConfiguration: Optional[RuleConfigurationOutput] = None
 
 
-class ContentRetrievalRuleUnionTypeDef(BaseValidatorModel):
+class ContentRetrievalRuleUnion(BaseValidatorModel):
     pass
 
 
-class RuleConfigurationTypeDef(BaseValidatorModel):
-    contentBlockerRule: Optional[ContentBlockerRuleTypeDef] = None
-    contentRetrievalRule: Optional[ContentRetrievalRuleUnionTypeDef] = None
+class RuleConfiguration(BaseValidatorModel):
+    contentBlockerRule: Optional[ContentBlockerRule] = None
+    contentRetrievalRule: Optional[ContentRetrievalRuleUnion] = None
 
 
-class AttachmentInputEventTypeDef(BaseValidatorModel):
-    attachment: Optional[AttachmentInputTypeDef] = None
+class AttachmentInputEvent(BaseValidatorModel):
+    attachment: Optional[AttachmentInput] = None
 
 
-class ListAttachmentsResponseTypeDef(BaseValidatorModel):
-    attachments: List[AttachmentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAttachmentsResponse(BaseValidatorModel):
+    attachments: List[Attachment]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RetrieverConfigurationOutputTypeDef(BaseValidatorModel):
-    nativeIndexConfiguration: Optional[NativeIndexConfigurationOutputTypeDef] = None
-    kendraIndexConfiguration: Optional[KendraIndexConfigurationTypeDef] = None
+class RetrieverConfigurationOutput(BaseValidatorModel):
+    nativeIndexConfiguration: Optional[NativeIndexConfigurationOutput] = None
+    kendraIndexConfiguration: Optional[KendraIndexConfiguration] = None
 
 
-class RetrieverConfigurationTypeDef(BaseValidatorModel):
-    nativeIndexConfiguration: Optional[NativeIndexConfigurationTypeDef] = None
-    kendraIndexConfiguration: Optional[KendraIndexConfigurationTypeDef] = None
+class RetrieverConfiguration(BaseValidatorModel):
+    nativeIndexConfiguration: Optional[NativeIndexConfiguration] = None
+    kendraIndexConfiguration: Optional[KendraIndexConfiguration] = None
 
 
-class ActionFilterConfigurationOutputTypeDef(BaseValidatorModel):
-    documentAttributeFilter: AttributeFilterOutputTypeDef
+class ActionFilterConfigurationOutput(BaseValidatorModel):
+    documentAttributeFilter: AttributeFilterOutput
 
 
-class SearchRelevantContentResponseTypeDef(BaseValidatorModel):
-    relevantContent: List[RelevantContentTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchRelevantContentResponse(BaseValidatorModel):
+    relevantContent: List[RelevantContent]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DocumentEnrichmentConfigurationOutputTypeDef(BaseValidatorModel):
-    inlineConfigurations: Optional[List[InlineDocumentEnrichmentConfigurationOutputTypeDef]] = None
-    preExtractionHookConfiguration: Optional[HookConfigurationOutputTypeDef] = None
-    postExtractionHookConfiguration: Optional[HookConfigurationOutputTypeDef] = None
+class DocumentEnrichmentConfigurationOutput(BaseValidatorModel):
+    inlineConfigurations: Optional[List[InlineDocumentEnrichmentConfigurationOutput]] = None
+    preExtractionHookConfiguration: Optional[HookConfigurationOutput] = None
+    postExtractionHookConfiguration: Optional[HookConfigurationOutput] = None
 
 
-class DocumentAttributeValueUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class DocumentAttributeTargetTypeDef(BaseValidatorModel):
+class DocumentAttributeTarget(BaseValidatorModel):
     key: str
-    value: Optional[DocumentAttributeValueUnionTypeDef] = None
+    value: Optional[DocumentAttributeValueUnion] = None
     attributeValueOperator: Optional[Literal["DELETE"]] = None
 
 
-class DocumentAttributeTypeDef(BaseValidatorModel):
+class DocumentAttribute(BaseValidatorModel):
     name: str
-    value: DocumentAttributeValueUnionTypeDef
+    value: DocumentAttributeValueUnion
 
 
-class PluginAuthConfigurationUnionTypeDef(BaseValidatorModel):
+class PluginAuthConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdatePluginRequestTypeDef(BaseValidatorModel):
+class UpdatePluginRequest(BaseValidatorModel):
     applicationId: str
     pluginId: str
     displayName: Optional[str] = None
     state: Optional[PluginStateType] = None
     serverUrl: Optional[str] = None
-    customPluginConfiguration: Optional[CustomPluginConfigurationTypeDef] = None
-    authConfiguration: Optional[PluginAuthConfigurationUnionTypeDef] = None
+    customPluginConfiguration: Optional[CustomPluginConfiguration] = None
+    authConfiguration: Optional[PluginAuthConfigurationUnion] = None
 
 
-class AccessConfigurationTypeDef(BaseValidatorModel):
-    accessControls: Sequence[AccessControlTypeDef]
+class AccessConfiguration(BaseValidatorModel):
+    accessControls: Sequence[AccessControl]
     memberRelation: Optional[MemberRelationType] = None
 
 
-class SourceAttributionTypeDef(BaseValidatorModel):
+class SourceAttribution(BaseValidatorModel):
     title: Optional[str] = None
     snippet: Optional[str] = None
     url: Optional[str] = None
     citationNumber: Optional[int] = None
     updatedAt: Optional[datetime] = None
-    textMessageSegments: Optional[List[TextSegmentTypeDef]] = None
+    textMessageSegments: Optional[List[TextSegment]] = None
 
 
-class TopicConfigurationOutputTypeDef(BaseValidatorModel):
+class TopicConfigurationOutput(BaseValidatorModel):
     name: str
-    rules: List[RuleOutputTypeDef]
+    rules: List[RuleOutput]
     description: Optional[str] = None
     exampleChatMessages: Optional[List[str]] = None
 
 
-class ActionConfigurationOutputTypeDef(BaseValidatorModel):
+class ActionConfigurationOutput(BaseValidatorModel):
     action: str
-    filterConfiguration: Optional[ActionFilterConfigurationOutputTypeDef] = None
+    filterConfiguration: Optional[ActionFilterConfigurationOutput] = None
 
 
-class ChatSyncOutputTypeDef(BaseValidatorModel):
+class ChatSyncOutput(BaseValidatorModel):
     conversationId: str
     systemMessage: str
     systemMessageId: str
     userMessageId: str
-    actionReview: ActionReviewTypeDef
-    authChallengeRequest: AuthChallengeRequestTypeDef
-    sourceAttributions: List[SourceAttributionTypeDef]
-    failedAttachments: List[AttachmentOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    actionReview: ActionReview
+    authChallengeRequest: AuthChallengeRequest
+    sourceAttributions: List[SourceAttribution]
+    failedAttachments: List[AttachmentOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class MetadataEventTypeDef(BaseValidatorModel):
+class MetadataEvent(BaseValidatorModel):
     conversationId: Optional[str] = None
     userMessageId: Optional[str] = None
     systemMessageId: Optional[str] = None
-    sourceAttributions: Optional[List[SourceAttributionTypeDef]] = None
+    sourceAttributions: Optional[List[SourceAttribution]] = None
     finalTextMessage: Optional[str] = None
 
 
-class GetChatControlsConfigurationResponseTypeDef(BaseValidatorModel):
+class GetChatControlsConfigurationResponse(BaseValidatorModel):
     responseScope: ResponseScopeType
-    orchestrationConfiguration: AppliedOrchestrationConfigurationTypeDef
-    blockedPhrases: BlockedPhrasesConfigurationTypeDef
-    topicConfigurations: List[TopicConfigurationOutputTypeDef]
-    creatorModeConfiguration: AppliedCreatorModeConfigurationTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    orchestrationConfiguration: AppliedOrchestrationConfiguration
+    blockedPhrases: BlockedPhrasesConfiguration
+    topicConfigurations: List[TopicConfigurationOutput]
+    creatorModeConfiguration: AppliedCreatorModeConfiguration
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UsersAndGroupsUnionTypeDef(BaseValidatorModel):
+class UsersAndGroupsUnion(BaseValidatorModel):
     pass
 
 
-class RuleConfigurationUnionTypeDef(BaseValidatorModel):
+class RuleConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class RuleTypeDef(BaseValidatorModel):
+class Rule(BaseValidatorModel):
     ruleType: RuleTypeType
-    includedUsersAndGroups: Optional[UsersAndGroupsUnionTypeDef] = None
-    excludedUsersAndGroups: Optional[UsersAndGroupsUnionTypeDef] = None
-    ruleConfiguration: Optional[RuleConfigurationUnionTypeDef] = None
+    includedUsersAndGroups: Optional[UsersAndGroupsUnion] = None
+    excludedUsersAndGroups: Optional[UsersAndGroupsUnion] = None
+    ruleConfiguration: Optional[RuleConfigurationUnion] = None
 
 
-class RetrieverConfigurationUnionTypeDef(BaseValidatorModel):
+class RetrieverConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateRetrieverRequestTypeDef(BaseValidatorModel):
+class UpdateRetrieverRequest(BaseValidatorModel):
     applicationId: str
     retrieverId: str
-    configuration: Optional[RetrieverConfigurationUnionTypeDef] = None
+    configuration: Optional[RetrieverConfigurationUnion] = None
     displayName: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class GetDataAccessorResponseTypeDef(BaseValidatorModel):
+class GetDataAccessorResponse(BaseValidatorModel):
     displayName: str
     dataAccessorId: str
     dataAccessorArn: str
     applicationId: str
     idcApplicationArn: str
     principal: str
-    actionConfigurations: List[ActionConfigurationOutputTypeDef]
+    actionConfigurations: List[ActionConfigurationOutput]
     createdAt: datetime
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DocumentAttributeConditionUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeConditionUnion(BaseValidatorModel):
     pass
 
 
-class HookConfigurationTypeDef(BaseValidatorModel):
-    invocationCondition: Optional[DocumentAttributeConditionUnionTypeDef] = None
+class HookConfiguration(BaseValidatorModel):
+    invocationCondition: Optional[DocumentAttributeConditionUnion] = None
     lambdaArn: Optional[str] = None
     s3BucketName: Optional[str] = None
     roleArn: Optional[str] = None
 
 
-class DocumentAttributeTargetUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeTargetUnion(BaseValidatorModel):
     pass
 
 
-class InlineDocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
-    condition: Optional[DocumentAttributeConditionUnionTypeDef] = None
-    target: Optional[DocumentAttributeTargetUnionTypeDef] = None
+class InlineDocumentEnrichmentConfiguration(BaseValidatorModel):
+    condition: Optional[DocumentAttributeConditionUnion] = None
+    target: Optional[DocumentAttributeTargetUnion] = None
     documentContentOperator: Optional[Literal["DELETE"]] = None
 
 
-class DocumentAttributeUnionTypeDef(BaseValidatorModel):
+class DocumentAttributeUnion(BaseValidatorModel):
     pass
 
 
-class AttributeFilterPaginatorTypeDef(BaseValidatorModel):
+class AttributeFilterPaginator(BaseValidatorModel):
     andAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     orAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     notFilter: Optional[Mapping[str, Any]] = None
-    equalsTo: Optional[DocumentAttributeUnionTypeDef] = None
-    containsAll: Optional[DocumentAttributeUnionTypeDef] = None
-    containsAny: Optional[DocumentAttributeUnionTypeDef] = None
-    greaterThan: Optional[DocumentAttributeUnionTypeDef] = None
-    greaterThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
-    lessThan: Optional[DocumentAttributeUnionTypeDef] = None
-    lessThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
+    equalsTo: Optional[DocumentAttributeUnion] = None
+    containsAll: Optional[DocumentAttributeUnion] = None
+    containsAny: Optional[DocumentAttributeUnion] = None
+    greaterThan: Optional[DocumentAttributeUnion] = None
+    greaterThanOrEquals: Optional[DocumentAttributeUnion] = None
+    lessThan: Optional[DocumentAttributeUnion] = None
+    lessThanOrEquals: Optional[DocumentAttributeUnion] = None
 
 
-class AttributeFilterTypeDef(BaseValidatorModel):
+class AttributeFilter(BaseValidatorModel):
     andAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     orAllFilters: Optional[Sequence[Mapping[str, Any]]] = None
     notFilter: Optional[Mapping[str, Any]] = None
-    equalsTo: Optional[DocumentAttributeUnionTypeDef] = None
-    containsAll: Optional[DocumentAttributeUnionTypeDef] = None
-    containsAny: Optional[DocumentAttributeUnionTypeDef] = None
-    greaterThan: Optional[DocumentAttributeUnionTypeDef] = None
-    greaterThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
-    lessThan: Optional[DocumentAttributeUnionTypeDef] = None
-    lessThanOrEquals: Optional[DocumentAttributeUnionTypeDef] = None
+    equalsTo: Optional[DocumentAttributeUnion] = None
+    containsAll: Optional[DocumentAttributeUnion] = None
+    containsAny: Optional[DocumentAttributeUnion] = None
+    greaterThan: Optional[DocumentAttributeUnion] = None
+    greaterThanOrEquals: Optional[DocumentAttributeUnion] = None
+    lessThan: Optional[DocumentAttributeUnion] = None
+    lessThanOrEquals: Optional[DocumentAttributeUnion] = None
 
 
-class MessageTypeDef(BaseValidatorModel):
+class Message(BaseValidatorModel):
     pass
 
 
-class ListMessagesResponseTypeDef(BaseValidatorModel):
-    messages: List[MessageTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMessagesResponse(BaseValidatorModel):
+    messages: List[Message]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ChatOutputStreamTypeDef(BaseValidatorModel):
-    textEvent: Optional[TextOutputEventTypeDef] = None
-    metadataEvent: Optional[MetadataEventTypeDef] = None
-    actionReviewEvent: Optional[ActionReviewEventTypeDef] = None
-    failedAttachmentEvent: Optional[FailedAttachmentEventTypeDef] = None
-    authChallengeRequestEvent: Optional[AuthChallengeRequestEventTypeDef] = None
+class ChatOutputStream(BaseValidatorModel):
+    textEvent: Optional[TextOutputEvent] = None
+    metadataEvent: Optional[MetadataEvent] = None
+    actionReviewEvent: Optional[ActionReviewEvent] = None
+    failedAttachmentEvent: Optional[FailedAttachmentEvent] = None
+    authChallengeRequestEvent: Optional[AuthChallengeRequestEvent] = None
 
 
-class SearchRelevantContentRequestPaginateTypeDef(BaseValidatorModel):
+class SearchRelevantContentRequestPaginate(BaseValidatorModel):
     applicationId: str
     queryText: str
-    contentSource: ContentSourceTypeDef
-    attributeFilter: Optional[AttributeFilterPaginatorTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    contentSource: ContentSource
+    attributeFilter: Optional[AttributeFilterPaginator] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ChatOutputTypeDef(BaseValidatorModel):
-    outputStream: EventStream[ChatOutputStreamTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ChatOutput(BaseValidatorModel):
+    outputStream: EventStream[ChatOutputStream]
+    ResponseMetadata: ResponseMetadata
 
 
-class RuleUnionTypeDef(BaseValidatorModel):
+class RuleUnion(BaseValidatorModel):
     pass
 
 
-class TopicConfigurationTypeDef(BaseValidatorModel):
+class TopicConfiguration(BaseValidatorModel):
     name: str
-    rules: Sequence[RuleUnionTypeDef]
+    rules: Sequence[RuleUnion]
     description: Optional[str] = None
     exampleChatMessages: Optional[Sequence[str]] = None
 
 
-class InlineDocumentEnrichmentConfigurationUnionTypeDef(BaseValidatorModel):
+class InlineDocumentEnrichmentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class HookConfigurationUnionTypeDef(BaseValidatorModel):
+class HookConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DocumentEnrichmentConfigurationTypeDef(BaseValidatorModel):
-    inlineConfigurations: Optional[Sequence[InlineDocumentEnrichmentConfigurationUnionTypeDef]] = None
-    preExtractionHookConfiguration: Optional[HookConfigurationUnionTypeDef] = None
-    postExtractionHookConfiguration: Optional[HookConfigurationUnionTypeDef] = None
+class DocumentEnrichmentConfiguration(BaseValidatorModel):
+    inlineConfigurations: Optional[Sequence[InlineDocumentEnrichmentConfigurationUnion]] = None
+    preExtractionHookConfiguration: Optional[HookConfigurationUnion] = None
+    postExtractionHookConfiguration: Optional[HookConfigurationUnion] = None
 
 
-class AttributeFilterUnionTypeDef(BaseValidatorModel):
+class AttributeFilterUnion(BaseValidatorModel):
     pass
 
 
-class ActionFilterConfigurationTypeDef(BaseValidatorModel):
-    documentAttributeFilter: AttributeFilterUnionTypeDef
+class ActionFilterConfiguration(BaseValidatorModel):
+    documentAttributeFilter: AttributeFilterUnion
 
 
-class ActionExecutionUnionTypeDef(BaseValidatorModel):
+class ActionExecutionUnion(BaseValidatorModel):
     pass
 
 
-class ChatSyncInputTypeDef(BaseValidatorModel):
+class ChatSyncInput(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
     userGroups: Optional[Sequence[str]] = None
     userMessage: Optional[str] = None
-    attachments: Optional[Sequence[AttachmentInputTypeDef]] = None
-    actionExecution: Optional[ActionExecutionUnionTypeDef] = None
-    authChallengeResponse: Optional[AuthChallengeResponseTypeDef] = None
+    attachments: Optional[Sequence[AttachmentInput]] = None
+    actionExecution: Optional[ActionExecutionUnion] = None
+    authChallengeResponse: Optional[AuthChallengeResponse] = None
     conversationId: Optional[str] = None
     parentMessageId: Optional[str] = None
-    attributeFilter: Optional[AttributeFilterUnionTypeDef] = None
+    attributeFilter: Optional[AttributeFilterUnion] = None
     chatMode: Optional[ChatModeType] = None
-    chatModeConfiguration: Optional[ChatModeConfigurationTypeDef] = None
+    chatModeConfiguration: Optional[ChatModeConfiguration] = None
     clientToken: Optional[str] = None
 
 
-class ConfigurationEventTypeDef(BaseValidatorModel):
+class ConfigurationEvent(BaseValidatorModel):
     chatMode: Optional[ChatModeType] = None
-    chatModeConfiguration: Optional[ChatModeConfigurationTypeDef] = None
-    attributeFilter: Optional[AttributeFilterUnionTypeDef] = None
+    chatModeConfiguration: Optional[ChatModeConfiguration] = None
+    attributeFilter: Optional[AttributeFilterUnion] = None
 
 
-class SearchRelevantContentRequestTypeDef(BaseValidatorModel):
+class SearchRelevantContentRequest(BaseValidatorModel):
     applicationId: str
     queryText: str
-    contentSource: ContentSourceTypeDef
-    attributeFilter: Optional[AttributeFilterUnionTypeDef] = None
+    contentSource: ContentSource
+    attributeFilter: Optional[AttributeFilterUnion] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ChatInputStreamTypeDef(BaseValidatorModel):
-    configurationEvent: Optional[ConfigurationEventTypeDef] = None
-    textEvent: Optional[TextInputEventTypeDef] = None
-    attachmentEvent: Optional[AttachmentInputEventTypeDef] = None
-    actionExecutionEvent: Optional[ActionExecutionEventTypeDef] = None
+class ChatInputStream(BaseValidatorModel):
+    configurationEvent: Optional[ConfigurationEvent] = None
+    textEvent: Optional[TextInputEvent] = None
+    attachmentEvent: Optional[AttachmentInputEvent] = None
+    actionExecutionEvent: Optional[ActionExecutionEvent] = None
     endOfInputEvent: Optional[Mapping[str, Any]] = None
-    authChallengeResponseEvent: Optional[AuthChallengeResponseEventTypeDef] = None
+    authChallengeResponseEvent: Optional[AuthChallengeResponseEvent] = None
 
 
-class TopicConfigurationUnionTypeDef(BaseValidatorModel):
+class TopicConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class UpdateChatControlsConfigurationRequestTypeDef(BaseValidatorModel):
+class UpdateChatControlsConfigurationRequest(BaseValidatorModel):
     applicationId: str
     clientToken: Optional[str] = None
     responseScope: Optional[ResponseScopeType] = None
-    orchestrationConfiguration: Optional[OrchestrationConfigurationTypeDef] = None
-    blockedPhrasesConfigurationUpdate: Optional[BlockedPhrasesConfigurationUpdateTypeDef] = None
-    topicConfigurationsToCreateOrUpdate: Optional[Sequence[TopicConfigurationUnionTypeDef]] = None
-    topicConfigurationsToDelete: Optional[Sequence[TopicConfigurationUnionTypeDef]] = None
-    creatorModeConfiguration: Optional[CreatorModeConfigurationTypeDef] = None
+    orchestrationConfiguration: Optional[OrchestrationConfiguration] = None
+    blockedPhrasesConfigurationUpdate: Optional[BlockedPhrasesConfigurationUpdate] = None
+    topicConfigurationsToCreateOrUpdate: Optional[Sequence[TopicConfigurationUnion]] = None
+    topicConfigurationsToDelete: Optional[Sequence[TopicConfigurationUnion]] = None
+    creatorModeConfiguration: Optional[CreatorModeConfiguration] = None
 
 
-class DataSourceVpcConfigurationUnionTypeDef(BaseValidatorModel):
+class DataSourceVpcConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class DocumentEnrichmentConfigurationUnionTypeDef(BaseValidatorModel):
+class DocumentEnrichmentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataSourceRequestTypeDef(BaseValidatorModel):
+class CreateDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     displayName: str
     configuration: Mapping[str, Any]
-    vpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
+    vpcConfiguration: Optional[DataSourceVpcConfigurationUnion] = None
     description: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
     syncSchedule: Optional[str] = None
     roleArn: Optional[str] = None
     clientToken: Optional[str] = None
-    documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnionTypeDef] = None
-    mediaExtractionConfiguration: Optional[MediaExtractionConfigurationTypeDef] = None
+    documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnion] = None
+    mediaExtractionConfiguration: Optional[MediaExtractionConfiguration] = None
 
 
-class UpdateDataSourceRequestTypeDef(BaseValidatorModel):
+class UpdateDataSourceRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
     dataSourceId: str
     displayName: Optional[str] = None
     configuration: Optional[Mapping[str, Any]] = None
-    vpcConfiguration: Optional[DataSourceVpcConfigurationUnionTypeDef] = None
+    vpcConfiguration: Optional[DataSourceVpcConfigurationUnion] = None
     description: Optional[str] = None
     syncSchedule: Optional[str] = None
     roleArn: Optional[str] = None
-    documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnionTypeDef] = None
-    mediaExtractionConfiguration: Optional[MediaExtractionConfigurationTypeDef] = None
+    documentEnrichmentConfiguration: Optional[DocumentEnrichmentConfigurationUnion] = None
+    mediaExtractionConfiguration: Optional[MediaExtractionConfiguration] = None
 
 
-class ActionFilterConfigurationUnionTypeDef(BaseValidatorModel):
+class ActionFilterConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ActionConfigurationTypeDef(BaseValidatorModel):
+class ActionConfiguration(BaseValidatorModel):
     action: str
-    filterConfiguration: Optional[ActionFilterConfigurationUnionTypeDef] = None
+    filterConfiguration: Optional[ActionFilterConfigurationUnion] = None
 
 
-class ChatInputTypeDef(BaseValidatorModel):
+class ChatInput(BaseValidatorModel):
     applicationId: str
     userId: Optional[str] = None
     userGroups: Optional[Sequence[str]] = None
     conversationId: Optional[str] = None
     parentMessageId: Optional[str] = None
     clientToken: Optional[str] = None
-    inputStream: Optional[EventStream[ChatInputStreamTypeDef]] = None
+    inputStream: Optional[EventStream[ChatInputStream]] = None
 
 
-class DocumentTypeDef(BaseValidatorModel):
+class Document(BaseValidatorModel):
     pass
 
 
-class BatchPutDocumentRequestTypeDef(BaseValidatorModel):
+class BatchPutDocumentRequest(BaseValidatorModel):
     applicationId: str
     indexId: str
-    documents: Sequence[DocumentTypeDef]
+    documents: Sequence[Document]
     roleArn: Optional[str] = None
     dataSourceSyncId: Optional[str] = None
 
 
-class ActionConfigurationUnionTypeDef(BaseValidatorModel):
+class ActionConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataAccessorRequestTypeDef(BaseValidatorModel):
+class CreateDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     principal: str
-    actionConfigurations: Sequence[ActionConfigurationUnionTypeDef]
+    actionConfigurations: Sequence[ActionConfigurationUnion]
     displayName: str
     clientToken: Optional[str] = None
-    tags: Optional[Sequence[TagTypeDef]] = None
+    tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateDataAccessorRequestTypeDef(BaseValidatorModel):
+class UpdateDataAccessorRequest(BaseValidatorModel):
     applicationId: str
     dataAccessorId: str
-    actionConfigurations: Sequence[ActionConfigurationUnionTypeDef]
+    actionConfigurations: Sequence[ActionConfigurationUnion]
     displayName: Optional[str] = None
 
 

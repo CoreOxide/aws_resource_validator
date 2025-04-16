@@ -12,7 +12,7 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.codecatalyst_constants import *
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -20,27 +20,27 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class IdeConfigurationTypeDef(BaseValidatorModel):
+class IdeConfiguration(BaseValidatorModel):
     runtime: Optional[str] = None
     name: Optional[str] = None
 
 
-class PersistentStorageConfigurationTypeDef(BaseValidatorModel):
+class PersistentStorageConfiguration(BaseValidatorModel):
     sizeInGiB: int
 
 
-class RepositoryInputTypeDef(BaseValidatorModel):
+class RepositoryInput(BaseValidatorModel):
     repositoryName: str
     branchName: Optional[str] = None
 
 
-class CreateProjectRequestTypeDef(BaseValidatorModel):
+class CreateProjectRequest(BaseValidatorModel):
     spaceName: str
     displayName: str
     description: Optional[str] = None
 
 
-class CreateSourceRepositoryBranchRequestTypeDef(BaseValidatorModel):
+class CreateSourceRepositoryBranchRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     sourceRepositoryName: str
@@ -48,121 +48,121 @@ class CreateSourceRepositoryBranchRequestTypeDef(BaseValidatorModel):
     headCommitId: Optional[str] = None
 
 
-class CreateSourceRepositoryRequestTypeDef(BaseValidatorModel):
+class CreateSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
     description: Optional[str] = None
 
 
-class DeleteProjectRequestTypeDef(BaseValidatorModel):
+class DeleteProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
 
 
-class DeleteSourceRepositoryRequestTypeDef(BaseValidatorModel):
+class DeleteSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
 
 
-class DeleteSpaceRequestTypeDef(BaseValidatorModel):
+class DeleteSpaceRequest(BaseValidatorModel):
     name: str
 
 
-class DevEnvironmentAccessDetailsTypeDef(BaseValidatorModel):
+class DevEnvironmentAccessDetails(BaseValidatorModel):
     streamUrl: str
     tokenValue: str
 
 
-class DevEnvironmentRepositorySummaryTypeDef(BaseValidatorModel):
+class DevEnvironmentRepositorySummary(BaseValidatorModel):
     repositoryName: str
     branchName: Optional[str] = None
 
 
-class ExecuteCommandSessionConfigurationTypeDef(BaseValidatorModel):
+class ExecuteCommandSessionConfiguration(BaseValidatorModel):
     command: str
     arguments: Optional[Sequence[str]] = None
 
 
-class IdeTypeDef(BaseValidatorModel):
+class Ide(BaseValidatorModel):
     runtime: Optional[str] = None
     name: Optional[str] = None
 
 
-class PersistentStorageTypeDef(BaseValidatorModel):
+class PersistentStorage(BaseValidatorModel):
     sizeInGiB: int
 
 
-class EmailAddressTypeDef(BaseValidatorModel):
+class EmailAddress(BaseValidatorModel):
     email: Optional[str] = None
     verified: Optional[bool] = None
 
 
-class EventPayloadTypeDef(BaseValidatorModel):
+class EventPayload(BaseValidatorModel):
     contentType: Optional[str] = None
     data: Optional[str] = None
 
 
-class ProjectInformationTypeDef(BaseValidatorModel):
+class ProjectInformation(BaseValidatorModel):
     name: Optional[str] = None
     projectId: Optional[str] = None
 
 
-class UserIdentityTypeDef(BaseValidatorModel):
+class UserIdentity(BaseValidatorModel):
     userType: UserTypeType
     principalId: str
     userName: Optional[str] = None
     awsAccountId: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     key: str
     values: Sequence[str]
     comparisonOperator: Optional[str] = None
 
 
-class GetProjectRequestTypeDef(BaseValidatorModel):
+class GetProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
 
 
-class GetSourceRepositoryCloneUrlsRequestTypeDef(BaseValidatorModel):
+class GetSourceRepositoryCloneUrlsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     sourceRepositoryName: str
 
 
-class GetSourceRepositoryRequestTypeDef(BaseValidatorModel):
+class GetSourceRepositoryRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
 
 
-class GetSpaceRequestTypeDef(BaseValidatorModel):
+class GetSpaceRequest(BaseValidatorModel):
     name: str
 
 
-class GetSubscriptionRequestTypeDef(BaseValidatorModel):
+class GetSubscriptionRequest(BaseValidatorModel):
     spaceName: str
 
 
-class WorkflowDefinitionTypeDef(BaseValidatorModel):
+class WorkflowDefinition(BaseValidatorModel):
     path: str
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAccessTokensRequestTypeDef(BaseValidatorModel):
+class ListAccessTokensRequest(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDevEnvironmentSessionsRequestTypeDef(BaseValidatorModel):
+class ListDevEnvironmentSessionsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     devEnvironmentId: str
@@ -170,33 +170,33 @@ class ListDevEnvironmentSessionsRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ProjectListFilterTypeDef(BaseValidatorModel):
+class ProjectListFilter(BaseValidatorModel):
     key: FilterKeyType
     values: Sequence[str]
     comparisonOperator: Optional[ComparisonOperatorType] = None
 
 
-class ProjectSummaryTypeDef(BaseValidatorModel):
+class ProjectSummary(BaseValidatorModel):
     name: str
     displayName: Optional[str] = None
     description: Optional[str] = None
 
 
-class ListSourceRepositoriesRequestTypeDef(BaseValidatorModel):
+class ListSourceRepositoriesRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListSourceRepositoryBranchesItemTypeDef(BaseValidatorModel):
+class ListSourceRepositoryBranchesItem(BaseValidatorModel):
     ref: Optional[str] = None
     name: Optional[str] = None
     lastUpdatedTime: Optional[datetime] = None
     headCommitId: Optional[str] = None
 
 
-class ListSourceRepositoryBranchesRequestTypeDef(BaseValidatorModel):
+class ListSourceRepositoryBranchesRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     sourceRepositoryName: str
@@ -204,18 +204,18 @@ class ListSourceRepositoryBranchesRequestTypeDef(BaseValidatorModel):
     maxResults: Optional[int] = None
 
 
-class ListSpacesRequestTypeDef(BaseValidatorModel):
+class ListSpacesRequest(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class SpaceSummaryTypeDef(BaseValidatorModel):
+class SpaceSummary(BaseValidatorModel):
     name: str
     regionName: str
     displayName: Optional[str] = None
     description: Optional[str] = None
 
 
-class ListWorkflowRunsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowRunsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     workflowId: Optional[str] = None
@@ -224,7 +224,7 @@ class ListWorkflowRunsRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class ListWorkflowsRequestTypeDef(BaseValidatorModel):
+class ListWorkflowsRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     nextToken: Optional[str] = None
@@ -232,348 +232,348 @@ class ListWorkflowsRequestTypeDef(BaseValidatorModel):
     sortBy: Optional[Sequence[Mapping[str, Any]]] = None
 
 
-class StartWorkflowRunRequestTypeDef(BaseValidatorModel):
+class StartWorkflowRunRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     workflowId: str
     clientToken: Optional[str] = None
 
 
-class UpdateProjectRequestTypeDef(BaseValidatorModel):
+class UpdateProjectRequest(BaseValidatorModel):
     spaceName: str
     name: str
     description: Optional[str] = None
 
 
-class UpdateSpaceRequestTypeDef(BaseValidatorModel):
+class UpdateSpaceRequest(BaseValidatorModel):
     name: str
     description: Optional[str] = None
 
 
-class WorkflowDefinitionSummaryTypeDef(BaseValidatorModel):
+class WorkflowDefinitionSummary(BaseValidatorModel):
     path: str
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class CreateAccessTokenRequestTypeDef(BaseValidatorModel):
+class CreateAccessTokenRequest(BaseValidatorModel):
     name: str
-    expiresTime: Optional[TimestampTypeDef] = None
+    expiresTime: Optional[Timestamp] = None
 
 
-class ListEventLogsRequestTypeDef(BaseValidatorModel):
+class ListEventLogsRequest(BaseValidatorModel):
     spaceName: str
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+    startTime: Timestamp
+    endTime: Timestamp
     eventName: Optional[str] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class CreateAccessTokenResponseTypeDef(BaseValidatorModel):
+class CreateAccessTokenResponse(BaseValidatorModel):
     secret: str
     name: str
     expiresTime: datetime
     accessTokenId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateProjectResponseTypeDef(BaseValidatorModel):
+class CreateProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
     displayName: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSourceRepositoryBranchResponseTypeDef(BaseValidatorModel):
+class CreateSourceRepositoryBranchResponse(BaseValidatorModel):
     ref: str
     name: str
     lastUpdatedTime: datetime
     headCommitId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateSourceRepositoryResponseTypeDef(BaseValidatorModel):
+class CreateSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteProjectResponseTypeDef(BaseValidatorModel):
+class DeleteProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
     displayName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSourceRepositoryResponseTypeDef(BaseValidatorModel):
+class DeleteSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteSpaceResponseTypeDef(BaseValidatorModel):
+class DeleteSpaceResponse(BaseValidatorModel):
     name: str
     displayName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetProjectResponseTypeDef(BaseValidatorModel):
+class GetProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
     displayName: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSourceRepositoryCloneUrlsResponseTypeDef(BaseValidatorModel):
+class GetSourceRepositoryCloneUrlsResponse(BaseValidatorModel):
     https: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSourceRepositoryResponseTypeDef(BaseValidatorModel):
+class GetSourceRepositoryResponse(BaseValidatorModel):
     spaceName: str
     projectName: str
     name: str
     description: str
     lastUpdatedTime: datetime
     createdTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSpaceResponseTypeDef(BaseValidatorModel):
+class GetSpaceResponse(BaseValidatorModel):
     name: str
     regionName: str
     displayName: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetSubscriptionResponseTypeDef(BaseValidatorModel):
+class GetSubscriptionResponse(BaseValidatorModel):
     subscriptionType: str
     awsAccountName: str
     pendingSubscriptionType: str
     pendingSubscriptionStartTime: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AccessTokenSummaryTypeDef(BaseValidatorModel):
+class AccessTokenSummary(BaseValidatorModel):
     pass
 
 
-class ListAccessTokensResponseTypeDef(BaseValidatorModel):
-    items: List[AccessTokenSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAccessTokensResponse(BaseValidatorModel):
+    items: List[AccessTokenSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateProjectResponseTypeDef(BaseValidatorModel):
+class UpdateProjectResponse(BaseValidatorModel):
     spaceName: str
     name: str
     displayName: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateSpaceResponseTypeDef(BaseValidatorModel):
+class UpdateSpaceResponse(BaseValidatorModel):
     name: str
     displayName: str
     description: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class VerifySessionResponseTypeDef(BaseValidatorModel):
+class VerifySessionResponse(BaseValidatorModel):
     identity: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateDevEnvironmentRequestTypeDef(BaseValidatorModel):
+class CreateDevEnvironmentRequest(BaseValidatorModel):
     spaceName: str
     projectName: str
     instanceType: InstanceTypeType
-    persistentStorage: PersistentStorageConfigurationTypeDef
-    repositories: Optional[Sequence[RepositoryInputTypeDef]] = None
+    persistentStorage: PersistentStorageConfiguration
+    repositories: Optional[Sequence[RepositoryInput]] = None
     clientToken: Optional[str] = None
     alias: Optional[str] = None
-    ides: Optional[Sequence[IdeConfigurationTypeDef]] = None
+    ides: Optional[Sequence[IdeConfiguration]] = None
     inactivityTimeoutMinutes: Optional[int] = None
     vpcConnectionName: Optional[str] = None
 
 
-class DevEnvironmentSessionConfigurationTypeDef(BaseValidatorModel):
+class DevEnvironmentSessionConfiguration(BaseValidatorModel):
     sessionType: DevEnvironmentSessionTypeType
-    executeCommandSessionConfiguration: Optional[ExecuteCommandSessionConfigurationTypeDef] = None
+    executeCommandSessionConfiguration: Optional[ExecuteCommandSessionConfiguration] = None
 
 
-class DevEnvironmentSessionSummaryTypeDef(BaseValidatorModel):
+class DevEnvironmentSessionSummary(BaseValidatorModel):
     pass
 
 
-class ListDevEnvironmentSessionsResponseTypeDef(BaseValidatorModel):
-    items: List[DevEnvironmentSessionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevEnvironmentSessionsResponse(BaseValidatorModel):
+    items: List[DevEnvironmentSessionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GetUserDetailsResponseTypeDef(BaseValidatorModel):
+class GetUserDetailsResponse(BaseValidatorModel):
     userId: str
     userName: str
     displayName: str
-    primaryEmail: EmailAddressTypeDef
+    primaryEmail: EmailAddress
     version: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListDevEnvironmentsRequestTypeDef(BaseValidatorModel):
+class ListDevEnvironmentsRequest(BaseValidatorModel):
     spaceName: str
     projectName: Optional[str] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
+    filters: Optional[Sequence[Filter]] = None
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
 
 
-class ListAccessTokensRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListAccessTokensRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDevEnvironmentSessionsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDevEnvironmentSessionsRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: str
     devEnvironmentId: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDevEnvironmentsRequestPaginateTypeDef(BaseValidatorModel):
+class ListDevEnvironmentsRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: Optional[str] = None
-    filters: Optional[Sequence[FilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[Filter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEventLogsRequestPaginateTypeDef(BaseValidatorModel):
+class ListEventLogsRequestPaginate(BaseValidatorModel):
     spaceName: str
-    startTime: TimestampTypeDef
-    endTime: TimestampTypeDef
+    startTime: Timestamp
+    endTime: Timestamp
     eventName: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceRepositoriesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceRepositoriesRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSourceRepositoryBranchesRequestPaginateTypeDef(BaseValidatorModel):
+class ListSourceRepositoryBranchesRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: str
     sourceRepositoryName: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSpacesRequestPaginateTypeDef(BaseValidatorModel):
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+class ListSpacesRequestPaginate(BaseValidatorModel):
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkflowRunsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkflowRunsRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: str
     workflowId: Optional[str] = None
     sortBy: Optional[Sequence[Mapping[str, Any]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListWorkflowsRequestPaginateTypeDef(BaseValidatorModel):
+class ListWorkflowsRequestPaginate(BaseValidatorModel):
     spaceName: str
     projectName: str
     sortBy: Optional[Sequence[Mapping[str, Any]]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsRequestPaginateTypeDef(BaseValidatorModel):
+class ListProjectsRequestPaginate(BaseValidatorModel):
     spaceName: str
-    filters: Optional[Sequence[ProjectListFilterTypeDef]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    filters: Optional[Sequence[ProjectListFilter]] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsRequestTypeDef(BaseValidatorModel):
+class ListProjectsRequest(BaseValidatorModel):
     spaceName: str
     nextToken: Optional[str] = None
     maxResults: Optional[int] = None
-    filters: Optional[Sequence[ProjectListFilterTypeDef]] = None
+    filters: Optional[Sequence[ProjectListFilter]] = None
 
 
-class ListProjectsResponseTypeDef(BaseValidatorModel):
-    items: List[ProjectSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsResponse(BaseValidatorModel):
+    items: List[ProjectSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSourceRepositoriesItemTypeDef(BaseValidatorModel):
+class ListSourceRepositoriesItem(BaseValidatorModel):
     pass
 
 
-class ListSourceRepositoriesResponseTypeDef(BaseValidatorModel):
-    items: List[ListSourceRepositoriesItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceRepositoriesResponse(BaseValidatorModel):
+    items: List[ListSourceRepositoriesItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSourceRepositoryBranchesResponseTypeDef(BaseValidatorModel):
-    items: List[ListSourceRepositoryBranchesItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSourceRepositoryBranchesResponse(BaseValidatorModel):
+    items: List[ListSourceRepositoryBranchesItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListSpacesResponseTypeDef(BaseValidatorModel):
-    items: List[SpaceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSpacesResponse(BaseValidatorModel):
+    items: List[SpaceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowRunSummaryTypeDef(BaseValidatorModel):
+class WorkflowRunSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkflowRunsResponseTypeDef(BaseValidatorModel):
-    items: List[WorkflowRunSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowRunsResponse(BaseValidatorModel):
+    items: List[WorkflowRunSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DevEnvironmentSummaryTypeDef(BaseValidatorModel):
+class DevEnvironmentSummary(BaseValidatorModel):
     pass
 
 
-class ListDevEnvironmentsResponseTypeDef(BaseValidatorModel):
-    items: List[DevEnvironmentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDevEnvironmentsResponse(BaseValidatorModel):
+    items: List[DevEnvironmentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EventLogEntryTypeDef(BaseValidatorModel):
+class EventLogEntry(BaseValidatorModel):
     pass
 
 
-class ListEventLogsResponseTypeDef(BaseValidatorModel):
-    items: List[EventLogEntryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEventLogsResponse(BaseValidatorModel):
+    items: List[EventLogEntry]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class WorkflowSummaryTypeDef(BaseValidatorModel):
+class WorkflowSummary(BaseValidatorModel):
     pass
 
 
-class ListWorkflowsResponseTypeDef(BaseValidatorModel):
-    items: List[WorkflowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListWorkflowsResponse(BaseValidatorModel):
+    items: List[WorkflowSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 

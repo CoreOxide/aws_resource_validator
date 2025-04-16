@@ -1,6 +1,6 @@
 # Iotfleethub Classes
 
-# ApplicationSummaryTypeDef
+# ApplicationSummary
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -33,7 +33,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# CreateApplicationRequestTypeDef
+# CreateApplicationRequest
 
 ### applicationName
 - **Type**: <class 'str'>
@@ -53,7 +53,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[typing.Mapping[str, str]]
 
 
-# CreateApplicationResponseTypeDef
+# CreateApplicationResponse
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -64,11 +64,11 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# DeleteApplicationRequestTypeDef
+# DeleteApplicationRequest
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -78,14 +78,14 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# DescribeApplicationRequestTypeDef
+# DescribeApplicationRequest
 
 ### applicationId
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# DescribeApplicationResponseTypeDef
+# DescribeApplicationResponse
 
 ### applicationId
 - **Type**: <class 'str'>
@@ -136,55 +136,55 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# ListApplicationsRequestPaginateTypeDef
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleethub_classes.PaginatorConfigTypeDef]
-
-
-# ListApplicationsRequestTypeDef
+# ListApplicationsRequest
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListApplicationsResponseTypeDef
+# ListApplicationsRequestPaginate
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.iotfleethub_classes.PaginatorConfig]
+
+
+# ListApplicationsResponse
 
 ### applicationSummaries
-- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleethub_classes.ApplicationSummaryTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.iotfleethub_classes.ApplicationSummary]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### nextToken
 - **Type**: typing.Optional[str]
 
 
-# ListTagsForResourceRequestTypeDef
+# ListTagsForResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
 - **Required**: Yes
 
 
-# ListTagsForResourceResponseTypeDef
+# ListTagsForResourceResponse
 
 ### tags
 - **Type**: typing.Dict[str, str]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.iotfleethub_classes.ResponseMetadata'>
 - **Required**: Yes
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -196,7 +196,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>
@@ -218,7 +218,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# TagResourceRequestTypeDef
+# TagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -229,7 +229,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UntagResourceRequestTypeDef
+# UntagResourceRequest
 
 ### resourceArn
 - **Type**: <class 'str'>
@@ -240,7 +240,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Required**: Yes
 
 
-# UpdateApplicationRequestTypeDef
+# UpdateApplicationRequest
 
 ### applicationId
 - **Type**: <class 'str'>

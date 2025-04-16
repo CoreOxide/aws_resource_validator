@@ -6,7 +6,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 
 <img src="/aws_resource_validator/images/oops_loki.png" width="500" height="400" title="Oops Loki">
 
-# EntitlementTypeDef
+# Entitlement
 
 ### ProductCode
 - **Type**: typing.Optional[str]
@@ -18,13 +18,13 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 ### Value
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.EntitlementValueTypeDef]
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.EntitlementValue]
 
 ### ExpirationDate
 - **Type**: typing.Optional[datetime.datetime]
 
 
-# EntitlementValueTypeDef
+# EntitlementValue
 
 ### IntegerValue
 - **Type**: typing.Optional[int]
@@ -39,20 +39,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# GetEntitlementsRequestPaginateTypeDef
-
-### ProductCode
-- **Type**: <class 'str'>
-- **Required**: Yes
-
-### Filter
-- **Type**: typing.Optional[typing.Mapping[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.Sequence[str]]]
-
-### PaginationConfig
-- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.PaginatorConfigTypeDef]
-
-
-# GetEntitlementsRequestTypeDef
+# GetEntitlementsRequest
 
 ### ProductCode
 - **Type**: <class 'str'>
@@ -68,21 +55,34 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[int]
 
 
-# GetEntitlementsResultTypeDef
+# GetEntitlementsRequestPaginate
+
+### ProductCode
+- **Type**: <class 'str'>
+- **Required**: Yes
+
+### Filter
+- **Type**: typing.Optional[typing.Mapping[typing.Literal['CUSTOMER_IDENTIFIER', 'DIMENSION'], typing.Sequence[str]]]
+
+### PaginationConfig
+- **Type**: typing.Optional[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.PaginatorConfig]
+
+
+# GetEntitlementsResult
 
 ### Entitlements
-- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.EntitlementTypeDef]
+- **Type**: typing.List[aws_resource_validator.pydantic_models.marketplace_entitlement_classes.Entitlement]
 - **Required**: Yes
 
 ### ResponseMetadata
-- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_entitlement_classes.ResponseMetadataTypeDef'>
+- **Type**: <class 'aws_resource_validator.pydantic_models.marketplace_entitlement_classes.ResponseMetadata'>
 - **Required**: Yes
 
 ### NextToken
 - **Type**: typing.Optional[str]
 
 
-# PaginatorConfigTypeDef
+# PaginatorConfig
 
 ### MaxItems
 - **Type**: typing.Optional[int]
@@ -94,7 +94,7 @@ Oops! This Pydantic model is currently empty. Stay tuned!
 - **Type**: typing.Optional[str]
 
 
-# ResponseMetadataTypeDef
+# ResponseMetadata
 
 ### RequestId
 - **Type**: <class 'str'>

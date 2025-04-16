@@ -12,24 +12,24 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.chime_sdk_messaging_constants import *
 
-class AssociateChannelFlowRequestTypeDef(BaseValidatorModel):
+class AssociateChannelFlowRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelFlowArn: str
     ChimeBearer: str
 
 
-class IdentityTypeDef(BaseValidatorModel):
+class Identity(BaseValidatorModel):
     Arn: Optional[str] = None
     Name: Optional[str] = None
 
 
-class BatchCreateChannelMembershipErrorTypeDef(BaseValidatorModel):
+class BatchCreateChannelMembershipError(BaseValidatorModel):
     MemberArn: Optional[str] = None
     ErrorCode: Optional[ErrorCodeType] = None
     ErrorMessage: Optional[str] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -37,7 +37,7 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class ChannelAssociatedWithFlowSummaryTypeDef(BaseValidatorModel):
+class ChannelAssociatedWithFlowSummary(BaseValidatorModel):
     Name: Optional[str] = None
     ChannelArn: Optional[str] = None
     Mode: Optional[ChannelModeType] = None
@@ -45,7 +45,7 @@ class ChannelAssociatedWithFlowSummaryTypeDef(BaseValidatorModel):
     Metadata: Optional[str] = None
 
 
-class ChannelSummaryTypeDef(BaseValidatorModel):
+class ChannelSummary(BaseValidatorModel):
     Name: Optional[str] = None
     ChannelArn: Optional[str] = None
     Mode: Optional[ChannelModeType] = None
@@ -54,216 +54,216 @@ class ChannelSummaryTypeDef(BaseValidatorModel):
     LastMessageTimestamp: Optional[datetime] = None
 
 
-class PushNotificationPreferencesTypeDef(BaseValidatorModel):
+class PushNotificationPreferences(BaseValidatorModel):
     AllowNotifications: AllowNotificationsType
     FilterRule: Optional[str] = None
 
 
-class ChannelMessageStatusStructureTypeDef(BaseValidatorModel):
+class ChannelMessageStatusStructure(BaseValidatorModel):
     Value: Optional[ChannelMessageStatusType] = None
     Detail: Optional[str] = None
 
 
-class MessageAttributeValueOutputTypeDef(BaseValidatorModel):
+class MessageAttributeValueOutput(BaseValidatorModel):
     StringValues: Optional[List[str]] = None
 
 
-class TargetTypeDef(BaseValidatorModel):
+class Target(BaseValidatorModel):
     MemberArn: Optional[str] = None
 
 
-class ElasticChannelConfigurationTypeDef(BaseValidatorModel):
+class ElasticChannelConfiguration(BaseValidatorModel):
     MaximumSubChannels: int
     TargetMembershipsPerSubChannel: int
     MinimumMembershipPercentage: int
 
 
-class ExpirationSettingsTypeDef(BaseValidatorModel):
+class ExpirationSettings(BaseValidatorModel):
     ExpirationDays: int
     ExpirationCriterion: ExpirationCriterionType
 
 
-class CreateChannelBanRequestTypeDef(BaseValidatorModel):
+class CreateChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
-class TagTypeDef(BaseValidatorModel):
+class Tag(BaseValidatorModel):
     Key: str
     Value: str
 
 
-class CreateChannelModeratorRequestTypeDef(BaseValidatorModel):
+class CreateChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
-class DeleteChannelBanRequestTypeDef(BaseValidatorModel):
+class DeleteChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
-class DeleteChannelFlowRequestTypeDef(BaseValidatorModel):
+class DeleteChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
 
 
-class DeleteChannelMembershipRequestTypeDef(BaseValidatorModel):
+class DeleteChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class DeleteChannelMessageRequestTypeDef(BaseValidatorModel):
+class DeleteChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class DeleteChannelModeratorRequestTypeDef(BaseValidatorModel):
+class DeleteChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
-class DeleteChannelRequestTypeDef(BaseValidatorModel):
+class DeleteChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
-class DeleteMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
+class DeleteMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
 
 
-class DescribeChannelBanRequestTypeDef(BaseValidatorModel):
+class DescribeChannelBanRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
-class DescribeChannelFlowRequestTypeDef(BaseValidatorModel):
+class DescribeChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
 
 
-class DescribeChannelMembershipForAppInstanceUserRequestTypeDef(BaseValidatorModel):
+class DescribeChannelMembershipForAppInstanceUserRequest(BaseValidatorModel):
     ChannelArn: str
     AppInstanceUserArn: str
     ChimeBearer: str
 
 
-class DescribeChannelMembershipRequestTypeDef(BaseValidatorModel):
+class DescribeChannelMembershipRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class DescribeChannelModeratedByAppInstanceUserRequestTypeDef(BaseValidatorModel):
+class DescribeChannelModeratedByAppInstanceUserRequest(BaseValidatorModel):
     ChannelArn: str
     AppInstanceUserArn: str
     ChimeBearer: str
 
 
-class DescribeChannelModeratorRequestTypeDef(BaseValidatorModel):
+class DescribeChannelModeratorRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelModeratorArn: str
     ChimeBearer: str
 
 
-class DescribeChannelRequestTypeDef(BaseValidatorModel):
+class DescribeChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
-class DisassociateChannelFlowRequestTypeDef(BaseValidatorModel):
+class DisassociateChannelFlowRequest(BaseValidatorModel):
     ChannelArn: str
     ChannelFlowArn: str
     ChimeBearer: str
 
 
-class GetChannelMembershipPreferencesRequestTypeDef(BaseValidatorModel):
+class GetChannelMembershipPreferencesRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
 
 
-class GetChannelMessageRequestTypeDef(BaseValidatorModel):
+class GetChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class GetChannelMessageStatusRequestTypeDef(BaseValidatorModel):
+class GetChannelMessageStatusRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class MessagingSessionEndpointTypeDef(BaseValidatorModel):
+class MessagingSessionEndpoint(BaseValidatorModel):
     Url: Optional[str] = None
 
 
-class GetMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
+class GetMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
 
 
-class StreamingConfigurationTypeDef(BaseValidatorModel):
+class StreamingConfiguration(BaseValidatorModel):
     DataType: MessagingDataTypeType
     ResourceArn: str
 
 
-class LambdaConfigurationTypeDef(BaseValidatorModel):
+class LambdaConfiguration(BaseValidatorModel):
     ResourceArn: str
     InvocationType: Literal["ASYNC"]
 
 
-class ListChannelBansRequestTypeDef(BaseValidatorModel):
+class ListChannelBansRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelFlowsRequestTypeDef(BaseValidatorModel):
+class ListChannelFlowsRequest(BaseValidatorModel):
     AppInstanceArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelMembershipsForAppInstanceUserRequestTypeDef(BaseValidatorModel):
+class ListChannelMembershipsForAppInstanceUserRequest(BaseValidatorModel):
     ChimeBearer: str
     AppInstanceUserArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelModeratorsRequestTypeDef(BaseValidatorModel):
+class ListChannelModeratorsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelsAssociatedWithChannelFlowRequestTypeDef(BaseValidatorModel):
+class ListChannelsAssociatedWithChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelsModeratedByAppInstanceUserRequestTypeDef(BaseValidatorModel):
+class ListChannelsModeratedByAppInstanceUserRequest(BaseValidatorModel):
     ChimeBearer: str
     AppInstanceUserArn: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class ListChannelsRequestTypeDef(BaseValidatorModel):
+class ListChannelsRequest(BaseValidatorModel):
     AppInstanceArn: str
     ChimeBearer: str
     Privacy: Optional[ChannelPrivacyType] = None
@@ -271,45 +271,45 @@ class ListChannelsRequestTypeDef(BaseValidatorModel):
     NextToken: Optional[str] = None
 
 
-class ListSubChannelsRequestTypeDef(BaseValidatorModel):
+class ListSubChannelsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class SubChannelSummaryTypeDef(BaseValidatorModel):
+class SubChannelSummary(BaseValidatorModel):
     SubChannelId: Optional[str] = None
     MembershipCount: Optional[int] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     ResourceARN: str
 
 
-class MessageAttributeValueTypeDef(BaseValidatorModel):
+class MessageAttributeValue(BaseValidatorModel):
     StringValues: Optional[Sequence[str]] = None
 
 
-class RedactChannelMessageRequestTypeDef(BaseValidatorModel):
+class RedactChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     ChimeBearer: str
     SubChannelId: Optional[str] = None
 
 
-class SearchFieldTypeDef(BaseValidatorModel):
+class SearchField(BaseValidatorModel):
     Key: Literal["MEMBERS"]
     Values: Sequence[str]
     Operator: SearchFieldOperatorType
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     ResourceARN: str
     TagKeys: Sequence[str]
 
 
-class UpdateChannelMessageRequestTypeDef(BaseValidatorModel):
+class UpdateChannelMessageRequest(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     Content: str
@@ -319,12 +319,12 @@ class UpdateChannelMessageRequestTypeDef(BaseValidatorModel):
     ContentType: Optional[str] = None
 
 
-class UpdateChannelReadMarkerRequestTypeDef(BaseValidatorModel):
+class UpdateChannelReadMarkerRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
 
 
-class UpdateChannelRequestTypeDef(BaseValidatorModel):
+class UpdateChannelRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
     Name: Optional[str] = None
@@ -332,177 +332,177 @@ class UpdateChannelRequestTypeDef(BaseValidatorModel):
     Metadata: Optional[str] = None
 
 
-class ChannelBanSummaryTypeDef(BaseValidatorModel):
-    Member: Optional[IdentityTypeDef] = None
+class ChannelBanSummary(BaseValidatorModel):
+    Member: Optional[Identity] = None
 
 
-class ChannelBanTypeDef(BaseValidatorModel):
-    Member: Optional[IdentityTypeDef] = None
+class ChannelBan(BaseValidatorModel):
+    Member: Optional[Identity] = None
     ChannelArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
-    CreatedBy: Optional[IdentityTypeDef] = None
+    CreatedBy: Optional[Identity] = None
 
 
-class ChannelMembershipSummaryTypeDef(BaseValidatorModel):
-    Member: Optional[IdentityTypeDef] = None
+class ChannelMembershipSummary(BaseValidatorModel):
+    Member: Optional[Identity] = None
 
 
-class ChannelModeratorSummaryTypeDef(BaseValidatorModel):
-    Moderator: Optional[IdentityTypeDef] = None
+class ChannelModeratorSummary(BaseValidatorModel):
+    Moderator: Optional[Identity] = None
 
 
-class ChannelModeratorTypeDef(BaseValidatorModel):
-    Moderator: Optional[IdentityTypeDef] = None
+class ChannelModerator(BaseValidatorModel):
+    Moderator: Optional[Identity] = None
     ChannelArn: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
-    CreatedBy: Optional[IdentityTypeDef] = None
+    CreatedBy: Optional[Identity] = None
 
 
-class ChannelFlowCallbackResponseTypeDef(BaseValidatorModel):
+class ChannelFlowCallbackResponse(BaseValidatorModel):
     ChannelArn: str
     CallbackId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelBanResponseTypeDef(BaseValidatorModel):
+class CreateChannelBanResponse(BaseValidatorModel):
     ChannelArn: str
-    Member: IdentityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Member: Identity
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelFlowResponseTypeDef(BaseValidatorModel):
+class CreateChannelFlowResponse(BaseValidatorModel):
     ChannelFlowArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelMembershipResponseTypeDef(BaseValidatorModel):
+class CreateChannelMembershipResponse(BaseValidatorModel):
     ChannelArn: str
-    Member: IdentityTypeDef
+    Member: Identity
     SubChannelId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelModeratorResponseTypeDef(BaseValidatorModel):
+class CreateChannelModeratorResponse(BaseValidatorModel):
     ChannelArn: str
-    ChannelModerator: IdentityTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ChannelModerator: Identity
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelResponseTypeDef(BaseValidatorModel):
+class CreateChannelResponse(BaseValidatorModel):
     ChannelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class RedactChannelMessageResponseTypeDef(BaseValidatorModel):
+class RedactChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
     SubChannelId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelFlowResponseTypeDef(BaseValidatorModel):
+class UpdateChannelFlowResponse(BaseValidatorModel):
     ChannelFlowArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelReadMarkerResponseTypeDef(BaseValidatorModel):
+class UpdateChannelReadMarkerResponse(BaseValidatorModel):
     ChannelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelResponseTypeDef(BaseValidatorModel):
+class UpdateChannelResponse(BaseValidatorModel):
     ChannelArn: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelsAssociatedWithChannelFlowResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelAssociatedWithFlowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsAssociatedWithChannelFlowResponse(BaseValidatorModel):
+    Channels: List[ChannelAssociatedWithFlowSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class AppInstanceUserMembershipSummaryTypeDef(BaseValidatorModel):
+class AppInstanceUserMembershipSummary(BaseValidatorModel):
     pass
 
 
-class ChannelMembershipForAppInstanceUserSummaryTypeDef(BaseValidatorModel):
-    ChannelSummary: Optional[ChannelSummaryTypeDef] = None
-    AppInstanceUserMembershipSummary: Optional[AppInstanceUserMembershipSummaryTypeDef] = None
+class ChannelMembershipForAppInstanceUserSummary(BaseValidatorModel):
+    ChannelSummary: Optional[ChannelSummary] = None
+    AppInstanceUserMembershipSummary: Optional[AppInstanceUserMembershipSummary] = None
 
 
-class ChannelModeratedByAppInstanceUserSummaryTypeDef(BaseValidatorModel):
-    ChannelSummary: Optional[ChannelSummaryTypeDef] = None
+class ChannelModeratedByAppInstanceUserSummary(BaseValidatorModel):
+    ChannelSummary: Optional[ChannelSummary] = None
 
 
-class ListChannelsResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsResponse(BaseValidatorModel):
+    Channels: List[ChannelSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchChannelsResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchChannelsResponse(BaseValidatorModel):
+    Channels: List[ChannelSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ChannelMembershipPreferencesTypeDef(BaseValidatorModel):
-    PushNotifications: Optional[PushNotificationPreferencesTypeDef] = None
+class ChannelMembershipPreferences(BaseValidatorModel):
+    PushNotifications: Optional[PushNotificationPreferences] = None
 
 
-class GetChannelMessageStatusResponseTypeDef(BaseValidatorModel):
-    Status: ChannelMessageStatusStructureTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChannelMessageStatusResponse(BaseValidatorModel):
+    Status: ChannelMessageStatusStructure
+    ResponseMetadata: ResponseMetadata
 
 
-class SendChannelMessageResponseTypeDef(BaseValidatorModel):
+class SendChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
-    Status: ChannelMessageStatusStructureTypeDef
+    Status: ChannelMessageStatusStructure
     SubChannelId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateChannelMessageResponseTypeDef(BaseValidatorModel):
+class UpdateChannelMessageResponse(BaseValidatorModel):
     ChannelArn: str
     MessageId: str
-    Status: ChannelMessageStatusStructureTypeDef
+    Status: ChannelMessageStatusStructure
     SubChannelId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ChannelTypeDef(BaseValidatorModel):
+class Channel(BaseValidatorModel):
     Name: Optional[str] = None
     ChannelArn: Optional[str] = None
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
     Metadata: Optional[str] = None
-    CreatedBy: Optional[IdentityTypeDef] = None
+    CreatedBy: Optional[Identity] = None
     CreatedTimestamp: Optional[datetime] = None
     LastMessageTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
     ChannelFlowArn: Optional[str] = None
-    ElasticChannelConfiguration: Optional[ElasticChannelConfigurationTypeDef] = None
-    ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
+    ElasticChannelConfiguration: Optional[ElasticChannelConfiguration] = None
+    ExpirationSettings: Optional[ExpirationSettings] = None
 
 
-class PutChannelExpirationSettingsRequestTypeDef(BaseValidatorModel):
+class PutChannelExpirationSettingsRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: Optional[str] = None
-    ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
+    ExpirationSettings: Optional[ExpirationSettings] = None
 
 
-class PutChannelExpirationSettingsResponseTypeDef(BaseValidatorModel):
+class PutChannelExpirationSettingsResponse(BaseValidatorModel):
     ChannelArn: str
-    ExpirationSettings: ExpirationSettingsTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    ExpirationSettings: ExpirationSettings
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateChannelRequestTypeDef(BaseValidatorModel):
+class CreateChannelRequest(BaseValidatorModel):
     AppInstanceArn: str
     Name: str
     ClientRequestToken: str
@@ -510,264 +510,264 @@ class CreateChannelRequestTypeDef(BaseValidatorModel):
     Mode: Optional[ChannelModeType] = None
     Privacy: Optional[ChannelPrivacyType] = None
     Metadata: Optional[str] = None
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
     ChannelId: Optional[str] = None
     MemberArns: Optional[Sequence[str]] = None
     ModeratorArns: Optional[Sequence[str]] = None
-    ElasticChannelConfiguration: Optional[ElasticChannelConfigurationTypeDef] = None
-    ExpirationSettings: Optional[ExpirationSettingsTypeDef] = None
+    ElasticChannelConfiguration: Optional[ElasticChannelConfiguration] = None
+    ExpirationSettings: Optional[ExpirationSettings] = None
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
-    Tags: List[TagTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTagsForResourceResponse(BaseValidatorModel):
+    Tags: List[Tag]
+    ResponseMetadata: ResponseMetadata
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     ResourceARN: str
-    Tags: Sequence[TagTypeDef]
+    Tags: Sequence[Tag]
 
 
-class GetMessagingSessionEndpointResponseTypeDef(BaseValidatorModel):
-    Endpoint: MessagingSessionEndpointTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMessagingSessionEndpointResponse(BaseValidatorModel):
+    Endpoint: MessagingSessionEndpoint
+    ResponseMetadata: ResponseMetadata
 
 
-class GetMessagingStreamingConfigurationsResponseTypeDef(BaseValidatorModel):
-    StreamingConfigurations: List[StreamingConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetMessagingStreamingConfigurationsResponse(BaseValidatorModel):
+    StreamingConfigurations: List[StreamingConfiguration]
+    ResponseMetadata: ResponseMetadata
 
 
-class PutMessagingStreamingConfigurationsRequestTypeDef(BaseValidatorModel):
+class PutMessagingStreamingConfigurationsRequest(BaseValidatorModel):
     AppInstanceArn: str
-    StreamingConfigurations: Sequence[StreamingConfigurationTypeDef]
+    StreamingConfigurations: Sequence[StreamingConfiguration]
 
 
-class PutMessagingStreamingConfigurationsResponseTypeDef(BaseValidatorModel):
-    StreamingConfigurations: List[StreamingConfigurationTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class PutMessagingStreamingConfigurationsResponse(BaseValidatorModel):
+    StreamingConfigurations: List[StreamingConfiguration]
+    ResponseMetadata: ResponseMetadata
 
 
-class ProcessorConfigurationTypeDef(BaseValidatorModel):
-    Lambda: LambdaConfigurationTypeDef
+class ProcessorConfiguration(BaseValidatorModel):
+    Lambda: LambdaConfiguration
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class ListChannelMessagesRequestTypeDef(BaseValidatorModel):
+class ListChannelMessagesRequest(BaseValidatorModel):
     ChannelArn: str
     ChimeBearer: str
     SortOrder: Optional[SortOrderType] = None
-    NotBefore: Optional[TimestampTypeDef] = None
-    NotAfter: Optional[TimestampTypeDef] = None
+    NotBefore: Optional[Timestamp] = None
+    NotAfter: Optional[Timestamp] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
     SubChannelId: Optional[str] = None
 
 
-class ListSubChannelsResponseTypeDef(BaseValidatorModel):
+class ListSubChannelsResponse(BaseValidatorModel):
     ChannelArn: str
-    SubChannels: List[SubChannelSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    SubChannels: List[SubChannelSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class SearchChannelsRequestTypeDef(BaseValidatorModel):
-    Fields: Sequence[SearchFieldTypeDef]
+class SearchChannelsRequest(BaseValidatorModel):
+    Fields: Sequence[SearchField]
     ChimeBearer: Optional[str] = None
     MaxResults: Optional[int] = None
     NextToken: Optional[str] = None
 
 
-class BatchChannelMembershipsTypeDef(BaseValidatorModel):
+class BatchChannelMemberships(BaseValidatorModel):
     pass
 
 
-class BatchCreateChannelMembershipResponseTypeDef(BaseValidatorModel):
-    BatchChannelMemberships: BatchChannelMembershipsTypeDef
-    Errors: List[BatchCreateChannelMembershipErrorTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class BatchCreateChannelMembershipResponse(BaseValidatorModel):
+    BatchChannelMemberships: BatchChannelMemberships
+    Errors: List[BatchCreateChannelMembershipError]
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelBansResponseTypeDef(BaseValidatorModel):
+class ListChannelBansResponse(BaseValidatorModel):
     ChannelArn: str
-    ChannelBans: List[ChannelBanSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ChannelBans: List[ChannelBanSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeChannelBanResponseTypeDef(BaseValidatorModel):
-    ChannelBan: ChannelBanTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelBanResponse(BaseValidatorModel):
+    ChannelBan: ChannelBan
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelMembershipsResponseTypeDef(BaseValidatorModel):
+class ListChannelMembershipsResponse(BaseValidatorModel):
     ChannelArn: str
-    ChannelMemberships: List[ChannelMembershipSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ChannelMemberships: List[ChannelMembershipSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ChannelMembershipTypeDef(BaseValidatorModel):
+class ChannelMembership(BaseValidatorModel):
     pass
 
 
-class DescribeChannelMembershipResponseTypeDef(BaseValidatorModel):
-    ChannelMembership: ChannelMembershipTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelMembershipResponse(BaseValidatorModel):
+    ChannelMembership: ChannelMembership
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelModeratorsResponseTypeDef(BaseValidatorModel):
+class ListChannelModeratorsResponse(BaseValidatorModel):
     ChannelArn: str
-    ChannelModerators: List[ChannelModeratorSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ChannelModerators: List[ChannelModeratorSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeChannelModeratorResponseTypeDef(BaseValidatorModel):
-    ChannelModerator: ChannelModeratorTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelModeratorResponse(BaseValidatorModel):
+    ChannelModerator: ChannelModerator
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeChannelMembershipForAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    ChannelMembership: ChannelMembershipForAppInstanceUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelMembershipForAppInstanceUserResponse(BaseValidatorModel):
+    ChannelMembership: ChannelMembershipForAppInstanceUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelMembershipsForAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    ChannelMemberships: List[ChannelMembershipForAppInstanceUserSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelMembershipsForAppInstanceUserResponse(BaseValidatorModel):
+    ChannelMemberships: List[ChannelMembershipForAppInstanceUserSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeChannelModeratedByAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    Channel: ChannelModeratedByAppInstanceUserSummaryTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelModeratedByAppInstanceUserResponse(BaseValidatorModel):
+    Channel: ChannelModeratedByAppInstanceUserSummary
+    ResponseMetadata: ResponseMetadata
 
 
-class ListChannelsModeratedByAppInstanceUserResponseTypeDef(BaseValidatorModel):
-    Channels: List[ChannelModeratedByAppInstanceUserSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelsModeratedByAppInstanceUserResponse(BaseValidatorModel):
+    Channels: List[ChannelModeratedByAppInstanceUserSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class GetChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
+class GetChannelMembershipPreferencesResponse(BaseValidatorModel):
     ChannelArn: str
-    Member: IdentityTypeDef
-    Preferences: ChannelMembershipPreferencesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Member: Identity
+    Preferences: ChannelMembershipPreferences
+    ResponseMetadata: ResponseMetadata
 
 
-class PutChannelMembershipPreferencesRequestTypeDef(BaseValidatorModel):
+class PutChannelMembershipPreferencesRequest(BaseValidatorModel):
     ChannelArn: str
     MemberArn: str
     ChimeBearer: str
-    Preferences: ChannelMembershipPreferencesTypeDef
+    Preferences: ChannelMembershipPreferences
 
 
-class PutChannelMembershipPreferencesResponseTypeDef(BaseValidatorModel):
+class PutChannelMembershipPreferencesResponse(BaseValidatorModel):
     ChannelArn: str
-    Member: IdentityTypeDef
-    Preferences: ChannelMembershipPreferencesTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+    Member: Identity
+    Preferences: ChannelMembershipPreferences
+    ResponseMetadata: ResponseMetadata
 
 
-class ChannelMessageSummaryTypeDef(BaseValidatorModel):
+class ChannelMessageSummary(BaseValidatorModel):
     pass
 
 
-class ListChannelMessagesResponseTypeDef(BaseValidatorModel):
+class ListChannelMessagesResponse(BaseValidatorModel):
     ChannelArn: str
-    ChannelMessages: List[ChannelMessageSummaryTypeDef]
+    ChannelMessages: List[ChannelMessageSummary]
     SubChannelId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class ChannelMessageTypeDef(BaseValidatorModel):
+class ChannelMessage(BaseValidatorModel):
     pass
 
 
-class GetChannelMessageResponseTypeDef(BaseValidatorModel):
-    ChannelMessage: ChannelMessageTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class GetChannelMessageResponse(BaseValidatorModel):
+    ChannelMessage: ChannelMessage
+    ResponseMetadata: ResponseMetadata
 
 
-class DescribeChannelResponseTypeDef(BaseValidatorModel):
-    Channel: ChannelTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelResponse(BaseValidatorModel):
+    Channel: Channel
+    ResponseMetadata: ResponseMetadata
 
 
-class ProcessorTypeDef(BaseValidatorModel):
+class Processor(BaseValidatorModel):
     Name: str
-    Configuration: ProcessorConfigurationTypeDef
+    Configuration: ProcessorConfiguration
     ExecutionOrder: int
     FallbackAction: FallbackActionType
 
 
-class MessageAttributeValueUnionTypeDef(BaseValidatorModel):
+class MessageAttributeValueUnion(BaseValidatorModel):
     pass
 
 
-class PushNotificationConfigurationTypeDef(BaseValidatorModel):
+class PushNotificationConfiguration(BaseValidatorModel):
     pass
 
 
-class ChannelMessageCallbackTypeDef(BaseValidatorModel):
+class ChannelMessageCallback(BaseValidatorModel):
     MessageId: str
     Content: Optional[str] = None
     Metadata: Optional[str] = None
-    PushNotification: Optional[PushNotificationConfigurationTypeDef] = None
-    MessageAttributes: Optional[Mapping[str, MessageAttributeValueUnionTypeDef]] = None
+    PushNotification: Optional[PushNotificationConfiguration] = None
+    MessageAttributes: Optional[Mapping[str, MessageAttributeValueUnion]] = None
     SubChannelId: Optional[str] = None
     ContentType: Optional[str] = None
 
 
-class ChannelFlowSummaryTypeDef(BaseValidatorModel):
+class ChannelFlowSummary(BaseValidatorModel):
     ChannelFlowArn: Optional[str] = None
     Name: Optional[str] = None
-    Processors: Optional[List[ProcessorTypeDef]] = None
+    Processors: Optional[List[Processor]] = None
 
 
-class ChannelFlowTypeDef(BaseValidatorModel):
+class ChannelFlow(BaseValidatorModel):
     ChannelFlowArn: Optional[str] = None
-    Processors: Optional[List[ProcessorTypeDef]] = None
+    Processors: Optional[List[Processor]] = None
     Name: Optional[str] = None
     CreatedTimestamp: Optional[datetime] = None
     LastUpdatedTimestamp: Optional[datetime] = None
 
 
-class CreateChannelFlowRequestTypeDef(BaseValidatorModel):
+class CreateChannelFlowRequest(BaseValidatorModel):
     AppInstanceArn: str
-    Processors: Sequence[ProcessorTypeDef]
+    Processors: Sequence[Processor]
     Name: str
     ClientRequestToken: str
-    Tags: Optional[Sequence[TagTypeDef]] = None
+    Tags: Optional[Sequence[Tag]] = None
 
 
-class UpdateChannelFlowRequestTypeDef(BaseValidatorModel):
+class UpdateChannelFlowRequest(BaseValidatorModel):
     ChannelFlowArn: str
-    Processors: Sequence[ProcessorTypeDef]
+    Processors: Sequence[Processor]
     Name: str
 
 
-class ChannelFlowCallbackRequestTypeDef(BaseValidatorModel):
+class ChannelFlowCallbackRequest(BaseValidatorModel):
     CallbackId: str
     ChannelArn: str
-    ChannelMessage: ChannelMessageCallbackTypeDef
+    ChannelMessage: ChannelMessageCallback
     DeleteResource: Optional[bool] = None
 
 
-class ListChannelFlowsResponseTypeDef(BaseValidatorModel):
-    ChannelFlows: List[ChannelFlowSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListChannelFlowsResponse(BaseValidatorModel):
+    ChannelFlows: List[ChannelFlowSummary]
+    ResponseMetadata: ResponseMetadata
     NextToken: Optional[str] = None
 
 
-class DescribeChannelFlowResponseTypeDef(BaseValidatorModel):
-    ChannelFlow: ChannelFlowTypeDef
-    ResponseMetadata: ResponseMetadataTypeDef
+class DescribeChannelFlowResponse(BaseValidatorModel):
+    ChannelFlow: ChannelFlow
+    ResponseMetadata: ResponseMetadata
 
 

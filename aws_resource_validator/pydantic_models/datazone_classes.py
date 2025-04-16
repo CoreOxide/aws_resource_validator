@@ -12,18 +12,18 @@ from typing import Sequence
 from typing import Union
 from aws_resource_validator.pydantic_models.datazone_constants import *
 
-class AcceptChoiceTypeDef(BaseValidatorModel):
+class AcceptChoice(BaseValidatorModel):
     predictionTarget: str
     editedValue: Optional[str] = None
     predictionChoice: Optional[int] = None
 
 
-class AcceptRuleTypeDef(BaseValidatorModel):
+class AcceptRule(BaseValidatorModel):
     rule: Optional[AcceptRuleBehaviorType] = None
     threshold: Optional[float] = None
 
 
-class ResponseMetadataTypeDef(BaseValidatorModel):
+class ResponseMetadata(BaseValidatorModel):
     RequestId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, str]
@@ -31,157 +31,157 @@ class ResponseMetadataTypeDef(BaseValidatorModel):
     HostId: Optional[str] = None
 
 
-class AcceptedAssetScopeTypeDef(BaseValidatorModel):
+class AcceptedAssetScope(BaseValidatorModel):
     assetId: str
     filterIds: Sequence[str]
 
 
-class FormOutputTypeDef(BaseValidatorModel):
+class FormOutput(BaseValidatorModel):
     formName: str
     content: Optional[str] = None
     typeName: Optional[str] = None
     typeRevision: Optional[str] = None
 
 
-class AwsConsoleLinkParametersTypeDef(BaseValidatorModel):
+class AwsConsoleLinkParameters(BaseValidatorModel):
     uri: Optional[str] = None
 
 
-class AddToProjectMemberPoolPolicyGrantDetailTypeDef(BaseValidatorModel):
+class AddToProjectMemberPoolPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class ColumnFilterConfigurationOutputTypeDef(BaseValidatorModel):
+class ColumnFilterConfigurationOutput(BaseValidatorModel):
     includedColumnNames: Optional[List[str]] = None
 
 
-class ColumnFilterConfigurationTypeDef(BaseValidatorModel):
+class ColumnFilterConfiguration(BaseValidatorModel):
     includedColumnNames: Optional[Sequence[str]] = None
 
 
-class AssetInDataProductListingItemTypeDef(BaseValidatorModel):
+class AssetInDataProductListingItem(BaseValidatorModel):
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
     entityType: Optional[str] = None
 
 
-class AssetListingDetailsTypeDef(BaseValidatorModel):
+class AssetListingDetails(BaseValidatorModel):
     listingId: str
     listingStatus: ListingStatusType
 
 
-class DetailedGlossaryTermTypeDef(BaseValidatorModel):
+class DetailedGlossaryTerm(BaseValidatorModel):
     name: Optional[str] = None
     shortDescription: Optional[str] = None
 
 
-class AssetScopeTypeDef(BaseValidatorModel):
+class AssetScope(BaseValidatorModel):
     assetId: str
     filterIds: List[str]
     status: str
     errorMessage: Optional[str] = None
 
 
-class AssetTargetNameMapTypeDef(BaseValidatorModel):
+class AssetTargetNameMap(BaseValidatorModel):
     assetId: str
     targetName: str
 
 
-class FormEntryOutputTypeDef(BaseValidatorModel):
+class FormEntryOutput(BaseValidatorModel):
     typeName: str
     typeRevision: str
     required: Optional[bool] = None
 
 
-class AssetTypesForRuleOutputTypeDef(BaseValidatorModel):
+class AssetTypesForRuleOutput(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
     specificAssetTypes: Optional[List[str]] = None
 
 
-class AssetTypesForRuleTypeDef(BaseValidatorModel):
+class AssetTypesForRule(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
     specificAssetTypes: Optional[Sequence[str]] = None
 
 
-class AssociateEnvironmentRoleInputTypeDef(BaseValidatorModel):
+class AssociateEnvironmentRoleInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     environmentRoleArn: str
 
 
-class AthenaPropertiesInputTypeDef(BaseValidatorModel):
+class AthenaPropertiesInput(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
-class AthenaPropertiesOutputTypeDef(BaseValidatorModel):
+class AthenaPropertiesOutput(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
-class AthenaPropertiesPatchTypeDef(BaseValidatorModel):
+class AthenaPropertiesPatch(BaseValidatorModel):
     workgroupName: Optional[str] = None
 
 
-class BasicAuthenticationCredentialsTypeDef(BaseValidatorModel):
+class BasicAuthenticationCredentials(BaseValidatorModel):
     password: Optional[str] = None
     userName: Optional[str] = None
 
 
-class AuthorizationCodePropertiesTypeDef(BaseValidatorModel):
+class AuthorizationCodeProperties(BaseValidatorModel):
     authorizationCode: Optional[str] = None
     redirectUri: Optional[str] = None
 
 
-class AwsAccountTypeDef(BaseValidatorModel):
+class AwsAccount(BaseValidatorModel):
     awsAccountId: Optional[str] = None
     awsAccountIdPath: Optional[str] = None
 
 
-class AwsLocationTypeDef(BaseValidatorModel):
+class AwsLocation(BaseValidatorModel):
     accessRole: Optional[str] = None
     awsAccountId: Optional[str] = None
     awsRegion: Optional[str] = None
     iamConnectionId: Optional[str] = None
 
 
-class BusinessNameGenerationConfigurationTypeDef(BaseValidatorModel):
+class BusinessNameGenerationConfiguration(BaseValidatorModel):
     enabled: Optional[bool] = None
 
 
-class CancelMetadataGenerationRunInputTypeDef(BaseValidatorModel):
+class CancelMetadataGenerationRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class CancelSubscriptionInputTypeDef(BaseValidatorModel):
+class CancelSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class CloudFormationPropertiesTypeDef(BaseValidatorModel):
+class CloudFormationProperties(BaseValidatorModel):
     templateUrl: str
 
 
-class ConfigurableActionParameterTypeDef(BaseValidatorModel):
+class ConfigurableActionParameter(BaseValidatorModel):
     key: Optional[str] = None
     value: Optional[str] = None
 
 
-class ConnectionCredentialsTypeDef(BaseValidatorModel):
+class ConnectionCredentials(BaseValidatorModel):
     accessKeyId: Optional[str] = None
     expiration: Optional[datetime] = None
     secretAccessKey: Optional[str] = None
     sessionToken: Optional[str] = None
 
 
-class HyperPodPropertiesInputTypeDef(BaseValidatorModel):
+class HyperPodPropertiesInput(BaseValidatorModel):
     clusterName: str
 
 
-class IamPropertiesInputTypeDef(BaseValidatorModel):
+class IamPropertiesInput(BaseValidatorModel):
     glueLineageSyncEnabled: Optional[bool] = None
 
 
-class SparkEmrPropertiesInputTypeDef(BaseValidatorModel):
+class SparkEmrPropertiesInput(BaseValidatorModel):
     computeArn: Optional[str] = None
     instanceProfileArn: Optional[str] = None
     javaVirtualEnv: Optional[str] = None
@@ -191,27 +191,27 @@ class SparkEmrPropertiesInputTypeDef(BaseValidatorModel):
     trustedCertificatesS3Uri: Optional[str] = None
 
 
-class GluePropertiesOutputTypeDef(BaseValidatorModel):
+class GluePropertiesOutput(BaseValidatorModel):
     errorMessage: Optional[str] = None
     status: Optional[ConnectionStatusType] = None
 
 
-class HyperPodPropertiesOutputTypeDef(BaseValidatorModel):
+class HyperPodPropertiesOutput(BaseValidatorModel):
     clusterName: str
     clusterArn: Optional[str] = None
     orchestrator: Optional[HyperPodOrchestratorType] = None
 
 
-class IamPropertiesOutputTypeDef(BaseValidatorModel):
+class IamPropertiesOutput(BaseValidatorModel):
     environmentId: Optional[str] = None
     glueLineageSyncEnabled: Optional[bool] = None
 
 
-class IamPropertiesPatchTypeDef(BaseValidatorModel):
+class IamPropertiesPatch(BaseValidatorModel):
     glueLineageSyncEnabled: Optional[bool] = None
 
 
-class SparkEmrPropertiesPatchTypeDef(BaseValidatorModel):
+class SparkEmrPropertiesPatch(BaseValidatorModel):
     computeArn: Optional[str] = None
     instanceProfileArn: Optional[str] = None
     javaVirtualEnv: Optional[str] = None
@@ -221,45 +221,45 @@ class SparkEmrPropertiesPatchTypeDef(BaseValidatorModel):
     trustedCertificatesS3Uri: Optional[str] = None
 
 
-class FormInputTypeDef(BaseValidatorModel):
+class FormInput(BaseValidatorModel):
     formName: str
     content: Optional[str] = None
     typeIdentifier: Optional[str] = None
     typeRevision: Optional[str] = None
 
 
-class FormEntryInputTypeDef(BaseValidatorModel):
+class FormEntryInput(BaseValidatorModel):
     typeIdentifier: str
     typeRevision: str
     required: Optional[bool] = None
 
 
-class CreateAssetTypePolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateAssetTypePolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class DataProductItemOutputTypeDef(BaseValidatorModel):
+class DataProductItemOutput(BaseValidatorModel):
     identifier: str
     itemType: Literal["ASSET"]
     glossaryTerms: Optional[List[str]] = None
     revision: Optional[str] = None
 
 
-class RecommendationConfigurationTypeDef(BaseValidatorModel):
+class RecommendationConfiguration(BaseValidatorModel):
     enableBusinessNameGeneration: Optional[bool] = None
 
 
-class ScheduleConfigurationTypeDef(BaseValidatorModel):
+class ScheduleConfiguration(BaseValidatorModel):
     schedule: Optional[str] = None
     timezone: Optional[TimezoneType] = None
 
 
-class DataSourceErrorMessageTypeDef(BaseValidatorModel):
+class DataSourceErrorMessage(BaseValidatorModel):
     errorType: DataSourceErrorTypeType
     errorDetail: Optional[str] = None
 
 
-class CreateDomainUnitInputTypeDef(BaseValidatorModel):
+class CreateDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     parentDomainUnitIdentifier: str
@@ -267,16 +267,16 @@ class CreateDomainUnitInputTypeDef(BaseValidatorModel):
     description: Optional[str] = None
 
 
-class CreateDomainUnitPolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateDomainUnitPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class EnvironmentParameterTypeDef(BaseValidatorModel):
+class EnvironmentParameter(BaseValidatorModel):
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class CustomParameterTypeDef(BaseValidatorModel):
+class CustomParameter(BaseValidatorModel):
     fieldType: str
     keyName: str
     defaultValue: Optional[str] = None
@@ -285,24 +285,24 @@ class CustomParameterTypeDef(BaseValidatorModel):
     isOptional: Optional[bool] = None
 
 
-class DeploymentPropertiesTypeDef(BaseValidatorModel):
+class DeploymentProperties(BaseValidatorModel):
     endTimeoutMinutes: Optional[int] = None
     startTimeoutMinutes: Optional[int] = None
 
 
-class CreateEnvironmentProfilePolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateEnvironmentProfilePolicyGrantDetail(BaseValidatorModel):
     domainUnitId: Optional[str] = None
 
 
-class ModelTypeDef(BaseValidatorModel):
+class Model(BaseValidatorModel):
     smithy: Optional[str] = None
 
 
-class CreateFormTypePolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateFormTypePolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class CreateGlossaryInputTypeDef(BaseValidatorModel):
+class CreateGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     owningProjectIdentifier: str
@@ -311,22 +311,22 @@ class CreateGlossaryInputTypeDef(BaseValidatorModel):
     status: Optional[GlossaryStatusType] = None
 
 
-class CreateGlossaryPolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateGlossaryPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class TermRelationsOutputTypeDef(BaseValidatorModel):
+class TermRelationsOutput(BaseValidatorModel):
     classifies: Optional[List[str]] = None
     isA: Optional[List[str]] = None
 
 
-class CreateGroupProfileInputTypeDef(BaseValidatorModel):
+class CreateGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     clientToken: Optional[str] = None
 
 
-class CreateListingChangeSetInputTypeDef(BaseValidatorModel):
+class CreateListingChangeSetInput(BaseValidatorModel):
     action: ChangeActionType
     domainIdentifier: str
     entityIdentifier: str
@@ -335,78 +335,78 @@ class CreateListingChangeSetInputTypeDef(BaseValidatorModel):
     entityRevision: Optional[str] = None
 
 
-class CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef(BaseValidatorModel):
+class CreateProjectFromProjectProfilePolicyGrantDetailOutput(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
     projectProfiles: Optional[List[str]] = None
 
 
-class CreateProjectFromProjectProfilePolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateProjectFromProjectProfilePolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
     projectProfiles: Optional[Sequence[str]] = None
 
 
-class MemberTypeDef(BaseValidatorModel):
+class Member(BaseValidatorModel):
     groupIdentifier: Optional[str] = None
     userIdentifier: Optional[str] = None
 
 
-class ProjectDeletionErrorTypeDef(BaseValidatorModel):
+class ProjectDeletionError(BaseValidatorModel):
     code: Optional[str] = None
     message: Optional[str] = None
 
 
-class CreateProjectPolicyGrantDetailTypeDef(BaseValidatorModel):
+class CreateProjectPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class SubscribedListingInputTypeDef(BaseValidatorModel):
+class SubscribedListingInput(BaseValidatorModel):
     identifier: str
 
 
-class SubscriptionTargetFormTypeDef(BaseValidatorModel):
+class SubscriptionTargetForm(BaseValidatorModel):
     content: str
     formName: str
 
 
-class CreateUserProfileInputTypeDef(BaseValidatorModel):
+class CreateUserProfileInput(BaseValidatorModel):
     domainIdentifier: str
     userIdentifier: str
     clientToken: Optional[str] = None
     userType: Optional[UserTypeType] = None
 
 
-class DataProductItemTypeDef(BaseValidatorModel):
+class DataProductItem(BaseValidatorModel):
     identifier: str
     itemType: Literal["ASSET"]
     glossaryTerms: Optional[Sequence[str]] = None
     revision: Optional[str] = None
 
 
-class DataProductListingItemAdditionalAttributesTypeDef(BaseValidatorModel):
+class DataProductListingItemAdditionalAttributes(BaseValidatorModel):
     forms: Optional[str] = None
 
 
-class SageMakerRunConfigurationInputTypeDef(BaseValidatorModel):
+class SageMakerRunConfigurationInput(BaseValidatorModel):
     trackingAssets: Mapping[str, Sequence[str]]
 
 
-class SageMakerRunConfigurationOutputTypeDef(BaseValidatorModel):
+class SageMakerRunConfigurationOutput(BaseValidatorModel):
     trackingAssets: Dict[str, List[str]]
     accountId: Optional[str] = None
     region: Optional[str] = None
 
 
-class LineageInfoTypeDef(BaseValidatorModel):
+class LineageInfo(BaseValidatorModel):
     errorMessage: Optional[str] = None
     eventId: Optional[str] = None
     eventStatus: Optional[LineageEventProcessingStatusType] = None
 
 
-class DataSourceRunLineageSummaryTypeDef(BaseValidatorModel):
+class DataSourceRunLineageSummary(BaseValidatorModel):
     importStatus: Optional[LineageImportStatusType] = None
 
 
-class RunStatisticsForAssetsTypeDef(BaseValidatorModel):
+class RunStatisticsForAssets(BaseValidatorModel):
     added: Optional[int] = None
     failed: Optional[int] = None
     skipped: Optional[int] = None
@@ -414,124 +414,124 @@ class RunStatisticsForAssetsTypeDef(BaseValidatorModel):
     updated: Optional[int] = None
 
 
-class DeleteAssetFilterInputTypeDef(BaseValidatorModel):
+class DeleteAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
 
 
-class DeleteAssetInputTypeDef(BaseValidatorModel):
+class DeleteAssetInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteAssetTypeInputTypeDef(BaseValidatorModel):
+class DeleteAssetTypeInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteConnectionInputTypeDef(BaseValidatorModel):
+class DeleteConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteDataProductInputTypeDef(BaseValidatorModel):
+class DeleteDataProductInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteDataSourceInputTypeDef(BaseValidatorModel):
+class DeleteDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
     retainPermissionsOnRevokeFailure: Optional[bool] = None
 
 
-class DeleteDomainInputTypeDef(BaseValidatorModel):
+class DeleteDomainInput(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
     skipDeletionCheck: Optional[bool] = None
 
 
-class DeleteDomainUnitInputTypeDef(BaseValidatorModel):
+class DeleteDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteEnvironmentActionInputTypeDef(BaseValidatorModel):
+class DeleteEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
-class DeleteEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
+class DeleteEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
 
 
-class DeleteEnvironmentInputTypeDef(BaseValidatorModel):
+class DeleteEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteEnvironmentProfileInputTypeDef(BaseValidatorModel):
+class DeleteEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteFormTypeInputTypeDef(BaseValidatorModel):
+class DeleteFormTypeInput(BaseValidatorModel):
     domainIdentifier: str
     formTypeIdentifier: str
 
 
-class DeleteGlossaryInputTypeDef(BaseValidatorModel):
+class DeleteGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteGlossaryTermInputTypeDef(BaseValidatorModel):
+class DeleteGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteListingInputTypeDef(BaseValidatorModel):
+class DeleteListingInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteProjectInputTypeDef(BaseValidatorModel):
+class DeleteProjectInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     skipDeletionCheck: Optional[bool] = None
 
 
-class DeleteProjectProfileInputTypeDef(BaseValidatorModel):
+class DeleteProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteRuleInputTypeDef(BaseValidatorModel):
+class DeleteRuleInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteSubscriptionGrantInputTypeDef(BaseValidatorModel):
+class DeleteSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteSubscriptionRequestInputTypeDef(BaseValidatorModel):
+class DeleteSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class DeleteSubscriptionTargetInputTypeDef(BaseValidatorModel):
+class DeleteSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
-class DeleteTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
+class DeleteTimeSeriesDataPointsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
@@ -539,241 +539,241 @@ class DeleteTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
 
 
-class EnvironmentErrorTypeDef(BaseValidatorModel):
+class EnvironmentError(BaseValidatorModel):
     message: str
     code: Optional[str] = None
 
 
-class DisassociateEnvironmentRoleInputTypeDef(BaseValidatorModel):
+class DisassociateEnvironmentRoleInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     environmentRoleArn: str
 
 
-class DomainUnitFilterForProjectTypeDef(BaseValidatorModel):
+class DomainUnitFilterForProject(BaseValidatorModel):
     domainUnit: str
     includeChildDomainUnits: Optional[bool] = None
 
 
-class DomainUnitGrantFilterOutputTypeDef(BaseValidatorModel):
+class DomainUnitGrantFilterOutput(BaseValidatorModel):
     allDomainUnitsGrantFilter: Optional[Dict[str, Any]] = None
 
 
-class DomainUnitGrantFilterTypeDef(BaseValidatorModel):
+class DomainUnitGrantFilter(BaseValidatorModel):
     allDomainUnitsGrantFilter: Optional[Mapping[str, Any]] = None
 
 
-class DomainUnitGroupPropertiesTypeDef(BaseValidatorModel):
+class DomainUnitGroupProperties(BaseValidatorModel):
     groupId: Optional[str] = None
 
 
-class DomainUnitUserPropertiesTypeDef(BaseValidatorModel):
+class DomainUnitUserProperties(BaseValidatorModel):
     userId: Optional[str] = None
 
 
-class DomainUnitTargetTypeDef(BaseValidatorModel):
+class DomainUnitTarget(BaseValidatorModel):
     domainUnitId: str
     includeChildDomainUnits: Optional[bool] = None
 
 
-class RegionTypeDef(BaseValidatorModel):
+class Region(BaseValidatorModel):
     regionName: Optional[str] = None
     regionNamePath: Optional[str] = None
 
 
-class EnvironmentConfigurationParameterTypeDef(BaseValidatorModel):
+class EnvironmentConfigurationParameter(BaseValidatorModel):
     isEditable: Optional[bool] = None
     name: Optional[str] = None
     value: Optional[str] = None
 
 
-class EqualToExpressionTypeDef(BaseValidatorModel):
+class EqualToExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class FailureCauseTypeDef(BaseValidatorModel):
+class FailureCause(BaseValidatorModel):
     message: Optional[str] = None
 
 
-class FilterTypeDef(BaseValidatorModel):
+class Filter(BaseValidatorModel):
     attribute: str
     value: str
 
 
-class ImportTypeDef(BaseValidatorModel):
+class Import(BaseValidatorModel):
     name: str
     revision: str
 
 
-class GetAssetFilterInputTypeDef(BaseValidatorModel):
+class GetAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
 
 
-class GetAssetInputTypeDef(BaseValidatorModel):
+class GetAssetInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
-class GetAssetTypeInputTypeDef(BaseValidatorModel):
+class GetAssetTypeInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
-class GetConnectionInputTypeDef(BaseValidatorModel):
+class GetConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     withSecret: Optional[bool] = None
 
 
-class GetDataProductInputTypeDef(BaseValidatorModel):
+class GetDataProductInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
-class GetDataSourceInputTypeDef(BaseValidatorModel):
+class GetDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetDataSourceRunInputTypeDef(BaseValidatorModel):
+class GetDataSourceRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetDomainInputTypeDef(BaseValidatorModel):
+class GetDomainInput(BaseValidatorModel):
     identifier: str
 
 
-class GetDomainUnitInputTypeDef(BaseValidatorModel):
+class GetDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetEnvironmentActionInputTypeDef(BaseValidatorModel):
+class GetEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
-class GetEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
+class GetEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
 
 
-class GetEnvironmentBlueprintInputTypeDef(BaseValidatorModel):
+class GetEnvironmentBlueprintInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetEnvironmentCredentialsInputTypeDef(BaseValidatorModel):
+class GetEnvironmentCredentialsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
 
 
-class GetEnvironmentInputTypeDef(BaseValidatorModel):
+class GetEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetEnvironmentProfileInputTypeDef(BaseValidatorModel):
+class GetEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetFormTypeInputTypeDef(BaseValidatorModel):
+class GetFormTypeInput(BaseValidatorModel):
     domainIdentifier: str
     formTypeIdentifier: str
     revision: Optional[str] = None
 
 
-class GetGlossaryInputTypeDef(BaseValidatorModel):
+class GetGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetGlossaryTermInputTypeDef(BaseValidatorModel):
+class GetGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetGroupProfileInputTypeDef(BaseValidatorModel):
+class GetGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
 
 
-class GetIamPortalLoginUrlInputTypeDef(BaseValidatorModel):
+class GetIamPortalLoginUrlInput(BaseValidatorModel):
     domainIdentifier: str
 
 
-class GetJobRunInputTypeDef(BaseValidatorModel):
+class GetJobRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class JobRunErrorTypeDef(BaseValidatorModel):
+class JobRunError(BaseValidatorModel):
     message: str
 
 
-class GetLineageEventInputTypeDef(BaseValidatorModel):
+class GetLineageEventInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetListingInputTypeDef(BaseValidatorModel):
+class GetListingInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     listingRevision: Optional[str] = None
 
 
-class GetMetadataGenerationRunInputTypeDef(BaseValidatorModel):
+class GetMetadataGenerationRunInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetProjectInputTypeDef(BaseValidatorModel):
+class GetProjectInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetProjectProfileInputTypeDef(BaseValidatorModel):
+class GetProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetRuleInputTypeDef(BaseValidatorModel):
+class GetRuleInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     revision: Optional[str] = None
 
 
-class GetSubscriptionGrantInputTypeDef(BaseValidatorModel):
+class GetSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetSubscriptionInputTypeDef(BaseValidatorModel):
+class GetSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetSubscriptionRequestDetailsInputTypeDef(BaseValidatorModel):
+class GetSubscriptionRequestDetailsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
 
 
-class GetSubscriptionTargetInputTypeDef(BaseValidatorModel):
+class GetSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
 
 
-class GetTimeSeriesDataPointInputTypeDef(BaseValidatorModel):
+class GetTimeSeriesDataPointInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
@@ -781,98 +781,98 @@ class GetTimeSeriesDataPointInputTypeDef(BaseValidatorModel):
     identifier: str
 
 
-class PhysicalConnectionRequirementsOutputTypeDef(BaseValidatorModel):
+class PhysicalConnectionRequirementsOutput(BaseValidatorModel):
     availabilityZone: Optional[str] = None
     securityGroupIdList: Optional[List[str]] = None
     subnetId: Optional[str] = None
     subnetIdList: Optional[List[str]] = None
 
 
-class GlueOAuth2CredentialsTypeDef(BaseValidatorModel):
+class GlueOAuth2Credentials(BaseValidatorModel):
     accessToken: Optional[str] = None
     jwtToken: Optional[str] = None
     refreshToken: Optional[str] = None
     userManagedClientApplicationClientSecret: Optional[str] = None
 
 
-class SelfGrantStatusDetailTypeDef(BaseValidatorModel):
+class SelfGrantStatusDetail(BaseValidatorModel):
     databaseName: str
     status: SelfGrantStatusType
     failureCause: Optional[str] = None
     schemaName: Optional[str] = None
 
 
-class ListingRevisionInputTypeDef(BaseValidatorModel):
+class ListingRevisionInput(BaseValidatorModel):
     identifier: str
     revision: str
 
 
-class GreaterThanExpressionTypeDef(BaseValidatorModel):
+class GreaterThanExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class GreaterThanOrEqualToExpressionTypeDef(BaseValidatorModel):
+class GreaterThanOrEqualToExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class GroupDetailsTypeDef(BaseValidatorModel):
+class GroupDetails(BaseValidatorModel):
     groupId: str
 
 
-class GroupPolicyGrantPrincipalTypeDef(BaseValidatorModel):
+class GroupPolicyGrantPrincipal(BaseValidatorModel):
     groupIdentifier: Optional[str] = None
 
 
-class IamUserProfileDetailsTypeDef(BaseValidatorModel):
+class IamUserProfileDetails(BaseValidatorModel):
     arn: Optional[str] = None
 
 
-class InExpressionOutputTypeDef(BaseValidatorModel):
+class InExpressionOutput(BaseValidatorModel):
     columnName: str
     values: List[str]
 
 
-class InExpressionTypeDef(BaseValidatorModel):
+class InExpression(BaseValidatorModel):
     columnName: str
     values: Sequence[str]
 
 
-class IsNotNullExpressionTypeDef(BaseValidatorModel):
+class IsNotNullExpression(BaseValidatorModel):
     columnName: str
 
 
-class IsNullExpressionTypeDef(BaseValidatorModel):
+class IsNullExpression(BaseValidatorModel):
     columnName: str
 
 
-class LakeFormationConfigurationOutputTypeDef(BaseValidatorModel):
+class LakeFormationConfigurationOutput(BaseValidatorModel):
     locationRegistrationExcludeS3Locations: Optional[List[str]] = None
     locationRegistrationRole: Optional[str] = None
 
 
-class LakeFormationConfigurationTypeDef(BaseValidatorModel):
+class LakeFormationConfiguration(BaseValidatorModel):
     locationRegistrationExcludeS3Locations: Optional[Sequence[str]] = None
     locationRegistrationRole: Optional[str] = None
 
 
-class LessThanExpressionTypeDef(BaseValidatorModel):
+class LessThanExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class LessThanOrEqualToExpressionTypeDef(BaseValidatorModel):
+class LessThanOrEqualToExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class LikeExpressionTypeDef(BaseValidatorModel):
+class LikeExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class LineageSqlQueryRunDetailsTypeDef(BaseValidatorModel):
+class LineageSqlQueryRunDetails(BaseValidatorModel):
     errorMessages: Optional[List[str]] = None
     numQueriesFailed: Optional[int] = None
     queryEndTime: Optional[datetime] = None
@@ -880,17 +880,17 @@ class LineageSqlQueryRunDetailsTypeDef(BaseValidatorModel):
     totalQueriesProcessed: Optional[int] = None
 
 
-class LineageSyncScheduleTypeDef(BaseValidatorModel):
+class LineageSyncSchedule(BaseValidatorModel):
     schedule: Optional[str] = None
 
 
-class PaginatorConfigTypeDef(BaseValidatorModel):
+class PaginatorConfig(BaseValidatorModel):
     MaxItems: Optional[int] = None
     PageSize: Optional[int] = None
     StartingToken: Optional[str] = None
 
 
-class ListAssetFiltersInputTypeDef(BaseValidatorModel):
+class ListAssetFiltersInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     maxResults: Optional[int] = None
@@ -898,21 +898,21 @@ class ListAssetFiltersInputTypeDef(BaseValidatorModel):
     status: Optional[FilterStatusType] = None
 
 
-class ListAssetRevisionsInputTypeDef(BaseValidatorModel):
+class ListAssetRevisionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDataProductRevisionsInputTypeDef(BaseValidatorModel):
+class ListDataProductRevisionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDataSourceRunActivitiesInputTypeDef(BaseValidatorModel):
+class ListDataSourceRunActivitiesInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     maxResults: Optional[int] = None
@@ -920,7 +920,7 @@ class ListDataSourceRunActivitiesInputTypeDef(BaseValidatorModel):
     status: Optional[DataAssetActivityStatusType] = None
 
 
-class ListDataSourceRunsInputTypeDef(BaseValidatorModel):
+class ListDataSourceRunsInput(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     maxResults: Optional[int] = None
@@ -928,20 +928,20 @@ class ListDataSourceRunsInputTypeDef(BaseValidatorModel):
     status: Optional[DataSourceRunStatusType] = None
 
 
-class ListDomainUnitsForParentInputTypeDef(BaseValidatorModel):
+class ListDomainUnitsForParentInput(BaseValidatorModel):
     domainIdentifier: str
     parentDomainUnitIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListDomainsInputTypeDef(BaseValidatorModel):
+class ListDomainsInput(BaseValidatorModel):
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     status: Optional[DomainStatusType] = None
 
 
-class ListEntityOwnersInputTypeDef(BaseValidatorModel):
+class ListEntityOwnersInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: Literal["DOMAIN_UNIT"]
@@ -949,20 +949,20 @@ class ListEntityOwnersInputTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentActionsInputTypeDef(BaseValidatorModel):
+class ListEnvironmentActionsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentBlueprintConfigurationsInputTypeDef(BaseValidatorModel):
+class ListEnvironmentBlueprintConfigurationsInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentBlueprintsInputTypeDef(BaseValidatorModel):
+class ListEnvironmentBlueprintsInput(BaseValidatorModel):
     domainIdentifier: str
     managed: Optional[bool] = None
     maxResults: Optional[int] = None
@@ -970,7 +970,7 @@ class ListEnvironmentBlueprintsInputTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentProfilesInputTypeDef(BaseValidatorModel):
+class ListEnvironmentProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
@@ -981,7 +981,7 @@ class ListEnvironmentProfilesInputTypeDef(BaseValidatorModel):
     projectIdentifier: Optional[str] = None
 
 
-class ListEnvironmentsInputTypeDef(BaseValidatorModel):
+class ListEnvironmentsInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     awsAccountId: Optional[str] = None
@@ -995,7 +995,7 @@ class ListEnvironmentsInputTypeDef(BaseValidatorModel):
     status: Optional[EnvironmentStatusType] = None
 
 
-class ListJobRunsInputTypeDef(BaseValidatorModel):
+class ListJobRunsInput(BaseValidatorModel):
     domainIdentifier: str
     jobIdentifier: str
     maxResults: Optional[int] = None
@@ -1004,7 +1004,7 @@ class ListJobRunsInputTypeDef(BaseValidatorModel):
     status: Optional[JobRunStatusType] = None
 
 
-class ListPolicyGrantsInputTypeDef(BaseValidatorModel):
+class ListPolicyGrantsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TargetEntityTypeType
@@ -1013,7 +1013,7 @@ class ListPolicyGrantsInputTypeDef(BaseValidatorModel):
     nextToken: Optional[str] = None
 
 
-class ListProjectMembershipsInputTypeDef(BaseValidatorModel):
+class ListProjectMembershipsInput(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     maxResults: Optional[int] = None
@@ -1022,7 +1022,7 @@ class ListProjectMembershipsInputTypeDef(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
-class ListProjectProfilesInputTypeDef(BaseValidatorModel):
+class ListProjectProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     name: Optional[str] = None
@@ -1031,7 +1031,7 @@ class ListProjectProfilesInputTypeDef(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
-class ListProjectsInputTypeDef(BaseValidatorModel):
+class ListProjectsInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1040,7 +1040,7 @@ class ListProjectsInputTypeDef(BaseValidatorModel):
     userIdentifier: Optional[str] = None
 
 
-class ListRulesInputTypeDef(BaseValidatorModel):
+class ListRulesInput(BaseValidatorModel):
     domainIdentifier: str
     targetIdentifier: str
     targetType: Literal["DOMAIN_UNIT"]
@@ -1054,7 +1054,7 @@ class ListRulesInputTypeDef(BaseValidatorModel):
     ruleType: Optional[Literal["METADATA_FORM_ENFORCEMENT"]] = None
 
 
-class ListSubscriptionGrantsInputTypeDef(BaseValidatorModel):
+class ListSubscriptionGrantsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1067,7 +1067,7 @@ class ListSubscriptionGrantsInputTypeDef(BaseValidatorModel):
     subscriptionTargetId: Optional[str] = None
 
 
-class ListSubscriptionRequestsInputTypeDef(BaseValidatorModel):
+class ListSubscriptionRequestsInput(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1079,7 +1079,7 @@ class ListSubscriptionRequestsInputTypeDef(BaseValidatorModel):
     subscribedListingId: Optional[str] = None
 
 
-class ListSubscriptionTargetsInputTypeDef(BaseValidatorModel):
+class ListSubscriptionTargetsInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     maxResults: Optional[int] = None
@@ -1088,7 +1088,7 @@ class ListSubscriptionTargetsInputTypeDef(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
 
 
-class ListSubscriptionsInputTypeDef(BaseValidatorModel):
+class ListSubscriptionsInput(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     maxResults: Optional[int] = None
@@ -1101,151 +1101,151 @@ class ListSubscriptionsInputTypeDef(BaseValidatorModel):
     subscriptionRequestIdentifier: Optional[str] = None
 
 
-class ListTagsForResourceRequestTypeDef(BaseValidatorModel):
+class ListTagsForResourceRequest(BaseValidatorModel):
     resourceArn: str
 
 
-class UserDetailsTypeDef(BaseValidatorModel):
+class UserDetails(BaseValidatorModel):
     userId: str
 
 
-class MetadataFormReferenceTypeDef(BaseValidatorModel):
+class MetadataFormReference(BaseValidatorModel):
     typeIdentifier: str
     typeRevision: str
 
 
-class MetadataFormSummaryTypeDef(BaseValidatorModel):
+class MetadataFormSummary(BaseValidatorModel):
     typeName: str
     typeRevision: str
     formName: Optional[str] = None
 
 
-class NameIdentifierTypeDef(BaseValidatorModel):
+class NameIdentifier(BaseValidatorModel):
     name: Optional[str] = None
     namespace: Optional[str] = None
 
 
-class NotEqualToExpressionTypeDef(BaseValidatorModel):
+class NotEqualToExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class NotInExpressionOutputTypeDef(BaseValidatorModel):
+class NotInExpressionOutput(BaseValidatorModel):
     columnName: str
     values: List[str]
 
 
-class NotInExpressionTypeDef(BaseValidatorModel):
+class NotInExpression(BaseValidatorModel):
     columnName: str
     values: Sequence[str]
 
 
-class NotLikeExpressionTypeDef(BaseValidatorModel):
+class NotLikeExpression(BaseValidatorModel):
     columnName: str
     value: str
 
 
-class OAuth2ClientApplicationTypeDef(BaseValidatorModel):
+class OAuth2ClientApplication(BaseValidatorModel):
     aWSManagedClientApplicationReference: Optional[str] = None
     userManagedClientApplicationClientId: Optional[str] = None
 
 
-class OverrideDomainUnitOwnersPolicyGrantDetailTypeDef(BaseValidatorModel):
+class OverrideDomainUnitOwnersPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class OverrideProjectOwnersPolicyGrantDetailTypeDef(BaseValidatorModel):
+class OverrideProjectOwnersPolicyGrantDetail(BaseValidatorModel):
     includeChildDomainUnits: Optional[bool] = None
 
 
-class OwnerGroupPropertiesOutputTypeDef(BaseValidatorModel):
+class OwnerGroupPropertiesOutput(BaseValidatorModel):
     groupId: Optional[str] = None
 
 
-class OwnerGroupPropertiesTypeDef(BaseValidatorModel):
+class OwnerGroupProperties(BaseValidatorModel):
     groupIdentifier: str
 
 
-class OwnerUserPropertiesOutputTypeDef(BaseValidatorModel):
+class OwnerUserPropertiesOutput(BaseValidatorModel):
     userId: Optional[str] = None
 
 
-class OwnerUserPropertiesTypeDef(BaseValidatorModel):
+class OwnerUserProperties(BaseValidatorModel):
     userIdentifier: str
 
 
-class PhysicalConnectionRequirementsTypeDef(BaseValidatorModel):
+class PhysicalConnectionRequirements(BaseValidatorModel):
     availabilityZone: Optional[str] = None
     securityGroupIdList: Optional[Sequence[str]] = None
     subnetId: Optional[str] = None
     subnetIdList: Optional[Sequence[str]] = None
 
 
-class UserPolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
+class UserPolicyGrantPrincipalOutput(BaseValidatorModel):
     allUsersGrantFilter: Optional[Dict[str, Any]] = None
     userIdentifier: Optional[str] = None
 
 
-class UserPolicyGrantPrincipalTypeDef(BaseValidatorModel):
+class UserPolicyGrantPrincipal(BaseValidatorModel):
     allUsersGrantFilter: Optional[Mapping[str, Any]] = None
     userIdentifier: Optional[str] = None
 
 
-class ProjectsForRuleOutputTypeDef(BaseValidatorModel):
+class ProjectsForRuleOutput(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
     specificProjects: Optional[List[str]] = None
 
 
-class ProjectsForRuleTypeDef(BaseValidatorModel):
+class ProjectsForRule(BaseValidatorModel):
     selectionMode: RuleScopeSelectionModeType
     specificProjects: Optional[Sequence[str]] = None
 
 
-class RedshiftClusterStorageTypeDef(BaseValidatorModel):
+class RedshiftClusterStorage(BaseValidatorModel):
     clusterName: str
 
 
-class RedshiftCredentialConfigurationTypeDef(BaseValidatorModel):
+class RedshiftCredentialConfiguration(BaseValidatorModel):
     secretManagerArn: str
 
 
-class UsernamePasswordTypeDef(BaseValidatorModel):
+class UsernamePassword(BaseValidatorModel):
     password: str
     username: str
 
 
-class RedshiftStoragePropertiesTypeDef(BaseValidatorModel):
+class RedshiftStorageProperties(BaseValidatorModel):
     clusterName: Optional[str] = None
     workgroupName: Optional[str] = None
 
 
-class RedshiftServerlessStorageTypeDef(BaseValidatorModel):
+class RedshiftServerlessStorage(BaseValidatorModel):
     workgroupName: str
 
 
-class RejectChoiceTypeDef(BaseValidatorModel):
+class RejectChoice(BaseValidatorModel):
     predictionTarget: str
     predictionChoices: Optional[Sequence[int]] = None
 
 
-class RejectRuleTypeDef(BaseValidatorModel):
+class RejectRule(BaseValidatorModel):
     rule: Optional[RejectRuleBehaviorType] = None
     threshold: Optional[float] = None
 
 
-class RejectSubscriptionRequestInputTypeDef(BaseValidatorModel):
+class RejectSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     decisionComment: Optional[str] = None
 
 
-class RevokeSubscriptionInputTypeDef(BaseValidatorModel):
+class RevokeSubscriptionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     retainPermissions: Optional[bool] = None
 
 
-class SearchGroupProfilesInputTypeDef(BaseValidatorModel):
+class SearchGroupProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     groupType: GroupSearchTypeType
     maxResults: Optional[int] = None
@@ -1253,16 +1253,16 @@ class SearchGroupProfilesInputTypeDef(BaseValidatorModel):
     searchText: Optional[str] = None
 
 
-class SearchInItemTypeDef(BaseValidatorModel):
+class SearchInItem(BaseValidatorModel):
     attribute: str
 
 
-class SearchSortTypeDef(BaseValidatorModel):
+class SearchSort(BaseValidatorModel):
     attribute: str
     order: Optional[SortOrderType] = None
 
 
-class SearchUserProfilesInputTypeDef(BaseValidatorModel):
+class SearchUserProfilesInput(BaseValidatorModel):
     domainIdentifier: str
     userType: UserSearchTypeType
     maxResults: Optional[int] = None
@@ -1270,49 +1270,49 @@ class SearchUserProfilesInputTypeDef(BaseValidatorModel):
     searchText: Optional[str] = None
 
 
-class SparkGlueArgsTypeDef(BaseValidatorModel):
+class SparkGlueArgs(BaseValidatorModel):
     connection: Optional[str] = None
 
 
-class SsoUserProfileDetailsTypeDef(BaseValidatorModel):
+class SsoUserProfileDetails(BaseValidatorModel):
     firstName: Optional[str] = None
     lastName: Optional[str] = None
     username: Optional[str] = None
 
 
-class StartDataSourceRunInputTypeDef(BaseValidatorModel):
+class StartDataSourceRunInput(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     clientToken: Optional[str] = None
 
 
-class SubscribedProjectInputTypeDef(BaseValidatorModel):
+class SubscribedProjectInput(BaseValidatorModel):
     identifier: Optional[str] = None
 
 
-class TagResourceRequestTypeDef(BaseValidatorModel):
+class TagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tags: Mapping[str, str]
 
 
-class TermRelationsTypeDef(BaseValidatorModel):
+class TermRelations(BaseValidatorModel):
     classifies: Optional[Sequence[str]] = None
     isA: Optional[Sequence[str]] = None
 
 
-class UntagResourceRequestTypeDef(BaseValidatorModel):
+class UntagResourceRequest(BaseValidatorModel):
     resourceArn: str
     tagKeys: Sequence[str]
 
 
-class UpdateDomainUnitInputTypeDef(BaseValidatorModel):
+class UpdateDomainUnitInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
+class UpdateEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
@@ -1320,7 +1320,7 @@ class UpdateEnvironmentInputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
 
 
-class UpdateGlossaryInputTypeDef(BaseValidatorModel):
+class UpdateGlossaryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
@@ -1329,35 +1329,35 @@ class UpdateGlossaryInputTypeDef(BaseValidatorModel):
     status: Optional[GlossaryStatusType] = None
 
 
-class UpdateGroupProfileInputTypeDef(BaseValidatorModel):
+class UpdateGroupProfileInput(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: str
     status: GroupProfileStatusType
 
 
-class UpdateSubscriptionRequestInputTypeDef(BaseValidatorModel):
+class UpdateSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     requestReason: str
 
 
-class AcceptPredictionsInputTypeDef(BaseValidatorModel):
+class AcceptPredictionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    acceptChoices: Optional[Sequence[AcceptChoiceTypeDef]] = None
-    acceptRule: Optional[AcceptRuleTypeDef] = None
+    acceptChoices: Optional[Sequence[AcceptChoice]] = None
+    acceptRule: Optional[AcceptRule] = None
     clientToken: Optional[str] = None
     revision: Optional[str] = None
 
 
-class AcceptPredictionsOutputTypeDef(BaseValidatorModel):
+class AcceptPredictionsOutput(BaseValidatorModel):
     assetId: str
     domainId: str
     revision: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateFormTypeOutputTypeDef(BaseValidatorModel):
+class CreateFormTypeOutput(BaseValidatorModel):
     description: str
     domainId: str
     name: str
@@ -1365,152 +1365,152 @@ class CreateFormTypeOutputTypeDef(BaseValidatorModel):
     originProjectId: str
     owningProjectId: str
     revision: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class CreateListingChangeSetOutputTypeDef(BaseValidatorModel):
+class CreateListingChangeSetOutput(BaseValidatorModel):
     listingId: str
     listingRevision: str
     status: ListingStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteConnectionOutputTypeDef(BaseValidatorModel):
+class DeleteConnectionOutput(BaseValidatorModel):
     status: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class DeleteDomainOutputTypeDef(BaseValidatorModel):
+class DeleteDomainOutput(BaseValidatorModel):
     status: DomainStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class EmptyResponseMetadataTypeDef(BaseValidatorModel):
-    ResponseMetadata: ResponseMetadataTypeDef
+class EmptyResponseMetadata(BaseValidatorModel):
+    ResponseMetadata: ResponseMetadata
 
 
-class GetEnvironmentCredentialsOutputTypeDef(BaseValidatorModel):
+class GetEnvironmentCredentialsOutput(BaseValidatorModel):
     accessKeyId: str
     expiration: datetime
     secretAccessKey: str
     sessionToken: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetIamPortalLoginUrlOutputTypeDef(BaseValidatorModel):
+class GetIamPortalLoginUrlOutput(BaseValidatorModel):
     authCodeUrl: str
     userProfileId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class ListTagsForResourceResponseTypeDef(BaseValidatorModel):
+class ListTagsForResourceResponse(BaseValidatorModel):
     tags: Dict[str, str]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RejectPredictionsOutputTypeDef(BaseValidatorModel):
+class RejectPredictionsOutput(BaseValidatorModel):
     assetId: str
     assetRevision: str
     domainId: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class AcceptSubscriptionRequestInputTypeDef(BaseValidatorModel):
+class AcceptSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    assetScopes: Optional[Sequence[AcceptedAssetScopeTypeDef]] = None
+    assetScopes: Optional[Sequence[AcceptedAssetScope]] = None
     decisionComment: Optional[str] = None
 
 
-class ActionParametersTypeDef(BaseValidatorModel):
-    awsConsoleLink: Optional[AwsConsoleLinkParametersTypeDef] = None
+class ActionParameters(BaseValidatorModel):
+    awsConsoleLink: Optional[AwsConsoleLinkParameters] = None
 
 
-class AssetFilterSummaryTypeDef(BaseValidatorModel):
+class AssetFilterSummary(BaseValidatorModel):
     pass
 
 
-class ListAssetFiltersOutputTypeDef(BaseValidatorModel):
-    items: List[AssetFilterSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetFiltersOutput(BaseValidatorModel):
+    items: List[AssetFilterSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class TimeSeriesDataPointSummaryFormOutputTypeDef(BaseValidatorModel):
+class TimeSeriesDataPointSummaryFormOutput(BaseValidatorModel):
     pass
 
 
-class AssetItemAdditionalAttributesTypeDef(BaseValidatorModel):
-    formsOutput: Optional[List[FormOutputTypeDef]] = None
-    latestTimeSeriesDataPointFormsOutput: Optional[ List[TimeSeriesDataPointSummaryFormOutputTypeDef] ] = None
-    readOnlyFormsOutput: Optional[List[FormOutputTypeDef]] = None
+class AssetItemAdditionalAttributes(BaseValidatorModel):
+    formsOutput: Optional[List[FormOutput]] = None
+    latestTimeSeriesDataPointFormsOutput: Optional[ List[TimeSeriesDataPointSummaryFormOutput] ] = None
+    readOnlyFormsOutput: Optional[List[FormOutput]] = None
 
 
-class AssetListingItemAdditionalAttributesTypeDef(BaseValidatorModel):
+class AssetListingItemAdditionalAttributes(BaseValidatorModel):
     forms: Optional[str] = None
-    latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutputTypeDef]] = None
+    latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutput]] = None
 
 
-class ListTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
-    items: List[TimeSeriesDataPointSummaryFormOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListTimeSeriesDataPointsOutput(BaseValidatorModel):
+    items: List[TimeSeriesDataPointSummaryFormOutput]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetListingTypeDef(BaseValidatorModel):
+class AssetListing(BaseValidatorModel):
     assetId: Optional[str] = None
     assetRevision: Optional[str] = None
     assetType: Optional[str] = None
     createdAt: Optional[datetime] = None
     forms: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutputTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
+    latestTimeSeriesDataPointForms: Optional[List[TimeSeriesDataPointSummaryFormOutput]] = None
     owningProjectId: Optional[str] = None
 
 
-class ListingSummaryItemTypeDef(BaseValidatorModel):
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
+class ListingSummaryItem(BaseValidatorModel):
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
     listingId: Optional[str] = None
     listingRevision: Optional[str] = None
 
 
-class ListingSummaryTypeDef(BaseValidatorModel):
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
+class ListingSummary(BaseValidatorModel):
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
     listingId: Optional[str] = None
     listingRevision: Optional[str] = None
 
 
-class SubscribedProductListingTypeDef(BaseValidatorModel):
-    assetListings: Optional[List[AssetInDataProductListingItemTypeDef]] = None
+class SubscribedProductListing(BaseValidatorModel):
+    assetListings: Optional[List[AssetInDataProductListingItem]] = None
     description: Optional[str] = None
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
     name: Optional[str] = None
 
 
-class AssetRevisionTypeDef(BaseValidatorModel):
+class AssetRevision(BaseValidatorModel):
     pass
 
 
-class ListAssetRevisionsOutputTypeDef(BaseValidatorModel):
-    items: List[AssetRevisionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListAssetRevisionsOutput(BaseValidatorModel):
+    items: List[AssetRevision]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SubscribedAssetListingTypeDef(BaseValidatorModel):
-    assetScope: Optional[AssetScopeTypeDef] = None
+class SubscribedAssetListing(BaseValidatorModel):
+    assetScope: Optional[AssetScope] = None
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
     entityType: Optional[str] = None
     forms: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
 
 
-class AssetTypeItemTypeDef(BaseValidatorModel):
+class AssetTypeItem(BaseValidatorModel):
     domainId: str
-    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    formsOutput: Dict[str, FormEntryOutput]
     name: str
     owningProjectId: str
     revision: str
@@ -1523,12 +1523,12 @@ class AssetTypeItemTypeDef(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
-class CreateAssetTypeOutputTypeDef(BaseValidatorModel):
+class CreateAssetTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
     domainId: str
-    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    formsOutput: Dict[str, FormEntryOutput]
     name: str
     originDomainId: str
     originProjectId: str
@@ -1536,15 +1536,15 @@ class CreateAssetTypeOutputTypeDef(BaseValidatorModel):
     revision: str
     updatedAt: datetime
     updatedBy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetAssetTypeOutputTypeDef(BaseValidatorModel):
+class GetAssetTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
     domainId: str
-    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    formsOutput: Dict[str, FormEntryOutput]
     name: str
     originDomainId: str
     originProjectId: str
@@ -1552,12 +1552,12 @@ class GetAssetTypeOutputTypeDef(BaseValidatorModel):
     revision: str
     updatedAt: datetime
     updatedBy: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LineageNodeTypeItemTypeDef(BaseValidatorModel):
+class LineageNodeTypeItem(BaseValidatorModel):
     domainId: str
-    formsOutput: Dict[str, FormEntryOutputTypeDef]
+    formsOutput: Dict[str, FormEntryOutput]
     revision: str
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
@@ -1567,42 +1567,42 @@ class LineageNodeTypeItemTypeDef(BaseValidatorModel):
     updatedBy: Optional[str] = None
 
 
-class AuthenticationConfigurationPatchTypeDef(BaseValidatorModel):
-    basicAuthenticationCredentials: Optional[BasicAuthenticationCredentialsTypeDef] = None
+class AuthenticationConfigurationPatch(BaseValidatorModel):
+    basicAuthenticationCredentials: Optional[BasicAuthenticationCredentials] = None
     secretArn: Optional[str] = None
 
 
-class BlobTypeDef(BaseValidatorModel):
+class Blob(BaseValidatorModel):
     pass
 
 
-class PostLineageEventInputTypeDef(BaseValidatorModel):
+class PostLineageEventInput(BaseValidatorModel):
     domainIdentifier: str
-    event: BlobTypeDef
+    event: Blob
     clientToken: Optional[str] = None
 
 
-class PredictionConfigurationTypeDef(BaseValidatorModel):
-    businessNameGeneration: Optional[BusinessNameGenerationConfigurationTypeDef] = None
+class PredictionConfiguration(BaseValidatorModel):
+    businessNameGeneration: Optional[BusinessNameGenerationConfiguration] = None
 
 
-class ProvisioningPropertiesTypeDef(BaseValidatorModel):
-    cloudFormation: Optional[CloudFormationPropertiesTypeDef] = None
+class ProvisioningProperties(BaseValidatorModel):
+    cloudFormation: Optional[CloudFormationProperties] = None
 
 
-class CreateAssetTypeInputTypeDef(BaseValidatorModel):
+class CreateAssetTypeInput(BaseValidatorModel):
     domainIdentifier: str
-    formsInput: Mapping[str, FormEntryInputTypeDef]
+    formsInput: Mapping[str, FormEntryInput]
     name: str
     owningProjectIdentifier: str
     description: Optional[str] = None
 
 
-class SingleSignOnTypeDef(BaseValidatorModel):
+class SingleSignOn(BaseValidatorModel):
     pass
 
 
-class CreateDomainInputTypeDef(BaseValidatorModel):
+class CreateDomainInput(BaseValidatorModel):
     domainExecutionRole: str
     name: str
     clientToken: Optional[str] = None
@@ -1610,21 +1610,21 @@ class CreateDomainInputTypeDef(BaseValidatorModel):
     domainVersion: Optional[DomainVersionType] = None
     kmsKeyIdentifier: Optional[str] = None
     serviceRole: Optional[str] = None
-    singleSignOn: Optional[SingleSignOnTypeDef] = None
+    singleSignOn: Optional[SingleSignOn] = None
     tags: Optional[Mapping[str, str]] = None
 
 
-class UpdateDomainInputTypeDef(BaseValidatorModel):
+class UpdateDomainInput(BaseValidatorModel):
     identifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
     domainExecutionRole: Optional[str] = None
     name: Optional[str] = None
     serviceRole: Optional[str] = None
-    singleSignOn: Optional[SingleSignOnTypeDef] = None
+    singleSignOn: Optional[SingleSignOn] = None
 
 
-class CreateEnvironmentInputTypeDef(BaseValidatorModel):
+class CreateEnvironmentInput(BaseValidatorModel):
     domainIdentifier: str
     environmentProfileIdentifier: str
     name: str
@@ -1636,10 +1636,10 @@ class CreateEnvironmentInputTypeDef(BaseValidatorModel):
     environmentBlueprintIdentifier: Optional[str] = None
     environmentConfigurationId: Optional[str] = None
     glossaryTerms: Optional[Sequence[str]] = None
-    userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
+    userParameters: Optional[Sequence[EnvironmentParameter]] = None
 
 
-class CreateEnvironmentProfileInputTypeDef(BaseValidatorModel):
+class CreateEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     environmentBlueprintIdentifier: str
     name: str
@@ -1647,52 +1647,52 @@ class CreateEnvironmentProfileInputTypeDef(BaseValidatorModel):
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
     description: Optional[str] = None
-    userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
+    userParameters: Optional[Sequence[EnvironmentParameter]] = None
 
 
-class EnvironmentConfigurationUserParameterOutputTypeDef(BaseValidatorModel):
+class EnvironmentConfigurationUserParameterOutput(BaseValidatorModel):
     environmentConfigurationName: Optional[str] = None
-    environmentParameters: Optional[List[EnvironmentParameterTypeDef]] = None
+    environmentParameters: Optional[List[EnvironmentParameter]] = None
 
 
-class EnvironmentConfigurationUserParameterTypeDef(BaseValidatorModel):
+class EnvironmentConfigurationUserParameter(BaseValidatorModel):
     environmentConfigurationName: Optional[str] = None
-    environmentParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
+    environmentParameters: Optional[Sequence[EnvironmentParameter]] = None
 
 
-class UpdateEnvironmentProfileInputTypeDef(BaseValidatorModel):
+class UpdateEnvironmentProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
     description: Optional[str] = None
     name: Optional[str] = None
-    userParameters: Optional[Sequence[EnvironmentParameterTypeDef]] = None
+    userParameters: Optional[Sequence[EnvironmentParameter]] = None
 
 
-class CreateFormTypeInputTypeDef(BaseValidatorModel):
+class CreateFormTypeInput(BaseValidatorModel):
     domainIdentifier: str
-    model: ModelTypeDef
+    model: Model
     name: str
     owningProjectIdentifier: str
     description: Optional[str] = None
     status: Optional[FormTypeStatusType] = None
 
 
-class CreateProjectMembershipInputTypeDef(BaseValidatorModel):
+class CreateProjectMembershipInput(BaseValidatorModel):
     designation: UserDesignationType
     domainIdentifier: str
-    member: MemberTypeDef
+    member: Member
     projectIdentifier: str
 
 
-class DeleteProjectMembershipInputTypeDef(BaseValidatorModel):
+class DeleteProjectMembershipInput(BaseValidatorModel):
     domainIdentifier: str
-    member: MemberTypeDef
+    member: Member
     projectIdentifier: str
 
 
-class UpdateSubscriptionTargetInputTypeDef(BaseValidatorModel):
+class UpdateSubscriptionTargetInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
@@ -1701,20 +1701,20 @@ class UpdateSubscriptionTargetInputTypeDef(BaseValidatorModel):
     manageAccessRole: Optional[str] = None
     name: Optional[str] = None
     provider: Optional[str] = None
-    subscriptionTargetConfig: Optional[Sequence[SubscriptionTargetFormTypeDef]] = None
+    subscriptionTargetConfig: Optional[Sequence[SubscriptionTargetForm]] = None
 
 
-class DataProductRevisionTypeDef(BaseValidatorModel):
+class DataProductRevision(BaseValidatorModel):
     pass
 
 
-class ListDataProductRevisionsOutputTypeDef(BaseValidatorModel):
-    items: List[DataProductRevisionTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataProductRevisionsOutput(BaseValidatorModel):
+    items: List[DataProductRevision]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataSourceRunActivityTypeDef(BaseValidatorModel):
+class DataSourceRunActivity(BaseValidatorModel):
     createdAt: datetime
     dataAssetStatus: DataAssetActivityStatusType
     dataSourceRunId: str
@@ -1723,180 +1723,180 @@ class DataSourceRunActivityTypeDef(BaseValidatorModel):
     technicalName: str
     updatedAt: datetime
     dataAssetId: Optional[str] = None
-    errorMessage: Optional[DataSourceErrorMessageTypeDef] = None
-    lineageSummary: Optional[LineageInfoTypeDef] = None
+    errorMessage: Optional[DataSourceErrorMessage] = None
+    lineageSummary: Optional[LineageInfo] = None
     technicalDescription: Optional[str] = None
 
 
-class DeploymentTypeDef(BaseValidatorModel):
+class Deployment(BaseValidatorModel):
     deploymentId: Optional[str] = None
     deploymentStatus: Optional[DeploymentStatusType] = None
     deploymentType: Optional[DeploymentTypeType] = None
-    failureReason: Optional[EnvironmentErrorTypeDef] = None
+    failureReason: Optional[EnvironmentError] = None
     isDeploymentComplete: Optional[bool] = None
     messages: Optional[List[str]] = None
 
 
-class EnvironmentDeploymentDetailsOutputTypeDef(BaseValidatorModel):
-    environmentFailureReasons: Optional[Dict[str, List[EnvironmentErrorTypeDef]]] = None
+class EnvironmentDeploymentDetailsOutput(BaseValidatorModel):
+    environmentFailureReasons: Optional[Dict[str, List[EnvironmentError]]] = None
     overallDeploymentStatus: Optional[OverallDeploymentStatusType] = None
 
 
-class EnvironmentDeploymentDetailsTypeDef(BaseValidatorModel):
-    environmentFailureReasons: Optional[Mapping[str, Sequence[EnvironmentErrorTypeDef]]] = None
+class EnvironmentDeploymentDetails(BaseValidatorModel):
+    environmentFailureReasons: Optional[Mapping[str, Sequence[EnvironmentError]]] = None
     overallDeploymentStatus: Optional[OverallDeploymentStatusType] = None
 
 
-class DomainSummaryTypeDef(BaseValidatorModel):
+class DomainSummary(BaseValidatorModel):
     pass
 
 
-class ListDomainsOutputTypeDef(BaseValidatorModel):
-    items: List[DomainSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainsOutput(BaseValidatorModel):
+    items: List[DomainSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ProjectGrantFilterTypeDef(BaseValidatorModel):
-    domainUnitFilter: Optional[DomainUnitFilterForProjectTypeDef] = None
+class ProjectGrantFilter(BaseValidatorModel):
+    domainUnitFilter: Optional[DomainUnitFilterForProject] = None
 
 
-class DomainUnitPolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
+class DomainUnitPolicyGrantPrincipalOutput(BaseValidatorModel):
     domainUnitDesignation: Literal["OWNER"]
-    domainUnitGrantFilter: Optional[DomainUnitGrantFilterOutputTypeDef] = None
+    domainUnitGrantFilter: Optional[DomainUnitGrantFilterOutput] = None
     domainUnitIdentifier: Optional[str] = None
 
 
-class DomainUnitPolicyGrantPrincipalTypeDef(BaseValidatorModel):
+class DomainUnitPolicyGrantPrincipal(BaseValidatorModel):
     domainUnitDesignation: Literal["OWNER"]
-    domainUnitGrantFilter: Optional[DomainUnitGrantFilterTypeDef] = None
+    domainUnitGrantFilter: Optional[DomainUnitGrantFilter] = None
     domainUnitIdentifier: Optional[str] = None
 
 
-class DomainUnitOwnerPropertiesTypeDef(BaseValidatorModel):
-    group: Optional[DomainUnitGroupPropertiesTypeDef] = None
-    user: Optional[DomainUnitUserPropertiesTypeDef] = None
+class DomainUnitOwnerProperties(BaseValidatorModel):
+    group: Optional[DomainUnitGroupProperties] = None
+    user: Optional[DomainUnitUserProperties] = None
 
 
-class DomainUnitSummaryTypeDef(BaseValidatorModel):
+class DomainUnitSummary(BaseValidatorModel):
     pass
 
 
-class ListDomainUnitsForParentOutputTypeDef(BaseValidatorModel):
-    items: List[DomainUnitSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDomainUnitsForParentOutput(BaseValidatorModel):
+    items: List[DomainUnitSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class RuleTargetTypeDef(BaseValidatorModel):
-    domainUnitTarget: Optional[DomainUnitTargetTypeDef] = None
+class RuleTarget(BaseValidatorModel):
+    domainUnitTarget: Optional[DomainUnitTarget] = None
 
 
-class EnvironmentConfigurationParametersDetailsOutputTypeDef(BaseValidatorModel):
-    parameterOverrides: Optional[List[EnvironmentConfigurationParameterTypeDef]] = None
-    resolvedParameters: Optional[List[EnvironmentConfigurationParameterTypeDef]] = None
+class EnvironmentConfigurationParametersDetailsOutput(BaseValidatorModel):
+    parameterOverrides: Optional[List[EnvironmentConfigurationParameter]] = None
+    resolvedParameters: Optional[List[EnvironmentConfigurationParameter]] = None
     ssmPath: Optional[str] = None
 
 
-class EnvironmentConfigurationParametersDetailsTypeDef(BaseValidatorModel):
-    parameterOverrides: Optional[Sequence[EnvironmentConfigurationParameterTypeDef]] = None
-    resolvedParameters: Optional[Sequence[EnvironmentConfigurationParameterTypeDef]] = None
+class EnvironmentConfigurationParametersDetails(BaseValidatorModel):
+    parameterOverrides: Optional[Sequence[EnvironmentConfigurationParameter]] = None
+    resolvedParameters: Optional[Sequence[EnvironmentConfigurationParameter]] = None
     ssmPath: Optional[str] = None
 
 
-class EnvironmentProfileSummaryTypeDef(BaseValidatorModel):
+class EnvironmentProfileSummary(BaseValidatorModel):
     pass
 
 
-class ListEnvironmentProfilesOutputTypeDef(BaseValidatorModel):
-    items: List[EnvironmentProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentProfilesOutput(BaseValidatorModel):
+    items: List[EnvironmentProfileSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EnvironmentSummaryTypeDef(BaseValidatorModel):
+class EnvironmentSummary(BaseValidatorModel):
     pass
 
 
-class ListEnvironmentsOutputTypeDef(BaseValidatorModel):
-    items: List[EnvironmentSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentsOutput(BaseValidatorModel):
+    items: List[EnvironmentSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SubscribedAssetTypeDef(BaseValidatorModel):
+class SubscribedAsset(BaseValidatorModel):
     assetId: str
     assetRevision: str
     status: SubscriptionGrantStatusType
-    assetScope: Optional[AssetScopeTypeDef] = None
-    failureCause: Optional[FailureCauseTypeDef] = None
+    assetScope: Optional[AssetScope] = None
+    failureCause: Optional[FailureCause] = None
     failureTimestamp: Optional[datetime] = None
     grantedTimestamp: Optional[datetime] = None
     targetName: Optional[str] = None
 
 
-class UpdateSubscriptionGrantStatusInputTypeDef(BaseValidatorModel):
+class UpdateSubscriptionGrantStatusInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
     status: SubscriptionGrantStatusType
-    failureCause: Optional[FailureCauseTypeDef] = None
+    failureCause: Optional[FailureCause] = None
     targetName: Optional[str] = None
 
 
-class FilterExpressionTypeDef(BaseValidatorModel):
+class FilterExpression(BaseValidatorModel):
     pass
 
 
-class RelationalFilterConfigurationOutputTypeDef(BaseValidatorModel):
+class RelationalFilterConfigurationOutput(BaseValidatorModel):
     databaseName: str
-    filterExpressions: Optional[List[FilterExpressionTypeDef]] = None
+    filterExpressions: Optional[List[FilterExpression]] = None
     schemaName: Optional[str] = None
 
 
-class RelationalFilterConfigurationTypeDef(BaseValidatorModel):
+class RelationalFilterConfiguration(BaseValidatorModel):
     databaseName: str
-    filterExpressions: Optional[Sequence[FilterExpressionTypeDef]] = None
+    filterExpressions: Optional[Sequence[FilterExpression]] = None
     schemaName: Optional[str] = None
 
 
-class FormTypeDataTypeDef(BaseValidatorModel):
+class FormTypeData(BaseValidatorModel):
     domainId: str
     name: str
     revision: str
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     description: Optional[str] = None
-    imports: Optional[List[ImportTypeDef]] = None
-    model: Optional[ModelTypeDef] = None
+    imports: Optional[List[Import]] = None
+    model: Optional[Model] = None
     originDomainId: Optional[str] = None
     originProjectId: Optional[str] = None
     owningProjectId: Optional[str] = None
     status: Optional[FormTypeStatusType] = None
 
 
-class GetFormTypeOutputTypeDef(BaseValidatorModel):
+class GetFormTypeOutput(BaseValidatorModel):
     createdAt: datetime
     createdBy: str
     description: str
     domainId: str
-    imports: List[ImportTypeDef]
-    model: ModelTypeDef
+    imports: List[Import]
+    model: Model
     name: str
     originDomainId: str
     originProjectId: str
     owningProjectId: str
     revision: str
     status: FormTypeStatusType
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class JobRunSummaryTypeDef(BaseValidatorModel):
+class JobRunSummary(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     domainId: Optional[str] = None
     endTime: Optional[datetime] = None
-    error: Optional[JobRunErrorTypeDef] = None
+    error: Optional[JobRunError] = None
     jobId: Optional[str] = None
     jobType: Optional[Literal["LINEAGE"]] = None
     runId: Optional[str] = None
@@ -1905,216 +1905,216 @@ class JobRunSummaryTypeDef(BaseValidatorModel):
     status: Optional[JobRunStatusType] = None
 
 
-class TimestampTypeDef(BaseValidatorModel):
+class Timestamp(BaseValidatorModel):
     pass
 
 
-class GetLineageNodeInputTypeDef(BaseValidatorModel):
+class GetLineageNodeInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    eventTimestamp: Optional[TimestampTypeDef] = None
+    eventTimestamp: Optional[Timestamp] = None
 
 
-class ListLineageEventsInputTypeDef(BaseValidatorModel):
+class ListLineageEventsInput(BaseValidatorModel):
     domainIdentifier: str
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     processingStatus: Optional[LineageEventProcessingStatusType] = None
     sortOrder: Optional[SortOrderType] = None
-    timestampAfter: Optional[TimestampTypeDef] = None
-    timestampBefore: Optional[TimestampTypeDef] = None
+    timestampAfter: Optional[Timestamp] = None
+    timestampBefore: Optional[Timestamp] = None
 
 
-class ListLineageNodeHistoryInputTypeDef(BaseValidatorModel):
+class ListLineageNodeHistoryInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     direction: Optional[EdgeDirectionType] = None
-    eventTimestampGTE: Optional[TimestampTypeDef] = None
-    eventTimestampLTE: Optional[TimestampTypeDef] = None
+    eventTimestampGTE: Optional[Timestamp] = None
+    eventTimestampLTE: Optional[Timestamp] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     sortOrder: Optional[SortOrderType] = None
 
 
-class ListTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
+class ListTimeSeriesDataPointsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
     formName: str
-    endedAt: Optional[TimestampTypeDef] = None
+    endedAt: Optional[Timestamp] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    startedAt: Optional[TimestampTypeDef] = None
+    startedAt: Optional[Timestamp] = None
 
 
-class TimeSeriesDataPointFormInputTypeDef(BaseValidatorModel):
+class TimeSeriesDataPointFormInput(BaseValidatorModel):
     formName: str
-    timestamp: TimestampTypeDef
+    timestamp: Timestamp
     typeIdentifier: str
     content: Optional[str] = None
     typeRevision: Optional[str] = None
 
 
-class TimeSeriesDataPointFormOutputTypeDef(BaseValidatorModel):
+class TimeSeriesDataPointFormOutput(BaseValidatorModel):
     pass
 
 
-class GetTimeSeriesDataPointOutputTypeDef(BaseValidatorModel):
+class GetTimeSeriesDataPointOutput(BaseValidatorModel):
     domainId: str
     entityId: str
     entityType: TimeSeriesEntityTypeType
-    form: TimeSeriesDataPointFormOutputTypeDef
+    form: TimeSeriesDataPointFormOutput
     formName: str
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PostTimeSeriesDataPointsOutputTypeDef(BaseValidatorModel):
+class PostTimeSeriesDataPointsOutput(BaseValidatorModel):
     domainId: str
     entityId: str
     entityType: TimeSeriesEntityTypeType
-    forms: List[TimeSeriesDataPointFormOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+    forms: List[TimeSeriesDataPointFormOutput]
+    ResponseMetadata: ResponseMetadata
 
 
-class GlueSelfGrantStatusOutputTypeDef(BaseValidatorModel):
-    selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
+class GlueSelfGrantStatusOutput(BaseValidatorModel):
+    selfGrantStatusDetails: List[SelfGrantStatusDetail]
 
 
-class RedshiftSelfGrantStatusOutputTypeDef(BaseValidatorModel):
-    selfGrantStatusDetails: List[SelfGrantStatusDetailTypeDef]
+class RedshiftSelfGrantStatusOutput(BaseValidatorModel):
+    selfGrantStatusDetails: List[SelfGrantStatusDetail]
 
 
-class GrantedEntityInputTypeDef(BaseValidatorModel):
-    listing: Optional[ListingRevisionInputTypeDef] = None
+class GrantedEntityInput(BaseValidatorModel):
+    listing: Optional[ListingRevisionInput] = None
 
 
-class ListingRevisionTypeDef(BaseValidatorModel):
+class ListingRevision(BaseValidatorModel):
     pass
 
 
-class GrantedEntityTypeDef(BaseValidatorModel):
-    listing: Optional[ListingRevisionTypeDef] = None
+class GrantedEntity(BaseValidatorModel):
+    listing: Optional[ListingRevision] = None
 
 
-class GroupProfileSummaryTypeDef(BaseValidatorModel):
+class GroupProfileSummary(BaseValidatorModel):
     pass
 
 
-class SearchGroupProfilesOutputTypeDef(BaseValidatorModel):
-    items: List[GroupProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchGroupProfilesOutput(BaseValidatorModel):
+    items: List[GroupProfileSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ProvisioningConfigurationOutputTypeDef(BaseValidatorModel):
-    lakeFormationConfiguration: Optional[LakeFormationConfigurationOutputTypeDef] = None
+class ProvisioningConfigurationOutput(BaseValidatorModel):
+    lakeFormationConfiguration: Optional[LakeFormationConfigurationOutput] = None
 
 
-class LineageNodeSummaryTypeDef(BaseValidatorModel):
+class LineageNodeSummary(BaseValidatorModel):
     pass
 
 
-class ListLineageNodeHistoryOutputTypeDef(BaseValidatorModel):
-    nodes: List[LineageNodeSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLineageNodeHistoryOutput(BaseValidatorModel):
+    nodes: List[LineageNodeSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class LineageRunDetailsTypeDef(BaseValidatorModel):
-    sqlQueryRunDetails: Optional[LineageSqlQueryRunDetailsTypeDef] = None
+class LineageRunDetails(BaseValidatorModel):
+    sqlQueryRunDetails: Optional[LineageSqlQueryRunDetails] = None
 
 
-class RedshiftLineageSyncConfigurationInputTypeDef(BaseValidatorModel):
+class RedshiftLineageSyncConfigurationInput(BaseValidatorModel):
     enabled: Optional[bool] = None
-    schedule: Optional[LineageSyncScheduleTypeDef] = None
+    schedule: Optional[LineageSyncSchedule] = None
 
 
-class RedshiftLineageSyncConfigurationOutputTypeDef(BaseValidatorModel):
+class RedshiftLineageSyncConfigurationOutput(BaseValidatorModel):
     enabled: Optional[bool] = None
     lineageJobId: Optional[str] = None
-    schedule: Optional[LineageSyncScheduleTypeDef] = None
+    schedule: Optional[LineageSyncSchedule] = None
 
 
-class ListAssetFiltersInputPaginateTypeDef(BaseValidatorModel):
+class ListAssetFiltersInputPaginate(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     status: Optional[FilterStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListAssetRevisionsInputPaginateTypeDef(BaseValidatorModel):
+class ListAssetRevisionsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataProductRevisionsInputPaginateTypeDef(BaseValidatorModel):
+class ListDataProductRevisionsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourceRunActivitiesInputPaginateTypeDef(BaseValidatorModel):
+class ListDataSourceRunActivitiesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     status: Optional[DataAssetActivityStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDataSourceRunsInputPaginateTypeDef(BaseValidatorModel):
+class ListDataSourceRunsInputPaginate(BaseValidatorModel):
     dataSourceIdentifier: str
     domainIdentifier: str
     status: Optional[DataSourceRunStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainUnitsForParentInputPaginateTypeDef(BaseValidatorModel):
+class ListDomainUnitsForParentInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     parentDomainUnitIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListDomainsInputPaginateTypeDef(BaseValidatorModel):
+class ListDomainsInputPaginate(BaseValidatorModel):
     status: Optional[DomainStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEntityOwnersInputPaginateTypeDef(BaseValidatorModel):
+class ListEntityOwnersInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: Literal["DOMAIN_UNIT"]
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentActionsInputPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentActionsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentBlueprintConfigurationsInputPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentBlueprintConfigurationsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentBlueprintsInputPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentBlueprintsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     managed: Optional[bool] = None
     name: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentProfilesInputPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentProfilesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     awsAccountId: Optional[str] = None
     awsAccountRegion: Optional[str] = None
     environmentBlueprintIdentifier: Optional[str] = None
     name: Optional[str] = None
     projectIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListEnvironmentsInputPaginateTypeDef(BaseValidatorModel):
+class ListEnvironmentsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     awsAccountId: Optional[str] = None
@@ -2124,69 +2124,69 @@ class ListEnvironmentsInputPaginateTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     provider: Optional[str] = None
     status: Optional[EnvironmentStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListJobRunsInputPaginateTypeDef(BaseValidatorModel):
+class ListJobRunsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     jobIdentifier: str
     sortOrder: Optional[SortOrderType] = None
     status: Optional[JobRunStatusType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLineageEventsInputPaginateTypeDef(BaseValidatorModel):
+class ListLineageEventsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     processingStatus: Optional[LineageEventProcessingStatusType] = None
     sortOrder: Optional[SortOrderType] = None
-    timestampAfter: Optional[TimestampTypeDef] = None
-    timestampBefore: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    timestampAfter: Optional[Timestamp] = None
+    timestampBefore: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListLineageNodeHistoryInputPaginateTypeDef(BaseValidatorModel):
+class ListLineageNodeHistoryInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     direction: Optional[EdgeDirectionType] = None
-    eventTimestampGTE: Optional[TimestampTypeDef] = None
-    eventTimestampLTE: Optional[TimestampTypeDef] = None
+    eventTimestampGTE: Optional[Timestamp] = None
+    eventTimestampLTE: Optional[Timestamp] = None
     sortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListPolicyGrantsInputPaginateTypeDef(BaseValidatorModel):
+class ListPolicyGrantsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TargetEntityTypeType
     policyType: ManagedPolicyTypeType
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectMembershipsInputPaginateTypeDef(BaseValidatorModel):
+class ListProjectMembershipsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     projectIdentifier: str
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectProfilesInputPaginateTypeDef(BaseValidatorModel):
+class ListProjectProfilesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     name: Optional[str] = None
     sortBy: Optional[Literal["NAME"]] = None
     sortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListProjectsInputPaginateTypeDef(BaseValidatorModel):
+class ListProjectsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     groupIdentifier: Optional[str] = None
     name: Optional[str] = None
     userIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListRulesInputPaginateTypeDef(BaseValidatorModel):
+class ListRulesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     targetIdentifier: str
     targetType: Literal["DOMAIN_UNIT"]
@@ -2196,10 +2196,10 @@ class ListRulesInputPaginateTypeDef(BaseValidatorModel):
     includeCascaded: Optional[bool] = None
     projectIds: Optional[Sequence[str]] = None
     ruleType: Optional[Literal["METADATA_FORM_ENFORCEMENT"]] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscriptionGrantsInputPaginateTypeDef(BaseValidatorModel):
+class ListSubscriptionGrantsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     environmentId: Optional[str] = None
     owningProjectId: Optional[str] = None
@@ -2208,10 +2208,10 @@ class ListSubscriptionGrantsInputPaginateTypeDef(BaseValidatorModel):
     subscribedListingId: Optional[str] = None
     subscriptionId: Optional[str] = None
     subscriptionTargetId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscriptionRequestsInputPaginateTypeDef(BaseValidatorModel):
+class ListSubscriptionRequestsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     owningProjectId: Optional[str] = None
@@ -2219,18 +2219,18 @@ class ListSubscriptionRequestsInputPaginateTypeDef(BaseValidatorModel):
     sortOrder: Optional[SortOrderType] = None
     status: Optional[SubscriptionRequestStatusType] = None
     subscribedListingId: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscriptionTargetsInputPaginateTypeDef(BaseValidatorModel):
+class ListSubscriptionTargetsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     sortBy: Optional[SortKeyType] = None
     sortOrder: Optional[SortOrderType] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListSubscriptionsInputPaginateTypeDef(BaseValidatorModel):
+class ListSubscriptionsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     approverProjectId: Optional[str] = None
     owningProjectId: Optional[str] = None
@@ -2239,154 +2239,154 @@ class ListSubscriptionsInputPaginateTypeDef(BaseValidatorModel):
     status: Optional[SubscriptionStatusType] = None
     subscribedListingId: Optional[str] = None
     subscriptionRequestIdentifier: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ListTimeSeriesDataPointsInputPaginateTypeDef(BaseValidatorModel):
+class ListTimeSeriesDataPointsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
     formName: str
-    endedAt: Optional[TimestampTypeDef] = None
-    startedAt: Optional[TimestampTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    endedAt: Optional[Timestamp] = None
+    startedAt: Optional[Timestamp] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchGroupProfilesInputPaginateTypeDef(BaseValidatorModel):
+class SearchGroupProfilesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     groupType: GroupSearchTypeType
     searchText: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchUserProfilesInputPaginateTypeDef(BaseValidatorModel):
+class SearchUserProfilesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     userType: UserSearchTypeType
     searchText: Optional[str] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class ProjectProfileSummaryTypeDef(BaseValidatorModel):
+class ProjectProfileSummary(BaseValidatorModel):
     pass
 
 
-class ListProjectProfilesOutputTypeDef(BaseValidatorModel):
-    items: List[ProjectProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectProfilesOutput(BaseValidatorModel):
+    items: List[ProjectProfileSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class MemberDetailsTypeDef(BaseValidatorModel):
-    group: Optional[GroupDetailsTypeDef] = None
-    user: Optional[UserDetailsTypeDef] = None
+class MemberDetails(BaseValidatorModel):
+    group: Optional[GroupDetails] = None
+    user: Optional[UserDetails] = None
 
 
-class MetadataFormEnforcementDetailOutputTypeDef(BaseValidatorModel):
-    requiredMetadataForms: Optional[List[MetadataFormReferenceTypeDef]] = None
+class MetadataFormEnforcementDetailOutput(BaseValidatorModel):
+    requiredMetadataForms: Optional[List[MetadataFormReference]] = None
 
 
-class MetadataFormEnforcementDetailTypeDef(BaseValidatorModel):
-    requiredMetadataForms: Optional[Sequence[MetadataFormReferenceTypeDef]] = None
+class MetadataFormEnforcementDetail(BaseValidatorModel):
+    requiredMetadataForms: Optional[Sequence[MetadataFormReference]] = None
 
 
-class OpenLineageRunEventSummaryTypeDef(BaseValidatorModel):
+class OpenLineageRunEventSummary(BaseValidatorModel):
     eventType: Optional[OpenLineageRunStateType] = None
-    inputs: Optional[List[NameIdentifierTypeDef]] = None
-    job: Optional[NameIdentifierTypeDef] = None
-    outputs: Optional[List[NameIdentifierTypeDef]] = None
+    inputs: Optional[List[NameIdentifier]] = None
+    job: Optional[NameIdentifier] = None
+    outputs: Optional[List[NameIdentifier]] = None
     runId: Optional[str] = None
 
 
-class NotificationResourceTypeDef(BaseValidatorModel):
+class NotificationResource(BaseValidatorModel):
     pass
 
 
-class TopicTypeDef(BaseValidatorModel):
-    resource: NotificationResourceTypeDef
+class Topic(BaseValidatorModel):
+    resource: NotificationResource
     role: NotificationRoleType
     subject: str
 
 
-class OAuth2PropertiesOutputTypeDef(BaseValidatorModel):
-    authorizationCodeProperties: Optional[AuthorizationCodePropertiesTypeDef] = None
-    oAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
-    oAuth2Credentials: Optional[GlueOAuth2CredentialsTypeDef] = None
+class OAuth2PropertiesOutput(BaseValidatorModel):
+    authorizationCodeProperties: Optional[AuthorizationCodeProperties] = None
+    oAuth2ClientApplication: Optional[OAuth2ClientApplication] = None
+    oAuth2Credentials: Optional[GlueOAuth2Credentials] = None
     oAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     tokenUrl: Optional[str] = None
     tokenUrlParametersMap: Optional[Dict[str, str]] = None
 
 
-class OAuth2PropertiesTypeDef(BaseValidatorModel):
-    authorizationCodeProperties: Optional[AuthorizationCodePropertiesTypeDef] = None
-    oAuth2ClientApplication: Optional[OAuth2ClientApplicationTypeDef] = None
-    oAuth2Credentials: Optional[GlueOAuth2CredentialsTypeDef] = None
+class OAuth2Properties(BaseValidatorModel):
+    authorizationCodeProperties: Optional[AuthorizationCodeProperties] = None
+    oAuth2ClientApplication: Optional[OAuth2ClientApplication] = None
+    oAuth2Credentials: Optional[GlueOAuth2Credentials] = None
     oAuth2GrantType: Optional[OAuth2GrantTypeType] = None
     tokenUrl: Optional[str] = None
     tokenUrlParametersMap: Optional[Mapping[str, str]] = None
 
 
-class PolicyGrantDetailOutputTypeDef(BaseValidatorModel):
-    addToProjectMemberPool: Optional[AddToProjectMemberPoolPolicyGrantDetailTypeDef] = None
-    createAssetType: Optional[CreateAssetTypePolicyGrantDetailTypeDef] = None
-    createDomainUnit: Optional[CreateDomainUnitPolicyGrantDetailTypeDef] = None
+class PolicyGrantDetailOutput(BaseValidatorModel):
+    addToProjectMemberPool: Optional[AddToProjectMemberPoolPolicyGrantDetail] = None
+    createAssetType: Optional[CreateAssetTypePolicyGrantDetail] = None
+    createDomainUnit: Optional[CreateDomainUnitPolicyGrantDetail] = None
     createEnvironment: Optional[Dict[str, Any]] = None
     createEnvironmentFromBlueprint: Optional[Dict[str, Any]] = None
-    createEnvironmentProfile: Optional[CreateEnvironmentProfilePolicyGrantDetailTypeDef] = None
-    createFormType: Optional[CreateFormTypePolicyGrantDetailTypeDef] = None
-    createGlossary: Optional[CreateGlossaryPolicyGrantDetailTypeDef] = None
-    createProject: Optional[CreateProjectPolicyGrantDetailTypeDef] = None
-    createProjectFromProjectProfile: Optional[ CreateProjectFromProjectProfilePolicyGrantDetailOutputTypeDef ] = None
+    createEnvironmentProfile: Optional[CreateEnvironmentProfilePolicyGrantDetail] = None
+    createFormType: Optional[CreateFormTypePolicyGrantDetail] = None
+    createGlossary: Optional[CreateGlossaryPolicyGrantDetail] = None
+    createProject: Optional[CreateProjectPolicyGrantDetail] = None
+    createProjectFromProjectProfile: Optional[ CreateProjectFromProjectProfilePolicyGrantDetailOutput ] = None
     delegateCreateEnvironmentProfile: Optional[Dict[str, Any]] = None
-    overrideDomainUnitOwners: Optional[OverrideDomainUnitOwnersPolicyGrantDetailTypeDef] = None
-    overrideProjectOwners: Optional[OverrideProjectOwnersPolicyGrantDetailTypeDef] = None
+    overrideDomainUnitOwners: Optional[OverrideDomainUnitOwnersPolicyGrantDetail] = None
+    overrideProjectOwners: Optional[OverrideProjectOwnersPolicyGrantDetail] = None
 
 
-class PolicyGrantDetailTypeDef(BaseValidatorModel):
-    addToProjectMemberPool: Optional[AddToProjectMemberPoolPolicyGrantDetailTypeDef] = None
-    createAssetType: Optional[CreateAssetTypePolicyGrantDetailTypeDef] = None
-    createDomainUnit: Optional[CreateDomainUnitPolicyGrantDetailTypeDef] = None
+class PolicyGrantDetail(BaseValidatorModel):
+    addToProjectMemberPool: Optional[AddToProjectMemberPoolPolicyGrantDetail] = None
+    createAssetType: Optional[CreateAssetTypePolicyGrantDetail] = None
+    createDomainUnit: Optional[CreateDomainUnitPolicyGrantDetail] = None
     createEnvironment: Optional[Mapping[str, Any]] = None
     createEnvironmentFromBlueprint: Optional[Mapping[str, Any]] = None
-    createEnvironmentProfile: Optional[CreateEnvironmentProfilePolicyGrantDetailTypeDef] = None
-    createFormType: Optional[CreateFormTypePolicyGrantDetailTypeDef] = None
-    createGlossary: Optional[CreateGlossaryPolicyGrantDetailTypeDef] = None
-    createProject: Optional[CreateProjectPolicyGrantDetailTypeDef] = None
-    createProjectFromProjectProfile: Optional[ CreateProjectFromProjectProfilePolicyGrantDetailTypeDef ] = None
+    createEnvironmentProfile: Optional[CreateEnvironmentProfilePolicyGrantDetail] = None
+    createFormType: Optional[CreateFormTypePolicyGrantDetail] = None
+    createGlossary: Optional[CreateGlossaryPolicyGrantDetail] = None
+    createProject: Optional[CreateProjectPolicyGrantDetail] = None
+    createProjectFromProjectProfile: Optional[ CreateProjectFromProjectProfilePolicyGrantDetail ] = None
     delegateCreateEnvironmentProfile: Optional[Mapping[str, Any]] = None
-    overrideDomainUnitOwners: Optional[OverrideDomainUnitOwnersPolicyGrantDetailTypeDef] = None
-    overrideProjectOwners: Optional[OverrideProjectOwnersPolicyGrantDetailTypeDef] = None
+    overrideDomainUnitOwners: Optional[OverrideDomainUnitOwnersPolicyGrantDetail] = None
+    overrideProjectOwners: Optional[OverrideProjectOwnersPolicyGrantDetail] = None
 
 
-class OwnerPropertiesOutputTypeDef(BaseValidatorModel):
-    group: Optional[OwnerGroupPropertiesOutputTypeDef] = None
-    user: Optional[OwnerUserPropertiesOutputTypeDef] = None
+class OwnerPropertiesOutput(BaseValidatorModel):
+    group: Optional[OwnerGroupPropertiesOutput] = None
+    user: Optional[OwnerUserPropertiesOutput] = None
 
 
-class OwnerPropertiesTypeDef(BaseValidatorModel):
-    group: Optional[OwnerGroupPropertiesTypeDef] = None
-    user: Optional[OwnerUserPropertiesTypeDef] = None
+class OwnerProperties(BaseValidatorModel):
+    group: Optional[OwnerGroupProperties] = None
+    user: Optional[OwnerUserProperties] = None
 
 
-class RuleScopeOutputTypeDef(BaseValidatorModel):
-    assetType: Optional[AssetTypesForRuleOutputTypeDef] = None
+class RuleScopeOutput(BaseValidatorModel):
+    assetType: Optional[AssetTypesForRuleOutput] = None
     dataProduct: Optional[bool] = None
-    project: Optional[ProjectsForRuleOutputTypeDef] = None
+    project: Optional[ProjectsForRuleOutput] = None
 
 
-class RuleScopeTypeDef(BaseValidatorModel):
-    assetType: Optional[AssetTypesForRuleTypeDef] = None
+class RuleScope(BaseValidatorModel):
+    assetType: Optional[AssetTypesForRule] = None
     dataProduct: Optional[bool] = None
-    project: Optional[ProjectsForRuleTypeDef] = None
+    project: Optional[ProjectsForRule] = None
 
 
-class RedshiftCredentialsTypeDef(BaseValidatorModel):
+class RedshiftCredentials(BaseValidatorModel):
     secretArn: Optional[str] = None
-    usernamePassword: Optional[UsernamePasswordTypeDef] = None
+    usernamePassword: Optional[UsernamePassword] = None
 
 
-class SparkEmrPropertiesOutputTypeDef(BaseValidatorModel):
+class SparkEmrPropertiesOutput(BaseValidatorModel):
     computeArn: Optional[str] = None
-    credentials: Optional[UsernamePasswordTypeDef] = None
+    credentials: Optional[UsernamePassword] = None
     credentialsExpiration: Optional[datetime] = None
     governanceType: Optional[GovernanceTypeType] = None
     instanceProfileArn: Optional[str] = None
@@ -2398,22 +2398,22 @@ class SparkEmrPropertiesOutputTypeDef(BaseValidatorModel):
     trustedCertificatesS3Uri: Optional[str] = None
 
 
-class RedshiftStorageTypeDef(BaseValidatorModel):
-    redshiftClusterSource: Optional[RedshiftClusterStorageTypeDef] = None
-    redshiftServerlessSource: Optional[RedshiftServerlessStorageTypeDef] = None
+class RedshiftStorage(BaseValidatorModel):
+    redshiftClusterSource: Optional[RedshiftClusterStorage] = None
+    redshiftServerlessSource: Optional[RedshiftServerlessStorage] = None
 
 
-class RejectPredictionsInputTypeDef(BaseValidatorModel):
+class RejectPredictionsInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     clientToken: Optional[str] = None
-    rejectChoices: Optional[Sequence[RejectChoiceTypeDef]] = None
-    rejectRule: Optional[RejectRuleTypeDef] = None
+    rejectChoices: Optional[Sequence[RejectChoice]] = None
+    rejectRule: Optional[RejectRule] = None
     revision: Optional[str] = None
 
 
-class SparkGluePropertiesInputTypeDef(BaseValidatorModel):
-    additionalArgs: Optional[SparkGlueArgsTypeDef] = None
+class SparkGluePropertiesInput(BaseValidatorModel):
+    additionalArgs: Optional[SparkGlueArgs] = None
     glueConnectionName: Optional[str] = None
     glueVersion: Optional[str] = None
     idleTimeout: Optional[int] = None
@@ -2423,8 +2423,8 @@ class SparkGluePropertiesInputTypeDef(BaseValidatorModel):
     workerType: Optional[str] = None
 
 
-class SparkGluePropertiesOutputTypeDef(BaseValidatorModel):
-    additionalArgs: Optional[SparkGlueArgsTypeDef] = None
+class SparkGluePropertiesOutput(BaseValidatorModel):
+    additionalArgs: Optional[SparkGlueArgs] = None
     glueConnectionName: Optional[str] = None
     glueVersion: Optional[str] = None
     idleTimeout: Optional[int] = None
@@ -2434,48 +2434,48 @@ class SparkGluePropertiesOutputTypeDef(BaseValidatorModel):
     workerType: Optional[str] = None
 
 
-class UserProfileDetailsTypeDef(BaseValidatorModel):
-    iam: Optional[IamUserProfileDetailsTypeDef] = None
-    sso: Optional[SsoUserProfileDetailsTypeDef] = None
+class UserProfileDetails(BaseValidatorModel):
+    iam: Optional[IamUserProfileDetails] = None
+    sso: Optional[SsoUserProfileDetails] = None
 
 
-class SubscribedPrincipalInputTypeDef(BaseValidatorModel):
-    project: Optional[SubscribedProjectInputTypeDef] = None
+class SubscribedPrincipalInput(BaseValidatorModel):
+    project: Optional[SubscribedProjectInput] = None
 
 
-class SubscribedProjectTypeDef(BaseValidatorModel):
+class SubscribedProject(BaseValidatorModel):
     pass
 
 
-class SubscribedPrincipalTypeDef(BaseValidatorModel):
-    project: Optional[SubscribedProjectTypeDef] = None
+class SubscribedPrincipal(BaseValidatorModel):
+    project: Optional[SubscribedProject] = None
 
 
-class CreateEnvironmentActionInputTypeDef(BaseValidatorModel):
+class CreateEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     name: str
-    parameters: ActionParametersTypeDef
+    parameters: ActionParameters
     description: Optional[str] = None
 
 
-class UpdateEnvironmentActionInputTypeDef(BaseValidatorModel):
+class UpdateEnvironmentActionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     identifier: str
     description: Optional[str] = None
     name: Optional[str] = None
-    parameters: Optional[ActionParametersTypeDef] = None
+    parameters: Optional[ActionParameters] = None
 
 
-class AssetItemTypeDef(BaseValidatorModel):
+class AssetItem(BaseValidatorModel):
     domainId: str
     identifier: str
     name: str
     owningProjectId: str
     typeIdentifier: str
     typeRevision: str
-    additionalAttributes: Optional[AssetItemAdditionalAttributesTypeDef] = None
+    additionalAttributes: Optional[AssetItemAdditionalAttributes] = None
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
     description: Optional[str] = None
@@ -2485,14 +2485,14 @@ class AssetItemTypeDef(BaseValidatorModel):
     glossaryTerms: Optional[List[str]] = None
 
 
-class AssetListingItemTypeDef(BaseValidatorModel):
-    additionalAttributes: Optional[AssetListingItemAdditionalAttributesTypeDef] = None
+class AssetListingItem(BaseValidatorModel):
+    additionalAttributes: Optional[AssetListingItemAdditionalAttributes] = None
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
     entityType: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
     listingCreatedBy: Optional[str] = None
     listingId: Optional[str] = None
     listingRevision: Optional[str] = None
@@ -2501,14 +2501,14 @@ class AssetListingItemTypeDef(BaseValidatorModel):
     owningProjectId: Optional[str] = None
 
 
-class DataProductListingItemTypeDef(BaseValidatorModel):
-    additionalAttributes: Optional[DataProductListingItemAdditionalAttributesTypeDef] = None
+class DataProductListingItem(BaseValidatorModel):
+    additionalAttributes: Optional[DataProductListingItemAdditionalAttributes] = None
     createdAt: Optional[datetime] = None
     description: Optional[str] = None
     entityId: Optional[str] = None
     entityRevision: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    items: Optional[List[ListingSummaryItemTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
+    items: Optional[List[ListingSummaryItem]] = None
     listingCreatedBy: Optional[str] = None
     listingId: Optional[str] = None
     listingRevision: Optional[str] = None
@@ -2517,28 +2517,28 @@ class DataProductListingItemTypeDef(BaseValidatorModel):
     owningProjectId: Optional[str] = None
 
 
-class DataProductListingTypeDef(BaseValidatorModel):
+class DataProductListing(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     dataProductId: Optional[str] = None
     dataProductRevision: Optional[str] = None
     forms: Optional[str] = None
-    glossaryTerms: Optional[List[DetailedGlossaryTermTypeDef]] = None
-    items: Optional[List[ListingSummaryTypeDef]] = None
+    glossaryTerms: Optional[List[DetailedGlossaryTerm]] = None
+    items: Optional[List[ListingSummary]] = None
     owningProjectId: Optional[str] = None
 
 
-class SubscribedListingItemTypeDef(BaseValidatorModel):
-    assetListing: Optional[SubscribedAssetListingTypeDef] = None
-    productListing: Optional[SubscribedProductListingTypeDef] = None
+class SubscribedListingItem(BaseValidatorModel):
+    assetListing: Optional[SubscribedAssetListing] = None
+    productListing: Optional[SubscribedProductListing] = None
 
 
-class GlueConnectionPatchTypeDef(BaseValidatorModel):
-    authenticationConfiguration: Optional[AuthenticationConfigurationPatchTypeDef] = None
+class GlueConnectionPatch(BaseValidatorModel):
+    authenticationConfiguration: Optional[AuthenticationConfigurationPatch] = None
     connectionProperties: Optional[Mapping[str, str]] = None
     description: Optional[str] = None
 
 
-class CreateAssetInputTypeDef(BaseValidatorModel):
+class CreateAssetInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     owningProjectIdentifier: str
@@ -2546,181 +2546,181 @@ class CreateAssetInputTypeDef(BaseValidatorModel):
     clientToken: Optional[str] = None
     description: Optional[str] = None
     externalIdentifier: Optional[str] = None
-    formsInput: Optional[Sequence[FormInputTypeDef]] = None
+    formsInput: Optional[Sequence[FormInput]] = None
     glossaryTerms: Optional[Sequence[str]] = None
-    predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
+    predictionConfiguration: Optional[PredictionConfiguration] = None
     typeRevision: Optional[str] = None
 
 
-class CreateAssetRevisionInputTypeDef(BaseValidatorModel):
+class CreateAssetRevisionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    formsInput: Optional[Sequence[FormInputTypeDef]] = None
+    formsInput: Optional[Sequence[FormInput]] = None
     glossaryTerms: Optional[Sequence[str]] = None
-    predictionConfiguration: Optional[PredictionConfigurationTypeDef] = None
+    predictionConfiguration: Optional[PredictionConfiguration] = None
     typeRevision: Optional[str] = None
 
 
-class DataSourceSummaryTypeDef(BaseValidatorModel):
+class DataSourceSummary(BaseValidatorModel):
     pass
 
 
-class ListDataSourcesOutputTypeDef(BaseValidatorModel):
-    items: List[DataSourceSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourcesOutput(BaseValidatorModel):
+    items: List[DataSourceSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ProjectSummaryTypeDef(BaseValidatorModel):
+class ProjectSummary(BaseValidatorModel):
     pass
 
 
-class ListProjectsOutputTypeDef(BaseValidatorModel):
-    items: List[ProjectSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectsOutput(BaseValidatorModel):
+    items: List[ProjectSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SubscriptionTargetSummaryTypeDef(BaseValidatorModel):
+class SubscriptionTargetSummary(BaseValidatorModel):
     pass
 
 
-class ListSubscriptionTargetsOutputTypeDef(BaseValidatorModel):
-    items: List[SubscriptionTargetSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscriptionTargetsOutput(BaseValidatorModel):
+    items: List[SubscriptionTargetSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataProductItemUnionTypeDef(BaseValidatorModel):
+class DataProductItemUnion(BaseValidatorModel):
     pass
 
 
-class CreateDataProductInputTypeDef(BaseValidatorModel):
+class CreateDataProductInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     owningProjectIdentifier: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    formsInput: Optional[Sequence[FormInputTypeDef]] = None
+    formsInput: Optional[Sequence[FormInput]] = None
     glossaryTerms: Optional[Sequence[str]] = None
-    items: Optional[Sequence[DataProductItemUnionTypeDef]] = None
+    items: Optional[Sequence[DataProductItemUnion]] = None
 
 
-class CreateDataProductRevisionInputTypeDef(BaseValidatorModel):
+class CreateDataProductRevisionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    formsInput: Optional[Sequence[FormInputTypeDef]] = None
+    formsInput: Optional[Sequence[FormInput]] = None
     glossaryTerms: Optional[Sequence[str]] = None
-    items: Optional[Sequence[DataProductItemUnionTypeDef]] = None
+    items: Optional[Sequence[DataProductItemUnion]] = None
 
 
-class ListDataSourceRunActivitiesOutputTypeDef(BaseValidatorModel):
-    items: List[DataSourceRunActivityTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourceRunActivitiesOutput(BaseValidatorModel):
+    items: List[DataSourceRunActivity]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataSourceRunSummaryTypeDef(BaseValidatorModel):
+class DataSourceRunSummary(BaseValidatorModel):
     pass
 
 
-class ListDataSourceRunsOutputTypeDef(BaseValidatorModel):
-    items: List[DataSourceRunSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListDataSourceRunsOutput(BaseValidatorModel):
+    items: List[DataSourceRunSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ProjectPolicyGrantPrincipalTypeDef(BaseValidatorModel):
+class ProjectPolicyGrantPrincipal(BaseValidatorModel):
     projectDesignation: ProjectDesignationType
-    projectGrantFilter: Optional[ProjectGrantFilterTypeDef] = None
+    projectGrantFilter: Optional[ProjectGrantFilter] = None
     projectIdentifier: Optional[str] = None
 
 
-class FilterClausePaginatorTypeDef(BaseValidatorModel):
+class FilterClausePaginator(BaseValidatorModel):
     pass
 
 
-class SearchInputPaginateTypeDef(BaseValidatorModel):
+class SearchInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     searchScope: InventorySearchScopeType
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
-    filters: Optional[FilterClausePaginatorTypeDef] = None
+    filters: Optional[FilterClausePaginator] = None
     owningProjectIdentifier: Optional[str] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    sort: Optional[SearchSort] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchListingsInputPaginateTypeDef(BaseValidatorModel):
+class SearchListingsInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
-    filters: Optional[FilterClausePaginatorTypeDef] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    filters: Optional[FilterClausePaginator] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    sort: Optional[SearchSort] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class SearchTypesInputPaginateTypeDef(BaseValidatorModel):
+class SearchTypesInputPaginate(BaseValidatorModel):
     domainIdentifier: str
     managed: bool
     searchScope: TypesSearchScopeType
-    filters: Optional[FilterClausePaginatorTypeDef] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    filters: Optional[FilterClausePaginator] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
-    PaginationConfig: Optional[PaginatorConfigTypeDef] = None
+    sort: Optional[SearchSort] = None
+    PaginationConfig: Optional[PaginatorConfig] = None
 
 
-class FilterClauseTypeDef(BaseValidatorModel):
+class FilterClause(BaseValidatorModel):
     pass
 
 
-class SearchInputTypeDef(BaseValidatorModel):
+class SearchInput(BaseValidatorModel):
     domainIdentifier: str
     searchScope: InventorySearchScopeType
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
-    filters: Optional[FilterClauseTypeDef] = None
+    filters: Optional[FilterClause] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
     owningProjectIdentifier: Optional[str] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
+    sort: Optional[SearchSort] = None
 
 
-class SearchListingsInputTypeDef(BaseValidatorModel):
+class SearchListingsInput(BaseValidatorModel):
     domainIdentifier: str
     additionalAttributes: Optional[Sequence[SearchOutputAdditionalAttributeType]] = None
-    filters: Optional[FilterClauseTypeDef] = None
+    filters: Optional[FilterClause] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
+    sort: Optional[SearchSort] = None
 
 
-class SearchTypesInputTypeDef(BaseValidatorModel):
+class SearchTypesInput(BaseValidatorModel):
     domainIdentifier: str
     managed: bool
     searchScope: TypesSearchScopeType
-    filters: Optional[FilterClauseTypeDef] = None
+    filters: Optional[FilterClause] = None
     maxResults: Optional[int] = None
     nextToken: Optional[str] = None
-    searchIn: Optional[Sequence[SearchInItemTypeDef]] = None
+    searchIn: Optional[Sequence[SearchInItem]] = None
     searchText: Optional[str] = None
-    sort: Optional[SearchSortTypeDef] = None
+    sort: Optional[SearchSort] = None
 
 
-class GlueRunConfigurationOutputTypeDef(BaseValidatorModel):
-    relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
+class GlueRunConfigurationOutput(BaseValidatorModel):
+    relationalFilterConfigurations: List[RelationalFilterConfigurationOutput]
     accountId: Optional[str] = None
     autoImportDataQualityResult: Optional[bool] = None
     catalogName: Optional[str] = None
@@ -2728,214 +2728,214 @@ class GlueRunConfigurationOutputTypeDef(BaseValidatorModel):
     region: Optional[str] = None
 
 
-class SearchTypesResultItemTypeDef(BaseValidatorModel):
-    assetTypeItem: Optional[AssetTypeItemTypeDef] = None
-    formTypeItem: Optional[FormTypeDataTypeDef] = None
-    lineageNodeTypeItem: Optional[LineageNodeTypeItemTypeDef] = None
+class SearchTypesResultItem(BaseValidatorModel):
+    assetTypeItem: Optional[AssetTypeItem] = None
+    formTypeItem: Optional[FormTypeData] = None
+    lineageNodeTypeItem: Optional[LineageNodeTypeItem] = None
 
 
-class ListJobRunsOutputTypeDef(BaseValidatorModel):
-    items: List[JobRunSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListJobRunsOutput(BaseValidatorModel):
+    items: List[JobRunSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PostTimeSeriesDataPointsInputTypeDef(BaseValidatorModel):
+class PostTimeSeriesDataPointsInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TimeSeriesEntityTypeType
-    forms: Sequence[TimeSeriesDataPointFormInputTypeDef]
+    forms: Sequence[TimeSeriesDataPointFormInput]
     clientToken: Optional[str] = None
 
 
-class MetadataGenerationRunItemTypeDef(BaseValidatorModel):
+class MetadataGenerationRunItem(BaseValidatorModel):
     pass
 
 
-class ListMetadataGenerationRunsOutputTypeDef(BaseValidatorModel):
-    items: List[MetadataGenerationRunItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListMetadataGenerationRunsOutput(BaseValidatorModel):
+    items: List[MetadataGenerationRunItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SelfGrantStatusOutputTypeDef(BaseValidatorModel):
-    glueSelfGrantStatus: Optional[GlueSelfGrantStatusOutputTypeDef] = None
-    redshiftSelfGrantStatus: Optional[RedshiftSelfGrantStatusOutputTypeDef] = None
+class SelfGrantStatusOutput(BaseValidatorModel):
+    glueSelfGrantStatus: Optional[GlueSelfGrantStatusOutput] = None
+    redshiftSelfGrantStatus: Optional[RedshiftSelfGrantStatusOutput] = None
 
 
-class CreateSubscriptionGrantInputTypeDef(BaseValidatorModel):
+class CreateSubscriptionGrantInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
-    grantedEntity: GrantedEntityInputTypeDef
-    assetTargetNames: Optional[Sequence[AssetTargetNameMapTypeDef]] = None
+    grantedEntity: GrantedEntityInput
+    assetTargetNames: Optional[Sequence[AssetTargetNameMap]] = None
     clientToken: Optional[str] = None
     subscriptionTargetIdentifier: Optional[str] = None
 
 
-class EnvironmentBlueprintConfigurationItemTypeDef(BaseValidatorModel):
+class EnvironmentBlueprintConfigurationItem(BaseValidatorModel):
     domainId: str
     environmentBlueprintId: str
     createdAt: Optional[datetime] = None
     enabledRegions: Optional[List[str]] = None
     environmentRolePermissionBoundary: Optional[str] = None
     manageAccessRoleArn: Optional[str] = None
-    provisioningConfigurations: Optional[List[ProvisioningConfigurationOutputTypeDef]] = None
+    provisioningConfigurations: Optional[List[ProvisioningConfigurationOutput]] = None
     provisioningRoleArn: Optional[str] = None
     regionalParameters: Optional[Dict[str, Dict[str, str]]] = None
     updatedAt: Optional[datetime] = None
 
 
-class GetEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
+class GetEnvironmentBlueprintConfigurationOutput(BaseValidatorModel):
     createdAt: datetime
     domainId: str
     enabledRegions: List[str]
     environmentBlueprintId: str
     environmentRolePermissionBoundary: str
     manageAccessRoleArn: str
-    provisioningConfigurations: List[ProvisioningConfigurationOutputTypeDef]
+    provisioningConfigurations: List[ProvisioningConfigurationOutput]
     provisioningRoleArn: str
     regionalParameters: Dict[str, Dict[str, str]]
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class PutEnvironmentBlueprintConfigurationOutputTypeDef(BaseValidatorModel):
+class PutEnvironmentBlueprintConfigurationOutput(BaseValidatorModel):
     createdAt: datetime
     domainId: str
     enabledRegions: List[str]
     environmentBlueprintId: str
     environmentRolePermissionBoundary: str
     manageAccessRoleArn: str
-    provisioningConfigurations: List[ProvisioningConfigurationOutputTypeDef]
+    provisioningConfigurations: List[ProvisioningConfigurationOutput]
     provisioningRoleArn: str
     regionalParameters: Dict[str, Dict[str, str]]
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class LakeFormationConfigurationUnionTypeDef(BaseValidatorModel):
+class LakeFormationConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class ProvisioningConfigurationTypeDef(BaseValidatorModel):
-    lakeFormationConfiguration: Optional[LakeFormationConfigurationUnionTypeDef] = None
+class ProvisioningConfiguration(BaseValidatorModel):
+    lakeFormationConfiguration: Optional[LakeFormationConfigurationUnion] = None
 
 
-class JobRunDetailsTypeDef(BaseValidatorModel):
-    lineageRunDetails: Optional[LineageRunDetailsTypeDef] = None
+class JobRunDetails(BaseValidatorModel):
+    lineageRunDetails: Optional[LineageRunDetails] = None
 
 
-class ProjectMemberTypeDef(BaseValidatorModel):
+class ProjectMember(BaseValidatorModel):
     designation: UserDesignationType
-    memberDetails: MemberDetailsTypeDef
+    memberDetails: MemberDetails
 
 
-class RuleDetailOutputTypeDef(BaseValidatorModel):
-    metadataFormEnforcementDetail: Optional[MetadataFormEnforcementDetailOutputTypeDef] = None
+class RuleDetailOutput(BaseValidatorModel):
+    metadataFormEnforcementDetail: Optional[MetadataFormEnforcementDetailOutput] = None
 
 
-class RuleDetailTypeDef(BaseValidatorModel):
-    metadataFormEnforcementDetail: Optional[MetadataFormEnforcementDetailTypeDef] = None
+class RuleDetail(BaseValidatorModel):
+    metadataFormEnforcementDetail: Optional[MetadataFormEnforcementDetail] = None
 
 
-class EventSummaryTypeDef(BaseValidatorModel):
-    openLineageRunEventSummary: Optional[OpenLineageRunEventSummaryTypeDef] = None
+class EventSummary(BaseValidatorModel):
+    openLineageRunEventSummary: Optional[OpenLineageRunEventSummary] = None
 
 
-class AuthenticationConfigurationTypeDef(BaseValidatorModel):
+class AuthenticationConfiguration(BaseValidatorModel):
     authenticationType: Optional[AuthenticationTypeType] = None
-    oAuth2Properties: Optional[OAuth2PropertiesOutputTypeDef] = None
+    oAuth2Properties: Optional[OAuth2PropertiesOutput] = None
     secretArn: Optional[str] = None
 
 
-class ListEntityOwnersOutputTypeDef(BaseValidatorModel):
-    owners: List[OwnerPropertiesOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEntityOwnersOutput(BaseValidatorModel):
+    owners: List[OwnerPropertiesOutput]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AddEntityOwnerInputTypeDef(BaseValidatorModel):
+class AddEntityOwnerInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: Literal["DOMAIN_UNIT"]
-    owner: OwnerPropertiesTypeDef
+    owner: OwnerProperties
     clientToken: Optional[str] = None
 
 
-class RemoveEntityOwnerInputTypeDef(BaseValidatorModel):
+class RemoveEntityOwnerInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: Literal["DOMAIN_UNIT"]
-    owner: OwnerPropertiesTypeDef
+    owner: OwnerProperties
     clientToken: Optional[str] = None
 
 
-class RuleSummaryTypeDef(BaseValidatorModel):
+class RuleSummary(BaseValidatorModel):
     action: Optional[Literal["CREATE_SUBSCRIPTION_REQUEST"]] = None
     identifier: Optional[str] = None
     lastUpdatedBy: Optional[str] = None
     name: Optional[str] = None
     revision: Optional[str] = None
     ruleType: Optional[Literal["METADATA_FORM_ENFORCEMENT"]] = None
-    scope: Optional[RuleScopeOutputTypeDef] = None
-    target: Optional[RuleTargetTypeDef] = None
+    scope: Optional[RuleScopeOutput] = None
+    target: Optional[RuleTarget] = None
     targetType: Optional[Literal["DOMAIN_UNIT"]] = None
     updatedAt: Optional[datetime] = None
 
 
-class RedshiftPropertiesInputTypeDef(BaseValidatorModel):
-    credentials: Optional[RedshiftCredentialsTypeDef] = None
+class RedshiftPropertiesInput(BaseValidatorModel):
+    credentials: Optional[RedshiftCredentials] = None
     databaseName: Optional[str] = None
     host: Optional[str] = None
-    lineageSync: Optional[RedshiftLineageSyncConfigurationInputTypeDef] = None
+    lineageSync: Optional[RedshiftLineageSyncConfigurationInput] = None
     port: Optional[int] = None
-    storage: Optional[RedshiftStoragePropertiesTypeDef] = None
+    storage: Optional[RedshiftStorageProperties] = None
 
 
-class RedshiftPropertiesOutputTypeDef(BaseValidatorModel):
-    credentials: Optional[RedshiftCredentialsTypeDef] = None
+class RedshiftPropertiesOutput(BaseValidatorModel):
+    credentials: Optional[RedshiftCredentials] = None
     databaseName: Optional[str] = None
     isProvisionedSecret: Optional[bool] = None
     jdbcIamUrl: Optional[str] = None
     jdbcUrl: Optional[str] = None
-    lineageSync: Optional[RedshiftLineageSyncConfigurationOutputTypeDef] = None
+    lineageSync: Optional[RedshiftLineageSyncConfigurationOutput] = None
     redshiftTempDir: Optional[str] = None
     status: Optional[ConnectionStatusType] = None
-    storage: Optional[RedshiftStoragePropertiesTypeDef] = None
+    storage: Optional[RedshiftStorageProperties] = None
 
 
-class RedshiftPropertiesPatchTypeDef(BaseValidatorModel):
-    credentials: Optional[RedshiftCredentialsTypeDef] = None
+class RedshiftPropertiesPatch(BaseValidatorModel):
+    credentials: Optional[RedshiftCredentials] = None
     databaseName: Optional[str] = None
     host: Optional[str] = None
-    lineageSync: Optional[RedshiftLineageSyncConfigurationInputTypeDef] = None
+    lineageSync: Optional[RedshiftLineageSyncConfigurationInput] = None
     port: Optional[int] = None
-    storage: Optional[RedshiftStoragePropertiesTypeDef] = None
+    storage: Optional[RedshiftStorageProperties] = None
 
 
-class RedshiftRunConfigurationOutputTypeDef(BaseValidatorModel):
-    redshiftStorage: RedshiftStorageTypeDef
-    relationalFilterConfigurations: List[RelationalFilterConfigurationOutputTypeDef]
+class RedshiftRunConfigurationOutput(BaseValidatorModel):
+    redshiftStorage: RedshiftStorage
+    relationalFilterConfigurations: List[RelationalFilterConfigurationOutput]
     accountId: Optional[str] = None
     dataAccessRole: Optional[str] = None
-    redshiftCredentialConfiguration: Optional[RedshiftCredentialConfigurationTypeDef] = None
+    redshiftCredentialConfiguration: Optional[RedshiftCredentialConfiguration] = None
     region: Optional[str] = None
 
 
-class CreateSubscriptionRequestInputTypeDef(BaseValidatorModel):
+class CreateSubscriptionRequestInput(BaseValidatorModel):
     domainIdentifier: str
     requestReason: str
-    subscribedListings: Sequence[SubscribedListingInputTypeDef]
-    subscribedPrincipals: Sequence[SubscribedPrincipalInputTypeDef]
+    subscribedListings: Sequence[SubscribedListingInput]
+    subscribedPrincipals: Sequence[SubscribedPrincipalInput]
     clientToken: Optional[str] = None
-    metadataForms: Optional[Sequence[FormInputTypeDef]] = None
+    metadataForms: Optional[Sequence[FormInput]] = None
 
 
-class TermRelationsUnionTypeDef(BaseValidatorModel):
+class TermRelationsUnion(BaseValidatorModel):
     pass
 
 
-class CreateGlossaryTermInputTypeDef(BaseValidatorModel):
+class CreateGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     glossaryIdentifier: str
     name: str
@@ -2943,10 +2943,10 @@ class CreateGlossaryTermInputTypeDef(BaseValidatorModel):
     longDescription: Optional[str] = None
     shortDescription: Optional[str] = None
     status: Optional[GlossaryTermStatusType] = None
-    termRelations: Optional[TermRelationsUnionTypeDef] = None
+    termRelations: Optional[TermRelationsUnion] = None
 
 
-class UpdateGlossaryTermInputTypeDef(BaseValidatorModel):
+class UpdateGlossaryTermInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     glossaryIdentifier: Optional[str] = None
@@ -2954,231 +2954,231 @@ class UpdateGlossaryTermInputTypeDef(BaseValidatorModel):
     name: Optional[str] = None
     shortDescription: Optional[str] = None
     status: Optional[GlossaryTermStatusType] = None
-    termRelations: Optional[TermRelationsUnionTypeDef] = None
+    termRelations: Optional[TermRelationsUnion] = None
 
 
-class EnvironmentActionSummaryTypeDef(BaseValidatorModel):
+class EnvironmentActionSummary(BaseValidatorModel):
     pass
 
 
-class ListEnvironmentActionsOutputTypeDef(BaseValidatorModel):
-    items: List[EnvironmentActionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentActionsOutput(BaseValidatorModel):
+    items: List[EnvironmentActionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class DataProductResultItemTypeDef(BaseValidatorModel):
+class DataProductResultItem(BaseValidatorModel):
     pass
 
 
-class GlossaryItemTypeDef(BaseValidatorModel):
+class GlossaryItem(BaseValidatorModel):
     pass
 
 
-class GlossaryTermItemTypeDef(BaseValidatorModel):
+class GlossaryTermItem(BaseValidatorModel):
     pass
 
 
-class SearchInventoryResultItemTypeDef(BaseValidatorModel):
-    assetItem: Optional[AssetItemTypeDef] = None
-    dataProductItem: Optional[DataProductResultItemTypeDef] = None
-    glossaryItem: Optional[GlossaryItemTypeDef] = None
-    glossaryTermItem: Optional[GlossaryTermItemTypeDef] = None
+class SearchInventoryResultItem(BaseValidatorModel):
+    assetItem: Optional[AssetItem] = None
+    dataProductItem: Optional[DataProductResultItem] = None
+    glossaryItem: Optional[GlossaryItem] = None
+    glossaryTermItem: Optional[GlossaryTermItem] = None
 
 
-class SearchResultItemTypeDef(BaseValidatorModel):
-    assetListing: Optional[AssetListingItemTypeDef] = None
-    dataProductListing: Optional[DataProductListingItemTypeDef] = None
+class SearchResultItem(BaseValidatorModel):
+    assetListing: Optional[AssetListingItem] = None
+    dataProductListing: Optional[DataProductListingItem] = None
 
 
-class ListingItemTypeDef(BaseValidatorModel):
-    assetListing: Optional[AssetListingTypeDef] = None
-    dataProductListing: Optional[DataProductListingTypeDef] = None
+class ListingItem(BaseValidatorModel):
+    assetListing: Optional[AssetListing] = None
+    dataProductListing: Optional[DataProductListing] = None
 
 
-class GluePropertiesPatchTypeDef(BaseValidatorModel):
-    glueConnectionInput: Optional[GlueConnectionPatchTypeDef] = None
+class GluePropertiesPatch(BaseValidatorModel):
+    glueConnectionInput: Optional[GlueConnectionPatch] = None
 
 
-class EnvironmentBlueprintSummaryTypeDef(BaseValidatorModel):
+class EnvironmentBlueprintSummary(BaseValidatorModel):
     pass
 
 
-class ListEnvironmentBlueprintsOutputTypeDef(BaseValidatorModel):
-    items: List[EnvironmentBlueprintSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentBlueprintsOutput(BaseValidatorModel):
+    items: List[EnvironmentBlueprintSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class EnvironmentConfigurationUserParameterUnionTypeDef(BaseValidatorModel):
+class EnvironmentConfigurationUserParameterUnion(BaseValidatorModel):
     pass
 
 
-class CreateProjectInputTypeDef(BaseValidatorModel):
+class CreateProjectInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     description: Optional[str] = None
     domainUnitId: Optional[str] = None
     glossaryTerms: Optional[Sequence[str]] = None
     projectProfileId: Optional[str] = None
-    userParameters: Optional[Sequence[EnvironmentConfigurationUserParameterUnionTypeDef]] = None
+    userParameters: Optional[Sequence[EnvironmentConfigurationUserParameterUnion]] = None
 
 
-class EnvironmentDeploymentDetailsUnionTypeDef(BaseValidatorModel):
+class EnvironmentDeploymentDetailsUnion(BaseValidatorModel):
     pass
 
 
-class UpdateProjectInputTypeDef(BaseValidatorModel):
+class UpdateProjectInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
-    environmentDeploymentDetails: Optional[EnvironmentDeploymentDetailsUnionTypeDef] = None
+    environmentDeploymentDetails: Optional[EnvironmentDeploymentDetailsUnion] = None
     glossaryTerms: Optional[Sequence[str]] = None
     name: Optional[str] = None
 
 
-class PolicyGrantPrincipalOutputTypeDef(BaseValidatorModel):
-    domainUnit: Optional[DomainUnitPolicyGrantPrincipalOutputTypeDef] = None
-    group: Optional[GroupPolicyGrantPrincipalTypeDef] = None
-    project: Optional[ProjectPolicyGrantPrincipalTypeDef] = None
-    user: Optional[UserPolicyGrantPrincipalOutputTypeDef] = None
+class PolicyGrantPrincipalOutput(BaseValidatorModel):
+    domainUnit: Optional[DomainUnitPolicyGrantPrincipalOutput] = None
+    group: Optional[GroupPolicyGrantPrincipal] = None
+    project: Optional[ProjectPolicyGrantPrincipal] = None
+    user: Optional[UserPolicyGrantPrincipalOutput] = None
 
 
-class PolicyGrantPrincipalTypeDef(BaseValidatorModel):
-    domainUnit: Optional[DomainUnitPolicyGrantPrincipalTypeDef] = None
-    group: Optional[GroupPolicyGrantPrincipalTypeDef] = None
-    project: Optional[ProjectPolicyGrantPrincipalTypeDef] = None
-    user: Optional[UserPolicyGrantPrincipalTypeDef] = None
+class PolicyGrantPrincipal(BaseValidatorModel):
+    domainUnit: Optional[DomainUnitPolicyGrantPrincipal] = None
+    group: Optional[GroupPolicyGrantPrincipal] = None
+    project: Optional[ProjectPolicyGrantPrincipal] = None
+    user: Optional[UserPolicyGrantPrincipal] = None
 
 
-class RelationalFilterConfigurationUnionTypeDef(BaseValidatorModel):
+class RelationalFilterConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class GlueRunConfigurationInputTypeDef(BaseValidatorModel):
-    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnionTypeDef]
+class GlueRunConfigurationInput(BaseValidatorModel):
+    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnion]
     autoImportDataQualityResult: Optional[bool] = None
     catalogName: Optional[str] = None
     dataAccessRole: Optional[str] = None
 
 
-class RedshiftRunConfigurationInputTypeDef(BaseValidatorModel):
-    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnionTypeDef]
+class RedshiftRunConfigurationInput(BaseValidatorModel):
+    relationalFilterConfigurations: Sequence[RelationalFilterConfigurationUnion]
     dataAccessRole: Optional[str] = None
-    redshiftCredentialConfiguration: Optional[RedshiftCredentialConfigurationTypeDef] = None
-    redshiftStorage: Optional[RedshiftStorageTypeDef] = None
+    redshiftCredentialConfiguration: Optional[RedshiftCredentialConfiguration] = None
+    redshiftStorage: Optional[RedshiftStorage] = None
 
 
-class SearchTypesOutputTypeDef(BaseValidatorModel):
-    items: List[SearchTypesResultItemTypeDef]
+class SearchTypesOutput(BaseValidatorModel):
+    items: List[SearchTypesResultItem]
     totalMatchCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SubscriptionGrantSummaryTypeDef(BaseValidatorModel):
+class SubscriptionGrantSummary(BaseValidatorModel):
     pass
 
 
-class ListSubscriptionGrantsOutputTypeDef(BaseValidatorModel):
-    items: List[SubscriptionGrantSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscriptionGrantsOutput(BaseValidatorModel):
+    items: List[SubscriptionGrantSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListEnvironmentBlueprintConfigurationsOutputTypeDef(BaseValidatorModel):
-    items: List[EnvironmentBlueprintConfigurationItemTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListEnvironmentBlueprintConfigurationsOutput(BaseValidatorModel):
+    items: List[EnvironmentBlueprintConfigurationItem]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ListProjectMembershipsOutputTypeDef(BaseValidatorModel):
-    members: List[ProjectMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListProjectMembershipsOutput(BaseValidatorModel):
+    members: List[ProjectMember]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class CreateRuleOutputTypeDef(BaseValidatorModel):
+class CreateRuleOutput(BaseValidatorModel):
     action: Literal["CREATE_SUBSCRIPTION_REQUEST"]
     createdAt: datetime
     createdBy: str
     description: str
-    detail: RuleDetailOutputTypeDef
+    detail: RuleDetailOutput
     identifier: str
     name: str
     ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
-    scope: RuleScopeOutputTypeDef
-    target: RuleTargetTypeDef
+    scope: RuleScopeOutput
+    target: RuleTarget
     targetType: Literal["DOMAIN_UNIT"]
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class GetRuleOutputTypeDef(BaseValidatorModel):
+class GetRuleOutput(BaseValidatorModel):
     action: Literal["CREATE_SUBSCRIPTION_REQUEST"]
     createdAt: datetime
     createdBy: str
     description: str
-    detail: RuleDetailOutputTypeDef
+    detail: RuleDetailOutput
     identifier: str
     lastUpdatedBy: str
     name: str
     revision: str
     ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
-    scope: RuleScopeOutputTypeDef
-    target: RuleTargetTypeDef
+    scope: RuleScopeOutput
+    target: RuleTarget
     targetType: Literal["DOMAIN_UNIT"]
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class UpdateRuleOutputTypeDef(BaseValidatorModel):
+class UpdateRuleOutput(BaseValidatorModel):
     action: Literal["CREATE_SUBSCRIPTION_REQUEST"]
     createdAt: datetime
     createdBy: str
     description: str
-    detail: RuleDetailOutputTypeDef
+    detail: RuleDetailOutput
     identifier: str
     lastUpdatedBy: str
     name: str
     revision: str
     ruleType: Literal["METADATA_FORM_ENFORCEMENT"]
-    scope: RuleScopeOutputTypeDef
-    target: RuleTargetTypeDef
+    scope: RuleScopeOutput
+    target: RuleTarget
     updatedAt: datetime
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
 
 
-class RowFilterOutputTypeDef(BaseValidatorModel):
+class RowFilterOutput(BaseValidatorModel):
     pass
 
 
-class RowFilterConfigurationOutputTypeDef(BaseValidatorModel):
-    rowFilter: RowFilterOutputTypeDef
+class RowFilterConfigurationOutput(BaseValidatorModel):
+    rowFilter: RowFilterOutput
     sensitive: Optional[bool] = None
 
 
-class RowFilterTypeDef(BaseValidatorModel):
+class RowFilter(BaseValidatorModel):
     pass
 
 
-class RowFilterConfigurationTypeDef(BaseValidatorModel):
-    rowFilter: RowFilterTypeDef
+class RowFilterConfiguration(BaseValidatorModel):
+    rowFilter: RowFilter
     sensitive: Optional[bool] = None
 
 
-class NotificationOutputTypeDef(BaseValidatorModel):
+class NotificationOutput(BaseValidatorModel):
     pass
 
 
-class ListNotificationsOutputTypeDef(BaseValidatorModel):
-    notifications: List[NotificationOutputTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListNotificationsOutput(BaseValidatorModel):
+    notifications: List[NotificationOutput]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class GlueConnectionTypeDef(BaseValidatorModel):
+class GlueConnection(BaseValidatorModel):
     athenaProperties: Optional[Dict[str, str]] = None
-    authenticationConfiguration: Optional[AuthenticationConfigurationTypeDef] = None
+    authenticationConfiguration: Optional[AuthenticationConfiguration] = None
     compatibleComputeEnvironments: Optional[List[ComputeEnvironmentsType]] = None
     connectionProperties: Optional[Dict[str, str]] = None
     connectionSchemaVersion: Optional[int] = None
@@ -3190,160 +3190,160 @@ class GlueConnectionTypeDef(BaseValidatorModel):
     lastUpdatedTime: Optional[datetime] = None
     matchCriteria: Optional[List[str]] = None
     name: Optional[str] = None
-    physicalConnectionRequirements: Optional[PhysicalConnectionRequirementsOutputTypeDef] = None
+    physicalConnectionRequirements: Optional[PhysicalConnectionRequirementsOutput] = None
     pythonProperties: Optional[Dict[str, str]] = None
     sparkProperties: Optional[Dict[str, str]] = None
     status: Optional[ConnectionStatusType] = None
     statusReason: Optional[str] = None
 
 
-class OAuth2PropertiesUnionTypeDef(BaseValidatorModel):
+class OAuth2PropertiesUnion(BaseValidatorModel):
     pass
 
 
-class AuthenticationConfigurationInputTypeDef(BaseValidatorModel):
+class AuthenticationConfigurationInput(BaseValidatorModel):
     authenticationType: Optional[AuthenticationTypeType] = None
-    basicAuthenticationCredentials: Optional[BasicAuthenticationCredentialsTypeDef] = None
+    basicAuthenticationCredentials: Optional[BasicAuthenticationCredentials] = None
     customAuthenticationCredentials: Optional[Mapping[str, str]] = None
     kmsKeyArn: Optional[str] = None
-    oAuth2Properties: Optional[OAuth2PropertiesUnionTypeDef] = None
+    oAuth2Properties: Optional[OAuth2PropertiesUnion] = None
     secretArn: Optional[str] = None
 
 
-class ListRulesOutputTypeDef(BaseValidatorModel):
-    items: List[RuleSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListRulesOutput(BaseValidatorModel):
+    items: List[RuleSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConnectionPropertiesOutputTypeDef(BaseValidatorModel):
-    athenaProperties: Optional[AthenaPropertiesOutputTypeDef] = None
-    glueProperties: Optional[GluePropertiesOutputTypeDef] = None
-    hyperPodProperties: Optional[HyperPodPropertiesOutputTypeDef] = None
-    iamProperties: Optional[IamPropertiesOutputTypeDef] = None
-    redshiftProperties: Optional[RedshiftPropertiesOutputTypeDef] = None
-    sparkEmrProperties: Optional[SparkEmrPropertiesOutputTypeDef] = None
-    sparkGlueProperties: Optional[SparkGluePropertiesOutputTypeDef] = None
+class ConnectionPropertiesOutput(BaseValidatorModel):
+    athenaProperties: Optional[AthenaPropertiesOutput] = None
+    glueProperties: Optional[GluePropertiesOutput] = None
+    hyperPodProperties: Optional[HyperPodPropertiesOutput] = None
+    iamProperties: Optional[IamPropertiesOutput] = None
+    redshiftProperties: Optional[RedshiftPropertiesOutput] = None
+    sparkEmrProperties: Optional[SparkEmrPropertiesOutput] = None
+    sparkGlueProperties: Optional[SparkGluePropertiesOutput] = None
 
 
-class DataSourceConfigurationOutputTypeDef(BaseValidatorModel):
-    glueRunConfiguration: Optional[GlueRunConfigurationOutputTypeDef] = None
-    redshiftRunConfiguration: Optional[RedshiftRunConfigurationOutputTypeDef] = None
-    sageMakerRunConfiguration: Optional[SageMakerRunConfigurationOutputTypeDef] = None
+class DataSourceConfigurationOutput(BaseValidatorModel):
+    glueRunConfiguration: Optional[GlueRunConfigurationOutput] = None
+    redshiftRunConfiguration: Optional[RedshiftRunConfigurationOutput] = None
+    sageMakerRunConfiguration: Optional[SageMakerRunConfigurationOutput] = None
 
 
-class UserProfileSummaryTypeDef(BaseValidatorModel):
+class UserProfileSummary(BaseValidatorModel):
     pass
 
 
-class SearchUserProfilesOutputTypeDef(BaseValidatorModel):
-    items: List[UserProfileSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class SearchUserProfilesOutput(BaseValidatorModel):
+    items: List[UserProfileSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchOutputTypeDef(BaseValidatorModel):
-    items: List[SearchInventoryResultItemTypeDef]
+class SearchOutput(BaseValidatorModel):
+    items: List[SearchInventoryResultItem]
     totalMatchCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SearchListingsOutputTypeDef(BaseValidatorModel):
-    items: List[SearchResultItemTypeDef]
+class SearchListingsOutput(BaseValidatorModel):
+    items: List[SearchResultItem]
     totalMatchCount: int
-    ResponseMetadata: ResponseMetadataTypeDef
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConnectionPropertiesPatchTypeDef(BaseValidatorModel):
-    athenaProperties: Optional[AthenaPropertiesPatchTypeDef] = None
-    glueProperties: Optional[GluePropertiesPatchTypeDef] = None
-    iamProperties: Optional[IamPropertiesPatchTypeDef] = None
-    redshiftProperties: Optional[RedshiftPropertiesPatchTypeDef] = None
-    sparkEmrProperties: Optional[SparkEmrPropertiesPatchTypeDef] = None
+class ConnectionPropertiesPatch(BaseValidatorModel):
+    athenaProperties: Optional[AthenaPropertiesPatch] = None
+    glueProperties: Optional[GluePropertiesPatch] = None
+    iamProperties: Optional[IamPropertiesPatch] = None
+    redshiftProperties: Optional[RedshiftPropertiesPatch] = None
+    sparkEmrProperties: Optional[SparkEmrPropertiesPatch] = None
 
 
-class PolicyGrantMemberTypeDef(BaseValidatorModel):
+class PolicyGrantMember(BaseValidatorModel):
     createdAt: Optional[datetime] = None
     createdBy: Optional[str] = None
-    detail: Optional[PolicyGrantDetailOutputTypeDef] = None
-    principal: Optional[PolicyGrantPrincipalOutputTypeDef] = None
+    detail: Optional[PolicyGrantDetailOutput] = None
+    principal: Optional[PolicyGrantPrincipalOutput] = None
 
 
-class DataSourceConfigurationInputTypeDef(BaseValidatorModel):
-    glueRunConfiguration: Optional[GlueRunConfigurationInputTypeDef] = None
-    redshiftRunConfiguration: Optional[RedshiftRunConfigurationInputTypeDef] = None
-    sageMakerRunConfiguration: Optional[SageMakerRunConfigurationInputTypeDef] = None
+class DataSourceConfigurationInput(BaseValidatorModel):
+    glueRunConfiguration: Optional[GlueRunConfigurationInput] = None
+    redshiftRunConfiguration: Optional[RedshiftRunConfigurationInput] = None
+    sageMakerRunConfiguration: Optional[SageMakerRunConfigurationInput] = None
 
 
-class ProvisioningConfigurationUnionTypeDef(BaseValidatorModel):
+class ProvisioningConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class PutEnvironmentBlueprintConfigurationInputTypeDef(BaseValidatorModel):
+class PutEnvironmentBlueprintConfigurationInput(BaseValidatorModel):
     domainIdentifier: str
     enabledRegions: Sequence[str]
     environmentBlueprintIdentifier: str
     environmentRolePermissionBoundary: Optional[str] = None
     manageAccessRoleArn: Optional[str] = None
-    provisioningConfigurations: Optional[Sequence[ProvisioningConfigurationUnionTypeDef]] = None
+    provisioningConfigurations: Optional[Sequence[ProvisioningConfigurationUnion]] = None
     provisioningRoleArn: Optional[str] = None
     regionalParameters: Optional[Mapping[str, Mapping[str, str]]] = None
 
 
-class RuleScopeUnionTypeDef(BaseValidatorModel):
+class RuleScopeUnion(BaseValidatorModel):
     pass
 
 
-class RuleDetailUnionTypeDef(BaseValidatorModel):
+class RuleDetailUnion(BaseValidatorModel):
     pass
 
 
-class CreateRuleInputTypeDef(BaseValidatorModel):
+class CreateRuleInput(BaseValidatorModel):
     action: Literal["CREATE_SUBSCRIPTION_REQUEST"]
-    detail: RuleDetailUnionTypeDef
+    detail: RuleDetailUnion
     domainIdentifier: str
     name: str
-    scope: RuleScopeUnionTypeDef
-    target: RuleTargetTypeDef
+    scope: RuleScopeUnion
+    target: RuleTarget
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class UpdateRuleInputTypeDef(BaseValidatorModel):
+class UpdateRuleInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
-    detail: Optional[RuleDetailUnionTypeDef] = None
+    detail: Optional[RuleDetailUnion] = None
     includeChildDomainUnits: Optional[bool] = None
     name: Optional[str] = None
-    scope: Optional[RuleScopeUnionTypeDef] = None
+    scope: Optional[RuleScopeUnion] = None
 
 
-class LineageEventSummaryTypeDef(BaseValidatorModel):
+class LineageEventSummary(BaseValidatorModel):
     pass
 
 
-class ListLineageEventsOutputTypeDef(BaseValidatorModel):
-    items: List[LineageEventSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListLineageEventsOutput(BaseValidatorModel):
+    items: List[LineageEventSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class AssetFilterConfigurationOutputTypeDef(BaseValidatorModel):
-    columnConfiguration: Optional[ColumnFilterConfigurationOutputTypeDef] = None
-    rowConfiguration: Optional[RowFilterConfigurationOutputTypeDef] = None
+class AssetFilterConfigurationOutput(BaseValidatorModel):
+    columnConfiguration: Optional[ColumnFilterConfigurationOutput] = None
+    rowConfiguration: Optional[RowFilterConfigurationOutput] = None
 
 
-class AssetFilterConfigurationTypeDef(BaseValidatorModel):
-    columnConfiguration: Optional[ColumnFilterConfigurationTypeDef] = None
-    rowConfiguration: Optional[RowFilterConfigurationTypeDef] = None
+class AssetFilterConfiguration(BaseValidatorModel):
+    columnConfiguration: Optional[ColumnFilterConfiguration] = None
+    rowConfiguration: Optional[RowFilterConfiguration] = None
 
 
-class PhysicalEndpointTypeDef(BaseValidatorModel):
-    awsLocation: Optional[AwsLocationTypeDef] = None
-    glueConnection: Optional[GlueConnectionTypeDef] = None
+class PhysicalEndpoint(BaseValidatorModel):
+    awsLocation: Optional[AwsLocation] = None
+    glueConnection: Optional[GlueConnection] = None
     glueConnectionName: Optional[str] = None
     host: Optional[str] = None
     port: Optional[int] = None
@@ -3351,176 +3351,176 @@ class PhysicalEndpointTypeDef(BaseValidatorModel):
     stage: Optional[str] = None
 
 
-class PhysicalConnectionRequirementsUnionTypeDef(BaseValidatorModel):
+class PhysicalConnectionRequirementsUnion(BaseValidatorModel):
     pass
 
 
-class GlueConnectionInputTypeDef(BaseValidatorModel):
+class GlueConnectionInput(BaseValidatorModel):
     athenaProperties: Optional[Mapping[str, str]] = None
-    authenticationConfiguration: Optional[AuthenticationConfigurationInputTypeDef] = None
+    authenticationConfiguration: Optional[AuthenticationConfigurationInput] = None
     connectionProperties: Optional[Mapping[str, str]] = None
     connectionType: Optional[GlueConnectionTypeType] = None
     description: Optional[str] = None
     matchCriteria: Optional[str] = None
     name: Optional[str] = None
-    physicalConnectionRequirements: Optional[PhysicalConnectionRequirementsUnionTypeDef] = None
+    physicalConnectionRequirements: Optional[PhysicalConnectionRequirementsUnion] = None
     pythonProperties: Optional[Mapping[str, str]] = None
     sparkProperties: Optional[Mapping[str, str]] = None
     validateCredentials: Optional[bool] = None
     validateForComputeEnvironments: Optional[Sequence[ComputeEnvironmentsType]] = None
 
 
-class SubscriptionRequestSummaryTypeDef(BaseValidatorModel):
+class SubscriptionRequestSummary(BaseValidatorModel):
     pass
 
 
-class ListSubscriptionRequestsOutputTypeDef(BaseValidatorModel):
-    items: List[SubscriptionRequestSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscriptionRequestsOutput(BaseValidatorModel):
+    items: List[SubscriptionRequestSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class SubscriptionSummaryTypeDef(BaseValidatorModel):
+class SubscriptionSummary(BaseValidatorModel):
     pass
 
 
-class ListSubscriptionsOutputTypeDef(BaseValidatorModel):
-    items: List[SubscriptionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListSubscriptionsOutput(BaseValidatorModel):
+    items: List[SubscriptionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class UpdateConnectionInputTypeDef(BaseValidatorModel):
+class UpdateConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    awsLocation: Optional[AwsLocationTypeDef] = None
+    awsLocation: Optional[AwsLocation] = None
     description: Optional[str] = None
-    props: Optional[ConnectionPropertiesPatchTypeDef] = None
+    props: Optional[ConnectionPropertiesPatch] = None
 
 
-class ListPolicyGrantsOutputTypeDef(BaseValidatorModel):
-    grantList: List[PolicyGrantMemberTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListPolicyGrantsOutput(BaseValidatorModel):
+    grantList: List[PolicyGrantMember]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class PolicyGrantDetailUnionTypeDef(BaseValidatorModel):
+class PolicyGrantDetailUnion(BaseValidatorModel):
     pass
 
 
-class PolicyGrantPrincipalUnionTypeDef(BaseValidatorModel):
+class PolicyGrantPrincipalUnion(BaseValidatorModel):
     pass
 
 
-class AddPolicyGrantInputTypeDef(BaseValidatorModel):
-    detail: PolicyGrantDetailUnionTypeDef
+class AddPolicyGrantInput(BaseValidatorModel):
+    detail: PolicyGrantDetailUnion
     domainIdentifier: str
     entityIdentifier: str
     entityType: TargetEntityTypeType
     policyType: ManagedPolicyTypeType
-    principal: PolicyGrantPrincipalUnionTypeDef
+    principal: PolicyGrantPrincipalUnion
     clientToken: Optional[str] = None
 
 
-class RemovePolicyGrantInputTypeDef(BaseValidatorModel):
+class RemovePolicyGrantInput(BaseValidatorModel):
     domainIdentifier: str
     entityIdentifier: str
     entityType: TargetEntityTypeType
     policyType: ManagedPolicyTypeType
-    principal: PolicyGrantPrincipalUnionTypeDef
+    principal: PolicyGrantPrincipalUnion
     clientToken: Optional[str] = None
 
 
-class EnvironmentConfigurationUnionTypeDef(BaseValidatorModel):
+class EnvironmentConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateProjectProfileInputTypeDef(BaseValidatorModel):
+class CreateProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     name: str
     description: Optional[str] = None
     domainUnitIdentifier: Optional[str] = None
-    environmentConfigurations: Optional[Sequence[EnvironmentConfigurationUnionTypeDef]] = None
+    environmentConfigurations: Optional[Sequence[EnvironmentConfigurationUnion]] = None
     status: Optional[StatusType] = None
 
 
-class UpdateProjectProfileInputTypeDef(BaseValidatorModel):
+class UpdateProjectProfileInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
     description: Optional[str] = None
     domainUnitIdentifier: Optional[str] = None
-    environmentConfigurations: Optional[Sequence[EnvironmentConfigurationUnionTypeDef]] = None
+    environmentConfigurations: Optional[Sequence[EnvironmentConfigurationUnion]] = None
     name: Optional[str] = None
     status: Optional[StatusType] = None
 
 
-class UpdateDataSourceInputTypeDef(BaseValidatorModel):
+class UpdateDataSourceInput(BaseValidatorModel):
     domainIdentifier: str
     identifier: str
-    assetFormsInput: Optional[Sequence[FormInputTypeDef]] = None
-    configuration: Optional[DataSourceConfigurationInputTypeDef] = None
+    assetFormsInput: Optional[Sequence[FormInput]] = None
+    configuration: Optional[DataSourceConfigurationInput] = None
     description: Optional[str] = None
     enableSetting: Optional[EnableSettingType] = None
     name: Optional[str] = None
     publishOnImport: Optional[bool] = None
-    recommendation: Optional[RecommendationConfigurationTypeDef] = None
+    recommendation: Optional[RecommendationConfiguration] = None
     retainPermissionsOnRevokeFailure: Optional[bool] = None
-    schedule: Optional[ScheduleConfigurationTypeDef] = None
+    schedule: Optional[ScheduleConfiguration] = None
 
 
-class GluePropertiesInputTypeDef(BaseValidatorModel):
-    glueConnectionInput: Optional[GlueConnectionInputTypeDef] = None
+class GluePropertiesInput(BaseValidatorModel):
+    glueConnectionInput: Optional[GlueConnectionInput] = None
 
 
-class AssetFilterConfigurationUnionTypeDef(BaseValidatorModel):
+class AssetFilterConfigurationUnion(BaseValidatorModel):
     pass
 
 
-class CreateAssetFilterInputTypeDef(BaseValidatorModel):
+class CreateAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
-    configuration: AssetFilterConfigurationUnionTypeDef
+    configuration: AssetFilterConfigurationUnion
     domainIdentifier: str
     name: str
     clientToken: Optional[str] = None
     description: Optional[str] = None
 
 
-class UpdateAssetFilterInputTypeDef(BaseValidatorModel):
+class UpdateAssetFilterInput(BaseValidatorModel):
     assetIdentifier: str
     domainIdentifier: str
     identifier: str
-    configuration: Optional[AssetFilterConfigurationUnionTypeDef] = None
+    configuration: Optional[AssetFilterConfigurationUnion] = None
     description: Optional[str] = None
     name: Optional[str] = None
 
 
-class ConnectionSummaryTypeDef(BaseValidatorModel):
+class ConnectionSummary(BaseValidatorModel):
     pass
 
 
-class ListConnectionsOutputTypeDef(BaseValidatorModel):
-    items: List[ConnectionSummaryTypeDef]
-    ResponseMetadata: ResponseMetadataTypeDef
+class ListConnectionsOutput(BaseValidatorModel):
+    items: List[ConnectionSummary]
+    ResponseMetadata: ResponseMetadata
     nextToken: Optional[str] = None
 
 
-class ConnectionPropertiesInputTypeDef(BaseValidatorModel):
-    athenaProperties: Optional[AthenaPropertiesInputTypeDef] = None
-    glueProperties: Optional[GluePropertiesInputTypeDef] = None
-    hyperPodProperties: Optional[HyperPodPropertiesInputTypeDef] = None
-    iamProperties: Optional[IamPropertiesInputTypeDef] = None
-    redshiftProperties: Optional[RedshiftPropertiesInputTypeDef] = None
-    sparkEmrProperties: Optional[SparkEmrPropertiesInputTypeDef] = None
-    sparkGlueProperties: Optional[SparkGluePropertiesInputTypeDef] = None
+class ConnectionPropertiesInput(BaseValidatorModel):
+    athenaProperties: Optional[AthenaPropertiesInput] = None
+    glueProperties: Optional[GluePropertiesInput] = None
+    hyperPodProperties: Optional[HyperPodPropertiesInput] = None
+    iamProperties: Optional[IamPropertiesInput] = None
+    redshiftProperties: Optional[RedshiftPropertiesInput] = None
+    sparkEmrProperties: Optional[SparkEmrPropertiesInput] = None
+    sparkGlueProperties: Optional[SparkGluePropertiesInput] = None
 
 
-class CreateConnectionInputTypeDef(BaseValidatorModel):
+class CreateConnectionInput(BaseValidatorModel):
     domainIdentifier: str
     environmentIdentifier: str
     name: str
-    awsLocation: Optional[AwsLocationTypeDef] = None
+    awsLocation: Optional[AwsLocation] = None
     clientToken: Optional[str] = None
     description: Optional[str] = None
-    props: Optional[ConnectionPropertiesInputTypeDef] = None
+    props: Optional[ConnectionPropertiesInput] = None
 
 
