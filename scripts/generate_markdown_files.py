@@ -106,20 +106,35 @@ def generate_pydantic_markdown_files(output_dir: Path, models_dir: Path) -> List
 
     updated_files: List[Tuple[str, str]] = []
 
-    for model_file in models_dir.glob("*_classes.py"):  # Only process _classes.py files
+    for model_file in models_dir.glob("**/*_classes.py"):  # Only process _classes.py files, recursively
+        # Get the relative path from the models_dir
+        rel_path = model_file.relative_to(models_dir)
+        # Extract the parent directory (service name)
+        service_name = rel_path.parts[0] if len(rel_path.parts) > 1 else ""
+        # Get the module name without extension
         module_name = model_file.stem
+        
+        # Build the full module path
+        if service_name:
+            import_path = f"aws_resource_validator.pydantic_models.{service_name}.{module_name}"
+            display_name = f"{service_name} {module_name}"
+            file_name = f"{service_name}_{module_name.lower()}.md"
+        else:
+            import_path = f"aws_resource_validator.pydantic_models.{module_name}"
+            display_name = module_name
+            file_name = f"{module_name.lower()}.md"
+        
         try:
-            module = importlib.import_module(f"aws_resource_validator.pydantic_models.{module_name}")
+            module = importlib.import_module(import_path)
             classes = [cls for _, cls in getmembers(module, isclass) if
                        issubclass(cls, BaseModel) and cls is not BaseModel]
 
             # Collect markdown content for all classes in the file
-            md_content = f"# {module_name}\n\n".replace("_", ' ').title()
+            md_content = f"# {display_name}\n\n".replace("_", ' ').title()
             for cls in classes:
                 md_content += create_markdown_for_pydantic_model(cls) + "\n"
 
             # Create markdown file for the module (file-based)
-            file_name = f"{module_name.lower()}.md"
             file_path = output_dir / file_name
             if file_path.exists():
                 with file_path.open('r', encoding='utf-8') as md_file:
@@ -132,10 +147,10 @@ def generate_pydantic_markdown_files(output_dir: Path, models_dir: Path) -> List
                 update_type = 'created'
             with file_path.open('w', encoding='utf-8') as md_file:
                 md_file.write(md_content)
-            updated_files.append((module_name, update_type))
+            updated_files.append((display_name, update_type))
 
         except ModuleNotFoundError as e:
-            print(f"Module {module_name} not found: {e}")
+            print(f"Module {import_path} not found: {e}")
             continue
 
     return updated_files
