@@ -54,3 +54,21 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Build sub-packages to common directory
+        run: |
+          mkdir -p combined_dist
+          for pkg_dir in packages/boto3-pydantic-*/; do
+            echo "Building package in $pkg_dir"
+            cd "$pkg_dir"
+            poetry build -f wheel
+            cp dist/* "$GITHUB_WORKSPACE/combined_dist/"
+            cd "$GITHUB_WORKSPACE"
+          done
+
+      - name: Publish all packages
+        uses: pypa/gh-action-pypi-publish@v1.5.1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          packages_dir: combined_dist

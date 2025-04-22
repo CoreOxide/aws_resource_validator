@@ -25,6 +25,7 @@ botocore = "*"
 requests = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
 ruamel-yaml = "*"
+toml = "*"
 
 [build-system]
 requires = ["poetry-core"]
