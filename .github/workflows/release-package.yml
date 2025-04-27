@@ -58,7 +58,7 @@ jobs:
       - name: Build sub-packages to common directory
         run: |
           mkdir -p combined_dist
-          for pkg_dir in packages/boto3-pydantic-*/; do
+          for pkg_dir in aws_resource_validator/pydantic_models/*; do
             echo "Building package in $pkg_dir"
             cd "$pkg_dir"
             poetry build -f wheel
