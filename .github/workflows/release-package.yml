@@ -26,26 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry
 
-      - name: Bump version in pyproject.toml
-        continue-on-error: true
-        run: |
-          git checkout main
-          git pull origin main --rebase
-          
-          NEW_VERSION=$(poetry version patch | awk '{print $NF}')
-          if [[ -z "$NEW_VERSION" ]]; then
-            echo "Error: Failed to extract new version!"
-            exit 1
-          fi
-          echo "Bumped version to $NEW_VERSION"
-          
-          git config user.name "ytupman"
-          git config user.email "yafit.tupman@gmail.com"
-          
-          git add pyproject.toml
-          git commit -m "Bump version to $NEW_VERSION [skip ci]" || echo "No changes to commit."
-          git push --force origin main
-
       - name: Build package
         run: poetry build -f wheel
 
