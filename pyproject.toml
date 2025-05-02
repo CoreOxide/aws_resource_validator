@@ -21,7 +21,7 @@ exrex = "*"
 pydantic = "^2.8.2"
 botocore = "*"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 requests = "*"
 boto3-stubs = { extras = ["all"], version = "*" }
 ruamel-yaml = "*"
