@@ -46,12 +46,16 @@ def create_service_pyproject(service_dir, model_name, version, base_dir):
     print(f"Created pyproject.toml in {service_dir}")
 
 def main():
-    # Read the original project version
-    main_pyproject = toml.load("../pyproject.toml")
+    # Get absolute paths based on script location
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
+    
+    # Read the original project version using absolute path
+    main_pyproject = toml.load(project_root / "pyproject.toml")
     version = main_pyproject["tool"]["poetry"]["version"]
 
-    # Base directory for pydantic models
-    base_dir = Path("../aws_resource_validator/pydantic_models")
+    # Base directory for pydantic models using absolute path
+    base_dir = project_root / "aws_resource_validator" / "pydantic_models"
 
     # Create pyproject.toml in each service subfolder
     for model_dir in base_dir.iterdir():
@@ -62,3 +66,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
