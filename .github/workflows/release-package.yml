@@ -30,11 +30,11 @@ jobs:
       - name: Build package
         run: poetry build -f wheel
 
-      - name: Publish package
-        uses: pypa/gh-action-pypi-publish@v1.5.1
-        with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
+#      - name: Publish package
+#        uses: pypa/gh-action-pypi-publish@v1.5.1
+#        with:
+#          user: __token__
+#          password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Generate sub-packages
         run: poetry run scripts/create_subpackages.py
