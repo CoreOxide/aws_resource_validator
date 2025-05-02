@@ -25,6 +25,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install poetry
+          poetry install
 
       - name: Bump version in pyproject.toml
         continue-on-error: true
@@ -55,15 +56,21 @@ jobs:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
 
+      - name: Generate sub-packages
+        run: poetry run scripts/create_subpackages.py
+
       - name: Build sub-packages to common directory
         run: |
           mkdir -p combined_dist
-          for pkg_dir in aws_resource_validator/pydantic_models/*; do
-            echo "Building package in $pkg_dir"
-            cd "$pkg_dir"
-            poetry build -f wheel
-            cp dist/* "$GITHUB_WORKSPACE/combined_dist/"
-            cd "$GITHUB_WORKSPACE"
+          # Only iterate through directories with trailing slash
+          for pkg_dir in aws_resource_validator/pydantic_models/*/; do
+            if [ -d "$pkg_dir" ]; then
+              echo "Building package in $pkg_dir"
+              cd "$pkg_dir"
+              poetry build -f wheel
+              cp dist/* "$GITHUB_WORKSPACE/combined_dist/"
+              cd "$GITHUB_WORKSPACE"
+            fi
           done
 
       - name: Publish all packages
