@@ -3,10 +3,25 @@ import toml
 import shutil
 from pathlib import Path
 
+
 def create_service_pyproject(service_dir, model_name, version, base_dir):
     """Create a pyproject.toml file in the service subfolder and copy base_validator_model.py"""
     pypi_valid_name = model_name.rstrip('_')
     package_name = f"boto3-pydantic-{pypi_valid_name}"
+    package_dir_name = f"boto3_pydantic_{pypi_valid_name}"
+
+    # Create the package directory
+    package_dir = service_dir / package_dir_name
+    package_dir.mkdir(exist_ok=True)
+
+    # Create __init__.py inside package directory
+    with open(package_dir / "__init__.py", "w") as f:
+        f.write(f"# boto3-pydantic-{pypi_valid_name} package\n")
+
+    # Copy existing .py files from service_dir to package_dir
+    for py_file in service_dir.glob("*.py"):
+        if py_file.name != "pyproject.toml" and py_file.is_file():
+            shutil.copy2(py_file, package_dir / py_file.name)
 
     pyproject_content = {
         "build-system": {
@@ -27,7 +42,7 @@ def create_service_pyproject(service_dir, model_name, version, base_dir):
                     "botocore": "*"
                 },
                 "packages": [
-                    {"include": "*.py", "from": "."}
+                    {"include": package_dir_name}
                 ]
             }
         }
@@ -36,15 +51,16 @@ def create_service_pyproject(service_dir, model_name, version, base_dir):
     with open(service_dir / "pyproject.toml", "w") as f:
         toml.dump(pyproject_content, f)
 
-    # Copy base_validator_model.py to the service subfolder
+    # Copy base_validator_model.py to the package directory
     base_validator_path = base_dir / "base_validator_model.py"
     if base_validator_path.exists():
-        shutil.copy2(base_validator_path, service_dir / "base_validator_model.py")
-        print(f"Copied base_validator_model.py to {service_dir}")
+        shutil.copy2(base_validator_path, package_dir / "base_validator_model.py")
+        print(f"Copied base_validator_model.py to {package_dir}")
     else:
         print(f"Warning: base_validator_model.py not found at {base_validator_path}")
 
-    print(f"Created pyproject.toml in {service_dir}")
+    print(f"Created package structure in {package_dir}")
+
 
 def main():
     # Get absolute paths based on script location
