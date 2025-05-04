@@ -5,7 +5,8 @@ from pathlib import Path
 
 def create_service_pyproject(service_dir, model_name, version, base_dir):
     """Create a pyproject.toml file in the service subfolder and copy base_validator_model.py"""
-    package_name = f"boto3-pydantic-{model_name}"
+    pypi_valid_name = model_name.rstrip('_')
+    package_name = f"boto3-pydantic-{pypi_valid_name}"
 
     pyproject_content = {
         "build-system": {
