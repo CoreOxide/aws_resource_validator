@@ -46,12 +46,12 @@ Using Pydantic models for boto3 models:
 ```python
 import boto3
 
-from aws_resource_validator.pydantic_models.dynamodb_classes import ListTablesOutputTypeDef
+from aws_resource_validator.pydantic_models.dynamodb.dynamodb_classes import ListTablesOutput
 
 dynamodb = boto3.client('dynamodb')
 
 def list_dynamo_tables() -> List[str]:
-    return ListTablesOutputTypeDef(**dynamodb.list_tables()).TableNames
+    return ListTablesOutput(**dynamodb.list_tables()).TableNames
 
 
 if __name__ == "__main__":
